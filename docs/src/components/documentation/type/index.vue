@@ -1,8 +1,18 @@
 <template>
 	<div>
 		<h2>Typography</h2>
-		<div>
-			<p v-for="n in 8" :class="`is-size-${n}`">.is-size-{{n}}</p>			
+		<div v-for="item in listing">
+			<p>{{item.description}}</p>
+			<template v-if="item.isArray">
+				<p
+					v-for="n in item.length"
+					:class="`${item.name}-${n}`">
+					.{{item.name}}-{{n}}
+				</p>
+			</template>
+			<template v-else>
+				<p :class="`${item.name}`">.{{item.name}}</p>
+			</template>
 		</div>
 	</div>
 </template>
@@ -13,11 +23,26 @@ export default {
 	props: {
 	},
 	data: () => ({
+		listing: [
+			{
+				name: 'is-italic',
+				description: 'Italic text',
+			},
+			{
+				name: 'is-strong',
+				description: 'strong text',
+			},
+			{
+				name: 'is-size',
+				description: 'Modifies the base font size by rem.',
+				isArray: true,
+				length: 8,
+			}
+		]
 	}),
 	methods: {
 	},
 }
 </script>
 <style lang="scss">
-	
 </style>
