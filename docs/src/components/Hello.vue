@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>RING</h1>
+    <h1 class="is-size-3">RING</h1>
     <p class="is-italic">"One Framework to Rule Them All"</p>
   </div>
 </template>

@@ -1,3 +1,9 @@
 .is-italic {
 	font-style: italic;
 }
+
+@for $i from 1 through length($sizes) {
+	.is-size-#{$i} {
+		font-size: nth($sizes, $i);
+	}
+}
