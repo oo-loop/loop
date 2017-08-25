@@ -25,6 +25,7 @@ export default {
 <style lang="scss">
 @import "~ring/ring";
 .hello {
+  padding-top: 50px;
   text-align: center;
 }
 .fade-enter-active, .fade-leave-active {

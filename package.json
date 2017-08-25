@@ -20,5 +20,8 @@
     "frameworks"
   ],
   "author": "GPlus Media",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.5.1"
+  }
 }
