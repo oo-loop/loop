@@ -1,19 +1,22 @@
 <template>
-  <div id="app">
-    <hello></hello>
-    <documentation></documentation>
-  </div>
+    <documentation />
 </template>
 
 <script>
-import Hello from './components/Hello'
 import documentation from './components/documentation'
 
 export default {
   name: 'app',
   components: {
-    Hello,
     documentation
   }
 }
 </script>
+<style lang="scss">
+	body,html {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+</style>

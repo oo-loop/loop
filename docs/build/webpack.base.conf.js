@@ -20,10 +20,15 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    modules: [
+      resolve('src'),
+      resolve('node_modules')
+    ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'ring': resolve('../scss')
+      'ring': resolve('../scss'),
+      'base': resolve('../')
     }
   },
   module: {

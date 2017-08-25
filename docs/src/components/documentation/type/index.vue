@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<h2>Typography</h2>
-		<div v-for="item in listing">
-			<p>{{item.description}}</p>
+		<div class="" v-for="item in listing">
+			<p class="">{{item.description}}</p>
 			<template v-if="item.isArray">
 				<p
 					v-for="n in item.length"
