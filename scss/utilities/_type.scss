@@ -1,0 +1,11 @@
+.is {
+	&-italic { font-style: italic; }
+	&-strong { font-weight: 700; }
+	&-size   {
+		@for $i from 1 through length($sizes) {
+			&-#{$i} {
+				font-size: nth($sizes, $i);
+			}
+		}
+	}
+}

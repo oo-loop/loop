@@ -1,0 +1,27 @@
+{
+  "name": "ring-css-framework",
+  "version": "1.0.0",
+  "description": "A Framework to rule them all",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.gplusmedia.com:library/front-end/ring-css-framework.git"
+  },
+  "keywords": [
+    "framework",
+    "css",
+    "js",
+    "frameworks"
+  ],
+  "author": "GPlus Media",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.5.1"
+  }
+}
