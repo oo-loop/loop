@@ -25,11 +25,11 @@ export default {
 <style lang="scss">
 @import "~ring/ring";
 .hello {
-  padding-top: 50px;
   text-align: center;
+  align-self: center;
 }
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 800ms cubic-bezier(0.85, 1, 0.16, 0.6);
+    transition: opacity 500ms cubic-bezier(0.85, 1, 0.16, 0.6);
 }
 .fade-enter, .fade-leave-to{
     opacity: 0;

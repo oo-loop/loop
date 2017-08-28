@@ -1,0 +1,24 @@
+$screen-xs-max: 639px;
+$screen-sm-min: 640px;
+$screen-md-min: 900px;
+$screen-lg-min: 1200px;
+
+@mixin media-query($media) {
+	@if $media == 'sm' {
+		@media (min-width: $screen-sm-min) {
+			@content;
+		}
+	} @elseif $media == 'md' {
+		 @media (min-width: $screen-md-min) {
+		 	@content;
+		 }
+	} @elseif $media == 'lg' {
+		 @media (min-width: $screen-lg-min) {
+		 	@content;
+		 }
+	} @elseif $media == 'xs' {
+		 @media (max-width: $screen-xs-max) {
+		 	@content;
+		 }
+	}
+}

@@ -21,7 +21,5 @@
   ],
   "author": "GPlus Media",
   "license": "ISC",
-  "dependencies": {
-    "bulma": "^0.5.1"
-  }
+  "dependencies": {}
 }

@@ -1,0 +1,51 @@
+.grid {
+	display: grid;
+  	grid-template-columns: repeat(12, 1fr);
+  	grid-gap: 10px;
+	&.grid-columns {
+		grid-auto-flow: column;
+	}
+	&.grid-rows {
+		grid-auto-flow: rows;
+	}
+	
+	@for $i from 1 through 12 {
+		&-col-#{$i} {
+			grid-column: span $i;
+		}
+	}
+	@for $i from 1 through 15 {
+		&.gap-#{$i} {
+			grid-column-gap: #{$i}px;
+		}
+		&.gap-row-#{$i} {
+			grid-row-gap: #{$i}px;
+		}
+	}
+
+	$sizes: ('xs', 'sm');
+
+	@each $size in $sizes {
+		@include media-query($size) {
+
+			@for $i from 1 through 15 {
+				&.gap-#{$size}-#{$i} {
+					grid-column-gap: #{$i}px;
+				}
+				&.gap-row-#{$size}-#{$i} {
+					grid-row-gap: #{$i}px;
+				}
+				&.gap-#{$i} {
+					grid-gap: #{$i}px;
+				}
+			}
+
+			@for $i from 1 through 12 {
+				&-col-#{$size}-#{$i} {
+					grid-column: span $i;
+				}
+			}
+
+		}
+	}
+}
