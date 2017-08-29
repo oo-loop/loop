@@ -1,6 +1,6 @@
 {
-  "name": "ring-css-framework",
-  "version": "1.0.0",
+  "name": "ring",
+  "version": "0.0.1",
   "description": "A Framework to rule them all",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.gplusmedia.com:library/front-end/ring-css-framework.git"
+    "url": "git@git.gplusmedia.com:library/front-end/ring.git"
   },
   "keywords": [
     "framework",
@@ -21,5 +21,13 @@
   ],
   "author": "GPlus Media",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "4.0.0-beta",
+    "bulma": "^0.5.1",
+    "foundation": "^4.2.1-1",
+    "gplus-bootstrap-ext": "git+ssh://git@git.gplusmedia.com:library/front-end/gplus-bootstrap-ext",
+    "milligram": "^1.3.0",
+    "normalize.css": "^7.0.0"
+  }
 }

@@ -1,10 +1,15 @@
-$size-1: 1rem !default;
-$size-2: 2rem !default;
-$size-3: 3rem !default;
-$size-4: 4rem !default;
-$size-5: 5rem !default;
-$size-6: 6rem !default;
-$size-7: 7rem !default;
-$size-8: 8rem !default;
+/**
+ * Global Variables
+ */
 
-$sizes: $size-1,$size-2,$size-3,$size-4,$size-5,$size-6,$size-7,$size-8;
+$color-primary: #81CFE0 !default;
+$color-secondary: #606c76 !default;
+
+$font-base:        'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$font-size-base:   1.6em !default; // == 16px ( relative to 62.5% font-size )
+$font-weight-base: 400 !default;
+$line-height-base: 1.5 !default;
+$color-base:       #222222 !default;
+
+
+$font-secondary:   'Georgia', times, serif !default;

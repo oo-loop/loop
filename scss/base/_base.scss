@@ -1,0 +1,24 @@
+/**
+ * Base
+ */
+
+// The width is not affected by padding or border
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+// Font size based on 62.5% to have a convenient way to set sizes
+html {
+    font-size: 62.5%;
+}
+
+// Default body styles
+body {
+	color: $color-base;
+	font-family: $font-base;
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+	line-height: $line-height-base;
+}

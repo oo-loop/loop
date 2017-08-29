@@ -1,5 +1,5 @@
-# Ring
-*One CSS Framework to Rule Them All*
+# Loop
+*Why going into circles?*
 We decided to take all the best features from popular css frameworks and combine them into one!
 
 Here is a inspirational quote from Google:
