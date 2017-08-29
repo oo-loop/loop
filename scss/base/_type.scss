@@ -4,7 +4,7 @@
 
 $heading-font-family: $font-base !default;
 $heading-font-weight: 700 !default;
-$heading-line-height: 1.4!default;
+$heading-line-height: 1.4 !default;
 $heading-margin-top: .2em !default;
 $heading-margin-bottom: .5em !default;
 
@@ -25,8 +25,13 @@ $heading-font-sizes: (
     'h6': $h6-font-size
 );
 
+// Paragraph
 $paragraph-margin-bottom: 1.8rem !default;
 
+// Anchor
+$anchor-color:             $color-primary !default;
+$anchor-color-hover:       $color-secondary !default;
+$anchor-text-decoration:   none !default;
 
 @each $heading, $font-size in $heading-font-sizes {
     #{$heading},
@@ -38,6 +43,19 @@ $paragraph-margin-bottom: 1.8rem !default;
 }
 
 p {
-	margin-top: 0
+	margin-top: 0;
     margin-bottom: $paragraph-margin-bottom;
+}
+
+
+a {
+	color: $anchor-color;
+	text-decoration: none;
+
+	&:focus,
+	&:hover {
+		color: $anchor-color-hover;
+        text-decoration: $anchor-text-decoration;
+    }
+
 }
