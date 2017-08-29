@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 
+Vue.directive('prism', () => {
+    Prism.highlightAll()
+})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

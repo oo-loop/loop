@@ -6,7 +6,7 @@ $heading-font-family: $font-base !default;
 $heading-font-weight: 700 !default;
 $heading-line-height: 1.4 !default;
 $heading-margin-top: .2em !default;
-$heading-margin-bottom: .5em !default;
+$heading-margin-bottom: .45em !default;
 
 // Heading Font sizes
 $h1-font-size: 4.6rem !default;
@@ -39,6 +39,7 @@ $anchor-text-decoration:   none !default;
         margin-top: $heading-margin-top;
         margin-bottom: $heading-margin-bottom;
         font-size: $font-size;
+        line-height: $heading-line-height;
     }
 }
 
@@ -58,4 +59,9 @@ a {
         text-decoration: $anchor-text-decoration;
     }
 
+}
+
+.title {
+    font-size: 7rem;
+    font-weight: 100;
 }

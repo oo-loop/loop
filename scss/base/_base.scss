@@ -12,6 +12,9 @@
 // Font size based on 62.5% to have a convenient way to set sizes
 html {
     font-size: 62.5%;
+    @if $enable-font-smoothing == true {
+        @include font-smoothing($enable-font-smoothing);
+    }
 }
 
 // Default body styles
@@ -21,4 +24,5 @@ body {
 	font-size: $font-size-base;
 	font-weight: $font-weight-base;
 	line-height: $line-height-base;
+    background-color: $bgcolor-base;
 }

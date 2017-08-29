@@ -2,7 +2,7 @@
 	<div class="grid-layout">
 		<div class="sidebar">
 			<transition name="fade">
-				<logo :height="100" v-show="view !== 0" />
+				<logo height="100" v-show="view !== 0" />
 			</transition>
 			<h2 class="h4">Loop</h2>
 			<ul>

@@ -1,26 +1,36 @@
 <template>
 	<div>
-		<h2>Typography</h2>
-		<div class="" v-for="item in listing">
-			<p class="">{{item.description}}</p>
-			<template v-if="item.isArray">
-				<p
-					v-for="n in item.length"
-					:class="`${item.name}-${n}`">
-					.{{item.name}}-{{n}}
-				</p>
-			</template>
-			<template v-else>
-				<p :class="`${item.name}`">.{{item.name}}</p>
-			</template>
-		</div>
+		<h1 class="title">Typography</h1>
+		<p>Modifies the base font size by rem.</p>
+
+		<h1>Heading</h1>
+		<h2>Heading</h2>
+		<h3>Heading</h3>
+		<h4>Heading</h4>
+		<h5>Heading</h5>
+		<h6>Heading</h6>
+		<pre class="prettyprint">
+			<code>
+				<p>No wrap text</p>
+			</code>
+		</pre>
+
+		<pre class="prettyprint lang-css">p { color: red }</pre>
+
 	</div>
 </template>
 
 <script>
+import 'code-prettify'
+
 export default {
 	name: 'Type',
 	props: {
+	},
+	mounted() {
+		this.$nextTick(() => {
+			PR.prettyPrint()
+		})
 	},
 	data: () => ({
 		listing: [
@@ -32,12 +42,6 @@ export default {
 				name: 'is-strong',
 				description: 'strong text',
 			},
-			{
-				name: 'is-size',
-				description: 'Modifies the base font size by rem.',
-				isArray: true,
-				length: 8,
-			}
 		]
 	}),
 	methods: {
