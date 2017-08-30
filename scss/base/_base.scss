@@ -12,8 +12,8 @@
 // Font size based on 62.5% to have a convenient way to set sizes
 html {
     font-size: 62.5%;
-    @if $enable-font-smoothing == true {
-        @include font-smoothing($enable-font-smoothing);
+    @if $use-font-smoothing == true {
+        @include font-smoothing($use-font-smoothing);
     }
 }
 
