@@ -29,10 +29,4 @@ export default {
       text-align: center;
       align-self: center;
     }
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity 500ms cubic-bezier(0.85, 1, 0.16, 0.6);
-    }
-    .fade-enter, .fade-leave-to{
-        opacity: 0;
-    }
 </style>
