@@ -4,9 +4,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-Vue.directive('prism', () => {
-    Prism.highlightAll()
-})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
