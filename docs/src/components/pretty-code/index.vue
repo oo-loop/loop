@@ -16,36 +16,29 @@
 
 <style lang="scss">
     @import '~loop/base/variables';
+    @import '~loop/base/code';
     @import '~prettify/src/prettify.css';
 
     pre.prettyprint {
-        margin-top: 25px;
-        margin-bottom: 25px;
-        font-size: 1.4rem;
         font-weight: 700;
+
         border: none;
         border-left: .3rem solid $color-primary;
-        background-color: #f5f5f5;
+        background-color: $code-bgcolor;
         overflow: scroll;
         overflow-y: hidden;
 
         .tag,
         .atn,
         .pun { color: $color-primary }
-        .atv { color: #d85b43 }
+        .atv { color: $code-highlight-color }
         .pln {
-            color: #222;
+            color: $code-color;
             font-weight: 400;
         }
         .com {
             color: #a9a9a9;
             font-style: italic;
-        }
-
-        code {
-            padding: 18px 25px;
-            display: block;
-            white-space: pre;
         }
     }
 </style>
