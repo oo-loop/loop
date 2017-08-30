@@ -14,6 +14,4 @@ export default {
 </script>
 <style lang="scss">
 	@import '~loop/loop';
-    // @import '../node_modules/code-prettify/loader/skins/desert.css';
-    @import '../node_modules/code-prettify/src/prettify.css';
 </style>
