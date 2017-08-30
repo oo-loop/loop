@@ -1,12 +1,14 @@
 <template>
 	<div class="grid-layout">
 		<div class="sidebar">
-			<transition name="fade">
-				<logo height="100" v-show="view !== 0" />
-			</transition>
+				<div class="logo-holder">
+					<transition name="fade">
+						<logo height="100" v-show="!isFront"/>					
+					</transition>
+				</div>
 			<h2 class="h4">Loop</h2>
 			<ul>
-				<li v-for="(item, index) in listing"><router-link :to="`${item}`" @click.prevent="view = index">{{item}}</router-link></li>
+				<li v-for="(item, index) in listing"><router-link :to="`${item}`">{{item}}</router-link></li>
 			</ul>
 		</div>
 		<div class="content">
@@ -30,8 +32,14 @@ export default {
 			'type',
 			'grid'
 		],
-		view: 0,
 	}),
+	computed: {
+		isFront () {
+			return ['/','/introduction'].indexOf(this.$route.path) > -1
+				? true
+				: false
+		}
+	}
 }
 </script>
 <style lang="scss">
@@ -52,6 +60,9 @@ export default {
 			overflow-y: hidden;
 			text-align: center;
 			box-shadow: 3px -1px 5px 3px #f7f7f7;
+			.logo-holder {
+				height: 100px;
+			}
 			ul {
 				margin-left: -40px;
 				list-style: none;
@@ -84,4 +95,10 @@ export default {
 			}
 		}
 	}
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity 300ms cubic-bezier(0.85, 1, 0.16, 0.6);
+    }
+    .fade-enter, .fade-leave-to{
+        opacity: 0;
+    }
 </style>
