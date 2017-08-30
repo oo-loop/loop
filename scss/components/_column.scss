@@ -9,6 +9,8 @@ $column-gutter-compensation: ceil($column-gutter * -1);
 $column-gutter-half: ceil($column-gutter / 2);
 $column-gutter-half-compensation: ceil($column-gutter-half * -1);
 
+$import-column-offset: true !default;
+
 .container {
     position: relative;
     margin-left: auto;
@@ -52,10 +54,16 @@ $column-gutter-half-compensation: ceil($column-gutter-half * -1);
     @each $breakpoint in $breakpoints {
         $key: nth($breakpoint, 1);  // get the key
         @for $i from 1 through $column-system {
-            &.-#{$key}-#{$i} {
-                @include breakpoint($key) {
+            @include breakpoint($key) {
+                &.-#{$key}-#{$i} {
                     flex-basis: percentage($i/$column-system);
                     max-width: percentage($i/$column-system);
+                }
+                // if we import $column-offset
+                @if $import-column-offset == true {
+                    &.-#{$key}-offset-#{$i} {
+                        margin-left: percentage($i/$column-system);
+                    }
                 }
             }
         }

@@ -12,6 +12,15 @@
 
 		<pretty-code :code="html.column"></pretty-code>
 
+		<h3 id="offset"><a href="#offset">#</a> Offset</h3>
+		<div class="row">
+			<div class="col -sm-6 -sm-offset-6"><p class="cell">cell</p></div>
+			<div class="col -sm-7 -sm-offset-5"><p class="cell">cell</p></div>
+			<div class="col -sm-8 -sm-offset-4"><p class="cell">cell</p></div>
+			<div class="col -sm-9 -sm-offset-3"><p class="cell">cell</p></div>
+		</div>
+		<pretty-code :code="html.offset"></pretty-code>
+
 	</div>
 </template>
 
@@ -26,6 +35,7 @@ export default {
 	data: () => ({
 		html: {
 			column: require('./code/column.html'),
+			offset: require('./code/offset.html'),
 		}
 	}),
 	methods: {
