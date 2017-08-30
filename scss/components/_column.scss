@@ -38,6 +38,10 @@ $use-column-offset: true !default;
     flex-direction: row;
     flex-wrap: wrap;
 
+    & + .row {
+        margin-top: $column-gutter;
+    }
+
     //.--reverse { flex-direction: row-reverse; }
 }
 
