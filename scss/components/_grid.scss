@@ -8,7 +8,7 @@
 	&.grid-rows {
 		grid-auto-flow: rows;
 	}
-	
+
 	@for $i from 1 through 12 {
 		&-col-#{$i} {
 			grid-column: span $i;
@@ -26,7 +26,7 @@
 	$sizes: ('xs', 'sm');
 
 	@each $size in $sizes {
-		@include media-query($size) {
+		@include breakpoint($size) {
 
 			@for $i from 1 through 15 {
 				&.gap-#{$size}-#{$i} {

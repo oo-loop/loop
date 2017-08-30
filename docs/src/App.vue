@@ -3,7 +3,7 @@
 		<div class="sidebar">
 				<div class="logo-holder">
 					<transition name="fade">
-						<logo height="100" v-show="!isFront"/>					
+						<logo height="100" v-show="!isFront"/>
 					</transition>
 				</div>
 			<h2 class="h4">Loop</h2>
@@ -30,6 +30,7 @@ export default {
 		listing: [
 			'introduction',
 			'type',
+			'column',
 			'grid'
 		],
 	}),

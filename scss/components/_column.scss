@@ -1,0 +1,63 @@
+/**
+ * Columns
+ */
+
+$column-gutter: 2rem !default;
+$column-system: 12 !default;
+
+$column-gutter-compensation: ceil($column-gutter * -1);
+$column-gutter-half: ceil($column-gutter / 2);
+$column-gutter-half-compensation: ceil($column-gutter-half * -1);
+
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $column-gutter;
+    padding-left: $column-gutter;
+    width: 100%;
+
+    @each $breakpoint, $size in $breakpoints {
+        @include breakpoint($breakpoint) {
+            max-width: $size;
+        }
+    }
+
+    &.-fluid { max-width: map-get($breakpoints, 'lg') !important; }
+}
+
+.row {
+    margin-right: $column-gutter-half-compensation;
+    margin-left: $column-gutter-half-compensation;
+    margin-bottom: $column-gutter-compensation;
+
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    //.--reverse { flex-direction: row-reverse; }
+}
+
+.col {
+    margin-bottom: $column-gutter;
+    padding-right: $column-gutter-half;
+    padding-left: $column-gutter-half;
+
+    flex: 0 0 auto;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+
+    @each $breakpoint in $breakpoints {
+        $key: nth($breakpoint, 1);  // get the key
+        @for $i from 1 through $column-system {
+            &.-#{$key}-#{$i} {
+                @include breakpoint($key) {
+                    flex-basis: percentage($i/$column-system);
+                    max-width: percentage($i/$column-system);
+                }
+            }
+        }
+    }
+}

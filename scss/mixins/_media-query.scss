@@ -1,24 +1,31 @@
-$screen-xs-max: 639px;
-$screen-sm-min: 640px;
-$screen-md-min: 900px;
-$screen-lg-min: 1200px;
+/**
+ * breakpoints
+ */
 
-@mixin media-query($media) {
-	@if $media == 'sm' {
-		@media (min-width: $screen-sm-min) {
-			@content;
+// !important
+// xs use the max width to target extra small device only
+$breakpoints: (
+	xs: 767px,  // max width
+    sm: 768px,  // min width
+    md: 992px,  // min width
+    lg: 1200px, // min width
+) !default;
+
+@mixin breakpoint($key) {
+	
+	// make sure the key exit
+	@if map-has-key($breakpoints, $key) {
+
+		$width: map-get($breakpoints, $key);
+
+		@if $key == 'xs' {
+			@media (max-width: $width) {
+				@content;
+			}
+		} @else {
+			@media (min-width: $width) {
+				@content;
+			}
 		}
-	} @elseif $media == 'md' {
-		 @media (min-width: $screen-md-min) {
-		 	@content;
-		 }
-	} @elseif $media == 'lg' {
-		 @media (min-width: $screen-lg-min) {
-		 	@content;
-		 }
-	} @elseif $media == 'xs' {
-		 @media (max-width: $screen-xs-max) {
-		 	@content;
-		 }
 	}
 }
