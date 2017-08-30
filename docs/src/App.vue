@@ -6,12 +6,12 @@
 			</transition>
 			<h2 class="h4">Loop</h2>
 			<ul>
-				<li v-for="(item, index) in listing"><router-link :to="`#${item}`" @click.prevent="view = index">{{item}}</router-link></li>
+				<li v-for="(item, index) in listing"><router-link :to="`${item}`" @click.prevent="view = index">{{item}}</router-link></li>
 			</ul>
 		</div>
 		<div class="content">
 			<transition name="fade" mode="out-in">
-				<router-view></router-view>
+				<router-view :key="$route.path"></router-view>
 			</transition>
 		</div>
 	</div>
@@ -36,8 +36,6 @@ export default {
 </script>
 <style lang="scss">
 	@import '~loop/loop';
-    // @import '~code-prettify/loader/skins/desert.css';
-    @import '~code-prettify/src/prettify.css';
 	.grid-layout {
 		display: grid;
 		grid-gap: 5px;
