@@ -11,6 +11,7 @@
 		<code>&lt;h6&gt;</code><h6>h6 Heading </h6>
 
 		<pretty-code :code="html.heading"></pretty-code>
+
 	</div>
 </template>
 

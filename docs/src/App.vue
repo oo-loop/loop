@@ -14,4 +14,9 @@ export default {
 </script>
 <style lang="scss">
 	@import '~loop/loop';
+
+    .title {
+        font-size: 7rem;
+        font-weight: 100;
+    }
 </style>
