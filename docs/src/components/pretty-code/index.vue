@@ -15,7 +15,7 @@
 </script>
 
 <style lang="scss">
-    @import '~loop/base/variables';
+    @import '~loop/variables';
     @import '~loop/base/code';
     @import '~prettify/src/prettify.css';
 

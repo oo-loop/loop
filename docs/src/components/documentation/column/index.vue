@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1 class="title">Column</h1>
-		<p>Based on Flexbox</p>
+		<p class="text-large">Based on Flexbox</p>
 
 		<h3 id="offset"><a href="#offset">#</a> Responsive</h3>
 		<p>Use the 12 grid system.<br>Change the size of the column by adding the modifier class <code>-$screen-$number</code> on the column element.<br>Or let the row being automatically equally divided by the number of columns.
@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import "~loop/base/variables";
+	@import "~loop/variables";
 	.cell {
 		margin-bottom: 0;
 		text-align: center;

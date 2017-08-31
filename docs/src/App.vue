@@ -44,6 +44,9 @@ export default {
 }
 </script>
 <style lang="scss">
+
+	$text-colors-addon: ('info': #2689ef);
+
 	@import '~loop/loop';
 	.grid-layout {
 		display: grid;

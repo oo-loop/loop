@@ -12,7 +12,7 @@ $breakpoints: (
 ) !default;
 
 @mixin breakpoint($key) {
-	
+
 	// make sure the key exit
 	@if map-has-key($breakpoints, $key) {
 

@@ -29,6 +29,21 @@ $heading-font-sizes: (
 // Heading allowing letter spacing
 $heading-letter-spacing-list: (h1, h2, h3) !default;
 
+// Text Font sizes
+$text-font-sizes: (
+    'large': 2rem,
+    'small': 1.4rem,
+    'tiny':  1.2rem,
+) !default;
+
+// Text Font Weight
+$text-font-weights: (
+    'thin':   100,
+    'light':  300,
+    // 'regular': 400,
+    'strong': 700,
+) !default;
+
 // Paragraph
 $paragraph-margin-bottom: 1.8rem !default;
 
@@ -50,6 +65,11 @@ $anchor-text-decoration:   none !default;
         @if inArray($heading, $heading-letter-spacing-list)
             and inArray($heading-font-weight, (700, 800, 900, bold, bolder)) {
                 letter-spacing: -.1rem;
+        }
+
+        //add font family rules if different
+        @if $heading-font-family != $font-base {
+            font-family: $heading-font-family;
         }
 
         //add color rules if different
@@ -74,5 +94,12 @@ a {
 		color: $anchor-color-hover;
         text-decoration: $anchor-text-decoration;
     }
-
 }
+
+// Font sizes
+$text-font-sizes-addon: () !default;
+@include loop($text-font-sizes, 'text', 'font-size', $text-font-sizes-addon);
+
+// Font weights
+$text-font-weights-addon: () !default;
+@include loop($text-font-weights, 'text', 'font-weight', $text-font-weights-addon);

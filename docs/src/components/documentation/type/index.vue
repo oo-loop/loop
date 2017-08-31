@@ -1,17 +1,29 @@
 <template>
 	<div>
 		<h1 class="title">Typography</h1>
-		<p>Modifies the base font size by rem.</p>
+		<p class="text-large">Modifies the base font size by rem.</p>
 
-		<code>&lt;h1&gt;</code><h1>h1 Heading </h1>
-		<code>&lt;h2&gt;</code><h2>h2 Heading </h2>
-		<code>&lt;h3&gt;</code><h3>h3 Heading </h3>
-		<code>&lt;h4&gt;</code><h4>h4 Heading </h4>
-		<code>&lt;h5&gt;</code><h5>h5 Heading </h5>
-		<code>&lt;h6&gt;</code><h6>h6 Heading </h6>
+		<h3 id="headings"><a href="#headings">#</a> Headings</h3>
+		<p>HTML headings, <code class="text-primary">&lt;h1&gt;</code> through <code class="text-primary">&lt;h6&gt;</code> as well as the classes <code>.h1</code> through <code>.h6</code></p>
+
+		<h1>h1 Heading</h1>
+		<h2>h2 Heading</h2>
+		<h3>h3 Heading</h3>
+		<h4>h4 Heading</h4>
+		<h5>h5 Heading</h5>
+		<h6>h6 Heading</h6>
 
 		<pretty-code :code="html.heading"></pretty-code>
 
+		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
+		<code>.text-large</code><p class="text-large">Text large Lorem ipsum dolor sit amet.</p>
+		<code>.text-small</code><p class="text-small">Text small Lorem ipsum dolor sit amet.</p>
+		<code>.text-tiny</code><p class="text-tiny">Text tiny Lorem ipsum dolor sit amet.</p>
+
+		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
+		<code>.text-strong</code><p class="text-strong">Text strong Lorem ipsum dolor sit amet.</p>
+		<code>.text-light</code><p class="text-light">Text light Lorem ipsum dolor sit amet.</p>
+		<code>.text-thin</code><p class="text-thin">Text thin Lorem ipsum dolor sit amet.</p>
 	</div>
 </template>
 

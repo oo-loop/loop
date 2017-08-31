@@ -6,11 +6,11 @@
 				<div class="grid">
 					<div :class="`grid-item -col-${n}`">
 						<p class="cell">.-col-{{n}}</p>
-					</div>				
+					</div>
 				</div>
 			</template>
 
-			<pretty-code :code="html.regular" />	
+			<pretty-code :code="html.regular" />
 
 			<p>Sample Grids</p>
 			<div class="grid">
@@ -26,7 +26,7 @@
 			</div>
 
 			<pretty-code :code="html.sample" />
-			
+
 			<p>Grip Gaps</p>
 			<div>
 				<button v-for="n in 15" @click="gap = n"> gap size {{n}}</button>
@@ -42,7 +42,7 @@
 				<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
 				<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
 			</div>
-		
+
 	</div>
 </template>
 
@@ -74,7 +74,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-	@import "~loop/base/variables";
+	@import "~loop/variables";
 	.cell {
 		margin-bottom: 10px;
 		text-align: center;

@@ -1180,7 +1180,7 @@
 </script>
 
 <style lang="scss">
-    @import '~loop/base/variables';
+    @import '~loop/variables';
 	.path {
 	    fill: $color-primary;
 	    fill-rule:evenodd;clip-rule:evenodd;

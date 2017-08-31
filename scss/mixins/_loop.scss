@@ -1,0 +1,15 @@
+/**
+ * Loop
+ * @param array  $array array of data
+ * @param string $selector-prefix
+ * @param string $property a single property
+ */
+
+@mixin loop($array, $selector-prefix, $property, $addon:(), $affix: '-', $selector-type: '.') {
+    $merged_array: map-merge($array, $addon);
+    @each $key, $value in $merged_array {
+        #{$selector-type}#{$selector-prefix}#{$affix}#{$key} {
+            #{$property}: $value;
+        }
+    }
+}
