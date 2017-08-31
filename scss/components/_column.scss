@@ -2,21 +2,16 @@
  * Columns
  */
 
-$column-gutter: 2rem !default;
+$column-gap: 2rem !default;
 $column-system: 12 !default;
-
-$column-gutter-compensation: ceil($column-gutter * -1);
-$column-gutter-half: ceil($column-gutter / 2);
-$column-gutter-half-compensation: ceil($column-gutter-half * -1);
-
 $use-column-offset: true !default;
 
 .container {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding-right: $column-gutter;
-    padding-left: $column-gutter;
+    padding-right: $column-gap;
+    padding-left: $column-gap;
     width: 100%;
 
     @each $breakpoint, $size in $breakpoints {
@@ -29,9 +24,9 @@ $use-column-offset: true !default;
 }
 
 .row {
-    margin-right: $column-gutter-half-compensation;
-    margin-left: $column-gutter-half-compensation;
-    margin-bottom: $column-gutter-compensation;
+    margin-right: ceil(($column-gap / 2) * -1);
+    margin-left: ceil(($column-gap / 2) * -1);
+    margin-bottom: ceil($column-gap * -1);
 
     display: flex;
     flex: 0 1 auto;
@@ -39,16 +34,16 @@ $use-column-offset: true !default;
     flex-wrap: wrap;
 
     & + .row {
-        margin-top: $column-gutter;
+        margin-top: $column-gap;
     }
 
     //.--reverse { flex-direction: row-reverse; }
 }
 
 .col {
-    margin-bottom: $column-gutter;
-    padding-right: $column-gutter-half;
-    padding-left: $column-gutter-half;
+    padding-bottom: $column-gap;
+    padding-right: ceil($column-gap / 2);
+    padding-left: ceil($column-gap / 2);
 
     flex: 0 0 auto;
     flex-grow: 1;
