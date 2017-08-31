@@ -8,13 +8,15 @@
 						<p class="cell">.-col-{{n}}</p>
 					</div>				
 				</div>
-			</template>					
+			</template>
+
+			<pretty-code :code="html.regular" />	
 
 			<p>Sample Grids</p>
 			<div class="grid">
 				<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
 				<div class="grid-item -col-9"><p class="cell">.-col-9</p></div>
-				<div class="grid-item -col-4 -col-x-12"><p class="cell">.-col-4.-col-xs-12</p></div>
+				<div class="grid-item -col-4 -col-xs-12"><p class="cell">.-col-4.-col-xs-12</p></div>
 				<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
 				<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
 				<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
@@ -22,6 +24,9 @@
 				<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
 				<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
 			</div>
+
+			<pretty-code :code="html.sample" />
+			
 			<p>Grip Gaps</p>
 			<div>
 				<button v-for="n in 15" @click="gap = n"> gap size {{n}}</button>
@@ -42,12 +47,22 @@
 </template>
 
 <script>
+import prettyCode from '@/components/pretty-code'
+
 export default {
 	name: 'Grid',
+	components: {
+		prettyCode
+	},
 	props: {
 	},
 	data: () => ({
-		gap: 10
+		gap: 10,
+		html: {
+			regular: require('./code/regular-grid.html'),
+			sample: require('./code/sample.html'),
+			gaps: '',
+		}
 	}),
 	computed: {
 		gapClass () {
