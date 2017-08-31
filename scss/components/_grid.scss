@@ -1,19 +1,18 @@
+$grid-gap: 1rem !default;
+$grid-system: 12 !default;
+
 .grid {
 	display: grid;
   	grid-template-columns: repeat(12, 1fr);
-  	grid-gap: 10px;
+  	grid-gap: $grid-gap;
 	&.grid-columns {
 		grid-auto-flow: column;
 	}
 	&.grid-rows {
-		grid-auto-flow: rows;
+		grid-auto-flow: row;
 	}
 
-	@for $i from 1 through 12 {
-		&-col-#{$i} {
-			grid-column: span $i;
-		}
-	}
+
 	@for $i from 1 through 15 {
 		&.gap-#{$i} {
 			grid-column-gap: #{$i}px;
@@ -23,16 +22,14 @@
 		}
 	}
 
-	$sizes: ('xs', 'sm');
-
-	@each $size in $sizes {
-		@include breakpoint($size) {
-
-			@for $i from 1 through 15 {
-				&.gap-#{$size}-#{$i} {
+	@each $breakpoint in $breakpoints {
+		$key: nth($breakpoint, 1);  // get the key
+		@include breakpoint($key) {			
+			@for $i from 1 through $grid-system {
+				&.gap-#{$key}-#{$i} {
 					grid-column-gap: #{$i}px;
 				}
-				&.gap-row-#{$size}-#{$i} {
+				&.gap-row-#{$key}-#{$i} {
 					grid-row-gap: #{$i}px;
 				}
 				&.gap-#{$i} {
@@ -40,12 +37,28 @@
 				}
 			}
 
-			@for $i from 1 through 12 {
-				&-col-#{$size}-#{$i} {
-					grid-column: span $i;
+
+		}
+	}
+	.grid-item {
+		@for $i from 1 through $grid-system {
+			&.-col-#{$i} {
+				grid-column: span $i;
+			}
+		}
+		@each $breakpoint in $breakpoints {
+			$key: nth($breakpoint, 1);  // get the key
+			@include breakpoint($key) {
+				@for $i from 1 through $grid-system {	
+					&.-col-#{$key}-#{$i} {
+						grid-column: span $i;
+					}
+
+					&.-row-#{$key}-#{$i} {
+						grid-row: span $i;
+					}
 				}
 			}
-
 		}
 	}
 }
