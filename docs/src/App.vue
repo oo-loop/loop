@@ -106,5 +106,6 @@ export default {
     .title {
         font-size: 7rem;
         font-weight: 100;
+		letter-spacing: 0;
     }
 </style>

@@ -1,0 +1,14 @@
+/**
+ * In Array
+ * @param string $needle  the searched value
+ * @param array | string  $haystack the array to search in
+ * @return bool
+ */
+
+@function inArray($needle, $haystack) {
+    @if index($haystack, $needle) == null {
+        @return false;
+    } @else {
+        @return true;
+    }
+}

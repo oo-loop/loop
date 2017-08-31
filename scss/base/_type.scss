@@ -26,6 +26,9 @@ $heading-font-sizes: (
     'h6': $h6-font-size
 );
 
+// Heading allowing letter spacing
+$heading-letter-spacing-list: (h1, h2, h3) !default;
+
 // Paragraph
 $paragraph-margin-bottom: 1.8rem !default;
 
@@ -42,6 +45,17 @@ $anchor-text-decoration:   none !default;
         font-size: $font-size;
         font-weight: $heading-font-weight;
         line-height: $heading-line-height;
+
+        // add letter spacing for specific, if the font-weight is bold enough
+        @if inArray($heading, $heading-letter-spacing-list)
+            and inArray($heading-font-weight, (700, 800, 900, bold, bolder)) {
+                letter-spacing: -.1rem;
+        }
+
+        //add color rules if different
+        @if $heading-color != $color-base {
+            color: $heading-color;
+        }
     }
 }
 
