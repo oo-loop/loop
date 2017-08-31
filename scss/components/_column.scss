@@ -2,9 +2,17 @@
  * Columns
  */
 
-$column-gap: 2rem !default;
+$column-gap: 2.6rem !default;
 $column-system: 12 !default;
 $use-column-offset: true !default;
+$column-gaps: (
+    'less' : 0,
+    'tiny' : 1rem,
+    'small': 2rem
+) !default;
+
+// none modifiable
+$column-gap-half: ($column-gap / 2);
 
 .container {
     position: relative;
@@ -24,9 +32,9 @@ $use-column-offset: true !default;
 }
 
 .row {
-    margin-right: ceil(($column-gap / 2) * -1);
-    margin-left: ceil(($column-gap / 2) * -1);
-    margin-bottom: ceil($column-gap * -1);
+    margin-right: ($column-gap-half * -1);
+    margin-left: ($column-gap-half * -1);
+    margin-bottom: ($column-gap * -1);
 
     display: flex;
     flex: 0 1 auto;
@@ -41,9 +49,9 @@ $use-column-offset: true !default;
 }
 
 .col {
+    padding-right: $column-gap-half;
+    padding-left: $column-gap-half;
     padding-bottom: $column-gap;
-    padding-right: ceil($column-gap / 2);
-    padding-left: ceil($column-gap / 2);
 
     flex: 0 0 auto;
     flex-grow: 1;
@@ -64,6 +72,25 @@ $use-column-offset: true !default;
                         margin-left: percentage($i/$column-system);
                     }
                 }
+            }
+        }
+    }
+}
+
+.-gap {
+    @each $gap-name, $gap-size in $column-gaps {
+        $gap-size-half: ($gap-size / 2);
+        &-#{$gap-name}.row {
+            margin-right: ($gap-size-half * -1);
+            margin-left: ($gap-size-half * -1);
+            margin-bottom: ($gap-size * -1);
+
+            & + .row { margin-top: $gap-size }
+
+            .col {
+                padding-right: $gap-size-half;
+                padding-left: $gap-size-half;
+                padding-bottom: $gap-size;
             }
         }
     }
