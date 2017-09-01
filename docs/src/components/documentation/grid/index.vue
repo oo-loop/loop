@@ -1,47 +1,48 @@
 <template>
 	<div>
 		<h1 class="title">Grid Layout</h1>
-			<p>Regular grid</p>
-			<template v-for="n in 12" >
-				<div class="grid">
-					<div :class="`grid-item -col-${n}`">
-						<p class="cell">.-col-{{n}}</p>
-					</div>
-				</div>
-			</template>
 
-			<pretty-code :code="html.regular" />
-
-			<p>Sample Grids</p>
+		<h3 id="regular"><a href="#regular">#</a> Regular grid</h3>
+		<template v-for="n in 12" >
 			<div class="grid">
-				<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
-				<div class="grid-item -col-9"><p class="cell">.-col-9</p></div>
-				<div class="grid-item -col-4 -col-xs-12"><p class="cell">.-col-4.-col-xs-12</p></div>
-				<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
-				<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
-				<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
-				<div class="grid-item -col-5"><p class="cell">.-col-5</p></div>
-				<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
-				<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+				<div :class="`grid-item -col-${n}`">
+					<p class="cell">.-col-{{n}}</p>
+				</div>
 			</div>
+		</template>
 
-			<pretty-code :code="html.sample" />
+		<pretty-code :code="html.regular" />
 
-			<p>Grip Gaps</p>
-			<div>
-				<button v-for="n in 15" @click="gap = n"> gap size {{n}}</button>
-			</div>
-			<div class="grid" :class="[gapClass]">
-				<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
-				<div class="grid-item -col-9"><p class="cell">.-col-9</p></div>
-				<div class="grid-item -col-4 -col-xs-12"><p class="cell">.-col-4.-col-xs-12</p></div>
-				<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
-				<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
-				<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
-				<div class="grid-item -col-5"><p class="cell">.-col-5</p></div>
-				<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
-				<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
-			</div>
+		<h3 id="responsive"><a href="#responsive">#</a> Responsive Grids</h3>
+		<div class="grid">
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-9"><p class="cell">.-col-9</p></div>
+			<div class="grid-item -col-4 -col-xs-12"><p class="cell">.-col-4.-col-xs-12</p></div>
+			<div class="grid-item -col-4 -col-md-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+			<div class="grid-item -col-5 -col-lg-12"><p class="cell">.-col-5</p></div>
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+		</div>
+
+		<pretty-code :code="html.sample" />
+
+		<h3 id="gaps"><a href="#gaps">#</a> Grip Gaps</h3>
+		<div>
+			<button v-for="n in 15" @click="gap = n"> gap size {{n}}</button>
+		</div>
+		<div class="grid" :class="[gapClass]">
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-9"><p class="cell">.-col-9</p></div>
+			<div class="grid-item -col-4 -col-xs-12"><p class="cell">.-col-4.-col-xs-12</p></div>
+			<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+			<div class="grid-item -col-5"><p class="cell">.-col-5</p></div>
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+		</div>
 
 	</div>
 </template>

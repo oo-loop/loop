@@ -3,7 +3,7 @@
 		<h1 class="title">Column</h1>
 		<p class="text-large">Based on Flexbox</p>
 
-		<h3 id="offset"><a href="#offset">#</a> Responsive</h3>
+		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
 		<p>Use the 12 grid system.<br>Change the size of the column by adding the modifier class <code>-$screen-$number</code> on the column element.<br>Or let the row being automatically equally divided by the number of columns.
 		<div class="row">
 			<div class="col"><p class="cell">auto</p></div>
