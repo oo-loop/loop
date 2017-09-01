@@ -84,7 +84,6 @@ p {
     margin-bottom: $paragraph-margin-bottom;
 }
 
-
 a {
 	color: $anchor-color;
 	text-decoration: none;
@@ -96,9 +95,26 @@ a {
     }
 }
 
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: $paragraph-margin-bottom;
+
+    li { margin-bottom: .2em;}
+
+    > ul, ol {
+        margin-top: .2em;
+        margin-bottom: .5em
+    }
+}
+
 mark {
-    background-color: lighten($color-primary, 50%);
+    $highlight: lighten($color-primary, 55%);
+    @if lightness($highlight) > percentage(9.5/10) {
+        $highlight: lighten(yellow, 40%);
+    }
     color: inherit;
+    background-color: $highlight;
 }
 
 // Font sizes

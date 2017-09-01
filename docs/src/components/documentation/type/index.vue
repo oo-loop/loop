@@ -16,9 +16,14 @@
 		<pretty-code :code="html.heading"></pretty-code>
 
 		<h3 id="text-elements"><a href="#text-elements">#</a> Text Elements</h3>
-		<p>Common inline HTML elements</p>
-
-	
+		<p>Common inline HTML elements for semantic.</p>
+		<ul class="-unstyle">
+			<li><markup>mark</markup> for <mark>highlighted text</mark></li>
+			<li><markup>del</markup> for <del>deleted text</del>, if the document has been updated</li>
+			<li><markup>ins</markup> for <ins>inserted text</ins>, if the document has been updated</li>
+			<li><markup>strong</markup> for <strong>important text</strong></li>
+			<li><markup>em</markup> for <em>emphasized text</em></li>
+		</ul>
 
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
 		<code>.text-large</code><p class="text-large">Text large Lorem ipsum dolor sit amet.</p>
