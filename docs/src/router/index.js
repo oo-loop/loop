@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import intro from 'docs/introduction'
-import type from 'docs/type'
-import column from 'docs/column'
-import grid from 'docs/grid'
+
+import Intro from 'docs/introduction'
+import Type from 'docs/type'
+import Column from 'docs/column'
+import Grid from 'docs/grid'
+import Utilities from 'docs/utilities'
 
 Vue.use(Router)
 
@@ -13,23 +15,28 @@ export default new Router({
 		{
 			path: '/',
 			name: 'introduction',
-			component: intro,
+			component: Intro,
 			alias: '/introduction',
 		},
 		{
 			path: '/type',
 			name: 'type',
-			component: type
+			component: Type
 		},
 		{
 			path: '/column',
 			name: 'column',
-			component: column
+			component: Column
 		},
 		{
 			path: '/grid',
 			name: 'grid',
-			component: grid
+			component: Grid
+		},
+		{
+			path: '/utilities',
+			name: 'utilities',
+			component: Utilities
 		}
 	]
 })

@@ -104,6 +104,11 @@ export default {
 					},
 				]
 			},
+			{
+				name: 'Utilities',
+				route: 'utilities',
+				subMenu: []
+			},
 		],
 	}),
 	computed: {

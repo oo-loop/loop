@@ -4,6 +4,7 @@
 
 <script>
     import 'code-prettify'
+    import 'code-prettify/loader/lang-css'
 
     export default {
         name: 'pretty-code',
@@ -39,6 +40,13 @@
         .com {
             color: #a9a9a9;
             font-style: italic;
+        }
+
+        &.language-css {
+            .str { color: $color-primary; }
+            .pun,
+            .kwd { color: #4198e2 }
+            .lit { color: $code-highlight-color }
         }
     }
 </style>
