@@ -85,7 +85,20 @@ export default {
 			{
 				name: 'Grid',
 				route: 'grid',
-				subMenu: []
+				subMenu: [
+					{
+						name: 'Regular Grid',
+						route: '#regular'
+					},
+					{
+						name: 'Responsive',
+						route: '#responsive'
+					},
+					{
+						name: 'Gaps',
+						route: '#gaps'
+					},
+				]
 			},
 		],
 	}),
