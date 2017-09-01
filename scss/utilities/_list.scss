@@ -11,7 +11,10 @@ $list-divide-affix-color: #cdcdcd !default;
 .list {
     &.-unstyle {
         padding-left: 0;
-        list-style-type: none;
+        list-style: none;
+
+        ul { padding-left: 40px; }
+        .-unstyle { padding-left: 1em; }
     }
 
     &.-inline {

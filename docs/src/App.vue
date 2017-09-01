@@ -7,10 +7,10 @@
 					</transition>
 				</div>
 			<h2 class="h4">Loop</h2>
-			<ul>
+			<ul class="list -unstyle">
 				<li v-for="(item, index) in listing">
 					<router-link :to="`${item.route}`">{{item.name}}</router-link>
-					<ul class="sub-menu" v-if="item.subMenu.length > 0 && $route.name === item.route">
+					<ul class="list -unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
 						<li v-for="subItem in item.subMenu">
 							<template v-if="subItem.route.indexOf('#') > -1">
 								<a :href="subItem.route">{{subItem.name}}</a>
@@ -38,7 +38,7 @@ export default {
 	data: () => ({
 		listing: [
 			{
-				name: 'Itroduction',
+				name: 'Introduction',
 				route: 'introduction',
 				subMenu: []
 			},
@@ -139,20 +139,9 @@ export default {
 			.logo-holder {
 				height: 100px;
 			}
-			ul {
-				margin-left: -40px;
-				list-style: none;
-				text-align: left;
 
-				&.sub-menu {
-					margin-left: -20px;
-					li {
-						// text-align: left;
-					}
-				}
-			}
-			a {
-				text-decoration: none;
+			ul {
+				text-align: left;
 			}
 		}
 		.content {
