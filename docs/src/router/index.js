@@ -10,22 +10,26 @@ Vue.use(Router)
 export default new Router({
 	mode: 'history',
 	routes: [
-	{
-		path: '/',
-		component: intro,
-		alias: '/introduction',
-	},
-	{
-		path: '/type',
-		component: type
-	},
-	{
-		path: '/column',
-		component: column
-	},
-	{
-		path: '/grid',
-		component: grid
-	}
+		{
+			path: '/',
+			name: 'introduction',
+			component: intro,
+			alias: '/introduction',
+		},
+		{
+			path: '/type',
+			name: 'type',
+			component: type
+		},
+		{
+			path: '/column',
+			name: 'column',
+			component: column
+		},
+		{
+			path: '/grid',
+			name: 'grid',
+			component: grid
+		}
 	]
 })
