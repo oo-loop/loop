@@ -9,15 +9,15 @@ $list-divide-affix: '|' !default;
 $list-divide-affix-color: #cdcdcd !default;
 
 .list {
-    &.-unstyle {
+    &-unstyle {
         padding-left: 0;
         list-style: none;
 
         ul { padding-left: 40px; }
-        .-unstyle { padding-left: 1em; }
+        .list-unstyle { padding-left: 1em; }
     }
 
-    &.-inline {
+    &-inline {
         padding-left: 0;
         list-style: none;
         > li {
@@ -27,10 +27,10 @@ $list-divide-affix-color: #cdcdcd !default;
                 margin-right: $list-inline-spacing;
             }
         }
-        &.-center { text-align: center; } // to keep the same logic as divide, but can be done with a .text-center
+        &.-center { text-align: center; }
     }
 
-    &.-divide {
+    &-divide {
         padding-left: 0;
         list-style: none;
         display: flex;
@@ -51,14 +51,13 @@ $list-divide-affix-color: #cdcdcd !default;
             &:last-child:after {
                 display: inline-block;
                 content: $list-divide-affix;
-                color: transparent;
                 font-size: $list-divide-size;
+                visibility: hidden;
             }
         }
 
         &.-center {
             justify-content: center;
-            text-align: center;
         }
     }
 }

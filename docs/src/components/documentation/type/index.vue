@@ -26,26 +26,27 @@
 		</ul>
 
 		<h3 id="lists"><a href="#lists">#</a> Lists</h3>
-		<p>Format the style of the list of elements by adding the class <code>.list</code> and through the modifiers <code>-unstyle</code><code>-inline</code></p>
+		<p>Format the style of the list of elements through the classes <code>.list-unstyle</code> <code>.list-inline</code>.<br>Center the inline list with the modifier <code>-center</code></p>
+
+		<ul class="list-inline -center">
+			<li>list inline centered</li>
+			<li>list inline centered</li>
+			<li>list inline centered</li>
+		</ul>
 		<pretty-code :code="html.list"></pretty-code>
 
-		<p>Divide an inline list by a separator through the modifier <code>-divide</code>. Center it with the other modifier <code>-center</code></p>
+		<p>Divide an inline list by a separator through the modifier <code>.list-divide</code>.<br>Center it with the modifier <code>-center</code></p>
 
-		<ul class="list -divide">
+		<ul class="list-divide -center">
 			<li>divide list item</li>
 			<li>divide list item</li>
 			<li>divide list item</li>
-		</ul>
-
-		<ul class="list -divide -center">
-			<li>divide list centered</li>
-			<li>divide list centered</li>
-			<li>divide list centered</li>
 		</ul>
 
 		<pretty-code :code="html.listDivide"></pretty-code>
 
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
+		<p>Quickly change the size of the text</p>
 		<code>.text-large</code><p class="text-large">Text large Lorem ipsum dolor sit amet.</p>
 		<code>.text-small</code><p class="text-small">Text small Lorem ipsum dolor sit amet.</p>
 		<code>.text-tiny</code><p class="text-tiny">Text tiny Lorem ipsum dolor sit amet.</p>
