@@ -4,7 +4,7 @@
 		<p class="text-large">Modifies the base font size by rem.</p>
 
 		<h3 id="headings"><a href="#headings">#</a> Headings</h3>
-		<p>HTML headings, <markup tag="h1"></markup> through <code class="text-primary">&lt;h6&gt;</code> as well as the classes <code>.h1</code> through <code>.h6</code></p>
+		<p>HTML headings, <markup>h1</markup> through <markup>h6</markup> as well as the classes <code>.h1</code> through <code>.h6</code></p>
 
 		<h1>h1 Heading</h1>
 		<h2>h2 Heading</h2>
