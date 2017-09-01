@@ -1,5 +1,5 @@
 <template>
-    <code class="text-primary">&lt;<slot />&gt;</code>
+    <code class="text-primary text-strong">&lt;<slot />&gt;</code>
 </template>
 
 <script>

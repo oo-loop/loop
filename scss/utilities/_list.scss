@@ -1,0 +1,36 @@
+/**
+ * List
+ */
+
+$list-inline-spacing: 2em !default;
+$list-inline-affix: (
+    '|'
+) !default;
+
+ul,
+ol {
+    &.-unstyle {
+        padding-left: 0;
+        list-style-type: none;
+    }
+
+    &.-inset {
+        padding-left: 0;
+        list-style-position: inside;
+        li {
+            padding-left: 1.2rem;
+            text-indent: -1rem;
+        }
+    }
+
+    &.-inline {
+        padding-left: 0;
+        list-style: none;
+        > li {
+            display: inline-block;
+            &:not(:first-child) {
+                margin-left: -$list-inline-spacing;
+            }
+        }
+    }
+}
