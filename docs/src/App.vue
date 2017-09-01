@@ -48,19 +48,23 @@ export default {
 				subMenu: [
 					{
 						name: 'Headings',
-						route: '#headings'		
+						route: '#headings'
 					},
 					{
 						name: 'Text Elements',
-						route: '#text-elements'		
+						route: '#text-elements'
+					},
+					{
+						name: 'List',
+						route: '#lists'
 					},
 					{
 						name: 'Sizes',
-						route: '#sizes'		
+						route: '#sizes'
 					},
 					{
 						name: 'Weights',
-						route: '#weights'		
+						route: '#weights'
 					}
 				]
 			},
@@ -143,7 +147,7 @@ export default {
 				&.sub-menu {
 					margin-left: -20px;
 					li {
-						// text-align: left;			
+						// text-align: left;
 					}
 				}
 			}

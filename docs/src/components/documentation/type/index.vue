@@ -17,13 +17,33 @@
 
 		<h3 id="text-elements"><a href="#text-elements">#</a> Text Elements</h3>
 		<p>Common inline HTML elements for semantic.</p>
-		<ul class="-unstyle">
+		<ul class="list -unstyle">
 			<li><markup>mark</markup> for <mark>highlighted text</mark></li>
 			<li><markup>del</markup> for <del>deleted text</del>, if the document has been updated</li>
 			<li><markup>ins</markup> for <ins>inserted text</ins>, if the document has been updated</li>
 			<li><markup>strong</markup> for <strong>important text</strong></li>
 			<li><markup>em</markup> for <em>emphasized text</em></li>
 		</ul>
+
+		<h3 id="lists"><a href="#lists">#</a> Lists</h3>
+		<p>Format the style of the list of elements by adding the class <code>.list</code> and through the modifiers <code>-unstyle</code><code>-inline</code></p>
+		<pretty-code :code="html.list"></pretty-code>
+
+		<p>Divide an inline list by a separator through the modifier <code>-divide</code>. Center it with the other modifier <code>-center</code></p>
+
+		<ul class="list -divide">
+			<li>divide list item</li>
+			<li>divide list item</li>
+			<li>divide list item</li>
+		</ul>
+
+		<ul class="list -divide -center">
+			<li>divide list centered</li>
+			<li>divide list centered</li>
+			<li>divide list centered</li>
+		</ul>
+
+		<pretty-code :code="html.listDivide"></pretty-code>
 
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
 		<code>.text-large</code><p class="text-large">Text large Lorem ipsum dolor sit amet.</p>
@@ -50,6 +70,8 @@ export default {
 	data: () => ({
 		html: {
 			heading: require('./code/heading.html'),
+			list: require('./code/list.html'),
+			listDivide: require('./code/list-divide.html'),
 		}
 	}),
 	methods: {

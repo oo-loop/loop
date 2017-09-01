@@ -2,35 +2,60 @@
  * List
  */
 
-$list-inline-spacing: 2em !default;
-$list-inline-affix: (
-    '|'
-) !default;
+$list-inline-spacing: 1em !default;
+$list-divide-spacing: $list-inline-spacing !default;
+$list-divide-size: 1.2em !default;
+$list-divide-affix: '|' !default;
+$list-divide-affix-color: #cdcdcd !default;
 
-ul,
-ol {
+.list {
     &.-unstyle {
         padding-left: 0;
         list-style-type: none;
-    }
-
-    &.-inset {
-        padding-left: 0;
-        list-style-position: inside;
-        li {
-            padding-left: 1.2rem;
-            text-indent: -1rem;
-        }
     }
 
     &.-inline {
         padding-left: 0;
         list-style: none;
         > li {
+            margin-bottom: 0;
             display: inline-block;
-            &:not(:first-child) {
-                margin-left: -$list-inline-spacing;
+            &:not(:last-child) {
+                margin-right: $list-inline-spacing;
             }
+        }
+        &.-center { text-align: center; } // to keep the same logic as divide, but can be done with a .text-center
+    }
+
+    &.-divide {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        > li {
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+
+            &:not(:last-child):after {
+                padding-left: ($list-divide-spacing / 2);
+                padding-right: ($list-divide-spacing / 2);
+
+                display: inline-block;
+                content: $list-divide-affix;
+                color: $list-divide-affix-color;
+                font-size: $list-divide-size;
+            }
+            &:last-child:after {
+                display: inline-block;
+                content: $list-divide-affix;
+                color: transparent;
+                font-size: $list-divide-size;
+            }
+        }
+
+        &.-center {
+            justify-content: center;
+            text-align: center;
         }
     }
 }

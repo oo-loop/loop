@@ -99,11 +99,13 @@ ul,
 ol {
     margin-top: 0;
     margin-bottom: $paragraph-margin-bottom;
+    padding-left: 20px;
+    list-style-type: disc;
 
     li { margin-bottom: .2em;}
 
     > ul, ol {
-        margin-top: .2em;
+        margin-top: .3em;
         margin-bottom: .5em
     }
 }
