@@ -96,6 +96,11 @@ a {
     }
 }
 
+mark {
+    background-color: lighten($color-primary, 50%);
+    color: inherit;
+}
+
 // Font sizes
 $text-font-sizes-addon: () !default;
 @include loop($text-font-sizes, 'text', 'font-size', $text-font-sizes-addon);
