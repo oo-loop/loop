@@ -1,15 +1,36 @@
 /**
  * Loop
- * @param array  $array array of data
- * @param string $selector-prefix
- * @param string $property a single property
  */
 
-@mixin loop($array, $selector-prefix, $property, $addon:(), $affix: '-', $selector-type: '.') {
-    $merged_array: map-merge($array, $addon);
-    @each $key, $value in $merged_array {
-        #{$selector-type}#{$selector-prefix}#{$affix}#{$key} {
-            #{$property}: $value;
+@mixin loop($array, $name, $property, $addon:(), $affix:'-', $selector:'.') {
+
+    // list type
+    @if type-of($array) == 'list' {
+        $merged_array: join($array, $addon);
+        @each $value in $merged_array {
+            @debug (#{$selector}#{$name}#{$affix}#{$value});
+            #{$selector}#{$name}#{$affix}#{$value} {
+                #{$property}: #{$value};
+            }
+        }
+    // map type
+    } @elseif type-of($array) == 'map' {
+        $merged_array: map-merge($array, $addon);
+        @each $key, $value in $merged_array {
+            #{$selector}#{$name}#{$affix}#{$key} {
+                #{$property}: $value;
+            }
+        }
+    }
+}
+
+/**
+ * Loop breakpoints
+ */
+@mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $affix: '-', $selector: '.') {
+    @each $break in $breakpoints {
+        @include breakpoint($break) {
+            @include loop($data, #{$name}#{$affix}#{$break}, $property, $addon, $affix, $selector)
         }
     }
 }

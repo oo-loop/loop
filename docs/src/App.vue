@@ -121,9 +121,12 @@ export default {
 }
 </script>
 <style lang="scss">
-
+	// some variables
 	$text-colors-addon: ('info': #2689ef);
 
+	$text-alignments-breakpoints: ('sm', 'lg');
+
+	//
 	@import '~loop/loop';
 	.grid-layout {
 		display: grid;
