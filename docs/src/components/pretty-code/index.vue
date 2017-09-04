@@ -45,7 +45,11 @@
         &.language-css {
             .str { color: $color-primary; }
             .pun,
+            .pun + .pln,
             .kwd { color: #4198e2 }
+            .pun + .pln {
+                font-weight: 700;
+            }
             .lit { color: $code-highlight-color }
         }
     }

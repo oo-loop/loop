@@ -30,7 +30,9 @@
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
 		<p>Set the font family of your text through the classes <code>.font-base</code> <code>.font-secondary</code>.<br>Modify the list of <code class="text-info">$font-families</code> at your convenience.</p>
-
+		<p class="font-secondary">This paragraph is using a serif font set as secondary</p>
+		<pretty-code class="language-css" :code="html.fontFamilies"></pretty-code>
+		<pretty-code :code="html.fontFamiliesSample"></pretty-code>
 
 	</div>
 </template>
@@ -52,6 +54,8 @@ export default {
 			textAlignments: require('./code/text-alignments.html'),
 			textAlignmentsResponsive: require('./code/text-alignments-responsive.html'),
 			textAlignmentsSample: require('./code/text-alignments-sample.html'),
+			fontFamilies: require('./code/font-families.html'),
+			fontFamiliesSample: require('./code/font-families-sample.html'),
 		}
 	}),
 	methods: {
