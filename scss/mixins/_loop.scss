@@ -3,7 +3,7 @@
  */
 
 @mixin loop($array, $name, $property, $addon:(), $affix:'-', $selector:'.') {
-
+    // Make sure to have the correct format or do not generate rules
     // list type
     @if type-of($array) == 'list' {
         $merged_array: join($array, $addon);
@@ -28,9 +28,11 @@
  * Loop breakpoints
  */
 @mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $affix: '-', $selector: '.') {
-    @each $break in $breakpoints {
-        @include breakpoint($break) {
-            @include loop($data, #{$name}#{$affix}#{$break}, $property, $addon, $affix, $selector)
+    @if type-of($breakpoints) == 'list' and length($breakpoints) > 0 {
+        @each $break in $breakpoints {
+            @include breakpoint($break) {
+                @include loop($data, #{$name}#{$affix}#{$break}, $property, $addon, $affix, $selector)
+            }
         }
     }
 }

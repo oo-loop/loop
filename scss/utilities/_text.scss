@@ -4,7 +4,6 @@
 * Thoses utilities are flexibles for adding and/or removing classes at your convenience
 */
 
-
 // Set the font-size of an element => .text-*
 $text-sizes: (
     'large': 2rem,   // text-large
@@ -49,58 +48,32 @@ $text-decorations-addon: () !default;
 $text-decorations-breakpoints: () !default;
 
 // Set the font-family of an element => .font-*
-$font-families: (
-    'base': $font-base,
-    'secondary': $font-secondary
-) !default;
+$font-families: '' !default;
 $font-families-addon: () !default;
 $font-families-breakpoints: () !default;
 
 
 // Font size
-@if length($text-sizes) > 0 {
-    @include loop($text-sizes, 'text', 'font-size', $text-sizes-addon);
-}
-@if length($text-sizes-breakpoints) > 0 {
-    @include loopBreakpoints($text-sizes, 'text', 'font-size', $text-sizes-addon);
-}
+@include loop($text-sizes, 'text', 'font-size', $text-sizes-addon);
+@include loopBreakpoints($text-sizes, 'text', 'font-size', $text-sizes-addon);
 
 // Font weight
-@if length($text-weights) > 0 {
-    @include loop($text-weights, 'text', 'font-weight', $text-weights-addon);
-}
-@if length($text-weights-breakpoints) > 0 {
-    @include loopBreakpoints($text-weights, 'text', 'font-weight', $text-weights-addon);
-}
+@include loop($text-weights, 'text', 'font-weight', $text-weights-addon);
+@include loopBreakpoints($text-weights, 'text', 'font-weight', $text-weights-addon);
 
 // Text align
-@if length($text-alignments) > 0 {
-    @include loop($text-alignments, 'text', 'text-align', $text-alignments-addon);
-}
-@if length($text-alignments-breakpoints) > 0 {
-    @include loopBreakpoints($text-alignments-breakpoints, $text-alignments, 'text', 'text-align', $text-alignments-addon);
-}
+@include loop($text-alignments, 'text', 'text-align', $text-alignments-addon);
+@include loopBreakpoints($text-alignments-breakpoints, $text-alignments, 'text', 'text-align', $text-alignments-addon);
+
 
 // Text transform
-@if length($text-transforms) > 0 {
-    @include loop($text-transforms, 'text', 'text-transform', $text-transforms-addon);
-}
-@if length($text-transforms-breakpoints) > 0 {
-    @include loopBreakpoints($text-transforms-breakpoints, $text-transforms, 'text', 'text-transform', $text-transforms-addon);
-}
+@include loop($text-transforms, 'text', 'text-transform', $text-transforms-addon);
+@include loopBreakpoints($text-transforms-breakpoints, $text-transforms, 'text', 'text-transform', $text-transforms-addon);
 
 // Text decoration
-@if length($text-decorations) > 0 {
-    @include loop($text-decorations, 'text', 'text-decoration', $text-decorations-addon);
-}
-@if length($text-decorations-breakpoints) > 0 {
-    @include loopBreakpoints($text-decorations-breakpoints, $text-decorations, 'text', 'text-decoration', $text-decorations-addon);
-}
+@include loop($text-decorations, 'text', 'text-decoration', $text-decorations-addon);
+@include loopBreakpoints($text-decorations-breakpoints, $text-decorations, 'text', 'text-decoration', $text-decorations-addon);
 
 // Font Family
-@if length($font-families) > 0 {
-    @include loop($font-families, 'font', 'font-family', $font-families-addon);
-}
-@if length($font-families-breakpoints) > 0 {
-    @include loopBreakpoints($font-families-breakpoints, $font-families, 'font', 'font-family', $font-families-addon);
-}
+@include loop($font-families, 'font', 'font-family', $font-families-addon);
+@include loopBreakpoints($font-families-breakpoints, $font-families, 'font', 'font-family', $font-families-addon);
