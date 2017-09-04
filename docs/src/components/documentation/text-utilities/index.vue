@@ -1,9 +1,8 @@
 <template>
 	<div>
-		<h1 class="title">Utilities</h1>
+		<h1 class="title">Text Utilities</h1>
 
-		<h2>Flexible Text Utilities</h2>
-		<p class="text-large">Add and/or remove classes at your convenience by modifying the variables and keeping in your css the strict minimum rules, making your file smaller.</p>
+		<p class="text-large">A bunch of handy utilities to customize texts on the fly.<br> Those utilities are made flexible to be able to add and/or remove classes on any projects.<br>Modifing specific variables will keep the strict minimum rules in css, and make the generated file smaller.</p>
 
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
 		<p>Quickly change the size of the text. Three sizes as default.</p>
@@ -27,6 +26,14 @@
 		<pretty-code class="language-css" :code="html.textAlignmentsResponsive"></pretty-code>
 		<p class="text-center text-sm-left text-lg-center">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
 		<pretty-code :code="html.textAlignmentsSample"></pretty-code>
+
+		<h3 id="transforms"><a href="#transforms">#</a> Transforms</h3>
+		<p>Change the capitalization of the text through the classes <code>.text-uppercase</code> <code>.text-lowercase</code> <code>.text-capitalize</code>.<br>The variable <code class="text-info">$text-transforms</code> is available if you want to change the options.</p>
+		<p class="text-lowercase">This is a lowercase text.</p>
+		<p class="text-uppercase">This is an uppercase text.</p>
+		<p class="text-capitalize">This is a capitalize text</p>
+
+		<pretty-code :code="html.textTransforms"></pretty-code>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
 		<p>Set the font family of your text through the classes <code>.font-base</code> <code>.font-secondary</code>.<br>Modify the list of <code class="text-info">$font-families</code> at your convenience.</p>
@@ -54,6 +61,7 @@ export default {
 			textAlignments: require('./code/text-alignments.html'),
 			textAlignmentsResponsive: require('./code/text-alignments-responsive.html'),
 			textAlignmentsSample: require('./code/text-alignments-sample.html'),
+			textTransforms: require('./code/text-transforms.html'),
 			fontFamilies: require('./code/font-families.html'),
 			fontFamiliesSample: require('./code/font-families-sample.html'),
 		}

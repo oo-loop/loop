@@ -58,14 +58,6 @@ export default {
 						name: 'List',
 						route: '#lists'
 					},
-					{
-						name: 'Sizes',
-						route: '#sizes'
-					},
-					{
-						name: 'Weights',
-						route: '#weights'
-					}
 				]
 			},
 			{
@@ -105,9 +97,30 @@ export default {
 				]
 			},
 			{
-				name: 'Utilities',
-				route: 'utilities',
-				subMenu: []
+				name: 'Text Utilities',
+				route: 'text-utilities',
+				subMenu: [
+					{
+						name: 'Sizes',
+						route: '#sizes'
+					},
+					{
+						name: 'Weights',
+						route: '#weights'
+					},
+					{
+						name: 'Alignments',
+						route: '#alignments'
+					},
+					{
+						name: 'Transforms',
+						route: '#transforms'
+					},
+					{
+						name: 'Families',
+						route: '#families'
+					}
+				]
 			},
 		],
 	}),

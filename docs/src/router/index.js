@@ -5,7 +5,7 @@ import Intro from 'docs/introduction'
 import Type from 'docs/type'
 import Column from 'docs/column'
 import Grid from 'docs/grid'
-import Utilities from 'docs/utilities'
+import TextUtilities from 'docs/text-utilities'
 
 Vue.use(Router)
 
@@ -34,9 +34,9 @@ export default new Router({
 			component: Grid
 		},
 		{
-			path: '/utilities',
-			name: 'utilities',
-			component: Utilities
+			path: '/text-utilities',
+			name: 'text-utilities',
+			component: TextUtilities
 		}
 	]
 })
