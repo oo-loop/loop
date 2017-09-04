@@ -32,7 +32,6 @@
 		<p class="text-lowercase">This is a lowercase text.</p>
 		<p class="text-uppercase">This is an uppercase text.</p>
 		<p class="text-capitalize">This is a capitalize text</p>
-
 		<pretty-code :code="html.textTransforms"></pretty-code>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>

@@ -2,23 +2,24 @@
  * Loop
  */
 
-@mixin loop($array, $name, $property, $addon:(), $affix:'-', $selector:'.') {
+@mixin loop($array, $name, $property, $addon:(), $is_important:false, $affix:'-', $selector:'.') {
     // Make sure to have the correct format or do not generate rules
     // list type
     @if type-of($array) == 'list' {
-        $merged_array: join($array, $addon);
+        // make sure to join same type
+        $merged_array: if(type-of($addon) == 'list', join($array, $addon), $array);
         @each $value in $merged_array {
-            @debug (#{$selector}#{$name}#{$affix}#{$value});
             #{$selector}#{$name}#{$affix}#{$value} {
-                #{$property}: #{$value};
+                #{$property}: if($is_important, #{$value} !important, #{$value});
             }
         }
     // map type
     } @elseif type-of($array) == 'map' {
-        $merged_array: map-merge($array, $addon);
+        // make sure to merge same type
+        $merged_array: if(type-of($addon) == 'map', map-merge($array, $addon), $array);
         @each $key, $value in $merged_array {
             #{$selector}#{$name}#{$affix}#{$key} {
-                #{$property}: $value;
+                #{$property}: if($is_important, $value !important, $value);
             }
         }
     }
@@ -27,11 +28,11 @@
 /**
  * Loop breakpoints
  */
-@mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $affix: '-', $selector: '.') {
+@mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $is_important:false, $affix:'-', $selector:'.') {
     @if type-of($breakpoints) == 'list' and length($breakpoints) > 0 {
         @each $break in $breakpoints {
             @include breakpoint($break) {
-                @include loop($data, #{$name}#{$affix}#{$break}, $property, $addon, $affix, $selector)
+                @include loop($data, #{$name}#{$affix}#{$break}, $property, $addon, $is_important, $affix, $selector)
             }
         }
     }
