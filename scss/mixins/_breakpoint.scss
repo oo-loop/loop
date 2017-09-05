@@ -2,30 +2,18 @@
  * breakpoints
  */
 
-// !important
-// xs use the max width to target extra small device only
 $breakpoints: (
-	xs: 767px,  // max width
     sm: 768px,  // min width
     md: 992px,  // min width
     lg: 1200px, // min width
 ) !default;
 
 @mixin breakpoint($key) {
-
-	// make sure the key exit
+	// make sure the key exist
 	@if map-has-key($breakpoints, $key) {
-
 		$width: map-get($breakpoints, $key);
-
-		@if $key == 'xs' {
-			@media (max-width: $width) {
-				@content;
-			}
-		} @else {
-			@media (min-width: $width) {
-				@content;
-			}
+		@media (min-width: $width) {
+			@content;
 		}
 	}
 }

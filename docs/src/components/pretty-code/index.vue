@@ -24,7 +24,6 @@
         font-weight: 700;
 
         border: none;
-        border-left: .3rem solid $color-primary;
         background-color: $code-bgcolor;
         overflow: scroll;
         overflow-y: hidden;

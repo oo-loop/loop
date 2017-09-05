@@ -48,33 +48,53 @@ $column-gap-half: ($column-gap / 2);
     //.--reverse { flex-direction: row-reverse; }
 }
 
-.col {
-    padding-right: $column-gap-half;
-    padding-left: $column-gap-half;
-    padding-bottom: $column-gap;
+.column {
+    // column base
+    @for $i from 0 through $column-system {
+        $selector: if($i>0,-#{$i}, '');
 
-    flex: 0 0 auto;
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
+        &#{$selector} {
+            padding-right: $column-gap-half;
+            padding-left: $column-gap-half;
+            padding-bottom: $column-gap;
 
-    @each $breakpoint in $breakpoints {
-        $key: nth($breakpoint, 1);  // get the key
+            flex: 0 0 auto;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+
+        @if $i > 0 {
+            &#{$selector} {
+                flex-basis: percentage($i/$column-system);
+                max-width: percentage($i/$column-system);
+            }
+            // if we import $column-offset
+            @if $use-column-offset == true {
+                &.-offset#{$selector} {
+                    margin-left: percentage($i/$column-system);
+                }
+            }
+        }
+    }
+
+    @each $breakpoint, $size in $breakpoints {
         @for $i from 1 through $column-system {
-            @include breakpoint($key) {
-                &.-#{$key}-#{$i} {
+            @include breakpoint($breakpoint) {
+                &.-#{$breakpoint}-#{$i} {
                     flex-basis: percentage($i/$column-system);
                     max-width: percentage($i/$column-system);
                 }
                 // if we import $column-offset
                 @if $use-column-offset == true {
-                    &.-#{$key}-offset-#{$i} {
+                    &.-#{$breakpoint}-offset-#{$i} {
                         margin-left: percentage($i/$column-system);
                     }
                 }
             }
         }
     }
+
+    &.-slim { flex-grow: 0}
 }
 
 .-gap {

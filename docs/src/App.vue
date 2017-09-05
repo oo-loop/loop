@@ -122,6 +122,11 @@ export default {
 					}
 				]
 			},
+			{
+				name: 'Spacing',
+				route: 'spacing',
+				subMenu: []
+			},
 		],
 	}),
 	computed: {
