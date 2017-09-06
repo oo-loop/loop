@@ -38,6 +38,9 @@
 		</div>
 		<pretty-code :code="html.gutter"></pretty-code>
 
+		<p>Need more or less gutters? Change the array <code class="text-info">$columns-gutter-sizes</code> at your convenience to only match your needs.</p>
+		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
+
 		<h3 id="offset"><a href="#offset">#</a> Offsets</h3>
 		<div class="columns">
 			<div class="column-6 -sm-offset-6"><p class="cell">cell</p></div>
@@ -63,6 +66,7 @@ export default {
 			column: require('./code/column.html'),
 			offset: require('./code/offset.html'),
 			gutter: require('./code/gutter.html'),
+			gutterVariables: require('./code/gutter-variables.html'),
 		}
 	}),
 	methods: {
