@@ -1,0 +1,23 @@
+/**
+ * Container
+ */
+
+$container-gutter: 3rem;
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-right: $container-gutter;
+    padding-left: $container-gutter;
+
+    display: block;
+
+    @each $breakpoint, $size in $breakpoints {
+        @include breakpoint($breakpoint) {
+            max-width: $size;
+        }
+    }
+
+    &.-fluid { max-width: map-get($breakpoints, 'lg') !important; }
+}

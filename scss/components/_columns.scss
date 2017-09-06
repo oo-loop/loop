@@ -1,0 +1,94 @@
+/**
+ * Columns
+ */
+
+$columns-gutter: 2rem !default;
+$columns-system: 12 !default;
+$use-columns-offset: true !default;
+
+$columns-gutter-sizes: (
+    'less' : 0,
+    'small': 1rem,
+    'large': 3rem,
+) !default;
+
+.columns {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: calc(100% + #{$columns-gutter});
+    transform: translateX(-#{$columns-gutter});
+
+    //.--reverse { flex-direction: row-reverse; }
+}
+
+.column {
+    flex-basis: auto;
+    max-width: 100%;
+
+    // column base
+    @for $i from 1 through $columns-system {
+        &-#{$i} {
+            flex-basis: percentage($i/$columns-system);
+            max-width: percentage($i/$columns-system);
+        }
+        // if we import $columns-offset
+        @if $use-columns-offset == true {
+            &.-offset-#{$i} {
+                margin-left: percentage($i/$columns-system);
+            }
+        }
+    }
+
+    &.-slim { flex-grow: 0}
+}
+
+.column,
+[class*="column-"] {
+
+    padding-left: $columns-gutter;
+    padding-bottom: $columns-gutter;
+
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    @each $breakpoint, $size in $breakpoints {
+        @for $i from 1 through $columns-system {
+            @include breakpoint($breakpoint) {
+                &.-#{$breakpoint}-#{$i} {
+                    flex-basis: percentage($i/$columns-system);
+                    max-width: percentage($i/$columns-system);
+                }
+                // if we import $columns-offset
+                @if $use-columns-offset == true {
+                    &.-#{$breakpoint}-offset-#{$i} {
+                        margin-left: percentage($i/$columns-system);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.-gutter {
+    @each $gutter-name, $gutter-size in $columns-gutter-sizes {
+        &-#{$gutter-name}.columns {
+            width: if($gutter-size == 0, 100%, calc(100% + #{$gutter-size}));
+            transform: translateX(-#{$gutter-size});
+
+            > .column,
+            > [class*="column-"] {
+                padding-bottom: $gutter-size;
+                padding-left: $gutter-size;
+            }
+        }
+    }
+}
+.-v-gutter-less.columns {
+    > .column,
+    > [class*="column-"] {
+        padding-bottom: 0;
+    }
+}

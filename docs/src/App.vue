@@ -69,8 +69,8 @@ export default {
 						route: '#responsive'
 					},
 					{
-						name: 'Gap',
-						route: '#gap'
+						name: 'Gutter',
+						route: '#gutter'
 					},
 					{
 						name: 'Offset',
