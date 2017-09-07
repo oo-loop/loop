@@ -62,6 +62,10 @@ $columns-gutter-sizes: (
                     &.-#{$breakpoint}-order-#{$i} { order: $i; }
                 }
             }
+
+            @if $use-columns-order == true {
+                &.-#{$breakpoint}-order-0 { order: -1; } // to make sure it is first
+            }
         }
     }
 }
