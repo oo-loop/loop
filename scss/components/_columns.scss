@@ -4,7 +4,8 @@
 
 $columns-gutter: 2rem !default;
 $columns-system: 12 !default;
-$use-columns-offset: true !default;
+$use-columns-order: true !default;
+$use-columns-offset: false !default;
 
 $columns-gutter-sizes: (
     'less' : 0,
@@ -28,20 +29,12 @@ $columns-gutter-sizes: (
     flex-basis: auto;
     max-width: 100%;
 
-    // column base
     @for $i from 1 through $columns-system {
         &-#{$i} {
             flex-basis: percentage($i/$columns-system);
             max-width: percentage($i/$columns-system);
         }
-        // if we import $columns-offset
-        @if $use-columns-offset == true {
-            &.-offset-#{$i} {
-                margin-left: percentage($i/$columns-system);
-            }
-        }
     }
-
     &.-slim { flex-grow: 0}
 }
 
@@ -54,18 +47,19 @@ $columns-gutter-sizes: (
     flex-shrink: 0;
     flex-grow: 1;
 
+    // responsive classes
     @each $breakpoint, $size in $breakpoints {
-        @for $i from 1 through $columns-system {
-            @include breakpoint($breakpoint) {
+        @include breakpoint($breakpoint) {
+            @for $i from 1 through $columns-system {
                 &.-#{$breakpoint}-#{$i} {
                     flex-basis: percentage($i/$columns-system);
                     max-width: percentage($i/$columns-system);
                 }
-                // if we import $columns-offset
                 @if $use-columns-offset == true {
-                    &.-#{$breakpoint}-offset-#{$i} {
-                        margin-left: percentage($i/$columns-system);
-                    }
+                    &.-#{$breakpoint}-offset-#{$i} { margin-left: percentage($i/$columns-system); }
+                }
+                @if $use-columns-order == true {
+                    &.-#{$breakpoint}-order-#{$i} { order: $i; }
                 }
             }
         }

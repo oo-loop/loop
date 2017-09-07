@@ -141,7 +141,6 @@ export default {
 <style lang="scss">
 	// some variables
 	$text-colors-addon: ('info': #2689ef);
-
 	$text-alignments-breakpoints: ('sm', 'lg');
 
 	//

@@ -13,7 +13,7 @@
 			<div class="column-12 -sm-6 -md-4 -lg-3"><p class="cell">cell</p></div>
 			<div class="column-12 -sm-6 -md-8 -lg-9"><p class="cell">cell</p></div>
 			<div class="column-6 -md-7 -lg-8"><p class="cell">cell</p></div>
-			<div class="column"><p class="cell">auto</p></div>
+			<div class="column"><p class="cell cell-3">auto</p></div>
 		</div>
 
 		<pretty-code :code="html.column"></pretty-code>
@@ -41,14 +41,8 @@
 		<p>Need more or less gutters? Change the array <code class="text-info">$columns-gutter-sizes</code> at your convenience to only match your needs.</p>
 		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
-		<h3 id="offset"><a href="#offset">#</a> Offsets</h3>
-		<div class="columns">
-			<div class="column-6 -sm-offset-6"><p class="cell">cell</p></div>
-			<div class="column-7 -sm-offset-5"><p class="cell">cell</p></div>
-			<div class="column-8 -sm-offset-4"><p class="cell">cell</p></div>
-			<div class="column-9 -sm-offset-3"><p class="cell">cell</p></div>
-		</div>
-		<pretty-code :code="html.offset"></pretty-code>
+		<h3 id="order"><a href="#order">#</a> Order</h3>
+		<p>Rearrange the order the columns through the modifiers <code>-{$screen}-order-1</code> to <code>-{$screen}-order-12</code></p>
 
 	</div>
 </template>
@@ -64,7 +58,6 @@ export default {
 	data: () => ({
 		html: {
 			column: require('./code/column.html'),
-			offset: require('./code/offset.html'),
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
 		}
