@@ -59,7 +59,6 @@ $columns-gutter-sizes: (
             max-width: percentage($i/$columns-system);
         }
     }
-    &.-shrink { flex-grow: 0}
 }
 
 .column,
@@ -70,6 +69,9 @@ $columns-gutter-sizes: (
 
     flex-shrink: 0;
     flex-grow: 1;
+
+    // adjust to the size of the content
+    &.-self-adjust { flex-grow: 0}
 
     // responsive classes
     @each $breakpoint, $size in $breakpoints {

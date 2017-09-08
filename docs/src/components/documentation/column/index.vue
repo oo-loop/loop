@@ -18,6 +18,14 @@
 
 		<pretty-code class="mt-0" :code="html.column"></pretty-code>
 
+		<h4 class="h5">Self Adjust Column</h4>
+		<p>Let the column adjusts itself to the size of the content throught the modifier <code>-self-adjust</code></p>
+		<div class="columns">
+			<div class="column -self-adjust"><p class="cell">adjust</p></div>
+			<div class="column"><p class="cell">auto</p></div>
+		</div>
+		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
+
 		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
 		<p>Change the space between the columns by adding one of the modifiers <code>-gutter-less</code> <code>-gutter-small</code> <code>-gutter-large</code>.<br>The modifier <code>-v-gutter-less</code> will remove the vertical gutter.</p>
 
@@ -118,6 +126,7 @@ export default {
 			column: require('./code/column.html'),
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
+			selfAdjust: require('./code/self-adjust.html'),
 			order: require('./code/order.html'),
 			hAlignment: require('./code/h-alignment.html'),
 			hAlignment2: require('./code/h-alignment-2.html'),

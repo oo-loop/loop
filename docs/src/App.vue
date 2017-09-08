@@ -76,6 +76,10 @@ export default {
 						name: 'Order',
 						route: '#order'
 					},
+					{
+						name: 'Alignment',
+						route: '#alignment'
+					},
 				]
 			},
 			{
