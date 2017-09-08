@@ -29,8 +29,8 @@
 		<h4 class="h5">Expand Children height</h4>
 		<p>Force each children to have the same height through the modifier <code>-expand-childs</code></p>
 		<div class="columns -expand-childs">
-			<div class="column-12 -sm-6"><p class="cell">More content<br>in<br>that column</p></div>
-			<div class="column-12 -sm-6"><p class="cell">Few content</p></div>
+			<div class="column-12 -sm-6"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
+			<div class="column-12 -sm-6"><p class="bg-primary text-center">Few content</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.expandChilds"></pretty-code>
 
