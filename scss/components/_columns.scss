@@ -47,6 +47,13 @@ $columns-gutter-sizes: (
             }
         }
     }
+
+    &.-expand-childs {
+        > .column,
+        > [class*="column-"] {
+            > * { height:100%; }
+        }
+    }
 }
 
 .column {
