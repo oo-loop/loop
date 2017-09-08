@@ -73,8 +73,8 @@ export default {
 						route: '#gutter'
 					},
 					{
-						name: 'Offset',
-						route: '#offset'
+						name: 'Order',
+						route: '#order'
 					},
 				]
 			},

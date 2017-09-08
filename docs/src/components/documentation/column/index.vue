@@ -42,7 +42,15 @@
 		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>
-		<p>Rearrange the order the columns through the modifiers <code>-{$screen}-order-1</code> to <code>-{$screen}-order-12</code></p>
+		<p>Rearrange the order the columns through the modifiers <code>-{$screen}-order-0</code> to <code>-{$screen}-order-12</code> according to the size of the screen.</p>
+
+		<pretty-code :code="html.order"></pretty-code>
+		<div class="columns">
+		  <div class="column-6 -lg-order-2"><p class="cell">one</p></div>
+		  <div class="column-6"><p class="cell">two</p></div>
+		  <div class="column-6 -sm-order-4"><p class="cell">three</p></div>
+		  <div class="column-6 -md-order-0"><p class="cell">four</p></div>
+		</div>
 
 	</div>
 </template>
@@ -60,6 +68,7 @@ export default {
 			column: require('./code/column.html'),
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
+			order: require('./code/order.html'),
 		}
 	}),
 	methods: {
