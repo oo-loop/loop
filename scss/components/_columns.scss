@@ -6,6 +6,8 @@ $columns-gutter: 2rem !default;
 $columns-system: 12 !default;
 $use-columns-order: true !default;
 $use-columns-offset: false !default;
+$use-columns-alignment: true !default;
+$use-columns-self-alignment: true !default;
 
 $columns-gutter-sizes: (
     'less' : 0,
@@ -22,7 +24,29 @@ $columns-gutter-sizes: (
     width: calc(100% + #{$columns-gutter});
     transform: translateX(-#{$columns-gutter});
 
-    //.--reverse { flex-direction: row-reverse; }
+    @if $use-columns-alignment == true {
+        // responsive classes
+        @each $breakpoint in $breakpoints-from-start {
+            @include breakpoint($breakpoint) {
+                $prefix: '';
+                @if $breakpoint != '' {
+                    $prefix: #{'-'}#{$breakpoint};
+                }
+
+                // horizontal alignment
+                &.#{$prefix}-left   { justify-content: flex-start; }
+                &.#{$prefix}-center { justify-content: center; }
+                &.#{$prefix}-right  { justify-content: flex-end; }
+                &.#{$prefix}-evenly { justify-content: space-evenly; }
+                &.#{$prefix}-between{ justify-content: space-between; }
+
+                // vertical alignnt
+                &.#{$prefix}-top    { align-items: flex-start; }
+                &.#{$prefix}-middle { align-items: center; }
+                &.#{$prefix}-bottom { align-items: flex-end; }
+            }
+        }
+    }
 }
 
 .column {
@@ -35,7 +59,7 @@ $columns-gutter-sizes: (
             max-width: percentage($i/$columns-system);
         }
     }
-    &.-slim { flex-grow: 0}
+    &.-shrink { flex-grow: 0}
 }
 
 .column,
@@ -50,21 +74,47 @@ $columns-gutter-sizes: (
     // responsive classes
     @each $breakpoint, $size in $breakpoints {
         @include breakpoint($breakpoint) {
+
+            // order-0 to make sure it is first
+            @if $use-columns-order == true {
+                &.-#{$breakpoint}-order-0 { order: -1; }
+            }
+
             @for $i from 1 through $columns-system {
+                //sizes
                 &.-#{$breakpoint}-#{$i} {
                     flex-basis: percentage($i/$columns-system);
                     max-width: percentage($i/$columns-system);
                 }
+                // offset
                 @if $use-columns-offset == true {
                     &.-#{$breakpoint}-offset-#{$i} { margin-left: percentage($i/$columns-system); }
                 }
+                // order
                 @if $use-columns-order == true {
                     &.-#{$breakpoint}-order-#{$i} { order: $i; }
                 }
             }
+        }
+    }
 
-            @if $use-columns-order == true {
-                &.-#{$breakpoint}-order-0 { order: -1; } // to make sure it is first
+    @if $use-columns-self-alignment == true {
+        // alignments
+        @each $breakpoint in $breakpoints-from-start {
+            @include breakpoint($breakpoint) {
+                $prefix: '';
+                @if $breakpoint != '' {
+                    $prefix: #{'-'}#{$breakpoint};
+                }
+
+                // horizontal alignment
+                &.#{$prefix}-left   { margin-left: initial; margin-right: initial; }
+                &.#{$prefix}-center { margin-left: auto; margin-right: auto; }
+                &.#{$prefix}-right  { margin-left: auto; margin-right: initial; }
+                // vertical alignnt
+                &.#{$prefix}-top    { align-self: flex-start; }
+                &.#{$prefix}-middle { align-self: center; }
+                &.#{$prefix}-bottom { align-self: flex-end; }
             }
         }
     }
