@@ -22,9 +22,9 @@
 		<h3 id="alignments"><a href="#alignments">#</a> Alignments</h3>
 		<p>Easily change the aligment of the text through the classes <code>.text-left</code> <code>.text-right</code> <code>.text-center</code>.<br>Modify the list of <code class="text-info">$text-alignments</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.textAlignments"></pretty-code>
-		<p>Need to have different text alignments for responsive purpose?<br>Add the necessary breakpoints to the list <code class="text-info">$text-alignments-breakpoints</code> and generate classes such as <code>text-sm-center</code> <code>text-md-center</code>...</p>
+		<p>Need to have different text alignments for responsive purpose?<br>Add the necessary breakpoints to the list <code class="text-info">$text-alignments-breakpoints</code> and the classes such as <code>text-center@sm</code> <code>text-center@md</code> will be generated</p>
 		<pretty-code class="language-css" :code="html.textAlignmentsResponsive"></pretty-code>
-		<p class="text-center text-sm-left text-lg-center">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
+		<p class="text-center text-left@sm text-center@lg">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
 		<pretty-code :code="html.textAlignmentsSample"></pretty-code>
 
 		<h3 id="transforms"><a href="#transforms">#</a> Transforms</h3>
