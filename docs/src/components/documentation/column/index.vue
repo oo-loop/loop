@@ -26,13 +26,13 @@
 		</div>
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
 
-		<h4 class="h5">Expand Children height</h4>
-		<p>Force each children to have the same height through the modifier <code>-expand-childs</code></p>
-		<div class="columns -expand-childs">
+		<h4 class="h5">Match Children height</h4>
+		<p>Force each children to have the same height through the modifier <code>-stretch-childs</code></p>
+		<div class="columns -stretch-childs">
 			<div class="column-12 -sm-6"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
 			<div class="column-12 -sm-6"><p class="bg-primary text-center">Few content</p></div>
 		</div>
-		<pretty-code class="mt-0" :code="html.expandChilds"></pretty-code>
+		<pretty-code class="mt-0" :code="html.stretchChilds"></pretty-code>
 
 		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
 		<p>Change the space between the columns by adding one of the modifiers <code>-gutter-less</code> <code>-gutter-small</code> <code>-gutter-large</code>.<br>The modifier <code>-v-gutter-less</code> will remove the vertical gutter.</p>
@@ -135,7 +135,7 @@ export default {
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
 			selfAdjust: require('./code/self-adjust.html'),
-			expandChilds: require('./code/expand-childs.html'),
+			stretchChilds: require('./code/stretch-childs.html'),
 			order: require('./code/order.html'),
 			hAlignment: require('./code/h-alignment.html'),
 			hAlignment2: require('./code/h-alignment-2.html'),

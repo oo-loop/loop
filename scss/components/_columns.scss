@@ -48,7 +48,7 @@ $columns-gutter-sizes: (
         }
     }
 
-    &.-expand-childs {
+    &.-stretch-childs {
         > .column,
         > [class*="column-"] {
             > * { height:100%; }
