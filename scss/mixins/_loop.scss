@@ -2,22 +2,26 @@
  * Loop
  */
 
-@mixin loop($array, $name, $property, $addon:(), $is_important:false, $affix:'-', $selector:'.') {
+@mixin loop($data, $name, $property, $addon:(), $is_important:false) {
+
+    $affix: '-';
+    $selector: '.';
+
     // Make sure to have the correct format or do not generate rules
     // list type
-    @if type-of($array) == 'list' {
+    @if type-of($data) == 'list' {
         // make sure to join same type
-        $merged_array: if(type-of($addon) == 'list', join($array, $addon), $array);
+        $merged_array: if(type-of($addon) == 'list', join($data, $addon), $data);
         @each $value in $merged_array {
             #{$selector}#{$name}#{$affix}#{$value} {
                 #{$property}: if($is_important, #{$value} !important, #{$value});
             }
         }
     // map type
-    } @elseif type-of($array) == 'map' {
+    } @elseif type-of($data) == 'map' {
         // make sure to merge same type
-        $merged_array: if(type-of($addon) == 'map', map-merge($array, $addon), $array);
-        @each $key, $value in $merged_array {
+        $merged_data: if(type-of($addon) == 'map', map-merge($data, $addon), $data);
+        @each $key, $value in $merged_data {
             #{$selector}#{$name}#{$affix}#{$key} {
                 #{$property}: if($is_important, $value !important, $value);
             }
@@ -28,11 +32,11 @@
 /**
  * Loop breakpoints
  */
-@mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $is_important:false, $affix:'-', $selector:'.') {
+@mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $is_important:false) {
     @if type-of($breakpoints) == 'list' and length($breakpoints) > 0 {
-        @each $break in $breakpoints {
-            @include breakpoint($break) {
-                @include loop($data, #{$name}#{$affix}#{$break}, $property, $addon, $is_important, $affix, $selector)
+        @each $breakpoint in $breakpoints-classes {
+            @include breakpoint($breakpoint) {
+                @include loop($data, #{$name}\@#{$breakpoint}, $property, $addon, $is_important);
             }
         }
     }

@@ -4,15 +4,15 @@
 		<p class="text-large">Based on Flexbox, using the 12 columns system.</p>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
-		<p>Change the size of the column by using the classes <code>.column-{$number}</code>, or let the columns being automatically adjusted.<br>Change the size of the column according to the device being used through the modifiers <code>-{$screen}-{$number}</code>.</p>
+		<p>Change the size of the column by using the classes <code>.column-{$size-number}</code>, or let the columns being automatically calculated.<br>Change the size of the column according to the device being used through the modifiers <code>-size-{$size-number}@{$breakpoint}</code>.</p>
 		<div class="columns">
 			<div class="column"><p class="cell">auto</p></div>
 			<div class="column"><p class="cell">auto</p></div>
 		</div>
 		<div class="columns">
-			<div class="column-12 -sm-6 -md-4 -lg-3"><p class="cell">size</p></div>
-			<div class="column-12 -sm-6 -md-8 -lg-9"><p class="cell">size</p></div>
-			<div class="column-6 -md-7 -lg-8"><p class="cell">size</p></div>
+			<div class="column-12 -size-6@sm -size-4@md -size-3@lg"><p class="cell">size</p></div>
+			<div class="column-12 -size-6@sm -size-8@md -size-9@lg"><p class="cell">size</p></div>
+			<div class="column-6 -size-7@md -size-8@lg"><p class="cell">size</p></div>
 			<div class="column"><p class="cell cell-3">auto</p></div>
 		</div>
 
@@ -29,8 +29,8 @@
 		<h4 class="h5">Match Children height</h4>
 		<p>Force each children to have the same height through the modifier <code>-stretch-childs</code></p>
 		<div class="columns -stretch-childs">
-			<div class="column-12 -sm-6"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
-			<div class="column-12 -sm-6"><p class="bg-primary text-center">Few content</p></div>
+			<div class="column-12 -size-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
+			<div class="column-12 -size-6@sm"><p class="bg-primary text-center">Few content</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.stretchChilds"></pretty-code>
 
@@ -58,62 +58,62 @@
 		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>
-		<p>Rearrange the order the columns through the modifiers <code>-{$screen}-order-0</code> to <code>-{$screen}-order-12</code> according to the size of the screen.</p>
+		<p>Rearrange the order the columns through the modifiers <code>-order-0@{$breakpoint}</code> to <code>-order-12@{$breakpoint}</code> according to the size of the screen.</p>
 		<div class="columns">
-		  <div class="column-6 -sm-3 -lg-order-2"><p class="cell">one</p></div>
-		  <div class="column-6 -sm-3"><p class="cell">two</p></div>
-		  <div class="column-6 -sm-3 -sm-order-4"><p class="cell">three</p></div>
-		  <div class="column-6 -sm-3 -md-order-0"><p class="cell">four</p></div>
+		  <div class="column-6 -size-3@sm -order-2@lg"><p class="cell">one</p></div>
+		  <div class="column-6 -size-3@sm"><p class="cell">two</p></div>
+		  <div class="column-6 -size-3@sm -order-4@sm"><p class="cell">three</p></div>
+		  <div class="column-6 -size-3@sm -order-0@md"><p class="cell">four</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.order"></pretty-code>
 
 		<h3 id="alignment"><a href="#alignment">#</a> Alignment</h3>
 		<h4 class="h5">Vertical alignment</h4>
-		<p>Vertically align a group of columns attaching the modifiers <code>-top</code> <code>-middle</code> <code>-bottom</code> to the class <code>.columns</code>.<br>Responsive modifiers are also available <code>-{$screen}-{$alignment}</code></p>
+		<p>Vertically align a group of columns attaching the modifiers <code>align-top</code> <code>align-middle</code> <code>align-bottom</code> to the class <code>.columns</code>.<br>Responsive modifiers are also available <code>-{$alignment}@{$breakpoint}</code></p>
 		<div class="bg-secondary">
-			<div class="columns -sm-bottom -md-middle -lg-top -v-gutter-less">
-				<div class="column-6 -sm-4"><p class="cell cell--large"></p></div>
-				<div class="column-6 -sm-4"><p class="cell cell--medium"></p></div>
-				<div class="column-6 -sm-4"><p class="cell"></p></div>
+			<div class="columns -align-bottom@sm -align-middle@md -align-top@lg -v-gutter-less">
+				<div class="column-6 -size-4@sm"><p class="cell cell--large"></p></div>
+				<div class="column-6 -size-4@sm"><p class="cell cell--medium"></p></div>
+				<div class="column-6 -size-4@sm"><p class="cell"></p></div>
 			</div>
 		</div>
 		<pretty-code :code="html.vAlignment"></pretty-code>
 		<h4 class="h5">Vertical self alignment</h4>
-		<p>Self alignment is also possible by attaching the same mofifiers <code>-{$alignment}</code> <code>-{$screen}-{$alignment}</code> to a column.
+		<p>Self alignment is also possible by attaching the same mofifiers <code>-{$alignment}</code> <code>-{$alignment}@{$breakpoint}</code> to a column.
 		<div class="bg-secondary">
 			<div class="columns -v-gutter-less">
-				<div class="column-6 -sm-4"><p class="cell cell--large"></p></div>
-				<div class="column-6 -sm-4 -middle -sm-top -lg-middle"><p class="cell cell--medium"></p></div>
-				<div class="column-6 -sm-4 -bottom"><p class="cell"></p></div>
+				<div class="column-6 -size-4@sm"><p class="cell cell--large"></p></div>
+				<div class="column-6 -size-4@sm -align-middle -align-top@sm -align-middle@lg"><p class="cell cell--medium"></p></div>
+				<div class="column-6 -size-4@sm -align-bottom"><p class="cell"></p></div>
 			</div>
 		</div>
 		<pretty-code :code="html.vAlignmentSelf"></pretty-code>
 
 		<h4 class="h5">Horizontal alignment</h4>
-		<p>Horizontally align a group of columns attaching the modifiers <code>-left</code> <code>-center</code> <code>-right</code> <code>-between</code> <code>-evenly</code> to the class <code>.columns</code>.<br>Responsive modifiers are also available <code>-{$screen}-{$alignment}</code></p>
+		<p>Horizontally align a group of columns attaching the modifiers <code>align-left</code> <code>align-center</code> <code>align-right</code> <code>align-between</code> <code>align-evenly</code> to the class <code>.columns</code>.<br>Responsive modifiers are also available <code>-{$alignment}@{$breakpoint}</code></p>
 		<div class="bg-secondary">
-			<div class="columns -md-center -lg-right -v-gutter-less">
-				<div class="column-3 -sm-4"><p class="cell cell--medium"></p></div>
-				<div class="column-3 -sm-4"><p class="cell"></p></div>
+			<div class="columns -align-center@md -align-right@lg -v-gutter-less">
+				<div class="column-3 -size-4@sm"><p class="cell cell--medium"></p></div>
+				<div class="column-3 -size-4@sm"><p class="cell"></p></div>
 			</div>
 		</div>
 		<pretty-code :code="html.hAlignment"></pretty-code>
 
 		<div class="bg-secondary">
-			<div class="columns -between -md-evenly">
-				<div class="column-3 -sm-4"><p class="cell cell--medium"></p></div>
-				<div class="column-3 -sm-4"><p class="cell"></p></div>
+			<div class="columns -align-between -align-evenly@md">
+				<div class="column-3 -size-4@sm"><p class="cell cell--medium"></p></div>
+				<div class="column-3 -size-4@sm"><p class="cell"></p></div>
 			</div>
 		</div>
 		<pretty-code :code="html.hAlignment2"></pretty-code>
 
 		<h4 class="h5">Horizontal self alignment</h4>
-		<p>Self alignment is also possible by attaching the mofifiers <code>-left</code> <code>-center</code> <code>-right</code> <code>-{$screen}-{$alignment}</code> to a column.
+		<p>Self alignment is also possible by attaching the mofifiers <code>-align-left</code> <code>-align-center</code> <code>-align-right</code> <code>-{$alignment}@{$breakpoint}</code> to a column.
 		<div class="bg-secondary">
 			<div class="columns -v-gutter-less">
-				<div class="column-3 -right -md-left mb-20"><p class="cell cell--medium"></p></div>
-				<div class="column-3 -md-right"><p class="cell"></p></div>
-				<div class="column-9 -md-right -lg-center"><p class="cell"></p></div>
+				<div class="column-3 -align-right -align-left@md mb-20"><p class="cell cell--medium"></p></div>
+				<div class="column-3 -align-right@md"><p class="cell"></p></div>
+				<div class="column-9 -align-right@md -align-center@lg"><p class="cell"></p></div>
 			</div>
 		</div>
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>

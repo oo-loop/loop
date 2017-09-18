@@ -1,15 +1,19 @@
 /**
  * breakpoints
+ * based on material guidelines
+ * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
  */
 
 $breakpoints: (
-    sm: 768px,  // min width
-    md: 992px,  // min width
-    lg: 1200px, // min width
+	xs: 480px,  // min width
+    sm: 600px,  // min width
+    md: 960px,  // min width
+    lg: 1280px, // min width
 ) !default;
 
+$breakpoints-classes: (sm, md, lg) !default;
 // including the first step
-$breakpoints-from-start: ('', sm, md, lg) !default;
+$breakpoints-classes-from-start: join('', $breakpoints-classes);
 
 @mixin breakpoint($key) {
 	// make sure the key exist
