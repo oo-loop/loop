@@ -82,8 +82,8 @@ $columns-gutter-sizes: (
 
     // responsive classes
     @each $breakpoint in $breakpoints-classes {
-        @include breakpoint($breakpoint) {     
-            $suffix: \@#{$breakpoint};    
+        @include breakpoint($breakpoint) {
+            $suffix: \@#{$breakpoint};
             // order-0 to make sure it is first
             @if $use-columns-order == true {
                 &.-order-0#{$suffix} { order: -1; }
@@ -91,7 +91,7 @@ $columns-gutter-sizes: (
 
             @for $i from 1 through $columns-system {
                 //sizes
-                &.-size-#{$i}#{$suffix} {
+                &.-span-#{$i}#{$suffix} {
                     flex-basis: percentage($i/$columns-system);
                     max-width: percentage($i/$columns-system);
                 }
