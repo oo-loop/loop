@@ -21,14 +21,12 @@ code {
 pre {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
+    padding: 1.4rem 2rem;
 
 	background-color: $code-bgcolor;
-    overflow: scroll;
-	overflow-y: hidden;
+    overflow: auto;
 
 	& > code {
-        padding: 1.4rem 2rem;
-        display: block;
         color:  $code-color;
         white-space: pre;
 		border-radius: 0;

@@ -1181,8 +1181,9 @@
 
 <style lang="scss">
     @import '~loop/variables';
-	.path {
+	.text-primary .path {
 	    fill: $color-primary;
-	    fill-rule:evenodd;clip-rule:evenodd;
+	    fill-rule:evenodd;
+        clip-rule:evenodd;
     }
 </style>

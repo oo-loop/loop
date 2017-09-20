@@ -35,7 +35,7 @@
 		<pretty-code class="mt-0" :code="html.stretchChilds"></pretty-code>
 
 		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
-		<p>Change the space between the columns by adding one of the modifiers <code>-gutter-less</code> <code>-gutter-small</code> <code>-gutter-large</code>.<br>The modifier <code>-v-gutter-less</code> will remove the vertical gutter.</p>
+		<p>Change the space between the columns by adding one of the modifiers <code>-gutter-less</code> <code>-gutter-tiny</code> <code>-gutter-small</code> <code>-gutter-large</code>.<br>The modifier <code>-v-gutter-less</code> will remove the vertical gutter.</p>
 
 		<div class="columns -gutter-large -v-gutter-less">
 			<div class="column"><p class="cell">large</p></div>
@@ -46,6 +46,11 @@
 			<div class="column"><p class="cell">small</p></div>
 			<div class="column"><p class="cell">small</p></div>
 			<div class="column"><p class="cell">small</p></div>
+		</div>
+		<div class="columns -gutter-tiny -v-gutter-less">
+			<div class="column"><p class="cell">tiny</p></div>
+			<div class="column"><p class="cell">tiny</p></div>
+			<div class="column"><p class="cell">tiny</p></div>
 		</div>
 		<div class="columns -gutter-less -v-gutter-less">
 			<div class="column"><p class="cell">none</p></div>

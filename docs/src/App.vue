@@ -1,29 +1,28 @@
 <template>
-	<div class="grid-layout">
-		<div class="sidebar">
-				<div class="logo-holder">
-					<transition name="fade">
-						<logo height="100" v-show="!isFront"/>
-					</transition>
-				</div>
-			<h2 class="h4">Loop</h2>
-			<ul class="list-unstyle">
-				<li v-for="(item, index) in listing">
-					<router-link :to="`${item.route}`">{{item.name}}</router-link>
-					<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
-						<li v-for="subItem in item.subMenu">
-							<template v-if="subItem.route.indexOf('#') > -1">
-								<a :href="subItem.route">{{subItem.name}}</a>
-							</template>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-		<div class="content">
-			<transition name="fade" mode="out-in">
-				<router-view :key="$route.path"></router-view>
-			</transition>
+	<div class="columns">
+		<aside class="column sidebar">
+			<div class="sidebar__content">
+				<logo class="mb-20" height="32"/>
+				<ul class="list-unstyle">
+					<li v-for="(item, index) in listing">
+						<router-link :to="`${item.route}`">{{item.name}}</router-link>
+						<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
+							<li v-for="subItem in item.subMenu">
+								<template v-if="subItem.route.indexOf('#') > -1">
+									<a :href="subItem.route">{{subItem.name}}</a>
+								</template>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<div class="column">
+			<div class="content">
+				<transition name="fade" mode="out-in">
+					<router-view :key="$route.path"></router-view>
+				</transition>
+			</div>
 		</div>
 	</div>
 </template>
@@ -147,56 +146,30 @@ export default {
 	$text-colors-addon: ('info': #2689ef);
 	$text-alignments-breakpoints: ('sm', 'lg');
 
-	//
 	@import '~loop/loop';
-	.grid-layout {
-		display: grid;
-		grid-gap: 5px;
-		grid-template-columns: 15% auto;
-		grid-template-rows: 100%;
-		height: 100vh;
-	    grid-template-areas:
-			"sidebar content";
-		overflow: hidden;
-		.sidebar {
-			grid-area: sidebar;
-			float: left;
-			padding: 15px;
-			overflow-y: hidden;
-			text-align: center;
-			box-shadow: 3px -1px 5px 3px #f7f7f7;
-			.logo-holder {
-				height: 100px;
-			}
 
-			ul {
-				text-align: left;
-			}
-		}
-		.content {
-			grid-area: content;
-			float: right;
-			padding: 15px;
-			overflow-y: scroll;
-		}
-		.img-responsive {
-			display: block;
-			max-width: 100%;
-			height: auto;
-		}
-		@media screen and (max-width: 768px) {
-			grid-template-columns: 1fr;
-			grid-template-rows: auto;
-			overflow: visible;
-			box-shadow: none;
-		   	grid-template-areas:
-			   	"sidebar"
-			   	"content";
-			.sidebar, .content {
-				overflow-y: visible;
-			}
-		}
+	$layout-padding: 2.4rem;
+	$sidebar-size: 220px;
+
+	.sidebar {
+
+		top: 0;
+		position: sticky;
+		margin-left: calc(-#{$sidebar-size} + #{$layout-padding});
+		flex-basis: $sidebar-size;
+		max-width: 	$sidebar-size;
+		height: 100vh;
+
+		background-color: #f7f7f7;
+		transition: margin 300ms ease-in-out;
+
+		@include breakpoint(sm) { margin-left: 0; }
+
+		&__content { padding: $layout-padding; }
 	}
+
+	.content { padding-right: $layout-padding; }
+
     .fade-enter-active, .fade-leave-active {
         transition: opacity 300ms cubic-bezier(0.85, 1, 0.16, 0.6);
     }
@@ -205,8 +178,14 @@ export default {
     }
 
     .title {
-        font-size: 7rem;
+    	font-size: 4rem;
         font-weight: 100;
 		letter-spacing: 0;
+		text-align: center;
+
+		@include breakpoint(sm) {
+			font-size: 7rem;
+			text-align: left;
+		}
     }
 </style>

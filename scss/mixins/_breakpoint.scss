@@ -12,6 +12,7 @@ $breakpoints: (
 ) !default;
 
 $breakpoints-classes: (sm, md, lg) !default;
+
 // including the first step
 $breakpoints-classes-from-start: join('', $breakpoints-classes);
 
@@ -22,7 +23,7 @@ $breakpoints-classes-from-start: join('', $breakpoints-classes);
 		@media (min-width: $width) {
 			@content;
 		}
-	}@elseif $key == '' {
+	} @elseif $key == '' {
         @content;
     }
 }

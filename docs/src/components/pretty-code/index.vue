@@ -21,12 +21,10 @@
     @import '~prettify/src/prettify.css';
 
     pre.prettyprint {
+        padding: 1.4rem 2rem;
         font-weight: 700;
-
         border: none;
         background-color: $code-bgcolor;
-        overflow: scroll;
-        overflow-y: hidden;
 
         .tag,
         .atn,

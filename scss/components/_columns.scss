@@ -2,7 +2,7 @@
  * Columns
  */
 
-$columns-gutter: 2rem !default;
+$columns-gutter: 2.4rem !default;
 $columns-system: 12 !default;
 $use-columns-order: true !default;
 $use-columns-offset: false !default;
@@ -11,8 +11,9 @@ $use-columns-self-alignment: true !default;
 
 $columns-gutter-sizes: (
     'less' : 0,
-    'small': 1rem,
-    'large': 3rem,
+    'tiny' : .8rem,
+    'small': 1.6rem,
+    'large': 4rem,
 ) !default;
 
 .columns {
@@ -57,7 +58,8 @@ $columns-gutter-sizes: (
 }
 
 .column {
-    flex-basis: auto;
+    flex-basis: 0;
+    min-width: 0;
     max-width: 100%;
 
     @for $i from 1 through $columns-system {
@@ -78,7 +80,10 @@ $columns-gutter-sizes: (
     flex-grow: 1;
 
     // adjust to the size of the content
-    &.-self-adjust { flex-grow: 0}
+    &.-self-adjust {
+        min-width: auto;
+        flex-grow: 0
+    }
 
     // responsive classes
     @each $breakpoint in $breakpoints-classes {
