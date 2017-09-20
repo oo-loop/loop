@@ -1,0 +1,22 @@
+/**
+ * Color
+ */
+
+$text-colors: (
+    'primary':   $color-primary,
+    'secondary': $color-secondary,
+    'color':     $color-base,
+) !default;
+$text-colors-addon: () !default;
+
+$bg-colors: (
+    'primary':   $color-primary,
+    'secondary': $color-secondary,
+) !default;
+$bg-colors-addon: () !default;
+
+// Font colors
+@include loop($text-colors, 'text', 'color', $text-colors-addon);
+
+// bg colors
+@include loop($bg-colors, 'bg', 'background-color', $bg-colors-addon);

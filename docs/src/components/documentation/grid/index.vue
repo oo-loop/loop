@@ -1,59 +1,69 @@
 <template>
 	<div>
-		<div class="grid">
-			<div class="grid-col-12">
-				Grid Layout				
-			</div>
-			<p class="grid-col-12"> Regular grid</p>
-			<template v-for="n in 12" >
-				<div class="grid grid-col-12">
-					<div :class="`grid-col-${n} grid-item`">
-						.grid-col-{{n}}
-					</div>				
+		<h1 class="title">Grid Layout</h1>
+
+		<h3 id="regular"><a href="#regular">#</a> Regular grid</h3>
+		<template v-for="n in 12" >
+			<div class="grid">
+				<div :class="`grid-item -col-${n}`">
+					<p class="cell">.-col-{{n}}</p>
 				</div>
-			</template>
-			<p class="grid-col-12">
-				Sample Grids
-			</p>
-			<div class="grid grid-col-12">
-				<div class="grid-col-3 grid-item">.grid-col-3</div>
-				<div class="grid-col-9 grid-item">.grid-col-9</div>
-				<div class="grid-col-4 grid-col-xs-12 grid-item">.grid-col-4.grid-col-xs-12</div>
-				<div class="grid-col-4 grid-item">.grid-col-4</div>
-				<div class="grid-col-4 grid-item">.grid-col-4</div>
-				<div class="grid-col-2 grid-item">.grid-col-2</div>
-				<div class="grid-col-5 grid-item">.grid-col-5</div>
-				<div class="grid-col-3 grid-item">.grid-col-3</div>
-				<div class="grid-col-2 grid-item">.grid-col-2</div>
 			</div>
-			<div class="grid-col-3">
-				Grip Gaps
-			</div>
-			<div class="grid-col-9">
-				<button v-for="n in 15" @click="gap = n"> gap size {{n}}</button>
-			</div>
-			<div class="grid grid-col-12" :class="[gapClass]">
-				<div class="grid-col-3 grid-item">.grid-col-3</div>
-				<div class="grid-col-9 grid-item">.grid-col-9</div>
-				<div class="grid-col-4 grid-col-xs-12 grid-item">.grid-col-4.grid-col-xs-12</div>
-				<div class="grid-col-4 grid-item">.grid-col-4</div>
-				<div class="grid-col-4 grid-item">.grid-col-4</div>
-				<div class="grid-col-2 grid-item">.grid-col-2</div>
-				<div class="grid-col-5 grid-item">.grid-col-5</div>
-				<div class="grid-col-3 grid-item">.grid-col-3</div>
-				<div class="grid-col-2 grid-item">.grid-col-2</div>
-			</div>
+		</template>
+
+		<pretty-code :code="html.regular" />
+
+		<h3 id="responsive"><a href="#responsive">#</a> Responsive Grids</h3>
+		<div class="grid">
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-9"><p class="cell">.-col-9</p></div>
+			<div class="grid-item -col-4 -col-xs-12"><p class="cell">.-col-4.-col-xs-12</p></div>
+			<div class="grid-item -col-4 -col-md-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+			<div class="grid-item -col-5 -col-lg-12"><p class="cell">.-col-5</p></div>
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
 		</div>
+
+		<pretty-code :code="html.sample" />
+
+		<h3 id="gaps"><a href="#gaps">#</a> Grip Gaps</h3>
+		<div>
+			<button v-for="n in 15" @click="gap = n"> gap size {{n}}</button>
+		</div>
+		<div class="grid" :class="[gapClass]">
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-9"><p class="cell">.-col-9</p></div>
+			<div class="grid-item -col-4 -col-xs-12"><p class="cell">.-col-4.-col-xs-12</p></div>
+			<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-4"><p class="cell">.-col-4</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+			<div class="grid-item -col-5"><p class="cell">.-col-5</p></div>
+			<div class="grid-item -col-3"><p class="cell">.-col-3</p></div>
+			<div class="grid-item -col-2"><p class="cell">.-col-2</p></div>
+		</div>
+
 	</div>
 </template>
 
 <script>
+import prettyCode from '@/components/pretty-code'
+
 export default {
 	name: 'Grid',
+	components: {
+		prettyCode
+	},
 	props: {
 	},
 	data: () => ({
-		gap: 10
+		gap: 10,
+		html: {
+			regular: require('./code/regular-grid.html'),
+			sample: require('./code/sample.html'),
+			gaps: '',
+		}
 	}),
 	computed: {
 		gapClass () {
@@ -65,13 +75,35 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-	.grid-item {
-		border: 1px solid #000;
-		padding: 10px;
-
+	@import "~loop/variables";
+	.cell {
+		margin-bottom: 10px;
+		text-align: center;
+		background-color: $color-primary;
 	}
 	button {
-		background-color: #000;
-		color: #fff;
+	  display: inline-block;
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+	  appearance: none;
+	  margin: 5px 5px;
+	  padding: 5px 5px;
+	  height: 30px;
+	  border-width: 0;
+	  color: White;
+	  font-family: sans-serif;
+	  font-weight: normal;
+	  font-size: inherit;
+	  text-decoration: none;
+	  line-height: 1;
+	  cursor: pointer;
+	  font-size: 100%;
+	}
+	button {
+	  overflow: visible;
+	}
+	button::-moz-focus-inner {
+	  border: 0;
+	  padding: 0;
 	}
 </style>

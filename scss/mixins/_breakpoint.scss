@@ -1,0 +1,29 @@
+/**
+ * breakpoints
+ * based on material guidelines
+ * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
+ */
+
+$breakpoints: (
+	xs: 480px,  // min width
+    sm: 600px,  // min width
+    md: 960px,  // min width
+    lg: 1280px, // min width
+) !default;
+
+$breakpoints-classes: (sm, md, lg) !default;
+
+// including the first step
+$breakpoints-classes-from-start: join('', $breakpoints-classes);
+
+@mixin breakpoint($key) {
+	// make sure the key exist
+	@if map-has-key($breakpoints, $key) {
+		$width: map-get($breakpoints, $key);
+		@media (min-width: $width) {
+			@content;
+		}
+	} @elseif $key == '' {
+        @content;
+    }
+}

@@ -1,0 +1,24 @@
+/**
+ * Spacing
+ */
+
+$spacing-step: 5 !default;
+$spacing-limit: 50 !default;
+
+// set default spacing
+$spacing: ();
+@for $i from 0 through ceil($spacing-limit / $spacing-step) {
+    $spacing: map-merge($spacing, (#{$i*5}: #{$i*5}px));
+}
+
+// check if any custom sizes have been required
+$spacing-addon: () !default;
+$spacing-addons: ();
+@if length($spacing-addon) > 0 {
+    @each $value in $spacing-addon {
+        $spacing-addons: map-merge($spacing-addons, (#{value}: #{$value}px));
+    }
+}
+
+@include loop($spacing, 'mt', 'margin-top', $spacing-addons, true);
+@include loop($spacing, 'mb', 'margin-bottom', $spacing-addons, true);

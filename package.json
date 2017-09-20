@@ -1,6 +1,6 @@
 {
-  "name": "ring-css-framework",
-  "version": "1.0.0",
+  "name": "ring",
+  "version": "0.0.1",
   "description": "A Framework to rule them all",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.gplusmedia.com:library/front-end/ring-css-framework.git"
+    "url": "git@git.gplusmedia.com:library/front-end/ring.git"
   },
   "keywords": [
     "framework",
@@ -21,5 +21,8 @@
   ],
   "author": "GPlus Media",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "normalize.css": "^7.0.0"
+  }
 }

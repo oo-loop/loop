@@ -1,2 +1,156 @@
-// @import "../../node_modules/bulma/sass/utilities/all.sass";
-// @import "../../node_modules/bulma/sass/grid/columns.sass";
+/**
+ * Columns
+ */
+
+$columns-gutter: 2.4rem !default;
+$columns-system: 12 !default;
+$use-columns-order: true !default;
+$use-columns-offset: false !default;
+$use-columns-alignment: true !default;
+$use-columns-self-alignment: true !default;
+
+$columns-gutter-sizes: (
+    'less' : 0,
+    'tiny' : .8rem,
+    'small': 1.6rem,
+    'large': 4rem,
+) !default;
+
+.columns {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: calc(100% + #{$columns-gutter});
+    transform: translateX(-#{$columns-gutter});
+
+    @if $use-columns-alignment == true {
+        // responsive classes
+        @each $breakpoint in $breakpoints-classes-from-start {
+            @include breakpoint($breakpoint) {
+                $suffix: '';
+                @if $breakpoint != '' {
+                    $suffix: \@#{$breakpoint};
+                }
+
+                // horizontal alignment
+                &.-align-left#{$suffix}   { justify-content: flex-start; }
+                &.-align-center#{$suffix} { justify-content: center; }
+                &.-align-right#{$suffix}  { justify-content: flex-end; }
+                &.-align-evenly#{$suffix} { justify-content: space-evenly; }
+                &.-align-between#{$suffix}{ justify-content: space-between; }
+
+                // vertical alignment
+                &.-align-top#{$suffix}    { align-items: flex-start; }
+                &.-align-middle#{$suffix} { align-items: center; }
+                &.-align-bottom#{$suffix} { align-items: flex-end; }
+            }
+        }
+    }
+
+    &.-stretch-childs {
+        > .column,
+        > [class*="column-"] {
+            > * { height:100%; }
+        }
+    }
+}
+
+.column {
+    flex-basis: 0;
+    min-width: 0;
+    max-width: 100%;
+
+    @for $i from 1 through $columns-system {
+        &-#{$i} {
+            flex-basis: percentage($i/$columns-system);
+            max-width: percentage($i/$columns-system);
+        }
+    }
+}
+
+.column,
+[class*="column-"] {
+
+    padding-left: $columns-gutter;
+    padding-bottom: $columns-gutter;
+
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    // adjust to the size of the content
+    &.-self-adjust {
+        min-width: auto;
+        flex-grow: 0
+    }
+
+    // responsive classes
+    @each $breakpoint in $breakpoints-classes {
+        @include breakpoint($breakpoint) {
+            $suffix: \@#{$breakpoint};
+            // order-0 to make sure it is first
+            @if $use-columns-order == true {
+                &.-order-0#{$suffix} { order: -1; }
+            }
+
+            @for $i from 1 through $columns-system {
+                //sizes
+                &.-span-#{$i}#{$suffix} {
+                    flex-basis: percentage($i/$columns-system);
+                    max-width: percentage($i/$columns-system);
+                }
+                // offset
+                @if $use-columns-offset == true {
+                    &.-offset-#{$i}#{$suffix} { margin-left: percentage($i/$columns-system); }
+                }
+                // order
+                @if $use-columns-order == true {
+                    &.-order-#{$i}#{$suffix} { order: $i; }
+                }
+            }
+        }
+    }
+
+    @if $use-columns-self-alignment == true {
+        // alignments
+        @each $breakpoint in $breakpoints-classes-from-start {
+            @include breakpoint($breakpoint) {
+                $suffix: '';
+                @if $breakpoint != '' {
+                    $suffix: \@#{$breakpoint};
+                }
+
+                // horizontal alignment
+                &.-align-left#{$suffix}   { margin-left: initial; margin-right: initial; }
+                &.-align-center#{$suffix} { margin-left: auto; margin-right: auto; }
+                &.-align-right#{$suffix}  { margin-left: auto; margin-right: initial; }
+                // vertical alignment
+                &.-align-top#{$suffix}    { align-self: flex-start; }
+                &.-align-middle#{$suffix} { align-self: center; }
+                &.-align-bottom#{$suffix} { align-self: flex-end; }
+            }
+        }
+    }
+}
+
+.-gutter {
+    @each $gutter-name, $gutter-size in $columns-gutter-sizes {
+        &-#{$gutter-name}.columns {
+            width: if($gutter-size == 0, 100%, calc(100% + #{$gutter-size}));
+            transform: translateX(-#{$gutter-size});
+
+            > .column,
+            > [class*="column-"] {
+                padding-bottom: $gutter-size;
+                padding-left: $gutter-size;
+            }
+        }
+    }
+}
+.-v-gutter-less.columns {
+    > .column,
+    > [class*="column-"] {
+        padding-bottom: 0;
+    }
+}
