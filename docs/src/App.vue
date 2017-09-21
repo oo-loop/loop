@@ -31,6 +31,7 @@
 
 <script>
 import logo from 'docs/logo'
+
 export default {
 	name: 'Loop',
 	components: {
@@ -100,6 +101,11 @@ export default {
 						route: '#gaps'
 					},
 				]
+			},
+			{
+				name: 'Button',
+				route: 'button',
+				subMenu: []
 			},
 			{
 				name: 'Text Utilities',

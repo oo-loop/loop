@@ -5,6 +5,7 @@ import Intro from 'docs/introduction'
 import Type from 'docs/type'
 import Column from 'docs/column'
 import Grid from 'docs/grid'
+import Button from 'docs/button'
 import TextUtilities from 'docs/text-utilities'
 import Spacing from 'docs/spacing'
 import Float from 'docs/float'
@@ -34,6 +35,11 @@ export default new Router({
 			path: '/grid',
 			name: 'grid',
 			component: Grid
+		},
+		{
+			path: '/button',
+			name: 'button',
+			component: Button
 		},
 		{
 			path: '/text-utilities',
