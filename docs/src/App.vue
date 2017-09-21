@@ -1,27 +1,29 @@
 <template>
-	<div class="columns">
-		<aside class="column sidebar">
-			<span class="hamburger mt-10"></span>
-			<div class="sidebar__content">
-				<ul class="list-unstyle">
-					<li v-for="(item, index) in listing">
-						<router-link :to="`${item.route}`">{{item.name}}</router-link>
-						<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
-							<li v-for="subItem in item.subMenu">
-								<template v-if="subItem.route.indexOf('#') > -1">
-									<a :href="subItem.route">{{subItem.name}}</a>
-								</template>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</aside>
-		<div class="column">
-			<div class="content">
-				<transition name="fade" mode="out-in">
-					<router-view :key="$route.path"></router-view>
-				</transition>
+	<div>
+		<span class="hamburger" @click="toggleMenu()"></span>
+		<div class="columns" :class="{ slide: isMenuOpen }">
+			<aside class="column sidebar">
+				<div class="sidebar__content">
+					<ul class="list-unstyle text-strong">
+						<li class="mb-10" v-for="(item, index) in listing">
+							<router-link :to="`${item.route}`">{{item.name}}</router-link>
+							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
+								<li v-for="subItem in item.subMenu">
+									<template v-if="subItem.route.indexOf('#') > -1">
+										<a :href="subItem.route">{{subItem.name}}</a>
+									</template>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<div class="column">
+				<div class="content">
+					<transition name="fade" mode="out-in">
+						<router-view :key="$route.path"></router-view>
+					</transition>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -149,12 +151,18 @@ export default {
 				]
 			},
 		],
+		isMenuOpen: false,
 	}),
 	computed: {
 		isFront () {
 			return ['/','/introduction'].indexOf(this.$route.path) > -1
 				? true
 				: false
+		}
+	},
+	methods: {
+		toggleMenu() {
+			this.isMenuOpen = !this.isMenuOpen
 		}
 	}
 }
@@ -167,10 +175,9 @@ export default {
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
-	$sidebar-size: 280px;
+	$sidebar-size: 250px;
 
 	.sidebar {
-
 		top: 0;
 		position: sticky;
 		margin-left: calc(-#{$sidebar-size} + #{$layout-padding});
@@ -178,15 +185,36 @@ export default {
 		max-width: 	$sidebar-size;
 		height: 100vh;
 
-		background-color: #f7f7f7;
+		box-shadow: -16px 0 0 16px $bgcolor-base, 1px 0 16px 0 #cdcdcd;
+
 		transition: margin 300ms ease-in-out;
 
-		@include breakpoint(sm) { margin-left: 0; }
+		.slide & { margin-left: 0; }
 
-		&__content { padding: $layout-padding; }
+		@include breakpoint(sm) {
+			margin-left: 0;
+			.slide & { margin-left: calc(-#{$sidebar-size} + #{$layout-padding}); }
+		}
+
+		&__content {
+			padding: ($layout-padding * 2.5) $layout-padding $layout-padding;
+		}
+
 	}
 
-	.content { padding-right: $layout-padding; }
+	.content {
+		padding-right: $layout-padding;
+		padding-left: $layout-padding;
+
+		.slide & {
+			white-space: nowrap;
+			overflow: hidden;
+			@include breakpoint(sm) {
+				white-space: normal;
+				overflow: auto;
+			}
+		}
+	}
 
     .fade-enter-active,
 	.fade-leave-active {
@@ -208,12 +236,17 @@ export default {
     }
 
 	.hamburger {
-		position: relative;
+		position: fixed;
+		top: 1rem;
+		left: 1rem;
+		z-index: 5;
 		display: block;
-		width: 24px;
-		height: 14px;
-		border-top: 2px solid $color-base;
-		border-bottom: 2px solid $color-base;
+		width: 20px;
+		height: 12px;
+		border-top: 3px solid $color-base;
+		border-bottom: 3px solid $color-base;
+
+		cursor: pointer;
 
 		&:before {
 			position: absolute;
@@ -223,7 +256,7 @@ export default {
 
 			display: block;
 			content: '';
-			border-top: 2px solid $color-base;
+			border-top: 3px solid $color-base;
 			transform: translateY(-50%);
 		}
 	}
