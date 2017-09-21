@@ -198,13 +198,11 @@ export default {
     }
 
     .title {
-    	font-size: 4.5rem;
-        font-weight: 100;
-		letter-spacing: 0;
+    	font-size: 4rem;
 		text-align: center;
 
 		@include breakpoint(sm) {
-			font-size: 7rem;
+			font-size: 6rem;
 			text-align: left;
 		}
     }

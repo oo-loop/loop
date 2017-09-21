@@ -11,13 +11,13 @@
 
 		<h3 id="clearfix"><a href="#clearfix">#</a> Clearfix</h3>
 		<p>Use the class <code>.clearfix</code> to clear the floating elements of a container</p>
-		<p class="text-italic font-secondary clearfix"><span class="cell float-left">Float</span>This is a paragraph with a float element</p>
+		<p class="text-italic font-secondary clearfix"><span class="cell font-base float-left">Float</span>This is a paragraph with a float element</p>
 		<p class="text-italic font-secondary">This is an another small paragraph</p>
 		<pretty-code :code="html.clearfix"></pretty-code>
 
 		<h3 id="clear"><a href="#clear">#</a> Clear</h3>
 		<p class="clear">Use <code>.clear</code> to clear siblings floating elements</p>
-		<p class="text-italic font-secondary"><span class="cell float-left">Float</span>This is a paragraph with a float element</p>
+		<p class="text-italic font-secondary"><span class="cell font-base float-left">Float</span>This is a paragraph with a float element</p>
 		<p class="text-italic font-secondary clear">This is an another small paragraph</p>
 		<pretty-code :code="html.clear"></pretty-code>
 	</div>
@@ -52,6 +52,7 @@ export default {
 		padding: 40px;
 		display: block;
 		color: #fff;
+		font-style: normal;
 		background-color: $color-secondary;
 	}
 </style>
