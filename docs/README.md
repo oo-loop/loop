@@ -1,6 +1,6 @@
-# ring-docs
+# loop-docs
 
-> Documentation of Ring
+> Documentation of Loop
 
 ## Build Setup
 

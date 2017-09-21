@@ -1,0 +1,12 @@
+/**
+ * Clearfix
+ */
+
+@mixin clearfix {
+	&:before,
+    &:after {
+        display: block;
+        content: '';
+        clear:both;
+    }
+}

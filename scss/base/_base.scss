@@ -2,6 +2,14 @@
  * Base
  */
 
+ $font-base:        'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+ $font-size-base:   1.6em !default; // == 16px ( relative to 62.5% font-size )
+ $font-weight-base: 400 !default;
+ $line-height-base: 1.5 !default;
+ $color-base:       #333333 !default;
+ $bgcolor-base:     #ffffff !default;
+ $font-smoothing:   true !default;
+
 // The width is not affected by padding or border
 *,
 *:after,
@@ -12,8 +20,8 @@
 // Font size based on 62.5% to have a convenient way to set sizes
 html {
     font-size: 62.5%;
-    @if $use-font-smoothing == true {
-        @include font-smoothing($use-font-smoothing);
+    @if $font-smoothing == true {
+        @include font-smoothing($font-smoothing);
     }
 }
 

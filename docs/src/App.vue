@@ -1,27 +1,29 @@
 <template>
-	<div class="columns">
-		<aside class="column sidebar">
-			<div class="sidebar__content">
-				<logo class="mb-20" height="32"/>
-				<ul class="list-unstyle">
-					<li v-for="(item, index) in listing">
-						<router-link :to="`${item.route}`">{{item.name}}</router-link>
-						<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
-							<li v-for="subItem in item.subMenu">
-								<template v-if="subItem.route.indexOf('#') > -1">
-									<a :href="subItem.route">{{subItem.name}}</a>
-								</template>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</aside>
-		<div class="column">
-			<div class="content">
-				<transition name="fade" mode="out-in">
-					<router-view :key="$route.path"></router-view>
-				</transition>
+	<div>
+		<span class="hamburger" @click="toggleMenu()"></span>
+		<div class="columns" :class="{ slide: isMenuOpen }">
+			<aside class="column sidebar">
+				<div class="sidebar__content">
+					<ul class="list-unstyle text-strong">
+						<li class="mb-10" v-for="(item, index) in listing">
+							<router-link :to="`${item.route}`">{{item.name}}</router-link>
+							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
+								<li v-for="subItem in item.subMenu">
+									<template v-if="subItem.route.indexOf('#') > -1">
+										<a :href="subItem.route">{{subItem.name}}</a>
+									</template>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<div class="column">
+				<div class="content">
+					<transition name="fade" mode="out-in">
+						<router-view :key="$route.path"></router-view>
+					</transition>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -29,6 +31,7 @@
 
 <script>
 import logo from 'docs/logo'
+
 export default {
 	name: 'Loop',
 	components: {
@@ -100,6 +103,11 @@ export default {
 				]
 			},
 			{
+				name: 'Button',
+				route: 'button',
+				subMenu: []
+			},
+			{
 				name: 'Text Utilities',
 				route: 'text-utilities',
 				subMenu: [
@@ -120,6 +128,10 @@ export default {
 						route: '#transforms'
 					},
 					{
+						name: 'Styles',
+						route: '#styles'
+					},
+					{
 						name: 'Families',
 						route: '#families'
 					}
@@ -130,13 +142,33 @@ export default {
 				route: 'spacing',
 				subMenu: []
 			},
+			{
+				name: 'Float',
+				route: 'float',
+				subMenu: [
+					{
+						name: 'Clearfix',
+						route: '#clearfix'
+					},
+					{
+						name: 'Clear',
+						route: '#clear'
+					},
+				]
+			},
 		],
+		isMenuOpen: false,
 	}),
 	computed: {
 		isFront () {
 			return ['/','/introduction'].indexOf(this.$route.path) > -1
 				? true
 				: false
+		}
+	},
+	methods: {
+		toggleMenu() {
+			this.isMenuOpen = !this.isMenuOpen
 		}
 	}
 }
@@ -149,10 +181,9 @@ export default {
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
-	$sidebar-size: 220px;
+	$sidebar-size: 250px;
 
 	.sidebar {
-
 		top: 0;
 		position: sticky;
 		margin-left: calc(-#{$sidebar-size} + #{$layout-padding});
@@ -160,32 +191,83 @@ export default {
 		max-width: 	$sidebar-size;
 		height: 100vh;
 
-		background-color: #f7f7f7;
+		box-shadow: -16px 0 0 16px $bgcolor-base, 1px 0 16px 0 #cdcdcd;
+
 		transition: margin 300ms ease-in-out;
 
-		@include breakpoint(sm) { margin-left: 0; }
+		.slide & { margin-left: 0; }
 
-		&__content { padding: $layout-padding; }
+		@include breakpoint(sm) {
+			margin-left: 0;
+			.slide & { margin-left: calc(-#{$sidebar-size} + #{$layout-padding}); }
+		}
+
+		&__content {
+			padding: ($layout-padding * 2.5) $layout-padding $layout-padding;
+		}
+
 	}
 
-	.content { padding-right: $layout-padding; }
+	.content {
+		padding-right: $layout-padding;
+		padding-left: $layout-padding;
 
-    .fade-enter-active, .fade-leave-active {
+		.slide & {
+			white-space: nowrap;
+			overflow: hidden;
+			@include breakpoint(sm) {
+				white-space: normal;
+				overflow: auto;
+			}
+		}
+	}
+
+    .fade-enter-active,
+	.fade-leave-active {
         transition: opacity 300ms cubic-bezier(0.85, 1, 0.16, 0.6);
     }
-    .fade-enter, .fade-leave-to{
+    .fade-enter,
+	.fade-leave-to{
         opacity: 0;
     }
 
     .title {
     	font-size: 4rem;
-        font-weight: 100;
-		letter-spacing: 0;
+		font-weight: 700;
 		text-align: center;
 
 		@include breakpoint(sm) {
-			font-size: 7rem;
+			font-size: 6rem;
 			text-align: left;
 		}
     }
+
+	.hamburger {
+		position: fixed;
+		top: 1rem;
+		left: 1rem;
+		z-index: 5;
+		display: block;
+		width: 20px;
+		height: 12px;
+
+		border-top: 3px solid $color-base;
+		border-bottom: 3px solid $color-base;
+		background-color: $color-primary;
+		outline: solid 3px $color-primary;
+
+		cursor: pointer;
+
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+
+			display: block;
+			content: '';
+			border-top: 3px solid $color-base;
+			transform: translateY(-50%);
+		}
+	}
 </style>

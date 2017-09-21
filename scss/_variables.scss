@@ -1,16 +1,99 @@
 /**
- * Global Variables
+ * Variables
+ * Change at your own will
  */
 
-$color-primary:   #89b903 !default;
-$color-secondary: #254F67 !default;
+/**
+ * Breakpoints
+ */
+ $breakpoints: (
+ 	xs: 480px,  // min width
+    sm: 600px,  // min width
+    md: 960px,  // min width
+    lg: 1280px, // min width
+ ) !default;
 
-$font-base:        'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
-$font-size-base:   1.6em !default; // == 16px ( relative to 62.5% font-size )
-$font-weight-base: 400 !default;
-$line-height-base: 1.5 !default;
-$color-base:       #333333 !default;
-$bgcolor-base:     #ffffff !default;
-$use-font-smoothing: true !default;
+ $breakpoints-classes: (sm, md, lg) !default; // used in the project
 
-$font-secondary:   'Georgia', times, serif !default;
+
+/**
+ * Body Base
+ */
+ $font-base:        'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+ $font-size-base:   1.6em !default; // == 16px ( relative to 62.5% font-size )
+ $font-weight-base: 400 !default;
+ $line-height-base: 1.5 !default;
+ $color-base:       #333333 !default;
+ $bgcolor-base:     #ffffff !default;
+ $font-smoothing:   true !default;
+
+ $font-secondary:   'Georgia', times, serif !default;
+
+ /**
+ * Colors
+ */
+ $colors: (
+    'primary':  #1cd8cf,
+    'secondary':  #254F67,
+ ) !default;
+ $color-primary:   #1cd8cf !default;
+ $color-secondary: #254F67 !default;
+
+
+/**
+ * Typography
+ */
+ $heading-color:           $color-base !default;
+ $heading-font-family:     $font-base !default;
+ $heading-font-weight:     500 !default;
+ $heading-line-height:     1.125 !default;
+ $heading-margin-top:      .2em !default;
+ $heading-margin-bottom:   .45em !default;
+
+ $h1-font-size: 4.6rem !default;
+ $h2-font-size: 3.6rem !default;
+ $h3-font-size: 2.8rem !default;
+ $h4-font-size: 2.2rem !default;
+ $h5-font-size: 1.8rem !default;
+ $h6-font-size: 1.6rem !default;
+
+ $heading-letter-spacing: -.1rem !default;
+ $heading-letter-spacing-list: (h1, h2, h3) !default; // set empty if not needed
+
+ $paragraph-margin-bottom: 1.8rem !default;
+
+ $anchor-color:             $color-primary !default;
+ $anchor-color-hover:       $color-secondary !default;
+ $anchor-text-decoration:   none !default;
+
+
+/**
+ * Container
+ */
+ $container-gutter: 1.6rem !default;
+ $container-gutter-sm: 2.4rem !default;
+ $containers-max-width: 1080px !default;
+
+
+/**
+ * Columns
+ */
+ $columns-gutter: 2.4rem !default;
+ $columns-system: 12 !default;
+
+ $use-columns-order:          true !default;
+ $use-columns-offset:         false !default;
+ $use-columns-alignment:      true !default;
+ $use-columns-self-alignment: true !default;
+
+/**
+ * Code
+ */
+ $code-bgcolor:         #f5f5f5 !default;
+ $code-color:           $color-base !default;
+ $code-highlight-color: #d85b43 !default;
+
+/**
+ * Float utilities
+ */
+ $float-breakpoints: $breakpoints-classes !default;

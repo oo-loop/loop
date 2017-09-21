@@ -5,8 +5,10 @@ import Intro from 'docs/introduction'
 import Type from 'docs/type'
 import Column from 'docs/column'
 import Grid from 'docs/grid'
+import Button from 'docs/button'
 import TextUtilities from 'docs/text-utilities'
 import Spacing from 'docs/spacing'
+import Float from 'docs/float'
 
 Vue.use(Router)
 
@@ -35,6 +37,11 @@ export default new Router({
 			component: Grid
 		},
 		{
+			path: '/button',
+			name: 'button',
+			component: Button
+		},
+		{
 			path: '/text-utilities',
 			name: 'text-utilities',
 			component: TextUtilities
@@ -43,6 +50,11 @@ export default new Router({
 			path: '/spacing',
 			name: 'spacing',
 			component: Spacing
+		},
+		{
+			path: '/float',
+			name: 'float',
+			component: Float
 		}
 	]
 })
