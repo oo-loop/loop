@@ -27,6 +27,9 @@ pre {
     overflow: auto;
 
 	& > code {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
         color:  $code-color;
         white-space: pre;
 		border-radius: 0;

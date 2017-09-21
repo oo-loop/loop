@@ -17,7 +17,6 @@
 
 <style lang="scss">
     @import '~loop/variables';
-    @import '~loop/base/code';
     @import '~prettify/src/prettify.css';
 
     pre.prettyprint {
@@ -28,7 +27,7 @@
 
         .tag,
         .atn,
-        .pun { color: $color-primary }
+        .pun { color: darken($color-primary, 10%) }
         .atv { color: $code-highlight-color }
         .pln {
             color: $code-color;
@@ -40,7 +39,7 @@
         }
 
         &.language-css {
-            .str { color: $color-primary; }
+            .str { color: darken($color-primary, 10%) }
             .pun,
             .pun + .pln,
             .kwd { color: #4198e2 }

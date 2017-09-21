@@ -1,5 +1,5 @@
 <template>
-    <code class="text-primary text-strong">&lt;<slot />&gt;</code>
+    <code class="text-strong">&lt;<slot />&gt;</code>
 </template>
 
 <script>
@@ -8,5 +8,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    @import '~loop/variables';
+    code { color: darken($color-primary, 10%) }
 </style>
