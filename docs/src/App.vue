@@ -120,6 +120,10 @@ export default {
 						route: '#transforms'
 					},
 					{
+						name: 'Styles',
+						route: '#styles'
+					},
+					{
 						name: 'Families',
 						route: '#families'
 					}

@@ -34,10 +34,16 @@
 		<p class="text-capitalize">This is a capitalize text</p>
 		<pretty-code :code="html.textTransforms"></pretty-code>
 
+		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
+		<p>Change the style of the text through the class <code>.text-italic</code>
+		<br>The variable <code class="text-info">$font-styles</code> is available if you want to change the options.</p>
+		<p class="text-italic">This is an italic text.</p>
+		<pretty-code :code="html.fontStyles"></pretty-code>
+
 		<h3 id="families"><a href="#families">#</a> Families</h3>
 		<p>Set the font family of your text through the classes <code>.font-base</code> <code>.font-secondary</code>.<br>Modify the list of <code class="text-info">$font-families</code> at your convenience.</p>
-		<p class="font-secondary">This paragraph is using a serif font set as secondary</p>
 		<pretty-code class="language-css" :code="html.fontFamilies"></pretty-code>
+		<p class="font-secondary">This paragraph is using a serif font set as secondary</p>
 		<pretty-code :code="html.fontFamiliesSample"></pretty-code>
 
 	</div>
@@ -61,6 +67,7 @@ export default {
 			textAlignmentsResponsive: require('./code/text-alignments-responsive.html'),
 			textAlignmentsSample: require('./code/text-alignments-sample.html'),
 			textTransforms: require('./code/text-transforms.html'),
+			fontStyles: require('./code/font-styles.html'),
 			fontFamilies: require('./code/font-families.html'),
 			fontFamiliesSample: require('./code/font-families-sample.html'),
 		}

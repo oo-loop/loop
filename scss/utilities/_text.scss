@@ -47,7 +47,7 @@ $text-decorations-addon: () !default;
 $text-decorations-breakpoints: () !default;
 
 // Font style
-$font-style: (
+$font-styles: (
     'italic', // text-italic
 ) !default;
 $font-style-addon: () !default;
@@ -83,8 +83,8 @@ $font-families-breakpoints: () !default;
 @include loopBreakpoints($text-decorations-breakpoints, $text-decorations, 'text', 'text-decoration', $text-decorations-addon);
 
 // Font Style
-@include loop($font-style, 'text', 'font-style', $font-style-addon);
-@include loopBreakpoints($font-style-breakpoints, $font-style, 'text', 'font-style', $font-style-addon);
+@include loop($font-styles, 'text', 'font-style', $font-style-addon);
+@include loopBreakpoints($font-style-breakpoints, $font-styles, 'text', 'font-style', $font-style-addon);
 
 // Font Family
 @include loop($font-families, 'font', 'font-family', $font-families-addon);
