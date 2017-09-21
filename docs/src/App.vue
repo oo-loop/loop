@@ -1,8 +1,8 @@
 <template>
 	<div class="columns">
 		<aside class="column sidebar">
+			<span class="hamburger mt-10"></span>
 			<div class="sidebar__content">
-				<logo class="mb-20" height="32"/>
 				<ul class="list-unstyle">
 					<li v-for="(item, index) in listing">
 						<router-link :to="`${item.route}`">{{item.name}}</router-link>
@@ -130,6 +130,20 @@ export default {
 				route: 'spacing',
 				subMenu: []
 			},
+			{
+				name: 'Float',
+				route: 'float',
+				subMenu: [
+					{
+						name: 'Clearfix',
+						route: '#clearfix'
+					},
+					{
+						name: 'Clear',
+						route: '#clear'
+					},
+				]
+			},
 		],
 	}),
 	computed: {
@@ -149,7 +163,7 @@ export default {
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
-	$sidebar-size: 220px;
+	$sidebar-size: 280px;
 
 	.sidebar {
 
@@ -170,15 +184,17 @@ export default {
 
 	.content { padding-right: $layout-padding; }
 
-    .fade-enter-active, .fade-leave-active {
+    .fade-enter-active,
+	.fade-leave-active {
         transition: opacity 300ms cubic-bezier(0.85, 1, 0.16, 0.6);
     }
-    .fade-enter, .fade-leave-to{
+    .fade-enter,
+	.fade-leave-to{
         opacity: 0;
     }
 
     .title {
-    	font-size: 4rem;
+    	font-size: 4.5rem;
         font-weight: 100;
 		letter-spacing: 0;
 		text-align: center;
@@ -188,4 +204,25 @@ export default {
 			text-align: left;
 		}
     }
+
+	.hamburger {
+		position: relative;
+		display: block;
+		width: 24px;
+		height: 14px;
+		border-top: 2px solid $color-base;
+		border-bottom: 2px solid $color-base;
+
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+
+			display: block;
+			content: '';
+			border-top: 2px solid $color-base;
+			transform: translateY(-50%);
+		}
+	}
 </style>

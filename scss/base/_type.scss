@@ -27,6 +27,7 @@ $heading-font-sizes: (
 );
 
 // Heading allowing letter spacing
+$heading-letter-spacing: -.1rem !default;
 $heading-letter-spacing-list: (h1, h2, h3) !default;
 
 // Paragraph
@@ -49,7 +50,7 @@ $anchor-text-decoration:   none !default;
         // add letter spacing for specific, if the font-weight is bold enough
         @if inArray($heading, $heading-letter-spacing-list)
             and inArray($heading-font-weight, (700, 800, 900, bold, bolder)) {
-                letter-spacing: -.1rem;
+                letter-spacing: $heading-letter-spacing;
         }
 
         //add font family rules if different

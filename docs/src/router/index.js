@@ -7,6 +7,7 @@ import Column from 'docs/column'
 import Grid from 'docs/grid'
 import TextUtilities from 'docs/text-utilities'
 import Spacing from 'docs/spacing'
+import Float from 'docs/float'
 
 Vue.use(Router)
 
@@ -43,6 +44,11 @@ export default new Router({
 			path: '/spacing',
 			name: 'spacing',
 			component: Spacing
+		},
+		{
+			path: '/float',
+			name: 'float',
+			component: Float
 		}
 	]
 })
