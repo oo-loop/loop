@@ -227,6 +227,7 @@ export default {
 
     .title {
     	font-size: 4rem;
+		font-weight: 700;
 		text-align: center;
 
 		@include breakpoint(sm) {
@@ -243,8 +244,11 @@ export default {
 		display: block;
 		width: 20px;
 		height: 12px;
+
 		border-top: 3px solid $color-base;
 		border-bottom: 3px solid $color-base;
+		background-color: $color-primary;
+		outline: solid 3px $color-primary;
 
 		cursor: pointer;
 
