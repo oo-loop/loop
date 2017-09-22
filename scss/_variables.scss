@@ -32,13 +32,24 @@
  /**
  * Colors
  */
- $colors: (
-    'primary':  #1cd8cf,
-    'secondary':  #254F67,
- ) !default;
  $color-primary:   #1cd8cf !default;
  $color-secondary: #254F67 !default;
 
+ $colors: (
+    'primary':    $color-primary,
+    'secondary':  $color-secondary,
+    'success':    #8cc63f,
+    'warning':    #fbb03b,
+    'danger':     #f50000,
+) !default;
+
+$colors_classes: (
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+) !default;
 
 /**
  * Typography

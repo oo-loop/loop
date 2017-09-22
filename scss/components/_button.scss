@@ -1,17 +1,13 @@
 /**
  * Button
  */
-$btn-colors: (
-    'primary',
-    'secondary'
-) !default;
+$btn-colors: $colors_classes !default;
 
-$btn-color:          #fff !default;
+$btn-color:          $color-base !default;
 $btn-color-hover:    $btn-color !default;
-// $btn-bgcolor:        $color-primary !default;
-// $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
-// $btn-bgcolor-active: darken($btn-bgcolor, 15%) !default;
-
+$btn-bgcolor:        #fff !default;
+$btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
+$btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
 
 $btn-font-weight:    700 !default;
 $btn-padding:        .415em 1.2em !default; // relative to the size of the button
@@ -19,7 +15,7 @@ $btn-text-transform: uppercase !default;
 $btn-border-radius:  .2em !default; // relative to the size of the button
 $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
-.btn {
+.button {
     padding: $btn-padding;
 
     display: inline-block;
@@ -35,6 +31,7 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
     white-space: nowrap;
 
     border-radius: $btn-border-radius;
+    background-color: $btn-bgcolor;
     box-shadow: $btn-box-shadow;
 
     cursor: pointer;
@@ -45,25 +42,43 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
     &:hover,
     &:focus {
         color: $btn-color-hover;
+        background-color: $btn-bgcolor-hover;
     }
 
     &:active {
-        box-shadow: none;
+        background-color: $btn-bgcolor-active;
+        box-shadow: inset $btn-box-shadow;
+        transform: scale(.96);
     }
 
     @each $color in $btn-colors {
-        $selector: if($color == 'primary', '', #{'.-'}#{$color});
+        $color_value: map-get($colors, $color);
+        &.-#{$color} {
+            background-color: $color_value;
+            // @debug(hue($color_value));
+            // @debug(lightness($color_value));
+            // @debug(saturation($color_value));
+            // @debug('--');
+            // @debug(grayscale($color_value));
+            @debug(hue(grayscale($color_value)));
+            @debug(lightness(grayscale($color_value)));
+            @debug(saturation(grayscale($color_value)));
+            @debug('---------');
 
-        &#{$selector} {
-            background-color: map-get($colors, $color);
+            @if lightness($color_value) > 50% {
+                color: if(saturation($color_value) < percentage(7.7525/10), #fff, $color-base);
+            } @else {
+                color: #fff;
+            }
+
 
             &:hover,
             &:focus {
-                background-color: darken(map-get($colors, $color), 10%);
+                background-color: darken($color_value, 10%);
             }
 
             &:active {
-                background-color: darken(map-get($colors, $color), 15%);
+                background-color: darken($color_value, 12%);
             }
         }
     }
