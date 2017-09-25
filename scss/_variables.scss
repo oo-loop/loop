@@ -29,6 +29,7 @@
 
  $font-secondary:   'Georgia', times, serif !default;
 
+
  /**
  * Colors
  */
@@ -41,17 +42,16 @@
     'success':    #8cc63f,
     'warning':    #fbb03b,
     'danger':     #f72828,
-    'test': #ffd761,
 ) !default;
 
-$colors_classes: (
+ $colors_classes: (
     'primary',
     'secondary',
     'success',
     'warning',
     'danger',
-    'test',
-) !default;
+ ) !default;
+
 
 /**
  * Typography
@@ -111,10 +111,11 @@ $colors_classes: (
  */
  $float-breakpoints: $breakpoints-classes !default;
 
+
 /**
  * Button
  */
- $btn-colors:         $colors_classes !default;
+ $btn-colors-list:    $colors_classes !default;
 
  $btn-color:          $color-base !default;
  $btn-color-hover:    $btn-color !default;

@@ -1,7 +1,7 @@
 /**
  * Button
  */
-$btn-colors:         $colors_classes !default;
+$btn-colors-list:    $colors_classes !default;
 
 $btn-color:          $color-base !default;
 $btn-color-hover:    $btn-color !default;
@@ -51,19 +51,21 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
         transform: scale(.97);
     }
 
-    @each $color in $btn-colors {
-        $color_value: map-get($colors, $color);
-        &.-#{$color} {
-            background-color: $color_value;
-            color: if(isBright($color_value), $color-base, #fff);
+    @if type-of($btn-colors-list) == 'list' {
+        @each $color in $btn-colors-list {
+            $color_value: map-get($colors, $color);
+            &.-#{$color} {
+                background-color: $color_value;
+                color: if(isBright($color_value), $color-base, #fff);
 
-            &:hover,
-            &:focus {
-                background-color: darken($color_value, 10%);
-            }
-            &:active {
-                background-color: darken($color_value, 12%);
-                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
+                &:hover,
+                &:focus {
+                    background-color: darken($color_value, 10%);
+                }
+                &:active {
+                    background-color: darken($color_value, 12%);
+                    box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
+                }
             }
         }
     }
