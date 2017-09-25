@@ -3,7 +3,7 @@
  */
 
 // vertical spacing
-
+$use-v-spacing: true !default;
 $v-spacing-step: 5 !default;
 $v-spacing-limit: 50 !default;
 $v-spacing-addon: () !default;
@@ -24,11 +24,12 @@ $v-spacing-addons: ();
     }
 }
 
-@include loop($v-spacing, 'mt', 'margin-top', $v-spacing-addons, true);
-@include loopBreakpoints($v-spacing-breakpoints, $v-spacing, 'mt', 'margin-top', $v-spacing-addons, true);
-@include loop($v-spacing, 'mb', 'margin-bottom', $v-spacing-addons, true);
-@include loopBreakpoints($v-spacing-breakpoints, $v-spacing, 'mb', 'margin-bottom', $v-spacing-addons, true);
-
+@if ($use-v-spacing) {
+    @include loop($v-spacing, 'mt', 'margin-top', $v-spacing-addons, true);
+    @include loopBreakpoints($v-spacing-breakpoints, $v-spacing, 'mt', 'margin-top', $v-spacing-addons, true);
+    @include loop($v-spacing, 'mb', 'margin-bottom', $v-spacing-addons, true);
+    @include loopBreakpoints($v-spacing-breakpoints, $v-spacing, 'mb', 'margin-bottom', $v-spacing-addons, true);
+}
 
 // horizontal spacing
 
