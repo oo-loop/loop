@@ -40,7 +40,8 @@
     'secondary':  $color-secondary,
     'success':    #8cc63f,
     'warning':    #fbb03b,
-    'danger':     #f50000,
+    'danger':     #f72828,
+    'test': #ffd761,
 ) !default;
 
 $colors_classes: (
@@ -49,6 +50,7 @@ $colors_classes: (
     'success',
     'warning',
     'danger',
+    'test',
 ) !default;
 
 /**
@@ -108,3 +110,20 @@ $colors_classes: (
  * Float utilities
  */
  $float-breakpoints: $breakpoints-classes !default;
+
+/**
+ * Button
+ */
+ $btn-colors:         $colors_classes !default;
+
+ $btn-color:          $color-base !default;
+ $btn-color-hover:    $btn-color !default;
+ $btn-bgcolor:        #fff !default;
+ $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
+ $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
+
+ $btn-font-weight:    700 !default;
+ $btn-padding:        .415em 1.2em !default; // relative to the size of the button
+ $btn-text-transform: uppercase !default;
+ $btn-border-radius:  .2em !default; // relative to the size of the button
+ $btn-box-shadow:     1px 1px 1px 0 #999 !default;

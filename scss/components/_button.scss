@@ -1,7 +1,7 @@
 /**
  * Button
  */
-$btn-colors: $colors_classes !default;
+$btn-colors:         $colors_classes !default;
 
 $btn-color:          $color-base !default;
 $btn-color-hover:    $btn-color !default;
@@ -47,38 +47,23 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
     &:active {
         background-color: $btn-bgcolor-active;
-        box-shadow: inset $btn-box-shadow;
-        transform: scale(.96);
+        box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
+        transform: scale(.97);
     }
 
     @each $color in $btn-colors {
         $color_value: map-get($colors, $color);
         &.-#{$color} {
             background-color: $color_value;
-            // @debug(hue($color_value));
-            // @debug(lightness($color_value));
-            // @debug(saturation($color_value));
-            // @debug('--');
-            // @debug(grayscale($color_value));
-            @debug(hue(grayscale($color_value)));
-            @debug(lightness(grayscale($color_value)));
-            @debug(saturation(grayscale($color_value)));
-            @debug('---------');
-
-            @if lightness($color_value) > 50% {
-                color: if(saturation($color_value) < percentage(7.7525/10), #fff, $color-base);
-            } @else {
-                color: #fff;
-            }
-
+            color: if(isBright($color_value), $color-base, #fff);
 
             &:hover,
             &:focus {
                 background-color: darken($color_value, 10%);
             }
-
             &:active {
                 background-color: darken($color_value, 12%);
+                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
             }
         }
     }
