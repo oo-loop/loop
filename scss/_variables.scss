@@ -30,7 +30,7 @@
  $font-secondary:   'Georgia', times, serif !default;
 
 
- /**
+/**
  * Colors
  */
  $color-primary:   #1cd8cf !default;
@@ -99,12 +99,14 @@
  $use-columns-alignment:      true !default;
  $use-columns-self-alignment: true !default;
 
+
 /**
  * Code
  */
  $code-bgcolor:         #f5f5f5 !default;
  $code-color:           $color-base !default;
  $code-highlight-color: #d85b43 !default;
+
 
 /**
  * Float utilities

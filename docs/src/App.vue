@@ -105,7 +105,16 @@ export default {
 			{
 				name: 'Button',
 				route: 'button',
-				subMenu: []
+				subMenu: [
+					{
+						name: 'Sizes',
+						route: '#sizes'
+					},
+					{
+						name: 'Colors',
+						route: '#colors'
+					},
+				]
 			},
 			{
 				name: 'Text Utilities',

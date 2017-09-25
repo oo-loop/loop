@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<h1 class="title">Button</h1>
+		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
 		<p>Alter the size of the button by applying any of the <code class="text-info">$text-sizes</code> classes on your <code>.button</code></p>
 		<p>
 		<a class="button text-tiny">tiny</a>
@@ -10,6 +11,7 @@
 		</p>
 		<pretty-code :code="html.size"></pretty-code>
 
+		<h3 id="colors"><a href="#colors">#</a> Colors</h3>
 		<p>Change the color of the button through the modifiers <code>-$colorname</code> present in the variable <code class="text-info">$btn-colors</code>.<br>
 		By default <code>-primary</code> <code>-secondary</code> <code>-success</code> <code>-warning</code> <code>-danger</code></p>
 
