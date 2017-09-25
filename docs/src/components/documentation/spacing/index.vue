@@ -2,52 +2,171 @@
 	<div>
 		<h1 class="title">Spacing</h1>
 		<p class="text-large">Utilities to space out elements from each others.</p>
+
+		<h3 id="vertical"><a href="#vertical">#</a> Vertical</h3>
 		<p>Two types of classes are available, <code>.mt-*</code> (margin-top) and <code>.mb-*</code> (margin-bottom).<br>
 		It is based on pixels to give a better understanding of the space representation. 11 values are available through 0 to 50 for both top and bottom.</p>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-0</code></div>
-			<div class="col">margin-top: 0;</div>
+		<div class="columns">
+			<div class="column-12 -self-adjust@sm">
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-0</code></div>
+					<div class="column">margin-top: 0;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-5</code></div>
+					<div class="column">margin-top: 5px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-10</code></div>
+					<div class="column">margin-top: 10px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-15</code></div>
+					<div class="column">margin-top: 15px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-20</code></div>
+					<div class="column">margin-top: 20px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-25</code></div>
+					<div class="column">margin-top: 25px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-30</code></div>
+					<div class="column">margin-top: 30px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-35</code></div>
+					<div class="column">margin-top: 35px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-40</code></div>
+					<div class="column">margin-top: 40px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-45</code></div>
+					<div class="column">margin-top: 45px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mt-50</code></div>
+					<div class="column">margin-top: 50px;</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-0</code></div>
+					<div class="column">margin-bottom: 0;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-5</code></div>
+					<div class="column">margin-bottom: 5px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-10</code></div>
+					<div class="column">margin-bottom: 10px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-15</code></div>
+					<div class="column">margin-bottom: 15px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-20</code></div>
+					<div class="column">margin-bottom: 20px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-25</code></div>
+					<div class="column">margin-bottom: 25px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-30</code></div>
+					<div class="column">margin-bottom: 30px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-35</code></div>
+					<div class="column">margin-bottom: 35px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-40</code></div>
+					<div class="column">margin-bottom: 40px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-45</code></div>
+					<div class="column">margin-bottom: 45px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mb-50</code></div>
+					<div class="column">margin-bottom: 50px;</div>
+				</div>
+			</div>
 		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-5</code></div>
-			<div class="col">margin-top: 5px;</div>
+
+		<h3 id="horizontal"><a href="#horizontal">#</a> Horizontal</h3>
+		<p>Two types of classes are available, <code>.ml-*</code> (margin-left) and <code>.mr-*</code> (margin-right).<br>
+		It is based on pixels to give a better understanding of the space representation. 6 values are available through 0 to 25 for both left and right.</p>
+
+		<div class="columns">
+			<div class="column-12 -self-adjust@sm">
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.ml-0</code></div>
+					<div class="column">margin-left: 0;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.ml-5</code></div>
+					<div class="column">margin-left: 5px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.ml-10</code></div>
+					<div class="column">margin-left: 10px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.ml-15</code></div>
+					<div class="column">margin-left: 15px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.ml-20</code></div>
+					<div class="column">margin-left: 20px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.ml-25</code></div>
+					<div class="column">margin-left: 25px;</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mr-0</code></div>
+					<div class="column">margin-right: 0;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mr-5</code></div>
+					<div class="column">margin-right: 5px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mr-10</code></div>
+					<div class="column">margin-right: 10px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mr-15</code></div>
+					<div class="column">margin-right: 15px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mr-20</code></div>
+					<div class="column">margin-right: 20px;</div>
+				</div>
+				<div class="columns -gutter-tiny">
+					<div class="column -self-adjust"><code>.mr-25</code></div>
+					<div class="column">margin-right: 25px;</div>
+				</div>
+			</div>
 		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-10</code></div>
-			<div class="col">margin-top: 10px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-15</code></div>
-			<div class="col">margin-top: 15px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-20</code></div>
-			<div class="col">margin-top: 20px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-25</code></div>
-			<div class="col">margin-top: 25px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-30</code></div>
-			<div class="col">margin-top: 30px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-35</code></div>
-			<div class="col">margin-top: 35px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-40</code></div>
-			<div class="col">margin-top: 40px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-45</code></div>
-			<div class="col">margin-top: 45px;</div>
-		</div>
-		<div class="row -gap-tiny">
-			<div class="col -slim"><code>.mt-50</code></div>
-			<div class="col">margin-top: 50px;</div>
-		</div>
+
+		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
+		<p>Need to have different spaces for responsive purpose?<br>Add the necessary breakpoints to the list <code class="text-info">$v-spacing-breakpoints</code> and <code class="text-info">$h-spacing-breakpoints</code><br>and use classes such as <code>.mt-5@sm</code> <code>.mb-10@md</code> <code>.ml-15@lg</code> <code>.mr-15@lg</code></p>
+		<pretty-code class="language-css" :code="html.responsive"></pretty-code>
+
+		<h3 id="custom"><a href="#custom">#</a> Custom</h3>
+		<p>Add your own spacing if the list is not enough through the variables <code class="text-info">$v-spacing-addon</code> <code class="text-info">$h-spacing-addon</code></p>
+		<pretty-code class="language-css" :code="html.custom"></pretty-code>
 	</div>
 </template>
 
@@ -60,7 +179,10 @@ export default {
 		prettyCode
 	},
 	data: () => ({
-		html: {}
+		html: {
+			responsive: require('./code/responsive.html'),
+			custom: require('./code/custom.html'),
+		}
 	}),
 	methods: {
 	}

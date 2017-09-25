@@ -82,13 +82,21 @@ $columns-gutter-sizes: (
     // adjust to the size of the content
     &.-self-adjust {
         min-width: auto;
-        flex-grow: 0
+        flex-grow: 0;
+        flex-basis: auto;
     }
 
     // responsive classes
     @each $breakpoint in $breakpoints-classes {
         @include breakpoint($breakpoint) {
             $suffix: \@#{$breakpoint};
+
+            &.-self-adjust#{$suffix} {
+                min-width: auto;
+                flex-grow: 0;
+                flex-basis: auto;
+            }
+
             // order-0 to make sure it is first
             @if $use-columns-order == true {
                 &.-order-0#{$suffix} { order: -1; }
