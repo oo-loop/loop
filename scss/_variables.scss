@@ -19,15 +19,15 @@
 /**
  * Body Base
  */
- $font-base:        'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
- $font-size-base:   1.6em !default; // == 16px ( relative to 62.5% font-size )
+ $font-family-base: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+ $font-size-base:   1.6rem !default; // == 16px ( relative to 62.5% font-size )
  $font-weight-base: 400 !default;
  $line-height-base: 1.5 !default;
  $color-base:       #333333 !default;
  $bgcolor-base:     #ffffff !default;
  $font-smoothing:   true !default;
 
- $font-secondary:   'Georgia', times, serif !default;
+ $font-family-secondary: 'Georgia', times, serif !default;
 
 
 /**
@@ -57,7 +57,7 @@
  * Typography
  */
  $heading-color:           $color-base !default;
- $heading-font-family:     $font-base !default;
+ $heading-font-family:     $font-family-base !default;
  $heading-font-weight:     500 !default;
  $heading-line-height:     1.125 !default;
  $heading-margin-top:      .2em !default;
@@ -109,12 +109,6 @@
 
 
 /**
- * Float utilities
- */
- $float-breakpoints: $breakpoints-classes !default;
-
-
-/**
  * Button
  */
  $btn-colors-list:    $colors_classes !default;
@@ -125,8 +119,29 @@
  $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
  $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
 
- $btn-font-weight:    700 !default;
  $btn-padding:        .415em 1.2em !default; // relative to the size of the button
+ $btn-font-size:      $font-size-base !default;
+ $btn-font-weight:    700 !default;
  $btn-text-transform: uppercase !default;
  $btn-border-radius:  .2em !default; // relative to the size of the button
  $btn-box-shadow:     1px 1px 1px 0 #999 !default;
+
+
+ /**
+  * Spacing
+  */
+  $v-spacing-step:        5 !default;
+  $v-spacing-limit:       50 !default;
+  $v-spacing-addon:       () !default;
+  $v-spacing-breakpoints: () !default;
+
+  $h-spacing-step:        5 !default;
+  $h-spacing-limit:       25 !default;
+  $h-spacing-addon:       () !default;
+  $h-spacing-breakpoints: () !default;
+
+
+ /**
+  * Float utilities
+  */
+  $float-breakpoints: $breakpoints-classes !default;

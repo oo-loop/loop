@@ -1,0 +1,53 @@
+/**
+ * Color
+ */
+
+$input-color:            #4d4d4d !default;
+$input-bgcolor:          #fff !default;
+$input-font-family:      $font-family-base !default;
+$input-font-size:        $font-size-base !default;
+$input-line-height:      1.2 !default;
+
+$input-padding:          .5em .625em !default; // relative to the size of the input
+$input-margin:           .2rem !default;
+
+$input-border:           1px solid #d6d6d6 !default;
+$input-border-radius:    .2em !default; // relative to the size of the input
+$input-box-shadow:       1px 1px 1px 0 rgba(#999, .50) !default;
+$input-focus-box-shadow: 1px 1px 2px 0px rgba(#999, .85) !default;
+
+$label-font-weight:      500 !default;
+
+
+.input {
+    padding: $input-padding;
+    margin-top: $input-margin;
+    margin-bottom: $input-margin;
+
+    display: block;
+    width: 100%;
+
+    color: $input-color;
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+
+    border: $input-border;
+    border-radius: $input-border-radius;
+    background-color: $input-bgcolor;
+    box-shadow: $input-box-shadow;
+
+    appearance: none;
+
+    &:focus {
+        outline:none;
+        @if $input-box-shadow == none {
+            box-shadow: $input-focus-box-shadow;
+        } @elseif $input-focus-box-shadow != none {
+            box-shadow: $input-box-shadow, $input-focus-box-shadow;
+        }
+    }
+}
+
+label {
+    font-weight: $label-font-weight;
+}

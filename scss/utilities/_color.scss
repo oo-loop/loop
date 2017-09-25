@@ -7,6 +7,7 @@ $text-colors: (
     'secondary': $color-secondary,
     'color':     $color-base,
 ) !default;
+
 $text-colors-addon: () !default;
 
 $bg-colors: (
@@ -18,5 +19,5 @@ $bg-colors-addon: () !default;
 // Font colors
 @include loop($text-colors, 'text', 'color', $text-colors-addon);
 
-// bg colors
+// Bg colors
 @include loop($bg-colors, 'bg', 'background-color', $bg-colors-addon);

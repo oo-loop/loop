@@ -55,8 +55,8 @@ $font-style-breakpoints: () !default;
 
 // Set the font-family of an element => .font-*
 $font-families: (
-    'base': $font-base,
-    'secondary': $font-secondary,
+    'base': $font-family-base,
+    'secondary': $font-family-secondary,
 ) !default;
 $font-families-addon: () !default;
 $font-families-breakpoints: () !default;

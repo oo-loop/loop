@@ -103,6 +103,11 @@ export default {
 				]
 			},
 			{
+				name: 'Form',
+				route: 'form',
+				subMenu: []
+			},
+			{
 				name: 'Button',
 				route: 'button',
 				subMenu: [
@@ -149,7 +154,24 @@ export default {
 			{
 				name: 'Spacing',
 				route: 'spacing',
-				subMenu: []
+				subMenu: [
+					{
+						name: 'Vertical',
+						route: '#vertical'
+					},
+					{
+						name: 'Horizontal',
+						route: '#horizontal'
+					},
+					{
+						name: 'Responsive',
+						route: '#responsive'
+					},
+					{
+						name: 'Custom',
+						route: '#custom'
+					},
+				]
 			},
 			{
 				name: 'Float',
