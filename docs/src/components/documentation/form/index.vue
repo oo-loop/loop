@@ -15,6 +15,15 @@
 		<input class="input text-large" id="large-input" type="text">
 
 		<pretty-code :code="html.size"></pretty-code>
+
+
+		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
+
+		<input class="checkbox" id="checkbox-1" type="checkbox">
+		<label for="checkbox-1">Checkbox 1</label>
+		<input class="checkbox" id="checkbox-2" type="checkbox">
+		<label for="checkbox-2">Checkbox 2</label>
+
 	</div>
 </template>
 
