@@ -52,13 +52,12 @@ $radio-sizes:() !default;
 		}
 		&:after {
             position: absolute;
-            top: 0;
+            top: 50%;
             left: 0;
             content:'';
             background-color: $radio-checked-color;
             border-radius: 50%;
-            transform: scale(.5);
-            transform-origin: bottom;
+            transform: translateY(-50%) scale(0.5);
 		}
 	}
 
