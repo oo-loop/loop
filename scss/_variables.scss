@@ -109,6 +109,20 @@
 
 
 /**
+ * Spacing
+ */
+ $v-spacing-step:        5 !default;
+ $v-spacing-limit:       50 !default;
+ $v-spacing-addon:       () !default;
+ $v-spacing-breakpoints: () !default;
+
+ $h-spacing-step:        5 !default;
+ $h-spacing-limit:       25 !default;
+ $h-spacing-addon:       () !default;
+ $h-spacing-breakpoints: () !default;
+
+
+/**
  * Button
  */
  $btn-colors-list:    $colors_classes !default;
@@ -127,19 +141,53 @@
  $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
 
- /**
-  * Spacing
-  */
-  $v-spacing-step:        5 !default;
-  $v-spacing-limit:       50 !default;
-  $v-spacing-addon:       () !default;
-  $v-spacing-breakpoints: () !default;
+/**
+ * Form
+ */
+ $input-color:            #4d4d4d !default;
+ $input-bgcolor:          #fff !default;
+ $input-font-family:      $font-family-base !default;
+ $input-font-size:        $font-size-base !default;
+ $input-font-style:       normal !default;
+ $input-line-height:      1.15 !default;
 
-  $h-spacing-step:        5 !default;
-  $h-spacing-limit:       25 !default;
-  $h-spacing-addon:       () !default;
-  $h-spacing-breakpoints: () !default;
+ $input-padding:          .5em .625em !default; // relative to the size of the input
+ $input-margin:           .2rem !default;
 
+ $input-border-color:     #d6d6d6 !default;
+ $input-border:           1px solid $input-border-color !default;
+ $input-border-radius:    .2em !default; // relative to the size of the input
+ $input-box-shadow:       1px 1px 1px 0 rgba(#aaa, .50) !default;
+ $input-focus-box-shadow: 1px 1px 2px 0px rgba(#aaa, .85) !default;
+
+ $label-font-weight:      500 !default;
+
+ // Checkboxes
+
+ $checkbox-size:                  1.8rem !default;
+ $checkbox-bgcolor:               $input-bgcolor !default;
+ $checkbox-border-color:          $input-border-color !default;
+ $checkbox-border-radus:          $input-border-radius !default;
+ $checkbox-box-shadow:            1px 1px 2px 0 rgba(#aaa, .3) !default;
+ $checkbox-checked-color:         $input-color !default;
+ $checkbox-checked-bgcolor:       $input-bgcolor !default;
+ $checkbox-checked-border-color:  $checkbox-border-color !default;
+
+ $use-checkbox-animation: true !default;
+ $checkbox-sizes:() !default;
+
+ // Radios
+
+ $radio-size:                  $checkbox-size !default;
+ $radio-bgcolor:               $checkbox-bgcolor !default;
+ $radio-border-color:          $checkbox-border-color !default;
+ $radio-box-shadow:            $checkbox-box-shadow !default;
+ $radio-checked-color:         $input-color !default;
+ $radio-checked-bgcolor:       $radio-bgcolor !default;
+ $radio-checked-border-color:  $radio-border-color !default;
+
+ $use-radio-animation: $use-checkbox-animation !default;
+ $radio-sizes:() !default;
 
  /**
   * Float utilities

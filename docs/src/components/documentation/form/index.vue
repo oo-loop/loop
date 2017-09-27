@@ -68,6 +68,11 @@
 
 		<pretty-code :code="html.radioSizes"></pretty-code>
 
+
+		<h3 id="toggle"><a href="#toggle">#</a> Toggle</h3>
+		<p>Apply the class <code>.toggle</code>to <markup>input type="checkbox"</markup> preceding <markup>label</markup></p>
+		<input class="toggle" id="toggle-1" type="checkbox">
+		<label for="toggle-1">Toggle</label>
 	</div>
 </template>
 
