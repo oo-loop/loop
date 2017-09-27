@@ -11,7 +11,7 @@ $checkbox-checked-color:         $input-color !default;
 $checkbox-checked-bgcolor:       $input-bgcolor !default;
 $checkbox-checked-border-color:  $checkbox-border-color !default;
 
-$use-checkbox-animnation: true !default;
+$use-checkbox-animation: true !default;
 $checkbox-sizes:() !default;
 
 @mixin checkbox-size($size) {
@@ -28,7 +28,7 @@ $checkbox-sizes:() !default;
         }
         &:after {
             left: $size * 0.315;
-            @if $use-checkbox-animnation {
+            @if $use-checkbox-animation {
                 width: ($checked_width * 2);
                 height: ($checked_height * 2);
                 border-right-width: ($checked_border-width * 2);
@@ -63,7 +63,7 @@ $checkbox-sizes:() !default;
     		background-color: $checkbox-bgcolor;
             box-shadow: $checkbox-box-shadow;
 
-            @if $use-checkbox-animnation {
+            @if $use-checkbox-animation {
                 transition: background-color 300ms ease-in-out;
             }
     	}
@@ -79,7 +79,7 @@ $checkbox-sizes:() !default;
 
             transform: rotateZ(45deg);
 
-            @if $use-checkbox-animnation {
+            @if $use-checkbox-animation {
                 transition: all 200ms ease-in-out;
             }
         }
@@ -94,7 +94,7 @@ $checkbox-sizes:() !default;
             border-right-color: $checkbox-checked-color;
             border-bottom-color: $checkbox-checked-color;
 
-            @if $use-checkbox-animnation {
+            @if $use-checkbox-animation {
                 box-shadow: 1px 1px 2px $checkbox-checked-bgcolor;
             }
         }
