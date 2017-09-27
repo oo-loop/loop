@@ -3,12 +3,14 @@
  */
 
 $radio-size:                  1.8rem !default;
-$radio-bgcolor:               $input-bgcolor !default;
-$radio-border-color:          $input-border-color !default;
+$radio-bgcolor:               $checkbox-bgcolor !default;
+$radio-border-color:          $checkbox-border-color !default;
+$radio-box-shadow:            $checkbox-box-shadow !default;
 $radio-checked-color:         $input-color !default;
 $radio-checked-bgcolor:       $radio-bgcolor !default;
 $radio-checked-border-color:  $radio-border-color !default;
 
+$use-radio-animnation: $use-checkbox-animnation !default;
 $radio-sizes:() !default;
 
 @mixin radio-size($size) {
@@ -41,8 +43,9 @@ $radio-sizes:() !default;
             display: flex;
     		content:'';
     		border: 1px solid $radio-border-color;
+            border-radius: 50%;
     		background-color: $radio-bgcolor;
-    		border-radius: 50%;
+            box-shadow: $radio-box-shadow;
     	}
         &:after {
             position: absolute;
@@ -50,8 +53,10 @@ $radio-sizes:() !default;
             left: 0;
             content: '';
             border-radius: 50%;
-            transform: translateY(-50%) scale(1.5);
-            transition: all 300ms ease-in-out;
+            @if $use-radio-animnation {
+                transform: translateY(-50%) scale(1.5);
+                transition: all 300ms ease-in-out;
+            }
         }
     }
 
