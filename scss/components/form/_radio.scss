@@ -1,0 +1,72 @@
+/**
+ * Radio
+ */
+
+$radio-size:                  1.8rem !default;
+$radio-bgcolor:               $input-bgcolor !default;
+$radio-border-color:          $input-border-color !default;
+$radio-checked-color:         $input-color !default;
+$radio-checked-bgcolor:       $radio-bgcolor !default;
+$radio-checked-border-color:  $radio-border-color !default;
+
+$radio-sizes:() !default;
+
+@mixin radio-size($size) {
+    & + label {
+        margin-bottom: ($size / 3);
+        &:before {
+            margin-right: ($size / 3);
+        }
+    }
+
+    & + label:before,
+    &:checked + label:after {
+        width: $size;
+        height: $size;
+    }
+}
+
+.radio {
+    position: absolute;
+    visibility: hidden;
+
+    & + label {
+    	position: relative;
+        display: flex;
+        align-items: center;
+        font-weight: $font-weight-base;
+
+    	&:before {
+            display: flex;
+    		content:'';
+    		border: 1px solid $radio-border-color;
+    		background-color: $radio-bgcolor;
+    		border-radius: 50%;
+    	}
+    }
+
+	&:checked + label {
+		&:before {
+			background-color: $radio-checked-bgcolor;
+            border-color: $radio-checked-border-color;
+		}
+		&:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content:'';
+            background-color: $radio-checked-color;
+            border-radius: 50%;
+            transform: scale(.5);
+            transform-origin: bottom;
+		}
+	}
+
+    @include radio-size($radio-size);
+
+    @if type-of($radio-sizes) == 'map' {
+        @each $size_name, $size_value in $radio-sizes {
+            &.-#{$size_name} { @include radio-size($size_value) }
+        }
+    }
+}

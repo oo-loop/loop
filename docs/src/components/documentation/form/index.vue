@@ -1,6 +1,9 @@
 <template>
 	<div>
 		<h1 class="title">Form</h1>
+		<p class="text-large">Form components</p>
+
+		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>Apply the class <code>.input</code> to format the appearance of the textfield.<br>
 		Alter the size of the input by applying any of the <code class="text-info">$text-sizes</code> classes available</p>
 		<label for="tiny-input">Tiny input</label>
@@ -9,8 +12,8 @@
 		<label for="small-input">Small input</label>
 		<input class="input text-small mb-15" id="small-input" type="text">
 
-		<label for="input">Input</label>
-		<input class="input mb-15" id="input" type="text">
+		<label for="default-input">Input</label>
+		<input class="input mb-15" id="default-input" type="text">
 
 		<label for="large-input">Large input</label>
 		<input class="input text-large" id="large-input" type="text">
@@ -19,7 +22,7 @@
 
 
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
-		<p>Apply the class <code>.checkbox</code>to an <markup>input type="checkbox"</markup> preceding a <markup>label</markup></p>
+		<p>Apply the class <code>.checkbox</code>to <markup>input type="checkbox"</markup> preceding <markup>label</markup></p>
 		<input class="checkbox" id="checkbox-1" type="checkbox">
 		<label for="checkbox-1">Checkbox 1</label>
 		<input class="checkbox" id="checkbox-2" type="checkbox">
@@ -39,6 +42,14 @@
 		<label for="checkbox-large-2">Checkbox large 2</label>
 
 		<pretty-code :code="html.checkboxSizes"></pretty-code>
+
+		<h3 id="radio"><a href="#radio">#</a> Radio</h3>
+		<p>Apply the class <code>.radio</code>to <markup>input type="radio"</markup> preceding <markup>label</markup></p>
+		<input class="radio" id="radio-1" type="radio" name="radio">
+		<label for="radio-1">Radio 1</label>
+		<input class="radio" id="radio-2" type="radio" name="radio">
+		<label for="radio-2">Radio 2</label>
+		<pretty-code :code="html.radio"></pretty-code>
 
 	</div>
 </template>
