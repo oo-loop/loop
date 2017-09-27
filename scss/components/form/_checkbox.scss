@@ -80,7 +80,7 @@ $checkbox-sizes:() !default;
             transform: rotateZ(45deg);
 
             @if $use-checkbox-animnation {
-                transition: all 300ms ease-in-out;
+                transition: all 200ms ease-in-out;
             }
         }
     }
