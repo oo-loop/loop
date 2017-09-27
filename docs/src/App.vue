@@ -213,6 +213,10 @@ export default {
 	    'small': 1.6rem,
 	    'large': 2.4rem,
 	);
+	$radio-sizes:(
+	    'medium': 2.4rem,
+	    'large': 3.2rem,
+	);
 
 	@import '~loop/loop';
 

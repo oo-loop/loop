@@ -29,13 +29,14 @@
 		<label for="checkbox-2">Checkbox 2</label>
 		<pretty-code :code="html.checkbox"></pretty-code>
 
-		<p>Need extra sizes ? Set values to the variable <code class="text-info">$checkbox-sizes</code>. It will generate modifiers with the name of the size you created.</p>
+		<p>Need extra sizes ? Set values to the variable <code class="text-info">$checkbox-sizes</code>. It will generate modifiers with the name you created.<br>
+		Those sizes will only modify the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> or else.</p>
 		<pretty-code class="language-css" :code="html.checkboxSizesVariable"></pretty-code>
 
 		<input class="checkbox -small" id="checkbox-small-1" type="checkbox">
-		<label for="checkbox-small-1">Checkbox small 1</label>
+		<label class="text-small" for="checkbox-small-1">Checkbox small 1</label>
 		<input class="checkbox -small" id="checkbox-small-2" type="checkbox">
-		<label class="mb-15" for="checkbox-small-2">Checkbox small 2</label>
+		<label class="text-small mb-15" for="checkbox-small-2">Checkbox small 2</label>
 		<input class="checkbox -large" id="checkbox-large-1" type="checkbox">
 		<label for="checkbox-large-1">Checkbox large 1</label>
 		<input class="checkbox -large" id="checkbox-large-2" type="checkbox">
@@ -50,6 +51,22 @@
 		<input class="radio" id="radio-2" type="radio" name="radio">
 		<label for="radio-2">Radio 2</label>
 		<pretty-code :code="html.radio"></pretty-code>
+
+		<p>Need extra sizes ? Set values to the variable <code class="text-info">$radio-sizes</code>. It will generate modifiers with the name you created.<br>
+		Those sizes will only modify the radio itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> or else.</p>
+		<pretty-code class="language-css" :code="html.radioSizesVariable"></pretty-code>
+
+		<input class="radio -medium" id="radio-medium-1" type="radio" name="radio-medium">
+		<label for="radio-medium-1">Radio medium 1</label>
+		<input class="radio -medium" id="radio-medium-2" type="radio" name="radio-medium">
+		<label class="mb-15" for="radio-medium-2">Radio medium 2</label>
+
+		<input class="radio -large" id="radio-large-1" type="radio" name="radio-large">
+		<label class="text-large" for="radio-large-1">Radio large 1</label>
+		<input class="radio -large" id="radio-large-2" type="radio" name="radio-large">
+		<label class="text-large" for="radio-large-2">Radio large 2</label>
+
+		<pretty-code :code="html.radioSizes"></pretty-code>
 
 	</div>
 </template>
@@ -70,6 +87,9 @@ export default {
 			checkbox: require('./code/checkbox.html'),
 			checkboxSizesVariable: require('./code/checkbox-sizes-variable.html'),
 			checkboxSizes: require('./code/checkbox-sizes.html'),
+			radio: require('./code/radio.html'),
+			radioSizes: require('./code/radio-sizes.html'),
+			radioSizesVariable: require('./code/radio-sizes-variable.html'),
 		}
 	}),
 	methods: {

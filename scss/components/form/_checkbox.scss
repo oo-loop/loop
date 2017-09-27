@@ -40,6 +40,7 @@ $checkbox-sizes:() !default;
     	position: relative;
         display: flex;
         align-items: center;
+        line-height: 1.1;
         font-weight: $font-weight-base;
 
     	&:before {

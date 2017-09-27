@@ -34,6 +34,7 @@ $radio-sizes:() !default;
     	position: relative;
         display: flex;
         align-items: center;
+        line-height: 1.1;
         font-weight: $font-weight-base;
 
     	&:before {
@@ -43,6 +44,15 @@ $radio-sizes:() !default;
     		background-color: $radio-bgcolor;
     		border-radius: 50%;
     	}
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            content: '';
+            border-radius: 50%;
+            transform: translateY(-50%) scale(1.5);
+            transition: all 300ms ease-in-out;
+        }
     }
 
 	&:checked + label {
@@ -51,12 +61,7 @@ $radio-sizes:() !default;
             border-color: $radio-checked-border-color;
 		}
 		&:after {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            content:'';
             background-color: $radio-checked-color;
-            border-radius: 50%;
             transform: translateY(-50%) scale(0.5);
 		}
 	}
