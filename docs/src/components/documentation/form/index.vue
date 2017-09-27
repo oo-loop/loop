@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<h1 class="title">Form</h1>
-		<p>Alter the size of the input field by applying any of the <code class="text-info">$text-sizes</code> classes on your <code>.input</code></p>
+		<p>Apply the class <code>.input</code> to format the appearance of the textfield.<br>
+		Alter the size of the input by applying any of the <code class="text-info">$text-sizes</code> classes available</p>
 		<label for="tiny-input">Tiny input</label>
 		<input class="input text-tiny mb-15" id="tiny-input" type="text">
 
@@ -18,11 +19,12 @@
 
 
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
-
+		<p>Apply the class <code>.checkbox</code>to an <markup>input type="checkbox"</markup> preceding a <markup>label</markup></p>
 		<input class="checkbox" id="checkbox-1" type="checkbox">
 		<label for="checkbox-1">Checkbox 1</label>
 		<input class="checkbox" id="checkbox-2" type="checkbox">
 		<label for="checkbox-2">Checkbox 2</label>
+		<pretty-code :code="html.checkbox"></pretty-code>
 
 	</div>
 </template>
@@ -40,6 +42,7 @@ export default {
 	data: () => ({
 		html: {
 			size: require('./code/size.html'),
+			checkbox: require('./code/checkbox.html'),
 		}
 	}),
 	methods: {
