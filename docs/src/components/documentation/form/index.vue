@@ -26,6 +26,20 @@
 		<label for="checkbox-2">Checkbox 2</label>
 		<pretty-code :code="html.checkbox"></pretty-code>
 
+		<p>Need extra sizes ? Set values to the variable <code class="text-info">$checkbox-sizes</code>. It will generate modifiers with the name of the size you created.</p>
+		<pretty-code class="language-css" :code="html.checkboxSizesVariable"></pretty-code>
+
+		<input class="checkbox -small" id="checkbox-small-1" type="checkbox">
+		<label for="checkbox-small-1">Checkbox small 1</label>
+		<input class="checkbox -small" id="checkbox-small-2" type="checkbox">
+		<label class="mb-15" for="checkbox-small-2">Checkbox small 2</label>
+		<input class="checkbox -large" id="checkbox-large-1" type="checkbox">
+		<label for="checkbox-large-1">Checkbox large 1</label>
+		<input class="checkbox -large" id="checkbox-large-2" type="checkbox">
+		<label for="checkbox-large-2">Checkbox large 2</label>
+
+		<pretty-code :code="html.checkboxSizes"></pretty-code>
+
 	</div>
 </template>
 
@@ -43,6 +57,8 @@ export default {
 		html: {
 			size: require('./code/size.html'),
 			checkbox: require('./code/checkbox.html'),
+			checkboxSizesVariable: require('./code/checkbox-sizes-variable.html'),
+			checkboxSizes: require('./code/checkbox-sizes.html'),
 		}
 	}),
 	methods: {

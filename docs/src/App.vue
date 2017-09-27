@@ -209,6 +209,11 @@ export default {
 	$text-colors-addon: ('info': #2689ef);
 	$text-alignments-breakpoints: ('sm', 'lg');
 
+	$checkbox-sizes:(
+	    'small': 1.6rem,
+	    'large': 2.4rem,
+	);
+
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
