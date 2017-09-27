@@ -27,7 +27,7 @@ $checkbox-sizes:() !default;
     		height: $size;
         }
         &:after {
-            left: $size * 0.325;
+            left: $size * 0.315;
             @if $use-checkbox-animnation {
                 width: ($checked_width * 2);
                 height: ($checked_height * 2);
