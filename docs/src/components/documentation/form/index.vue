@@ -29,8 +29,8 @@
 		<label for="checkbox-2">Checkbox 2</label>
 		<pretty-code :code="html.checkbox"></pretty-code>
 
-		<p>Need extra sizes ? Set values to the variable <code class="text-info">$checkbox-sizes</code>. It will generate modifiers with the name you created.<br>
-		Those sizes will only modify the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> or else.</p>
+		<p>Need extra sizes?<br>
+		Set values to the variable <code class="text-info">$checkbox-sizes</code>. It will generate modifiers with the name you created. Those sizes will only modify the dimenstion of the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
 		<pretty-code class="language-css" :code="html.checkboxSizesVariable"></pretty-code>
 
 		<input class="checkbox -small" id="checkbox-small-1" type="checkbox">
@@ -52,8 +52,8 @@
 		<label for="radio-2">Radio 2</label>
 		<pretty-code :code="html.radio"></pretty-code>
 
-		<p>Need extra sizes ? Set values to the variable <code class="text-info">$radio-sizes</code>. It will generate modifiers with the name you created.<br>
-		Those sizes will only modify the radio itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> or else.</p>
+		<p>Need extra sizes?<br>
+		Set values to the variable <code class="text-info">$radio-sizes</code>. It will generate modifiers with the name you created. Those sizes will only modify the the dimenstion of the radio itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
 		<pretty-code class="language-css" :code="html.radioSizesVariable"></pretty-code>
 
 		<input class="radio -medium" id="radio-medium-1" type="radio" name="radio-medium">
@@ -73,6 +73,14 @@
 		<input class="toggle" id="toggle-1" type="checkbox">
 		<label for="toggle-1">Toggle</label>
 		<pretty-code :code="html.toggle"></pretty-code>
+
+		<p>Need extra sizes?<br>
+		Set values to the variable <code class="text-info">$toggle-sizes</code>. It will generate modifiers with the name you created. Those sizes will only modify the dimenstion of the toggle itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
+		<pretty-code class="language-css" :code="html.toggleSizesVariable"></pretty-code>
+
+		<input class="toggle -large" id="toggle-large" type="checkbox">
+		<label class="text-large" for="toggle-large">Toggle large</label>
+		<pretty-code :code="html.toggleSizes"></pretty-code>
 
 	</div>
 </template>
@@ -97,6 +105,8 @@ export default {
 			radioSizes: require('./code/radio-sizes.html'),
 			radioSizesVariable: require('./code/radio-sizes-variable.html'),
 			toggle: require('./code/toggle.html'),
+			toggleSizes: require('./code/toggle-sizes.html'),
+			toggleSizesVariable: require('./code/toggle-sizes-variable.html'),
 		}
 	}),
 	methods: {

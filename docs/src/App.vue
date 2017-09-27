@@ -217,6 +217,9 @@ export default {
 	    'medium': 2.4rem,
 	    'large': 3.2rem,
 	);
+	$toggle-sizes:(
+	  'large': 4rem,
+	);
 
 	@import '~loop/loop';
 
