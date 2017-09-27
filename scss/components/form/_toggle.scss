@@ -30,7 +30,7 @@ $toggle-sizes:() !default;
     }
 
     &:checked + label:after {
-        left: ($size * .4);
+        left: ($size * .35);
     }
 }
 
