@@ -1,0 +1,53 @@
+/**
+ * Select
+ */
+
+$select-dropdown-size:    10px !default;
+$select-dropdown-color:   $input-color !default;
+$select-dropdown-bgcolor: $input-bgcolor !default;
+
+$input-padding:          .5em .625em !default; // relative to the size of the input
+
+.select {
+    position: relative;
+    margin-top: $input-margin;
+    margin-bottom: $input-margin;
+    
+    display: block;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        content: '';
+        width: ($select-dropdown-size * 3);
+
+        border-top: $input-border;
+        border-right: $input-border;
+        border-bottom: $input-border;
+        border-top-right-radius: $input-border-radius;
+        border-bottom-right-radius: $input-border-radius;
+
+        background-color: $select-dropdown-bgcolor;
+    }
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        right: $select-dropdown-size;
+        content: '';
+        width: $select-dropdown-size;
+        height: $select-dropdown-size;
+
+        border-bottom: 1px solid $select-dropdown-color;
+        border-right: 1px solid $select-dropdown-color;
+        transform: rotateZ(45deg) translate3d(-50%, -50%, 0);
+    }
+
+    > select {
+        @extend .input;
+        margin: 0;
+    }
+}

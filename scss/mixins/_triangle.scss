@@ -1,0 +1,27 @@
+/**
+ * Triangle
+ */
+
+@mixin triangle-top($width, $color) {
+	border-left: transparent $width solid;
+	border-right: transparent $width solid;
+	border-bottom: $color $width solid;
+}
+
+@mixin triangle-right($width, $color) {
+    border-left: transparent $width solid;
+    border-top: transparent $width solid;
+    border-bottom: $color $width solid;
+}
+
+@mixin triangle-bottom($width, $color) {
+	border-left: transparent $width solid;
+	border-right: transparent $width solid;
+	border-top: $color $width solid;
+}
+
+@mixin triangle-left($width, $color) {
+	border-right: transparent $width solid;
+	border-top: transparent $width solid;
+	border-bottom: $color $width solid;
+}

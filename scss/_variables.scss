@@ -189,6 +189,20 @@
  $use-radio-animation: $use-checkbox-animation !default;
  $radio-sizes:() !default;
 
+ // Toggles
+
+ $toggle-size:                  2.4rem !default;
+ $toggle-color:                 $input-bgcolor !default;
+ $toggle-bgcolor:               $input-border-color !default;
+ $toggle-border-color:          $toggle-bgcolor !default;
+ $toggle-box-shadow:            $checkbox-box-shadow !default;
+
+ $toggle-checked-bgcolor:       $input-color !default;
+ $toggle-checked-border-color:  $toggle-checked-bgcolor !default;
+
+ $use-toggle-animation: true !default;
+ $toggle-sizes:() !default;
+
  /**
   * Float utilities
   */

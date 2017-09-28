@@ -105,7 +105,24 @@ export default {
 			{
 				name: 'Form',
 				route: 'form',
-				subMenu: []
+				subMenu: [
+					{
+						name: 'Input',
+						route: '#input'
+					},
+					{
+						name: 'Checkbox',
+						route: '#checkbox'
+					},
+					{
+						name: 'Radio',
+						route: '#radio'
+					},
+					{
+						name: 'Toggle',
+						route: '#toggle'
+					},
+				]
 			},
 			{
 				name: 'Button',

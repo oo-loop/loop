@@ -82,6 +82,17 @@
 		<label class="text-large" for="toggle-large">Toggle large</label>
 		<pretty-code :code="html.toggleSizes"></pretty-code>
 
+		<h3 id="select"><a href="#select">#</a> Select</h3>
+		<p>Apply the class <code>.select</code> to <markup>label</markup> wrapping <markup>select</markup></p>
+		<label class="select">
+			<select>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</select>
+		</label>
+		<pretty-code :code="html.select"></pretty-code>
+
 	</div>
 </template>
 
@@ -107,6 +118,7 @@ export default {
 			toggle: require('./code/toggle.html'),
 			toggleSizes: require('./code/toggle-sizes.html'),
 			toggleSizesVariable: require('./code/toggle-sizes-variable.html'),
+			select: require('./code/select.html'),
 		}
 	}),
 	methods: {
