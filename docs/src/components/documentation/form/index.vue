@@ -83,23 +83,26 @@
 		<pretty-code :code="html.toggleSizes"></pretty-code>
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
-		<p>Apply the class <code>.select</code> to <markup>label</markup> wrapping <markup>select</markup><br>
+		<p>Apply the class <code>.select</code> to a parent element wrapping <markup>select</markup><br>
 		Alter the size of the element by applying any of the <code class="text-info">$text-sizes</code> classes available on the <markup>select</markup> element.</p>
-		<label class="select mb-10">
-			<select class="text-tiny">
-				<option value="1">Option tiny 1</option>
-				<option value="2">Option tiny 2</option>
-				<option value="3">Option tiny 3</option>
-			</select>
-		</label>
 
-		<label class="select">
-			<select>
+		<label for="select-tiny"> Select Tiny Option</label>
+		<span class="select mb-15">
+			<select class="text-tiny" id="select-tiny">
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
 				<option value="3">Option 3</option>
 			</select>
-		</label>
+		</span>
+
+		<label for="select-regular"> Select Regular Option</label>
+		<span class="select">
+			<select id="select-regular">
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</select>
+		</span>
 		<pretty-code :code="html.select"></pretty-code>
 
 	</div>
