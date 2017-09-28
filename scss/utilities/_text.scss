@@ -63,8 +63,8 @@ $font-families-breakpoints: () !default;
 
 
 // Font size
-@include loop($text-sizes, 'text', 'font-size', $text-sizes-addon);
-@include loopBreakpoints($text-sizes-breakpoints, $text-sizes, 'text', 'font-size', $text-sizes-addon);
+@include loop($text-sizes, 'text', 'font-size', $text-sizes-addon, true);
+@include loopBreakpoints($text-sizes-breakpoints, $text-sizes, 'text', 'font-size', $text-sizes-addon, true);
 
 // Font weight
 @include loop($text-weights, 'text', 'font-weight', $text-weights-addon);
