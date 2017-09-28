@@ -12,7 +12,7 @@ $input-padding:          .5em .625em !default; // relative to the size of the in
     position: relative;
     margin-top: $input-margin;
     margin-bottom: $input-margin;
-    
+
     display: block;
 
     &:before {
@@ -49,5 +49,9 @@ $input-padding:          .5em .625em !default; // relative to the size of the in
     > select {
         @extend .input;
         margin: 0;
+
+        &::-ms-expand { 
+            display: none; /* hide the default arrow in ie10 and ie11 */
+        }
     }
 }

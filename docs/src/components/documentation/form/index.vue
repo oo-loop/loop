@@ -5,7 +5,7 @@
 
 		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>Apply the class <code>.input</code> to format the appearance of the textfield.<br>
-		Alter the size of the input by applying any of the <code class="text-info">$text-sizes</code> classes available</p>
+		Alter the size of the input by applying any of the <code class="text-info">$text-sizes</code> classes available.</p>
 		<label for="tiny-input">Tiny input</label>
 		<input class="input text-tiny mb-15" id="tiny-input" type="text">
 
@@ -83,7 +83,16 @@
 		<pretty-code :code="html.toggleSizes"></pretty-code>
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
-		<p>Apply the class <code>.select</code> to <markup>label</markup> wrapping <markup>select</markup></p>
+		<p>Apply the class <code>.select</code> to <markup>label</markup> wrapping <markup>select</markup><br>
+		Alter the size of the element by applying any of the <code class="text-info">$text-sizes</code> classes available on the <markup>select</markup> element.</p>
+		<label class="select mb-10">
+			<select class="text-tiny">
+				<option value="1">Option tiny 1</option>
+				<option value="2">Option tiny 2</option>
+				<option value="3">Option tiny 3</option>
+			</select>
+		</label>
+
 		<label class="select">
 			<select>
 				<option value="1">Option 1</option>

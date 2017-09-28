@@ -37,13 +37,16 @@ $label-font-weight:      500 !default;
     border: $input-border;
     border-radius: $input-border-radius;
     background-color: $input-bgcolor;
-    box-shadow: $input-box-shadow;
+
+    @if $input-box-shadow != none {
+        box-shadow: $input-box-shadow;
+    }
 
     appearance: none;
 
     &:focus {
         outline:none;
-        @if $input-box-shadow == none {
+        @if $input-box-shadow == none and $input-focus-box-shadow != none {
             box-shadow: $input-focus-box-shadow;
         } @elseif $input-focus-box-shadow != none {
             box-shadow: $input-box-shadow, $input-focus-box-shadow;

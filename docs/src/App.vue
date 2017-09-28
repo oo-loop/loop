@@ -122,6 +122,10 @@ export default {
 						name: 'Toggle',
 						route: '#toggle'
 					},
+					{
+						name: 'Select',
+						route: '#select'
+					},
 				]
 			},
 			{
