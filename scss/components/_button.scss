@@ -1,7 +1,7 @@
 /**
  * Button
  */
-$btn-colors-list:    $colors_classes !default;
+$btn-colors-classes: $colors_classes !default;
 
 $btn-color:          $color-base !default;
 $btn-color-hover:    $btn-color !default;
@@ -52,8 +52,8 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
         transform: scale(.97);
     }
 
-    @if type-of($btn-colors-list) == 'list' {
-        @each $color in $btn-colors-list {
+    @if isNotEmpty($btn-colors-classes) and type-of($btn-colors-classes) == 'list' {
+        @each $color in $btn-colors-classes {
             $color_value: map-get($colors, $color);
             &.-#{$color} {
                 background-color: $color_value;

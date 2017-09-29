@@ -44,7 +44,7 @@
     'danger':     #f72828,
 ) !default;
 
- $colors_classes: (
+ $colors-classes: (
     'primary',
     'secondary',
     'success',
@@ -125,7 +125,7 @@
 /**
  * Button
  */
- $btn-colors-list:    $colors_classes !default;
+ $btn-colors-classes: $colors_classes !default;
 
  $btn-color:          $color-base !default;
  $btn-color-hover:    $btn-color !default;
@@ -207,10 +207,10 @@
 
  // Selects
 
- $select-dropdown-size:    10px !default;
- $select-dropdown-color:   $input-color !default;
- $select-dropdown-bgcolor: $input-bgcolor !default;
- 
+ $select-size:    10px !default;
+ $select-color:   $input-color !default;
+ $select-bgcolor: $input-bgcolor !default;
+
 
  /**
   * Float utilities
