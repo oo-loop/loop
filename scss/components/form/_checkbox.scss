@@ -13,6 +13,7 @@ $checkbox-checked-border-color:  $checkbox-border-color !default;
 
 $use-checkbox-animation: true !default;
 $checkbox-sizes:() !default;
+$checkbox-breakpoints-classes:() !default;
 
 @mixin checkbox-size($size) {
     $checked_width: ($size * 0.4);
@@ -105,6 +106,17 @@ $checkbox-sizes:() !default;
     @if type-of($checkbox-sizes) == 'map' {
         @each $size_name, $size_value in $checkbox-sizes {
             &.-#{$size_name} { @include checkbox-size($size_value) }
+        }
+
+        @if isNotEmpty($checkbox-breakpoints-classes) {
+            @each $breakpoint in $checkbox-breakpoints-classes {
+                @include breakpoint($breakpoint) {
+                    @each $size_name, $size_value in $checkbox-sizes {
+                        $suffix: \@#{$breakpoint};
+                        &.-#{$size_name}#{$suffix} { @include checkbox-size($size_value) }
+                    }
+                }
+            }
         }
     }
 }

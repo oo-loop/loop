@@ -175,6 +175,7 @@
 
  $use-checkbox-animation: true !default;
  $checkbox-sizes:() !default;
+ $checkbox-breakpoints-classes:() !default;
 
  // Radios
 
@@ -186,8 +187,9 @@
  $radio-checked-bgcolor:       $radio-bgcolor !default;
  $radio-checked-border-color:  $radio-border-color !default;
 
- $use-radio-animation: $use-checkbox-animation !default;
- $radio-sizes:() !default;
+ $use-radio-animation:       $use-checkbox-animation !default;
+ $radio-sizes:               $checkbox-sizes !default;
+ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
  // Toggles
 
@@ -206,4 +208,4 @@
  /**
   * Float utilities
   */
-  $float-breakpoints: $breakpoints-classes !default;
+  $float-breakpoints-classes: $breakpoints-classes !default;

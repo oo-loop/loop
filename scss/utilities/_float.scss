@@ -2,7 +2,7 @@
 * FLoat utilites
 */
 
-$float-breakpoints: () !default;
+$float-breakpoints-classes: () !default;
 
 .float {
     &-left  { float: left !important; }
@@ -12,7 +12,7 @@ $float-breakpoints: () !default;
 .clear    { clear: both; }
 
 @include loopBreakpoints(
-    $float-breakpoints,
+    $float-breakpoints-classes,
     (
         'left': left,
         'right': right,

@@ -9,9 +9,6 @@
 		<label for="tiny-input">Tiny input</label>
 		<input class="input text-tiny mb-15" id="tiny-input" type="text">
 
-		<label for="small-input">Small input</label>
-		<input class="input text-small mb-15" id="small-input" type="text">
-
 		<label for="default-input">Input</label>
 		<input class="input mb-15" id="default-input" type="text">
 

@@ -11,7 +11,8 @@ $radio-checked-bgcolor:       $radio-bgcolor !default;
 $radio-checked-border-color:  $radio-border-color !default;
 
 $use-radio-animation: $use-checkbox-animation !default;
-$radio-sizes:() !default;
+$radio-sizes: $checkbox-sizes !default;
+$radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
 @mixin radio-size($size) {
     & + label {
@@ -76,6 +77,17 @@ $radio-sizes:() !default;
     @if type-of($radio-sizes) == 'map' {
         @each $size_name, $size_value in $radio-sizes {
             &.-#{$size_name} { @include radio-size($size_value) }
+        }
+
+        @if isNotEmpty($radio-breakpoints-classes) {
+            @each $breakpoint in $radio-breakpoints-classes {
+                @include breakpoint($breakpoint) {
+                    @each $size_name, $size_value in $radio-sizes {
+                        $suffix: \@#{$breakpoint};
+                        &.-#{$size_name}#{$suffix} { @include radio-size($size_value) }
+                    }
+                }
+            }
         }
     }
 }
