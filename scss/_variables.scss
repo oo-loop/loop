@@ -205,6 +205,13 @@
  $use-toggle-animation: true !default;
  $toggle-sizes:() !default;
 
+ // Selects
+
+ $select-dropdown-size:    10px !default;
+ $select-dropdown-color:   $input-color !default;
+ $select-dropdown-bgcolor: $input-bgcolor !default;
+ 
+
  /**
   * Float utilities
   */
