@@ -3,41 +3,69 @@
  */
 
 @mixin loop($data, $name, $property, $addon:(), $is_important:false, $suffix:'') {
+    @if isNotEmpty($data) {
+        $affix: '-';
+        $selector: '.';
 
-    $affix: '-';
-    $selector: '.';
-
-    // Make sure to have the correct format or do not generate rules
-    // list type
-    @if type-of($data) == 'list' {
-        // make sure to join same type
-        $merged_array: if(type-of($addon) == 'list', join($data, $addon), $data);
-        @each $value in $merged_array {
-            #{$selector}#{$name}#{$affix}#{$value}#{$suffix} {
-                #{$property}: if($is_important, #{$value} !important, #{$value});
+        // Make sure to have the correct format or do not generate rules
+        // list type
+        @if type-of($data) == 'list' {
+            // make sure to join same type
+            $merged_array: if(type-of($addon) == 'list', join($data, $addon), $data);
+            @each $value in $merged_array {
+                #{$selector}#{$name}#{$affix}#{$value}#{$suffix} {
+                    #{$property}: if($is_important, #{$value} !important, #{$value});
+                }
             }
-        }
-    // map type
-    } @elseif type-of($data) == 'map' {
-        // make sure to merge same type
-        $merged_data: if(type-of($addon) == 'map', map-merge($data, $addon), $data);
-        @each $key, $value in $merged_data {
-            #{$selector}#{$name}#{$affix}#{$key}#{$suffix} {
-                #{$property}: if($is_important, $value !important, $value);
+        // map type
+        } @elseif type-of($data) == 'map' {
+            // make sure to merge same type
+            $merged_data: if(type-of($addon) == 'map', map-merge($data, $addon), $data);
+            @each $key, $value in $merged_data {
+                #{$selector}#{$name}#{$affix}#{$key}#{$suffix} {
+                    #{$property}: if($is_important, $value !important, $value);
+                }
             }
         }
     }
 }
 
+
 /**
  * Loop breakpoints
  */
 @mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $is_important:false) {
-    @if type-of($breakpoints) == 'list' and length($breakpoints) > 0 {
+    @if isNotEmpty($breakpoints) and isNotEmpty($data) {
         @each $breakpoint in $breakpoints-classes {
             @include breakpoint($breakpoint) {
                 $suffix: \@#{$breakpoint};
                 @include loop($data, #{$name}, $property, $addon, $is_important, $suffix);
+            }
+        }
+    }
+}
+
+
+/**
+ * Loop classes
+ */
+@mixin loopClasses($classes, $map, $properties, $is_important:false, $suffix:'')  {
+    @if isNotEmpty($classes) {
+        @each $class-name in $classes {
+            @if map-has-key($map, $class-name) {
+
+                $value: map-get($map, $class-name);
+
+                &.-#{$class-name}#{$suffix} {
+                    @if type-of($properties) == 'list' {
+                        // multiple properties
+                        @each $property in $properties {
+                            #{$property}: if($is_important, $value !important, $value);
+                        }
+                    } @else {
+                        #{$properties}: if($is_important, $value !important, $value);
+                    }
+                }
             }
         }
     }

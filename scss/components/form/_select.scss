@@ -6,7 +6,6 @@ $select-size:    10px !default;
 $select-color:   $input-color !default;
 $select-bgcolor: $input-bgcolor !default;
 
-$select-colors-classes: $colors-classes !default;
 $select-themes: (
     // 'plain' : (
     //     'size' : $select-size,
@@ -83,9 +82,11 @@ $select-themes: (
     > select {
         @extend .input;
         margin: 0;
+        appearance:none;
 
+        /* hide the default arrow in ie10 and ie11 */
         &::-ms-expand {
-            display: none; /* hide the default arrow in ie10 and ie11 */
+            display: none;
         }
     }
 
@@ -96,4 +97,7 @@ $select-themes: (
             }
         }
     }
+
+    @include loopClasses($input-colors-classes, $colors, 'border-color', false, ' > select');
+    @include loopClasses($input-colors-classes, $colors, 'border-color', false, ':before');
 }
