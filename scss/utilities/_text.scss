@@ -11,7 +11,7 @@ $text-sizes: (
     'tiny':  1.2rem, // text-tiny
 ) !default;
 $text-sizes-addon: () !default;
-$text-sizes-breakpoints: () !default;
+$text-sizes-breakpoints-classes: () !default;
 
 // Set the font-weight of an element => .text-*
 $text-weights: (
@@ -19,7 +19,7 @@ $text-weights: (
     'strong':  700, // text-strong
 ) !default;
 $text-weights-addon: () !default;
-$text-weights-breakpoints: () !default;
+$text-weights-breakpoints-classes: () !default;
 
 // Text alignment
 $text-alignments: (
@@ -28,7 +28,7 @@ $text-alignments: (
     'center', // text-center
 ) !default;
 $text-alignments-addon: () !default;
-$text-alignments-breakpoints: () !default;
+$text-alignments-breakpoints-classes: () !default;
 
 // Text transform
 $text-transforms: (
@@ -37,21 +37,21 @@ $text-transforms: (
     'uppercase',  // text-uppercase
 ) !default;
 $text-transforms-addon: () !default;
-$text-transforms-breakpoints: () !default;
+$text-transforms-breakpoints-classes: () !default;
 
 // Text decoration
 $text-decorations: (
     'line-through', // text-line-through
 ) !default;
 $text-decorations-addon: () !default;
-$text-decorations-breakpoints: () !default;
+$text-decorations-breakpoints-classes: () !default;
 
 // Font style
 $font-styles: (
     'italic', // text-italic
 ) !default;
 $font-style-addon: () !default;
-$font-style-breakpoints: () !default;
+$font-style-breakpoints-classes: () !default;
 
 // Set the font-family of an element => .font-*
 $font-families: (
@@ -59,33 +59,33 @@ $font-families: (
     'secondary': $font-family-secondary,
 ) !default;
 $font-families-addon: () !default;
-$font-families-breakpoints: () !default;
+$font-families-breakpoints-classes: () !default;
 
 
 // Font size
 @include loop($text-sizes, 'text', 'font-size', $text-sizes-addon, true);
-@include loopBreakpoints($text-sizes-breakpoints, $text-sizes, 'text', 'font-size', $text-sizes-addon, true);
+@include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'text', 'font-size', $text-sizes-addon, true);
 
 // Font weight
 @include loop($text-weights, 'text', 'font-weight', $text-weights-addon);
-@include loopBreakpoints($text-weights-breakpoints, $text-weights, 'text', 'font-weight', $text-weights-addon);
+@include loopBreakpoints($text-weights-breakpoints-classes, $text-weights, 'text', 'font-weight', $text-weights-addon);
 
 // Text align
 @include loop($text-alignments, 'text', 'text-align', $text-alignments-addon);
-@include loopBreakpoints($text-alignments-breakpoints, $text-alignments, 'text', 'text-align', $text-alignments-addon);
+@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text', 'text-align', $text-alignments-addon);
 
 // Text transform
 @include loop($text-transforms, 'text', 'text-transform', $text-transforms-addon);
-@include loopBreakpoints($text-transforms-breakpoints, $text-transforms, 'text', 'text-transform', $text-transforms-addon);
+@include loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text', 'text-transform', $text-transforms-addon);
 
 // Text decoration
 @include loop($text-decorations, 'text', 'text-decoration', $text-decorations-addon);
-@include loopBreakpoints($text-decorations-breakpoints, $text-decorations, 'text', 'text-decoration', $text-decorations-addon);
+@include loopBreakpoints($text-decorations-breakpoints-classes, $text-decorations, 'text', 'text-decoration', $text-decorations-addon);
 
 // Font Style
 @include loop($font-styles, 'text', 'font-style', $font-style-addon);
-@include loopBreakpoints($font-style-breakpoints, $font-styles, 'text', 'font-style', $font-style-addon);
+@include loopBreakpoints($font-style-breakpoints-classes, $font-styles, 'text', 'font-style', $font-style-addon);
 
 // Font Family
 @include loop($font-families, 'font', 'font-family', $font-families-addon);
-@include loopBreakpoints($font-families-breakpoints, $font-families, 'font', 'font-family', $font-families-addon);
+@include loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font', 'font-family', $font-families-addon);

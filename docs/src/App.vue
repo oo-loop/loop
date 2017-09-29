@@ -228,7 +228,7 @@ export default {
 <style lang="scss">
 	// some variables
 	$text-colors-addon: ('info': #2689ef);
-	$text-alignments-breakpoints: ('sm', 'lg');
+	$text-alignments-breakpoints-classes: ('sm', 'lg');
 
 	$checkbox-sizes:(
 	    'small': 1.6rem,
