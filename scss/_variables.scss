@@ -69,6 +69,13 @@
  $bg-colors-addon: () !default;
  $bg-colors-classes: $colors-classes !default;
 
+ // Borders
+ $border-colors: (
+     'color': #cdcdcd,
+ ) !default;
+ $border-colors-addon: () !default;
+ $border-colors-classes: $colors-classes !default;
+
 
 /**
  * Typography
@@ -109,7 +116,7 @@
  $anchor-text-decoration:   none !default;
 
  // Hr
- 
+
  $hr-color: #cdcdcd !default;
  $hr-margins: 1.5rem !default;
 
