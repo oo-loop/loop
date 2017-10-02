@@ -23,10 +23,15 @@ $heading-font-sizes: (
     'h3': $h3-font-size,
     'h4': $h4-font-size,
     'h5': $h5-font-size,
-    'h6': $h6-font-size
+    'h6': $h6-font-size,
 );
+
+$heading-font-sizes-breakpoints: (
+    sm: (
+        'h1': ($h1-font-size * 1.15),
+    )
+) !default;
 $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
-$heading-font-sizes-breakpoints-classes: () !default;
 
 // Heading allowing letter spacing
 $heading-letter-spacing: -.1rem !default;
@@ -62,6 +67,17 @@ $anchor-text-decoration:   none !default;
     @if $heading-color != $color-base {
         color: $heading-color;
     }
+
+    // responsive sizes ?
+    @if isNotEmpty($heading-font-sizes-breakpoints) and type-of($heading-font-sizes-breakpoints) == 'map' {
+        @each $breakpoint, $heading-map in $heading-font-sizes-breakpoints {
+            @if map-has-key($heading-map, $heading) {
+                @include breakpoint($breakpoint) {
+                    font-size: map-get($heading-map, $heading);
+                }
+            }
+        }
+    }
 }
 
 @each $heading, $font-size in $heading-font-sizes {
@@ -69,20 +85,6 @@ $anchor-text-decoration:   none !default;
 
     @if inArray($heading, $heading-font-sizes-classes) {
         .#{$heading} { @include headings($heading, $font-size) }
-    }
-}
-
-// responsive headings classes
-@if isNotEmpty($heading-font-sizes-breakpoints-classes) {
-    @each $class in $heading-font-sizes-breakpoints-classes {
-        @include breakpoint($class) {
-            $suffix: \@#{$class};
-            @each $heading, $font-size in $heading-font-sizes {
-                @if inArray($heading, $heading-font-sizes-classes) {
-                    .#{$heading}#{$suffix} { @include headings($heading, $font-size) }
-                }
-            }
-        }
     }
 }
 
