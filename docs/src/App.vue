@@ -252,7 +252,7 @@ export default {
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
-	$sidebar-size: 250px;
+	$sidebar-size: 220px;
 
 	.sidebar {
 		top: 0;
