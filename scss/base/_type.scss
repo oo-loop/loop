@@ -45,6 +45,10 @@ $anchor-color:             $color-primary !default;
 $anchor-color-hover:       $color-secondary !default;
 $anchor-text-decoration:   none !default;
 
+// Hr
+$hr-color: #cdcdcd !default;
+$hr-margins: 1.5rem !default;
+
 @mixin headings($heading, $font-size) {
     margin-top: $heading-margin-top;
     margin-bottom: $heading-margin-bottom;
@@ -126,4 +130,12 @@ mark {
     }
     color: inherit;
     background-color: $highlight;
+}
+
+hr, .hr {
+    margin-top: $hr-margins;
+    margin-bottom: $hr-margins;
+    display: block;
+    border:none;
+    border-bottom: 1px solid $hr-color;
 }
