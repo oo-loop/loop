@@ -3,8 +3,10 @@
  * Change at your own will
  */
 
-$border-color: $hr-color !default;
+$border-color: $hr-color !default
+$border-colors-classes: $colors-classes !default;
 
 .bordered {
     border: 1px solid $border-color;
+    @include loopMapKeysModifiers($bg-colors-classes, $colors, 'border-color');
 }
