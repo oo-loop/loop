@@ -3,6 +3,7 @@
  */
 
 $visibility-breakpoints-classes: $breakpoints-classes !default;
+$visibility-pointbreaks-classes: $pointbreaks-classes !default;
 
 .hidden { display: none !important; }
 
@@ -17,6 +18,14 @@ $visibility-breakpoints-classes: $breakpoints-classes !default;
     @each $class in $visibility-breakpoints-classes {
         @include breakpoint($class) {
             .hidden\@#{$class} { display: none !important; }
+        }
+    }
+}
+
+@if isNotEmpty($visibility-pointbreaks-classes) {
+    @each $class in $visibility-pointbreaks-classes {
+        @include pointbreak($class) {
+            .hidden\!\@#{$class} { display: none !important; }
         }
     }
 }

@@ -12,6 +12,7 @@ $breakpoints: (
 ) !default;
 
 $breakpoints-classes: (sm, md, lg) !default;
+$pointbreaks-classes: (sm, md, lg) !default;
 
 // including the first step
 $breakpoints-classes-from-start: join('', $breakpoints-classes);
@@ -21,6 +22,18 @@ $breakpoints-classes-from-start: join('', $breakpoints-classes);
 	@if map-has-key($breakpoints, $key) {
 		$width: map-get($breakpoints, $key);
 		@media (min-width: $width) {
+			@content;
+		}
+	} @elseif $key == '' {
+        @content;
+    }
+}
+
+@mixin pointbreak($key) {
+	// make sure the key exist
+	@if map-has-key($breakpoints, $key) {
+		$width: map-get($breakpoints, $key) - 1;
+		@media (max-width: $width) {
 			@content;
 		}
 	} @elseif $key == '' {
