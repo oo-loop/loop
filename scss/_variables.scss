@@ -81,14 +81,19 @@
  $heading-margin-bottom:   .45em !default;
 
  $h1-font-size: 4rem !default;
- $h2-font-size: 3.6rem !default;
+ $h2-font-size: 3.4rem !default;
  $h3-font-size: 2.8rem !default;
  $h4-font-size: 2.2rem !default;
  $h5-font-size: 1.8rem !default;
  $h6-font-size: 1.6rem !default;
 
  $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
- $heading-font-sizes-breakpoints-classes: () !default;
+ $heading-font-sizes-breakpoints: (
+     sm: (
+         'h1': ($h1-font-size * 1.15), // 4.6rem
+         'h2': ($h2-font-size * 1.12), // 3.8rem
+     )
+ ) !default;
 
  $heading-letter-spacing: -.1rem !default;
  $heading-letter-spacing-list: (h1, h2, h3) !default; // set empty if not needed

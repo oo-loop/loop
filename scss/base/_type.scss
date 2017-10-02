@@ -26,12 +26,12 @@ $heading-font-sizes: (
     'h6': $h6-font-size,
 );
 
+$heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
 $heading-font-sizes-breakpoints: (
     sm: (
         'h1': ($h1-font-size * 1.15),
     )
 ) !default;
-$heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
 
 // Heading allowing letter spacing
 $heading-letter-spacing: -.1rem !default;
