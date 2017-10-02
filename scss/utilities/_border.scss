@@ -1,0 +1,10 @@
+/**
+ * Bordered
+ * Change at your own will
+ */
+
+$border-color: $hr-color !default;
+
+.bordered {
+    border: 1px solid $border-color;
+}
