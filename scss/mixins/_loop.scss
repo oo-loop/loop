@@ -49,14 +49,14 @@
 /**
  * Loop map classes
  */
-@mixin loopMapClasses($classes, $map, $properties, $is_important:false, $suffix:'')  {
+@mixin loopMapClasses($classes, $map, $properties, $is_important:false, $prefix:'&.-', $suffix:'')  {
     @if isNotEmpty($classes) {
         @each $class-name in $classes {
             @if map-has-key($map, $class-name) {
 
                 $value: map-get($map, $class-name);
 
-                &.-#{$class-name}#{$suffix} {
+                #{$prefix}#{$class-name}#{$suffix} {
                     @if type-of($properties) == 'list' {
                         // multiple properties
                         @each $property in $properties {

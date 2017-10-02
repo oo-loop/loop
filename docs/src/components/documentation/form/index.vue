@@ -4,40 +4,45 @@
 		<p class="text-large">Form components</p>
 
 		<h3 id="input"><a href="#input">#</a> Input</h3>
-		<p>Apply the class <code>.input</code> to format the appearance of the textfield.<br>
-		Alter the size of the input by applying any of the <code class="text-info">$text-sizes</code> classes available.</p>
-		<label for="tiny-input">Tiny input</label>
-		<input class="input text-tiny mb-15" id="tiny-input" type="text">
-
+		<p>
+			Apply the class <code>.input</code> to format the appearance of the textfield.<br>
+			Alter the size of the input by applying any of the <code class="text-info">$text-sizes</code> classes available.<br>
+			Alter the appearance of the input by applying any of the modifiers present in <code class="text-info">$input-colors-classes</code> such as <code>-danger</code>
+		</p>
 		<label for="default-input">Input</label>
 		<input class="input mb-15" id="default-input" type="text">
 
 		<label for="large-input">Large input</label>
-		<input class="input text-large" id="large-input" type="text">
+		<input class="input -danger text-large" id="large-input" type="text">
+		<p class="text-tiny text-danger mt-5">Textfield is required.</p>
 
 		<pretty-code :code="html.size"></pretty-code>
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
-		<p>Apply the class <code>.select</code> to a parent element wrapping <markup>select</markup><br>
-		Alter the size of the element by applying any of the <code class="text-info">$text-sizes</code> classes available on the <markup>select</markup> element.</p>
+		<p>
+			Apply the class <code>.select</code> to a <strong>parent element</strong> wrapping <markup>select</markup><br>
+			Alter the size of the element by applying any of the <code class="text-info">$text-sizes</code> classes available on the <markup>select</markup> element.<br>
+			Alter the appearance of the selectg by applying any of the modifiers present in <code class="text-info">$input-colors-classes</code> such as <code>-danger</code> to the <strong>parent element</strong>.
+		</p>
 
-		<label for="select-tiny"> Select Tiny Option</label>
+		<label> Select Tiny Option</label>
 		<span class="select mb-15">
-			<select class="text-tiny" id="select-tiny">
+			<select class="text-tiny">
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
 				<option value="3">Option 3</option>
 			</select>
 		</span>
 
-		<label for="select-regular"> Select Regular Option</label>
-		<span class="select">
-			<select id="select-regular">
+		<label> Select Option</label>
+		<span class="select -danger">
+			<select>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
 				<option value="3">Option 3</option>
 			</select>
 		</span>
+		<p class="text-tiny text-danger mt-5">Textfield is required</p>
 		<pretty-code :code="html.select"></pretty-code>
 
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
