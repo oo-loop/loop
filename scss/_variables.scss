@@ -53,11 +53,15 @@
     'danger',
  ) !default;
 
+ // Text
+
  $text-colors: (
      'color': $color-base, // .text-color class matching base color for text
  ) !default;
  $text-colors-addon: () !default;
  $text-colors-classes: $colors-classes !default;
+
+ // Background
 
  $bg-colors: (
      'body': $bgcolor-base, // .bg-body class matching base color for background
@@ -76,12 +80,15 @@
  $heading-margin-top:      .2em !default;
  $heading-margin-bottom:   .45em !default;
 
- $h1-font-size: 4.6rem !default;
+ $h1-font-size: 4rem !default;
  $h2-font-size: 3.6rem !default;
  $h3-font-size: 2.8rem !default;
  $h4-font-size: 2.2rem !default;
  $h5-font-size: 1.8rem !default;
  $h6-font-size: 1.6rem !default;
+
+ $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
+ $heading-font-sizes-breakpoints-classes: () !default;
 
  $heading-letter-spacing: -.1rem !default;
  $heading-letter-spacing-list: (h1, h2, h3) !default; // set empty if not needed
@@ -91,6 +98,68 @@
  $anchor-color:             $color-primary !default;
  $anchor-color-hover:       $color-secondary !default;
  $anchor-text-decoration:   none !default;
+
+
+/**
+ * Text utilities
+ */
+
+ // Sizes
+
+ $text-sizes: (
+     'large': 2rem,
+     'small': 1.4rem,
+     'tiny':  1.2rem,
+ ) !default;
+ $text-sizes-breakpoints-classes: () !default;
+
+ // Weights
+
+ $text-weights: (
+     'light':   300,
+     'strong':  700,
+ ) !default;
+ $text-weights-breakpoints-classes: () !default;
+
+ // Alignments
+
+ $text-alignments: (
+     'left',
+     'right',
+     'center',
+ ) !default;
+ $text-alignments-breakpoints-classes: () !default;
+
+ // Transforms
+
+ $text-transforms: (
+     'capitalize',
+     'lowercase',
+     'uppercase',
+ ) !default;
+ $text-transforms-breakpoints-classes: () !default;
+
+ // Decorations
+
+ $text-decorations: (
+     'line-through',
+ ) !default;
+ $text-decorations-breakpoints-classes: () !default;
+
+ // Styles
+
+ $font-styles: (
+     'italic',
+ ) !default;
+ $font-style-breakpoints-classes: () !default;
+
+ // Font families
+
+ $font-families: (
+     'base': $font-family-base,
+     'secondary': $font-family-secondary,
+ ) !default;
+ $font-families-breakpoints-classes: () !default;
 
 
 /**
@@ -225,68 +294,6 @@
 
  $use-toggle-animation: true !default;
  $toggle-sizes:() !default;
-
-
-/**
- * Text utilities
- */
-
- // Sizes
-
- $text-sizes: (
-     'large': 2rem,
-     'small': 1.4rem,
-     'tiny':  1.2rem,
- ) !default;
- $text-sizes-breakpoints-classes: () !default;
-
- // Weights
-
- $text-weights: (
-     'light':   300,
-     'strong':  700,
- ) !default;
- $text-weights-breakpoints-classes: () !default;
-
- // Alignments
-
- $text-alignments: (
-     'left',
-     'right',
-     'center',
- ) !default;
- $text-alignments-breakpoints-classes: () !default;
-
- // Transforms
-
- $text-transforms: (
-     'capitalize',
-     'lowercase',
-     'uppercase',
- ) !default;
- $text-transforms-breakpoints-classes: () !default;
-
- // Decorations
-
- $text-decorations: (
-     'line-through',
- ) !default;
- $text-decorations-breakpoints-classes: () !default;
-
- // Styles
-
- $font-styles: (
-     'italic',
- ) !default;
- $font-style-breakpoints-classes: () !default;
-
- // Font families
-
- $font-families: (
-     'base': $font-family-base,
-     'secondary': $font-family-secondary,
- ) !default;
- $font-families-breakpoints-classes: () !default;
 
 
 /**

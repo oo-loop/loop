@@ -27,11 +27,11 @@ $columns-gutter-sizes: (
 
     @if $use-columns-alignment == true {
         // responsive classes
-        @each $breakpoint in $breakpoints-classes-from-start {
-            @include breakpoint($breakpoint) {
+        @each $class in $breakpoints-classes-from-start {
+            @include breakpoint($class) {
                 $suffix: '';
-                @if $breakpoint != '' {
-                    $suffix: \@#{$breakpoint};
+                @if $class != '' {
+                    $suffix: \@#{$class};
                 }
 
                 // horizontal alignment
@@ -87,9 +87,9 @@ $columns-gutter-sizes: (
     }
 
     // responsive classes
-    @each $breakpoint in $breakpoints-classes {
-        @include breakpoint($breakpoint) {
-            $suffix: \@#{$breakpoint};
+    @each $class in $breakpoints-classes {
+        @include breakpoint($class) {
+            $suffix: \@#{$class};
 
             &.-self-adjust#{$suffix} {
                 min-width: auto;
@@ -122,11 +122,11 @@ $columns-gutter-sizes: (
 
     @if $use-columns-self-alignment == true {
         // alignments
-        @each $breakpoint in $breakpoints-classes-from-start {
-            @include breakpoint($breakpoint) {
+        @each $class in $breakpoints-classes-from-start {
+            @include breakpoint($class) {
                 $suffix: '';
-                @if $breakpoint != '' {
-                    $suffix: \@#{$breakpoint};
+                @if $class != '' {
+                    $suffix: \@#{$class};
                 }
 
                 // horizontal alignment

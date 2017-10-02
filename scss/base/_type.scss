@@ -10,8 +10,8 @@ $heading-margin-top:      .2em !default;
 $heading-margin-bottom:   .45em !default;
 
 // Heading Font sizes
-$h1-font-size: 4.6rem !default;
-$h2-font-size: 3.6rem !default;
+$h1-font-size: 4rem !default;
+$h2-font-size: 3.2rem !default;
 $h3-font-size: 2.8rem !default;
 $h4-font-size: 2.2rem !default;
 $h5-font-size: 1.8rem !default;
@@ -25,6 +25,8 @@ $heading-font-sizes: (
     'h5': $h5-font-size,
     'h6': $h6-font-size
 );
+$heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
+$heading-font-sizes-breakpoints-classes: () !default;
 
 // Heading allowing letter spacing
 $heading-letter-spacing: -.1rem !default;
@@ -38,29 +40,48 @@ $anchor-color:             $color-primary !default;
 $anchor-color-hover:       $color-secondary !default;
 $anchor-text-decoration:   none !default;
 
+@mixin headings($heading, $font-size) {
+    margin-top: $heading-margin-top;
+    margin-bottom: $heading-margin-bottom;
+    font-size: $font-size;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+
+    // add letter spacing for specific, if the font-weight is bold enough
+    @if inArray($heading, $heading-letter-spacing-list)
+        and inArray($heading-font-weight, (700, 800, 900, bold, bolder)) {
+            letter-spacing: $heading-letter-spacing;
+    }
+
+    //add font family rules if different
+    @if $heading-font-family != $font-base {
+        font-family: $heading-font-family;
+    }
+
+    //add color rules if different
+    @if $heading-color != $color-base {
+        color: $heading-color;
+    }
+}
+
 @each $heading, $font-size in $heading-font-sizes {
-    #{$heading},
-    .#{$heading} {
-        margin-top: $heading-margin-top;
-        margin-bottom: $heading-margin-bottom;
-        font-size: $font-size;
-        font-weight: $heading-font-weight;
-        line-height: $heading-line-height;
+    #{$heading} { @include headings($heading, $font-size) }
 
-        // add letter spacing for specific, if the font-weight is bold enough
-        @if inArray($heading, $heading-letter-spacing-list)
-            and inArray($heading-font-weight, (700, 800, 900, bold, bolder)) {
-                letter-spacing: $heading-letter-spacing;
-        }
+    @if inArray($heading, $heading-font-sizes-classes) {
+        .#{$heading} { @include headings($heading, $font-size) }
+    }
+}
 
-        //add font family rules if different
-        @if $heading-font-family != $font-base {
-            font-family: $heading-font-family;
-        }
-
-        //add color rules if different
-        @if $heading-color != $color-base {
-            color: $heading-color;
+// responsive headings classes
+@if isNotEmpty($heading-font-sizes-breakpoints-classes) {
+    @each $class in $heading-font-sizes-breakpoints-classes {
+        @include breakpoint($class) {
+            $suffix: \@#{$class};
+            @each $heading, $font-size in $heading-font-sizes {
+                @if inArray($heading, $heading-font-sizes-classes) {
+                    .#{$heading}#{$suffix} { @include headings($heading, $font-size) }
+                }
+            }
         }
     }
 }
