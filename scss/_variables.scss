@@ -227,7 +227,69 @@
  $toggle-sizes:() !default;
 
 
- /**
-  * Float utilities
-  */
-  $float-breakpoints-classes: $breakpoints-classes !default;
+/**
+ * Text utilities
+ */
+
+ // Sizes
+
+ $text-sizes: (
+     'large': 2rem,
+     'small': 1.4rem,
+     'tiny':  1.2rem,
+ ) !default;
+ $text-sizes-breakpoints-classes: () !default;
+
+ // Weights
+
+ $text-weights: (
+     'light':   300,
+     'strong':  700,
+ ) !default;
+ $text-weights-breakpoints-classes: () !default;
+
+ // Alignments
+
+ $text-alignments: (
+     'left',
+     'right',
+     'center',
+ ) !default;
+ $text-alignments-breakpoints-classes: () !default;
+
+ // Transforms
+
+ $text-transforms: (
+     'capitalize',
+     'lowercase',
+     'uppercase',
+ ) !default;
+ $text-transforms-breakpoints-classes: () !default;
+
+ // Decorations
+
+ $text-decorations: (
+     'line-through',
+ ) !default;
+ $text-decorations-breakpoints-classes: () !default;
+
+ // Styles
+
+ $font-styles: (
+     'italic',
+ ) !default;
+ $font-style-breakpoints-classes: () !default;
+
+ // Font families
+
+ $font-families: (
+     'base': $font-family-base,
+     'secondary': $font-family-secondary,
+ ) !default;
+ $font-families-breakpoints-classes: () !default;
+
+
+/**
+ * Float utilities
+ */
+ $float-breakpoints-classes: $breakpoints-classes !default;
