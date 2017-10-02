@@ -210,6 +210,11 @@ export default {
 					},
 				]
 			},
+			{
+				name: 'Visibility',
+				route: 'visibility',
+				subMenu: []
+			},
 		],
 		isMenuOpen: false,
 	}),

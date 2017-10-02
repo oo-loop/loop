@@ -7,9 +7,11 @@ import Column from 'docs/column'
 import Grid from 'docs/grid'
 import Form from 'docs/form'
 import Button from 'docs/button'
-import TextUtilities from 'docs/text-utilities'
 import Spacing from 'docs/spacing'
+import TextUtilities from 'docs/text-utilities'
+import Colors from 'docs/colors'
 import Float from 'docs/float'
+import Visibility from 'docs/visibility'
 
 Vue.use(Router)
 
@@ -48,19 +50,29 @@ export default new Router({
 			component: Button
 		},
 		{
-			path: '/text-utilities',
-			name: 'text-utilities',
-			component: TextUtilities
-		},
-		{
 			path: '/spacing',
 			name: 'spacing',
 			component: Spacing
 		},
 		{
+			path: '/text-utilities',
+			name: 'text-utilities',
+			component: TextUtilities
+		},
+		{
+			path: '/colors',
+			name: 'colors',
+			component: Colors
+		},
+		{
 			path: '/float',
 			name: 'float',
 			component: Float
+		},
+		{
+			path: '/visibility',
+			name: 'visibility',
+			component: Visibility
 		}
 	]
 })

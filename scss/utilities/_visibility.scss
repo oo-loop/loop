@@ -4,17 +4,19 @@
 
 $visibility-breakpoints-classes: $breakpoints-classes !default;
 
-.hide\@print {
+.hidden { display: none !important; }
+
+.hidden\@print {
     @media print { display: none !important; }
 }
-.hide\@screen {
+.hidden\@screen {
     @media screen { display: none !important; }
 }
 
 @if isNotEmpty($visibility-breakpoints-classes) {
     @each $class in $visibility-breakpoints-classes {
         @include breakpoint($class) {
-            .hide\@#{$class} { display: none !important; }
+            .hidden\@#{$class} { display: none !important; }
         }
     }
 }
