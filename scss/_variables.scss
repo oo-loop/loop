@@ -33,6 +33,7 @@
 /**
  * Colors
  */
+
  $color-primary:   #1cd8cf !default;
  $color-secondary: #254F67 !default;
 
@@ -51,6 +52,18 @@
     'warning',
     'danger',
  ) !default;
+
+ $text-colors: (
+     'color': $color-base, // .text-color class matching base color for text
+ ) !default;
+ $text-colors-addon: () !default;
+ $text-colors-classes: $colors-classes !default;
+
+ $bg-colors: (
+     'body': $bgcolor-base, // .bg-body class matching base color for background
+ ) !default;
+ $bg-colors-addon: () !default;
+ $bg-colors-classes: $colors-classes !default;
 
 
 /**
