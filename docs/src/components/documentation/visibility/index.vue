@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1 class="title">Visibility</h1>
-		<p class="text-large">Based on hidden elements</p>
+		<p class="text-large">Based on hidden status</p>
 		<p>Hide elements <strong>from</strong> the available breakpoints through the classes <code>.hidden</code> <code>.hidden@sm</code> <code>.hidden@md</code> <code>.hidden@lg</code></p>
 		<div class="bg-secondary wrapper-tiny text-center mb-30">
 			<div class="columns -gutter-tiny">
