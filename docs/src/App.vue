@@ -215,6 +215,11 @@ export default {
 				route: 'visibility',
 				subMenu: []
 			},
+			{
+				name: 'Wrapper',
+				route: 'wrapper',
+				subMenu: []
+			}
 		],
 		isMenuOpen: false,
 	}),

@@ -164,12 +164,7 @@ export default {
 		markup
 	},
 	data: () => ({
-		html: {
-			float: require('./code/float.html'),
-			variable: require('./code/variable.html'),
-			clearfix: require('./code/clearfix.html'),
-			clear: require('./code/clear.html'),
-		}
+		html: {}
 	}),
 	methods: {
 	}

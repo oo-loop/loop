@@ -12,6 +12,7 @@ import TextUtilities from 'docs/text-utilities'
 import Colors from 'docs/colors'
 import Float from 'docs/float'
 import Visibility from 'docs/visibility'
+import Wrapper from 'docs/wrapper'
 
 Vue.use(Router)
 
@@ -73,6 +74,11 @@ export default new Router({
 			path: '/visibility',
 			name: 'visibility',
 			component: Visibility
+		},
+		{
+			path: '/wrapper',
+			name: 'wrapper',
+			component: Wrapper
 		}
 	]
 })

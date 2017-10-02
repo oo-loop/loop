@@ -223,6 +223,16 @@
  $h-spacing-addon:       () !default;
  $h-spacing-breakpoints-classes: () !default;
 
+/**
+ * Wrapper
+ */
+ $wrapper-padding: 2.4rem !default;
+ $wrapper-padding-sizes: (
+     'tiny' : .8rem,
+     'small': 1.6rem,
+     'large': 4rem,
+ ) !default;
+ $wrapper-padding-addon: () !default;
 
 /**
  * Button
@@ -320,3 +330,9 @@
  * Float utilities
  */
  $float-breakpoints-classes: $breakpoints-classes !default;
+
+
+/**
+ * Visibility Utilities
+ */
+ $visibility-breakpoints-classes: $breakpoints-classes !default;
