@@ -25,10 +25,10 @@ $v-spacing-addons: ();
 }
 
 @if ($use-v-spacing) {
-    @include loop($v-spacing, 'mt', 'margin-top', $v-spacing-addons, true);
-    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'mt', 'margin-top', $v-spacing-addons, true);
-    @include loop($v-spacing, 'mb', 'margin-bottom', $v-spacing-addons, true);
-    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'mb', 'margin-bottom', $v-spacing-addons, true);
+    @include loop($v-spacing, 'margin-top', '.mt', $v-spacing-addons, true);
+    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'margin-top', '.mt', $v-spacing-addons, true);
+    @include loop($v-spacing, 'margin-bottom', '.mb', $v-spacing-addons, true);
+    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'margin-bottom', '.mb', $v-spacing-addons, true);
 }
 
 // horizontal spacing
@@ -55,8 +55,8 @@ $h-spacing-addons: ();
 }
 
 @if ($use-h-spacing) {
-    @include loop($h-spacing, 'ml', 'margin-left', $h-spacing-addons, true);
-    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'ml', 'margin-left', $h-spacing-addons, true);
-    @include loop($h-spacing, 'mr', 'margin-right', $h-spacing-addons, true);
-    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'mr', 'margin-right', $h-spacing-addons, true);
+    @include loop($h-spacing, 'margin-left', '.ml', $h-spacing-addons, true);
+    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'margin-left', '.ml', $h-spacing-addons, true);
+    @include loop($h-spacing, 'margin-right', '.mr', $h-spacing-addons, true);
+    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'margin-right', '.mr', $h-spacing-addons, true);
 }

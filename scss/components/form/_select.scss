@@ -98,6 +98,6 @@ $select-themes: (
         }
     }
 
-    @include loopMapClasses($input-colors-classes, $colors, 'border-color', false, '&.-', ' > select');
-    @include loopMapClasses($input-colors-classes, $colors, 'border-color', false, '&.-', ':before');
+    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ' > select');
+    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ':before');
 }

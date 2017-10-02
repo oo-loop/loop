@@ -55,7 +55,7 @@ $label-font-weight:      500 !default;
         }
     }
 
-    @include loopMapClasses($input-colors-classes, $colors, 'border-color');
+    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color');
 }
 
 label { font-weight: $label-font-weight; }

@@ -3,21 +3,21 @@
  */
 
 $text-colors: (
-    'primary':   $color-primary,
-    'secondary': $color-secondary,
-    'color':     $color-base,
+    'color': $color-base,
 ) !default;
-
 $text-colors-addon: () !default;
+$text-colors-classes: $colors-classes !default;
 
 $bg-colors: (
-    'primary':   $color-primary,
-    'secondary': $color-secondary,
+    'body': $bgcolor-base
 ) !default;
 $bg-colors-addon: () !default;
+$bg-colors-classes: $colors-classes !default;
 
-// Font colors
-@include loop($text-colors, 'text', 'color', $text-colors-addon);
+// Text colors
+@include loop($text-colors, 'color', '.text', $text-colors-addon);
+@include loopMapKeys($text-colors-classes, $colors, 'color', '.text');
 
 // Bg colors
-@include loop($bg-colors, 'bg', 'background-color', $bg-colors-addon);
+@include loop($bg-colors, 'background-color', '.bg', $bg-colors-addon);
+@include loopMapKeys($bg-colors-classes, $colors, 'background-color', '.bg');

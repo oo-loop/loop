@@ -2,10 +2,31 @@
  * Loop
  */
 
-@mixin loop($data, $name, $property, $addon:(), $is_important:false, $suffix:'') {
+@mixin loopProperties($properties, $value, $is_important) {
+    // multiple properties
+    @if type-of($properties) == 'list' {
+        @each $property in $properties {
+            #{$property}: if($is_important, #{$value} !important, #{$value});
+        }
+    } @else {
+        #{$properties}: if($is_important, #{$value} !important, #{$value});
+    }
+}
+
+/**
+ * Loop
+ *
+ * @param $data         list|map    Data to loop through
+ * @param $properties   string|list Property name to use
+ * @param $prefix       string      String to prepend to the selector
+ * @param $addon        list|map    Extra data to take into consideration
+ * @param $is_important bool        Set the !important flag ?
+ * @param $suffix       string      String to append to the selector
+ */
+
+@mixin loop($data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
     @if isNotEmpty($data) {
         $affix: '-';
-        $selector: '.';
 
         // Make sure to have the correct format or do not generate rules
         // list type
@@ -13,8 +34,8 @@
             // make sure to join same type
             $merged_array: if(type-of($addon) == 'list', join($data, $addon), $data);
             @each $value in $merged_array {
-                #{$selector}#{$name}#{$affix}#{$value}#{$suffix} {
-                    #{$property}: if($is_important, #{$value} !important, #{$value});
+                #{$prefix}#{$affix}#{$value}#{$suffix} {
+                    @include loopProperties($properties, $value, $is_important);
                 }
             }
         // map type
@@ -22,8 +43,8 @@
             // make sure to merge same type
             $merged_data: if(type-of($addon) == 'map', map-merge($data, $addon), $data);
             @each $key, $value in $merged_data {
-                #{$selector}#{$name}#{$affix}#{$key}#{$suffix} {
-                    #{$property}: if($is_important, $value !important, $value);
+                #{$prefix}#{$affix}#{$key}#{$suffix} {
+                    @include loopProperties($properties, $value, $is_important);
                 }
             }
         }
@@ -33,13 +54,21 @@
 
 /**
  * Loop breakpoints
+ *
+ * @param $breakpoints  list        List of breakpoints classes
+ * @param $data         list|map    Data to loop through
+ * @param $properties   string|list Property name to use
+ * @param $prefix       string      String to prepend to the selector
+ * @param $addon        list|map    Extra data to take into consideration
+ * @param $is_important bool        Set the !important flag ?
+ * @param $suffix       string      String to append to the selector
  */
-@mixin loopBreakpoints($breakpoints, $data, $name, $property, $addon:(), $is_important:false) {
+@mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
     @if isNotEmpty($breakpoints) and isNotEmpty($data) {
         @each $breakpoint in $breakpoints-classes {
             @include breakpoint($breakpoint) {
-                $suffix: \@#{$breakpoint};
-                @include loop($data, #{$name}, $property, $addon, $is_important, $suffix);
+                $suffixes: #{$suffix}\@#{$breakpoint};
+                @include loop($data, $properties, $prefix, $addon, $is_important, $suffixes);
             }
         }
     }
@@ -47,26 +76,41 @@
 
 
 /**
- * Loop map classes
+ * Loop map keys
+ *
+ * @param $keys         list        Keys of the map
+ * @param $map          map         Map to search in
+ * @param $properties   string|list Property name to use
+ * @param $prefix       string      String to prepend to the selector
+ * @param $is_important bool        Set the !important flag ?
+ * @param $suffix       string      String to append to the selector
  */
-@mixin loopMapClasses($classes, $map, $properties, $is_important:false, $prefix:'&.-', $suffix:'')  {
-    @if isNotEmpty($classes) {
-        @each $class-name in $classes {
-            @if map-has-key($map, $class-name) {
+@mixin loopMapKeys($keys, $map, $properties, $prefix, $is_important:false, $suffix:'')  {
+    @if isNotEmpty($keys) {
+        $affix: '-';
 
-                $value: map-get($map, $class-name);
+        @each $key in $keys {
+            @if map-has-key($map, $key) {
+                $value: map-get($map, $key);
+                $selector: #{$prefix}#{$affix}#{$key}#{$suffix};
 
-                #{$prefix}#{$class-name}#{$suffix} {
-                    @if type-of($properties) == 'list' {
-                        // multiple properties
-                        @each $property in $properties {
-                            #{$property}: if($is_important, $value !important, $value);
-                        }
-                    } @else {
-                        #{$properties}: if($is_important, $value !important, $value);
-                    }
+                #{$selector}{
+                    @include loopProperties($properties, $value, $is_important);
                 }
             }
         }
     }
+}
+
+/**
+ * Loop map keys modifiers
+ *
+ * @param $keys         list        keys of the map
+ * @param $map          map         map to search in
+ * @param $properties   string|list property name to use
+ * @param $is_important bool        set the !important flag ?
+ * @param $suffix       string      string to append to the selector
+ */
+@mixin loopMapKeysModifiers($keys, $map, $properties, $is_important:false, $suffix:'')  {
+    @include loopMapKeys($keys, $map, $properties, '&.', $is_important, $suffix);
 }

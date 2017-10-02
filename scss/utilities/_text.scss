@@ -63,29 +63,29 @@ $font-families-breakpoints-classes: () !default;
 
 
 // Font size
-@include loop($text-sizes, 'text', 'font-size', $text-sizes-addon, true);
-@include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'text', 'font-size', $text-sizes-addon, true);
+@include loop($text-sizes, 'font-size', '.text', $text-sizes-addon, true);
+@include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'font-size', '.text', $text-sizes-addon, true);
 
 // Font weight
-@include loop($text-weights, 'text', 'font-weight', $text-weights-addon);
-@include loopBreakpoints($text-weights-breakpoints-classes, $text-weights, 'text', 'font-weight', $text-weights-addon);
+@include loop($text-weights, 'font-weight', '.text', $text-weights-addon);
+@include loopBreakpoints($text-weights-breakpoints-classes, $text-weights, 'font-weight', '.text', $text-weights-addon);
 
 // Text align
-@include loop($text-alignments, 'text', 'text-align', $text-alignments-addon);
-@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text', 'text-align', $text-alignments-addon);
+@include loop($text-alignments, 'text-align', '.text', $text-alignments-addon);
+@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-addon);
 
 // Text transform
-@include loop($text-transforms, 'text', 'text-transform', $text-transforms-addon);
-@include loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text', 'text-transform', $text-transforms-addon);
+@include loop($text-transforms, 'text-transform', '.text', $text-transforms-addon);
+@include loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text-transform', '.text', $text-transforms-addon);
 
 // Text decoration
-@include loop($text-decorations, 'text', 'text-decoration', $text-decorations-addon);
-@include loopBreakpoints($text-decorations-breakpoints-classes, $text-decorations, 'text', 'text-decoration', $text-decorations-addon);
+@include loop($text-decorations, 'text-decoration', '.text', $text-decorations-addon);
+@include loopBreakpoints($text-decorations-breakpoints-classes, $text-decorations, 'text-decoration', '.text', $text-decorations-addon);
 
 // Font Style
-@include loop($font-styles, 'text', 'font-style', $font-style-addon);
-@include loopBreakpoints($font-style-breakpoints-classes, $font-styles, 'text', 'font-style', $font-style-addon);
+@include loop($font-styles, 'font-style', '.text', $font-style-addon);
+@include loopBreakpoints($font-style-breakpoints-classes, $font-styles, 'font-style', '.text', $font-style-addon);
 
 // Font Family
-@include loop($font-families, 'font', 'font-family', $font-families-addon);
-@include loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font', 'font-family', $font-families-addon);
+@include loop($font-families, 'font-family', '.font', $font-families-addon);
+@include loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font-family', '.font', $font-families-addon);
