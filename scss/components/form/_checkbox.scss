@@ -119,4 +119,6 @@ $checkbox-breakpoints-classes:() !default;
             }
         }
     }
+
+    @include loopMapClasses($input-colors-classes, $colors, 'border-color', false, '&.-', ' + label:before');
 }
