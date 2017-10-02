@@ -47,9 +47,9 @@
 
 
 /**
- * Loop classes
+ * Loop map classes
  */
-@mixin loopClasses($classes, $map, $properties, $is_important:false, $suffix:'')  {
+@mixin loopMapClasses($classes, $map, $properties, $is_important:false, $suffix:'')  {
     @if isNotEmpty($classes) {
         @each $class-name in $classes {
             @if map-has-key($map, $class-name) {
