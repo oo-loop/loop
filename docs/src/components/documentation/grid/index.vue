@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="title">Grid Layout</h1>
+		<h1 class="title">Grid Layout <small class="text-small text-danger">alpha</small></h1>
 
 		<h3 id="regular"><a href="#regular">#</a> Regular grid</h3>
 		<template v-for="n in 12" >
