@@ -88,7 +88,7 @@ export default {
 			{
 				name: 'Grid',
 				route: 'grid',
-				label: 'alpha',
+				label: 'wip',
 				subMenu: [
 					{
 						name: 'Regular Grid',
