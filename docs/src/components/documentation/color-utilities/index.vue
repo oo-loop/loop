@@ -23,18 +23,19 @@
 		<a class="text-color" href="">Here is a text-color link allowing me to overwrite the default color of the link</a>
 
 		<pretty-code :code="html.text"></pretty-code>
+
 		<h3 id="background"><a href="#background">#</a> Background</h3>
 		<ul>
 			<li><code class="text-info">$bg-colors-classes</code> Classes data ( default matching <code class="text-info">$colors-classes</code> )</li>
 			<li><code class="text-info">$bg-colors</code> Custom data</li>
 		</ul>
 		<pretty-code class="language-css" :code="html.backgroundVariables"></pretty-code>
-		<div class="bg-primary wrapper">
-			<div class="bg-secondary wrapper">
-				<div class="bg-success wrapper">
-					<div class="bg-warning wrapper">
-						<div class="bg-danger wrapper">
-							<div class="bg-body wrapper -small text-center">
+		<div class="bg-primary wrapper -small">
+			<div class="bg-secondary wrapper -small">
+				<div class="bg-success wrapper -small">
+					<div class="bg-warning wrapper -small">
+						<div class="bg-danger wrapper -small">
+							<div class="bg-body text-center text-small">
 								Background colors
 							</div>
 						</div>
@@ -43,6 +44,28 @@
 			</div>
 		</div>
 		<pretty-code :code="html.background"></pretty-code>
+
+		<h3 id="border"><a href="#border">#</a> Border</h3>
+		<p>The same logic applies for borders</p>
+		<ul>
+			<li><code class="text-info">$border-colors-classes</code> Classes data ( default matching <code class="text-info">$colors-classes</code> )</li>
+			<li><code class="text-info">$border-colors</code> Custom data</li>
+		</ul>
+
+		<div class="border-primary wrapper -small">
+			<div class="border-secondary wrapper -small">
+				<div class="border-success wrapper -small">
+					<div class="border-warning wrapper -small">
+						<div class="border-danger wrapper -small">
+							<div class="border-color text-small text-center">
+								Border colors
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<pretty-code :code="html.border"></pretty-code>
 	</div>
 </template>
 
@@ -63,6 +86,7 @@ export default {
 			textVariables: require('./code/text-variables.html'),
 			background: require('./code/background.html'),
 			backgroundVariables: require('./code/background-variables.html'),
+			border: require('./code/border.html'),
 		}
 	}),
 	methods: {
