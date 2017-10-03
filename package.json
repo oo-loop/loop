@@ -1,7 +1,7 @@
 {
-  "name": "ring",
+  "name": "loop",
   "version": "0.0.1",
-  "description": "A Framework to rule them all",
+  "description": "Why Going into circles",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.gplusmedia.com:library/front-end/ring.git"
+    "url": "git@git.gplusmedia.com:library/front-end/loop.git"
   },
   "keywords": [
     "framework",
