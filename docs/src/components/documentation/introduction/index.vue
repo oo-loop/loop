@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <transition name="fade" appear>
-      <logo class="text-primary" height="350" />
+      <logo class="text-primary logo" />
     </transition>
     <h1 class="h2">Loop</h1>
     <p class="text-large">"Why going into Circles?"</p>
@@ -29,5 +29,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    .logo {
+        height: auto;
+        max-width: 100%;
+        max-height: 350px;
+    }
 </style>
