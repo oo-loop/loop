@@ -175,6 +175,24 @@ export default {
 				]
 			},
 			{
+				name: 'Color Utilities',
+				route: 'color-utilities',
+				subMenu: [
+					{
+						name: 'Text',
+						route: '#text'
+					},
+					{
+						name: 'Background',
+						route: '#background'
+					},
+					{
+						name: 'Border',
+						route: '#border'
+					}
+				]
+			},
+			{
 				name: 'Spacing',
 				route: 'spacing',
 				subMenu: [

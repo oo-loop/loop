@@ -9,7 +9,7 @@ import Form from 'docs/form'
 import Button from 'docs/button'
 import Spacing from 'docs/spacing'
 import TextUtilities from 'docs/text-utilities'
-import Colors from 'docs/colors'
+import ColorUtilities from 'docs/color-utilities'
 import Float from 'docs/float'
 import Visibility from 'docs/visibility'
 import Wrapper from 'docs/wrapper'
@@ -61,9 +61,9 @@ export default new Router({
 			component: TextUtilities
 		},
 		{
-			path: '/colors',
-			name: 'colors',
-			component: Colors
+			path: '/color-utilities',
+			name: 'color-utilities',
+			component: ColorUtilities
 		},
 		{
 			path: '/float',
