@@ -1,0 +1,93 @@
+/**
+ * Toggle
+ */
+
+$toggle-size:                  2.4rem !default;
+$toggle-color:                 $input-bgcolor !default;
+$toggle-bgcolor:               $input-border-color !default;
+$toggle-border-color:          $toggle-bgcolor !default;
+$toggle-box-shadow:            $checkbox-box-shadow !default;
+
+$toggle-checked-bgcolor:       $input-color !default;
+$toggle-checked-border-color:  $toggle-checked-bgcolor !default;
+
+$use-toggle-animation: true !default;
+$toggle-sizes:() !default;
+
+@mixin toggle-size($size) {
+    & + label {
+        margin-bottom: ($size / 3);
+        &:before {
+            margin-right: ($size / 3);
+            width: ($size * 1.8);
+            height: $size;
+        }
+        &:after {
+            left: ($size * .2);
+            width: ($size * .7);
+            height: ($size * .7);
+        }
+    }
+
+    &:checked + label:after {
+        left: ($size * .35);
+    }
+}
+
+.toggle {
+    position: absolute;
+    visibility: hidden;
+
+    & + label {
+    	position: relative;
+        display: flex;
+        align-items: center;
+        line-height: 1.1;
+        font-weight: $font-weight-base;
+
+    	&:before {
+            display: flex;
+    		content:'';
+    		border: 1px solid $toggle-border-color;
+            border-radius: 25% / 50%;
+    		background-color: $toggle-bgcolor;
+            box-shadow: $toggle-box-shadow;
+
+            @if $use-toggle-animation {
+                transition: all 300ms ease-in-out;
+            }
+    	}
+        &:after {
+            position: absolute;
+            top: 50%;
+            content: '';
+            border-radius: 50%;
+            background-color: $toggle-color;
+            box-shadow: $toggle-box-shadow;
+
+            transform: translateY(-50%);
+
+            @if $use-toggle-animation {
+                transition: all 300ms ease-out;
+            }
+        }
+    }
+
+	&:checked + label {
+		&:before {
+			background-color: $toggle-checked-bgcolor;
+            border-color: $toggle-checked-border-color;
+		}
+		&:after {
+            transform: translateY(-50%) translateX(80%);
+		}
+	}
+
+    @include toggle-size($toggle-size);
+
+    @if type-of($toggle-sizes) == 'map' {
+        @each $size_name, $size_value in $toggle-sizes {
+            &.-#{$size_name} { @include toggle-size($size_value) }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+/**
+ * Input
+ */
+
+$input-color:            #4d4d4d !default;
+$input-bgcolor:          #fff !default;
+$input-font-family:      $font-family-base !default;
+$input-font-size:        $font-size-base !default;
+$input-font-style:       normal !default;
+$input-line-height:      1.15 !default;
+
+$input-padding:          .5em .625em !default; // relative to the size of the input
+$input-margin:           .2rem !default;
+
+$input-border-color:     #d6d6d6 !default;
+$input-border:           1px solid $input-border-color !default;
+$input-border-radius:    .2em !default; // relative to the size of the input
+$input-box-shadow:       1px 1px 1px 0 rgba(#aaa, .50) !default;
+$input-focus-box-shadow: 1px 1px 2px 0px rgba(#aaa, .85) !default;
+
+$input-colors-classes: ('danger') !default;
+
+$label-font-weight:      500 !default;
+
+.input {
+    padding: $input-padding;
+    margin-top: $input-margin;
+    margin-bottom: $input-margin;
+
+    display: block;
+    width: 100%;
+
+    color: $input-color;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+    font-style: $input-font-style;
+    line-height: $input-line-height;
+
+    border: $input-border;
+    border-radius: $input-border-radius;
+    background-color: $input-bgcolor;
+
+    @if $input-box-shadow != none {
+        box-shadow: $input-box-shadow;
+    }
+
+    appearance: none;
+
+    &:focus {
+        outline:none;
+        @if $input-box-shadow == none and $input-focus-box-shadow != none {
+            box-shadow: $input-focus-box-shadow;
+        } @elseif $input-focus-box-shadow != none {
+            box-shadow: $input-box-shadow, $input-focus-box-shadow;
+        }
+    }
+
+    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color');
+}
+
+label { font-weight: $label-font-weight; }

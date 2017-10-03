@@ -1,0 +1,103 @@
+/**
+ * Select
+ */
+
+$select-size:    10px !default;
+$select-color:   $input-color !default;
+$select-bgcolor: $input-bgcolor !default;
+
+$select-themes: (
+    // 'plain' : (
+    //     'size' : $select-size,
+    //     'color': $select-bgcolor,
+    //     'bgcolor': $input-border-color,
+    // )
+) !default;
+
+@mixin selectTheme($theme) {
+    @if map-has-key($theme, 'size') {
+        &:before { width: (map-get($theme, 'size') * 3); }
+        &:after {
+            right: map-get($theme, 'size');
+            width: map-get($theme, 'size');
+            height: map-get($theme, 'size');
+        }
+    }
+    @if map-has-key($theme, 'bgcolor') {
+        &:before { background-color: map-get($theme, 'bgcolor'); }
+    }
+    @if map-has-key($theme, 'color') {
+        &:after {
+            border-bottom-color: map-get($theme, 'color');
+            border-right-color: map-get($theme, 'color');
+        }
+    }
+}
+
+.select {
+    position: relative;
+    margin-top: $input-margin;
+    margin-bottom: $input-margin;
+
+    display: block;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        content: '';
+
+        border-top: $input-border;
+        border-right: $input-border;
+        border-bottom: $input-border;
+        border-top-right-radius: $input-border-radius;
+        border-bottom-right-radius: $input-border-radius;
+
+        pointer-events: none;
+    }
+
+    &:after {
+        position: absolute;
+        top: 50%;
+
+        content: '';
+
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-right-width: 2px;
+        border-right-style: solid;
+
+        pointer-events: none;
+        transform: rotateZ(45deg) translate3d(-50%, -50%, 0);
+    }
+
+    @include selectTheme((
+        'size' : $select-size,
+        'color': $select-color,
+        'bgcolor': $select-bgcolor,
+    ));
+
+    > select {
+        @extend .input;
+        margin: 0;
+        appearance:none;
+
+        /* hide the default arrow in ie10 and ie11 */
+        &::-ms-expand {
+            display: none;
+        }
+    }
+
+    @if isNotEmpty($select-themes) and type-of($select-themes) == 'map' {
+        @each $theme-name, $theme in $select-themes {
+            &.-#{$theme-name} {
+                @include selectTheme($theme);
+            }
+        }
+    }
+
+    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ' > select');
+    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ':before');
+}

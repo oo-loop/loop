@@ -7,6 +7,7 @@
 					<ul class="list-unstyle text-strong">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
+							<span class="text-danger text-tiny"  v-if="item.label">{{item.label}}</span>
 							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
 								<li v-for="subItem in item.subMenu">
 									<template v-if="subItem.route.indexOf('#') > -1">
@@ -87,6 +88,7 @@ export default {
 			{
 				name: 'Grid',
 				route: 'grid',
+				label: 'alpha',
 				subMenu: [
 					{
 						name: 'Regular Grid',
@@ -103,9 +105,44 @@ export default {
 				]
 			},
 			{
+				name: 'Form',
+				route: 'form',
+				subMenu: [
+					{
+						name: 'Input',
+						route: '#input'
+					},
+					{
+						name: 'Checkbox',
+						route: '#checkbox'
+					},
+					{
+						name: 'Radio',
+						route: '#radio'
+					},
+					{
+						name: 'Toggle',
+						route: '#toggle'
+					},
+					{
+						name: 'Select',
+						route: '#select'
+					},
+				]
+			},
+			{
 				name: 'Button',
 				route: 'button',
-				subMenu: []
+				subMenu: [
+					{
+						name: 'Sizes',
+						route: '#sizes'
+					},
+					{
+						name: 'Colors',
+						route: '#colors'
+					},
+				]
 			},
 			{
 				name: 'Text Utilities',
@@ -138,9 +175,44 @@ export default {
 				]
 			},
 			{
+				name: 'Color Utilities',
+				route: 'color-utilities',
+				subMenu: [
+					{
+						name: 'Text',
+						route: '#text'
+					},
+					{
+						name: 'Background',
+						route: '#background'
+					},
+					{
+						name: 'Border',
+						route: '#border'
+					}
+				]
+			},
+			{
 				name: 'Spacing',
 				route: 'spacing',
-				subMenu: []
+				subMenu: [
+					{
+						name: 'Vertical',
+						route: '#vertical'
+					},
+					{
+						name: 'Horizontal',
+						route: '#horizontal'
+					},
+					{
+						name: 'Responsive',
+						route: '#responsive'
+					},
+					{
+						name: 'Custom',
+						route: '#custom'
+					},
+				]
 			},
 			{
 				name: 'Float',
@@ -156,6 +228,16 @@ export default {
 					},
 				]
 			},
+			{
+				name: 'Visibility',
+				route: 'visibility',
+				subMenu: []
+			},
+			{
+				name: 'Wrapper',
+				route: 'wrapper',
+				subMenu: []
+			}
 		],
 		isMenuOpen: false,
 	}),
@@ -176,12 +258,24 @@ export default {
 <style lang="scss">
 	// some variables
 	$text-colors-addon: ('info': #2689ef);
-	$text-alignments-breakpoints: ('sm', 'lg');
+	$text-alignments-breakpoints-classes: ('sm', 'lg');
+
+	$checkbox-sizes:(
+	    'small': 1.6rem,
+	    'large': 2.4rem,
+	);
+	$radio-sizes:(
+	    'medium': 2.4rem,
+	    'large': 3.2rem,
+	);
+	$toggle-sizes:(
+	  'large': 4rem,
+	);
 
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
-	$sidebar-size: 250px;
+	$sidebar-size: 220px;
 
 	.sidebar {
 		top: 0;

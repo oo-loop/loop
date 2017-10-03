@@ -3,15 +3,15 @@
  */
 
 $heading-color:           $color-base !default;
-$heading-font-family:     $font-base !default;
+$heading-font-family:     $font-family-base !default;
 $heading-font-weight:     500 !default;
 $heading-line-height:     1.125 !default;
 $heading-margin-top:      .2em !default;
 $heading-margin-bottom:   .45em !default;
 
 // Heading Font sizes
-$h1-font-size: 4.6rem !default;
-$h2-font-size: 3.6rem !default;
+$h1-font-size: 4rem !default;
+$h2-font-size: 3.2rem !default;
 $h3-font-size: 2.8rem !default;
 $h4-font-size: 2.2rem !default;
 $h5-font-size: 1.8rem !default;
@@ -23,8 +23,15 @@ $heading-font-sizes: (
     'h3': $h3-font-size,
     'h4': $h4-font-size,
     'h5': $h5-font-size,
-    'h6': $h6-font-size
+    'h6': $h6-font-size,
 );
+
+$heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
+$heading-font-sizes-breakpoints: (
+    sm: (
+        'h1': ($h1-font-size * 1.15),
+    )
+) !default;
 
 // Heading allowing letter spacing
 $heading-letter-spacing: -.1rem !default;
@@ -38,30 +45,50 @@ $anchor-color:             $color-primary !default;
 $anchor-color-hover:       $color-secondary !default;
 $anchor-text-decoration:   none !default;
 
+// Hr
+$hr-color: #cdcdcd !default;
+$hr-margins: 1.5rem !default;
+
+@mixin headings($heading, $font-size) {
+    margin-top: $heading-margin-top;
+    margin-bottom: $heading-margin-bottom;
+    font-size: $font-size;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
+
+    // add letter spacing for specific, if the font-weight is bold enough
+    @if inArray($heading, $heading-letter-spacing-list)
+        and inArray($heading-font-weight, (700, 800, 900, bold, bolder)) {
+            letter-spacing: $heading-letter-spacing;
+    }
+
+    //add font family rules if different
+    @if $heading-font-family != $font-base {
+        font-family: $heading-font-family;
+    }
+
+    //add color rules if different
+    @if $heading-color != $color-base {
+        color: $heading-color;
+    }
+
+    // responsive sizes ?
+    @if isNotEmpty($heading-font-sizes-breakpoints) and type-of($heading-font-sizes-breakpoints) == 'map' {
+        @each $breakpoint, $heading-map in $heading-font-sizes-breakpoints {
+            @if map-has-key($heading-map, $heading) {
+                @include breakpoint($breakpoint) {
+                    font-size: map-get($heading-map, $heading);
+                }
+            }
+        }
+    }
+}
+
 @each $heading, $font-size in $heading-font-sizes {
-    #{$heading},
-    .#{$heading} {
-        margin-top: $heading-margin-top;
-        margin-bottom: $heading-margin-bottom;
-        font-size: $font-size;
-        font-weight: $heading-font-weight;
-        line-height: $heading-line-height;
+    #{$heading} { @include headings($heading, $font-size) }
 
-        // add letter spacing for specific, if the font-weight is bold enough
-        @if inArray($heading, $heading-letter-spacing-list)
-            and inArray($heading-font-weight, (700, 800, 900, bold, bolder)) {
-                letter-spacing: $heading-letter-spacing;
-        }
-
-        //add font family rules if different
-        @if $heading-font-family != $font-base {
-            font-family: $heading-font-family;
-        }
-
-        //add color rules if different
-        @if $heading-color != $color-base {
-            color: $heading-color;
-        }
+    @if inArray($heading, $heading-font-sizes-classes) {
+        .#{$heading} { @include headings($heading, $font-size) }
     }
 }
 
@@ -103,4 +130,12 @@ mark {
     }
     color: inherit;
     background-color: $highlight;
+}
+
+hr, .hr {
+    margin-top: $hr-margins;
+    margin-bottom: $hr-margins;
+    display: block;
+    border:none;
+    border-bottom: 1px solid $hr-color;
 }

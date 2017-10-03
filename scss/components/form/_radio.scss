@@ -1,0 +1,95 @@
+/**
+ * Radio
+ */
+
+$radio-size:                  $checkbox-size !default;
+$radio-bgcolor:               $checkbox-bgcolor !default;
+$radio-border-color:          $checkbox-border-color !default;
+$radio-box-shadow:            $checkbox-box-shadow !default;
+$radio-checked-color:         $input-color !default;
+$radio-checked-bgcolor:       $radio-bgcolor !default;
+$radio-checked-border-color:  $radio-border-color !default;
+
+$use-radio-animation: $use-checkbox-animation !default;
+$radio-sizes: $checkbox-sizes !default;
+$radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
+
+@mixin radio-size($size) {
+    & + label {
+        margin-bottom: ($size / 3);
+        &:before {
+            margin-right: ($size / 3);
+        }
+    }
+
+    & + label:before,
+    &:checked + label:after {
+        width: $size;
+        height: $size;
+    }
+}
+
+.radio {
+    position: absolute;
+    visibility: hidden;
+
+    & + label {
+    	position: relative;
+        display: flex;
+        align-items: center;
+        line-height: 1.1;
+        font-weight: $font-weight-base;
+
+    	&:before {
+            display: flex;
+    		content:'';
+    		border: 1px solid $radio-border-color;
+            border-radius: 50%;
+    		background-color: $radio-bgcolor;
+            box-shadow: $radio-box-shadow;
+    	}
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            content: '';
+            border-radius: 50%;
+            @if $use-radio-animation {
+                transform: translateY(-50%) scale(1.5);
+                transition: all 300ms ease-in-out;
+            }
+        }
+    }
+
+	&:checked + label {
+		&:before {
+			background-color: $radio-checked-bgcolor;
+            border-color: $radio-checked-border-color;
+		}
+		&:after {
+            background-color: $radio-checked-color;
+            transform: translateY(-50%) scale(0.5);
+		}
+	}
+
+    @include radio-size($radio-size);
+
+    @if type-of($radio-sizes) == 'map' {
+        @each $size_name, $size_value in $radio-sizes {
+            &.-#{$size_name} { @include radio-size($size_value) }
+        }
+
+        @if isNotEmpty($radio-breakpoints-classes) {
+            @each $breakpoint in $radio-breakpoints-classes {
+                @include breakpoint($breakpoint) {
+                    @each $size_name, $size_value in $radio-sizes {
+                        $suffix: \@#{$breakpoint};
+                        &.-#{$size_name}#{$suffix} { @include radio-size($size_value) }
+                    }
+                }
+            }
+        }
+    }
+
+    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ' + label:before');
+}

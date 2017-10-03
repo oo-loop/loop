@@ -5,10 +5,14 @@ import Intro from 'docs/introduction'
 import Type from 'docs/type'
 import Column from 'docs/column'
 import Grid from 'docs/grid'
+import Form from 'docs/form'
 import Button from 'docs/button'
-import TextUtilities from 'docs/text-utilities'
 import Spacing from 'docs/spacing'
+import TextUtilities from 'docs/text-utilities'
+import ColorUtilities from 'docs/color-utilities'
 import Float from 'docs/float'
+import Visibility from 'docs/visibility'
+import Wrapper from 'docs/wrapper'
 
 Vue.use(Router)
 
@@ -37,14 +41,14 @@ export default new Router({
 			component: Grid
 		},
 		{
+			path: '/form',
+			name: 'form',
+			component: Form
+		},
+		{
 			path: '/button',
 			name: 'button',
 			component: Button
-		},
-		{
-			path: '/text-utilities',
-			name: 'text-utilities',
-			component: TextUtilities
 		},
 		{
 			path: '/spacing',
@@ -52,9 +56,29 @@ export default new Router({
 			component: Spacing
 		},
 		{
+			path: '/text-utilities',
+			name: 'text-utilities',
+			component: TextUtilities
+		},
+		{
+			path: '/color-utilities',
+			name: 'color-utilities',
+			component: ColorUtilities
+		},
+		{
 			path: '/float',
 			name: 'float',
 			component: Float
+		},
+		{
+			path: '/visibility',
+			name: 'visibility',
+			component: Visibility
+		},
+		{
+			path: '/wrapper',
+			name: 'wrapper',
+			component: Wrapper
 		}
 	]
 })

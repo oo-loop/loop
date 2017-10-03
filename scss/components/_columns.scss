@@ -27,11 +27,11 @@ $columns-gutter-sizes: (
 
     @if $use-columns-alignment == true {
         // responsive classes
-        @each $breakpoint in $breakpoints-classes-from-start {
-            @include breakpoint($breakpoint) {
+        @each $class in $breakpoints-classes-from-start {
+            @include breakpoint($class) {
                 $suffix: '';
-                @if $breakpoint != '' {
-                    $suffix: \@#{$breakpoint};
+                @if $class != '' {
+                    $suffix: \@#{$class};
                 }
 
                 // horizontal alignment
@@ -82,13 +82,21 @@ $columns-gutter-sizes: (
     // adjust to the size of the content
     &.-self-adjust {
         min-width: auto;
-        flex-grow: 0
+        flex-grow: 0;
+        flex-basis: auto;
     }
 
     // responsive classes
-    @each $breakpoint in $breakpoints-classes {
-        @include breakpoint($breakpoint) {
-            $suffix: \@#{$breakpoint};
+    @each $class in $breakpoints-classes {
+        @include breakpoint($class) {
+            $suffix: \@#{$class};
+
+            &.-self-adjust#{$suffix} {
+                min-width: auto;
+                flex-grow: 0;
+                flex-basis: auto;
+            }
+
             // order-0 to make sure it is first
             @if $use-columns-order == true {
                 &.-order-0#{$suffix} { order: -1; }
@@ -114,11 +122,11 @@ $columns-gutter-sizes: (
 
     @if $use-columns-self-alignment == true {
         // alignments
-        @each $breakpoint in $breakpoints-classes-from-start {
-            @include breakpoint($breakpoint) {
+        @each $class in $breakpoints-classes-from-start {
+            @include breakpoint($class) {
                 $suffix: '';
-                @if $breakpoint != '' {
-                    $suffix: \@#{$breakpoint};
+                @if $class != '' {
+                    $suffix: \@#{$class};
                 }
 
                 // horizontal alignment

@@ -1,0 +1,19 @@
+/**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+
+@function isEmpty($data) {
+    @if type-of($data) == 'string' and str-length($data) == 0 {
+        @return true;
+    } @elseif type-of($data) == 'list' and length($data) == 0 {
+        @return true;
+    } @elseif {
+        @return false;
+    }
+}
+
+@function isNotEmpty($data) {
+    @return if(isEmpty($data), false, true);
+}

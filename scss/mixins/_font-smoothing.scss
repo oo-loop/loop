@@ -1,8 +1,9 @@
 /**
- * font-smoothing
+ * fontSmoothing
+ * @param $smooth bool Apply smoothing ?
  */
 
-@mixin font-smoothing($smooth : true) {
+@mixin fontSmoothing($smooth : true) {
 	@if $smooth == false {
 		-webkit-font-smoothing: auto;
 		-moz-osx-font-smoothing: auto;

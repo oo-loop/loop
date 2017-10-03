@@ -2,23 +2,61 @@
  * Spacing
  */
 
-$spacing-step: 5 !default;
-$spacing-limit: 50 !default;
+// vertical spacing
+$use-v-spacing: true !default;
+$v-spacing-step: 5 !default;
+$v-spacing-limit: 50 !default;
+$v-spacing-addon: () !default;
+$v-spacing-breakpoints-classes: () !default;
 
 // set default spacing
-$spacing: ();
-@for $i from 0 through ceil($spacing-limit / $spacing-step) {
-    $spacing: map-merge($spacing, (#{$i*5}: #{$i*5}px));
+$v-spacing: ();
+@for $i from 0 through ceil($v-spacing-limit / $v-spacing-step) {
+    $v-spacing: map-merge($v-spacing, (#{$i*5}: #{$i*5}px));
 }
 
 // check if any custom sizes have been required
-$spacing-addon: () !default;
-$spacing-addons: ();
-@if length($spacing-addon) > 0 {
-    @each $value in $spacing-addon {
-        $spacing-addons: map-merge($spacing-addons, (#{value}: #{$value}px));
+$v-spacing-addons: ();
+@if length($v-spacing-addon) > 0 {
+    @each $value in $v-spacing-addon {
+        $spacing_value: if($value == auto, auto, #{$value}px);
+        $v-spacing-addons: map-merge($v-spacing-addons, (#{value}: $spacing_value));
     }
 }
 
-@include loop($spacing, 'mt', 'margin-top', $spacing-addons, true);
-@include loop($spacing, 'mb', 'margin-bottom', $spacing-addons, true);
+@if ($use-v-spacing) {
+    @include loop($v-spacing, 'margin-top', '.mt', $v-spacing-addons, true);
+    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'margin-top', '.mt', $v-spacing-addons, true);
+    @include loop($v-spacing, 'margin-bottom', '.mb', $v-spacing-addons, true);
+    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'margin-bottom', '.mb', $v-spacing-addons, true);
+}
+
+// horizontal spacing
+
+$use-h-spacing: true !default;
+$h-spacing-step: 5 !default;
+$h-spacing-limit: 25 !default;
+$h-spacing-addon: () !default;
+$h-spacing-breakpoints-classes: () !default;
+
+// set default spacing
+$h-spacing: ();
+@for $i from 0 through ceil($h-spacing-limit / $h-spacing-step) {
+    $h-spacing: map-merge($h-spacing, (#{$i*5}: #{$i*5}px));
+}
+
+// check if any custom sizes have been required
+$h-spacing-addons: ();
+@if length($h-spacing-addon) > 0 {
+    @each $value in $h-spacing-addon {
+        $spacing_value: if($value == auto, auto, #{$value}px);
+        $h-spacing-addons: map-merge($h-spacing-addons, (#{value}: $spacing_value));
+    }
+}
+
+@if ($use-h-spacing) {
+    @include loop($h-spacing, 'margin-left', '.ml', $h-spacing-addons, true);
+    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'margin-left', '.ml', $h-spacing-addons, true);
+    @include loop($h-spacing, 'margin-right', '.mr', $h-spacing-addons, true);
+    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'margin-right', '.mr', $h-spacing-addons, true);
+}
