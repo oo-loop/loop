@@ -1,64 +1,65 @@
-$grid-gap: 1rem !default;
-$grid-system: 12 !default;
+/**
+ * Grid
+ */
+
+$grid-gap: 	  $columns-gutter !default;
+$grid-system: $columns-system !default;
+
+$grid-gap-sizes: $columns-gutter-sizes !default;
 
 .grid {
 	display: grid;
-  	grid-template-columns: repeat(12, 1fr);
+  	grid-template-columns: repeat($grid-system, 1fr);
   	grid-gap: $grid-gap;
-	&.grid-columns {
-		grid-auto-flow: column;
-	}
-	&.grid-rows {
-		grid-auto-flow: row;
-	}
+	
+	// &.-columns {
+	// 	grid-auto-flow: column;
+	// }
+	// &.-rows {
+	// 	grid-auto-flow: row;
+	// }
 
+	// @for $i from 1 through 15 {
+	// 	&.gap-#{$i} {
+	// 		grid-column-gap: #{$i}px;
+	// 	}
+	// 	&.gap-row-#{$i} {
+	// 		grid-row-gap: #{$i}px;
+	// 	}
+	// }
 
-	@for $i from 1 through 15 {
-		&.gap-#{$i} {
-			grid-column-gap: #{$i}px;
-		}
-		&.gap-row-#{$i} {
-			grid-row-gap: #{$i}px;
-		}
-	}
-
-	@each $breakpoint in $breakpoints {
-		$key: nth($breakpoint, 1);  // get the key
-		@include breakpoint($key) {			
-			@for $i from 1 through $grid-system {
-				&.gap-#{$key}-#{$i} {
-					grid-column-gap: #{$i}px;
-				}
-				&.gap-row-#{$key}-#{$i} {
-					grid-row-gap: #{$i}px;
-				}
-				&.gap-#{$i} {
-					grid-gap: #{$i}px;
-				}
-			}
-
-
-		}
-	}
-	.grid-item {
-		@for $i from 1 through $grid-system {
-			&.-col-#{$i} {
-				grid-column: span $i;
-			}
-		}
-		@each $breakpoint in $breakpoints {
-			$key: nth($breakpoint, 1);  // get the key
-			@include breakpoint($key) {
-				@for $i from 1 through $grid-system {	
-					&.-col-#{$key}-#{$i} {
-						grid-column: span $i;
-					}
-
-					&.-row-#{$key}-#{$i} {
-						grid-row: span $i;
-					}
-				}
-			}
-		}
-	}
+	// @each $breakpoint in $breakpoints {
+	// 	$key: nth($breakpoint, 1);  // get the key
+	// 	@include breakpoint($key) {			
+	// 		@for $i from 1 through $grid-system {
+	// 			&.gap-#{$key}-#{$i} {
+	// 				grid-column-gap: #{$i}px;
+	// 			}
+	// 			&.gap-row-#{$key}-#{$i} {
+	// 				grid-row-gap: #{$i}px;
+	// 			}
+	// 			&.gap-#{$i} {
+	// 				grid-gap: #{$i}px;
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
+
+.cell {
+	@each $class in $breakpoints-classes-from-start {
+        @include breakpoint($class) {
+            $suffix: '';
+            @if $class != '' {
+                $suffix: \@#{$class};
+            }
+
+			@for $i from 1 through $grid-system {
+				&.-col-#{$i}#{$suffix} { grid-column: span $i; }
+				&.-row-#{$i}#{$suffix} { grid-row: span $i; }
+			}
+        }
+    }   
+}
+	
+
