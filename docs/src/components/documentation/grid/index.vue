@@ -1,19 +1,19 @@
 <template>
 	<div>
-		<h1 class="title">Grid Layout <small class="text-small text-danger">alpha</small></h1>
+		<h1 class="title">Grid Layout <small class="text-small text-danger">wip</small></h1>
 		<p class="text-large">Based on CSS grid layout, using the 12 grid system (columns and rows).</p>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive Columns and Rows</h3>
 		<div class="grid">
-			<div class="span -col-6 -row-3 -col-4@sm bg-primary">1</div>
-			<div class="span -col-6 -col-8@sm bg-primary">2</div>
-			<div class="span -col-6 -col-4@sm bg-primary">3</div>
-			<div class="span -col-6 -col-4@sm -row-2@sm -row-3@md -row-4@lg bg-primary">4</div>
-			<div class="span -col-4 bg-primary">5</div>
-			<div class="span -col-4 -col-2@lg bg-primary">6</div>
-			<div class="span -col-4 -row-2@md -row-1@lg bg-primary">7</div>
-			<div class="span -col-12 -col-4@sm -col-2@lg bg-primary">8</div>
-			<div class="span -col-12 -col-4@md -col-8@lg bg-primary">9</div>
+			<div class="cell col-6 row-3 -col-4@sm bg-primary">1</div>
+			<div class="cell col-6 -col-8@sm bg-primary">2</div>
+			<div class="cell col-6 -col-4@sm bg-primary">3</div>
+			<div class="cell col-6 -col-4@sm -row-2@sm -row-3@md -row-4@lg bg-primary">4</div>
+			<div class="cell col-4 bg-primary">5</div>
+			<div class="cell col-4 -col-2@lg bg-primary">6</div>
+			<div class="cell col-4 -row-2@md -row-1@lg bg-primary">7</div>
+			<div class="cell col-12 -col-4@sm -col-2@lg bg-primary">8</div>
+			<div class="cell col-12 -col-4@md -col-8@lg bg-primary">9</div>
 		</div>
 
 		<pretty-code :code="html.responsive" />
@@ -40,12 +40,12 @@
 			</div>
 		</div>
 		<div class="grid" :class="[gapClass, vGapClass]">
-			<div class="span -col-4 border-primary"></div>
-			<div class="span -col-4 border-primary"></div>
-			<div class="span -col-4 border-primary"></div>
-			<div class="span -col-4 border-primary"></div>
-			<div class="span -col-4 border-primary"></div>
-			<div class="span -col-4 border-primary"></div>
+			<div class="cell col-4 border-primary"></div>
+			<div class="cell col-4 border-primary"></div>
+			<div class="cell col-4 border-primary"></div>
+			<div class="cell col-4 border-primary"></div>
+			<div class="cell col-4 border-primary"></div>
+			<div class="cell col-4 border-primary"></div>
 		</div>
 
 	</div>
@@ -90,7 +90,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 	@import "~loop/variables";
-	.span {
+	.cell {
 		padding: 1rem;
 	}
 </style>

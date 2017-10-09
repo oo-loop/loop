@@ -13,23 +13,23 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 
 .grid {
 	display: grid;
-  	grid-template-columns: repeat($grid-system, 1fr);
-  	grid-gap: $grid-gap;
-}
-
-.span {
+	grid-template-columns: repeat($grid-system, 1fr);
+	grid-gap: $grid-gap;
+	
 	@each $class in $breakpoints-classes-from-start {
-        @include breakpoint($class) {
-            $suffix: '';
-            @if $class != '' {
-                $suffix: \@#{$class};
-            }
-			@for $i from 1 through $grid-system {
-				&.-col-#{$i}#{$suffix} { grid-column: span $i; }
-				&.-row-#{$i}#{$suffix} { grid-row: span $i; }
+		@include breakpoint($class) {
+			$prefix: '';
+			$suffix: '';
+			@if $class != '' {
+				$prefix: '-';
+				$suffix: \@#{$class};
 			}
-        }
-    }   
+			@for $i from 1 through $grid-system {
+				.#{$prefix}col-#{$i}#{$suffix} { grid-column: span $i; }
+				.#{$prefix}row-#{$i}#{$suffix} { grid-row: span $i; }
+			}
+		}
+	}   
 }
 
 @if $use-grid-gap {

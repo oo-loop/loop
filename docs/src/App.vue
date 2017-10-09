@@ -91,10 +91,6 @@ export default {
 				label: 'wip',
 				subMenu: [
 					{
-						name: 'Regular Grid',
-						route: '#regular'
-					},
-					{
 						name: 'Responsive',
 						route: '#responsive'
 					},
