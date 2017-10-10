@@ -196,6 +196,12 @@
  */
  $columns-gutter: 2.4rem !default;
  $columns-system: 12 !default;
+ $columns-gutter-sizes: (
+    'less' : 0,
+    'tiny' : .8rem,
+    'small': 1.6rem,
+    'large': 4rem,
+) !default;
 
  $use-columns-order:          true !default;
  $use-columns-offset:         false !default;
@@ -247,6 +253,7 @@
  $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
 
  $btn-padding:        .415em 1.2em !default; // relative to the size of the button
+ $btn-font-family:    $font-family-base !default;
  $btn-font-size:      $font-size-base !default;
  $btn-font-weight:    700 !default;
  $btn-text-transform: uppercase !default;

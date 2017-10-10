@@ -1,64 +1,50 @@
-$grid-gap: 1rem !default;
+/**
+ * Grid
+ */
+
+$use-grid-gap: true !default; 
+$use-v-grid-gap: true !default;
+
+$grid-gap: 	  $columns-gutter !default;
 $grid-system: 12 !default;
+
+$grid-gap-sizes: $columns-gutter-sizes !default;
+$grid-v-gap-sizes: $grid-gap-sizes !default;
 
 .grid {
 	display: grid;
-  	grid-template-columns: repeat(12, 1fr);
-  	grid-gap: $grid-gap;
-	&.grid-columns {
-		grid-auto-flow: column;
-	}
-	&.grid-rows {
-		grid-auto-flow: row;
-	}
-
-
-	@for $i from 1 through 15 {
-		&.gap-#{$i} {
-			grid-column-gap: #{$i}px;
-		}
-		&.gap-row-#{$i} {
-			grid-row-gap: #{$i}px;
-		}
-	}
-
-	@each $breakpoint in $breakpoints {
-		$key: nth($breakpoint, 1);  // get the key
-		@include breakpoint($key) {			
+	grid-template-columns: repeat($grid-system, 1fr);
+	grid-gap: $grid-gap;
+	
+	@each $class in $breakpoints-classes-from-start {
+		@include breakpoint($class) {
+			$prefix: '';
+			$suffix: '';
+			@if $class != '' {
+				$prefix: '-';
+				$suffix: \@#{$class};
+			}
 			@for $i from 1 through $grid-system {
-				&.gap-#{$key}-#{$i} {
-					grid-column-gap: #{$i}px;
-				}
-				&.gap-row-#{$key}-#{$i} {
-					grid-row-gap: #{$i}px;
-				}
-				&.gap-#{$i} {
-					grid-gap: #{$i}px;
-				}
-			}
-
-
-		}
-	}
-	.grid-item {
-		@for $i from 1 through $grid-system {
-			&.-col-#{$i} {
-				grid-column: span $i;
+				.#{$prefix}col-#{$i}#{$suffix} { grid-column: span $i; }
+				.#{$prefix}row-#{$i}#{$suffix} { grid-row: span $i; }
 			}
 		}
-		@each $breakpoint in $breakpoints {
-			$key: nth($breakpoint, 1);  // get the key
-			@include breakpoint($key) {
-				@for $i from 1 through $grid-system {	
-					&.-col-#{$key}-#{$i} {
-						grid-column: span $i;
-					}
+	}   
+}
 
-					&.-row-#{$key}-#{$i} {
-						grid-row: span $i;
-					}
-				}
-			}
+@if $use-grid-gap {
+	.-gap {
+		@each $gap-name, $gap-size in $grid-gap-sizes {
+			&-#{$gap-name} { grid-gap: $gap-size; }
 		}
 	}
 }
+
+@if $use-grid-gap and $use-v-grid-gap {
+	.-v-gap {
+		@each $gap-name, $gap-size in $grid-v-gap-sizes {
+			&-#{$gap-name} { grid-row-gap: $gap-size; }
+		}
+	}
+}
+
