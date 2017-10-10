@@ -2,11 +2,11 @@
  * Grid
  */
 
-$use-grid-gap: true !default; 
+$use-grid-gap: true !default;
 $use-v-grid-gap: true !default;
 
 $grid-gap: 	  $columns-gutter !default;
-$grid-system: 12 !default;
+$grid-system: $columns-system !default;
 
 $grid-gap-sizes: $columns-gutter-sizes !default;
 $grid-v-gap-sizes: $grid-gap-sizes !default;
@@ -15,7 +15,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	display: grid;
 	grid-template-columns: repeat($grid-system, 1fr);
 	grid-gap: $grid-gap;
-	
+
 	@each $class in $breakpoints-classes-from-start {
 		@include breakpoint($class) {
 			$prefix: '';
@@ -29,7 +29,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 				.#{$prefix}row-#{$i}#{$suffix} { grid-row: span $i; }
 			}
 		}
-	}   
+	}
 }
 
 @if $use-grid-gap {
@@ -47,4 +47,3 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 		}
 	}
 }
-
