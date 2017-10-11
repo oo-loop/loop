@@ -63,7 +63,7 @@ $hr-margins: 1.5rem !default;
     }
 
     //add font family rules if different
-    @if $heading-font-family != $font-base {
+    @if $heading-font-family != $font-family-base {
         font-family: $heading-font-family;
     }
 

@@ -24,15 +24,23 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
     color: $btn-color;
     line-height: 1.4;
     letter-spacing: .05rem;
-    font-family: $btn-font-family;
-    font-size: $btn-font-size;
-    font-weight: $btn-font-weight;
+
+    @if $btn-font-family != $font-family-base {
+        font-family: $btn-font-family;
+    }
+    @if $btn-font-size != $font-size-base {
+        font-size: $btn-font-size;
+    }
+    @if $btn-font-weight != $font-weight-base {
+        font-weight: $btn-font-weight;
+    }
+
     text-align: center;
     text-decoration: none !important;
     text-transform: $btn-text-transform;
     vertical-align: middle;
     white-space: nowrap;
-    
+
     border: none;
     border-radius: $btn-border-radius;
     background-color: $btn-bgcolor;
