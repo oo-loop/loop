@@ -61,6 +61,12 @@ $font-families: (
 $font-families-addon: () !default;
 $font-families-breakpoints-classes: () !default;
 
+// Letter spacing
+$letter-spacing: (
+    // 'tiny' : .05rem,
+) !default;
+$letter-spacing-addon: () !default;
+$letter-spacing-breakpoints-classes: () !default;
 
 // Font size
 @include loop($text-sizes, 'font-size', '.text', $text-sizes-addon, true);
@@ -89,3 +95,7 @@ $font-families-breakpoints-classes: () !default;
 // Font Family
 @include loop($font-families, 'font-family', '.font', $font-families-addon);
 @include loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font-family', '.font', $font-families-addon);
+
+// Letter Spacing
+@include loop($letter-spacing, 'letter-spacing', '.letter-spacing', $letter-spacing-addon);
+@include loopBreakpoints($letter-spacing-breakpoints-classes, $letter-spacing, 'letter-spacing', '.letter-spacing', $letter-spacing-addon);
