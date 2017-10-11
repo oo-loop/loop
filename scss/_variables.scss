@@ -183,6 +183,15 @@
  $font-families-breakpoints-classes: () !default;
 
 
+ // Letter spacing
+
+ $letter-spacing: (
+     'tiny' : .05rem,
+ ) !default;
+ $letter-spacing-addon: () !default;
+ $letter-spacing-breakpoints-classes: () !default;
+
+
 /**
  * Container
  */
