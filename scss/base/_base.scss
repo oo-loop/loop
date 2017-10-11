@@ -2,7 +2,7 @@
  * Base
  */
 
- $font-base:        'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+ $font-family-base: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
  $font-size-base:   1.6rem !default; // == 16px ( relative to 62.5% font-size )
  $font-weight-base: 400 !default;
  $line-height-base: 1.5 !default;
@@ -28,7 +28,7 @@ html {
 // Default body styles
 body {
 	color: $color-base;
-	font-family: $font-base;
+	font-family: $font-family-base;
 	font-size: $font-size-base;
 	font-weight: $font-weight-base;
 	line-height: $line-height-base;
