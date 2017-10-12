@@ -1,7 +1,7 @@
 /**
  * Button
  */
-$btn-colors-classes: $colors_classes !default;
+$btn-colors-classes: $colors-classes !default;
 
 $btn-color:          $color-base !default;
 $btn-color-hover:    $btn-color !default;
@@ -16,6 +16,16 @@ $btn-font-weight:    700 !default;
 $btn-text-transform: uppercase !default;
 $btn-border-radius:  .2em !default; // relative to the size of the button
 $btn-box-shadow:     1px 1px 1px 0 #999 !default;
+
+
+$btn-outline-colors-classes: $btn-colors-classes !default;
+
+$btn-outline-color:          $btn-color !default; // set inherit to get the colors from the borders
+$btn-outline-padding:        $btn-padding !default;
+$btn-outline-font-family:    $btn-font-family !default;
+$btn-outline-font-weight:    $btn-font-weight !default;
+$btn-outline-text-transform: $btn-text-transform !default;
+$btn-outline-box-shadow:     none !default;
 
 .button {
     padding: $btn-padding;
@@ -41,7 +51,7 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
     vertical-align: middle;
     white-space: nowrap;
 
-    border: none;
+    border: 1px solid transparent;
     border-radius: $btn-border-radius;
     background-color: $btn-bgcolor;
     box-shadow: $btn-box-shadow;
@@ -64,7 +74,7 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
         transform: scale(.97);
     }
 
-    @if isNotEmpty($btn-colors-classes) and type-of($btn-colors-classes) == 'list' {
+    @if isNotEmpty($btn-colors-classes) {
         @each $color in $btn-colors-classes {
             $color_value: map-get($colors, $color);
             &.-#{$color} {
@@ -73,9 +83,58 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
                 &:hover,
                 &:focus {
+                    border-color: darken($color_value, 10%);
                     background-color: darken($color_value, 10%);
                 }
                 &:active {
+                    border-color: darken($color_value, 12%);
+                    background-color: darken($color_value, 12%);
+                    box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
+                }
+            }
+        }
+    }
+
+    @if isNotEmpty($btn-outline-colors-classes) {
+        &.-outline {
+            background-color: transparent;
+
+            @if $btn-outline-padding != $btn-padding {
+                padding: $btn-outline-padding
+            }
+            @if $btn-outline-font-family != $btn-font-family {
+                font-family: $btn-outline-font-family
+            }
+            @if $btn-outline-font-weight != $btn-font-weight {
+                font-weight: $btn-outline-font-weight
+            }
+            @if $btn-outline-text-transform != $btn-text-transform {
+                text-transform: $btn-outline-text-transform
+            }
+            @if $btn-outline-color != inherit {
+                color: $btn-outline-color;
+            }
+            @if $btn-box-shadow != $btn-outline-box-shadow {
+                box-shadow: $btn-outline-box-shadow;
+            }
+        }
+        @each $color in $btn-outline-colors-classes {
+            $color_value: map-get($colors, $color);
+            &.-outline.-#{$color} {
+                @if $btn-outline-color == inherit {
+                    color: $color_value;
+                }
+                border-color: $color_value;
+
+                &:hover,
+                &:focus {
+                    color: if(isBright($color_value), $color-base, #fff);
+                    border-color: darken($color_value, 10%);
+                    background-color: darken($color_value, 10%);
+                }
+                &:active {
+                    color: if(isBright($color_value), $color-base, #fff);
+                    border-color: darken($color_value, 12%);
                     background-color: darken($color_value, 12%);
                     box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
                 }
@@ -83,3 +142,5 @@ $btn-box-shadow:     1px 1px 1px 0 #999 !default;
         }
     }
 }
+
+.-rounded { border-radius: 50em; }

@@ -49,7 +49,7 @@ $toggle-sizes:() !default;
             display: flex;
     		content:'';
     		border: 1px solid $toggle-border-color;
-            border-radius: 25% / 50%;
+            border-radius: 50em;
     		background-color: $toggle-bgcolor;
             box-shadow: $toggle-box-shadow;
 

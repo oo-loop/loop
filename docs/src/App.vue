@@ -138,6 +138,10 @@ export default {
 						name: 'Colors',
 						route: '#colors'
 					},
+					{
+						name: 'Outline',
+						route: '#outline'
+					},
 				]
 			},
 			{
