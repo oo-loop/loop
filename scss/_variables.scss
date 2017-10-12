@@ -106,7 +106,6 @@ $text-sizes: (
     'small': 1.4rem,
     'tiny':  1.2rem,
 ) !default;
-$text-sizes-addon: () !default;
 $text-sizes-breakpoints-classes: () !default;
 
 
@@ -118,7 +117,6 @@ $text-sizes-breakpoints-classes: () !default;
      'right',
      'center',
  ) !default;
- $text-alignments-addon: () !default;
  $text-alignments-breakpoints-classes: () !default;
 
 
@@ -130,7 +128,6 @@ $text-sizes-breakpoints-classes: () !default;
      'lowercase',
      'uppercase',
  ) !default;
- $text-transforms-addon: () !default;
  $text-transforms-breakpoints-classes: () !default;
 
 
@@ -140,7 +137,6 @@ $text-sizes-breakpoints-classes: () !default;
  $text-decorations: (
      'line-through',
  ) !default;
- $text-decorations-addon: () !default;
  $text-decorations-breakpoints-classes: () !default;
 
 
@@ -150,7 +146,6 @@ $text-sizes-breakpoints-classes: () !default;
  $font-styles: (
      'italic',
  ) !default;
- $font-style-addon: () !default;
  $font-style-breakpoints-classes: () !default;
 
 
@@ -161,7 +156,6 @@ $text-sizes-breakpoints-classes: () !default;
      'light':  300,
      'bold':   700,
  ) !default;
- $font-weights-addon: () !default;
  $font-weights-breakpoints-classes: () !default;
 
 
@@ -172,7 +166,6 @@ $text-sizes-breakpoints-classes: () !default;
      'primary': $font-family-base,
      'secondary': $font-family-secondary,
  ) !default;
- $font-families-addon: () !default;
  $font-families-breakpoints-classes: () !default;
 
 
@@ -183,7 +176,6 @@ $text-sizes-breakpoints-classes: () !default;
      'narrow': -.05rem,
      'wide': .05rem,
  ) !default;
- $letter-spacings-addon: () !default;
  $letter-spacings-breakpoints-classes: () !default;
 
 
@@ -193,7 +185,6 @@ $text-sizes-breakpoints-classes: () !default;
  $text-colors: (
      'color': $color-base,
  ) !default;
- $text-colors-addon: () !default;
  $text-colors-classes: $colors-classes !default;
 
 
@@ -203,7 +194,6 @@ $text-sizes-breakpoints-classes: () !default;
  $bg-colors: (
      'body': $bgcolor-base,
  ) !default;
- $bg-colors-addon: () !default;
  $bg-colors-classes: $colors-classes !default;
 
 
@@ -213,7 +203,6 @@ $text-sizes-breakpoints-classes: () !default;
  $border-colors: (
      'color': #cdcdcd,
  ) !default;
- $border-colors-addon: () !default;
  $border-colors-classes: $colors-classes !default;
 
 
