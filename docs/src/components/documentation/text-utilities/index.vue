@@ -40,6 +40,13 @@
 		<p class="text-line-through">This is a line-through text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
 
+		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
+		<p>Change the letter-spacing of the text through classes such as <code>.letter-spacing-${name}</code></p>
+		<code>.letter-spacing-narrow</code><p class="letter-spacing-narrow">Text strong Lorem ipsum dolor sit amet.</p>
+		<code>.letter-spacing-wide</code><p class="letter-spacing-wide">Text light Lorem ipsum dolor sit amet.</p>
+		<p>Set the array <code class="text-info">$letter-spacings</code> at your convenience.</p>
+		<pretty-code class="language-css" :code="html.letterSpacings"></pretty-code>
+
 		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
 		<p>Change the style of the text through the class <code>.text-italic</code>
 		<br>The variable <code class="text-info">$font-styles</code> is available if you want to change the options.</p>
@@ -74,6 +81,7 @@ export default {
 			textAlignmentsSample: require('./code/text-alignments-sample.html'),
 			textTransforms: require('./code/text-transforms.html'),
 			textDecorations: require('./code/text-decorations.html'),
+			letterSpacings: require('./code/letter-spacings.html'),
 			fontStyles: require('./code/font-styles.html'),
 			fontFamilies: require('./code/font-families.html'),
 			fontFamiliesSample: require('./code/font-families-sample.html'),

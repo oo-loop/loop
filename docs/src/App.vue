@@ -165,6 +165,10 @@ export default {
 						route: '#decorations'
 					},
 					{
+						name: 'Letter Spacings',
+						route: '#letter-spacings'
+					},
+					{
 						name: 'Styles',
 						route: '#styles'
 					},

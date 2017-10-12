@@ -179,11 +179,12 @@ $text-sizes-breakpoints-classes: () !default;
 /**
  * Letter Spacing
  */
- $letter-spacing: (
-     // 'tiny' : .05rem,
+ $letter-spacings: (
+     'narrow': -.05rem,
+     'wide': .05rem,
  ) !default;
- $letter-spacing-addon: () !default;
- $letter-spacing-breakpoints-classes: () !default;
+ $letter-spacings-addon: () !default;
+ $letter-spacings-breakpoints-classes: () !default;
 
 
 /**
