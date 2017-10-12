@@ -14,9 +14,9 @@
 
 		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
 		<p>Quickly change the weight of the text. Two sizes as default.</p>
-		<code>.text-strong</code><p class="text-strong">Text strong Lorem ipsum dolor sit amet.</p>
-		<code>.text-light</code><p class="text-light">Text light Lorem ipsum dolor sit amet.</p>
-		<p>Need more or need less? Change the array <code class="text-info">$text-weights</code> at your convenience.</p>
+		<code>.font-weight-bold</code><p class="font-weight-bold">Text strong Lorem ipsum dolor sit amet.</p>
+		<code>.font-weight-light</code><p class="font-weight-light">Text light Lorem ipsum dolor sit amet.</p>
+		<p>Need more or need less? Change the array <code class="text-info">$font-weights</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.fontWeights"></pretty-code>
 
 		<h3 id="alignments"><a href="#alignments">#</a> Alignments</h3>
@@ -41,7 +41,7 @@
 		<pretty-code :code="html.fontStyles"></pretty-code>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
-		<p>Set the font family of your text through the classes <code>.font-base</code> <code>.font-secondary</code>.<br>Modify the list of <code class="text-info">$font-families</code> at your convenience.</p>
+		<p>Set the font family of your text through the classes <code>.font-primary</code> <code>.font-secondary</code>.<br>Modify the list of <code class="text-info">$font-families</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.fontFamilies"></pretty-code>
 		<p class="font-secondary">This paragraph is using a serif font set as secondary</p>
 		<pretty-code :code="html.fontFamiliesSample"></pretty-code>

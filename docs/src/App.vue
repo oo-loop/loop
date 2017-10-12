@@ -4,7 +4,7 @@
 		<div class="columns" :class="{ slide: isMenuOpen }">
 			<aside class="column sidebar">
 				<div class="sidebar__content">
-					<ul class="list-unstyle text-strong">
+					<ul class="list-unstyle font-weight-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
 							<span class="text-danger text-tiny"  v-if="item.label">{{item.label}}</span>
