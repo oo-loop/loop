@@ -138,6 +138,10 @@ export default {
 						name: 'Colors',
 						route: '#colors'
 					},
+					{
+						name: 'Outline',
+						route: '#outline'
+					},
 				]
 			},
 			{
@@ -241,6 +245,11 @@ export default {
 				name: 'Wrapper',
 				route: 'wrapper',
 				subMenu: []
+			},
+			{
+				name: 'Miscellaneous',
+				route: 'miscellaneous',
+				subMenu: []
 			}
 		],
 		isMenuOpen: false,
@@ -275,8 +284,6 @@ export default {
 	$toggle-sizes:(
 	  'large': 4rem,
 	);
-
-	.border { border: 1px solid; }
 
 	@import '~loop/loop';
 

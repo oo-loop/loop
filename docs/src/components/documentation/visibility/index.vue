@@ -6,73 +6,73 @@
 		<div class="bg-secondary wrapper -tiny text-center mb-30">
 			<div class="columns -gutter-tiny">
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@sm">.</span>h<span class="hidden!@sm">idden</span>
 					</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@sm">.</span>h<span class="hidden!@sm">idden</span>
 					</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@sm">.</span>h<span class="hidden!@sm">idden</span>
 					</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@sm">.</span>h<span class="hidden!@sm">idden</span>
 					</div>
 				</div>
 			</div>
 			<div class="columns -gutter-tiny">
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>@sm</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>@sm</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>@sm</div>
 				</div>
 			</div>
 			<div class="columns -gutter-tiny">
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>@md
 					</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>@md
 					</div>
 				</div>
 			</div>
 			<div class="columns -gutter-tiny -v-gutter-less">
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>@lg</span>
 					</div>
 				</div>
@@ -83,70 +83,70 @@
 		<div class="bg-secondary wrapper -tiny text-center mb-30">
 			<div class="columns -gutter-tiny">
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 			</div>
 			<div class="columns -gutter-tiny">
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>!@sm
 					</div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 			</div>
 			<div class="columns -gutter-tiny">
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>!@md
 					</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>!@md
 					</div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 			</div>
 			<div class="columns -gutter-tiny -v-gutter-less">
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>!@lg
 					</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>!@lg
 					</div>
 				</div>
 				<div class="column">
-					<div class="text-primary border">
+					<div class="text-primary bordered">
 						<span class="hidden!@md">.hidden</span>!@lg
 					</div>
 				</div>
 				<div class="column">
-					<div class="bg-primary border"><br></div>
+					<div class="bg-primary bordered"><br></div>
 				</div>
 			</div>
 		</div>
