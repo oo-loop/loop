@@ -161,6 +161,10 @@ export default {
 						route: '#transforms'
 					},
 					{
+						name: 'Decorations',
+						route: '#decorations'
+					},
+					{
 						name: 'Styles',
 						route: '#styles'
 					},

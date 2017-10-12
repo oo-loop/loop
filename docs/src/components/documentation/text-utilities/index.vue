@@ -34,6 +34,12 @@
 		<p class="text-capitalize">This is a capitalize text</p>
 		<pretty-code :code="html.textTransforms"></pretty-code>
 
+		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
+		<p>Change the decoration of the text through the class <code>.text-line-through</code>
+		<br>The variable <code class="text-info">$text-decorations</code> is available if you want to change the options.</p>
+		<p class="text-line-through">This is a line-through text.</p>
+		<pretty-code :code="html.textDecorations"></pretty-code>
+
 		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
 		<p>Change the style of the text through the class <code>.text-italic</code>
 		<br>The variable <code class="text-info">$font-styles</code> is available if you want to change the options.</p>
@@ -67,6 +73,7 @@ export default {
 			textAlignmentsResponsive: require('./code/text-alignments-responsive.html'),
 			textAlignmentsSample: require('./code/text-alignments-sample.html'),
 			textTransforms: require('./code/text-transforms.html'),
+			textDecorations: require('./code/text-decorations.html'),
 			fontStyles: require('./code/font-styles.html'),
 			fontFamilies: require('./code/font-families.html'),
 			fontFamiliesSample: require('./code/font-families-sample.html'),
