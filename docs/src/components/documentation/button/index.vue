@@ -35,7 +35,6 @@
 		<a class="button -outline -danger">danger</a>
 		</p>
 		<pretty-code :code="html.outline"></pretty-code>
-
 	</div>
 </template>
 

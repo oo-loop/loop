@@ -280,8 +280,6 @@ export default {
 	  'large': 4rem,
 	);
 
-	.border { border: 1px solid; }
-
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
