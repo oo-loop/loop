@@ -35,15 +35,9 @@ $btn-outline-box-shadow:     none !default;
     line-height: 1.4;
     letter-spacing: .05rem;
 
-    @if $btn-font-family != $font-family-base {
-        font-family: $btn-font-family;
-    }
-    @if $btn-font-size != $font-size-base {
-        font-size: $btn-font-size;
-    }
-    @if $btn-font-weight != $font-weight-base {
-        font-weight: $btn-font-weight;
-    }
+    font-family: $btn-font-family;
+    font-size: $btn-font-size;
+    font-weight: $btn-font-weight;
 
     text-align: center;
     text-decoration: none !important;
