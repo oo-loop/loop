@@ -1,10 +1,13 @@
 /**
-* Text utilites
-*
-* Thoses utilities are flexibles for adding and/or removing classes at your convenience
-*/
+ * Text utilites
+ *
+ * Thoses utilities are flexibles for adding and/or removing classes at your convenience
+ */
 
-// Set the font-size of an element => .text-*
+
+/**
+ * Text Sizes
+ */
 $text-sizes: (
     'large': 2rem,   // text-large
     'small': 1.4rem, // text-small
@@ -13,15 +16,9 @@ $text-sizes: (
 $text-sizes-addon: () !default;
 $text-sizes-breakpoints-classes: () !default;
 
-// Set the font-weight of an element => .text-*
-$text-weights: (
-    'light':   300, //text-light
-    'strong':  700, // text-strong
-) !default;
-$text-weights-addon: () !default;
-$text-weights-breakpoints-classes: () !default;
-
-// Text alignment
+/**
+ * Text alignements
+ */
 $text-alignments: (
     'left',   // text-left
     'right',  // text-right
@@ -30,7 +27,9 @@ $text-alignments: (
 $text-alignments-addon: () !default;
 $text-alignments-breakpoints-classes: () !default;
 
-// Text transform
+/**
+ * Text Transform
+ */
 $text-transforms: (
     'capitalize', // text-capitalize
     'lowercase',  // text-lowercase
@@ -39,42 +38,57 @@ $text-transforms: (
 $text-transforms-addon: () !default;
 $text-transforms-breakpoints-classes: () !default;
 
-// Text decoration
+/**
+ * Text Decoration
+ */
 $text-decorations: (
     'line-through', // text-line-through
 ) !default;
 $text-decorations-addon: () !default;
 $text-decorations-breakpoints-classes: () !default;
 
-// Font style
+/**
+ * Font Style
+ */
 $font-styles: (
     'italic', // text-italic
 ) !default;
 $font-style-addon: () !default;
 $font-style-breakpoints-classes: () !default;
 
-// Set the font-family of an element => .font-*
+/**
+ * Font Weight
+ */
+$font-weights: (
+    'light':  300, // font-weight-light
+    'bold':   700, // font-weight-bold
+) !default;
+$font-weights-addon: () !default;
+$font-weights-breakpoints-classes: () !default;
+
+/**
+ * Font Family
+ */
 $font-families: (
-    'base': $font-family-base,
+    'primary': $font-family-base,
     'secondary': $font-family-secondary,
 ) !default;
 $font-families-addon: () !default;
 $font-families-breakpoints-classes: () !default;
 
-// Letter spacing
-$letter-spacing: (
-    // 'tiny' : .05rem,
+/**
+ * Letter Spacing
+ */
+$letter-spacings: (
+    'narrow': -.05rem,
+    'wide': .05rem,
 ) !default;
-$letter-spacing-addon: () !default;
-$letter-spacing-breakpoints-classes: () !default;
+$letter-spacings-addon: () !default;
+$letter-spacings-breakpoints-classes: () !default;
 
 // Font size
 @include loop($text-sizes, 'font-size', '.text', $text-sizes-addon, true);
 @include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'font-size', '.text', $text-sizes-addon, true);
-
-// Font weight
-@include loop($text-weights, 'font-weight', '.text', $text-weights-addon);
-@include loopBreakpoints($text-weights-breakpoints-classes, $text-weights, 'font-weight', '.text', $text-weights-addon);
 
 // Text align
 @include loop($text-alignments, 'text-align', '.text', $text-alignments-addon);
@@ -92,10 +106,14 @@ $letter-spacing-breakpoints-classes: () !default;
 @include loop($font-styles, 'font-style', '.text', $font-style-addon);
 @include loopBreakpoints($font-style-breakpoints-classes, $font-styles, 'font-style', '.text', $font-style-addon);
 
+// Font weight
+@include loop($font-weights, 'font-weight', '.font-weight', $font-weights-addon);
+@include loopBreakpoints($font-weights-breakpoints-classes, $font-weights, 'font-weight', '.font-weight', $font-weights-addon);
+
 // Font Family
 @include loop($font-families, 'font-family', '.font', $font-families-addon);
 @include loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font-family', '.font', $font-families-addon);
 
 // Letter Spacing
-@include loop($letter-spacing, 'letter-spacing', '.letter-spacing', $letter-spacing-addon);
-@include loopBreakpoints($letter-spacing-breakpoints-classes, $letter-spacing, 'letter-spacing', '.letter-spacing', $letter-spacing-addon);
+@include loop($letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-addon);
+@include loopBreakpoints($letter-spacings-breakpoints-classes, $letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-addon);

@@ -28,10 +28,6 @@ $border-colors-classes: $colors-classes !default;
 @include loop($bg-colors, 'background-color', '.bg', $bg-colors-addon);
 @include loopMapKeys($bg-colors-classes, $colors, 'background-color', '.bg');
 
-@if isNotEmpty($border-colors)
-    or isNotEmpty($border-colors-classes)
-    or isNotEmpty($border-colors-addon) {
-    [class*="border-"] { border: 1px solid; }
-}
+// Border colors
 @include loop($border-colors, 'border-color', '.border', $border-colors-addon);
 @include loopMapKeys($bg-colors-classes, $colors, 'border-color', '.border');
