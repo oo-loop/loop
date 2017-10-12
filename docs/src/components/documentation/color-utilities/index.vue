@@ -52,12 +52,12 @@
 			<li><code class="text-info">$border-colors</code> Custom data</li>
 		</ul>
 
-		<div class="border-primary wrapper -small">
-			<div class="border-secondary wrapper -small">
-				<div class="border-success wrapper -small">
-					<div class="border-warning wrapper -small">
-						<div class="border-danger wrapper -small">
-							<div class="border-color text-small text-center">
+		<div class="border border-primary wrapper -small">
+			<div class="border border-secondary wrapper -small">
+				<div class="border border-success wrapper -small">
+					<div class="border border-warning wrapper -small">
+						<div class="border border-danger wrapper -small">
+							<div class="border border-color text-small text-center">
 								Border colors
 							</div>
 						</div>
