@@ -245,6 +245,11 @@ export default {
 				name: 'Wrapper',
 				route: 'wrapper',
 				subMenu: []
+			},
+			{
+				name: 'Miscellaneous',
+				route: 'miscellaneous',
+				subMenu: []
 			}
 		],
 		isMenuOpen: false,

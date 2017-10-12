@@ -13,6 +13,7 @@ import ColorUtilities from 'docs/color-utilities'
 import Float from 'docs/float'
 import Visibility from 'docs/visibility'
 import Wrapper from 'docs/wrapper'
+import Miscellaneous from 'docs/miscellaneous'
 
 Vue.use(Router)
 
@@ -79,6 +80,11 @@ export default new Router({
 			path: '/wrapper',
 			name: 'wrapper',
 			component: Wrapper
+		},
+		{
+			path: '/miscellaneous',
+			name: 'miscellaneous',
+			component: Miscellaneous
 		}
 	]
 })
