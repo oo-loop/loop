@@ -146,18 +146,18 @@ $columns-gutter-sizes: (
 
         &[class*="-child-align-"] > * {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
         }
 
         // horizontal alignment
-        &.-child-align-left > *   { justify-content: flex-start; }
-        &.-child-align-center > * { justify-content: center; }
-        &.-child-align-right > *  { justify-content: flex-end; }
+        &.-child-align-left > *    { align-items: flex-start; }
+        &.-child-align-center > *  { align-items: center; }
+        &.-child-align-right > *   { align-items: flex-end; }
 
         // vertical alignment
-        &.-child-align-top > *    { align-items: flex-start; }
-        &.-child-align-middle > * { align-items: center; }
-        &.-child-align-bottom > * { align-items: flex-end; }
+        &.-child-align-top > *    { justify-content: flex-start; }
+        &.-child-align-middle > * { justify-content: center; }
+        &.-child-align-bottom > * { justify-content: flex-end; }
     }
 }
 
