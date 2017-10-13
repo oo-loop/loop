@@ -100,7 +100,7 @@ $letter-spacings-is-important: false !default;
 
 // Text align
 @include loop($text-alignments, 'text-align', '.text', $text-alignments-addon, $text-alignments-is-important);
-@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-addon. $text-alignments-is-important);
+@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-addon, $text-alignments-is-important);
 
 // Text transform
 @include loop($text-transforms, 'text-transform', '.text', $text-transforms-addon, $text-transforms-is-important);
