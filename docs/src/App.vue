@@ -7,7 +7,7 @@
 					<ul class="list-unstyle font-weight-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
-							<span class="text-danger text-tiny"  v-if="item.label">{{item.label}}</span>
+							<span class="color-danger text-tiny"  v-if="item.label">{{item.label}}</span>
 							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
 								<li v-for="subItem in item.subMenu">
 									<template v-if="subItem.route.indexOf('#') > -1">
@@ -270,7 +270,14 @@ export default {
 </script>
 <style lang="scss">
 	// some variables
-	$text-colors-addon: ('info': #2689ef);
+	@import '~loop/variables';
+	$text-colors-addon: (
+		'base': $color-base,
+		'info': #2689ef,
+	);
+	$bg-colors-addon: (
+  		'body' : $bgcolor-base,
+	);
 	$text-alignments-breakpoints-classes: ('sm', 'lg');
 
 	$checkbox-sizes:(

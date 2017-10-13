@@ -182,27 +182,21 @@ $text-sizes-breakpoints-classes: () !default;
 /**
  * Text Color
  */
- $text-colors: (
-     'color': $color-base,
- ) !default;
+ $text-colors: () !default;
  $text-colors-classes: $colors-classes !default;
 
 
 /**
  * Background Color
  */
- $bg-colors: (
-     'body': $bgcolor-base,
- ) !default;
+ $bg-colors: () !default;
  $bg-colors-classes: $colors-classes !default;
 
 
 /**
  * Border Color
  */
- $border-colors: (
-     'color': #cdcdcd,
- ) !default;
+ $border-colors: () !default;
  $border-colors-classes: $colors-classes !default;
 
 
@@ -269,13 +263,12 @@ $text-sizes-breakpoints-classes: () !default;
  */
  $v-spacing-step:        5 !default;
  $v-spacing-limit:       50 !default;
- $v-spacing-addon:       () !default;
  $v-spacing-breakpoints-classes: () !default;
 
  $h-spacing-step:        5 !default;
  $h-spacing-limit:       25 !default;
- $h-spacing-addon:       () !default;
  $h-spacing-breakpoints-classes: () !default;
+
 
 /**
  * Wrapper
@@ -286,7 +279,7 @@ $text-sizes-breakpoints-classes: () !default;
      'small': 1.6rem,
      'large': 4rem,
  ) !default;
- $wrapper-padding-addon: () !default;
+
 
 /**
  * Button
@@ -306,6 +299,16 @@ $text-sizes-breakpoints-classes: () !default;
  $btn-text-transform: uppercase !default;
  $btn-border-radius:  .2em !default; // relative to the size of the button
  $btn-box-shadow:     1px 1px 1px 0 #999 !default;
+
+
+ $btn-outline-colors-classes: $btn-colors-classes !default;
+
+ $btn-outline-color:          $btn-color !default; // set inherit to get the colors from the borders
+ $btn-outline-padding:        $btn-padding !default;
+ $btn-outline-font-family:    $btn-font-family !default;
+ $btn-outline-font-weight:    $btn-font-weight !default;
+ $btn-outline-text-transform: $btn-text-transform !default;
+ $btn-outline-box-shadow:     none !default;
 
 
 /**

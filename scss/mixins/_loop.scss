@@ -25,24 +25,33 @@
  */
 
 @mixin loop($data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
-    @if isNotEmpty($data) {
-        $affix: '-';
 
-        // Make sure to have the correct format or do not generate rules
-        // list type
-        @if type-of($data) == 'list' {
-            // make sure to join same type
-            $merged_array: if(type-of($addon) == 'list', join($data, $addon), $data);
-            @each $value in $merged_array {
+    $merge-data: ();
+    $affix: '-';
+
+    // set data if $addons or $data is not empty
+    @if isNotEmpty($data) {
+        @if type-of($data) == 'list' and type-of($addon) == 'list' {
+            $merge-data: join($data, $addon);
+        } @elseif type-of($data) == 'map' and type-of($addon) == 'map' {
+            $merge-data: map-merge($data, $addon);
+        } @else {
+            $merge-data: $data;
+        }
+    } @elseif isNotEmpty($addon) {
+        $merge-data: $addon;
+    }
+
+    // Make sure to have the correct format or do not generate rules
+    @if isNotEmpty($merge-data) {
+        @if type-of($merge-data) == 'list' {
+            @each $value in $merge-data {
                 #{$prefix}#{$affix}#{$value}#{$suffix} {
                     @include loopProperties($properties, $value, $is_important);
                 }
             }
-        // map type
-        } @elseif type-of($data) == 'map' {
-            // make sure to merge same type
-            $merged_data: if(type-of($addon) == 'map', map-merge($data, $addon), $data);
-            @each $key, $value in $merged_data {
+        } @elseif type-of($merge-data) == 'map' {
+            @each $key, $value in $merge-data {
                 #{$prefix}#{$affix}#{$key}#{$suffix} {
                     @include loopProperties($properties, $value, $is_important);
                 }
@@ -101,6 +110,7 @@
         }
     }
 }
+
 
 /**
  * Loop map keys modifiers
