@@ -59,7 +59,7 @@
 		</div>
 		<pretty-code :code="html.gutter"></pretty-code>
 
-		<p>Need more or less gutters? Change the array <code class="text-info">$columns-gutter-sizes</code> at your convenience to only match your needs.</p>
+		<p>Need more or less gutters? Change the array <code class="color-info">$columns-gutter-sizes</code> at your convenience to only match your needs.</p>
 		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>

@@ -7,7 +7,7 @@
 					<ul class="list-unstyle font-weight-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
-							<span class="text-danger text-tiny"  v-if="item.label">{{item.label}}</span>
+							<span class="color-danger text-tiny"  v-if="item.label">{{item.label}}</span>
 							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
 								<li v-for="subItem in item.subMenu">
 									<template v-if="subItem.route.indexOf('#') > -1">

@@ -2,10 +2,10 @@
 	<div>
 		<h1 class="title">Color Utilities</h1>
 		<p class="text-large">A bunch of handy utilities to customize colors on the fly, targeting text, background and border</p>
-		<p>Every colors set in the global variables <code class="text-info">$colors</code> are available.</p>
+		<p>Every colors set in the global variables <code class="color-info">$colors</code> are available.</p>
 		<p>Each utility is customizable through two main variables:</p>
 		<ul>
-			<li>The classes data variable matching whatever color name set in the variable<code class="text-info">$colors</code>.</li>
+			<li>The classes data variable matching whatever color name set in the variable<code class="color-info">$colors</code>.</li>
 			<li>The custom data variable allowing to add specific names and colors for that particular utility only.</li>
 		</ul>
 
@@ -13,8 +13,8 @@
 
 		<h3 id="text"><a href="#text">#</a> Text</h3>
 		<ul>
-			<li><code class="text-info">$text-colors-classes</code> Classes data ( default matching <code class="text-info">$colors-classes</code> )</li>
-			<li><code class="text-info">$text-colors</code> Custom data</li>
+			<li><code class="color-info">$text-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
+			<li><code class="color-info">$text-colors</code> Custom data</li>
 		</ul>
 		<pretty-code class="language-css" :code="html.textVariables"></pretty-code>
 		<p class="color-primary">Here is a short color-primary paragraph</p>
@@ -26,8 +26,8 @@
 
 		<h3 id="background"><a href="#background">#</a> Background</h3>
 		<ul>
-			<li><code class="text-info">$bg-colors-classes</code> Classes data ( default matching <code class="text-info">$colors-classes</code> )</li>
-			<li><code class="text-info">$bg-colors</code> Custom data</li>
+			<li><code class="color-info">$bg-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
+			<li><code class="color-info">$bg-colors</code> Custom data</li>
 		</ul>
 		<pretty-code class="language-css" :code="html.backgroundVariables"></pretty-code>
 		<div class="bg-primary wrapper -small">
@@ -48,8 +48,8 @@
 		<h3 id="border"><a href="#border">#</a> Border</h3>
 		<p>The same logic applies for borders</p>
 		<ul>
-			<li><code class="text-info">$border-colors-classes</code> Classes data ( default matching <code class="text-info">$colors-classes</code> )</li>
-			<li><code class="text-info">$border-colors</code> Custom data</li>
+			<li><code class="color-info">$border-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
+			<li><code class="color-info">$border-colors</code> Custom data</li>
 		</ul>
 
 		<div class="bordered border-primary wrapper -small">

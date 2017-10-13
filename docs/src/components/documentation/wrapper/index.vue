@@ -2,7 +2,7 @@
 	<div>
 		<h1 class="title">Wrapper</h1>
 		<p class="text-large">Wrap elements with padding around them.</p>
-		<p>Use the class <code>.wrapper</code> with or without the modifiers <code>-tiny</code> <code>-small</code> <code>-large</code> matching the sizes set in the variable <code class="text-info">$wrapper-padding-sizes</code>.</p>
+		<p>Use the class <code>.wrapper</code> with or without the modifiers <code>-tiny</code> <code>-small</code> <code>-large</code> matching the sizes set in the variable <code class="color-info">$wrapper-padding-sizes</code>.</p>
 
 		<div class="wrapper -tiny bg-secondary mb-15">
 			<div class="bg-primary"><br></div>

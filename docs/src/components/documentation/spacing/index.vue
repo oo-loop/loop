@@ -161,11 +161,11 @@
 		</div>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
-		<p>Need to have different spaces for responsive purpose?<br>Add the necessary breakpoints to the list <code class="text-info">$v-spacing-breakpoints-classes</code> and <code class="text-info">$h-spacing-breakpoints-classes</code><br>and use classes such as <code>.mt-5@sm</code> <code>.mb-10@md</code> <code>.ml-15@lg</code> <code>.mr-15@lg</code></p>
+		<p>Need to have different spaces for responsive purpose?<br>Add the necessary breakpoints to the list <code class="color-info">$v-spacing-breakpoints-classes</code> and <code class="color-info">$h-spacing-breakpoints-classes</code><br>and use classes such as <code>.mt-5@sm</code> <code>.mb-10@md</code> <code>.ml-15@lg</code> <code>.mr-15@lg</code></p>
 		<pretty-code class="language-css" :code="html.responsive"></pretty-code>
 
 		<h3 id="custom"><a href="#custom">#</a> Custom</h3>
-		<p>Add your own spacing if the list is not enough through the variables <code class="text-info">$v-spacing-addon</code> <code class="text-info">$h-spacing-addon</code></p>
+		<p>Add your own spacing if the list is not enough through the variables <code class="color-info">$v-spacing-addon</code> <code class="color-info">$h-spacing-addon</code></p>
 		<pretty-code class="language-css" :code="html.custom"></pretty-code>
 	</div>
 </template>

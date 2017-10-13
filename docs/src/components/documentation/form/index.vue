@@ -6,23 +6,23 @@
 		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>
 			Apply the class <code>.input</code> to format the appearance of the textfield.<br>
-			Alter the size of the input by applying any of the <code class="text-info">$text-sizes</code> classes available.<br>
-			Alter the appearance of the input by applying any of the modifiers present in <code class="text-info">$input-colors-classes</code> such as <code>-danger</code>
+			Alter the size of the input by applying any of the <code class="color-info">$text-sizes</code> classes available.<br>
+			Alter the appearance of the input by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code>
 		</p>
 		<label for="default-input">Input</label>
 		<input class="input mb-15" id="default-input" type="text">
 
 		<label for="large-input">Large input</label>
 		<input class="input -danger text-large" id="large-input" type="text">
-		<p class="text-tiny text-danger mt-5">Textfield is required.</p>
+		<p class="text-tiny color-danger mt-5">Textfield is required.</p>
 
 		<pretty-code :code="html.size"></pretty-code>
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
 		<p>
 			Apply the class <code>.select</code> to a <strong>parent element</strong> wrapping <markup>select</markup><br>
-			Alter the size of the element by applying any of the <code class="text-info">$text-sizes</code> classes available on the <markup>select</markup> element.<br>
-			Alter the appearance of the select by applying any of the modifiers present in <code class="text-info">$input-colors-classes</code> such as <code>-danger</code> to the <strong>parent element</strong>.
+			Alter the size of the element by applying any of the <code class="color-info">$text-sizes</code> classes available on the <markup>select</markup> element.<br>
+			Alter the appearance of the select by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code> to the <strong>parent element</strong>.
 		</p>
 
 		<label> Select Tiny Option</label>
@@ -42,23 +42,23 @@
 				<option value="3">Option 3</option>
 			</select>
 		</span>
-		<p class="text-tiny text-danger mt-5">Textfield is required</p>
+		<p class="text-tiny color-danger mt-5">Textfield is required</p>
 		<pretty-code :code="html.select"></pretty-code>
 
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
 		<p>
 			Apply the class <code>.checkbox</code>to <markup>input type="checkbox"</markup> preceding <markup>label</markup><br>
-			Alter the appearance of the checkbox by applying any of the modifiers present in <code class="text-info">$input-colors-classes</code> such as <code>-danger</code>
+			Alter the appearance of the checkbox by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code>
 		</p>
 		<input class="checkbox" id="checkbox-1" type="checkbox">
 		<label for="checkbox-1">Checkbox 1</label>
 		<input class="checkbox -danger" id="checkbox-2" type="checkbox">
 		<label for="checkbox-2">Checkbox 2</label>
-		<p class="text-tiny text-danger">Checkbox is required</p>
+		<p class="text-tiny color-danger">Checkbox is required</p>
 
 		<pretty-code :code="html.checkbox"></pretty-code>
 
-		<p>Need extra sizes? Set values to the variable <code class="text-info">$checkbox-sizes</code>.<br>It will generate modifiers with the name you created. Those sizes will only modify the dimenstion of the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
+		<p>Need extra sizes? Set values to the variable <code class="color-info">$checkbox-sizes</code>.<br>It will generate modifiers with the name you created. Those sizes will only modify the dimenstion of the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
 		<pretty-code class="language-css" :code="html.checkboxSizesVariable"></pretty-code>
 
 		<input class="checkbox -small" id="checkbox-small-1" type="checkbox">
@@ -75,17 +75,17 @@
 		<h3 id="radio"><a href="#radio">#</a> Radio</h3>
 		<p>
 			Apply the class <code>.radio</code>to <markup>input type="radio"</markup> preceding <markup>label</markup><br>
-			Alter the appearance of the radio by applying any of the modifiers present in <code class="text-info">$input-colors-classes</code> such as <code>-danger</code>
+			Alter the appearance of the radio by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code>
 		</p>
 		<input class="radio" id="radio-1" type="radio" name="radio">
 		<label for="radio-1">Radio 1</label>
 		<input class="radio -danger" id="radio-2" type="radio" name="radio">
 		<label for="radio-2">Radio 2</label>
-		<p class="text-tiny text-danger">Radio is required</p>
+		<p class="text-tiny color-danger">Radio is required</p>
 
 		<pretty-code :code="html.radio"></pretty-code>
 
-		<p>Need extra sizes? Set values to the variable <code class="text-info">$radio-sizes</code>.</p>
+		<p>Need extra sizes? Set values to the variable <code class="color-info">$radio-sizes</code>.</p>
 		<pretty-code class="language-css" :code="html.radioSizesVariable"></pretty-code>
 
 		<input class="radio -medium" id="radio-medium-1" type="radio" name="radio-medium">
@@ -106,7 +106,7 @@
 		<label for="toggle-1">Toggle</label>
 		<pretty-code :code="html.toggle"></pretty-code>
 
-		<p>Need extra sizes? Set values to the variable <code class="text-info">$toggle-sizes</code>.</p>
+		<p>Need extra sizes? Set values to the variable <code class="color-info">$toggle-sizes</code>.</p>
 		<pretty-code class="language-css" :code="html.toggleSizesVariable"></pretty-code>
 
 		<input class="toggle -large" id="toggle-large" type="checkbox">

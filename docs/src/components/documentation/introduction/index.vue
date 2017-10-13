@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <transition name="fade" appear>
-      <logo class="text-primary logo" />
+      <logo class="color-primary logo" />
     </transition>
     <h1 class="h2">Loop</h1>
     <p class="text-large">"Why going into Circles?"</p>

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="title">Grid Layout <small class="text-small text-danger">wip</small></h1>
+		<h1 class="title">Grid Layout <small class="text-small color-danger">wip</small></h1>
 		<p class="text-large">Based on CSS grid layout, using the 12 grid system (columns and rows).</p>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive Columns and Rows</h3>

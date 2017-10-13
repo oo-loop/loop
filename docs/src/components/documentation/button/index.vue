@@ -2,7 +2,7 @@
 	<div>
 		<h1 class="title">Button</h1>
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
-		<p>Alter the size of the button by applying any of the <code class="text-info">$text-sizes</code> classes on your <code>.button</code></p>
+		<p>Alter the size of the button by applying any of the <code class="color-info">$text-sizes</code> classes on your <code>.button</code></p>
 		<p>
 		<a class="button text-tiny">tiny</a>
 		<a class="button text-small">small</a>
@@ -12,7 +12,7 @@
 		<pretty-code :code="html.size"></pretty-code>
 
 		<h3 id="colors"><a href="#colors">#</a> Colors</h3>
-		<p>Change the color of the button through the modifiers <code>-$colorname</code> present in the variable <code class="text-info">$btn-colors-classes</code>.<br>
+		<p>Change the color of the button through the modifiers <code>-$colorname</code> present in the variable <code class="color-info">$btn-colors-classes</code>.<br>
 		By default <code>-primary</code> <code>-secondary</code> <code>-success</code> <code>-warning</code> <code>-danger</code></p>
 
 		<p>
@@ -25,7 +25,7 @@
 		<pretty-code :code="html.color"></pretty-code>
 
 		<h3 id="outline"><a href="#outline">#</a> Outline</h3>
-		<p>Change the type of button to outline through the modifiers <code>-outline</code> combine with a color present in the variable <code class="text-info">$btn-outline-colors-classes</code>.</p>
+		<p>Change the type of button to outline through the modifiers <code>-outline</code> combine with a color present in the variable <code class="color-info">$btn-outline-colors-classes</code>.</p>
 
 		<p>
 		<a class="button -outline -primary">primary</a>
