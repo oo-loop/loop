@@ -84,12 +84,12 @@
 		</div>
 		<pretty-code :code="html.vAlignment"></pretty-code>
 		<h4 class="h5">Vertical self alignment</h4>
-		<p>Self alignment is also possible by attaching the same mofifiers <code>-{$alignment}</code> <code>-{$alignment}@{$breakpoint}</code> to a column.
+		<p>Self alignment is also possible by attaching the same mofifiers <code>-self-{$alignment}</code> <code>-self-{$alignment}@{$breakpoint}</code> to a column.
 		<div class="bg-secondary">
 			<div class="columns -v-gutter-less">
 				<div class="column-6 -span-4@sm"><p class="cell cell--large"></p></div>
-				<div class="column-6 -span-4@sm -align-middle -align-top@sm -align-middle@lg"><p class="cell cell--medium"></p></div>
-				<div class="column-6 -span-4@sm -align-bottom"><p class="cell"></p></div>
+				<div class="column-6 -span-4@sm -self-align-middle -self-align-top@sm -self-align-middle@lg"><p class="cell cell--medium"></p></div>
+				<div class="column-6 -span-4@sm -self-align-bottom"><p class="cell"></p></div>
 			</div>
 		</div>
 		<pretty-code :code="html.vAlignmentSelf"></pretty-code>
@@ -113,15 +113,23 @@
 		<pretty-code :code="html.hAlignment2"></pretty-code>
 
 		<h4 class="h5">Horizontal self alignment</h4>
-		<p>Self alignment is also possible by attaching the mofifiers <code>-align-left</code> <code>-align-center</code> <code>-align-right</code> <code>-{$alignment}@{$breakpoint}</code> to a column.
+		<p>Self alignment is also possible by attaching the mofifiers <code>-self-align-left</code> <code>-self-align-center</code> <code>-self-align-right</code> <code>-self-{$alignment}@{$breakpoint}</code> to a column.
 		<div class="bg-secondary">
 			<div class="columns -v-gutter-less">
-				<div class="column-3 -align-right -align-left@md mb-20"><p class="cell cell--medium"></p></div>
-				<div class="column-3 -align-right@md"><p class="cell"></p></div>
-				<div class="column-9 -align-right@md -align-center@lg"><p class="cell"></p></div>
+				<div class="column-3 -self-align-right -self-align-left@md mb-20"><p class="cell cell--medium"></p></div>
+				<div class="column-3 -self-align-right@md"><p class="cell"></p></div>
+				<div class="column-9 -self-align-right@md -align-center@lg"><p class="cell"></p></div>
 			</div>
 		</div>
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>
+
+		<h4 class="h5">Child alignment</h4>
+		<p>Align a child of a column <code>.column</code> through the modifiers <code>-child-{alignment}</code>. Useful if you match the height</p>
+		<div class="columns -stretch-childs">
+			<div class="column-12 -span-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
+			<div class="column-12 -span-6@sm -child-align-middle -child-align-right"><p class="bg-primary text-center">Centered verticaly, Right horizontally</p></div>
+		</div>
+		<pretty-code class="mt-0" :code="html.childAlignment"></pretty-code>
 
 	</div>
 </template>
@@ -147,6 +155,7 @@ export default {
 			hAlignmentSelf: require('./code/h-alignment-self.html'),
 			vAlignment: require('./code/v-alignment.html'),
 			vAlignmentSelf: require('./code/v-alignment-self.html'),
+			childAlignment: require('./code/child-alignment.html'),
 		}
 	}),
 	methods: {
