@@ -5,23 +5,26 @@
 $text-colors: () !default;
 $text-colors-addon: () !default;
 $text-colors-classes: $colors-classes !default;
+$text-colors-is-important: true !default;
 
 $bg-colors: () !default;
 $bg-colors-addon: () !default;
 $bg-colors-classes: $colors-classes !default;
+$bg-colors-is-important: false !default;
 
 $border-colors: () !default;
 $border-colors-addon: () !default;
 $border-colors-classes: $colors-classes !default;
+$border-colors-is-important: true !default;
 
 // Text colors
-@include loop($text-colors, 'color', '.color', $text-colors-addon, true);
-@include loopMapKeys($text-colors-classes, $colors, 'color', '.color', true);
+@include loop($text-colors, 'color', '.color', $text-colors-addon, $text-colors-is-important);
+@include loopMapKeys($text-colors-classes, $colors, 'color', '.color', $text-colors-is-important);
 
 // Bg colors
-@include loop($bg-colors, 'background-color', '.bg', $bg-colors-addon);
-@include loopMapKeys($bg-colors-classes, $colors, 'background-color', '.bg');
+@include loop($bg-colors, 'background-color', '.bg', $bg-colors-addon, $bg-colors-is-important);
+@include loopMapKeys($bg-colors-classes, $colors, 'background-color', '.bg', $bg-colors-is-important);
 
 // Border colors
-@include loop($border-colors, 'border-color', '.border', $border-colors-addon, true);
-@include loopMapKeys($bg-colors-classes, $colors, 'border-color', '.border', true);
+@include loop($border-colors, 'border-color', '.border', $border-colors-addon, $border-colors-is-important);
+@include loopMapKeys($bg-colors-classes, $colors, 'border-color', '.border', $border-colors-is-important);
