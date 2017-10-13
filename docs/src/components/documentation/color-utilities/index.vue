@@ -17,10 +17,10 @@
 			<li><code class="text-info">$text-colors</code> Custom data</li>
 		</ul>
 		<pretty-code class="language-css" :code="html.textVariables"></pretty-code>
-		<p class="text-primary">Here is a short text-primary paragraph</p>
-		<p class="text-success">Here is a short text-success paragraph</p>
-		<p class="text-danger">Here is a shotrt text-danger paragraph</p>
-		<a class="text-color" href="">Here is a text-color link allowing me to overwrite the default color of the link</a>
+		<p class="color-primary">Here is a short color-primary paragraph</p>
+		<p class="color-success">Here is a short color-success paragraph</p>
+		<p class="color-danger">Here is a short color-danger paragraph</p>
+		<a class="color-base" href="">Here is a color-base link allowing me to overwrite the default color of the link</a>
 
 		<pretty-code :code="html.text"></pretty-code>
 
@@ -56,10 +56,8 @@
 			<div class="bordered border-secondary wrapper -small">
 				<div class="bordered border-success wrapper -small">
 					<div class="bordered border-warning wrapper -small">
-						<div class="bordered border-danger wrapper -small">
-							<div class="bordered border-color text-small text-center">
-								Border colors
-							</div>
+						<div class="bordered border-danger text-center text-small">
+							Border colors
 						</div>
 					</div>
 				</div>

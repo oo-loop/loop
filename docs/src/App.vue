@@ -270,7 +270,14 @@ export default {
 </script>
 <style lang="scss">
 	// some variables
-	$text-colors-addon: ('info': #2689ef);
+	@import '~loop/variables';
+	$text-colors-addon: (
+		'base': $color-base,
+		'info': #2689ef,
+	);
+	$bg-colors-addon: (
+  		'body' : $bgcolor-base,
+	);
 	$text-alignments-breakpoints-classes: ('sm', 'lg');
 
 	$checkbox-sizes:(
