@@ -44,6 +44,8 @@ $label-font-weight:      500 !default;
         box-shadow: $input-box-shadow;
     }
 
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
 
     &:focus {

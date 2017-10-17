@@ -53,6 +53,8 @@ $btn-outline-box-shadow:     none !default;
     cursor: pointer;
     user-select: none;
     touch-action: manipulation;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
 
     &:hover,
