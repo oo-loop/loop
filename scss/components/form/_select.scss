@@ -74,7 +74,7 @@ $select-themes: (
     @include selectTheme((
         'size' : $select-size,
         'color': $select-color,
-        'bgcolor': $select-bgcolor,
+        'bgcolor': inherit,
     ));
 
     > select {
@@ -96,6 +96,16 @@ $select-themes: (
         }
     }
 
-    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ' > select');
-    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ':before');
+    &[class*="color-"] {
+        > select { color: inherit !important; }
+    }
+    &[class*="bg-"] {
+        > select { background-color: inherit !important; }
+    }
+    &[class*="border-"] {
+        > select,
+        &:before {
+            border-color: inherit !important;
+        }
+    }
 }

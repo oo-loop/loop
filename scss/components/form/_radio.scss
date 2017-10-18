@@ -92,5 +92,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         }
     }
 
-    @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color', false, ' + label:before');
+    & + label[class*="border-"]:before {
+        border-color: inherit !important;
+    }
 }
