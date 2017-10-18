@@ -3,6 +3,7 @@
  */
 
 $select-size:    10px !default;
+$select-weight:  2px !default;
 $select-color:   $input-color !default;
 $select-bgcolor: $input-bgcolor !default;
 
@@ -21,6 +22,12 @@ $select-themes: (
             right: map-get($theme, 'size');
             width: map-get($theme, 'size');
             height: map-get($theme, 'size');
+        }
+    }
+    @if map-has-key($theme, 'weight') {
+        &:after {
+            border-bottom-width: map-get($theme, 'weight');
+            border-right-width: map-get($theme, 'weight');
         }
     }
     @if map-has-key($theme, 'bgcolor') {
@@ -62,9 +69,7 @@ $select-themes: (
 
         content: '';
 
-        border-bottom-width: 2px;
         border-bottom-style: solid;
-        border-right-width: 2px;
         border-right-style: solid;
 
         pointer-events: none;
@@ -75,6 +80,7 @@ $select-themes: (
         'size' : $select-size,
         'color': $select-color,
         'bgcolor': inherit,
+        'weight': $select-weight,
     ));
 
     > select {
