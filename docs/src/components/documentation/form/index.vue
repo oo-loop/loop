@@ -54,7 +54,7 @@
 		<label for="checkbox-1">Checkbox 1</label>
 		<input class="checkbox -danger" id="checkbox-2" type="checkbox">
 		<label for="checkbox-2">Checkbox 2</label>
-		<p class="text-tiny color-danger">Checkbox is required</p>
+		<p class="text-tiny color-danger mt-5">Checkbox is required</p>
 
 		<pretty-code :code="html.checkbox"></pretty-code>
 
@@ -81,7 +81,7 @@
 		<label for="radio-1">Radio 1</label>
 		<input class="radio -danger" id="radio-2" type="radio" name="radio">
 		<label for="radio-2">Radio 2</label>
-		<p class="text-tiny color-danger">Radio is required</p>
+		<p class="text-tiny color-danger mt-5">Radio is required</p>
 
 		<pretty-code :code="html.radio"></pretty-code>
 
