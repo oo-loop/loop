@@ -7,13 +7,13 @@
 		<p>
 			Apply the class <code>.input</code> to format the appearance of the textfield.<br>
 			Alter the size of the input by applying any of the <code class="color-info">$text-sizes</code> classes available.<br>
-			Alter the appearance of the input by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code>
+			Alter the appearance of the input by applying classes from the color utitlies.
 		</p>
 		<label for="default-input">Input</label>
 		<input class="input mb-15" id="default-input" type="text">
 
 		<label for="large-input">Large input</label>
-		<input class="input -danger text-large" id="large-input" type="text">
+		<input class="input border-danger text-large" id="large-input" type="text">
 		<p class="text-tiny color-danger mt-5">Textfield is required.</p>
 
 		<pretty-code :code="html.size"></pretty-code>
@@ -22,7 +22,7 @@
 		<p>
 			Apply the class <code>.select</code> to a <strong>parent element</strong> wrapping <markup>select</markup><br>
 			Alter the size of the element by applying any of the <code class="color-info">$text-sizes</code> classes available on the <markup>select</markup> element.<br>
-			Alter the appearance of the select by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code> to the <strong>parent element</strong>.
+			Alter the appearance of the select by applying classes from the color utilities to the <strong>parent element</strong>.
 		</p>
 
 		<label> Select Tiny Option</label>
@@ -35,7 +35,7 @@
 		</span>
 
 		<label> Select Option</label>
-		<span class="select -danger">
+		<span class="select border-danger">
 			<select>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -48,12 +48,12 @@
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
 		<p>
 			Apply the class <code>.checkbox</code>to <markup>input type="checkbox"</markup> preceding <markup>label</markup><br>
-			Alter the appearance of the checkbox by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code>
+			Alter the appearance of the checkbox by applying classes from the color utilities to the <markup>label</markup>.
 		</p>
 		<input class="checkbox" id="checkbox-1" type="checkbox">
 		<label for="checkbox-1">Checkbox 1</label>
-		<input class="checkbox -danger" id="checkbox-2" type="checkbox">
-		<label for="checkbox-2">Checkbox 2</label>
+		<input class="checkbox" id="checkbox-2" type="checkbox">
+		<label class="border-danger" for="checkbox-2">Checkbox 2</label>
 		<p class="text-tiny color-danger mt-5">Checkbox is required</p>
 
 		<pretty-code :code="html.checkbox"></pretty-code>
@@ -75,12 +75,12 @@
 		<h3 id="radio"><a href="#radio">#</a> Radio</h3>
 		<p>
 			Apply the class <code>.radio</code>to <markup>input type="radio"</markup> preceding <markup>label</markup><br>
-			Alter the appearance of the radio by applying any of the modifiers present in <code class="color-info">$input-colors-classes</code> such as <code>-danger</code>
+			Alter the appearance of the radio by applying classes from the color utilities to the <markup>label</markup>.
 		</p>
 		<input class="radio" id="radio-1" type="radio" name="radio">
 		<label for="radio-1">Radio 1</label>
-		<input class="radio -danger" id="radio-2" type="radio" name="radio">
-		<label for="radio-2">Radio 2</label>
+		<input class="radio" id="radio-2" type="radio" name="radio">
+		<label class="border-danger" for="radio-2">Radio 2</label>
 		<p class="text-tiny color-danger mt-5">Radio is required</p>
 
 		<pretty-code :code="html.radio"></pretty-code>
