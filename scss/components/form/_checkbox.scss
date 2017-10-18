@@ -21,7 +21,6 @@ $checkbox-breakpoints-classes:() !default;
     $checked_border-width: ($size * 0.12);
 
     & + label {
-        margin-bottom: ($size / 3);
         &:before {
             margin-right: ($size / 3);
             width: $size;
@@ -36,6 +35,8 @@ $checkbox-breakpoints-classes:() !default;
                 border-bottom-width: ($checked_border-width * 2);
             }
         }
+
+        & + .checkbox + label { margin-top: ($size / 3); }
     }
     &:checked + label:after {
         width: $checked_width;

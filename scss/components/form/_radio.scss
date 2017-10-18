@@ -16,10 +16,11 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
 @mixin radio-size($size) {
     & + label {
-        margin-bottom: ($size / 3);
         &:before {
             margin-right: ($size / 3);
         }
+
+        & + .radio + label { margin-top: ($size / 3); }
     }
 
     & + label:before,
