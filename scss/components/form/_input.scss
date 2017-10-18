@@ -10,7 +10,6 @@ $input-font-style:       normal !default;
 $input-line-height:      1.15 !default;
 
 $input-padding:          .5em .625em !default; // relative to the size of the input
-$input-margin:           .2rem !default;
 
 $input-border-color:     #d6d6d6 !default;
 $input-border:           1px solid $input-border-color !default;
@@ -21,11 +20,10 @@ $input-focus-box-shadow: 1px 1px 2px 0px rgba(#aaa, .85) !default;
 $input-colors-classes: ('danger') !default;
 
 $label-font-weight:      500 !default;
+$label-margin:           .3rem !default;
 
 .input {
     padding: $input-padding;
-    margin-top: $input-margin;
-    margin-bottom: $input-margin;
 
     display: block;
     width: 100%;
@@ -60,4 +58,9 @@ $label-font-weight:      500 !default;
     @include loopMapKeysModifiers($input-colors-classes, $colors, 'border-color');
 }
 
-label { font-weight: $label-font-weight; }
+label {
+    font-weight: $label-font-weight;
+
+    + .input,
+    + .select { margin-top: $label-margin; }
+}

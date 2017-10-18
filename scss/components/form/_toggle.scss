@@ -16,7 +16,6 @@ $toggle-sizes:() !default;
 
 @mixin toggle-size($size) {
     & + label {
-        margin-bottom: ($size / 3);
         &:before {
             margin-right: ($size / 3);
             width: ($size * 1.8);
@@ -27,6 +26,8 @@ $toggle-sizes:() !default;
             width: ($size * .7);
             height: ($size * .7);
         }
+
+        & + .toggle + label { margin-top: ($size / 3); }
     }
 
     &:checked + label:after {
