@@ -79,7 +79,7 @@ $select-themes: (
     @include selectTheme((
         'size' : $select-size,
         'color': $select-color,
-        'bgcolor': inherit,
+        'bgcolor': $select-bgcolor,
         'weight': $select-weight,
     ));
 
