@@ -11,39 +11,35 @@ $grid-system: $columns-system !default;
 $grid-gap-sizes: $columns-gutter-sizes !default;
 $grid-v-gap-sizes: $grid-gap-sizes !default;
 
-.grid {
+[#{$loop-component-prefix}-grid~="layout"] {
 	display: grid;
 	grid-template-columns: repeat($grid-system, 1fr);
 	grid-gap: $grid-gap;
+}
 
-	@each $class in $breakpoints-classes-from-start {
-		@include breakpoint($class) {
-			$prefix: '';
-			$suffix: '';
-			@if $class != '' {
-				$prefix: '-';
-				$suffix: \@#{$class};
-			}
-			@for $i from 1 through $grid-system {
-				.#{$prefix}col-#{$i}#{$suffix} { grid-column: span $i; }
-				.#{$prefix}row-#{$i}#{$suffix} { grid-row: span $i; }
-			}
+@each $class in $breakpoints-classes-from-start {
+	@include breakpoint($class) {
+		$prefix: '';
+		$suffix: '';
+		@if $class != '' {
+			$prefix: '-';
+			$suffix: \@#{$class};
+		}
+		@for $i from 1 through $grid-system {
+			[#{$loop-component-prefix}-grid~="#{$prefix}col-#{$i}#{$suffix}"] { grid-column: span $i; }
+			[#{$loop-component-prefix}-grid~="#{$prefix}row-#{$i}#{$suffix}"] { grid-row: span $i; }
 		}
 	}
 }
 
 @if $use-grid-gap {
-	.-gap {
-		@each $gap-name, $gap-size in $grid-gap-sizes {
-			&-#{$gap-name} { grid-gap: $gap-size; }
-		}
+	@each $gap-name, $gap-size in $grid-gap-sizes {
+		[#{$loop-component-prefix}-grid~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
 	}
 }
 
 @if $use-grid-gap and $use-v-grid-gap {
-	.-v-gap {
-		@each $gap-name, $gap-size in $grid-v-gap-sizes {
-			&-#{$gap-name} { grid-row-gap: $gap-size; }
-		}
+	@each $gap-name, $gap-size in $grid-v-gap-sizes {
+		[#{$loop-component-prefix}-grid~="v-gap-#{$gap-name}"] { grid-row-gap: $gap-size; }
 	}
 }
