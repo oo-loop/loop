@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		<div oo-grid="layout" :oo-grid="gapClass">
+		<div oo-grid="layout" :oo-grid="[gapClass, vGapClass]">
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import '@/directives/index'
 import prettyCode from '@/components/pretty-code'
 
 export default {
