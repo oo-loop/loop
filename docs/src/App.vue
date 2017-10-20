@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<span class="hamburger" @click="toggleMenu()"></span>
-		<div class="columns" :class="{ slide: isMenuOpen }">
-			<aside class="column sidebar">
+		<div oo-column="row" :class="{ slide: isMenuOpen }">
+			<aside class="sidebar" oo-column="col">
 				<div class="sidebar__content">
 					<ul class="list-unstyle font-weight-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
@@ -19,7 +19,7 @@
 					</ul>
 				</div>
 			</aside>
-			<div class="column">
+			<div oo-column="col">
 				<div class="content">
 					<transition name="fade" mode="out-in">
 						<router-view :key="$route.path"></router-view>
