@@ -27,12 +27,12 @@
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
 
 		<h4 class="h5">Match Children height</h4>
-		<p>Force each children to have the same height through the modifier <code>stretch-childs</code></p>
-		<div oo-column="row stretch-childs">
+		<p>Force each children to have the same height through the property <code>stretch</code></p>
+		<div oo-column="row stretch">
 		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
 		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">Few content</p></div>
 		</div>
-		<pretty-code class="mt-0" :code="html.stretchChilds"></pretty-code>
+		<pretty-code class="mt-0" :code="html.stretch"></pretty-code>
 
 		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
 		<p>Change the space between the columns by adding one of the properties <code>gutter-less</code> <code>gutter-tiny</code> <code>gutter-small</code> <code>gutter-large</code>.<br>The modifier <code>v-gutter-less</code> will remove the vertical gutter.</p>
@@ -125,7 +125,7 @@
 
 		<h4 class="h5">Child alignment</h4>
 		<p>Align a child of a column <code>col</code> through the properties <code>child-{alignment}</code>.</p>
-		<div oo-column="row stretch-childs">
+		<div oo-column="row stretch">
 		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
 		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary text-center">Centered verticaly, Right horizontally</p></div>
 		</div>
@@ -148,7 +148,7 @@ export default {
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
 			selfAdjust: require('./code/self-adjust.html'),
-			stretchChilds: require('./code/stretch-childs.html'),
+			stretch: require('./code/stretch.html'),
 			order: require('./code/order.html'),
 			hAlignment: require('./code/h-alignment.html'),
 			hAlignment2: require('./code/h-alignment-2.html'),

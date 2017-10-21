@@ -136,8 +136,8 @@ $columns-gutter-sizes: (
 }
 
 
-// stretch childs
-[#{$loop-component-prefix}-column~="stretch-childs"] {
+// stretch
+[#{$loop-component-prefix}-column~="stretch"] {
     > [#{$loop-component-prefix}-column*="col"] > * {
         height:100%;
     }
