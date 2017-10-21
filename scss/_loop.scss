@@ -14,8 +14,16 @@
     "components/columns",
     "components/container",
     "components/wrapper",
-    "components/form/all",
     "components/button"
+;
+
+// Form
+@import 
+    "form/input",
+    "form/select",
+    "form/checkbox",
+    "form/radio",
+    "form/toggle"
 ;
 
 // Utilities
