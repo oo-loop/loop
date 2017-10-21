@@ -19,13 +19,14 @@ $columns-gutter-sizes: (
 
 // row
 [#{$loop-component-prefix}-column~="row"] {
+    position: relative;
+    left: -#{$columns-gutter};
+    margin-right: -#{$columns-gutter};
+
     display: flex;
     flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
-
-    width: calc(100% + #{$columns-gutter});
-    transform: translateX(-#{$columns-gutter});
 }
 
 
@@ -146,8 +147,8 @@ $columns-gutter-sizes: (
 // gutters
 @each $gutter-name, $gutter-size in $columns-gutter-sizes {
     [#{$loop-component-prefix}-column~="gutter-#{$gutter-name}"] {
-        width: if($gutter-size == 0, 100%, calc(100% + #{$gutter-size}));
-        transform: translateX(-#{$gutter-size});
+        left: -#{$gutter-size};
+        margin-right: -#{$gutter-size};
 
         > [#{$loop-component-prefix}-column*="col"] {
             padding-bottom: $gutter-size;
