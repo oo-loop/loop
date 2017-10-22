@@ -19,19 +19,24 @@
     @import '~loop/variables';
     @import '~prettify/src/prettify.css';
 
+    $variable: #4198e2;
+    $attribute: #bbe888;
+    $value: #f36c44;
+
     pre.prettyprint {
         padding: 1.4rem 2rem;
         font-weight: 700;
         border: none;
-        background-color: $code-bgcolor;
+        background-color: #353535;
+
+        code { background-color: inherit; }
 
         .tag,
         .atn,
-        .pun { color: darken($color-primary, 10%) }
-        .atv { color: $code-highlight-color }
+        .pun { color: $color-primary; }
+        .atv { color: $attribute; }
         .pln {
-            color: $code-color;
-            font-weight: 400;
+            color: #fff;
         }
         .com {
             color: #a9a9a9;
@@ -39,14 +44,14 @@
         }
 
         &.language-css {
-            .str { color: darken($color-primary, 10%) }
+            .str { color: $attribute; }
             .pun,
             .pun + .pln,
-            .kwd { color: #4198e2 }
+            .kwd { color: $color-primary; }
             .pun + .pln {
                 font-weight: 700;
             }
-            .lit { color: $code-highlight-color }
+            .lit { color: $value; }
         }
     }
 </style>
