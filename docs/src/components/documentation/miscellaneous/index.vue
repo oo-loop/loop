@@ -17,18 +17,24 @@
 		<p>Add the class <code>.full</code> to any elements to take the full width of the parent container.</p>
 		<button class="full" oo-button="primary">Button gets a full width</button>
 
+		<h3 class="mt-35" id="responsive"><a href="#responsive">#</a> Responsive</h3>
+		<p>Add the class <code>.responsive</code> for your element to respond to the size of the screen.</p>
+		<logo class="responsive color-primary" width="500"/>
+
 	</div>
 </template>
 
 <script>
 import prettyCode from '@/components/pretty-code'
 import markup from '@/components/pretty-code/markup'
+import logo from '@/components/documentation/logo'
 
 export default {
 	name: 'Utilities',
 	components: {
 		prettyCode,
-		markup
+		markup,
+		logo
 	},
 	data: () => ({
 		html: {}
