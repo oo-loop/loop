@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1 class="title">Column<span class="text-small color-primary">oo</span></h1>
-		<p class="text-large">Component based on Flexbox, using the 12 columns system.<br><code class="font-weight-bold color-primary">oo-column</code></p>
+		<p class="text-large">Component based on Flexbox, using the 12 columns system.<br><code class="font-bold color-primary">oo-column</code></p>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
 		<p>Change the size of the column by using the property <code>col-{$number}</code>, or let the columns being automatically calculated.<br>Change the size of the column according to the device being targeted through the properties <code>col-{$number}@{$breakpoint}</code>.</p>
