@@ -1,10 +1,10 @@
 <template>
 	<div>
 		<h1 class="title">Column<span class="text-small color-primary">oo</span></h1>
-		<p class="text-large">Component based on Flexbox, using the 12 columns system.<br><code class="font-bold color-primary">oo-column</code></p>
+		<p class="text-large">Component based on Flexbox, using the 12 columns system.<br><code class="font-bold color-secondary">oo-column</code></p>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
-		<p>Change the size of the column by using the property <code>col-{$number}</code>, or let the columns being automatically calculated.<br>Change the size of the column according to the device being targeted through the properties <code>col-{$number}@{$breakpoint}</code>.</p>
+		<p>Change the size of the column by using the property <code class="color-secondary">col-{$number}</code>, or let the columns being automatically calculated.<br>Change the size of the column according to the device being targeted through the properties <code class="color-secondary">col-{$number}@{$breakpoint}</code>.</p>
 
 		<div oo-column="row">
 			<div oo-column="col"><p class="cell">auto</p></div>
@@ -19,7 +19,7 @@
 		<pretty-code class="mt-0" :code="html.column"></pretty-code>
 
 		<h4 class="h5">Self Adjust Column</h4>
-		<p>Let the column adjusts itself to the size of the content by adding the property <code>self-adjust</code> to <code>col</code></p>
+		<p>Let the column adjusts itself to the size of the content by adding the property <code class="color-secondary">self-adjust</code> to <code class="color-secondary">col</code></p>
 		<div oo-column="row">
 		    <div oo-column="col self-adjust"><p class="cell">adjust</p></div>
 		    <div oo-column="col"><p class="cell">auto</p></div>
@@ -27,7 +27,7 @@
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
 
 		<h4 class="h5">Match Children height</h4>
-		<p>Force each children to have the same height through the property <code>stretch</code></p>
+		<p>Force each children to have the same height through the property <code class="color-secondary">stretch</code></p>
 		<div oo-column="row stretch">
 		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
 		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">Few content</p></div>
@@ -35,7 +35,7 @@
 		<pretty-code class="mt-0" :code="html.stretch"></pretty-code>
 
 		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
-		<p>Change the space between the columns by adding one of the properties <code>gutter-less</code> <code>gutter-tiny</code> <code>gutter-small</code> <code>gutter-large</code>.<br>The modifier <code>v-gutter-less</code> will remove the vertical gutter.</p>
+		<p>Change the space between the columns by adding one of the properties <code class="color-secondary">gutter-less</code> <code class="color-secondary">gutter-tiny</code> <code class="color-secondary">gutter-small</code> <code class="color-secondary">gutter-large</code>.<br>The modifier <code class="color-secondary">v-gutter-less</code> will remove the vertical gutter.</p>
 
 		<div oo-column="row gutter-large v-gutter-less">
 		    <div oo-column="col"><p class="cell">large</p></div>
@@ -63,7 +63,7 @@
 		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>
-		<p>Rearrange the order the columns through the properties <code>order-0@{$breakpoint}</code> to <code>order-12@{$breakpoint}</code> according to the size of the screen.</p>
+		<p>Rearrange the order the columns through the properties <code class="color-secondary">order-0@{$breakpoint}</code> to <code class="color-secondary">order-12@{$breakpoint}</code> according to the size of the screen.</p>
 		<div oo-column="row">
 		  <div oo-column="col-6 col-3@sm order-2@lg"><p class="cell">one</p></div>
 		  <div oo-column="col-6 col-3@sm"><p class="cell">two</p></div>
@@ -74,7 +74,7 @@
 
 		<h3 id="alignment"><a href="#alignment">#</a> Alignment</h3>
 		<h4 class="h5">Vertical alignment</h4>
-		<p>Vertically align a group of columns attaching the properties <code>align-top</code> <code>align-middle</code> <code>align-bottom</code> to <code>row</code>.<br>Responsive properties are also available <code>{$alignment}@{$breakpoint}</code></p>
+		<p>Vertically align a group of columns attaching the properties <code class="color-secondary">align-top</code> <code class="color-secondary">align-middle</code> <code class="color-secondary">align-bottom</code> to <code class="color-secondary">row</code>.<br>Responsive properties are also available <code class="color-secondary">{$alignment}@{$breakpoint}</code></p>
 		<div class="bg-secondary">
 		    <div oo-column="row align-bottom@sm align-middle@md align-top@lg v-gutter-less">
 		        <div oo-column="col-6 col-4@sm"><p class="cell cell--large"></p></div>
@@ -84,7 +84,7 @@
 		</div>
 		<pretty-code :code="html.vAlignment"></pretty-code>
 		<h4 class="h5">Vertical self alignment</h4>
-		<p>Self alignment is also possible by attaching the same mofifiers <code>self-{$alignment}</code> <code>self-{$alignment}@{$breakpoint}</code> to <code>col</code>.
+		<p>Self alignment is also possible by attaching the same mofifiers <code class="color-secondary">self-{$alignment}</code> <code class="color-secondary">self-{$alignment}@{$breakpoint}</code> to <code class="color-secondary">col</code>.
 		<div class="bg-secondary">
 		    <div oo-column="row v-gutter-less">
 		        <div oo-column="col-6 col-4@sm"><p class="cell cell--large"></p></div>
@@ -95,7 +95,7 @@
 		<pretty-code :code="html.vAlignmentSelf"></pretty-code>
 
 		<h4 class="h5">Horizontal alignment</h4>
-		<p>Horizontally align a group of columns attaching the properties <code>align-left</code> <code>align-center</code> <code>align-right</code> <code>align-between</code> <code>align-evenly</code> to <code>row</code>.<br>Responsive properties are also available <code>{$alignment}@{$breakpoint}</code></p>
+		<p>Horizontally align a group of columns attaching the properties <code class="color-secondary">align-left</code> <code class="color-secondary">align-center</code> <code class="color-secondary">align-right</code> <code class="color-secondary">align-between</code> <code class="color-secondary">align-evenly</code> to <code class="color-secondary">row</code>.<br>Responsive properties are also available <code class="color-secondary">{$alignment}@{$breakpoint}</code></p>
 		<div class="bg-secondary">
 		    <div oo-column="row align-center@md align-right@lg v-gutter-less">
 		        <div oo-column="col-3 col-4@sm"><p class="cell cell--medium"></p></div>
@@ -113,7 +113,7 @@
 		<pretty-code :code="html.hAlignment2"></pretty-code>
 
 		<h4 class="h5">Horizontal self alignment</h4>
-		<p>Self alignment is also possible by attaching the mofifiers <code>self-align-left</code> <code>self-align-center</code> <code>self-align-right</code> <code>self-{$alignment}@{$breakpoint}</code> to <code>col</code>.
+		<p>Self alignment is also possible by attaching the mofifiers <code class="color-secondary">self-align-left</code> <code class="color-secondary">self-align-center</code> <code class="color-secondary">self-align-right</code> <code class="color-secondary">self-{$alignment}@{$breakpoint}</code> to <code class="color-secondary">col</code>.
 		<div class="bg-secondary">
 		    <div oo-column="row v-gutter-less">
 		        <div oo-column="col-3 self-align-right self-align-left@md mb-20"><p class="cell cell--medium"></p></div>
@@ -124,7 +124,7 @@
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>
 
 		<h4 class="h5">Child alignment</h4>
-		<p>Align a child of a column <code>col</code> through the properties <code>child-{alignment}</code>.</p>
+		<p>Align a child of a column <code class="color-secondary">col</code> through the properties <code class="color-secondary">child-{alignment}</code>.</p>
 		<div oo-column="row stretch">
 		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
 		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary text-center">Centered verticaly, Right horizontally</p></div>

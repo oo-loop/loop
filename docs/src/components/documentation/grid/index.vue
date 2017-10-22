@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1 class="title">Grid Layout<span class="text-small color-primary">oo</span> <small class="text-small color-danger">wip</small></h1>
-		<p class="text-large">Component based on CSS grid layout, using the 12 grid system (columns and rows).<br><code class="color-primary">oo-grid</code></p>
+		<p class="text-large">Component based on CSS grid layout, using the 12 grid system (columns and rows).<br><code class="color-secondary font-bold">oo-grid</code></p>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive Columns and Rows</h3>
 		<div oo-grid="layout">
@@ -20,23 +20,23 @@
 
 		<h3 id="gaps"><a href="#gaps">#</a> Gaps</h3>
 		<p>
-			Change the gap between the spans by adding one of the properties <code>gap-less</code> <code>gap-tiny</code> <code>gap-small</code> <code>gap-large</code> to <code>.grid</code>
-			<br>The same option are available targetting vertical gaps only<code>v-gap-{$name}</code>.
+			Change the gap between the spans by adding one of the properties <code class="color-secondary">gap-less</code> <code class="color-secondary">gap-tiny</code> <code class="color-secondary">gap-small</code> <code class="color-secondary">gap-large</code> to <code class="color-secondary">grid</code>
+			<br>The same option are available targetting vertical gaps only<code class="color-secondary">v-gap-{$name}</code>.
 		</p>
 		<div oo-column="row gutter-tiny">
 			<div oo-column="col self-adjust">
-				<button class="button -secondary text-tiny" @click="gap = ''">Reset gap</button>
+				<button oo-button="secondary" class="text-tiny" @click="gap = ''">Reset gap</button>
 			</div>
 			<div oo-column="col self-adjust" v-for="n in gaps">
-				<button class="button text-tiny" @click="gap = n">gap-{{n}}</button>
+				<button oo-button class="text-tiny" @click="gap = n">gap-{{n}}</button>
 			</div>
 		</div>
 		<div class="mb-20" oo-column="row gutter-tiny">
 			<div oo-column="col self-adjust">
-				<button class="button -secondary text-tiny" @click="vGap = ''">Reset v-gap</button>
+				<button oo-button="secondary" class="text-tiny" @click="vGap = ''">Reset v-gap</button>
 			</div>
 			<div oo-column="col self-adjust" v-for="n in gaps">
-				<button class="button text-tiny" @click="vGap = n">v-gap-{{n}}</button>
+				<button oo-button class="text-tiny" @click="vGap = n">v-gap-{{n}}</button>
 			</div>
 		</div>
 
