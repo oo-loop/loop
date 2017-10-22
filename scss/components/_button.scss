@@ -27,7 +27,7 @@ $btn-outline-font-weight:    $btn-font-weight !default;
 $btn-outline-text-transform: $btn-text-transform !default;
 $btn-outline-box-shadow:     none !default;
 
-.button {
+[#{$loop-component-prefix}-button] {
     padding: $btn-padding;
     display: inline-block;
 
@@ -69,72 +69,76 @@ $btn-outline-box-shadow:     none !default;
         box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
         transform: scale(.97);
     }
+}
 
-    @if isNotEmpty($btn-colors-classes) {
-        @each $color in $btn-colors-classes {
-            $color_value: map-get($colors, $color);
-            &.-#{$color} {
-                background-color: $color_value;
-                color: if(isBright($color_value), $color-base, #fff);
 
-                &:hover,
-                &:focus {
-                    border-color: darken($color_value, 10%);
-                    background-color: darken($color_value, 10%);
-                }
-                &:active {
-                    border-color: darken($color_value, 12%);
-                    background-color: darken($color_value, 12%);
-                    box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
-                }
-            }
-        }
-    }
+@if isNotEmpty($btn-colors-classes) {
+    @each $color in $btn-colors-classes {
+        $color_value: map-get($colors, $color);
+        
+        [#{$loop-component-prefix}-button~="#{$color}"] {
+            background-color: $color_value;
+            color: if(isBright($color_value), $color-base, #fff);
 
-    @if isNotEmpty($btn-outline-colors-classes) {
-        &.-outline {
-            background-color: transparent;
-
-            @if $btn-outline-padding != $btn-padding {
-                padding: $btn-outline-padding
+            &:hover,
+            &:focus {
+                border-color: darken($color_value, 10%);
+                background-color: darken($color_value, 10%);
             }
-            @if $btn-outline-font-family != $btn-font-family {
-                font-family: $btn-outline-font-family
-            }
-            @if $btn-outline-font-weight != $btn-font-weight {
-                font-weight: $btn-outline-font-weight
-            }
-            @if $btn-outline-text-transform != $btn-text-transform {
-                text-transform: $btn-outline-text-transform
-            }
-            @if $btn-outline-color != inherit {
-                color: $btn-outline-color;
-            }
-            @if $btn-box-shadow != $btn-outline-box-shadow {
-                box-shadow: $btn-outline-box-shadow;
-            }
-        }
-        @each $color in $btn-outline-colors-classes {
-            $color_value: map-get($colors, $color);
-            &.-outline.-#{$color} {
-                @if $btn-outline-color == inherit {
-                    color: $color_value;
-                }
-                border-color: $color_value;
-
-                &:hover,
-                &:focus {
-                    color: if(isBright($color_value), $color-base, #fff);
-                    border-color: darken($color_value, 10%);
-                    background-color: darken($color_value, 10%);
-                }
-                &:active {
-                    color: if(isBright($color_value), $color-base, #fff);
-                    border-color: darken($color_value, 12%);
-                    background-color: darken($color_value, 12%);
-                    box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
-                }
+            &:active {
+                border-color: darken($color_value, 12%);
+                background-color: darken($color_value, 12%);
+                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
             }
         }
     }
 }
+
+@if isNotEmpty($btn-outline-colors-classes) {
+    [#{$loop-component-prefix}-button~="outline"] {
+        background-color: transparent;
+
+        @if $btn-outline-padding != $btn-padding {
+            padding: $btn-outline-padding
+        }
+        @if $btn-outline-font-family != $btn-font-family {
+            font-family: $btn-outline-font-family
+        }
+        @if $btn-outline-font-weight != $btn-font-weight {
+            font-weight: $btn-outline-font-weight
+        }
+        @if $btn-outline-text-transform != $btn-text-transform {
+            text-transform: $btn-outline-text-transform
+        }
+        @if $btn-outline-color != inherit {
+            color: $btn-outline-color;
+        }
+        @if $btn-box-shadow != $btn-outline-box-shadow {
+            box-shadow: $btn-outline-box-shadow;
+        }
+    }
+    @each $color in $btn-outline-colors-classes {
+        $color_value: map-get($colors, $color);
+        
+        &[#{$loop-component-prefix}-button~="#{$color}"] {
+            @if $btn-outline-color == inherit {
+                color: $color_value;
+            }
+            border-color: $color_value;
+
+            &:hover,
+            &:focus {
+                color: if(isBright($color_value), $color-base, #fff);
+                border-color: darken($color_value, 10%);
+                background-color: darken($color_value, 10%);
+            }
+            &:active {
+                color: if(isBright($color_value), $color-base, #fff);
+                border-color: darken($color_value, 12%);
+                background-color: darken($color_value, 12%);
+                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
+            }
+        }
+    }
+}
+

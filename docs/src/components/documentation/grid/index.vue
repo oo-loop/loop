@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1 class="title">Grid Layout<span class="text-small color-primary">oo</span> <small class="text-small color-danger">wip</small></h1>
-		<p class="text-large">Component based on CSS grid layout, using the 12 grid system (columns and rows).<br><code>oo-grid</code></p>
+		<p class="text-large">Component based on CSS grid layout, using the 12 grid system (columns and rows).<br><code class="color-primary">oo-grid</code></p>
 
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive Columns and Rows</h3>
 		<div oo-grid="layout">
