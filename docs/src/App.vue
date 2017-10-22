@@ -7,7 +7,7 @@
 					<ul class="list-unstyle font-weight-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
-							<span class="color-danger text-tiny"  v-if="item.label">{{item.label}}</span>
+							<span class="color-secondary text-tiny"  v-if="item.label">{{item.label}}</span>
 							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
 								<li v-for="subItem in item.subMenu">
 									<template v-if="subItem.route.indexOf('#') > -1">
@@ -46,26 +46,9 @@ export default {
 				subMenu: []
 			},
 			{
-				name: 'Type',
-				route: 'type',
-				subMenu: [
-					{
-						name: 'Headings',
-						route: '#headings'
-					},
-					{
-						name: 'Text Elements',
-						route: '#text-elements'
-					},
-					{
-						name: 'List',
-						route: '#lists'
-					},
-				]
-			},
-			{
 				name: 'Column',
 				route: 'column',
+				label: 'oo',
 				subMenu: [
 					{
 						name: 'Responsive',
@@ -88,7 +71,7 @@ export default {
 			{
 				name: 'Grid',
 				route: 'grid',
-				label: 'wip',
+				label: 'oo',
 				subMenu: [
 					{
 						name: 'Responsive',
@@ -97,6 +80,43 @@ export default {
 					{
 						name: 'Gaps',
 						route: '#gaps'
+					},
+				]
+			},
+			{
+				name: 'Button',
+				route: 'button',
+				label: 'oo',
+				subMenu: [
+					{
+						name: 'Sizes',
+						route: '#sizes'
+					},
+					{
+						name: 'Colors',
+						route: '#colors'
+					},
+					{
+						name: 'Outline',
+						route: '#outline'
+					},
+				]
+			},
+			{
+				name: 'Type',
+				route: 'type',
+				subMenu: [
+					{
+						name: 'Headings',
+						route: '#headings'
+					},
+					{
+						name: 'Text Elements',
+						route: '#text-elements'
+					},
+					{
+						name: 'List',
+						route: '#lists'
 					},
 				]
 			},
@@ -123,24 +143,6 @@ export default {
 					{
 						name: 'Select',
 						route: '#select'
-					},
-				]
-			},
-			{
-				name: 'Button',
-				route: 'button',
-				subMenu: [
-					{
-						name: 'Sizes',
-						route: '#sizes'
-					},
-					{
-						name: 'Colors',
-						route: '#colors'
-					},
-					{
-						name: 'Outline',
-						route: '#outline'
 					},
 				]
 			},
