@@ -12,5 +12,5 @@ $wrapper-padding-addon: () !default;
 
 .wrapper {
     padding: $wrapper-padding;
-    @include loop($wrapper-padding-sizes, 'padding', '&.', $wrapper-padding-addon);
+    @include loop($wrapper-padding-sizes, 'padding', '&', $wrapper-padding-addon);
 }

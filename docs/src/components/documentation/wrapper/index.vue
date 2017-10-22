@@ -2,18 +2,18 @@
 	<div>
 		<h1 class="title">Wrapper</h1>
 		<p class="text-large">Wrap elements with padding around them.</p>
-		<p>Use the class <code>.wrapper</code> with or without the modifiers <code>-tiny</code> <code>-small</code> <code>-large</code> matching the sizes set in the variable <code class="color-info">$wrapper-padding-sizes</code>.</p>
+		<p>Use the class <code>.wrapper</code> or <code>.wrapper-{$sizeName}</code> matching the sizes set in the variable <code class="color-info">$wrapper-padding-sizes</code>. By default <code>.wrapper-tiny</code> <code>.wrapper-small</code> <code>.wrapper-large</code> </p>
 
-		<div class="wrapper -tiny bg-secondary mb-15">
+		<div class="wrapper-tiny bg-secondary mb-15">
 			<div class="bg-primary"><br></div>
 		</div>
-		<div class="wrapper -small bg-secondary mb-15">
+		<div class="wrapper-small bg-secondary mb-15">
 			<div class="bg-primary"><br></div>
 		</div>
 		<div class="wrapper bg-secondary mb-15">
 			<div class="bg-primary"><br></div>
 		</div>
-		<div class="wrapper -large bg-secondary">
+		<div class="wrapper-large bg-secondary">
 			<div class="bg-primary"><br></div>
 		</div>
 
