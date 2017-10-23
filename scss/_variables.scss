@@ -2,7 +2,7 @@
  * Variables
  * Change at your own will
  */
- 
+
  $loop-prefix: 'oo' !default;
  $loop-component-html5-validity: false !default;
  $loop-component-prefix: if($loop-component-html5-validity, #{'data-'}#{$loop-prefix}, $loop-prefix) !default;
@@ -239,6 +239,10 @@ $text-sizes-breakpoints-classes: () !default;
  $use-columns-alignment:      true !default;
  $use-columns-self-alignment: true !default;
  $use-columns-child-alignment: true !default;
+
+ $use-columns-alignment-breakpoints: true !default;
+ $use-columns-self-alignment-breakpoints: true !default;
+ $use-columns-self-adjustment-breakpoints: false !default;
 
 
 /**
