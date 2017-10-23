@@ -1,7 +1,7 @@
 {
   "name": "loop",
   "version": "0.2.0",
-  "description": "Why Going into circles",
+  "description": "Why Going in circles",
   "main": "index.js",
   "directories": {
     "doc": "docs"
