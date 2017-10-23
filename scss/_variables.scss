@@ -2,6 +2,10 @@
  * Variables
  * Change at your own will
  */
+ 
+ $loop-prefix: 'oo' !default;
+ $loop-component-html5-validity: false !default;
+ $loop-component-prefix: if($loop-component-html5-validity, #{'data-'}#{$loop-prefix}, $loop-prefix) !default;
 
 /**
  * Breakpoints
@@ -34,7 +38,7 @@
  * Colors
  */
 
- $color-primary:   #1cd8cf !default;
+ $color-primary:   #6cd7f7 !default;
  $color-secondary: #254F67 !default;
 
  $colors: (

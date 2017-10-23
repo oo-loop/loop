@@ -12,13 +12,6 @@
 		<p>Need more or need less? Change the array <code class="color-info">$text-sizes</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.fontSizes"></pretty-code>
 
-		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
-		<p>Quickly change the weight of the text. Two sizes as default.</p>
-		<code>.font-weight-bold</code><p class="font-weight-bold">Text strong Lorem ipsum dolor sit amet.</p>
-		<code>.font-weight-light</code><p class="font-weight-light">Text light Lorem ipsum dolor sit amet.</p>
-		<p>Need more or need less? Change the array <code class="color-info">$font-weights</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.fontWeights"></pretty-code>
-
 		<h3 id="alignments"><a href="#alignments">#</a> Alignments</h3>
 		<p>Easily change the aligment of the text through the classes <code>.text-left</code> <code>.text-right</code> <code>.text-center</code>.<br>Modify the list of <code class="color-info">$text-alignments</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.textAlignments"></pretty-code>
@@ -40,6 +33,12 @@
 		<p class="text-line-through">This is a line-through text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
 
+		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
+		<p>Change the style of the text through the class <code>.text-italic</code>
+		<br>The variable <code class="color-info">$font-styles</code> is available if you want to change the options.</p>
+		<p class="text-italic">This is an italic text.</p>
+		<pretty-code :code="html.fontStyles"></pretty-code>
+
 		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
 		<p>Change the letter-spacing of the text through classes such as <code>.letter-spacing-${name}</code></p>
 		<code>.letter-spacing-narrow</code><p class="letter-spacing-narrow">Text strong Lorem ipsum dolor sit amet.</p>
@@ -47,11 +46,12 @@
 		<p>Set the array <code class="color-info">$letter-spacings</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.letterSpacings"></pretty-code>
 
-		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
-		<p>Change the style of the text through the class <code>.text-italic</code>
-		<br>The variable <code class="color-info">$font-styles</code> is available if you want to change the options.</p>
-		<p class="text-italic">This is an italic text.</p>
-		<pretty-code :code="html.fontStyles"></pretty-code>
+		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
+		<p>Quickly change the weight of the text. Two sizes as default.</p>
+		<code>.font-bold</code><p class="font-bold">This paragraph font weight is bold.</p>
+		<code>.font-light</code><p class="font-light">This paragraph font weight is light.</p>
+		<p>Need more or need less? Change the array <code class="color-info">$font-weights</code> at your convenience.</p>
+		<pretty-code class="language-css" :code="html.fontWeights"></pretty-code>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
 		<p>Set the font family of your text through the classes <code>.font-primary</code> <code>.font-secondary</code>.<br>Modify the list of <code class="color-info">$font-families</code> at your convenience.</p>

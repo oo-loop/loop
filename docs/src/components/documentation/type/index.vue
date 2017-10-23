@@ -26,24 +26,52 @@
 		</ul>
 
 		<h3 id="lists"><a href="#lists">#</a> Lists</h3>
-		<p>Format the style of the list of elements through the classes <code>.list-unstyle</code> <code>.list-inline</code>.<br>Center the inline list with the modifier <code>-center</code></p>
-
-		<ul class="list-inline -center">
-			<li>list inline centered</li>
-			<li>list inline centered</li>
-			<li>list inline centered</li>
+		<p>Format the style of the list of elements through the classes <code>.list-unstyle</code> <code>.list-inline</code> <code>.list-divide</code>.</p>
+		<ul>
+			<li>list item 1</li>
+			<li>list item 2</li>
+			<li>list item 3</li>
+		</ul>
+		<ul class="list-unstyle">
+			<li>list unstyle item 1</li>
+			<li>list unstyle item 2</li>
+			<li>list unstyle item 3</li>
+		</ul>
+		<ul class="list-inline">
+			<li>list inline item 1</li>
+			<li>list inline item 2</li>
+			<li>list inline item 3</li>
+		</ul>
+		<ul class="list-divide">
+			<li>list divide item 1</li>
+			<li>list divide item 2</li>
+			<li>list divide item 3</li>
 		</ul>
 		<pretty-code :code="html.list"></pretty-code>
 
-		<p>Divide an inline list by a separator through the modifier <code>.list-divide</code>.<br>Center it with the modifier <code>-center</code></p>
-
-		<ul class="list-divide -center">
-			<li>divide list item</li>
-			<li>divide list item</li>
-			<li>divide list item</li>
+		<p>Center the list with the class <code>.list-center</code></p>
+		<ul class="list-center">
+			<li>list item 1</li>
+			<li>list item 2</li>
+			<li>list item 3</li>
+		</ul>
+		<ul class="list-unstyle list-center">
+			<li>list unstyle item 1</li>
+			<li>list unstyle item 2</li>
+			<li>list unstyle item 3</li>
+		</ul>
+		<ul class="list-inline list-center">
+			<li>list inline item 1</li>
+			<li>list inline item 2</li>
+			<li>list inline item 3</li>
+		</ul>
+		<ul class="list-divide list-center">
+			<li>list divide item 1</li>
+			<li>list divide item 2</li>
+			<li>list divide item 3</li>
 		</ul>
 
-		<pretty-code :code="html.listDivide"></pretty-code>
+		<pretty-code :code="html.listCenter"></pretty-code>
 	</div>
 </template>
 
@@ -61,7 +89,7 @@ export default {
 		html: {
 			heading: require('./code/heading.html'),
 			list: require('./code/list.html'),
-			listDivide: require('./code/list-divide.html'),
+			listCenter: require('./code/list-center.html'),
 		}
 	}),
 	methods: {
