@@ -121,6 +121,11 @@ export default {
 				]
 			},
 			{
+				name: 'Container',
+				route: 'container',
+				subMenu: []
+			},
+			{
 				name: 'Form',
 				route: 'form',
 				subMenu: [

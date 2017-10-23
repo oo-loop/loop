@@ -12,12 +12,11 @@
 @import
     "components/grid",
     "components/columns",
-    "components/container",
     "components/button"
 ;
 
 // Form
-@import 
+@import
     "form/input",
     "form/select",
     "form/checkbox",
@@ -27,12 +26,13 @@
 
 // Utilities
 @import
-    "utilities/miscellaneous",
     "utilities/color",
+    "utilities/container",
+    "utilities/float",
     "utilities/list",
+    "utilities/miscellaneous",
     "utilities/spacing",
     "utilities/text",
-    "utilities/float",
     "utilities/visibility",
     "utilities/wrapper"
 ;

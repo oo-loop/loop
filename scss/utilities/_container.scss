@@ -6,7 +6,8 @@ $container-gutter: 1.6rem !default;
 $container-gutter-sm: 2.4rem !default;
 $containers-max-width: 1080px !default;
 
-.container {
+.container,
+.container-fluid {
     margin-left: auto;
     margin-right: auto;
 
@@ -20,8 +21,6 @@ $containers-max-width: 1080px !default;
         padding-left: $container-gutter-sm;
         padding-right: $container-gutter-sm;
     }
-
-    &.-fluid {
-        max-width: none;
-    }
 }
+
+.container-fuild { max-width: none; }
