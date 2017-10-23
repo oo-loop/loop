@@ -115,8 +115,8 @@ $letter-spacings-is-important: false !default;
 @include loopBreakpoints($font-styles-breakpoints-classes, $font-styles, 'font-style', '.text', $font-styles-addon, $font-styles-is-important);
 
 // Font weight
-@include loop($font-weights, 'font-weight', '.font-weight', $font-weights-addon, $font-weights-is-important);
-@include loopBreakpoints($font-weights-breakpoints-classes, $font-weights, 'font-weight', '.font-weight', $font-weights-addon, $font-weights-is-important);
+@include loop($font-weights, 'font-weight', '.font', $font-weights-addon, $font-weights-is-important);
+@include loopBreakpoints($font-weights-breakpoints-classes, $font-weights, 'font-weight', '.font', $font-weights-addon, $font-weights-is-important);
 
 // Font Family
 @include loop($font-families, 'font-family', '.font', $font-families-addon, $font-families-is-important);

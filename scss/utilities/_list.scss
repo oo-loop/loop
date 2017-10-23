@@ -8,6 +8,15 @@ $list-divide-size: 1.2em !default;
 $list-divide-affix: '|' !default;
 $list-divide-affix-color: #cdcdcd !default;
 
+ul,
+ol {
+    &.list-center {
+        text-align: center;
+        padding-left: 0;
+        list-style-position: inside;    
+    }
+}
+
 .list {
     &-unstyle {
         padding-left: 0;
@@ -27,7 +36,6 @@ $list-divide-affix-color: #cdcdcd !default;
                 margin-right: $list-inline-spacing;
             }
         }
-        &.-center { text-align: center; }
     }
 
     &-divide {
@@ -56,8 +64,6 @@ $list-divide-affix-color: #cdcdcd !default;
             }
         }
 
-        &.-center {
-            justify-content: center;
-        }
+        &.list-center { justify-content: center; }
     }
 }
