@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Intro from 'docs/introduction'
 import Type from 'docs/type'
+import Container from 'docs/container'
 import Column from 'docs/column'
 import Grid from 'docs/grid'
 import Form from 'docs/form'
@@ -30,6 +31,11 @@ export default new Router({
 			path: '/type',
 			name: 'type',
 			component: Type
+		},
+		{
+			path: '/container',
+			name: 'container',
+			component: Container
 		},
 		{
 			path: '/column',
