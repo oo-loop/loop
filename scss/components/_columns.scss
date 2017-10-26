@@ -169,3 +169,9 @@ $columns-gutter-sizes: (
         padding-bottom: 0;
     }
 }
+
+// clear
+[#{$loop-component-prefix}-column~="clear"] {
+    flex-basis: 100%;
+    max-width: 100%;
+}
