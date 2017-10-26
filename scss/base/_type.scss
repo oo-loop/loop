@@ -45,6 +45,9 @@ $anchor-color:             $color-primary !default;
 $anchor-color-hover:       $color-secondary !default;
 $anchor-text-decoration:   none !default;
 
+// Description list
+$definition-list-term-font-weight: 700 !default;
+
 // Hr
 $hr-color: #cdcdcd !default;
 $hr-margins: 1.5rem !default;
@@ -92,7 +95,10 @@ $hr-margins: 1.5rem !default;
     }
 }
 
-p {
+p,
+ul,
+ol,
+dl {
 	margin-top: 0;
     margin-bottom: $paragraph-margin-bottom;
 }
@@ -110,8 +116,6 @@ a {
 
 ul,
 ol {
-    margin-top: 0;
-    margin-bottom: $paragraph-margin-bottom;
     padding-left: 20px;
     list-style-type: disc;
 
@@ -120,6 +124,14 @@ ol {
     > ul, ol {
         margin-top: .3em;
         margin-bottom: .5em
+    }
+}
+
+dt { font-weight: $definition-list-term-font-weight; }
+dl {
+    margin-left: auto;
+    + dt {
+        margin-top: .5em;
     }
 }
 

@@ -87,17 +87,17 @@
  $heading-letter-spacing-list: (h1, h2, h3) !default; // set empty if not needed
 
  // Paragraph
-
  $paragraph-margin-bottom: 1.8rem !default;
 
  // Anchor
-
  $anchor-color:             $color-primary !default;
  $anchor-color-hover:       $color-secondary !default;
  $anchor-text-decoration:   none !default;
 
- // Hr
+ // Description list
+ $definition-list-term-font-weight: 700 !default;
 
+ // Hr
  $hr-color: #cdcdcd !default;
  $hr-margins: 1.5rem !default;
 
