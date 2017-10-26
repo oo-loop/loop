@@ -128,7 +128,7 @@ ol {
 }
 
 dt { font-weight: $definition-list-term-font-weight; }
-dl {
+dd {
     margin-left: auto;
     + dt {
         margin-top: .5em;
