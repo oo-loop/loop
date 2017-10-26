@@ -26,6 +26,17 @@
 		</div>
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
 
+		<h4 class="h5">Clear Column</h4>
+		<p>Clear the columns and start a new row through the property<code class="color-secondary">clear</code></p>
+		<div oo-column="row">
+		    <div oo-column="col self-adjust"><p class="cell">adjust</p></div>
+		    <div oo-column="col"><p class="cell">auto</p></div>
+			<div oo-column="clear"></div>
+		    <div oo-column="col"><p class="cell">auto</p></div>
+		    <div oo-column="col"><p class="cell">auto</p></div>
+		</div>
+		<pretty-code class="mt-0" :code="html.clear"></pretty-code>
+
 		<h4 class="h5">Match Children height</h4>
 		<p>Force each children to have the same height through the property <code class="color-secondary">stretch</code></p>
 		<div oo-column="row stretch">
@@ -148,6 +159,7 @@ export default {
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
 			selfAdjust: require('./code/self-adjust.html'),
+			clear: require('./code/clear.html'),
 			stretch: require('./code/stretch.html'),
 			order: require('./code/order.html'),
 			hAlignment: require('./code/h-alignment.html'),
