@@ -16,22 +16,22 @@ $toggle-sizes:() !default;
 
 @mixin toggle-size($size) {
     & + label {
-        &:before {
+        &::before {
             margin-right: ($size / 3);
             width: ($size * 1.8);
             height: $size;
         }
-        &:after {
-            left: ($size * .2);
+        &::after {
             width: ($size * .7);
             height: ($size * .7);
+            transform: translate3d(($size * .2), -50%, 0);
         }
 
         & + .toggle + label { margin-top: ($size / 3); }
     }
 
-    &:checked + label:after {
-        left: ($size * .35);
+    &:checked + label::after {
+        transform: translate3d(calc(80% + (#{$size} * .35)), -50%, 0);
     }
 }
 
@@ -46,7 +46,7 @@ $toggle-sizes:() !default;
         line-height: 1.1;
         font-weight: $font-weight-base;
 
-    	&:before {
+    	&::before {
             display: flex;
     		content:'';
     		border: 1px solid $toggle-border-color;
@@ -58,15 +58,14 @@ $toggle-sizes:() !default;
                 transition: all 300ms ease-in-out;
             }
     	}
-        &:after {
+        &::after {
             position: absolute;
             top: 50%;
+            left: 0;
             content: '';
             border-radius: 50%;
             background-color: $toggle-color;
             box-shadow: $toggle-box-shadow;
-
-            transform: translateY(-50%);
 
             @if $use-toggle-animation {
                 transition: all 300ms ease-out;
@@ -75,14 +74,12 @@ $toggle-sizes:() !default;
     }
 
 	&:checked + label {
-		&:before {
+		&::before {
 			background-color: $toggle-checked-bgcolor;
             border-color: $toggle-checked-border-color;
 		}
-		&:after {
-            transform: translateY(-50%) translateX(80%);
-		}
 	}
+
 
     @include toggle-size($toggle-size);
 
@@ -91,4 +88,6 @@ $toggle-sizes:() !default;
             &.-#{$size_name} { @include toggle-size($size_value) }
         }
     }
+    
+    &.-labelless + label::before { margin-right: 0; }
 }
