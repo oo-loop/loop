@@ -3,8 +3,8 @@
  */
 
 @mixin clearfix {
-	&:before,
-    &:after {
+	&::before,
+    &::after {
         display: block;
         content: '';
         clear:both;
