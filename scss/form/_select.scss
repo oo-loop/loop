@@ -17,24 +17,24 @@ $select-themes: (
 
 @mixin selectTheme($theme) {
     @if map-has-key($theme, 'size') {
-        &:before { width: (map-get($theme, 'size') * 3); }
-        &:after {
+        &::before { width: (map-get($theme, 'size') * 3); }
+        &::after {
             right: map-get($theme, 'size');
             width: map-get($theme, 'size');
             height: map-get($theme, 'size');
         }
     }
     @if map-has-key($theme, 'weight') {
-        &:after {
+        &::after {
             border-bottom-width: map-get($theme, 'weight');
             border-right-width: map-get($theme, 'weight');
         }
     }
     @if map-has-key($theme, 'bgcolor') {
-        &:before { background-color: map-get($theme, 'bgcolor'); }
+        &::before { background-color: map-get($theme, 'bgcolor'); }
     }
     @if map-has-key($theme, 'color') {
-        &:after {
+        &::after {
             border-bottom-color: map-get($theme, 'color');
             border-right-color: map-get($theme, 'color');
         }
@@ -46,7 +46,7 @@ $select-themes: (
 
     display: block;
 
-    &:before {
+    &::before {
         position: absolute;
         top: 0;
         right: 0;
@@ -63,7 +63,7 @@ $select-themes: (
         pointer-events: none;
     }
 
-    &:after {
+    &::after {
         position: absolute;
         top: 50%;
 
@@ -110,7 +110,7 @@ $select-themes: (
     }
     &[class*="border-"] {
         > select,
-        &:before {
+        &::before {
             border-color: inherit !important;
         }
     }

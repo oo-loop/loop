@@ -16,15 +16,15 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
 @mixin radio-size($size) {
     & + label {
-        &:before {
+        &::before {
             margin-right: ($size / 3);
         }
 
         & + .radio + label { margin-top: ($size / 3); }
     }
 
-    & + label:before,
-    &:checked + label:after {
+    & + label::before,
+    &:checked + label::after {
         width: $size;
         height: $size;
     }
@@ -41,7 +41,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         line-height: 1.1;
         font-weight: $font-weight-base;
 
-    	&:before {
+    	&::before {
             display: flex;
     		content:'';
     		border: 1px solid $radio-border-color;
@@ -49,7 +49,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
     		background-color: $radio-bgcolor;
             box-shadow: $radio-box-shadow;
     	}
-        &:after {
+        &::after {
             position: absolute;
             top: 50%;
             left: 0;
@@ -63,11 +63,11 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
     }
 
 	&:checked + label {
-		&:before {
+		&::before {
 			background-color: $radio-checked-bgcolor;
             border-color: $radio-checked-border-color;
 		}
-		&:after {
+		&::after {
             background-color: $radio-checked-color;
             transform: translateY(-50%) scale(0.5);
 		}
@@ -92,7 +92,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         }
     }
 
-    & + label[class*="border-"]:before {
+    & + label[class*="border-"]::before {
         border-color: inherit !important;
     }
 }

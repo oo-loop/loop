@@ -21,12 +21,12 @@ $checkbox-breakpoints-classes:() !default;
     $checked_border-width: ($size * 0.12);
 
     & + label {
-        &:before {
+        &::before {
             margin-right: ($size / 3);
             width: $size;
     		height: $size;
         }
-        &:after {
+        &::after {
             left: $size * 0.315;
             @if $use-checkbox-animation {
                 width: ($checked_width * 2);
@@ -38,7 +38,7 @@ $checkbox-breakpoints-classes:() !default;
 
         & + .checkbox + label { margin-top: ($size / 3); }
     }
-    &:checked + label:after {
+    &:checked + label::after {
         width: $checked_width;
         height: $checked_height;
         border-right-width: $checked_border-width;
@@ -57,7 +57,7 @@ $checkbox-breakpoints-classes:() !default;
         line-height: 1.1;
         font-weight: $font-weight-base;
 
-    	&:before {
+    	&::before {
             display: flex;
     		content:'';
     		border: 1px solid $checkbox-border-color;
@@ -69,7 +69,7 @@ $checkbox-breakpoints-classes:() !default;
                 transition: background-color 300ms ease-in-out;
             }
     	}
-        &:after {
+        &::after {
             position: absolute;
             bottom: 25%;
             content:'';
@@ -88,11 +88,11 @@ $checkbox-breakpoints-classes:() !default;
     }
 
 	&:checked + label {
-		&:before {
+		&::before {
 			background-color: $checkbox-checked-bgcolor;
             border-color: $checkbox-checked-border-color;
 		}
-        &:after {
+        &::after {
             border-right-color: $checkbox-checked-color;
             border-bottom-color: $checkbox-checked-color;
 
@@ -121,7 +121,7 @@ $checkbox-breakpoints-classes:() !default;
         }
     }
 
-    & + label[class*="border-"]:before {
+    & + label[class*="border-"]::before {
         border-color: inherit !important;
     }
 }
