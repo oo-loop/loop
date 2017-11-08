@@ -20,7 +20,7 @@ $v-spacing-addons: ();
 @if length($v-spacing-addon) > 0 {
     @each $value in $v-spacing-addon {
         $spacing_value: if($value == auto, auto, #{$value}px);
-        $v-spacing-addons: map-merge($v-spacing-addons, (#{value}: $spacing_value));
+        $v-spacing-addons: map-merge($v-spacing-addons, (#{$value}: $spacing_value));
     }
 }
 
@@ -50,7 +50,7 @@ $h-spacing-addons: ();
 @if length($h-spacing-addon) > 0 {
     @each $value in $h-spacing-addon {
         $spacing_value: if($value == auto, auto, #{$value}px);
-        $h-spacing-addons: map-merge($h-spacing-addons, (#{value}: $spacing_value));
+        $h-spacing-addons: map-merge($h-spacing-addons, (#{$value}: $spacing_value));
     }
 }
 
