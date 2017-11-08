@@ -42,6 +42,8 @@ ol {
         padding-left: 0;
         list-style: none;
         display: flex;
+        flex-flow: wrap;
+            
         > li {
             margin-bottom: 0;
             display: flex;
