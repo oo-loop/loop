@@ -27,4 +27,4 @@ $border-colors-is-important: true !default;
 
 // Border colors
 @include loop($border-colors, 'border-color', '.border', $border-colors-addon, $border-colors-is-important);
-@include loopMapKeys($bg-colors-classes, $colors, 'border-color', '.border', $border-colors-is-important);
+@include loopMapKeys($border-colors-classes, $colors, 'border-color', '.border', $border-colors-is-important);
