@@ -29,8 +29,6 @@ $btn-outline-box-shadow:     none !default;
 
 $btn-padding-sizes: () !default;
 
-@debug(isEmpty($btn-padding-sizes));
-
 [#{$loop-component-prefix}-button] {
     padding: $btn-padding;
     display: inline-block;
@@ -71,7 +69,12 @@ $btn-padding-sizes: () !default;
     &:active {
         background-color: $btn-bgcolor-active;
         box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
-        transform: scale(.97);
+        transform: scale(.99);
+    }
+
+    &.full {
+        padding-left: 2px;
+        padding-right: 2px;
     }
 }
 
