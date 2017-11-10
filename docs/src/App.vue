@@ -292,11 +292,14 @@ export default {
 	    'large': 2.4rem,
 	);
 	$radio-sizes:(
-	    'medium': 2.4rem,
+		'medium': 2.4rem,
 	    'large': 3.2rem,
 	);
 	$toggle-sizes:(
-	  'large': 4rem,
+	  	'large': 4rem,
+	);
+	$btn-padding-sizes: (
+	    'large': .8em 1.4em,
 	);
 
 	@import '~loop/loop';
