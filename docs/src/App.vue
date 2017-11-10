@@ -299,7 +299,8 @@ export default {
 	  	'large': 4rem,
 	);
 	$btn-padding-sizes: (
-	    'large': .8em 1.4em,
+	    'baggy': 1.2em 2em,
+		'tight': .05em .1em,
 	);
 
 	@import '~loop/loop';
@@ -315,6 +316,7 @@ export default {
 		max-width: 	$sidebar-size;
 		height: 100vh;
 
+		background-color: #fff;
 		box-shadow: -16px 0 0 16px $bgcolor-base, 1px 0 16px 0 #cdcdcd;
 
 		transition: margin 300ms ease-in-out;

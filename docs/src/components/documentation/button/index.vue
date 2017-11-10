@@ -19,8 +19,8 @@
 
 		<pretty-code class="language-css" :code="html.paddingVariable"></pretty-code>
 
-		<a oo-button="large">button</a>
-		<a oo-button="square">square</a>
+		<a oo-button="baggy">baggy</a>
+		<a oo-button="tight">tight</a>
 
 		<pretty-code :code="html.padding"></pretty-code>
 
