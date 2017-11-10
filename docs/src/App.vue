@@ -292,11 +292,15 @@ export default {
 	    'large': 2.4rem,
 	);
 	$radio-sizes:(
-	    'medium': 2.4rem,
+		'medium': 2.4rem,
 	    'large': 3.2rem,
 	);
 	$toggle-sizes:(
-	  'large': 4rem,
+	  	'large': 4rem,
+	);
+	$btn-padding-sizes: (
+	    'baggy': 1.2em 2em,
+		'tight': .05em .1em,
 	);
 
 	@import '~loop/loop';
@@ -312,6 +316,7 @@ export default {
 		max-width: 	$sidebar-size;
 		height: 100vh;
 
+		background-color: #fff;
 		box-shadow: -16px 0 0 16px $bgcolor-base, 1px 0 16px 0 #cdcdcd;
 
 		transition: margin 300ms ease-in-out;

@@ -27,6 +27,8 @@ $btn-outline-font-weight:    $btn-font-weight !default;
 $btn-outline-text-transform: $btn-text-transform !default;
 $btn-outline-box-shadow:     none !default;
 
+$btn-padding-sizes: () !default;
+
 [#{$loop-component-prefix}-button] {
     padding: $btn-padding;
     display: inline-block;
@@ -67,7 +69,12 @@ $btn-outline-box-shadow:     none !default;
     &:active {
         background-color: $btn-bgcolor-active;
         box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
-        transform: scale(.97);
+        transform: scale(.99);
+    }
+
+    &.full {
+        padding-left: 2px;
+        padding-right: 2px;
     }
 }
 
@@ -75,7 +82,7 @@ $btn-outline-box-shadow:     none !default;
 @if isNotEmpty($btn-colors-classes) {
     @each $color in $btn-colors-classes {
         $color_value: map-get($colors, $color);
-        
+
         [#{$loop-component-prefix}-button~="#{$color}"] {
             background-color: $color_value;
             color: if(isBright($color_value), $color-base, #fff);
@@ -119,7 +126,7 @@ $btn-outline-box-shadow:     none !default;
     }
     @each $color in $btn-outline-colors-classes {
         $color_value: map-get($colors, $color);
-        
+
         &[#{$loop-component-prefix}-button~="#{$color}"] {
             @if $btn-outline-color == inherit {
                 color: $color_value;
@@ -142,3 +149,10 @@ $btn-outline-box-shadow:     none !default;
     }
 }
 
+@if isNotEmpty($btn-padding-sizes) {
+    @each $name, $padding in $btn-padding-sizes {
+        [#{$loop-component-prefix}-button~="#{$name}"] {
+            padding: #{$padding};
+        }
+    }
+}

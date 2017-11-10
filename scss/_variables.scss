@@ -27,8 +27,8 @@
  $font-size-base:   1.6rem !default; // == 16px ( relative to 62.5% font-size )
  $font-weight-base: 400 !default;
  $line-height-base: 1.5 !default;
- $color-base:       #333333 !default;
- $bgcolor-base:     #ffffff !default;
+ $color-base:       #333 !default;
+ $bgcolor-base:     #f9f9f9 !default;
  $font-smoothing:   true !default;
 
  $font-family-secondary: 'Georgia', times, serif !default;
@@ -318,6 +318,8 @@ $text-sizes-breakpoints-classes: () !default;
  $btn-outline-font-weight:    $btn-font-weight !default;
  $btn-outline-text-transform: $btn-text-transform !default;
  $btn-outline-box-shadow:     none !default;
+
+ $btn-padding-sizes: () !default;
 
 
 /**
