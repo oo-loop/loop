@@ -152,8 +152,12 @@ $columns-gutter-sizes: (
 
 // stretch
 [#{$loop-component-prefix}-column~="stretch"] {
-    > [#{$loop-component-prefix}-column*="col"] > * {
-        height:100%;
+    align-items: stretch;
+    > [#{$loop-component-prefix}-column*="col"] {
+        display: flex;
+        > * {
+            width:100%;
+        }
     }
 }
 

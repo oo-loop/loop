@@ -40,8 +40,8 @@
 		<h4 class="h5">Match Children height</h4>
 		<p>Force each children to have the same height through the property <code class="color-secondary">stretch</code></p>
 		<div oo-column="row stretch">
-		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
-		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">Few content</p></div>
+		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
+		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center mb-0">Few content</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.stretch"></pretty-code>
 
