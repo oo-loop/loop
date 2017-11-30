@@ -66,7 +66,7 @@ $btn-padding-sizes: () !default;
         outline: none;
     }
 
-    &:active {
+    &:active:not(.disabled) {
         background-color: $btn-bgcolor-active;
         box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
         transform: scale(.99);
@@ -92,7 +92,7 @@ $btn-padding-sizes: () !default;
                 border-color: darken($color_value, 10%);
                 background-color: darken($color_value, 10%);
             }
-            &:active {
+            &:active:not(.disabled) {
                 border-color: darken($color_value, 12%);
                 background-color: darken($color_value, 12%);
                 box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
@@ -139,7 +139,7 @@ $btn-padding-sizes: () !default;
                 border-color: darken($color_value, 10%);
                 background-color: darken($color_value, 10%);
             }
-            &:active {
+            &:active:not(.disabled) {
                 color: if(isBright($color_value), $color-base, #fff);
                 border-color: darken($color_value, 12%);
                 background-color: darken($color_value, 12%);

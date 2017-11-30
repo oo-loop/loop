@@ -7,3 +7,10 @@
 .center-block { margin-left: auto; margin-right: auto; }
 .full         { width: 100% !important; }
 .responsive	  { max-width: 100%; height: auto; }
+
+%disabled,
+.disabled {
+    cursor: not-allowed;
+    opacity: .7;
+    box-shadow: 0 0 10em #cdcdcd inset !important;
+}
