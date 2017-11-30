@@ -16,7 +16,21 @@
 		<h3 class="mt-35" id="disabled"><a href="#disabled">#</a> Disabled</h3>
 		<p>Add the class <code>.disabled</code> to a form element or button element to get a disabled <strong>look</strong>.<br>
 		if you really want to make the element disabled, please use the corresponding html attribute</p>
+
 		<input class="input disabled mb-10" disabled value="disabled input">
+
+		<span class="select disabled mb-10">
+		  <select disabled>
+		    <option value="1">Disabled Option</option>
+		  </select>
+		</span>
+
+		<input class="checkbox disabled mb-10" id="checkbox-1" type="checkbox" disabled>
+		<label class="mb-10" for="checkbox-1">Disabled Checkbox</label>
+
+		<input class="radio disabled" id="radio-1" type="radio" name="radio" disabled>
+		<label class="mb-10" for="radio-1">Disabled Radio</label>
+
 		<a oo-button class="disabled mb-10">disabled button</a><br>
 		<a oo-button="primary" class="disabled mb-10">disabled primary button</a><br>
 		<button oo-button="success" class="disabled mb-10" disabled>disabled success button</button><br>

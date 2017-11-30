@@ -73,6 +73,10 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 		}
 	}
 
+    &.disabled + label::before {
+        @extend .disabled;
+    }
+
     @include radio-size($radio-size);
 
     @if type-of($radio-sizes) == 'map' {
