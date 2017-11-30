@@ -5,7 +5,7 @@
     </transition>
     <h1 class="h2">Loop</h1>
     <p class="text-large">"Why going in Circles?"</p>
-    <p><strong>0.2.14 Alpha</strong></p>
+    <p><strong>0.2.15 Alpha</strong></p>
     <p>
         Loop aims for flexibility and customization allowing the addition and removal of rules through variables.<br>
         The goal is to use the strict minimum, keeping the css file light and small without a bunch of superfluous rules and components.
