@@ -17,14 +17,12 @@
 		<p>Add the class <code>.disabled</code> to a form element or button element to get a disabled <strong>look</strong>.<br>
 		if you really want to make the element disabled, please use the corresponding html attribute</p>
 
-		<input class="input disabled mb-10" disabled value="disabled input">
-
+		<input class="input disabled mb-10" disabled value="Disabled input">
 		<span class="select disabled mb-10">
 		  <select disabled>
 		    <option value="1">Disabled Option</option>
 		  </select>
 		</span>
-
 		<input class="checkbox disabled mb-10" id="checkbox-1" type="checkbox" disabled>
 		<label class="mb-10" for="checkbox-1">Disabled Checkbox</label>
 
