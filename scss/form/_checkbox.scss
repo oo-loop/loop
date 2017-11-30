@@ -102,6 +102,10 @@ $checkbox-breakpoints-classes:() !default;
         }
 	}
 
+    &.disabled + label::before {
+        @extend .disabled;
+    }
+
     @include checkbox-size($checkbox-size);
 
     @if type-of($checkbox-sizes) == 'map' {
