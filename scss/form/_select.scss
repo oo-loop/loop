@@ -95,7 +95,7 @@ $select-themes: (
     }
 
     &.disabled > select {
-        @extend .disabled;
+        @extend %disabled;
     }
 
     @if isNotEmpty($select-themes) and type-of($select-themes) == 'map' {

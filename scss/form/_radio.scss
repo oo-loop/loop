@@ -74,7 +74,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 	}
 
     &.disabled + label::before {
-        @extend .disabled;
+        @extend %disabled;
     }
 
     @include radio-size($radio-size);

@@ -103,7 +103,7 @@ $checkbox-breakpoints-classes:() !default;
 	}
 
     &.disabled + label::before {
-        @extend .disabled;
+        @extend %disabled;
     }
 
     @include checkbox-size($checkbox-size);
