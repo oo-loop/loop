@@ -17,7 +17,7 @@
 
 		<h3 id="text-elements"><a href="#text-elements">#</a> Text Elements</h3>
 		<p>Common inline HTML elements for semantic.</p>
-		<ul class="list -unstyle">
+		<ul class="list-unstyle">
 			<li><markup>mark</markup> for <mark>highlighted text</mark></li>
 			<li><markup>del</markup> for <del>deleted text</del>, if the document has been updated</li>
 			<li><markup>ins</markup> for <ins>inserted text</ins>, if the document has been updated</li>
