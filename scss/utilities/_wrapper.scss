@@ -23,7 +23,8 @@ $wrapper-breakpoints: (
     @if isNotEmpty($wrapper-breakpoints) and type-of($wrapper-breakpoints) == 'map' {
         @each $breakpoint, $wrapper-map in $wrapper-breakpoints {
             @each $key, $value in $wrapper-map {
-                &-#{$key} {
+                $suffix: if(isEmpty($key), '', -#{$key});
+                &#{$suffix} {
                     @include breakpoint($breakpoint) {
                         padding: $value;
                     }
