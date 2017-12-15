@@ -12,4 +12,4 @@ $wrapper-padding-sizes: (
 $wrapper-padding-addon: () !default;
 
 
-@include loopResponsive($wrapper-padding-sizes, 'padding', '.wrapper', $wrapper-padding-addon);
+@include loop($wrapper-padding-sizes, 'padding', '.wrapper', $wrapper-padding-addon);
