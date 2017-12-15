@@ -32,6 +32,11 @@
 			<li>list item 2</li>
 			<li>list item 3</li>
 		</ul>
+		<ol>
+			<li>ordered list item 1</li>
+			<li>ordered list item 2</li>
+			<li>ordered list item 3</li>
+		</ol>
 		<ul class="list-unstyle">
 			<li>list unstyle item 1</li>
 			<li>list unstyle item 2</li>
