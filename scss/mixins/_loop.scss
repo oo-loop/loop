@@ -72,14 +72,9 @@
 
             #{$prefix}#{$affix}#{$key}#{$suffix} {
                 @if type-of($value) == 'map' {
-                    @each $child-key, $child-map in $value {
-                        @each $child-breakpoint, $child-value in $child-map {
-                            $child-affix: if(isEmpty($child-key), '', '-');
-                            &#{$child-affix}#{$child-key} {
-                                @include breakpoint($child-breakpoint) {
-                                    @include loopProperties($properties, $child-value, $is_important);
-                                }
-                            }
+                    @each $child-breakpoint, $child-value in $value {
+                        @include breakpoint($child-breakpoint) {
+                            @include loopProperties($properties, $child-value, $is_important);
                         }
                     }
                 } @else {

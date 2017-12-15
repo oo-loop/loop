@@ -284,11 +284,11 @@ $text-sizes-breakpoints-classes: () !default;
  */
  $wrapper-padding: 2.4rem !default;
  $wrapper-padding-sizes: (
+     '':      $wrapper-padding,
      'tiny' : .8rem,
      'small': 1.6rem,
      'large': 4rem,
  ) !default;
- $wrapper-responsive-sizes: () !default;
 
 /**
  * Button
