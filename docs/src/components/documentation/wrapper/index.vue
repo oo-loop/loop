@@ -21,6 +21,8 @@
 
 		<h3><a href="#responsive">#</a> Responsive</h3>
 		<p>Make wrapper responsive by adding data to the map variable <code class="color-info">$wrapper-responsive-sizes</code>.</p>
+		<pretty-code class="language-css" :code="html.responsiveVariables"></pretty-code>
+
 	</div>
 </template>
 
@@ -37,6 +39,8 @@ export default {
 	data: () => ({
 		html: {
 			sizes: require('./code/sizes.html'),
+			responsive: require('./code/responsive.html'),
+			responsiveVariables: require('./code/responsive-variables.html'),
 		}
 	}),
 	methods: {

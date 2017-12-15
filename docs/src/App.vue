@@ -309,7 +309,10 @@ export default {
 	$wrapper-responsive-sizes: (
 	    sm: (
 	        'wide': 4.6rem,
-	    )
+	    ),
+		lg: (
+	        'wide': 6.4rem,
+	    ),
 	) !default;
 
 	@import '~loop/loop';
