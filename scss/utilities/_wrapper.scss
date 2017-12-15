@@ -4,13 +4,12 @@
 
 $wrapper-padding: 2.4rem !default;
 $wrapper-padding-sizes: (
-    'tiny' : .8rem,
+    '':      $wrapper-padding,
+    'tiny':  .8rem,
     'small': 1.6rem,
     'large': 4rem,
 ) !default;
 $wrapper-padding-addon: () !default;
 
-.wrapper {
-    padding: $wrapper-padding;
-    @include loop($wrapper-padding-sizes, 'padding', '&', $wrapper-padding-addon);
-}
+
+@include loop($wrapper-padding-sizes, 'padding', '.wrapper', $wrapper-padding-addon);

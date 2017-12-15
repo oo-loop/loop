@@ -1,7 +1,7 @@
 /**
  * In Array
- * @param string $needle  the searched value
- * @param array | string  $haystack the array to search in
+ * @param $needle    string        the searched value
+ * @param $haystack  array|string  the array to search in
  * @return bool
  */
 
@@ -11,4 +11,30 @@
     } @else {
         @return true;
     }
+}
+
+/**
+ * mergeArray
+ * @param $array1  list|map list or map
+ * @param $array2  list|map list or map being the same type of $array1
+ * @return list|map
+ */
+
+@function mergeArray($array1, $array2) {
+    $merge: ();
+
+    // merge if $array1 or $array2 is not empty
+    @if isNotEmpty($array1) {
+        @if type-of($array1) == 'list' and type-of($array2) == 'list' {
+            $merge: join($array1, $array2);
+        } @elseif type-of($array1) == 'map' and type-of($array2) == 'map' {
+            $merge: map-merge($array1, $array2);
+        } @else {
+            $merge: $array1;
+        }
+    } @elseif isNotEmpty($array2) {
+        $merge: $array2;
+    }
+
+    @return $merge;
 }

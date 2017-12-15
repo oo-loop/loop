@@ -26,34 +26,36 @@
 
 @mixin loop($data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
 
-    $merge-data: ();
+    $merge-data: mergeArray($data, $addon);
     $affix: '-';
-
-    // set data if $addons or $data is not empty
-    @if isNotEmpty($data) {
-        @if type-of($data) == 'list' and type-of($addon) == 'list' {
-            $merge-data: join($data, $addon);
-        } @elseif type-of($data) == 'map' and type-of($addon) == 'map' {
-            $merge-data: map-merge($data, $addon);
-        } @else {
-            $merge-data: $data;
-        }
-    } @elseif isNotEmpty($addon) {
-        $merge-data: $addon;
-    }
 
     // Make sure to have the correct format or do not generate rules
     @if isNotEmpty($merge-data) {
         @if type-of($merge-data) == 'list' {
             @each $value in $merge-data {
-                #{$prefix}#{$affix}#{$value}#{$suffix} {
+                #{$prefix}-#{$value}#{$suffix} {
                     @include loopProperties($properties, $value, $is_important);
                 }
             }
         } @elseif type-of($merge-data) == 'map' {
             @each $key, $value in $merge-data {
+                $affix: if(isEmpty($key), '', '-');
+
                 #{$prefix}#{$affix}#{$key}#{$suffix} {
                     @include loopProperties($properties, $value, $is_important);
+                }
+
+                #{$prefix}#{$affix}#{$key}#{$suffix} {
+                    // responsive properties ?
+                    @if type-of($value) == 'map' {
+                        @each $child-breakpoint, $child-value in $value {
+                            @include breakpoint($child-breakpoint) {
+                                @include loopProperties($properties, $child-value, $is_important);
+                            }
+                        }
+                    } @else {
+                        @include loopProperties($properties, $value, $is_important);
+                    }
                 }
             }
         }
