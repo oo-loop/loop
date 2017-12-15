@@ -9,19 +9,15 @@ $wrapper-padding-sizes: (
     'large': 4rem,
 ) !default;
 $wrapper-padding-addon: () !default;
-$wrapper-breakpoints: (
-    // sm: (
-    //     'small': 2.2rem,
-    // )
-) !default;
+$wrapper-responsive-sizes: () !default;
 
 .wrapper {
     padding: $wrapper-padding;
     @include loop($wrapper-padding-sizes, 'padding', '&', $wrapper-padding-addon);
 
     // responsive sizes ?
-    @if isNotEmpty($wrapper-breakpoints) and type-of($wrapper-breakpoints) == 'map' {
-        @each $breakpoint, $wrapper-map in $wrapper-breakpoints {
+    @if isNotEmpty( $wrapper-responsive-sizes) and type-of( $wrapper-responsive-sizes) == 'map' {
+        @each $breakpoint, $wrapper-map in  $wrapper-responsive-sizes {
             @each $key, $value in $wrapper-map {
                 $suffix: if(isEmpty($key), '', -#{$key});
                 &#{$suffix} {

@@ -18,6 +18,9 @@
 		</div>
 
 		<pretty-code :code="html.sizes"></pretty-code>
+
+		<h3><a href="#responsive">#</a> Responsive</h3>
+		<p>Make wrapper responsive by adding data to the map variable <code class="color-info">$wrapper-responsive-sizes</code>.</p>
 	</div>
 </template>
 

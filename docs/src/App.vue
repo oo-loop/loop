@@ -303,6 +303,15 @@ export default {
 		'tight': .05em .1em,
 	);
 
+	$wrapper-padding-addon: (
+		'wide' : 2rem,
+	);
+	$wrapper-responsive-sizes: (
+	    sm: (
+	        'wide': 4.6rem,
+	    )
+	) !default;
+
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
