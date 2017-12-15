@@ -4,28 +4,19 @@
 
 $wrapper-padding: 2.4rem !default;
 $wrapper-padding-sizes: (
+    ''     : $wrapper-padding,
     'tiny' : .8rem,
     'small': 1.6rem,
     'large': 4rem,
 ) !default;
-$wrapper-padding-addon: () !default;
-$wrapper-responsive-sizes: () !default;
+$wrapper-padding-addon: (
+    'wide' : (
+        '': 2rem,
+        sm: 4.6rem,
+        lg: 6.4rem,
+    ),
+) !default;
 
 .wrapper {
-    padding: $wrapper-padding;
-    @include loop($wrapper-padding-sizes, 'padding', '&', $wrapper-padding-addon);
-
-    // responsive sizes ?
-    @if isNotEmpty( $wrapper-responsive-sizes) and type-of( $wrapper-responsive-sizes) == 'map' {
-        @each $breakpoint, $wrapper-map in  $wrapper-responsive-sizes {
-            @each $key, $value in $wrapper-map {
-                $suffix: if(isEmpty($key), '', -#{$key});
-                &#{$suffix} {
-                    @include breakpoint($breakpoint) {
-                        padding: $value;
-                    }
-                }
-            }
-        }
-    }
+    @include loopResponsive($wrapper-padding-sizes, 'padding', '&', $wrapper-padding-addon);
 }

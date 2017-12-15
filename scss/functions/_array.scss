@@ -1,7 +1,7 @@
 /**
  * In Array
- * @param string $needle  the searched value
- * @param array | string  $haystack the array to search in
+ * @param $needle    string        the searched value
+ * @param $haystack  array|string  the array to search in
  * @return bool
  */
 
@@ -15,8 +15,8 @@
 
 /**
  * mergeArray
- * @param list|map $array1  list or map
- * @param list|map $array2  list or map being the same type of $array1
+ * @param $array1  list|map list or map
+ * @param $array2  list|map list or map being the same type of $array1
  * @return list|map
  */
 

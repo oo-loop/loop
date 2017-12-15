@@ -26,21 +26,8 @@
 
 @mixin loop($data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
 
-    $merge-data: ();
+    $merge-data: mergeArray($data, $addon);
     $affix: '-';
-
-    // set data if $addons or $data is not empty
-    @if isNotEmpty($data) {
-        @if type-of($data) == 'list' and type-of($addon) == 'list' {
-            $merge-data: join($data, $addon);
-        } @elseif type-of($data) == 'map' and type-of($addon) == 'map' {
-            $merge-data: map-merge($data, $addon);
-        } @else {
-            $merge-data: $data;
-        }
-    } @elseif isNotEmpty($addon) {
-        $merge-data: $addon;
-    }
 
     // Make sure to have the correct format or do not generate rules
     @if isNotEmpty($merge-data) {
@@ -53,6 +40,49 @@
         } @elseif type-of($merge-data) == 'map' {
             @each $key, $value in $merge-data {
                 #{$prefix}#{$affix}#{$key}#{$suffix} {
+                    @include loopProperties($properties, $value, $is_important);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Loop responsive
+ *
+ * Loop responsive data properties within a same class
+ * Not using @breakpoint classes
+ *
+ * @param $data         list|map    Data to loop through
+ * @param $properties   string|list Property name to use
+ * @param $prefix       string      String to prepend to the selector
+ * @param $addon        list|map    Extra data to take into consideration
+ * @param $is_important bool        Set the !important flag ?
+ * @param $suffix       string      String to append to the selector
+ */
+
+@mixin loopResponsive($data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
+
+    $merge-data: mergeArray($data, $addon);
+
+    // Make sure to have the correct format or do not generate rules
+    @if isNotEmpty($merge-data)  and  type-of($merge-data) == 'map' {
+        @each $key, $value in $merge-data {
+            $affix: if(isEmpty($key), '', '-');
+
+            #{$prefix}#{$affix}#{$key}#{$suffix} {
+                @if type-of($value) == 'map' {
+                    @each $child-key, $child-map in $value {
+                        @each $child-breakpoint, $child-value in $child-map {
+                            $child-affix: if(isEmpty($child-key), '', '-');
+                            &#{$child-affix}#{$child-key} {
+                                @include breakpoint($child-breakpoint) {
+                                    @include loopProperties($properties, $child-value, $is_important);
+                                }
+                            }
+                        }
+                    }
+                } @else {
                     @include loopProperties($properties, $value, $is_important);
                 }
             }

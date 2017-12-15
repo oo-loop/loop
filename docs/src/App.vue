@@ -304,16 +304,12 @@ export default {
 	);
 
 	$wrapper-padding-addon: (
-		'wide' : 2rem,
+		'wide' : (
+			'': 2rem,
+			sm: 4.6rem,
+			lg: 6.4rem,
+		),
 	);
-	$wrapper-responsive-sizes: (
-	    sm: (
-	        'wide': 4.6rem,
-	    ),
-		lg: (
-	        'wide': 6.4rem,
-	    ),
-	) !default;
 
 	@import '~loop/loop';
 
