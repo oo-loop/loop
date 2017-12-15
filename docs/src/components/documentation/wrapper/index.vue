@@ -20,8 +20,12 @@
 		<pretty-code :code="html.sizes"></pretty-code>
 
 		<h3><a href="#responsive">#</a> Responsive</h3>
-		<p>Make wrapper responsive by adding data to the map variable <code class="color-info">$wrapper-responsive-sizes</code>.</p>
-		<pretty-code class="language-css" :code="html.responsiveVariables"></pretty-code>
+		<p>Make wrapper responsive by setting map data to sizes in the variable <code class="color-info">$wrapper-padding-sizes</code>.</p>
+		<pretty-code class="language-css" :code="html.responsive"></pretty-code>
+
+		<div class="wrapper-wide bg-secondary">
+			<div class="bg-primary text-center">.wrapper-wide (responsive values)</div>
+		</div>
 
 	</div>
 </template>
@@ -40,7 +44,6 @@ export default {
 		html: {
 			sizes: require('./code/sizes.html'),
 			responsive: require('./code/responsive.html'),
-			responsiveVariables: require('./code/responsive-variables.html'),
 		}
 	}),
 	methods: {

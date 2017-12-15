@@ -305,9 +305,10 @@ export default {
 
 	$wrapper-padding-addon: (
 		'wide' : (
-			'': 2rem,
-			sm: 4.6rem,
-			lg: 6.4rem,
+			'': 2rem,  
+			sm: 3.2rem,
+		    md: 4.6rem,
+		    lg: 6rem,  
 		),
 	);
 
