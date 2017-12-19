@@ -42,10 +42,6 @@
                 $affix: if(isEmpty($key), '', '-');
 
                 #{$prefix}#{$affix}#{$key}#{$suffix} {
-                    @include loopProperties($properties, $value, $is_important);
-                }
-
-                #{$prefix}#{$affix}#{$key}#{$suffix} {
                     // responsive properties ?
                     @if type-of($value) == 'map' {
                         @each $child-breakpoint, $child-value in $value {
