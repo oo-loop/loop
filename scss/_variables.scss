@@ -190,7 +190,7 @@ $text-sizes-breakpoints-classes: () !default;
  $text-colors-addon: () !default;
  $text-colors-classes: $colors-classes !default;
  $text-colors-is-important: true !default;
- 
+
 
 /**
  * Background Color
@@ -312,7 +312,7 @@ $text-sizes-breakpoints-classes: () !default;
  $btn-font-family:    $font-family-base !default;
  $btn-font-size:      $font-size-base !default;
  $btn-font-weight:    700 !default;
- $btn-text-transform: uppercase !default;
+ $btn-text-transform: capitalize !default;
  $btn-border-radius:  .2em !default; // relative to the size of the button
  $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
