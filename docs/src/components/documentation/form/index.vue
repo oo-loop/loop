@@ -6,9 +6,9 @@
 
 		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>
-			Use the <em>input</em> attribute <code class="color-secondary">oo-form="input"</code> to format the appearance of the textfield.<br>
+			Use the <code class="color-secondary">input</code> property <code class="color-secondary">oo-form="input"</code> to format the appearance of the textfield.<br>
 			Alter the size of the input by applying any of the text-sizes classes available from text utitlies.<br>
-			Alter the appearance of the input by applying classes from the color utitlies.
+			Alter the appearance of the input by applying any classes from the color utitlies.
 		</p>
 		<label for="default-input">Input</label>
 		<input oo-form="input" class="mb-15" id="default-input" type="text">
@@ -21,9 +21,9 @@
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
 		<p>
-			Use the <em>select</em> attribute <code class="color-secondary">oo-form="select"</code> on an element having <markup>select</markup> <strong>as a child</strong><br>
+			Use the <code class="color-secondary">select</code> property <code class="color-secondary">oo-form="select"</code> on an element having <markup>select</markup> <strong>as a child</strong><br>
 			Alter the size of the element by applying any of the text-sizes classes available from text utitlies.<br>
-			Alter the appearance of the select by applying classes from the color utilities.
+			Alter the appearance of the select by applying any classes from the color utilities.
 		</p>
 
 		<label> Select Tiny Option</label>
