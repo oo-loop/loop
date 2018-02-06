@@ -48,13 +48,13 @@
 
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
 		<p>
-			Apply the class <code>.checkbox</code>to <markup>input type="checkbox"</markup> preceding <markup>label</markup><br>
-			Alter the appearance of the checkbox by applying classes from the color utilities to the <markup>label</markup>.
+			Use the <code class="color-secondary">checkbox</code> property <code class="color-secondary">oo-form="checkbox"</code> to <markup>input type="checkbox"</markup> <u>preceding</u> <markup>label</markup><br>
+			Alter the appearance of the checkbox by applying classes from the color utilities.
 		</p>
-		<input class="checkbox" id="checkbox-1" type="checkbox">
+		<input oo-form="checkbox" id="checkbox-1" type="checkbox">
 		<label for="checkbox-1">Checkbox 1</label>
-		<input class="checkbox" id="checkbox-2" type="checkbox">
-		<label class="border-danger" for="checkbox-2">Checkbox 2</label>
+		<input oo-form="checkbox" class="border-danger" id="checkbox-2" type="checkbox">
+		<label for="checkbox-2">Checkbox 2</label>
 		<p class="text-tiny color-danger mt-5">Checkbox is required</p>
 
 		<pretty-code :code="html.checkbox"></pretty-code>

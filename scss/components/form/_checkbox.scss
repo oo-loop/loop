@@ -36,7 +36,7 @@ $checkbox-breakpoints-classes:() !default;
             }
         }
 
-        & + .checkbox + label { margin-top: ($size / 3); }
+        & + [#{$loop-component-prefix}-form~="checkbox"] + label { margin-top: ($size / 3); }
     }
     &:checked + label::after {
         width: $checked_width;
@@ -46,9 +46,9 @@ $checkbox-breakpoints-classes:() !default;
     }
 }
 
-.checkbox {
+[#{$loop-component-prefix}-form~="checkbox"] {
     position: absolute;
-    visibility: hidden;
+    opacity: 0;
 
     & + label {
     	position: relative;
@@ -101,7 +101,9 @@ $checkbox-breakpoints-classes:() !default;
             }
         }
 	}
-
+    &:focus:not(.disabled) + label::before {
+        @extend %inputFocus;
+    }
     &.disabled + label::before {
         @extend %disabled;
     }
@@ -125,7 +127,6 @@ $checkbox-breakpoints-classes:() !default;
         }
     }
 
-    & + label[class*="border-"]::before {
-        border-color: inherit !important;
-    }
+    @include loop($border-colors, 'border-color', '&[class*="border', $border-colors-addon, true, '"] + label::before');
+    @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::before');
 }

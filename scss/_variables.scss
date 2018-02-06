@@ -187,21 +187,27 @@ $text-sizes-breakpoints-classes: () !default;
  * Text Color
  */
  $text-colors: () !default;
+ $text-colors-addon: () !default;
  $text-colors-classes: $colors-classes !default;
-
+ $text-colors-is-important: true !default;
+ 
 
 /**
  * Background Color
  */
  $bg-colors: () !default;
+ $bg-colors-addon: () !default;
  $bg-colors-classes: $colors-classes !default;
+ $bg-colors-is-important: false !default;
 
 
 /**
  * Border Color
  */
  $border-colors: () !default;
+ $border-colors-addon: () !default;
  $border-colors-classes: $colors-classes !default;
+ $border-colors-is-important: true !default;
 
 
  /**
@@ -289,7 +295,7 @@ $text-sizes-breakpoints-classes: () !default;
      'small': 1.6rem,
      'large': 4rem,
  ) !default;
- 
+
 
 /**
  * Button
