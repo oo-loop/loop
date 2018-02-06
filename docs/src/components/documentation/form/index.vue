@@ -102,16 +102,19 @@
 		<pretty-code :code="html.radioSizes"></pretty-code>
 
 		<h3 id="toggle"><a href="#toggle">#</a> Toggle</h3>
-		<p>Apply the class <code>.toggle</code>to <markup>input type="checkbox"</markup> preceding <markup>label</markup></p>
-		<input class="toggle" id="toggle-1" type="checkbox">
+		<p>Use the <code class="color-secondary">toggle</code> property <code class="color-secondary">oo-form="toggle"</code> to <markup>input type="checkbox"</markup> preceding <markup>label</markup></p>
+		<input oo-form="toggle" id="toggle-1" type="checkbox">
 		<label for="toggle-1">Toggle</label>
 		<pretty-code :code="html.toggle"></pretty-code>
 
 		<p>Need extra sizes? Set values to the variable <code class="color-info">$toggle-sizes</code>.</p>
 		<pretty-code class="language-css" :code="html.toggleSizesVariable"></pretty-code>
 
-		<input class="toggle -large" id="toggle-large" type="checkbox">
-		<label class="text-large" for="toggle-large">Toggle large</label>
+		<input oo-form="toggle large" id="toggle-large-1" type="checkbox">
+		<label class="text-large" for="toggle-large-1">Toggle large</label>
+
+		<input oo-form="toggle labelless large" id="toggle-large-2" type="checkbox">
+		<label class="text-large" for="toggle-large-2"></label>
 		<pretty-code :code="html.toggleSizes"></pretty-code>
 
 	</div>

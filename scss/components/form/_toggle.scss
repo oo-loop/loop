@@ -27,7 +27,7 @@ $toggle-sizes:() !default;
             transform: translate3d(($size * .2), -50%, 0);
         }
 
-        & + .toggle + label { margin-top: ($size / 3); }
+        & + [#{$loop-component-prefix}-form~="toggle"] + label { margin-top: ($size / 3); }
     }
 
     &:checked + label::after {
@@ -35,9 +35,9 @@ $toggle-sizes:() !default;
     }
 }
 
-.toggle {
+[#{$loop-component-prefix}-form~="toggle"] {
     position: absolute;
-    visibility: hidden;
+    opacity: 0;
 
     & + label {
     	position: relative;
@@ -73,21 +73,19 @@ $toggle-sizes:() !default;
         }
     }
 
-	&:checked + label {
-		&::before {
-			background-color: $toggle-checked-bgcolor;
-            border-color: $toggle-checked-border-color;
-		}
+	&:checked + label::before {
+		background-color: $toggle-checked-bgcolor;
+        border-color: $toggle-checked-border-color;
 	}
-
+    &:focus:not(.disabled) + label::before { @extend %inputFocus; }
 
     @include toggle-size($toggle-size);
 
     @if type-of($toggle-sizes) == 'map' {
         @each $size_name, $size_value in $toggle-sizes {
-            &.-#{$size_name} { @include toggle-size($size_value) }
+            &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include toggle-size($size_value) }
         }
     }
-    
-    &.-labelless + label::before { margin-right: 0; }
+
+    [#{$loop-component-prefix}-form~="labelless"] + label::before { margin-right: 0; }
 }
