@@ -313,6 +313,8 @@ export default {
 		),
 	);
 
+	$use-columns-self-adjustment-breakpoints: true;
+
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
