@@ -102,7 +102,10 @@ $checkbox-breakpoints-classes:() !default;
         }
 	}
     &:focus:not(.disabled) + label::before { @extend %inputFocus; }
-    &.disabled + label::before             { @extend %disabled; }
+    &.disabled {
+        opacity: 0;
+        & + label::before { @extend %disabled; }
+    }
 
     @include checkbox-size($checkbox-size);
 
