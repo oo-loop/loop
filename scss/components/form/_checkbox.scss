@@ -101,18 +101,14 @@ $checkbox-breakpoints-classes:() !default;
             }
         }
 	}
-    &:focus:not(.disabled) + label::before {
-        @extend %inputFocus;
-    }
-    &.disabled + label::before {
-        @extend %disabled;
-    }
+    &:focus:not(.disabled) + label::before { @extend %inputFocus; }
+    &.disabled + label::before             { @extend %disabled; }
 
     @include checkbox-size($checkbox-size);
 
     @if type-of($checkbox-sizes) == 'map' {
         @each $size_name, $size_value in $checkbox-sizes {
-            &.-#{$size_name} { @include checkbox-size($size_value) }
+            &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include checkbox-size($size_value) }
         }
 
         @if isNotEmpty($checkbox-breakpoints-classes) {

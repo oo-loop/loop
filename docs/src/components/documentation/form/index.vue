@@ -59,16 +59,16 @@
 
 		<pretty-code :code="html.checkbox"></pretty-code>
 
-		<p>Need extra sizes? Set values to the variable <code class="color-info">$checkbox-sizes</code>.<br>It will generate modifiers with the name you created. Those sizes will only modify the dimenstion of the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
+		<p>Need extra sizes? Set values to the variable <code class="color-info">$checkbox-sizes</code>.<br>It will generate <code class="color-secondary">oo-form</code> property with the name you created. Those sizes will only modify the dimenstion of the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
 		<pretty-code class="language-css" :code="html.checkboxSizesVariable"></pretty-code>
 
-		<input class="checkbox -small" id="checkbox-small-1" type="checkbox">
+		<input oo-form="checkbox small" id="checkbox-small-1" type="checkbox">
 		<label class="text-small" for="checkbox-small-1">Checkbox small 1</label>
-		<input class="checkbox -small" id="checkbox-small-2" type="checkbox">
+		<input oo-form="checkbox small" id="checkbox-small-2" type="checkbox">
 		<label class="text-small mb-15" for="checkbox-small-2">Checkbox small 2</label>
-		<input class="checkbox -large" id="checkbox-large-1" type="checkbox">
+		<input oo-form="checkbox large" id="checkbox-large-1" type="checkbox">
 		<label for="checkbox-large-1">Checkbox large 1</label>
-		<input class="checkbox -large" id="checkbox-large-2" type="checkbox">
+		<input oo-form="checkbox large" id="checkbox-large-2" type="checkbox">
 		<label for="checkbox-large-2">Checkbox large 2</label>
 
 		<pretty-code :code="html.checkboxSizes"></pretty-code>
