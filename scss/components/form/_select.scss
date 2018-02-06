@@ -41,10 +41,10 @@ $select-themes: (
     }
 }
 
-.select {
+[#{$loop-component-prefix}-form~="select"] {
     position: relative;
-
     display: block;
+    font-size: $input-font-size; 
 
     &::before {
         position: absolute;
@@ -86,6 +86,8 @@ $select-themes: (
     > select {
         @extend %input;
         margin: 0;
+        font-size: inherit;
+
         appearance:none;
 
         /* hide the default arrow in ie10 and ie11 */
@@ -119,3 +121,5 @@ $select-themes: (
         }
     }
 }
+
+label + [#{$loop-component-prefix}-form~="select"] { margin-top: $label-margin; }

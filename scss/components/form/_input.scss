@@ -59,7 +59,5 @@ $label-margin:           .3rem !default;
 
 label {
     font-weight: $label-font-weight;
-
-    + [#{$loop-component-prefix}-form~="input"],
-    + .select { margin-top: $label-margin; }
+    + [#{$loop-component-prefix}-form~="input"] { margin-top: $label-margin; }
 }

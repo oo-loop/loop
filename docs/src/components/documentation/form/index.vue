@@ -7,7 +7,7 @@
 		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>
 			Use the <em>input</em> attribute <code class="color-secondary">oo-form="input"</code> to format the appearance of the textfield.<br>
-			Alter the size of the input by applying any of the <code class="color-info">$text-sizes</code> classes available.<br>
+			Alter the size of the input by applying any of the text-sizes classes available from text utitlies.<br>
 			Alter the appearance of the input by applying classes from the color utitlies.
 		</p>
 		<label for="default-input">Input</label>
@@ -17,32 +17,32 @@
 		<input oo-form="input" class="border-danger text-large" id="large-input" type="text">
 		<p class="text-tiny color-danger mt-5">Textfield is required.</p>
 
-		<pretty-code :code="html.size"></pretty-code>
+		<pretty-code :code="html.input"></pretty-code>
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
 		<p>
-			Apply the class <code>.select</code> to a <strong>parent element</strong> wrapping <markup>select</markup><br>
-			Alter the size of the element by applying any of the <code class="color-info">$text-sizes</code> classes available on the <markup>select</markup> element.<br>
-			Alter the appearance of the select by applying classes from the color utilities to the <strong>parent element</strong>.
+			Use the <em>select</em> attribute <code class="color-secondary">oo-form="select"</code> on an element having <markup>select</markup> <strong>as a child</strong><br>
+			Alter the size of the element by applying any of the text-sizes classes available from text utitlies.<br>
+			Alter the appearance of the select by applying classes from the color utilities.
 		</p>
 
 		<label> Select Tiny Option</label>
-		<span class="select mb-15">
-			<select class="text-tiny">
-				<option value="1">Option 1</option>
-				<option value="2">Option 2</option>
-				<option value="3">Option 3</option>
-			</select>
-		</span>
-
-		<label> Select Option</label>
-		<span class="select border-danger">
+		<div oo-form="select" class="text-tiny mb-15">
 			<select>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
 				<option value="3">Option 3</option>
 			</select>
-		</span>
+		</div>
+
+		<label> Select Option</label>
+		<div oo-form="select" class="border-danger">
+			<select>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			</select>
+		</div>
 		<p class="text-tiny color-danger mt-5">Textfield is required</p>
 		<pretty-code :code="html.select"></pretty-code>
 
@@ -129,7 +129,7 @@ export default {
 	},
 	data: () => ({
 		html: {
-			size: require('./code/size.html'),
+			input: require('./code/input.html'),
 			checkbox: require('./code/checkbox.html'),
 			checkboxSizesVariable: require('./code/checkbox-sizes-variable.html'),
 			checkboxSizes: require('./code/checkbox-sizes.html'),
