@@ -75,13 +75,13 @@
 
 		<h3 id="radio"><a href="#radio">#</a> Radio</h3>
 		<p>
-			Apply the class <code>.radio</code>to <markup>input type="radio"</markup> preceding <markup>label</markup><br>
-			Alter the appearance of the radio by applying classes from the color utilities to the <markup>label</markup>.
+			Use the <code class="color-secondary">radio</code> property <code class="color-secondary">oo-form="radio"</code> to <markup>input type="radio"</markup> <u>preceding</u> <markup>label</markup><br>
+			Alter the appearance of the radio by applying classes from the color utilities.
 		</p>
-		<input class="radio" id="radio-1" type="radio" name="radio">
+		<input oo-form="radio" id="radio-1" type="radio" name="radio">
 		<label for="radio-1">Radio 1</label>
-		<input class="radio" id="radio-2" type="radio" name="radio">
-		<label class="border-danger" for="radio-2">Radio 2</label>
+		<input oo-form="radio" class="border-danger" id="radio-2" type="radio" name="radio">
+		<label for="radio-2">Radio 2</label>
 		<p class="text-tiny color-danger mt-5">Radio is required</p>
 
 		<pretty-code :code="html.radio"></pretty-code>
@@ -89,14 +89,14 @@
 		<p>Need extra sizes? Set values to the variable <code class="color-info">$radio-sizes</code>.</p>
 		<pretty-code class="language-css" :code="html.radioSizesVariable"></pretty-code>
 
-		<input class="radio -medium" id="radio-medium-1" type="radio" name="radio-medium">
+		<input oo-form="radio medium" id="radio-medium-1" type="radio" name="radio-medium">
 		<label for="radio-medium-1">Radio medium 1</label>
-		<input class="radio -medium" id="radio-medium-2" type="radio" name="radio-medium">
+		<input oo-form="radio medium" id="radio-medium-2" type="radio" name="radio-medium">
 		<label class="mb-15" for="radio-medium-2">Radio medium 2</label>
 
-		<input class="radio -large" id="radio-large-1" type="radio" name="radio-large">
+		<input oo-form="radio large" id="radio-large-1" type="radio" name="radio-large">
 		<label class="text-large" for="radio-large-1">Radio large 1</label>
-		<input class="radio -large" id="radio-large-2" type="radio" name="radio-large">
+		<input oo-form="radio large" id="radio-large-2" type="radio" name="radio-large">
 		<label class="text-large" for="radio-large-2">Radio large 2</label>
 
 		<pretty-code :code="html.radioSizes"></pretty-code>

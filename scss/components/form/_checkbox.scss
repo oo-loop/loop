@@ -116,7 +116,7 @@ $checkbox-breakpoints-classes:() !default;
                 @include breakpoint($breakpoint) {
                     @each $size_name, $size_value in $checkbox-sizes {
                         $suffix: \@#{$breakpoint};
-                        &.-#{$size_name}#{$suffix} { @include checkbox-size($size_value) }
+                        &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include checkbox-size($size_value) }
                     }
                 }
             }
