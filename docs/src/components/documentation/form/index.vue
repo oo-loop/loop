@@ -1,7 +1,8 @@
 <template>
 	<div>
-		<h1 class="title">Form</h1>
-		<p class="text-large">Form components</p>
+		<h1 class="title">Form<span class="text-small color-primary">oo</span></h1>
+		<p class="text-large">Components for form elements
+		<br><code class="color-secondary font-bold">oo-form</code></p>
 
 		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>

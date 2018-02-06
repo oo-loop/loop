@@ -103,6 +103,33 @@ export default {
 				]
 			},
 			{
+				name: 'Form',
+				route: 'form',
+				label: 'oo',
+				subMenu: [
+					{
+						name: 'Input',
+						route: '#input'
+					},
+					{
+						name: 'Select',
+						route: '#select'
+					},
+					{
+						name: 'Checkbox',
+						route: '#checkbox'
+					},
+					{
+						name: 'Radio',
+						route: '#radio'
+					},
+					{
+						name: 'Toggle',
+						route: '#toggle'
+					},
+				]
+			},
+			{
 				name: 'Type',
 				route: 'type',
 				subMenu: [
@@ -124,32 +151,6 @@ export default {
 				name: 'Container',
 				route: 'container',
 				subMenu: []
-			},
-			{
-				name: 'Form',
-				route: 'form',
-				subMenu: [
-					{
-						name: 'Input',
-						route: '#input'
-					},
-					{
-						name: 'Checkbox',
-						route: '#checkbox'
-					},
-					{
-						name: 'Radio',
-						route: '#radio'
-					},
-					{
-						name: 'Toggle',
-						route: '#toggle'
-					},
-					{
-						name: 'Select',
-						route: '#select'
-					},
-				]
 			},
 			{
 				name: 'Text Utilities',
@@ -305,10 +306,10 @@ export default {
 
 	$wrapper-padding-addon: (
 		'wide' : (
-			'': 2rem,  
+			'': 2rem,
 			sm: 3.2rem,
 		    md: 4.6rem,
-		    lg: 6rem,  
+		    lg: 6rem,
 		),
 	);
 

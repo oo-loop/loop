@@ -17,7 +17,7 @@
     </ul>
     <p><strong>Beware</strong><br>The loop attribute is not a valid html5 attribute.<br>
       If it does concern you, set the variable <code class="color-info">$loop-component-html5-validity</code> to true<br>
-      Loop components will be then avaiable through the data attribute <code class="color-secondary">data-oo-componentName</code>.
+      Loop components will be then available through the data attribute <code class="color-secondary">data-oo-componentName</code>.
     </p>
   </div>
 </template>
