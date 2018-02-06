@@ -6,15 +6,15 @@
 
 		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>
-			Apply the class <code>.input</code> to format the appearance of the textfield.<br>
+			Use the <em>input</em> attribute <code class="color-secondary">oo-form="input"</code> to format the appearance of the textfield.<br>
 			Alter the size of the input by applying any of the <code class="color-info">$text-sizes</code> classes available.<br>
 			Alter the appearance of the input by applying classes from the color utitlies.
 		</p>
 		<label for="default-input">Input</label>
-		<input class="input mb-15" id="default-input" type="text">
+		<input oo-form="input" class="mb-15" id="default-input" type="text">
 
 		<label for="large-input">Large input</label>
-		<input class="input border-danger text-large" id="large-input" type="text">
+		<input oo-form="input" class="border-danger text-large" id="large-input" type="text">
 		<p class="text-tiny color-danger mt-5">Textfield is required.</p>
 
 		<pretty-code :code="html.size"></pretty-code>

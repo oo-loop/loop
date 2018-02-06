@@ -20,7 +20,8 @@ $input-focus-box-shadow: 1px 1px 2px 0px rgba(#aaa, .85) !default;
 $label-font-weight:      500 !default;
 $label-margin:           .3rem !default;
 
-.input {
+%input,
+[#{$loop-component-prefix}-form~="input"] {
     padding: $input-padding;
 
     display: block;
@@ -59,6 +60,6 @@ $label-margin:           .3rem !default;
 label {
     font-weight: $label-font-weight;
 
-    + .input,
+    + [#{$loop-component-prefix}-form~="input"],
     + .select { margin-top: $label-margin; }
 }

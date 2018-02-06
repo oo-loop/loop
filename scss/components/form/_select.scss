@@ -84,7 +84,7 @@ $select-themes: (
     ));
 
     > select {
-        @extend .input;
+        @extend %input;
         margin: 0;
         appearance:none;
 
