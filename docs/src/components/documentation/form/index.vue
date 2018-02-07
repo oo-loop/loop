@@ -7,7 +7,7 @@
 		<h3 id="input"><a href="#input">#</a> Input</h3>
 		<p>
 			Use the <code class="color-secondary">input</code> property <code class="color-secondary">oo-form="input"</code> to format the appearance of the textfield.<br>
-			Alter the size of the input by applying any of the text-sizes classes available from text utitlies.<br>
+			Alter the size of the input by applying any of the <code class="color-info">$text-sizes</code> classes available from text utitlies.<br>
 			Alter the appearance of the input by applying any classes from the color utitlies.
 		</p>
 		<label for="default-input">Input</label>
@@ -18,6 +18,11 @@
 		<p class="text-tiny color-danger mt-5">Textfield is required.</p>
 
 		<pretty-code :code="html.input"></pretty-code>
+
+		<h4>Paddings</h4>
+		<p>Not sastified with <code class="color-info">$text-sizes</code> classes?<br>
+		Optionaly set a series of padding sizes to alter the dimension of the input. Through the variable <code class="color-info">$input-padding-sizes</code>, add new properties to <code class="color-secondary">oo-form</code></p>
+
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
 		<p>
