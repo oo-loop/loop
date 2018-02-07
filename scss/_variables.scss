@@ -187,21 +187,27 @@ $text-sizes-breakpoints-classes: () !default;
  * Text Color
  */
  $text-colors: () !default;
+ $text-colors-addon: () !default;
  $text-colors-classes: $colors-classes !default;
+ $text-colors-is-important: true !default;
 
 
 /**
  * Background Color
  */
  $bg-colors: () !default;
+ $bg-colors-addon: () !default;
  $bg-colors-classes: $colors-classes !default;
+ $bg-colors-is-important: false !default;
 
 
 /**
  * Border Color
  */
  $border-colors: () !default;
+ $border-colors-addon: () !default;
  $border-colors-classes: $colors-classes !default;
+ $border-colors-is-important: true !default;
 
 
  /**
@@ -289,7 +295,7 @@ $text-sizes-breakpoints-classes: () !default;
      'small': 1.6rem,
      'large': 4rem,
  ) !default;
- 
+
 
 /**
  * Button
@@ -306,7 +312,7 @@ $text-sizes-breakpoints-classes: () !default;
  $btn-font-family:    $font-family-base !default;
  $btn-font-size:      $font-size-base !default;
  $btn-font-weight:    700 !default;
- $btn-text-transform: uppercase !default;
+ $btn-text-transform: initial !default;
  $btn-border-radius:  .2em !default; // relative to the size of the button
  $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
@@ -334,6 +340,7 @@ $text-sizes-breakpoints-classes: () !default;
  $input-line-height:      1.15 !default;
 
  $input-padding:          .5em .625em !default; // relative to the size of the input
+ $input-padding-sizes:    () !default;
 
  $input-border-color:     #d6d6d6 !default;
  $input-border:           1px solid $input-border-color !default;
