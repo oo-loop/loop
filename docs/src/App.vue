@@ -320,6 +320,8 @@ export default {
 	$layout-padding: 2.4rem;
 	$sidebar-size: 220px;
 
+	body { overflow-x: hidden; }
+	
 	.sidebar {
 		top: 0;
 		position: sticky;
@@ -343,7 +345,6 @@ export default {
 		&__content {
 			padding: ($layout-padding * 2.5) $layout-padding $layout-padding;
 		}
-
 	}
 
 	.content {
