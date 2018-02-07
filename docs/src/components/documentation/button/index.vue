@@ -6,10 +6,10 @@
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
 		<p>Alter the size of the button by applying any of the <code class="color-info">$text-sizes</code> classes on your <code class="color-secondary">oo-button</code></p>
 		<p>
-		<a class="text-tiny" oo-button>tiny</a>
-		<a class="text-small" oo-button>small</a>
-		<a oo-button>button</a>
-		<a class="text-large" oo-button>large</a>
+		<a oo-button class="text-tiny mb-5">tiny</a>
+		<a oo-button class="text-small mb-5">small</a>
+		<a oo-button class="mb-5">button</a>
+		<a oo-button class="text-large mb-5">large</a>
 		</p>
 		<pretty-code :code="html.size"></pretty-code>
 
@@ -29,22 +29,22 @@
 		By default <code class="color-secondary">primary</code> <code class="color-secondary">secondary</code> <code class="color-secondary">success</code> <code class="color-secondary">warning</code> <code class="color-secondary">danger</code></p>
 
 		<p>
-		<a oo-button="primary">primary</a>
-		<a oo-button="secondary">secondary</a>
-		<a oo-button="success">success</a>
-		<a oo-button="warning">warning</a>
-		<a oo-button="danger">danger</a>
+		<a oo-button="primary" class="mb-5">primary</a>
+		<a oo-button="secondary" class="mb-5">secondary</a>
+		<a oo-button="success" class="mb-5">success</a>
+		<a oo-button="warning" class="mb-5">warning</a>
+		<a oo-button="danger" class="mb-5">danger</a>
 		</p>
 		<pretty-code :code="html.color"></pretty-code>
 
 		<h3 id="outline"><a href="#outline">#</a> Outline</h3>
 		<p>Change the type of button to outline through the property <code class="color-secondary">outline</code></p>
 		<p>
-		<a oo-button="outline primary">primary</a>
-		<a oo-button="outline secondary">secondary</a>
-		<a oo-button="outline success">success</a>
-		<a oo-button="outline warning">warning</a>
-		<a oo-button="outline danger">danger</a>
+		<a oo-button="outline primary" class="mb-5">primary</a>
+		<a oo-button="outline secondary" class="mb-5">secondary</a>
+		<a oo-button="outline success" class="mb-5">success</a>
+		<a oo-button="outline warning" class="mb-5">warning</a>
+		<a oo-button="outline danger" class="mb-5">danger</a>
 		</p>
 		<pretty-code :code="html.outline"></pretty-code>
 	</div>
