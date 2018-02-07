@@ -13,8 +13,8 @@
 		<label for="default-input">Input</label>
 		<input oo-form="input" class="mb-15" id="default-input" type="text">
 
-		<label for="large-input">Large input</label>
-		<input oo-form="input" class="border-danger text-large" id="large-input" type="text">
+		<label for="input-text-large">Larger input with text-large</label>
+		<input oo-form="input" class="border-danger text-large" id="input-text-large" type="text">
 		<p class="text-tiny color-danger mt-5">Textfield is required.</p>
 
 		<pretty-code :code="html.input"></pretty-code>
@@ -23,6 +23,12 @@
 		<p>Not sastified with <code class="color-info">$text-sizes</code> classes?<br>
 		Optionaly set a series of padding sizes to alter the dimension of the input. Through the variable <code class="color-info">$input-padding-sizes</code>, add new properties to <code class="color-secondary">oo-form</code></p>
 
+		<pretty-code class="language-css" :code="html.inputPaddingVariable"></pretty-code>
+
+		<label for="large-default-input">Large input</label>
+		<input oo-form="input large" class="mb-15" id="large-default-input" type="text">
+
+		<pretty-code :code="html.inputLarge"></pretty-code>
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
 		<p>
@@ -50,6 +56,17 @@
 		</div>
 		<p class="text-tiny color-danger mt-5">Textfield is required</p>
 		<pretty-code :code="html.select"></pretty-code>
+
+		<h4>Paddings</h4>
+		<p>Optionally add extra dimension to your select inheriting values from <code class="color-info">$input-padding-sizes</code></p>
+
+		<label> Select Option</label>
+		<div oo-form="select large">
+			<select>
+				<option value="1">Option 1</option>
+			</select>
+		</div>
+		<pretty-code :code="html.selectLarge"></pretty-code>
 
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
 		<p>
@@ -138,6 +155,8 @@ export default {
 	data: () => ({
 		html: {
 			input: require('./code/input.html'),
+			inputPaddingVariable: require('./code/input-padding-variable.html'),
+			inputLarge: require('./code/input-large.html'),
 			checkbox: require('./code/checkbox.html'),
 			checkboxSizesVariable: require('./code/checkbox-sizes-variable.html'),
 			checkboxSizes: require('./code/checkbox-sizes.html'),
@@ -148,6 +167,7 @@ export default {
 			toggleSizes: require('./code/toggle-sizes.html'),
 			toggleSizesVariable: require('./code/toggle-sizes-variable.html'),
 			select: require('./code/select.html'),
+			selectLarge: require('./code/select-large.html'),
 		}
 	}),
 	methods: {

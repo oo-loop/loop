@@ -303,7 +303,9 @@ export default {
 	    'baggy': 1.2em 2em,
 		'tight': .05em .1em,
 	);
-
+	$input-padding-sizes: (
+		'large': 2rem,
+	);
 	$wrapper-padding-addon: (
 		'wide' : (
 			'': 2rem,
@@ -321,7 +323,7 @@ export default {
 	$sidebar-size: 220px;
 
 	body { overflow-x: hidden; }
-	
+
 	.sidebar {
 		top: 0;
 		position: sticky;

@@ -44,7 +44,7 @@ $select-themes: (
 [#{$loop-component-prefix}-form~="select"] {
     position: relative;
     display: block;
-    font-size: $input-font-size; 
+    font-size: $input-font-size;
 
     &::before {
         position: absolute;
@@ -122,4 +122,11 @@ $select-themes: (
     }
 }
 
-label + [#{$loop-component-prefix}-form~="select"] { margin-top: $label-margin; }
+@if isNotEmpty($input-padding-sizes) {
+    @each $name, $padding in $input-padding-sizes {
+        [#{$loop-component-prefix}-form~="select"][#{$loop-component-prefix}-form~="#{$name}"] > select {
+            padding: #{$padding};
+            padding-right: 0;
+        }
+    }
+}
