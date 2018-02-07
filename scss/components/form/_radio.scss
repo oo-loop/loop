@@ -19,8 +19,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         &::before {
             margin-right: ($size / 3);
         }
-
-        & + .radio + label { margin-top: ($size / 3); }
+        & + [#{$loop-component-prefix}-form~="radio"] + label { margin-top: ($size / 3); }
     }
 
     & + label::before,
@@ -30,9 +29,9 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
     }
 }
 
-.radio {
+[#{$loop-component-prefix}-form~="radio"] {
     position: absolute;
-    visibility: hidden;
+    opacity: 0;
 
     & + label {
     	position: relative;
@@ -73,15 +72,17 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 		}
 	}
 
-    &.disabled + label::before {
-        @extend %disabled;
+    &:focus:not(.disabled) + label::before { @extend %inputFocus; }
+    &.disabled {
+        opacity: 0;
+        & + label::before { @extend %disabled; }
     }
 
     @include radio-size($radio-size);
 
     @if type-of($radio-sizes) == 'map' {
         @each $size_name, $size_value in $radio-sizes {
-            &.-#{$size_name} { @include radio-size($size_value) }
+            &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
         }
 
         @if isNotEmpty($radio-breakpoints-classes) {
@@ -89,14 +90,13 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
                 @include breakpoint($breakpoint) {
                     @each $size_name, $size_value in $radio-sizes {
                         $suffix: \@#{$breakpoint};
-                        &.-#{$size_name}#{$suffix} { @include radio-size($size_value) }
+                        &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include radio-size($size_value) }
                     }
                 }
             }
         }
     }
 
-    & + label[class*="border-"]::before {
-        border-color: inherit !important;
-    }
+    @include loop($border-colors, 'border-color', '&[class*="border', $border-colors-addon, true, '"] + label::before');
+    @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::before');
 }

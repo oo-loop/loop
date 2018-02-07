@@ -41,10 +41,10 @@ $select-themes: (
     }
 }
 
-.select {
+[#{$loop-component-prefix}-form~="select"] {
     position: relative;
-
     display: block;
+    font-size: $input-font-size;
 
     &::before {
         position: absolute;
@@ -84,8 +84,10 @@ $select-themes: (
     ));
 
     > select {
-        @extend .input;
+        @extend %input;
         margin: 0;
+        font-size: inherit;
+
         appearance:none;
 
         /* hide the default arrow in ie10 and ie11 */
@@ -116,6 +118,15 @@ $select-themes: (
         > select,
         &::before {
             border-color: inherit !important;
+        }
+    }
+}
+
+@if isNotEmpty($input-padding-sizes) {
+    @each $name, $padding in $input-padding-sizes {
+        [#{$loop-component-prefix}-form~="select"][#{$loop-component-prefix}-form~="#{$name}"] > select {
+            padding: #{$padding};
+            padding-right: 0;
         }
     }
 }

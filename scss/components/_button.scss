@@ -10,10 +10,12 @@ $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
 $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
 
 $btn-padding:        .415em 1.2em !default; // relative to the size of the button
+$btn-padding-sizes: () !default;
+
 $btn-font-family:    $font-family-base !default;
 $btn-font-size:      $font-size-base !default;
 $btn-font-weight:    700 !default;
-$btn-text-transform: uppercase !default;
+$btn-text-transform: initial !default;
 $btn-border-radius:  .2em !default; // relative to the size of the button
 $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
@@ -27,7 +29,6 @@ $btn-outline-font-weight:    $btn-font-weight !default;
 $btn-outline-text-transform: $btn-text-transform !default;
 $btn-outline-box-shadow:     none !default;
 
-$btn-padding-sizes: () !default;
 
 [#{$loop-component-prefix}-button] {
     padding: $btn-padding;
@@ -35,7 +36,7 @@ $btn-padding-sizes: () !default;
 
     color: $btn-color;
     line-height: 1.4;
-    letter-spacing: .05rem;
+    // letter-spacing: .05rem;
 
     font-family: $btn-font-family;
     font-size: $btn-font-size;
@@ -43,7 +44,9 @@ $btn-padding-sizes: () !default;
 
     text-align: center;
     text-decoration: none !important;
-    text-transform: $btn-text-transform;
+    @if $btn-text-transform != initial {
+        text-transform: $btn-text-transform;
+    }
     vertical-align: middle;
     // white-space: nowrap;
 

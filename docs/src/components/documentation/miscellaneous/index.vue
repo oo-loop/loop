@@ -7,16 +7,16 @@
 		<p>Add the class <code>.disabled</code> to a form element or button element to get a disabled <strong>look</strong>.<br>
 		if you really want to make the element disabled, please use the corresponding html attribute</p>
 
-		<input class="input disabled mb-10" disabled value="Disabled input">
-		<span class="select disabled mb-10">
+		<input oo-form="input" class="disabled mb-10" disabled value="Disabled input">
+		<div oo-form="select" class="disabled mb-10">
 		  <select disabled>
 			<option value="1">Disabled option</option>
 		  </select>
-		</span>
-		<input class="checkbox disabled mb-10" id="checkbox-1" type="checkbox" disabled>
+	  	</div>
+		<input oo-form="checkbox" class="disabled mb-10" id="checkbox-1" type="checkbox" disabled>
 		<label class="mb-10" for="checkbox-1">Disabled checkbox</label>
 
-		<input class="radio disabled" id="radio-1" type="radio" name="radio" disabled>
+		<input oo-form="radio" class="disabled" id="radio-1" type="radio" name="radio" disabled>
 		<label class="mb-10" for="radio-1">Disabled radio</label>
 
 		<a oo-button class="disabled mb-10">Disabled button</a><br>
@@ -28,7 +28,7 @@
 		<h3 id="rounded"><a href="#rounded">#</a> Rounded</h3>
 		<p>Add the class <code>.rounded</code> to any elements</p>
 
-		<p><input class="input rounded" placeholder="A Rounded Form"></p>
+		<p><input oo-form="input" class="rounded" placeholder="A Rounded Form"></p>
 		<p><button class="rounded" oo-button="primary">A Rounded Button</button></p>
 
 		<h3 class="mt-35" id="bordered"><a href="#bordered">#</a> Bordered</h3>

@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		<div oo-grid="layout" :oo-grid="[gapClass, vGapClass]">
+		<div :oo-grid="gridProperty">
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
@@ -79,11 +79,14 @@ export default {
 		}
 	}),
 	computed: {
-		gapClass () {
+		gapProperty () {
 			return this.gap.length > 0 ? `gap-${this.gap}` : ''
 		},
-		vGapClass () {
+		vGapProperty () {
 			return this.vGap.length > 0 ? `v-gap-${this.vGap}` : ''
+		},
+		gridProperty() {
+			return `layout ${this.gapProperty} ${this.vGapProperty}`
 		}
 	},
 	methods: {

@@ -12,16 +12,12 @@
 @import
     "components/grid",
     "components/columns",
-    "components/button"
-;
-
-// Form
-@import
-    "form/input",
-    "form/select",
-    "form/checkbox",
-    "form/radio",
-    "form/toggle"
+    "components/button",
+    "components/form/input",
+    "components/form/select",
+    "components/form/checkbox",
+    "components/form/radio",
+    "components/form/toggle"
 ;
 
 // Utilities
