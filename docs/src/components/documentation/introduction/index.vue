@@ -5,7 +5,7 @@
     </transition>
     <h1 class="h2">Loop</h1>
     <p class="text-large">"Why going in circles? Need a partner?"</p>
-    <p><strong>0.3.1 Beta</strong></p>
+    <p><strong>0.3.2 Beta</strong></p>
     <p>
         Loop wants to reconsider the way CSS is created, aiming to make it more maintainable, readable and expressive.<br>
         Loop works towards flexibility and customization without a bunch of superfluous rules and components.<br>
