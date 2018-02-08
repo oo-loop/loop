@@ -102,7 +102,7 @@ $select-themes: (
 
     @if isNotEmpty($select-themes) and type-of($select-themes) == 'map' {
         @each $theme-name, $theme in $select-themes {
-            &.-#{$theme-name} {
+            &[#{$loop-component-prefix}-form~="#{$theme-name}"] {
                 @include selectTheme($theme);
             }
         }
