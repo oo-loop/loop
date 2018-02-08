@@ -86,8 +86,8 @@ $select-themes: (
     > select {
         @extend %input;
         margin: 0;
+        height: 100%;
         font-size: inherit;
-
         appearance:none;
 
         /* hide the default arrow in ie10 and ie11 */
