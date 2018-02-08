@@ -6,7 +6,7 @@ Need a partner?*
 #### 0.3.1 Beta
 
 Loop wants to reconsider the way CSS is created, aiming to make it more maintainable, readable and expressive.
-It also aims for flexibility and customization without a bunch of superfluous rules and components.
+Loop works towards flexibility and customization without a bunch of superfluous rules and components.
 Not opinionated about any style and based on variables, it allows the addition and removal of rules and properties with ease.
 Being like a partner for CSS development, it assists the developer matching their styles with their design needs.
 
