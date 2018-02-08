@@ -1,5 +1,5 @@
 # Loop
-![](./logo-md.svg)
+
 *Why going in circles?
 Need a partner?*
 
