@@ -1,13 +1,17 @@
 {
   "name": "loop",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Why Going in circles",
-  "main": "index.js",
+  "style": "dist/loop/loop.css",
+  "sass": "scss/_loop.scss",
+  "main": "dist/loop/",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "npm run css-compile",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/_loop.scss dist/loop/loop.css"
   },
   "repository": {
     "type": "git",
@@ -21,8 +25,14 @@
   ],
   "author": "GPlus Media",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "node-sass": "^4.7.2"
+  },
   "devDependencies": {
     "normalize.css": "^7.0.0"
-  }
+  },
+  "files": [
+    "dist/",
+    "scss/"
+  ]
 }
