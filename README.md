@@ -9,7 +9,7 @@
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  
 
-[![npm (scoped)](	https://img.shields.io/badge/npm-0.3.5-green.svg)](https://www.npmjs.com/package/oo-loop-css)
+[![npm (scoped)](	https://img.shields.io/badge/npm-0.3.5-green.svg)](https://www.npmjs.com/package/oo-loop)
 
 ### Why?
 
