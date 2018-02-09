@@ -7,7 +7,9 @@
 <br>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
-</p>
+</p>  
+
+[![npm (scoped)](https://img.shields.io/npm/v/@cycle/core.svg)](https://www.npmjs.com/package/oo-loop-css)
 
 ## 0.3.4 Beta
 
