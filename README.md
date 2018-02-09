@@ -1,9 +1,8 @@
 # Loop
 
-*Why going in circles?
-Need a partner?*
+*Why going in circles?*
 
-#### 0.3.2 Beta
+#### 0.3.4 Beta
 
 Loop wants to reconsider the way CSS is created, aiming to make it more maintainable, readable and expressive.
 Loop works towards flexibility and customization without a bunch of superfluous rules and components.
