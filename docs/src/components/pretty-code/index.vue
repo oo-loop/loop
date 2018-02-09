@@ -17,7 +17,6 @@
 
 <style lang="scss">
     @import '~loop/variables';
-    @import '~prettify/src/prettify.css';
 
     $variable: #4198e2;
     $attribute: #bbe888;

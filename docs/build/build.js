@@ -1,3 +1,4 @@
+var webpack = require('webpack')
 'use strict'
 require('./check-versions')()
 
