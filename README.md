@@ -4,6 +4,9 @@
 <h3 align="center">Loop</h3>
 <p align="center">
 <em>"Why going in circles?"</em>
+<br>
+<br>
+    <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>
 
 ## 0.3.4 Beta
