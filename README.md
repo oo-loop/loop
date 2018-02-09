@@ -1,5 +1,5 @@
 <p align="center">
-    <img align="center" src="https://avatars2.githubusercontent.com/u/36288586?s=500" width="250" alt="">
+    <img align="center" src="https://avatars2.githubusercontent.com/u/36288586?s=300" width="150" alt="">
 </p>
 <h3 align="center">Loop</h3>
 <p align="center">
