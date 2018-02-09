@@ -1,17 +1,17 @@
 {
-  "name": "oo-loop-css",
-  "version": "0.3.4",
+  "name": "oo-loop",
+  "version": "0.3.5",
   "description": "Why Going in circles",
-  "style": "dist/loop/loop.css",
+  "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
-  "main": "dist/loop/",
+  "main": "dist/",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "npm run css-compile",
-    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/_loop.scss dist/loop/loop.css"
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/_loop.scss dist/loop.css"
   },
   "repository": {
     "type": "git",
