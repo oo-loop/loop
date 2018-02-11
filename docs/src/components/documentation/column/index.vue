@@ -144,13 +144,35 @@
 		</div>
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>
 
+		<p>If you're not using any of the alignment properties at all or only few of them, avoid importing the whole thing by setting the alignment variables of non used properties to <code>false</code></p>
+
+		<ul>
+			<li>
+				<code class="color-info">$use-columns-self-alignment-breakpoints</code>
+				<i>(responsive self alignments)</i>
+			</li>
+			<li>
+				<code class="color-info">$use-columns-self-alignment</code>
+				<i>(self alignments)</i>
+			</li>
+			<li>
+				<code class="color-info">$use-columns-alignment-breakpoints</code>
+				<i>(responsive alignments)</i>
+			</li>
+			<li>
+				<code class="color-info">$use-columns-alignment</code>
+				<i>(the complete alignment properties)</i>
+			</li>
+		</ul>
+
 		<h4 class="h5">Child alignment</h4>
 		<p>Align a child of a column <code class="color-secondary">col</code> through the properties <code class="color-secondary">child-{alignment}</code>.</p>
 		<div oo-column="row stretch">
-		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
-		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary text-center">Centered verticaly, Right horizontally</p></div>
+		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
+		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary text-center mb-0">Centered verticaly, Right horizontally</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.childAlignment"></pretty-code>
+		<p>If you're not using child alignment properties, disable the option by setting <code class="color-info">$use-columns-child-alignment</code> to <code>false</code>.</p>
 
 	</div>
 </template>
