@@ -19,12 +19,21 @@
 		<pretty-code class="mt-0" :code="html.column"></pretty-code>
 
 		<h4 class="h5">Self Adjust Column</h4>
-		<p>Let the column adjusts itself to the size of the content by adding the property <code class="color-secondary">self-adjust</code> to <code class="color-secondary">col</code></p>
+		<p>Let the column adjusts itself to the size of the content by adding the property <code class="color-secondary">self-adjust</code> to <code class="color-secondary">col</code>.<br>
+		This property will give you a <em>media component</em> look.</p>
 		<div oo-column="row">
 		    <div oo-column="col self-adjust"><p class="cell">adjust</p></div>
 		    <div oo-column="col"><p class="cell">auto</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
+
+		<p>Enable responsive properties<code class="color-secondary">self-adjust@{breakpoint}</code> by setting <code class="color-info">$use-columns-self-adjustment-breakpoints</code> to true.</p>
+		<div oo-column="row">
+		    <div oo-column="col self-adjust@sm"><p class="cell">adjust@sm</p></div>
+		    <div oo-column="col "><p class="cell">auto</p></div>
+		    <div oo-column="col-12 col-6@sm self-adjust@md"><p class="cell">adjust@md</p></div>
+		</div>
+		<pretty-code class="mt-0" :code="html.selfAdjustResponsive"></pretty-code>
 
 		<h4 class="h5">Clear Column</h4>
 		<p>Clear the columns and start a new row through the property<code class="color-secondary">clear</code></p>
@@ -159,6 +168,7 @@ export default {
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
 			selfAdjust: require('./code/self-adjust.html'),
+			selfAdjustResponsive: require('./code/self-adjust-responsive.html'),
 			clear: require('./code/clear.html'),
 			stretch: require('./code/stretch.html'),
 			order: require('./code/order.html'),
