@@ -345,7 +345,7 @@ export default {
 		}
 
 		&__content {
-			padding: $layout-padding;
+			padding: ($layout-padding * 2.5) $layout-padding $layout-padding;
 		}
 	}
 
