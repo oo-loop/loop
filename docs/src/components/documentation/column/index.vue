@@ -19,12 +19,21 @@
 		<pretty-code class="mt-0" :code="html.column"></pretty-code>
 
 		<h4 class="h5">Self Adjust Column</h4>
-		<p>Let the column adjusts itself to the size of the content by adding the property <code class="color-secondary">self-adjust</code> to <code class="color-secondary">col</code></p>
+		<p>Let the column adjusts itself to the size of the content by adding the property <code class="color-secondary">self-adjust</code> to <code class="color-secondary">col</code>.<br>
+		This property will give you a <em>media component</em> look.</p>
 		<div oo-column="row">
 		    <div oo-column="col self-adjust"><p class="cell">adjust</p></div>
 		    <div oo-column="col"><p class="cell">auto</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
+
+		<p>Enable responsive properties<code class="color-secondary">self-adjust@{breakpoint}</code> by setting <code class="color-info">$use-columns-self-adjustment-breakpoints</code> to <code>true</code>.</p>
+		<div oo-column="row">
+		    <div oo-column="col self-adjust@sm"><p class="cell">adjust@sm</p></div>
+		    <div oo-column="col "><p class="cell">auto</p></div>
+		    <div oo-column="col-12 col-6@sm self-adjust@md"><p class="cell">adjust@md</p></div>
+		</div>
+		<pretty-code class="mt-0" :code="html.selfAdjustResponsive"></pretty-code>
 
 		<h4 class="h5">Clear Column</h4>
 		<p>Clear the columns and start a new row through the property<code class="color-secondary">clear</code></p>
@@ -82,6 +91,7 @@
 		  <div oo-column="col-6 col-3@sm order-0@md"><p class="cell">four</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.order"></pretty-code>
+		<p>Disable properties <code class="color-secondary">order-*</code> if not needed by setting <code class="color-info">$use-columns-order</code> to <code>false</code>.</p>
 
 		<h3 id="alignment"><a href="#alignment">#</a> Alignment</h3>
 		<h4 class="h5">Vertical alignment</h4>
@@ -134,13 +144,35 @@
 		</div>
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>
 
+		<p>If you're not using any of the alignment properties at all or only few of them, avoid importing the whole thing by setting the alignment variables of non used properties to <code>false</code></p>
+
+		<ul>
+			<li>
+				<code class="color-info">$use-columns-self-alignment-breakpoints</code>
+				<i>(responsive self alignments)</i>
+			</li>
+			<li>
+				<code class="color-info">$use-columns-self-alignment</code>
+				<i>(self alignments)</i>
+			</li>
+			<li>
+				<code class="color-info">$use-columns-alignment-breakpoints</code>
+				<i>(responsive alignments)</i>
+			</li>
+			<li>
+				<code class="color-info">$use-columns-alignment</code>
+				<i>(the complete alignment properties)</i>
+			</li>
+		</ul>
+
 		<h4 class="h5">Child alignment</h4>
 		<p>Align a child of a column <code class="color-secondary">col</code> through the properties <code class="color-secondary">child-{alignment}</code>.</p>
 		<div oo-column="row stretch">
-		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center">More content<br>in<br>that column</p></div>
-		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary text-center">Centered verticaly, Right horizontally</p></div>
+		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
+		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary text-center mb-0">Centered verticaly, Right horizontally</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.childAlignment"></pretty-code>
+		<p>If you're not using child alignment properties, disable the option by setting <code class="color-info">$use-columns-child-alignment</code> to <code>false</code>.</p>
 
 	</div>
 </template>
@@ -159,6 +191,7 @@ export default {
 			gutter: require('./code/gutter.html'),
 			gutterVariables: require('./code/gutter-variables.html'),
 			selfAdjust: require('./code/self-adjust.html'),
+			selfAdjustResponsive: require('./code/self-adjust-responsive.html'),
 			clear: require('./code/clear.html'),
 			stretch: require('./code/stretch.html'),
 			order: require('./code/order.html'),

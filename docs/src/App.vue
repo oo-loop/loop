@@ -327,7 +327,7 @@ export default {
 	.sidebar {
 		top: 0;
 		position: sticky;
-		margin-left: calc(-#{$sidebar-size} + #{$layout-padding});
+		margin-left: -#{$sidebar-size};
 		flex-basis: $sidebar-size;
 		max-width: 	$sidebar-size;
 		height: 100vh;
@@ -345,7 +345,7 @@ export default {
 		}
 
 		&__content {
-			padding: ($layout-padding * 2.5) $layout-padding $layout-padding;
+			padding: $layout-padding;
 		}
 	}
 
