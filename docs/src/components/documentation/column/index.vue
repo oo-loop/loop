@@ -27,7 +27,7 @@
 		</div>
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
 
-		<p>Enable responsive properties<code class="color-secondary">self-adjust@{breakpoint}</code> by setting <code class="color-info">$use-columns-self-adjustment-breakpoints</code> to true.</p>
+		<p>Enable responsive properties<code class="color-secondary">self-adjust@{breakpoint}</code> by setting <code class="color-info">$use-columns-self-adjustment-breakpoints</code> to <code>true</code>.</p>
 		<div oo-column="row">
 		    <div oo-column="col self-adjust@sm"><p class="cell">adjust@sm</p></div>
 		    <div oo-column="col "><p class="cell">auto</p></div>
@@ -91,6 +91,7 @@
 		  <div oo-column="col-6 col-3@sm order-0@md"><p class="cell">four</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.order"></pretty-code>
+		<p>Disable properties <code class="color-secondary">order-*</code> if not needed by setting <code class="color-info">$use-columns-order</code> to <code>false</code>.</p>
 
 		<h3 id="alignment"><a href="#alignment">#</a> Alignment</h3>
 		<h4 class="h5">Vertical alignment</h4>
