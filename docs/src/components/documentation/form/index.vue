@@ -31,8 +31,8 @@
 		<pretty-code :code="html.inputLarge"></pretty-code>
 
 
-		<h4>Group</h4>
-		<p>Create form group via the <code class="color-secondary">group</code> property <code class="color-secondary">oo-form="group"</code> wrapping <code class="color-secondary">oo-column</code> component containing <code class="color-secondary">oo-form="input"</code></p>
+		<h3 id="group"><a href="#group">#</a> Group</h3>
+		<p>Create a form group via the <code class="color-secondary">group</code> property <code class="color-secondary">oo-form="group"</code> wrapping <code class="color-secondary">oo-column</code> component containing <code class="color-secondary">oo-form="input"</code></p>
 
 		<div oo-form="group" class="mb-15">
 			<div oo-column="row">
