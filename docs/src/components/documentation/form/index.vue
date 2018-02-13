@@ -36,6 +36,16 @@
 
 		<div oo-form="group" class="mb-15">
 			<div oo-column="row">
+				<div oo-column="col self-adjust">
+					<span oo-form="input" class="bg-body">¥</span>
+				</div>
+				<div oo-column="col">
+					<input oo-form="input">
+				</div>
+			</div>
+		</div>
+		<div oo-form="group" class="mb-15">
+			<div oo-column="row">
 				<div oo-column="col-7">
 					<input oo-form="input">
 				</div>
