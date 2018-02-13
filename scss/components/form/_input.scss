@@ -77,3 +77,19 @@ label {
         }
     }
 }
+
+[#{$loop-component-prefix}-form~="group"] > [#{$loop-component-prefix}-column~="row"] {
+    > [#{$loop-component-prefix}-column*="col"] {
+        padding-bottom: 0;
+
+        &:not(:first-child) [#{$loop-component-prefix}-form~="input"] {
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        &:not(:last-child) [#{$loop-component-prefix}-form~="input"] {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}
