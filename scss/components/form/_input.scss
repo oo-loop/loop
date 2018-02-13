@@ -79,8 +79,12 @@ label {
 }
 
 [#{$loop-component-prefix}-form~="group"] > [#{$loop-component-prefix}-column~="row"] {
+    left: 0;
+    margin-right: 0;
+
     > [#{$loop-component-prefix}-column*="col"] {
         padding-bottom: 0;
+        padding-left: 0;
 
         &:not(:first-child) [#{$loop-component-prefix}-form~="input"] {
             border-left: none;

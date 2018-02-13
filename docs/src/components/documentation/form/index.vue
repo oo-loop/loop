@@ -35,7 +35,7 @@
 		<p>Create form group via the <code class="color-secondary">group</code> property <code class="color-secondary">oo-form="group"</code> wrapping <code class="color-secondary">oo-column</code> component containing <code class="color-secondary">oo-form="input"</code></p>
 
 		<div oo-form="group" class="mb-15">
-			<div oo-column="row gutter-less align-middle">
+			<div oo-column="row">
 				<div oo-column="col-7">
 					<input oo-form="input">
 				</div>
