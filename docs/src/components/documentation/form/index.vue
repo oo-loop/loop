@@ -20,7 +20,7 @@
 		<pretty-code :code="html.input"></pretty-code>
 
 		<h4>Paddings</h4>
-		<p>Not sastified with <code class="color-info">$text-sizes</code> classes?<br>
+		<p>Wanting more control than <code class="color-info">$text-sizes</code> classes?<br>
 		Optionaly set a series of padding sizes to alter the dimension of the input. Through the variable <code class="color-info">$input-padding-sizes</code>, add new properties to <code class="color-secondary">oo-form</code></p>
 
 		<pretty-code class="language-css" :code="html.inputPaddingVariable"></pretty-code>
@@ -29,6 +29,26 @@
 		<input oo-form="input large" class="mb-15" id="large-default-input" type="text">
 
 		<pretty-code :code="html.inputLarge"></pretty-code>
+
+
+		<h4>Group</h4>
+		<p>Create form group via the <code class="color-secondary">group</code> property <code class="color-secondary">oo-form="group"</code> wrapping <code class="color-secondary">oo-column</code> component containing <code class="color-secondary">oo-form="input"</code></p>
+
+		<div oo-form="group" class="mb-15">
+			<div oo-column="row gutter-less align-middle">
+				<div oo-column="col-7">
+					<input oo-form="input">
+				</div>
+				<div oo-column="col self-adjust">
+					<span oo-form="input" class="bg-body">@</span>
+				</div>
+				<div oo-column="col">
+					<input oo-form="input">
+				</div>
+			</div>
+		</div>
+
+		<pretty-code :code="html.group"></pretty-code>
 
 		<h3 id="select"><a href="#select">#</a> Select</h3>
 		<p>
@@ -154,12 +174,13 @@ export default {
 	},
 	data: () => ({
 		html: {
-			input: require('./code/input.html'),
-			inputPaddingVariable: require('./code/input-padding-variable.html'),
-			inputLarge: require('./code/input-large.html'),
 			checkbox: require('./code/checkbox.html'),
 			checkboxSizesVariable: require('./code/checkbox-sizes-variable.html'),
 			checkboxSizes: require('./code/checkbox-sizes.html'),
+			group: require('./code/group.html'),
+			input: require('./code/input.html'),
+			inputPaddingVariable: require('./code/input-padding-variable.html'),
+			inputLarge: require('./code/input-large.html'),
 			radio: require('./code/radio.html'),
 			radioSizes: require('./code/radio-sizes.html'),
 			radioSizesVariable: require('./code/radio-sizes-variable.html'),
