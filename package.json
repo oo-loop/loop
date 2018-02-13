@@ -1,11 +1,6 @@
 {
   "name": "oo-loop",
   "version": "0.3.6",
-  "dist-tags": { "latest": "0.3.6" },
-  "versions": [
-    "0.3.6",
-    "0.3.5"
-  ],
   "description": "Why Going in circles",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
@@ -20,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.gplusmedia.com:library/front-end/loop.git"
+    "url": "https://github.com/oo-loop/loop.git"
   },
   "keywords": [
     "framework",
