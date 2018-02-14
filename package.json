@@ -24,7 +24,7 @@
     "frameworks"
   ],
   "author": "GPlus Media",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-sass": "^4.7.2"
   },
