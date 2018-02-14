@@ -1,8 +1,7 @@
 {
   "name": "oo-loop",
-  "version": "0.3.6",
-  "description": "Why Going in circles",
   "version": "0.3.7",
+  "description": "Why go in circles?",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
   "main": "dist/",
