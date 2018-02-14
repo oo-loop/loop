@@ -24,18 +24,18 @@
     "frameworks"
   ],
   "bugs": {
-    "url" : "https://github.com/oo-loop/loop/issues"
+    "url": "https://github.com/oo-loop/loop/issues"
   },
   "author": "GPlus Media",
   "license": "MIT",
-  "dependencies": {
-    "node-sass": "^4.7.2"
-  },
   "devDependencies": {
-    "normalize.css": "^7.0.0"
+    "node-sass": "^4.7.2"
   },
   "files": [
     "dist/",
     "scss/"
-  ]
+  ],
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  }
 }
