@@ -29,13 +29,11 @@
   "author": "GPlus Media",
   "license": "MIT",
   "devDependencies": {
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.7.2",
     "normalize.css": "^8.0.0"
   },
   "files": [
     "dist/",
     "scss/"
-  ],
-  "dependencies": {
-  }
+  ]
 }
