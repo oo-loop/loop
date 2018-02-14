@@ -23,6 +23,9 @@
     "js",
     "frameworks"
   ],
+  "bugs": {
+    "url" : "https://github.com/oo-loop/loop/issues"
+  },
   "author": "GPlus Media",
   "license": "MIT",
   "dependencies": {
