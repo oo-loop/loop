@@ -65,19 +65,16 @@ $btn-outline-box-shadow:     none !default;
 
     &:focus { outline: none; }
 
-    &:not(.disabled) {
-        &:hover,
-        &:focus {
-            color: $btn-color-hover;
-            background-color: $btn-bgcolor-hover;
-        }
-        &:active {
-            background-color: $btn-bgcolor-active;
-            box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
-            transform: scale(.99);
-        }
+    &:hover,
+    &:focus {
+        color: $btn-color-hover;
+        background-color: $btn-bgcolor-hover;
     }
-    &.disabled:hover { color: $btn-color; } // use because of link hovering status
+    &:active {
+        background-color: $btn-bgcolor-active;
+        box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
+        transform: scale(.99);
+    }
 
     &.full {
         padding-left: 2px;
@@ -94,20 +91,16 @@ $btn-outline-box-shadow:     none !default;
             background-color: $color_value;
             color: if(isBright($color_value), $color-base, #fff);
 
-            &:not(.disabled) {
-                &:hover,
-                &:focus {
-                    border-color: darken($color_value, 10%);
-                    background-color: darken($color_value, 10%);
-                }
-                &:active {
-                    border-color: darken($color_value, 12%);
-                    background-color: darken($color_value, 12%);
-                    box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
-                }
+            &:hover,
+            &:focus {
+                border-color: darken($color_value, 10%);
+                background-color: darken($color_value, 10%);
             }
-            // use because of link hovering status
-            &.disabled:hover { color: if(isBright($color_value), $color-base, #fff); }
+            &:active {
+                border-color: darken($color_value, 12%);
+                background-color: darken($color_value, 12%);
+                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
+            }
         }
     }
 }
@@ -141,24 +134,20 @@ $btn-outline-box-shadow:     none !default;
         &[#{$loop-component-prefix}-button~="#{$color}"] {
             @if $btn-outline-color == inherit {
                 color: $color_value;
-                // use because of link hovering status
-                &.disabled:hover { color: $color_value; }
             }
             border-color: $color_value;
 
-            &:not(.disabled) {
-                &:hover,
-                &:focus {
-                    color: if(isBright($color_value), $color-base, #fff);
-                    border-color: darken($color_value, 10%);
-                    background-color: darken($color_value, 10%);
-                }
-                &:active {
-                    color: if(isBright($color_value), $color-base, #fff);
-                    border-color: darken($color_value, 12%);
-                    background-color: darken($color_value, 12%);
-                    box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
-                }
+            &:hover,
+            &:focus {
+                color: if(isBright($color_value), $color-base, #fff);
+                border-color: darken($color_value, 10%);
+                background-color: darken($color_value, 10%);
+            }
+            &:active {
+                color: if(isBright($color_value), $color-base, #fff);
+                border-color: darken($color_value, 12%);
+                background-color: darken($color_value, 12%);
+                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
             }
         }
     }
