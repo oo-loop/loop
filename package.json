@@ -32,6 +32,9 @@
     "node-sass": "^4.7.2",
     "normalize.css": "^8.0.0"
   },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  },
   "files": [
     "dist/",
     "scss/"
