@@ -30,36 +30,6 @@
 
 		<pretty-code :code="html.inputLarge"></pretty-code>
 
-
-		<h3 id="group"><a href="#group">#</a> Group</h3>
-		<p>Create input group via the <code class="color-secondary">group</code> property <code class="color-secondary">oo-form="group"</code> wrapping <code class="color-secondary">oo-column</code> component containing <code class="color-secondary">oo-form="input"</code></p>
-
-		<div oo-form="group" class="mb-15">
-			<div oo-column="row">
-				<div oo-column="col self-adjust">
-					<span oo-form="input" class="bg-body">¥</span>
-				</div>
-				<div oo-column="col">
-					<input oo-form="input">
-				</div>
-			</div>
-		</div>
-		<div oo-form="group" class="mb-15">
-			<div oo-column="row">
-				<div oo-column="col-7">
-					<input oo-form="input">
-				</div>
-				<div oo-column="col self-adjust">
-					<span oo-form="input" class="bg-body">@</span>
-				</div>
-				<div oo-column="col">
-					<input oo-form="input">
-				</div>
-			</div>
-		</div>
-
-		<pretty-code :code="html.group"></pretty-code>
-
 		<h3 id="select"><a href="#select">#</a> Select</h3>
 		<p>
 			Use the <code class="color-secondary">select</code> property <code class="color-secondary">oo-form="select"</code> on an element having <markup>select</markup> <strong>as a child</strong><br>
@@ -187,7 +157,6 @@ export default {
 			checkbox: require('./code/checkbox.html'),
 			checkboxSizesVariable: require('./code/checkbox-sizes-variable.html'),
 			checkboxSizes: require('./code/checkbox-sizes.html'),
-			group: require('./code/group.html'),
 			input: require('./code/input.html'),
 			inputPaddingVariable: require('./code/input-padding-variable.html'),
 			inputLarge: require('./code/input-large.html'),
