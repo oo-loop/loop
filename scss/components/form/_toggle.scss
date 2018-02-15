@@ -77,7 +77,7 @@ $toggle-sizes:() !default;
 		background-color: $toggle-checked-bgcolor;
         border-color: $toggle-checked-border-color;
 	}
-    &:focus:not(.disabled) + label::before { @extend %inputFocus; }
+    &:focus + label::before { @extend %inputFocus; }
 
     @include toggle-size($toggle-size);
 
