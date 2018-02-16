@@ -5,7 +5,7 @@
     </transition>
     <h1 class="h2">Loop</h1>
     <p class="text-large">"Why going in circles?"</p>
-    <p><strong>0.3.6 Beta</strong></p>
+    <img src="https://img.shields.io/npm/v/oo-loop.svg?style=flat-square" alt="Latest version on NPM">
     <p>
         Loop wants to reconsider the way CSS is created, aiming to make it more maintainable, readable and expressive.<br>
         Loop works towards flexibility and customization without a bunch of superfluous rules and components.<br>
