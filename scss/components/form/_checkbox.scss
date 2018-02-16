@@ -82,7 +82,7 @@ $checkbox-breakpoints-classes:() !default;
             transform: rotateZ(45deg);
 
             @if $use-checkbox-animation {
-                transition: all 200ms ease-in-out;
+                transition: border 200ms ease-in-out, min-width 200ms ease-in-out, min-height 200ms ease-in-out;
             }
         }
     }
