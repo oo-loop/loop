@@ -23,14 +23,14 @@ $checkbox-breakpoints-classes:() !default;
     & + label {
         &::before {
             margin-right: ($size / 3);
-            width: $size;
-    		height: $size;
+            min-width: $size;
+    		min-height: $size;
         }
         &::after {
             left: $size * 0.315;
             @if $use-checkbox-animation {
-                width: ($checked_width * 2);
-                height: ($checked_height * 2);
+                min-width: ($checked_width * 2);
+                min-height: ($checked_height * 2);
                 border-right-width: ($checked_border-width * 2);
                 border-bottom-width: ($checked_border-width * 2);
             }
@@ -39,8 +39,8 @@ $checkbox-breakpoints-classes:() !default;
         & + [#{$loop-component-prefix}-form~="checkbox"] + label { margin-top: ($size / 3); }
     }
     &:checked + label::after {
-        width: $checked_width;
-        height: $checked_height;
+        min-width: $checked_width;
+        min-height: $checked_height;
         border-right-width: $checked_border-width;
         border-bottom-width: $checked_border-width;
     }
