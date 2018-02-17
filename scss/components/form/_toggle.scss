@@ -24,7 +24,7 @@ $toggle-sizes:() !default;
         &::after {
             margin-right: ($size / 3);
             min-width: ($size * 1.8);
-            height: $size;
+            min-height: $size;
         }
 
         & + [#{$loop-component-prefix}-form~="toggle"] + label { margin-top: ($size / 3); }
