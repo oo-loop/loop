@@ -102,11 +102,7 @@ $checkbox-breakpoints-classes:() !default;
 			border-color: $checkbox-checked-border-color;
 		}
 	}
-	&:focus:not(.disabled) + label::after { @extend %inputFocus; }
-	&.disabled {
-		opacity: 0;
-		& + label::after { @extend %disabled; }
-	}
+	&:focus + label::after { @extend %inputFocus; }
 
 	@include checkbox-size($checkbox-size);
 

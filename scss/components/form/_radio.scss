@@ -72,11 +72,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         }
 	}
 
-    &:focus:not(.disabled) + label::after { @extend %inputFocus; }
-    &.disabled {
-        opacity: 0;
-        & + label::after { @extend %disabled; }
-    }
+    &:focus + label::after { @extend %inputFocus; }
 
     @include radio-size($radio-size);
 
