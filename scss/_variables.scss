@@ -403,7 +403,12 @@ $text-sizes-breakpoints-classes: () !default;
 /**
  * Float utilities
  */
+ $float: (
+    'left': left,
+    'right': right,
+ ) !default;
  $float-breakpoints-classes: $breakpoints-classes !default;
+ $float-is-important: true !default;
 
 
 /**

@@ -1,25 +1,17 @@
 /**
-* FLoat utilites
-*/
+ * FLoat utilites
+ */
 
-$float-breakpoints-classes: () !default;
+$float: (
+    'left': left,
+    'right': right,
+) !default;
+$float-breakpoints-classes: $breakpoints-classes !default;
+$float-is-important: true !default;
 
-.float {
-    &-left  { float: left !important; }
-    &-right { float: right !important; }
-}
+
+@include loop($float, 'float', '.float', (), $float-is-important);
+@include loopBreakpoints($float-breakpoints-classes, $float, 'float', '.float', (), $float-is-important);
+
 .clearfix { @include clearfix; }
 .clear    { clear: both; }
-
-@include loopBreakpoints(
-    $float-breakpoints-classes,
-    (
-        'left': left,
-        'right': right,
-        'none': none,
-    ),
-    'float',
-    '.float',
-    (),
-    true
-);
