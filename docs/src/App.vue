@@ -306,15 +306,7 @@ export default {
 	$input-padding-sizes: (
 		'large': 2rem,
 	);
-	$wrapper-padding-addon: (
-		'wide' : (
-			'': 2rem,
-			sm: 3.2rem,
-		    md: 4.6rem,
-		    lg: 6rem,
-		),
-	);
-
+	
 	$use-columns-self-adjustment-breakpoints: true;
 
 	@import '~loop/loop';

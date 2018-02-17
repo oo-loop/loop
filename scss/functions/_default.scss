@@ -1,0 +1,17 @@
+/**
+ * default
+ * @param string $data
+ * @return bool
+ */
+
+@function isDefault($data) {
+    @if type-of($data) == 'string' and $data == default {
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
+@function isNotDefault($data) {
+    @return if(isDefault($data), false, true);
+}
