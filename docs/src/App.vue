@@ -112,6 +112,10 @@ export default {
 						route: '#input'
 					},
 					{
+						name: 'Group',
+						route: '#group'
+					},
+					{
 						name: 'Select',
 						route: '#select'
 					},

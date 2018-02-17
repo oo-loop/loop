@@ -1,7 +1,7 @@
 {
   "name": "oo-loop",
-  "version": "0.3.5",
-  "description": "Why Going in circles",
+  "version": "0.3.9",
+  "description": "Why go in circles?",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
   "main": "dist/",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.gplusmedia.com:library/front-end/loop.git"
+    "url": "https://github.com/oo-loop/loop.git"
   },
   "keywords": [
     "framework",
@@ -23,13 +23,17 @@
     "js",
     "frameworks"
   ],
-  "author": "GPlus Media",
-  "license": "ISC",
-  "dependencies": {
-    "node-sass": "^4.7.2"
+  "bugs": {
+    "url": "https://github.com/oo-loop/loop/issues"
   },
+  "author": "GPlus Media",
+  "license": "MIT",
   "devDependencies": {
-    "normalize.css": "^7.0.0"
+    "node-sass": "^4.7.2",
+    "normalize.css": "^8.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
   },
   "files": [
     "dist/",
