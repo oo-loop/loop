@@ -1,13 +1,15 @@
 <template>
 	<div>
 		<h1 class="title">Float Utilities</h1>
-		<p class="text-large">Set a floating element on the fly</p>
-		<p>Use the classes <code>.float-left</code> and <code>.float-right</code><br>
-		or the responsive <code>.float-left@{$breakpoint}</code> <code>.float-right@{$breakpoint}</code> <code>.float-none@{$breakpoint}</code> matching all the breakpoints of your project</p>
+		<p class="text-large">Set a floating element on the fly.</p>
+		<p>Use the classes <code>.float-{$name}</code> present in the variable <code class="color-info">$float</code>. Change the variable at will.</p>
+		<pretty-code class="language-css" :code="html.varDefault"></pretty-code>
+
+		<p>Add breakpoints to the variable <code class="color-info">$float-breakpoints-classes</code> to be able to switch float type between screen sizes. Creating <code>.float-{$size}@{breakpoint}</code> to match your need.</p>
+		<pretty-code class="language-css" :code="html.varBreakpoint"></pretty-code>
+		
 		<p class="font-secondary text-italic float-right@md float-none@lg">This paragraph is floating on the right on medium device.</p>
 		<pretty-code class="clear" :code="html.float"></pretty-code>
-		<p>Modify the default breakpoints to match your need</p>
-		<pretty-code class="language-css" :code="html.variable"></pretty-code>
 
 		<h3 id="clearfix"><a href="#clearfix">#</a> Clearfix</h3>
 		<p>Use the class <code>.clearfix</code> to clear the floating elements of a container</p>
@@ -35,10 +37,11 @@ export default {
 	},
 	data: () => ({
 		html: {
-			float: require('./code/float.html'),
-			variable: require('./code/variable.html'),
-			clearfix: require('./code/clearfix.html'),
 			clear: require('./code/clear.html'),
+			clearfix: require('./code/clearfix.html'),
+			float: require('./code/float.html'),
+			varBreakpoint: require('./code/var-breakpoint.html'),
+			varDefault: require('./code/var-default.html'),
 		}
 	}),
 	methods: {

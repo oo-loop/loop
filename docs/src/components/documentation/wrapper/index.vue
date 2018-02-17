@@ -2,7 +2,7 @@
 	<div>
 		<h1 class="title">Wrapper</h1>
 		<p class="text-large">Wrap elements with padding around them.</p>
-		<p>Use the class <code>.wrapper-{$sizeName}</code> matching the sizes set in the variable <code class="color-info">$wrapper-padding-sizes</code>.</p>
+		<p>Use the classes <code>.wrapper-{$sizeName}</code> matching the sizes set in the variable <code class="color-info">$wrapper-padding-sizes</code>.</p>
 
 		<pretty-code class="language-css" :code="html.varDefault"></pretty-code>
 		
