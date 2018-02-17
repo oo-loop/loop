@@ -288,12 +288,10 @@ $text-sizes-breakpoints-classes: () !default;
 /**
  * Wrapper
  */
- $wrapper-padding: 2.4rem !default;
  $wrapper-padding-sizes: (
-     '':      $wrapper-padding,
-     'tiny' : .8rem,
-     'small': 1.6rem,
-     'large': 4rem,
+    '':      2.4rem,
+    'tiny':  .8rem,
+    'small': 1.6rem,
  ) !default;
 
 
