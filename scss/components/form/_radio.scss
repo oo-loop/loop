@@ -47,7 +47,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
             border-radius: 50%;
             @if $use-radio-animation {
                 transform: scale(1.5);
-                transition: transform 300ms ease-in-out;
+                transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
             }
         }
         &::after {
