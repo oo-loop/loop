@@ -3,15 +3,14 @@
 </p>
 <h3 align="center">Loop</h3>
 <p align="center">
-<em>"Why going in circles?"</em>
+<em>"Why go in circles?"</em>
 <br>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  
 
-[![npm (scoped)](	https://img.shields.io/badge/npm-0.3.5-green.svg)](https://www.npmjs.com/package/oo-loop)
+[![npm](https://img.shields.io/npm/v/oo-loop.svg?style=flat-square)](https://www.npmjs.com/package/oo-loop)
 
-### Why?
 
 Loop wants to reconsider the way CSS is created, aiming to make it more maintainable, readable and expressive.   
 Loop works towards flexibility and customization without a bunch of superfluous rules and components.   

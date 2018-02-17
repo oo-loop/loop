@@ -2,6 +2,7 @@
 
 // Functions, mixins and bases
 @import
+    "normalize.css",
     "variables",
     "functions/all",
     "mixins/all",
@@ -14,6 +15,7 @@
     "components/columns",
     "components/button",
     "components/form/input",
+    "components/form/group",
     "components/form/select",
     "components/form/checkbox",
     "components/form/radio",

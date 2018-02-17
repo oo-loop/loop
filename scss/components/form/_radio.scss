@@ -16,16 +16,16 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
 @mixin radio-size($size) {
     & + label {
-        &::before {
+        &::after {
             margin-right: ($size / 3);
         }
         & + [#{$loop-component-prefix}-form~="radio"] + label { margin-top: ($size / 3); }
     }
 
-    & + label::before,
-    &:checked + label::after {
-        width: $size;
-        height: $size;
+    & + label::after,
+    &:checked + label::before {
+        min-width: $size;
+        min-height: $size;
     }
 }
 
@@ -37,45 +37,45 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
     	position: relative;
         display: flex;
         align-items: center;
+        width: fit-content;
         line-height: 1.1;
         font-weight: $font-weight-base;
 
-    	&::before {
-            display: flex;
-    		content:'';
-    		border: 1px solid $radio-border-color;
-            border-radius: 50%;
-    		background-color: $radio-bgcolor;
-            box-shadow: $radio-box-shadow;
-    	}
-        &::after {
+        &::before {
             position: absolute;
-            top: 50%;
-            left: 0;
             content: '';
             border-radius: 50%;
             @if $use-radio-animation {
-                transform: translateY(-50%) scale(1.5);
-                transition: all 300ms ease-in-out;
+                transform: scale(1.5);
+                transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
             }
+        }
+        &::after {
+            display: flex;
+            order:-1;
+            content:'';
+            border: 1px solid $radio-border-color;
+            border-radius: 50%;
+            background-color: $radio-bgcolor;
+            box-shadow: $radio-box-shadow;
         }
     }
 
 	&:checked + label {
 		&::before {
-			background-color: $radio-checked-bgcolor;
-            border-color: $radio-checked-border-color;
-		}
-		&::after {
             background-color: $radio-checked-color;
-            transform: translateY(-50%) scale(0.5);
+            transform: scale(0.5);
 		}
+        &::after {
+            background-color: $radio-checked-bgcolor;
+            border-color: $radio-checked-border-color;
+        }
 	}
 
-    &:focus:not(.disabled) + label::before { @extend %inputFocus; }
+    &:focus:not(.disabled) + label::after { @extend %inputFocus; }
     &.disabled {
         opacity: 0;
-        & + label::before { @extend %disabled; }
+        & + label::after { @extend %disabled; }
     }
 
     @include radio-size($radio-size);
@@ -97,6 +97,6 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         }
     }
 
-    @include loop($border-colors, 'border-color', '&[class*="border', $border-colors-addon, true, '"] + label::before');
-    @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::before');
+    @include loop($border-colors, 'border-color', '&[class*="border', $border-colors-addon, true, '"] + label::after');
+    @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }
