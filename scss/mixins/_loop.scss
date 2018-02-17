@@ -3,6 +3,7 @@
  */
 
 @import '../functions/all';
+@import 'breakpoint';
 
 
 @mixin loopProperties($properties, $value, $is_important) {
