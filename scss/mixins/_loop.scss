@@ -2,6 +2,9 @@
  * Loop
  */
 
+@import '../functions/all';
+
+
 @mixin loopProperties($properties, $value, $is_important) {
     // multiple properties
     @if type-of($properties) == 'list' {
