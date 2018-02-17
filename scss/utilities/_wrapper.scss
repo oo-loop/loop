@@ -7,5 +7,8 @@ $wrapper-padding-sizes: (
     'tiny':  .8rem,
     'small': 1.6rem,
 ) !default;
+$wrapper-breakpoints-classes: () !default;
 
 @include loop($wrapper-padding-sizes, 'padding', '.wrapper');
+@include loopBreakpoints($wrapper-breakpoints-classes, $wrapper-padding-sizes, 'padding', '.wrapper');
+
