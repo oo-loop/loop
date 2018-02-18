@@ -28,11 +28,15 @@
 		<p>Change the capitalization of the text through the class <code>.text-uppercase</code>.</p>
 		<p class="text-uppercase color-gray">This is an uppercase text.</p>
 		<pretty-code :code="html.textTransforms"></pretty-code>
-		<p>The variable <code class="color-info">$text-transforms</code> is available if you want to change the options.</p>
+		<p>The variable <code class="color-info">$text-transforms</code> is available if you want to change the options. Any values from the property <code class="color-success">text-transform:</code> can be assigned</p>
 		<pretty-code class="language-css" :code="html.varTextTransforms"></pretty-code>
 		<p class="text-lowercase color-gray">Lowercase text is now available.</p>
 		<p class="text-capitalize color-gray">Capitalize text is now available.</p>
 		<pretty-code :code="html.textTransformsNew"></pretty-code>
+
+		<h4>Responsive text-transform</h4>
+		<p>Assign the needed breakpoint to the variables <code class="color-info">$text-transforms-breakpoints-classes</code>.<br>
+		Get <code>.text-uppercase@lg</code>...</p>
 
 		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
 		<p>Change the decoration of the text through the class <code>.text-line-through</code>

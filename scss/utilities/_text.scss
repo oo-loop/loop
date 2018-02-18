@@ -16,6 +16,10 @@ $text-sizes: (
 $text-sizes-breakpoints-classes: () !default;
 $text-sizes-is-important: true !default;
 
+@include loop($text-sizes, 'font-size', '.text', $text-sizes-is-important);
+@include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'font-size', '.text', $text-sizes-is-important);
+
+
 /**
  * Text alignements
  */
@@ -27,6 +31,10 @@ $text-alignments: (
 $text-alignments-breakpoints-classes: () !default;
 $text-alignments-is-important: false !default;
 
+@include loop($text-alignments, 'text-align', '.text', $text-alignments-is-important);
+@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-is-important);
+
+
 /**
  * Text Transform
  */
@@ -35,6 +43,9 @@ $text-transforms: (
 ) !default;
 $text-transforms-breakpoints-classes: () !default;
 $text-transforms-is-important: false !default;
+@include loop($text-transforms, 'text-transform', '.text', $text-transforms-is-important);
+@include loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text-transform', '.text', $text-transforms-is-important);
+
 
 /**
  * Text Decoration
@@ -84,17 +95,7 @@ $letter-spacings: (
 $letter-spacings-breakpoints-classes: () !default;
 $letter-spacings-is-important: false !default;
 
-// Font size
-@include loop($text-sizes, 'font-size', '.text', $text-sizes-is-important);
-@include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'font-size', '.text', $text-sizes-is-important);
 
-// Text align
-@include loop($text-alignments, 'text-align', '.text', $text-alignments-is-important);
-@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-is-important);
-
-// Text transform
-@include loop($text-transforms, 'text-transform', '.text', $text-transforms-is-important);
-@include loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text-transform', '.text', $text-transforms-is-important);
 
 // Text decoration
 @include loop($text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
