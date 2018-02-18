@@ -20,9 +20,9 @@ $text-sizes-is-important: true !default;
  * Text alignements
  */
 $text-alignments: (
-    'left',   // text-left
-    'right',  // text-right
-    'center', // text-center
+    'left',
+    'right',
+    'center',
 ) !default;
 $text-alignments-breakpoints-classes: () !default;
 $text-alignments-is-important: false !default;
@@ -31,9 +31,7 @@ $text-alignments-is-important: false !default;
  * Text Transform
  */
 $text-transforms: (
-    'capitalize', // text-capitalize
-    'lowercase',  // text-lowercase
-    'uppercase',  // text-uppercase
+    'uppercase',
 ) !default;
 $text-transforms-breakpoints-classes: () !default;
 $text-transforms-is-important: false !default;

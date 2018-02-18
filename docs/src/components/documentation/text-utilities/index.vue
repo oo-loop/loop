@@ -10,26 +10,29 @@
 		<code>.text-small</code><p class="text-small color-gray">Text small Lorem ipsum dolor sit amet.</p>
 		<code>.text-tiny</code><p class="text-tiny color-gray">Text tiny Lorem ipsum dolor sit amet.</p>
 		<p>Need more or need less? Change the set <code class="color-info">$text-sizes</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.fontSizes"></pretty-code>
+		<pretty-code class="language-css" :code="html.varFontSizes"></pretty-code>
 
 		<h4>Responsive text</h4>
 		<p>Assign the needed breakpoint to the variables <code class="color-info">$text-sizes-breakpoints-classes</code></p>
-		<pretty-code class="language-css" :code="html.fontSizesBreakpoint"></pretty-code>
+		<pretty-code class="language-css" :code="html.varFontSizesBreakpoint"></pretty-code>
 
 		<h3 id="alignments"><a href="#alignments">#</a> Alignments</h3>
 		<p>Easily change the aligment of the text through the classes <code>.text-left</code> <code>.text-right</code> <code>.text-center</code>.<br>Modify the list of <code class="color-info">$text-alignments</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.textAlignments"></pretty-code>
+		<pretty-code class="language-css" :code="html.varTextAlignments"></pretty-code>
 		<p>Need to have different text alignments for responsive purpose?<br>Add the necessary breakpoints to the list <code class="color-info">$text-alignments-breakpoints-classes</code> and the classes such as <code>text-center@sm</code> <code>text-center@md</code> will be generated</p>
-		<pretty-code class="language-css" :code="html.textAlignmentsBreakpoint"></pretty-code>
+		<pretty-code class="language-css" :code="html.varTextAlignmentsBreakpoint"></pretty-code>
 		<p class="text-center text-left@sm text-center@lg color-gray">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
-		<pretty-code :code="html.textAlignmentsSample"></pretty-code>
+		<pretty-code :code="html.textAlignments"></pretty-code>
 
 		<h3 id="transforms"><a href="#transforms">#</a> Transforms</h3>
-		<p>Change the capitalization of the text through the classes <code>.text-uppercase</code> <code>.text-lowercase</code> <code>.text-capitalize</code>.<br>The variable <code class="color-info">$text-transforms</code> is available if you want to change the options.</p>
-		<p class="text-lowercase">This is a lowercase text.</p>
-		<p class="text-uppercase">This is an uppercase text.</p>
-		<p class="text-capitalize">This is a capitalize text</p>
+		<p>Change the capitalization of the text through the class <code>.text-uppercase</code>.</p>
+		<p class="text-uppercase color-gray">This is an uppercase text.</p>
 		<pretty-code :code="html.textTransforms"></pretty-code>
+		<p>The variable <code class="color-info">$text-transforms</code> is available if you want to change the options.</p>
+		<pretty-code class="language-css" :code="html.varTextTransforms"></pretty-code>
+		<p class="text-lowercase color-gray">Lowercase text is now available.</p>
+		<p class="text-capitalize color-gray">Capitalize text is now available.</p>
+		<pretty-code :code="html.textTransformsNew"></pretty-code>
 
 		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
 		<p>Change the decoration of the text through the class <code>.text-line-through</code>
@@ -78,18 +81,20 @@ export default {
 	},
 	data: () => ({
 		html: {
-			fontSizes: require('./code/font-sizes.html'),
-			fontSizesBreakpoint: require('./code/font-sizes-breakpoint.html'),
 			fontWeights: require('./code/font-weights.html'),
 			textAlignments: require('./code/text-alignments.html'),
-			textAlignmentsBreakpoint: require('./code/text-alignments-breakpoint.html'),
-			textAlignmentsSample: require('./code/text-alignments-sample.html'),
 			textTransforms: require('./code/text-transforms.html'),
+			textTransformsNew: require('./code/text-transforms-new.html'),
 			textDecorations: require('./code/text-decorations.html'),
 			letterSpacings: require('./code/letter-spacings.html'),
 			fontStyles: require('./code/font-styles.html'),
 			fontFamilies: require('./code/font-families.html'),
 			fontFamiliesSample: require('./code/font-families-sample.html'),
+			varFontSizes: require('./code/var-font-sizes.html'),
+			varFontSizesBreakpoint: require('./code/var-font-sizes-breakpoint.html'),
+			varTextAlignments: require('./code/var-text-alignments.html'),
+			varTextAlignmentsBreakpoint: require('./code/var-text-alignments-breakpoint.html'),
+			varTextTransforms: require('./code/var-text-transforms.html'),
 		}
 	}),
 	methods: {
