@@ -56,6 +56,30 @@
     'warning',
     'danger',
  ) !default;
+ 
+
+ /**
+ * Text Color
+ */
+ $text-colors: () !default;
+ $text-colors-classes: $colors-classes !default;
+ $text-colors-is-important: true !default;
+
+
+/**
+ * Background Color
+ */
+ $bg-colors: () !default;
+ $bg-colors-classes: $colors-classes !default;
+ $bg-colors-is-important: false !default;
+
+
+/**
+ * Border Color
+ */
+ $border-colors: () !default;
+ $border-colors-classes: $colors-classes !default;
+ $border-colors-is-important: true !default;
 
 
 /**
@@ -183,30 +207,6 @@ $text-sizes-breakpoints-classes: () !default;
  $letter-spacings-breakpoints-classes: () !default;
 
 
-/**
- * Text Color
- */
- $text-colors: () !default;
- $text-colors-classes: $colors-classes !default;
- $text-colors-is-important: true !default;
-
-
-/**
- * Background Color
- */
- $bg-colors: () !default;
- $bg-colors-classes: $colors-classes !default;
- $bg-colors-is-important: false !default;
-
-
-/**
- * Border Color
- */
- $border-colors: () !default;
- $border-colors-classes: $colors-classes !default;
- $border-colors-is-important: true !default;
-
-
  /**
   * List
   */
@@ -260,14 +260,6 @@ $text-sizes-breakpoints-classes: () !default;
 
  $grid-gap-sizes: $columns-gutter-sizes !default;
  $grid-v-gap-sizes: $grid-gap-sizes !default;
-
-
-/**
- * Code
- */
- $code-bgcolor:         #f5f5f5 !default;
- $code-color:           $color-base !default;
- $code-highlight-color: #d85b43 !default;
 
 
 /**
