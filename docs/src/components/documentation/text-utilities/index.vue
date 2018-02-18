@@ -6,18 +6,22 @@
 
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
 		<p>Quickly change the size of the text. Three sizes as default.</p>
-		<code>.text-large</code><p class="text-large">Text large Lorem ipsum dolor sit amet.</p>
-		<code>.text-small</code><p class="text-small">Text small Lorem ipsum dolor sit amet.</p>
-		<code>.text-tiny</code><p class="text-tiny">Text tiny Lorem ipsum dolor sit amet.</p>
-		<p>Need more or need less? Change the array <code class="color-info">$text-sizes</code> at your convenience.</p>
+		<code>.text-large</code><p class="text-large color-gray">Text large Lorem ipsum dolor sit amet.</p>
+		<code>.text-small</code><p class="text-small color-gray">Text small Lorem ipsum dolor sit amet.</p>
+		<code>.text-tiny</code><p class="text-tiny color-gray">Text tiny Lorem ipsum dolor sit amet.</p>
+		<p>Need more or need less? Change the set <code class="color-info">$text-sizes</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.fontSizes"></pretty-code>
+
+		<h4>Responsive text</h4>
+		<p>Assign the needed breakpoint to the variables <code class="color-info">$text-sizes-breakpoints-classes</code></p>
+		<pretty-code class="language-css" :code="html.fontSizesBreakpoint"></pretty-code>
 
 		<h3 id="alignments"><a href="#alignments">#</a> Alignments</h3>
 		<p>Easily change the aligment of the text through the classes <code>.text-left</code> <code>.text-right</code> <code>.text-center</code>.<br>Modify the list of <code class="color-info">$text-alignments</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.textAlignments"></pretty-code>
 		<p>Need to have different text alignments for responsive purpose?<br>Add the necessary breakpoints to the list <code class="color-info">$text-alignments-breakpoints-classes</code> and the classes such as <code>text-center@sm</code> <code>text-center@md</code> will be generated</p>
-		<pretty-code class="language-css" :code="html.textAlignmentsResponsive"></pretty-code>
-		<p class="text-center text-left@sm text-center@lg">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
+		<pretty-code class="language-css" :code="html.textAlignmentsBreakpoint"></pretty-code>
+		<p class="text-center text-left@sm text-center@lg color-gray">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
 		<pretty-code :code="html.textAlignmentsSample"></pretty-code>
 
 		<h3 id="transforms"><a href="#transforms">#</a> Transforms</h3>
@@ -75,9 +79,10 @@ export default {
 	data: () => ({
 		html: {
 			fontSizes: require('./code/font-sizes.html'),
+			fontSizesBreakpoint: require('./code/font-sizes-breakpoint.html'),
 			fontWeights: require('./code/font-weights.html'),
 			textAlignments: require('./code/text-alignments.html'),
-			textAlignmentsResponsive: require('./code/text-alignments-responsive.html'),
+			textAlignmentsBreakpoint: require('./code/text-alignments-breakpoint.html'),
 			textAlignmentsSample: require('./code/text-alignments-sample.html'),
 			textTransforms: require('./code/text-transforms.html'),
 			textDecorations: require('./code/text-decorations.html'),

@@ -99,7 +99,6 @@ export default {
 
 	$text-colors-addon: (
 		'danger': #f72828,
-		'info': #2689ef,
 		'success': #3fc65c,
 	);
 	$colors-addon: (

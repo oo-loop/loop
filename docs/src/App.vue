@@ -305,6 +305,14 @@ export default {
 
 	@import '~loop/loop';
 
+	@include loop(
+		(
+			'info': #2689ef,
+			'gray': #999,
+		),
+		'color', '.color', true
+	);
+
 
 	$layout-padding: 2.4rem;
 	$sidebar-size: 220px;
