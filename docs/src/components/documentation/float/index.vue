@@ -56,8 +56,8 @@ export default {
 	$new-float: (
 		'none' : none,
 	);
-	@include loop($new-float, 'float', '.float', (), $float-is-important);
-	@include loopBreakpoints($float-breakpoints-classes, $new-float, 'float', '.float', (), $float-is-important);
+	@include loop($new-float, 'float', '.float', $float-is-important);
+	@include loopBreakpoints($float-breakpoints-classes, $new-float, 'float', '.float', $float-is-important);
 
 	.cell {
 		padding: 40px;

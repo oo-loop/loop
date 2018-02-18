@@ -23,27 +23,24 @@
  * @param $data         list|map    Data to loop through
  * @param $properties   string|list Property name to use
  * @param $prefix       string      String to prepend to the selector
- * @param $addon        list|map    Extra data to take into consideration
  * @param $is_important bool        Set the !important flag ?
  * @param $suffix       string      String to append to the selector
  */
 
-@mixin loop($data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
-
-    $merge-data: mergeArray($data, $addon);
+@mixin loop($data, $properties, $prefix, $is_important:false, $suffix:'') {
     $affix: '-';
 
     // Make sure to have the correct format or do not generate rules
-    @if isNotEmpty($merge-data) {
-        @if type-of($merge-data) == 'list' {
-            @each $value in $merge-data {
+    @if isNotEmpty($data) {
+        @if type-of($data) == 'list' {
+            @each $value in $data {
                 #{$prefix}-#{$value}#{$suffix} {
                     @include loopProperties($properties, $value, $is_important);
                 }
             }
-        } @elseif type-of($merge-data) == 'map' {
-            @each $key, $value in $merge-data {
-                $affix: if(isEmpty($key), '', '-');
+        } @elseif type-of($data) == 'map' {
+            @each $key, $value in $data {
+                $affix: if(isEmpty($key), '', $affix);
 
                 #{$prefix}#{$affix}#{$key}#{$suffix} {
                     // responsive properties ?
@@ -70,16 +67,15 @@
  * @param $data         list|map    Data to loop through
  * @param $properties   string|list Property name to use
  * @param $prefix       string      String to prepend to the selector
- * @param $addon        list|map    Extra data to take into consideration
  * @param $is_important bool        Set the !important flag ?
  * @param $suffix       string      String to append to the selector
  */
-@mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $addon:(), $is_important:false, $suffix:'') {
+@mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $is_important:false, $suffix:'') {
     @if isNotEmpty($breakpoints) and isNotEmpty($data) {
         @each $breakpoint in $breakpoints-classes {
             @include breakpoint($breakpoint) {
                 $suffixes: #{$suffix}\@#{$breakpoint};
-                @include loop($data, $properties, $prefix, $addon, $is_important, $suffixes);
+                @include loop($data, $properties, $prefix, $is_important, $suffixes);
             }
         }
     }

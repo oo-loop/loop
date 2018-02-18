@@ -123,6 +123,6 @@ $checkbox-breakpoints-classes:() !default;
 		}
 	}
 
-	@include loop($border-colors, 'border-color', '&[class*="border', $border-colors-addon, true, '"] + label::after');
+	@include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
 	@include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }
