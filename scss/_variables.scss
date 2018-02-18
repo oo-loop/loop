@@ -47,7 +47,7 @@
     'success':    #8cc63f,
     'warning':    #fbb03b,
     'danger':     #f72828,
-) !default;
+ ) !default;
 
  $colors-classes: (
     'primary',
@@ -56,6 +56,30 @@
     'warning',
     'danger',
  ) !default;
+
+/**
+ * Paint Color (Text, Svg ...)
+ */
+ $paint-colors: () !default;
+ $paint-colors-classes: $colors-classes !default;
+ $paint-colors-is-important: true !default;
+
+
+/**
+ * Background Color
+ */
+ $bg-colors: () !default;
+ $bg-colors-classes: $colors-classes !default;
+ $bg-colors-is-important: true !default;
+
+
+/**
+ * Border Color
+ */
+ $border-colors: () !default;
+ $border-colors-classes: $colors-classes !default;
+ $border-colors-is-important: true !default;
+
 
 
 /**
@@ -181,30 +205,6 @@ $text-sizes-breakpoints-classes: () !default;
      'wide': .05rem,
  ) !default;
  $letter-spacings-breakpoints-classes: () !default;
-
-
-/**
- * Text Color
- */
- $text-colors: () !default;
- $text-colors-classes: $colors-classes !default;
- $text-colors-is-important: true !default;
-
-
-/**
- * Background Color
- */
- $bg-colors: () !default;
- $bg-colors-classes: $colors-classes !default;
- $bg-colors-is-important: false !default;
-
-
-/**
- * Border Color
- */
- $border-colors: () !default;
- $border-colors-classes: $colors-classes !default;
- $border-colors-is-important: true !default;
 
 
  /**

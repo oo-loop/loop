@@ -2,21 +2,21 @@
  * Color Utilities
  */
 
-$text-colors: () !default;
-$text-colors-classes: $colors-classes !default;
-$text-colors-is-important: true !default;
+$paint-colors: () !default;
+$paint-colors-classes: $main-colors-classes !default;
+$paint-colors-is-important: true !default;
 
 $bg-colors: () !default;
-$bg-colors-classes: $colors-classes !default;
-$bg-colors-is-important: false !default;
+$bg-colors-classes: $main-colors-classes !default;
+$bg-colors-is-important: true !default;
 
 $border-colors: () !default;
-$border-colors-classes: $colors-classes !default;
+$border-colors-classes: $main-colors-classes !default;
 $border-colors-is-important: true !default;
 
-// Text colors
-@include loop($text-colors, 'color', '.color', $text-colors-is-important);
-@include loopMapKeys($text-colors-classes, $colors, 'color', '.color', $text-colors-is-important);
+// Paint Colors (text, svg...)
+@include loop($paint-colors, 'color', '.color', $paint-colors-is-important);
+@include loopMapKeys($paint-colors-classes, $colors, 'color', '.color', $paint-colors-is-important);
 
 // Bg colors
 @include loop($bg-colors, 'background-color', '.bg', $bg-colors-is-important);
