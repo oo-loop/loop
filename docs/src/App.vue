@@ -305,16 +305,6 @@ export default {
 
 	@import '~loop/loop';
 
-	$text-colors-addon: (
-		'base': $color-base,
-		'info': #2689ef,
-	);
-	$bg-colors-addon: (
-  		'body' : $bgcolor-base,
-	);
-
-	@include loop($text-colors-addon, 'color', '.color', true);
-	@include loop($bg-colors-addon, 'background-color', '.bg', true);
 
 	$layout-padding: 2.4rem;
 	$sidebar-size: 220px;

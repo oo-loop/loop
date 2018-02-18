@@ -44,19 +44,13 @@
  $colors: (
     'primary':    $color-primary,
     'secondary':  $color-secondary,
-    'success':    #8cc63f,
-    'warning':    #fbb03b,
-    'danger':     #f72828,
 ) !default;
 
  $colors-classes: (
     'primary',
     'secondary',
-    'success',
-    'warning',
-    'danger',
  ) !default;
- 
+
 
  /**
  * Text Color
