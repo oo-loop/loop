@@ -4,15 +4,16 @@
 
 // vertical spacing
 $use-v-spacing: true !default;
+$v-spacing-from: 0 !default;
+$v-spacing-to:   50 !default;
 $v-spacing-step: 5 !default;
-$v-spacing-limit: 50 !default;
 $v-spacing-addon: () !default;
 $v-spacing-breakpoints-classes: () !default;
 
 // set default spacing
 $v-spacing: ();
-@for $i from 0 through ceil($v-spacing-limit / $v-spacing-step) {
-    $v-spacing: map-merge($v-spacing, (#{$i*5}: #{$i*5}px));
+@for $i from $v-spacing-from through ceil($v-spacing-to / $v-spacing-step) {
+    $v-spacing: map-merge($v-spacing, (#{$i*$v-spacing-step}: #{$i*$v-spacing-step}px));
 }
 
 // check if any custom sizes have been required
@@ -35,15 +36,16 @@ $v-spacing-addons: ();
 // horizontal spacing
 
 $use-h-spacing: true !default;
+$h-spacing-from: 0 !default;
+$h-spacing-to:   25 !default;
 $h-spacing-step: 5 !default;
-$h-spacing-limit: 25 !default;
 $h-spacing-addon: () !default;
 $h-spacing-breakpoints-classes: () !default;
 
 // set default spacing
 $h-spacing: ();
-@for $i from 0 through ceil($h-spacing-limit / $h-spacing-step) {
-    $h-spacing: map-merge($h-spacing, (#{$i*5}: #{$i*5}px));
+@for $i from $h-spacing-from through ceil($h-spacing-to / $h-spacing-step) {
+    $h-spacing: map-merge($h-spacing, (#{$i*$h-spacing-step}: #{$i*$h-spacing-step}px));
 }
 
 // check if any custom sizes have been required

@@ -273,12 +273,18 @@ $text-sizes-breakpoints-classes: () !default;
 /**
  * Spacing
  */
+ $use-v-spacing:         true !default;
+ $v-spacing-from:        0 !default;
+ $v-spacing-to:          50 !default;
  $v-spacing-step:        5 !default;
- $v-spacing-limit:       50 !default;
+ $v-spacing-addon:       () !default;
  $v-spacing-breakpoints-classes: () !default;
 
+ $use-h-spacing:         true !default;
+ $h-spacing-from:        0 !default;
+ $h-spacing-to:          25 !default;
  $h-spacing-step:        5 !default;
- $h-spacing-limit:       25 !default;
+ $h-spacing-addon:       () !default;
  $h-spacing-breakpoints-classes: () !default;
 
 
@@ -291,6 +297,7 @@ $text-sizes-breakpoints-classes: () !default;
     'small': 1.6rem,
  ) !default;
  $wrapper-breakpoints-classes: () !default;
+
 
 /**
  * Button
