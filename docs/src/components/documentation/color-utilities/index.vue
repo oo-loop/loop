@@ -98,6 +98,7 @@ export default {
 	@import '~loop/mixins/loop';
 
 	$text-colors-addon: (
+		'danger': #f72828,
 		'info': #2689ef,
 		'success': #3fc65c,
 	);
