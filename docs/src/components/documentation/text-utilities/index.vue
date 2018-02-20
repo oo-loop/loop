@@ -57,6 +57,7 @@
 			<li><code class="color-success">font-style:</code> Property based on</li>
 			<li><code>.font-{$styleName}</code> Classes generated. (default including <code>.font-italic</code>)</li>
 		</ul>
+		<pretty-code class="language-css" :code="html.varFontStyles"></pretty-code>
 		<p class="font-italic color-gray">This is an italic text.</p>
 		<pretty-code :code="html.fontStyles"></pretty-code>
 
@@ -106,6 +107,7 @@ export default {
 			fontFamiliesSample: require('./code/font-families-sample.html'),
 			varFontSizes: require('./code/var-font-sizes.html'),
 			varFontSizesBreakpoint: require('./code/var-font-sizes-breakpoint.html'),
+			varFontStyles: require('./code/var-font-styles.html'),
 			varTextAlignments: require('./code/var-text-alignments.html'),
 			varTextAlignmentsBreakpoint: require('./code/var-text-alignments-breakpoint.html'),
 			varTextDecorations: require('./code/var-text-decorations.html'),
