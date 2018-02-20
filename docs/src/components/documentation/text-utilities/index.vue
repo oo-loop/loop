@@ -58,9 +58,9 @@
 		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
 		<p>Change the letter-spacing of the text.</p>
 		<ul class="mb-25">
-			<li><code class="color-info">$letter-spacings</code> Variable to set preferences (<strong>map format</strong>)</li>
+			<li><code class="color-info">$letter-spacings</code> Variable to set preferences (<strong>map format</strong>, default including <code class="color-success">narrow</code> <code class="color-success">wide</code>)</li>
 			<li><code class="color-success">letter-spacing:</code> Property based on</li>
-			<li><code>.letter-spacing-{$letterSpacingName}</code> Classes generated. (default including <code>narrow</code> and <code>wide</code>)</li>
+			<li><code>.letter-spacing-{$letterSpacingName}</code> Classes generated.</li>
 		</ul>
 
 		<pretty-code class="language-css" :code="html.varLetterSpacings"></pretty-code>
@@ -116,10 +116,22 @@
 		</ul>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
-		<p>Set the font family of your text through the classes <code>.font-primary</code> <code>.font-secondary</code>.<br>Modify the list of <code class="color-info">$font-families</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.fontFamilies"></pretty-code>
-		<p class="font-secondary">This paragraph is using a serif font set as secondary</p>
-		<pretty-code :code="html.fontFamiliesSample"></pretty-code>
+		<p>Set the font family of the text.</p>
+		<ul class="mb-25">
+			<li><code class="color-info">$font-families</code> Variable to set preferences (<strong>map format</strong>, default including <code class="color-success">primary</code> <code class="color-success">secondary</code>)</li>
+			<li><code class="color-success">font-family:</code> Property based on</li>
+			<li><code>.font-{$familyName}</code> Classes generated.</li>
+		</ul>
+
+		<pretty-code class="language-css" :code="html.varFontFamilies"></pretty-code>
+		<p class="font-secondary color-gray">This paragraph is using a serif font set as secondary</p>
+		<pretty-code :code="html.fontFamilies"></pretty-code>
+
+		<h4>Responsive</h4>
+		<ul class="mb-25">
+			<li><code class="color-info">$font-families-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.font-{$familyName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 	</div>
 </template>
@@ -143,9 +155,9 @@ export default {
 			textTransformsNew: require('./code/text-transforms-new.html'),
 			textDecorations: require('./code/text-decorations.html'),
 			varLetterSpacings: require('./code/var-letter-spacings.html'),
-			fontStyles: require('./code/font-styles.html'),
 			fontFamilies: require('./code/font-families.html'),
-			fontFamiliesSample: require('./code/font-families-sample.html'),
+			fontStyles: require('./code/font-styles.html'),
+			varFontFamilies: require('./code/var-font-families.html'),
 			varFontSizes: require('./code/var-font-sizes.html'),
 			varFontSizesBreakpoint: require('./code/var-font-sizes-breakpoint.html'),
 			varFontStyles: require('./code/var-font-styles.html'),

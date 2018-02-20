@@ -129,6 +129,7 @@ $text-sizes: (
     'tiny':  1.2rem,
 ) !default;
 $text-sizes-breakpoints-classes: () !default;
+$text-sizes-is-important: true !default;
 
 
 /**
@@ -140,6 +141,7 @@ $text-sizes-breakpoints-classes: () !default;
      'center',
  ) !default;
  $text-alignments-breakpoints-classes: () !default;
+ $text-alignments-is-important: false !default;
 
 
 /**
@@ -149,6 +151,7 @@ $text-sizes-breakpoints-classes: () !default;
      'uppercase',
  ) !default;
  $text-transforms-breakpoints-classes: () !default;
+ $text-transforms-is-important: false !default;
 
 
 /**
@@ -156,6 +159,18 @@ $text-sizes-breakpoints-classes: () !default;
  */
  $text-decorations: () !default;
  $text-decorations-breakpoints-classes: () !default;
+ $text-decorations-is-important: false !default;
+
+
+/**
+ * Letter Spacing
+ */
+ $letter-spacings: (
+   'narrow': -.05rem,
+   'wide': .05rem,
+ ) !default;
+ $letter-spacings-breakpoints-classes: () !default;
+ $letter-spacings-is-important: false !default;
 
 
 /**
@@ -165,6 +180,7 @@ $text-sizes-breakpoints-classes: () !default;
      'italic',
  ) !default;
  $font-styles-breakpoints-classes: () !default;
+ $font-styles-is-important: false !default;
 
 
 /**
@@ -175,6 +191,7 @@ $text-sizes-breakpoints-classes: () !default;
      'bold':   700,
  ) !default;
  $font-weights-breakpoints-classes: () !default;
+ $font-weights-is-important: false !default;
 
 
 /**
@@ -185,16 +202,7 @@ $text-sizes-breakpoints-classes: () !default;
      'secondary': $font-family-secondary,
  ) !default;
  $font-families-breakpoints-classes: () !default;
-
-
-/**
- * Letter Spacing
- */
- $letter-spacings: (
-     'narrow': -.05rem,
-     'wide': .05rem,
- ) !default;
- $letter-spacings-breakpoints-classes: () !default;
+ $font-families-is-important: false !default;
 
 
  /**
