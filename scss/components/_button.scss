@@ -88,8 +88,12 @@ $btn-outline-box-shadow:     none !default;
         $color_value: map-get($colors, $color);
 
         [#{$loop-component-prefix}-button~="#{$color}"] {
-            background-color: $color_value;
             color: if(isBright($color_value), $color-base, #fff);
+            background-color: $color_value;
+            
+            @if $btn-border-color != transparent {
+                border-color: $color_value;
+            }
 
             &:hover,
             &:focus {
