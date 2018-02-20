@@ -65,12 +65,11 @@
 
 		<pretty-code class="language-css" :code="html.varLetterSpacings"></pretty-code>
 
-		<code>.letter-spacing-narrow</code>
 		<p class="letter-spacing-narrow color-gray">Text with narrow letter spacing.</p>
-		<code>.letter-spacing-wide</code>
 		<p class="letter-spacing-wide color-gray">Text with wide letter spacing.</p>
-		<code>.letter-spacing-wider</code>
 		<p class="letter-spacing-wider color-gray">Text width wider letter spacing.</p>
+		<pretty-code :code="html.letterSpacings"></pretty-code>
+
 		<h4>Responsive</h4>
 		<ul class="mb-25">
 			<li><code class="color-info">$letter-spacings-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
@@ -87,6 +86,7 @@
 		<pretty-code class="language-css" :code="html.varFontStyles"></pretty-code>
 		<p class="font-italic color-gray">This is an italic text.</p>
 		<pretty-code :code="html.fontStyles"></pretty-code>
+
 		<h4>Responsive</h4>
 		<ul class="mb-25">
 			<li><code class="color-info">$font-styles-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
@@ -108,6 +108,12 @@
 		<p class="font-bold color-gray">This paragraph font weight is bold.</p>
 
 		<pretty-code :code="html.fontWeights"></pretty-code>
+
+		<h4>Responsive</h4>
+		<ul class="mb-25">
+			<li><code class="color-info">$font-weights-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.font-{$weightName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
 		<p>Set the font family of your text through the classes <code>.font-primary</code> <code>.font-secondary</code>.<br>Modify the list of <code class="color-info">$font-families</code> at your convenience.</p>
@@ -131,6 +137,7 @@ export default {
 	data: () => ({
 		html: {
 			fontWeights: require('./code/font-weights.html'),
+			letterSpacings: require('./code/letter-spacings.html'),
 			textAlignments: require('./code/text-alignments.html'),
 			textTransforms: require('./code/text-transforms.html'),
 			textTransformsNew: require('./code/text-transforms-new.html'),
