@@ -8,6 +8,7 @@ $btn-color-hover:    $btn-color !default;
 $btn-bgcolor:        #fff !default;
 $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
 $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
+$btn-border-color:   transparent !default;
 
 $btn-padding:        .415em 1.2em !default; // relative to the size of the button
 $btn-padding-sizes: () !default;
@@ -17,8 +18,7 @@ $btn-font-size:      $font-size-base !default;
 $btn-font-weight:    700 !default;
 $btn-text-transform: initial !default;
 $btn-border-radius:  .2em !default; // relative to the size of the button
-$btn-box-shadow:     1px 1px 1px 0 #999 !default;
-
+$btn-box-shadow:     1px 1px 1px 0 #999!default;
 
 $btn-outline-colors-classes: $btn-colors-classes !default;
 
@@ -50,7 +50,7 @@ $btn-outline-box-shadow:     none !default;
     vertical-align: middle;
     // white-space: nowrap;
 
-    border: 1px solid transparent;
+    border: 1px solid $btn-border-color;
     border-radius: $btn-border-radius;
     background-color: $btn-bgcolor;
     box-shadow: $btn-box-shadow;
