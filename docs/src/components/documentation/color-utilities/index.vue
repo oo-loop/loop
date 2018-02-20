@@ -30,11 +30,11 @@
 			<li><code class="color-info">$bg-colors</code> Custom data</li>
 		</ul>
 		<pretty-code class="language-css" :code="html.varBackground"></pretty-code>
-		<div class="bg-primary wrapper -small">
-			<div class="bg-secondary wrapper -small">
-				<div class="bg-success wrapper -small">
-					<div class="bg-warning wrapper -small">
-						<div class="bg-danger wrapper -small">
+		<div class="bg-primary wrapper-small">
+			<div class="bg-secondary wrapper-small">
+				<div class="bg-success wrapper-small">
+					<div class="bg-warning wrapper-small">
+						<div class="bg-danger wrapper-small">
 							<div class="bg-body text-center text-small">
 								Background colors
 							</div>
@@ -52,10 +52,10 @@
 			<li><code class="color-info">$border-colors</code> Custom data</li>
 		</ul>
 
-		<div class="bordered border-primary wrapper -small">
-			<div class="bordered border-secondary wrapper -small">
-				<div class="bordered border-success wrapper -small">
-					<div class="bordered border-warning wrapper -small">
+		<div class="bordered border-primary wrapper-small">
+			<div class="bordered border-secondary wrapper-small">
+				<div class="bordered border-success wrapper-small">
+					<div class="bordered border-warning wrapper-small">
 						<div class="bordered border-danger text-center text-small">
 							Border colors
 						</div>

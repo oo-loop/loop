@@ -277,8 +277,28 @@ export default {
 }
 </script>
 <style lang="scss">
+	$color-primary:   #6cd7f7;
+	$color-secondary: #254F67;
+	$colors: (
+		'primary':    $color-primary,
+		'secondary':  $color-secondary,
+		'success':    #8cc63f,
+		'warning':    #fbb03b,
+		'danger':     #f72828,
+	);
+	$colors-classes: (
+		'primary',
+		'secondary',
+		'success',
+		'warning',
+		'danger',
+	);
+
 	// some variables
 	@import '~loop/variables';
+	$bg-colors: (
+    	'body' : $bgcolor-base,
+	);
 
 	$text-alignments-breakpoints-classes: ('sm', 'lg');
 
@@ -302,24 +322,6 @@ export default {
 	);
 
 	$use-columns-self-adjustment-breakpoints: true;
-
-	$text-colors: (
-		'danger': #f72828,
-		'info': #2689ef,
-		'gray': #999,
-		'success': #3fc65c,
-	);
-	$bg-colors: (
-		'body' : $bgcolor-base,
-		'success':    #8cc63f,
-		'warning':    #fbb03b,
-		'danger':     #f72828,
-	);
-	$border-colors: (
-		'success':    #8cc63f,
-		'warning':    #fbb03b,
-		'danger':     #f72828,
-	);
 
 	@import '~loop/loop';
 

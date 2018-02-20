@@ -11,7 +11,7 @@
 
 		<h3 class="mt-35" id="bordered"><a href="#bordered">#</a> Bordered</h3>
 		<p>Add the class <code>.bordered</code> to any elements</p>
-		<div class="wrapper rounded bordered">Rounded Bordered Block</div>
+		<div class="wrapper-medium rounded bordered">Rounded Bordered Block</div>
 
 		<h3 class="mt-35" id="full"><a href="#full">#</a> Full</h3>
 		<p>Add the class <code>.full</code> to any elements to take the full width of the parent container.</p>
