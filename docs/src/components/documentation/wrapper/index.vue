@@ -5,15 +5,15 @@
 		<p>Use the classes <code>.wrapper-{$sizeName}</code> matching the sizes set in the variable <code class="color-info">$wrapper-padding-sizes</code>.</p>
 
 		<pretty-code class="language-css" :code="html.varDefault"></pretty-code>
-		
+
 		<div class="wrapper-tiny bg-secondary mb-15">
 			<div class="bg-primary text-small text-center">.wrapper-tiny</div>
 		</div>
 		<div class="wrapper-small bg-secondary mb-15">
 			<div class="bg-primary text-small text-center">.wrapper-small</div>
 		</div>
-		<div class="wrapper bg-secondary mb-15">
-			<div class="bg-primary text-small text-center">.wrapper</div>
+		<div class="wrapper-medium bg-secondary mb-15">
+			<div class="bg-primary text-small text-center">.wrapper-medium</div>
 		</div>
 
 		<p>Add and remove any sizes to create your own set of values</p>
@@ -21,7 +21,7 @@
 		<pretty-code class="language-css" :code="html.varSet"></pretty-code>
 
 		<div class="wrapper-default bg-secondary mb-15">
-			<div class="bg-primary text-small text-center">.wrapper</div>
+			<div class="bg-primary text-small text-center">.wrapper-medium</div>
 		</div>
 		<div class="wrapper-large bg-secondary mb-25">
 			<div class="bg-primary text-small text-center">.wrapper-large</div>
@@ -39,7 +39,7 @@
 		<p>Add breakpoints to the variable <code class="color-info">$wrapper-breakpoints-classes</code> to be able to switch wrappers between screen sizes. Creating <code>.wrapper-{$sizeName}@{breakpoint}</code></p>
 		<pretty-code class="language-css" :code="html.varResponsive"></pretty-code>
 
-		<div class="wrapper-tiny wrapper-small@sm wrapper@md wrapper-tiny@lg bg-secondary mb-15">
+		<div class="wrapper-tiny wrapper-small@sm wrapper-medium@md wrapper-tiny@lg bg-secondary mb-15">
 			<div class="bg-primary text-small text-center">responsive wrappers</div>
 		</div>
 		<pretty-code :code="html.responsive"></pretty-code>
