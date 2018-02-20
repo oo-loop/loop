@@ -40,7 +40,7 @@
 
 		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
 		<p>Change the decoration of the text</p>
-		<ul class="list-unstyle">
+		<ul>
 			<li><code class="color-info">$text-decorations</code> Variable to set preferences (<strong>empty</strong> from start)</li>
 			<li><code class="color-success">text-decoration:</code> Property based on</li>
 			<li><code>.text-{$decorationName}</code> Classes generated</li>
@@ -50,21 +50,21 @@
 		<p class="text-underline color-gray">This is an underline text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
 		<h4>Responsive</h4>
-		<ul class="list-unstyle mb-25">
+		<ul class="mb-25">
 			<li><code class="color-info">$text-decorations-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
 			<li><code>.text-{$decorationName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
 		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
 		<p>Change the letter-spacing of the text.</p>
-		<ul class="list-unstyle mb-25">
+		<ul class="mb-25">
 			<li><code class="color-info">$letter-spacings</code> Variable to set preferences (<strong>map format</strong>)</li>
 			<li><code class="color-success">letter-spacing:</code> Property based on</li>
 			<li><code>.letter-spacing-{$letterSpacingName}</code> Classes generated. (default including <code>narrow</code> and <code>wide</code>)</li>
 		</ul>
 
 		<pretty-code class="language-css" :code="html.varLetterSpacings"></pretty-code>
-		
+
 		<code>.letter-spacing-narrow</code>
 		<p class="letter-spacing-narrow color-gray">Text with narrow letter spacing.</p>
 		<code>.letter-spacing-wide</code>
@@ -72,14 +72,14 @@
 		<code>.letter-spacing-wider</code>
 		<p class="letter-spacing-wider color-gray">Text width wider letter spacing.</p>
 		<h4>Responsive</h4>
-		<ul class="list-unstyle mb-25">
+		<ul class="mb-25">
 			<li><code class="color-info">$letter-spacings-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
 			<li><code>.letter-spacing-{letterSpacingName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
 		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
 		<p>Change the style of the font.</p>
-		<ul class="list-unstyle">
+		<ul>
 			<li><code class="color-info">$font-styles</code> Variable to set preferences</li>
 			<li><code class="color-success">font-style:</code> Property based on</li>
 			<li><code>.font-{$styleName}</code> Classes generated. (default including <code>italic</code>)</li>
@@ -88,17 +88,26 @@
 		<p class="font-italic color-gray">This is an italic text.</p>
 		<pretty-code :code="html.fontStyles"></pretty-code>
 		<h4>Responsive</h4>
-		<ul class="list-unstyle mb-25">
+		<ul class="mb-25">
 			<li><code class="color-info">$font-styles-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
 			<li><code>.font-{$styleName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
 		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
-		<p>Quickly change the weight of the text. Two sizes as default.</p>
-		<code>.font-bold</code><p class="font-bold">This paragraph font weight is bold.</p>
-		<code>.font-light</code><p class="font-light">This paragraph font weight is light.</p>
-		<p>Need more or need less? Change the array <code class="color-info">$font-weights</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.fontWeights"></pretty-code>
+		<p>Quickly change the weight of the font.</p>
+		<ul>
+			<li><code class="color-info">$font-weights</code> Variable to set preferences (default including <code class="color-success">light</code> <code class="color-success">bold</code>)</li>
+			<li><code class="color-success">font-weight:</code> Property based on</li>
+			<li><code>.font-{$weightName}</code> Classes generated.</li>
+		</ul>
+
+		<pretty-code class="language-css" :code="html.varFontWeights"></pretty-code>
+
+		<p class="font-thin color-gray">This paragraph font weight is thin.</p>
+		<p class="font-light color-gray">This paragraph font weight is light.</p>
+		<p class="font-bold color-gray">This paragraph font weight is bold.</p>
+
+		<pretty-code :code="html.fontWeights"></pretty-code>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
 		<p>Set the font family of your text through the classes <code>.font-primary</code> <code>.font-secondary</code>.<br>Modify the list of <code class="color-info">$font-families</code> at your convenience.</p>
@@ -133,6 +142,7 @@ export default {
 			varFontSizes: require('./code/var-font-sizes.html'),
 			varFontSizesBreakpoint: require('./code/var-font-sizes-breakpoint.html'),
 			varFontStyles: require('./code/var-font-styles.html'),
+			varFontWeights: require('./code/var-font-weights.html'),
 			varTextAlignments: require('./code/var-text-alignments.html'),
 			varTextAlignmentsBreakpoint: require('./code/var-text-alignments-breakpoint.html'),
 			varTextDecorations: require('./code/var-text-decorations.html'),
@@ -155,5 +165,10 @@ export default {
 	  'wider': .1rem,
 	);
 	@include loop($letter-spacings, 'letter-spacing', '.letter-spacing');
+
+	$font-weights: (
+	  'thin':   100,
+	);
+	@include loop($font-weights, 'font-weight', '.font');
 
 </style>

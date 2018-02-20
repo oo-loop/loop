@@ -161,10 +161,6 @@ export default {
 						route: '#sizes'
 					},
 					{
-						name: 'Weights',
-						route: '#weights'
-					},
-					{
 						name: 'Alignments',
 						route: '#alignments'
 					},
@@ -183,6 +179,10 @@ export default {
 					{
 						name: 'Styles',
 						route: '#styles'
+					},
+					{
+						name: 'Weights',
+						route: '#weights'
 					},
 					{
 						name: 'Families',

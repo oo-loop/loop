@@ -90,6 +90,9 @@ $font-weights: (
 ) !default;
 $font-weights-breakpoints-classes: () !default;
 $font-weights-is-important: false !default;
+@include loop($font-weights, 'font-weight', '.font', $font-weights-is-important);
+@include loopBreakpoints($font-weights-breakpoints-classes, $font-weights, 'font-weight', '.font', $font-weights-is-important);
+
 
 /**
  * Font Family
@@ -100,13 +103,5 @@ $font-families: (
 ) !default;
 $font-families-breakpoints-classes: () !default;
 $font-families-is-important: false !default;
-
-
-
-// Font weight
-@include loop($font-weights, 'font-weight', '.font', $font-weights-is-important);
-@include loopBreakpoints($font-weights-breakpoints-classes, $font-weights, 'font-weight', '.font', $font-weights-is-important);
-
-// Font Family
 @include loop($font-families, 'font-family', '.font', $font-families-is-important);
 @include loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font-family', '.font', $font-families-is-important);
