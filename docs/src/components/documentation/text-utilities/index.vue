@@ -40,7 +40,7 @@
 
 		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
 		<p>Change the decoration of the text</p>
-		<ul>
+		<ul class="list-unstyle">
 			<li><code class="color-info">$text-decorations</code> Variable to set preferences (<strong>empty</strong> from start)</li>
 			<li><code class="color-success">text-decoration:</code> Property based on</li>
 			<li><code>.text-{$decorationName}</code> Classes generated</li>
@@ -50,33 +50,48 @@
 		<p class="text-underline color-gray">This is an underline text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
 		<h4>Responsive</h4>
-		<ul>
+		<ul class="list-unstyle mb-25">
 			<li><code class="color-info">$text-decorations-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
 			<li><code>.text-{$decorationName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
+		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
+		<p>Change the letter-spacing of the text.</p>
+		<ul class="list-unstyle mb-25">
+			<li><code class="color-info">$letter-spacings</code> Variable to set preferences (<strong>map format</strong>)</li>
+			<li><code class="color-success">letter-spacing:</code> Property based on</li>
+			<li><code>.letter-spacing-{$letterSpacingName}</code> Classes generated. (default including <code>narrow</code> and <code>wide</code>)</li>
+		</ul>
+
+		<pretty-code class="language-css" :code="html.varLetterSpacings"></pretty-code>
+		
+		<code>.letter-spacing-narrow</code>
+		<p class="letter-spacing-narrow color-gray">Text with narrow letter spacing.</p>
+		<code>.letter-spacing-wide</code>
+		<p class="letter-spacing-wide color-gray">Text with wide letter spacing.</p>
+		<code>.letter-spacing-wider</code>
+		<p class="letter-spacing-wider color-gray">Text width wider letter spacing.</p>
+		<h4>Responsive</h4>
+		<ul class="list-unstyle mb-25">
+			<li><code class="color-info">$letter-spacings-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.letter-spacing-{letterSpacingName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
+
 		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
 		<p>Change the style of the font.</p>
-		<ul>
+		<ul class="list-unstyle">
 			<li><code class="color-info">$font-styles</code> Variable to set preferences</li>
 			<li><code class="color-success">font-style:</code> Property based on</li>
-			<li><code>.font-{$styleName}</code> Classes generated. (default including <code>.font-italic</code>)</li>
+			<li><code>.font-{$styleName}</code> Classes generated. (default including <code>italic</code>)</li>
 		</ul>
 		<pretty-code class="language-css" :code="html.varFontStyles"></pretty-code>
 		<p class="font-italic color-gray">This is an italic text.</p>
 		<pretty-code :code="html.fontStyles"></pretty-code>
 		<h4>Responsive</h4>
-		<ul>
+		<ul class="list-unstyle mb-25">
 			<li><code class="color-info">$font-styles-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
 			<li><code>.font-{$styleName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
-
-		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
-		<p>Change the letter-spacing of the text through classes such as <code>.letter-spacing-${name}</code></p>
-		<code>.letter-spacing-narrow</code><p class="letter-spacing-narrow">Text strong Lorem ipsum dolor sit amet.</p>
-		<code>.letter-spacing-wide</code><p class="letter-spacing-wide">Text light Lorem ipsum dolor sit amet.</p>
-		<p>Set the array <code class="color-info">$letter-spacings</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.letterSpacings"></pretty-code>
 
 		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
 		<p>Quickly change the weight of the text. Two sizes as default.</p>
@@ -111,7 +126,7 @@ export default {
 			textTransforms: require('./code/text-transforms.html'),
 			textTransformsNew: require('./code/text-transforms-new.html'),
 			textDecorations: require('./code/text-decorations.html'),
-			letterSpacings: require('./code/letter-spacings.html'),
+			varLetterSpacings: require('./code/var-letter-spacings.html'),
 			fontStyles: require('./code/font-styles.html'),
 			fontFamilies: require('./code/font-families.html'),
 			fontFamiliesSample: require('./code/font-families-sample.html'),
@@ -136,5 +151,9 @@ export default {
 	  'underline',
 	);
 	@include loop($text-decorations, 'text-decoration', '.text');
+	$letter-spacings: (
+	  'wider': .1rem,
+	);
+	@include loop($letter-spacings, 'letter-spacing', '.letter-spacing');
 
 </style>
