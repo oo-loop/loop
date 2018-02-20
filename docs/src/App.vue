@@ -299,6 +299,11 @@ export default {
 	$bg-colors: (
     	'body' : $bgcolor-base,
 	);
+	$text-colors: (
+	    'info': #2689ef,
+	    'gray': #999,
+	    'success': #3fc65c,
+  	);
 
 	$text-alignments-breakpoints-classes: ('sm', 'lg');
 
