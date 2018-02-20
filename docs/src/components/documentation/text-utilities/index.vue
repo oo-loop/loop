@@ -49,6 +49,11 @@
 		<p class="text-line-through color-gray">This is a line-through text.</p>
 		<p class="text-underline color-gray">This is an underline text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
+		<h4>Responsive</h4>
+		<ul>
+			<li><code class="color-info">$text-decorations-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.text-{$decorationName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
 		<p>Change the style of the font.</p>
@@ -60,6 +65,11 @@
 		<pretty-code class="language-css" :code="html.varFontStyles"></pretty-code>
 		<p class="font-italic color-gray">This is an italic text.</p>
 		<pretty-code :code="html.fontStyles"></pretty-code>
+		<h4>Responsive</h4>
+		<ul>
+			<li><code class="color-info">$font-styles-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.font-{$styleName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
 		<p>Change the letter-spacing of the text through classes such as <code>.letter-spacing-${name}</code></p>
