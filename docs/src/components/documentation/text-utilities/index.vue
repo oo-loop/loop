@@ -39,9 +39,16 @@
 		Get <code>.text-uppercase@lg</code>...</p>
 
 		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
-		<p>Change the decoration of the text through the class <code>.text-line-through</code>
-		<br>The variable <code class="color-info">$text-decorations</code> is available if you want to change the options.</p>
-		<p class="text-line-through">This is a line-through text.</p>
+		<p>Change the decoration of the text</p>
+		<ul>
+			<li><code class="color-info">$text-decorations</code> Variable to set preferences (<strong>empty</strong> from start)</li>
+			<li><code class="color-success">text-decoration:</code> Property based on</li>
+			<li><code>.text-{$decorationName}</code> Classes generated</li>
+		</ul>
+		<pretty-code class="language-css" :code="html.varTextDecorations"></pretty-code>
+		<p>The variable <code class="color-info">$text-decorations</code> is available if you want to change the options.</p>
+		<p class="text-line-through color-gray">This is a line-through text.</p>
+		<p class="text-underline color-gray">This is an underline text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
 
 		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
@@ -98,6 +105,7 @@ export default {
 			varFontSizesBreakpoint: require('./code/var-font-sizes-breakpoint.html'),
 			varTextAlignments: require('./code/var-text-alignments.html'),
 			varTextAlignmentsBreakpoint: require('./code/var-text-alignments-breakpoint.html'),
+			varTextDecorations: require('./code/var-text-decorations.html'),
 			varTextTransforms: require('./code/var-text-transforms.html'),
 		}
 	}),
@@ -107,4 +115,11 @@ export default {
 </script>
 
 <style lang="scss">
+	@import "~loop/mixins/loop";
+	$text-decorations: (
+	  'line-through',
+	  'underline',
+	);
+	@include loop($text-decorations, 'text-decoration', '.text');
+
 </style>

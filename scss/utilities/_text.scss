@@ -9,7 +9,7 @@
  * Text Sizes
  */
 $text-sizes: (
-    'large': 2rem,  
+    'large': 2rem,
     'small': 1.4rem,
     'tiny':  1.2rem,
 ) !default;
@@ -50,9 +50,7 @@ $text-transforms-is-important: false !default;
 /**
  * Text Decoration
  */
-$text-decorations: (
-    'line-through', // text-line-through
-) !default;
+$text-decorations: () !default;
 $text-decorations-breakpoints-classes: () !default;
 $text-decorations-is-important: false !default;
 
