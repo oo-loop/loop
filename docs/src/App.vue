@@ -300,20 +300,28 @@ export default {
 	$input-padding-sizes: (
 		'large': 2rem,
 	);
-	
+
 	$use-columns-self-adjustment-breakpoints: true;
 
-	@import '~loop/loop';
-
-	@include loop(
-		(
-			'info': #2689ef,
-			'gray': #999,
-			'success': #3fc65c,
-		),
-		'color', '.color', true
+	$text-colors: (
+		'danger': #f72828,
+		'info': #2689ef,
+		'gray': #999,
+		'success': #3fc65c,
+	);
+	$bg-colors: (
+		'body' : $bgcolor-base,
+		'success':    #8cc63f,
+		'warning':    #fbb03b,
+		'danger':     #f72828,
+	);
+	$border-colors: (
+		'success':    #8cc63f,
+		'warning':    #fbb03b,
+		'danger':     #f72828,
 	);
 
+	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
 	$sidebar-size: 220px;

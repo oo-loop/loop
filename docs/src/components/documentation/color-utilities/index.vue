@@ -10,7 +10,7 @@
 		<p>Changes those two variables at will.</p>
 
 		<pretty-code class="language-css" :code="html.varNewGlobal"></pretty-code>
-		
+
 		<h3 id="text"><a href="#text">#</a> Text</h3>
 		<ul>
 			<li><code class="color-info">$text-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
@@ -93,22 +93,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-	@import '~loop/variables';
-	@import '~loop/mixins/loop';
-
-	$text-colors-addon: (
-		'danger': #f72828,
-		'success': #3fc65c,
-	);
-	$colors-addon: (
-  		'body' : $bgcolor-base,
-  		'success':    #8cc63f,
-    	'warning':    #fbb03b,
-    	'danger':     #f72828,
-	);
-
-	@include loop($text-colors-addon, 'color', '.color', true);
-	@include loop($colors-addon, 'background-color', '.bg', true);
-	@include loop($colors-addon, 'border-color', '.border', true);
+<style lang="scss">
 </style>
