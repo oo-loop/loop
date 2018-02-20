@@ -46,15 +46,18 @@
 			<li><code>.text-{$decorationName}</code> Classes generated</li>
 		</ul>
 		<pretty-code class="language-css" :code="html.varTextDecorations"></pretty-code>
-		<p>The variable <code class="color-info">$text-decorations</code> is available if you want to change the options.</p>
 		<p class="text-line-through color-gray">This is a line-through text.</p>
 		<p class="text-underline color-gray">This is an underline text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
 
 		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
-		<p>Change the style of the text through the class <code>.text-italic</code>
-		<br>The variable <code class="color-info">$font-styles</code> is available if you want to change the options.</p>
-		<p class="text-italic">This is an italic text.</p>
+		<p>Change the style of the font.</p>
+		<ul>
+			<li><code class="color-info">$font-styles</code> Variable to set preferences</li>
+			<li><code class="color-success">font-style:</code> Property based on</li>
+			<li><code>.font-{$styleName}</code> Classes generated. (default including <code>.font-italic</code>)</li>
+		</ul>
+		<p class="font-italic color-gray">This is an italic text.</p>
 		<pretty-code :code="html.fontStyles"></pretty-code>
 
 		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
