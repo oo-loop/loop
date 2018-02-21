@@ -292,6 +292,7 @@ $text-sizes-is-important: true !default;
 /**
  * Button
  */
+ $btn-colors: () !default;
  $btn-colors-classes: $colors-classes !default;
 
  $btn-color:          $color-base !default;
@@ -309,7 +310,7 @@ $text-sizes-is-important: true !default;
  $btn-border-radius:  .2em !default; // relative to the size of the button
  $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
-
+ $btn-outline-colors:         $btn-colors !default;
  $btn-outline-colors-classes: $btn-colors-classes !default;
 
  $btn-outline-color:          $btn-color !default; // set inherit to get the colors from the borders

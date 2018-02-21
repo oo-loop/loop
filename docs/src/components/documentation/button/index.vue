@@ -62,7 +62,7 @@
 		<a oo-button="green-sea" class="mb-5">Green Sea</a>
 		</p>
 
-		<p><strong>Note:</strong> If you're getting a black text when expecting a white one or vice-versa, set the threshold <code class="color-info">$brightness-threshold</code> according to your preferences (range from 0 <i>black</i> to 255 <i>white</i>).</p>
+		<p><strong>Note:</strong> If you're getting a black text when expecting a white one or vice-versa, adjust the threshold <code class="color-info">$brightness-threshold</code>(range from 0 <i>black</i> to 255 <i>white</i>).</p>
 
 
 		<h3 id="outline"><a href="#outline">#</a> Outline</h3>
