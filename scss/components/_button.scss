@@ -21,6 +21,8 @@ $btn-text-transform: initial !default;
 $btn-border-radius:  .2em !default; // relative to the size of the button
 $btn-box-shadow:     1px 1px 1px 0 #999!default;
 
+
+$btn-outline-colors:         $btn-colors !default;
 $btn-outline-colors-classes: $btn-colors-classes !default;
 
 $btn-outline-color:          $btn-color !default; // set inherit to get the colors from the borders
@@ -119,7 +121,29 @@ $btn-outline-box-shadow:     none !default;
     }
 }
 
-@if isNotEmpty($btn-outline-colors-classes) {
+@mixin paintButtonOutline($color-value) {
+    @if $btn-outline-color == inherit {
+        color: $color-value;
+    }
+    border-color: $color-value;
+
+    &:hover,
+    &:focus {
+        color: if(isBright($color-value), $color-base, #fff);
+        border-color: darken($color-value, 10%);
+        background-color: darken($color-value, 10%);
+    }
+    &:active {
+        color: if(isBright($color-value), $color-base, #fff);
+        border-color: darken($color-value, 12%);
+        background-color: darken($color-value, 12%);
+        box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+    }
+}
+
+@if isNotEmpty($btn-outline-colors-classes) 
+    or (isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors))
+{
     [#{$loop-component-prefix}-button~="outline"] {
         background-color: transparent;
 
@@ -142,26 +166,17 @@ $btn-outline-box-shadow:     none !default;
             box-shadow: $btn-outline-box-shadow;
         }
     }
-    @each $color in $btn-outline-colors-classes {
-        $color_value: map-get($colors, $color);
-
-        &[#{$loop-component-prefix}-button~="#{$color}"] {
-            @if $btn-outline-color == inherit {
-                color: $color_value;
-            }
-            border-color: $color_value;
-
-            &:hover,
-            &:focus {
-                color: if(isBright($color_value), $color-base, #fff);
-                border-color: darken($color_value, 10%);
-                background-color: darken($color_value, 10%);
-            }
-            &:active {
-                color: if(isBright($color_value), $color-base, #fff);
-                border-color: darken($color_value, 12%);
-                background-color: darken($color_value, 12%);
-                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
+    @if isNotEmpty($btn-outline-colors-classes) {
+        @each $color in $btn-outline-colors-classes {
+            &[#{$loop-component-prefix}-button~="#{$color}"] {
+                @include paintButtonOutline(map-get($colors, $color));
+            }    
+        }
+    }
+    @if isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors) {
+        @each $name, $value in $btn-colors {
+            &[#{$loop-component-prefix}-button~="#{$name}"] {
+                @include paintButtonOutline($value);
             }
         }
     }
