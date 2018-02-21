@@ -338,6 +338,10 @@ export default {
 	.sidebar {
 		top: 0;
 		position: sticky;
+		overflow: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+
 		margin-left: -#{$sidebar-size};
 		flex-basis: $sidebar-size;
 		max-width: 	$sidebar-size;
