@@ -9,7 +9,7 @@
         @return true;
     } @elseif type-of($data) == 'list' and length($data) == 0 {
         @return true;
-    } @elseif {
+    } @else {
         @return false;
     }
 }
