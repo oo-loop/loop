@@ -66,13 +66,24 @@
 
 
 		<h3 id="outline"><a href="#outline">#</a> Outline</h3>
-		<p>Change the type of button to outline through the property <code class="color-secondary">outline</code></p>
+		<p>Change the type of button to outline through the property <code class="color-secondary">outline</code>.<br>
+		Default values are inheriting the colors from your settings for the regular button. It is recommended to change it to suit your needs.</p>
+
+		<pretty-code class="language-css" :code="html.varOutline"></pretty-code>
+
 		<p>
 		<a oo-button="outline primary" class="mb-5">Primary</a>
 		<a oo-button="outline secondary" class="mb-5">Secondary</a>
 		<a oo-button="outline success" class="mb-5">Success</a>
 		<a oo-button="outline warning" class="mb-5">Warning</a>
 		<a oo-button="outline danger" class="mb-5">Danger</a>
+		</p>
+		<p>
+		<button oo-button="outline nectarine" class="mb-5">Nectarine</button>
+		<button oo-button="outline yellow" class="mb-5">Yellow</button>
+		<button oo-button="outline salmon" class="mb-5">Salmon</button>
+		<button oo-button="outline purple" class="mb-5">Purple</button>
+		<button oo-button="outline green-sea" class="mb-5">Green Sea</button>
 		</p>
 		<pretty-code :code="html.outline"></pretty-code>
 	</div>
@@ -97,6 +108,7 @@ export default {
 			size: require('./code/size.html'),
 			varColor: require('./code/var-color.html'),
 			varCustomColor: require('./code/var-custom-color.html'),
+			varOutline: require('./code/var-outline.html'),
 			varPadding: require('./code/var-padding.html'),
 		}
 	}),
