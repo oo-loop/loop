@@ -38,9 +38,9 @@
 		<pretty-code class="language-css" :code="html.varColor"></pretty-code>
 
 		<p>
-		<a oo-button="success" class="mb-5">Success</a>
-		<a oo-button="warning" class="mb-5">Warning</a>
-		<a oo-button="danger" class="mb-5">Danger</a>
+			<a oo-button="success" class="mb-5">Success</a>
+			<a oo-button="warning" class="mb-5">Warning</a>
+			<a oo-button="danger" class="mb-5">Danger</a>
 		</p>
 
 		<pretty-code :code="html.color"></pretty-code>
@@ -49,6 +49,14 @@
 		<strong>Note:</strong> Loop automatically adjusts the contrast between <i>text</i> and <i>background</i> ($color-base for light background, white for dark background).</p>
 
 		<pretty-code class="language-css" :code="html.varCustomColor"></pretty-code>
+
+		<p>
+		<a oo-button="nectarine" class="mb-5">Nectarine</a>
+		<a oo-button="yellow" class="mb-5">Yellow</a>
+		<a oo-button="salmon" class="mb-5">Salmon</a>
+		<a oo-button="purple" class="mb-5">Purple</a>
+		<a oo-button="green-sea" class="mb-5">Green Sea</a>
+		</p>
 
 
 		<h3 id="outline"><a href="#outline">#</a> Outline</h3>
@@ -91,5 +99,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+	
 </style>

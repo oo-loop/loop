@@ -304,6 +304,13 @@ export default {
 	    'gray': #999,
 	    'success': #3fc65c,
   	);
+  	$btn-colors: (
+	  'nectarine':  #ffbe76,
+	  'yellow':     #fffa65,
+	  'salmon':     #ffb8b8,
+	  'purple':     #8e44ad,
+	  'green-sea':  #16a085,
+	);
 
 	$text-alignments-breakpoints-classes: ('sm', 'lg');
 

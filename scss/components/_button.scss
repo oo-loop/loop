@@ -92,6 +92,7 @@ $btn-outline-box-shadow:     none !default;
     }
     &:hover,
     &:focus {
+        color: if(isBright($color-value), $color-base, #fff);
         border-color: darken($color-value, 10%);
         background-color: darken($color-value, 10%);
     }
@@ -110,7 +111,7 @@ $btn-outline-box-shadow:     none !default;
     }
 }
 
-@if isNotEmpty($btn-colors) and isMap($data) {
+@if isNotEmpty($btn-colors) and isMap($btn-colors) {
     @each $name, $value in $btn-colors {
         [#{$loop-component-prefix}-button~="#{$name}"] {
             @include paintButton($value);
