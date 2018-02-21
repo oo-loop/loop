@@ -4,7 +4,7 @@
 		<p class="text-large">Component<br><code class="color-secondary font-bold">oo-button</code></p>
 
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
-		<p>Alter the size of the button by applying any of the <code class="color-info">$text-sizes</code> classes on your <code class="color-secondary">oo-button</code></p>
+		<p>Alter the size of the button by applying any of the <code class="color-info">$text-sizes</code> classes on your button element.</p>
 		<p>
 		<a oo-button class="text-tiny mb-5">Tiny</a>
 		<a oo-button class="text-small mb-5">Small</a>
@@ -14,8 +14,7 @@
 		<pretty-code :code="html.size"></pretty-code>
 
 		<h4>Paddings</h4>
-		<p>Not sastified with <code class="color-info">$text-sizes</code> classes?<br>
-		Optionaly set a series of padding sizes to give a different look to your button. Through the variable <code class="color-info">$btn-padding-sizes</code>, add new properties to <code class="color-secondary">oo-button</code></p>
+		<p>Optionaly set a series of padding sizes to give a different look to your button. Through the variable <code class="color-info">$btn-padding-sizes</code>, add new properties to <code class="color-secondary">oo-button</code></p>
 
 		<pretty-code class="language-css" :code="html.paddingVariable"></pretty-code>
 

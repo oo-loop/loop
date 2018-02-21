@@ -8,7 +8,7 @@ $btn-color-hover:    $btn-color !default;
 $btn-bgcolor:        #fff !default;
 $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
 $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
-$btn-border-color:   transparent !default;
+$btn-border-color:   #eee !default;
 
 $btn-padding:        .415em 1.2em !default; // relative to the size of the button
 $btn-padding-sizes: () !default;

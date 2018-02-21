@@ -28,7 +28,7 @@
  $font-weight-base: 400 !default;
  $line-height-base: 1.5 !default;
  $color-base:       #333 !default;
- $bgcolor-base:     #f9f9f9 !default;
+ $bgcolor-base:     #fff !default;
  $font-smoothing:   true !default;
 
  $font-family-secondary: 'Georgia', times, serif !default;
@@ -299,7 +299,7 @@ $text-sizes-is-important: true !default;
  $btn-bgcolor:        #fff !default;
  $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
  $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
- $btn-border-color:   transparent !default;
+ $btn-border-color:   #eee !default;
 
  $btn-padding:        .415em 1.2em !default; // relative to the size of the button
  $btn-font-family:    $font-family-base !default;
