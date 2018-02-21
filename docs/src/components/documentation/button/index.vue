@@ -46,7 +46,7 @@
 		<pretty-code :code="html.color"></pretty-code>
 		
 		<p>Custom colors can also be added through the variable <code class="color-info">$btn-colors</code>.<br>
-		<strong>Note:</strong> Loop automatically adjusts the contrast between <i>text</i> and <i>background</i> ($color-base for light background, white for dark background).</p>
+		<strong>Note:</strong> Loop automatically adjusts the contrast between <i>text</i> and <i>background</i> (value of $color-base for light background, white for dark background).</p>
 
 		<pretty-code class="language-css" :code="html.varCustomColor"></pretty-code>
 
@@ -57,6 +57,8 @@
 		<a oo-button="purple" class="mb-5">Purple</a>
 		<a oo-button="green-sea" class="mb-5">Green Sea</a>
 		</p>
+
+		<p><strong>Note:</strong> If you're getting a black text when expecting a white one or vice-versa, play with the threshold <code class="color-info">$brightness-threshold</code> (range from 0 <i>black</i> to 255 <i>white</i>).</p>
 
 
 		<h3 id="outline"><a href="#outline">#</a> Outline</h3>
