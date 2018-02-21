@@ -20,7 +20,7 @@
 		<pretty-code :code="html.input"></pretty-code>
 
 		<h4>Paddings</h4>
-		<p>Wanting more control than <code class="color-info">$text-sizes</code> classes?<br>
+		<p>More control than <code class="color-info">$text-sizes</code> classes?<br>
 		Optionaly set a series of padding sizes to alter the dimension of the input. Through the variable <code class="color-info">$input-padding-sizes</code>, add new properties to <code class="color-secondary">oo-form</code></p>
 
 		<pretty-code class="language-css" :code="html.inputPaddingVariable"></pretty-code>
@@ -70,7 +70,7 @@
 
 		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
 		<p>
-			Use the <code class="color-secondary">checkbox</code> property <code class="color-secondary">oo-form="checkbox"</code> to <markup>input type="checkbox"</markup> <u>preceding</u> <markup>label</markup><br>
+			Use the <code class="color-secondary">checkbox</code> property <code class="color-secondary">oo-form="checkbox"</code> on <markup>input type="checkbox"</markup> <u>preceding</u> <markup>label</markup><br>
 			Alter the appearance of the checkbox by applying classes from the color utilities.
 		</p>
 		<input oo-form="checkbox" id="checkbox-1" type="checkbox">
@@ -81,7 +81,7 @@
 
 		<pretty-code :code="html.checkbox"></pretty-code>
 
-		<p>Need extra sizes? Set values to the variable <code class="color-info">$checkbox-sizes</code>.<br>It will generate <code class="color-secondary">oo-form</code> property with the name you created. Those sizes will only modify the dimenstion of the checkbox itself without interfering with the label. If you wish to also change the size of the label, please apply text utilities' classes such as <code>.text-small</code> <code>.text-large</code> and others.</p>
+		<p>Need extra sizes? Set values to the variable <code class="color-info">$checkbox-sizes</code>.<br>It will generate <code class="color-secondary">oo-form</code> properties with the name you created. Those sizes will only modify the dimenstion of the checkbox itself (not the label). If you wish to tweak the label, directly apply any of the text utilities on it.</p>
 		<pretty-code class="language-css" :code="html.checkboxSizesVariable"></pretty-code>
 
 		<input oo-form="checkbox small" id="checkbox-small-1" type="checkbox">
@@ -97,7 +97,7 @@
 
 		<h3 id="radio"><a href="#radio">#</a> Radio</h3>
 		<p>
-			Use the <code class="color-secondary">radio</code> property <code class="color-secondary">oo-form="radio"</code> to <markup>input type="radio"</markup> <u>preceding</u> <markup>label</markup><br>
+			Use the <code class="color-secondary">radio</code> property <code class="color-secondary">oo-form="radio"</code> on <markup>input type="radio"</markup> <u>preceding</u> <markup>label</markup><br>
 			Alter the appearance of the radio by applying classes from the color utilities.
 		</p>
 		<input oo-form="radio" id="radio-1" type="radio" name="radio">
