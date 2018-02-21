@@ -1,6 +1,7 @@
 /**
  * Button
  */
+$btn-colors: () !default;
 $btn-colors-classes: $colors-classes !default;
 
 $btn-color:          $color-base !default;
@@ -82,29 +83,37 @@ $btn-outline-box-shadow:     none !default;
     }
 }
 
+@mixin paintButton($color-value) {
+    color: if(isBright($color-value), $color-base, #fff);
+    background-color: $color-value;
+    
+    @if $btn-border-color != transparent {
+        border-color: $color-value;
+    }
+    &:hover,
+    &:focus {
+        border-color: darken($color-value, 10%);
+        background-color: darken($color-value, 10%);
+    }
+    &:active {
+        border-color: darken($color-value, 12%);
+        background-color: darken($color-value, 12%);
+        box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+    }
+}
 
 @if isNotEmpty($btn-colors-classes) {
-    @each $color in $btn-colors-classes {
-        $color_value: map-get($colors, $color);
-
+    @each $color in $btn-colors-classes { 
         [#{$loop-component-prefix}-button~="#{$color}"] {
-            color: if(isBright($color_value), $color-base, #fff);
-            background-color: $color_value;
-            
-            @if $btn-border-color != transparent {
-                border-color: $color_value;
-            }
+            @include paintButton(map-get($colors, $color));
+        }
+    }
+}
 
-            &:hover,
-            &:focus {
-                border-color: darken($color_value, 10%);
-                background-color: darken($color_value, 10%);
-            }
-            &:active {
-                border-color: darken($color_value, 12%);
-                background-color: darken($color_value, 12%);
-                box-shadow: inset  1px 1px 1px 0 darken($color_value, 25%);
-            }
+@if isNotEmpty($btn-colors) and isMap($data) {
+    @each $name, $value in $btn-colors {
+        [#{$loop-component-prefix}-button~="#{$name}"] {
+            @include paintButton($value);
         }
     }
 }
