@@ -47,7 +47,7 @@
 
 		<pretty-code :code="html.color"></pretty-code>
 
-		<h4>Custom colors</h4>
+		<h4>Use of custom colors</h4>
 		
 		<p>Custom colors can also be added through the variable <code class="color-info">$btn-colors</code>.<br>
 		<strong>Note:</strong> Loop automatically adjusts the contrast between <i>text</i> and <i>background</i> (value of $color-base for light background, white for dark background).</p>

@@ -395,12 +395,12 @@ export default {
     }
 
     .title {
-    	font-size: 4rem;
+    	font-size: 3.2rem;
 		font-weight: 700;
 		text-align: center;
 
 		@include breakpoint(sm) {
-			font-size: 6rem;
+			font-size: 5rem;
 			text-align: left;
 		}
     }
