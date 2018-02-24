@@ -4,6 +4,8 @@
  * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
  */
 
+@import '../functions/all';
+
 $breakpoints: (
 	xs: 480px,  // min width
     sm: 600px,  // min width
@@ -24,7 +26,7 @@ $breakpoints-classes-from-start: join('', $breakpoints-classes);
 		@media (min-width: $width) {
 			@content;
 		}
-	} @elseif $key == '' {
+	} @elseif isEmpty($key) {
         @content;
     }
 }
@@ -36,7 +38,7 @@ $breakpoints-classes-from-start: join('', $breakpoints-classes);
 		@media (max-width: $width) {
 			@content;
 		}
-	} @elseif $key == '' {
+	} @elseif isEmpty($key) {
         @content;
     }
 }
