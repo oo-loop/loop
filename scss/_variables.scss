@@ -31,8 +31,6 @@
  $bgcolor-base:     #fff !default;
  $font-smoothing:   true !default;
 
- $font-family-secondary: 'Georgia', times, serif !default;
-
 
 /**
  * Colors
@@ -79,13 +77,6 @@
 /**
  * Typography
  */
- $heading-color:           $color-base !default;
- $heading-font-family:     $font-family-base !default;
- $heading-font-weight:     500 !default;
- $heading-line-height:     1.125 !default;
- $heading-margin-top:      .2em !default;
- $heading-margin-bottom:   .45em !default;
-
  $heading-font-sizes: (
     'h1': (
         :   3.6rem,
@@ -100,10 +91,16 @@
     'h5': 1.8rem,
     'h6': 1.6rem,
  ) !default;
-
  $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
- $heading-letter-spacing: -.1rem !default;
- $heading-letter-spacing-list: (h1, h2, h3) !default; // set empty if not needed
+
+ $heading-color:           $color-base !default;
+ $heading-font-family:     $font-family-base !default;
+ $heading-font-weight:     500 !default;
+ $heading-line-height:     1.125 !default;
+ $heading-margin-top:      .2em !default;
+ $heading-margin-bottom:   .45em !default;
+ $heading-letter-spacing:  -.1rem !default;
+ $heading-letter-spacing-tags: () !default; // list of header (h1, h2) ...
 
  // Paragraph
  $paragraph-margin-bottom: 1.8rem !default;
@@ -198,6 +195,7 @@ $text-sizes-is-important: true !default;
 /**
  * Font Family
  */
+ $font-family-secondary: 'Georgia', times, serif !default;
  $font-families: (
      'primary': $font-family-base,
      'secondary': $font-family-secondary,

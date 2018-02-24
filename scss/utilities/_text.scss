@@ -97,6 +97,7 @@ $font-weights-is-important: false !default;
 /**
  * Font Family
  */
+$font-family-secondary: 'Georgia', times, serif !default;
 $font-families: (
     'primary': $font-family-base,
     'secondary': $font-family-secondary,

@@ -2,14 +2,6 @@
  * Typography
  */
 
-$heading-color:           $color-base !default;
-$heading-font-family:     $font-family-base !default;
-$heading-font-weight:     500 !default;
-$heading-line-height:     1.125 !default;
-$heading-margin-top:      .2em !default;
-$heading-margin-bottom:   .45em !default;
-
-// Heading Font sizes
 $heading-font-sizes: (
     'h1': (
         :   3.6rem,
@@ -24,12 +16,16 @@ $heading-font-sizes: (
     'h5': 1.8rem,
     'h6': 1.6rem,
 ) !default;
-
 $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
 
-// Heading allowing letter spacing
-$heading-letter-spacing: -.1rem !default;
-$heading-letter-spacing-header: () !default; // list of header (h1, h2) ...
+$heading-color:           $color-base !default;
+$heading-font-family:     $font-family-base !default;
+$heading-font-weight:     500 !default;
+$heading-line-height:     1.125 !default;
+$heading-margin-top:      .2em !default;
+$heading-margin-bottom:   .45em !default;
+$heading-letter-spacing:  -.1rem !default;
+$heading-letter-spacing-tags: () !default; // list of tags (h1, h2) ...
 
 // Paragraph
 $paragraph-margin-bottom: 1.8rem !default;
@@ -63,7 +59,7 @@ $hr-margins: 1.5rem !default;
 
     // add letter spacing for specific
     @if isNotEmpty($heading-letter-spacing) 
-        and inArray($heading, $heading-letter-spacing-header)
+        and inArray($heading, $$heading-letter-spacing-tags)
     {
         letter-spacing: $heading-letter-spacing;
     }
