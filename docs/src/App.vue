@@ -333,6 +333,12 @@ export default {
 		'large': 2rem,
 	);
 
+	$columns-gutter-sizes: (
+	    'less' : 0,
+	    'tiny' : .8rem,
+	    'small': 1.6rem,
+	    'large': 4rem,
+	);
 	$use-columns-self-adjustment-breakpoints: true;
 
 	@import '~loop/loop';

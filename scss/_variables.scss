@@ -229,9 +229,7 @@ $text-sizes-is-important: true !default;
  $columns-system: 12 !default;
  $columns-gutter-sizes: (
     'less' : 0,
-    'tiny' : .8rem,
     'small': 1.6rem,
-    'large': 4rem,
 ) !default;
 
  $use-columns-order:          true !default;
