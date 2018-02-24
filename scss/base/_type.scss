@@ -29,7 +29,7 @@ $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
 
 // Heading allowing letter spacing
 $heading-letter-spacing: -.1rem !default;
-$heading-letter-spacing-list: (h1, h2, h3) !default;
+$heading-letter-spacing-header: () !default; // list of header (h1, h2) ...
 
 // Paragraph
 $paragraph-margin-bottom: 1.8rem !default;
@@ -62,8 +62,8 @@ $hr-margins: 1.5rem !default;
     }
 
     // add letter spacing for specific
-    @if inArray($heading, $heading-letter-spacing-list)
-        and inArray($heading-font-weight, (700, 800, 900, bold, bolder))
+    @if isNotEmpty($heading-letter-spacing) 
+        and inArray($heading, $heading-letter-spacing-header)
     {
         letter-spacing: $heading-letter-spacing;
     }
