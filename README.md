@@ -5,8 +5,8 @@
 <p align="center">
 <em>"Why go in circles?"</em>
 <br>
-<strong>CSS framework for Front-end Developer</strong>
 <br>
+<strong>CSS Framework for Front-end Developer</strong>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  
