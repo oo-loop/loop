@@ -106,7 +106,7 @@ $checkbox-breakpoints-classes:() !default;
 
 	@include checkbox-size($checkbox-size);
 
-	@if type-of($checkbox-sizes) == 'map' {
+	@if isMap($checkbox-sizes) {
 		@each $size_name, $size_value in $checkbox-sizes {
 			&[#{$loop-component-prefix}-form~="#{$size_name}"] { @include checkbox-size($size_value) }
 		}

@@ -76,7 +76,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
     @include radio-size($radio-size);
 
-    @if type-of($radio-sizes) == 'map' {
+    @if isMap($radio-sizes) {
         @each $size_name, $size_value in $radio-sizes {
             &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
         }
