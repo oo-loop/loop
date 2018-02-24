@@ -17,7 +17,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	grid-gap: $grid-gap;
 }
 
-@each $class in $breakpoints-classes-from-start {
+@each $class in $breakpoints-classes-width-default-value {
 	@include breakpoint($class) {
 		$prefix: '';
 		$suffix: '';

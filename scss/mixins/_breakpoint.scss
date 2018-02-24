@@ -17,7 +17,7 @@ $breakpoints-classes: (sm, md, lg) !default;
 $pointbreaks-classes: (sm, md, lg) !default;
 
 // including the first step
-$breakpoints-classes-from-start: join('', $breakpoints-classes);
+$breakpoints-classes-width-default-value: join('', $breakpoints-classes);
 
 @mixin breakpoint($key) {
 	// make sure the key exist

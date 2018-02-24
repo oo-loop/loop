@@ -47,8 +47,8 @@ $columns-gutter-sizes: (
     max-width: 100%;
 }
 
-// reponsives classes starting from null
-@each $class in $breakpoints-classes-from-start {
+// reponsives classes starting from default value
+@each $class in $breakpoints-classes-width-default-value {
     @include breakpoint($class) {
         $suffix: '';
         @if $class != '' {
