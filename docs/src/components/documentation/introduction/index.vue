@@ -39,7 +39,7 @@
         </p>
 
         <h3 class="h4">Start</h3>
-        <code class="color-info">yarn add oo-loop</code> or <code class="color-info">npm install oo-loop</code>
+        <code>yarn add oo-loop</code> or <code>npm install oo-loop</code>
       </div>
     </div>
   </div>

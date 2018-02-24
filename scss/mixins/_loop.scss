@@ -8,7 +8,7 @@
 
 @mixin loopProperties($properties, $value, $is_important) {
     // multiple properties
-    @if type-of($properties) == 'list' {
+    @if isList($properties) {
         @each $property in $properties {
             #{$property}: if($is_important, #{$value} !important, #{$value});
         }
@@ -32,19 +32,19 @@
 
     // Make sure to have the correct format or do not generate rules
     @if isNotEmpty($data) {
-        @if type-of($data) == 'list' {
+        @if isList($data) {
             @each $value in $data {
                 #{$prefix}-#{$value}#{$suffix} {
                     @include loopProperties($properties, $value, $is_important);
                 }
             }
-        } @elseif type-of($data) == 'map' {
+        } @elseif isMap($data) {
             @each $key, $value in $data {
                 $affix: if(isEmpty($key), '', $affix);
 
                 #{$prefix}#{$affix}#{$key}#{$suffix} {
                     // responsive properties ?
-                    @if type-of($value) == 'map' {
+                    @if isMap($value) {
                         @each $child-breakpoint, $child-value in $value {
                             @include breakpoint($child-breakpoint) {
                                 @include loopProperties($properties, $child-value, $is_important);
