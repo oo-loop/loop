@@ -1,7 +1,7 @@
 {
   "name": "oo-loop",
   "version": "0.4.0",
-  "description": "Why go in circles?",
+  "description": "CSS framework, a companion for front-end developers",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
   "main": "dist/",
@@ -18,10 +18,11 @@
     "url": "https://github.com/oo-loop/loop.git"
   },
   "keywords": [
-    "framework",
     "css",
-    "js",
-    "frameworks"
+    "sass",
+    "front-end",
+    "developer",
+    "framework"
   ],
   "bugs": {
     "url": "https://github.com/oo-loop/loop/issues"

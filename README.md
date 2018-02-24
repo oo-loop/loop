@@ -26,3 +26,9 @@ Loop differentiates components and utilities with semantic for more clarity
 The loop attribute is not a valid html5 attribute.   
 If it does concern you, set the variable `$loop-component-html5-validity` to true.   
 Loop components will be then available through the data attribute `data-oo-componentName`.
+
+## Install
+Use yarn
+`yarn add oo-loop`
+Use Npm
+`npm install oo-loop` 
