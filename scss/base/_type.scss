@@ -59,7 +59,7 @@ $hr-margins: 1.5rem !default;
 
     // add letter spacing for specific
     @if isNotEmpty($heading-letter-spacing) 
-        and inArray($heading, $$heading-letter-spacing-tags)
+        and inArray($heading, $heading-letter-spacing-tags)
     {
         letter-spacing: $heading-letter-spacing;
     }
