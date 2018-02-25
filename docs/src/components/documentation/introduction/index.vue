@@ -10,6 +10,10 @@
     <a class="ml-10" href="https://www.npmjs.com/package/oo-loop" title="See on NPM"><img src="https://img.shields.io/npm/v/oo-loop.svg?style=flat-square" alt="Latest version on NPM"></a></p>
     <div oo-column="row align-center">
       <div oo-column="col col-10@sm col-8@md col-6@lg">
+        <h3 class="h4">Introduction</h3>
+        <p>Have you never had a mockup to code and while making it with your go-to css framework you realized that you were only using 10% of it. You had to add your own utilities, your own components and when you tried to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for. Then, you started wondering if the framework you were using was a real fit.<br>
+        Loop has been developed to overcome this problem.</p>
+        <h3 class="h4">Loop</h3>
         <p>
           Loop wants to reconsider the way CSS is created and used, aiming to make it more maintainable, readable and expressive.
         </p>
@@ -18,11 +22,7 @@
           It is specifically based on variables to allow the addition and removal of rules and properties with ease.
         </p>
         <p>
-          Loop is not meant to be a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.
-        </p>
-        <p>
-          Anything specific to the project you're working on is for you to develop.<br>
-          Loop is here to help.
+          Loop is not a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.
         </p>
         
         <h3 class="h4">Semantic</h3>
