@@ -15,7 +15,7 @@
 
 ## Introduction
 Have you never had a mockup to code and while making it with your go-to css framework you realized that you were only using 10% of it. You had to add your own utilities, your own components and when you tried to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for. And then, you started to wonder if the framework you were using was a real fit.   
-Loop has been developed to overcome this problem.
+Loop has been developed out of that feeling to overcome this problem.
 
 Loop wants to reconsider the way CSS is created and used, aiming to make it more maintainable, readable and expressive.
 
