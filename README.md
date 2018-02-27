@@ -14,13 +14,13 @@
 [![npm](https://img.shields.io/npm/v/oo-loop.svg?style=flat-square)](https://www.npmjs.com/package/oo-loop)
 
 ## Introduction
-Have you never had a mockup to code and while making it with your go-to css framework you realized that you were only using 10% of it. You had to add your own utilities, your own components and when you tried to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for. And then, you started to wonder if the framework you were using was a real fit.   
+Have you never had a mockup to code and while making it with your go-to css framework you realized that you were only using 10% of it. You had to add your own utilities, your own components and when you tried to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for. Have you even started to wonder if the framework you were using was a real fit?.   
 Loop has been developed out of that feeling to overcome this problem.
 
 Loop wants to reconsider the way CSS is created and used, aiming to make it more maintainable, readable and expressive.
 
 Loop works towards flexibilty and customization to give the developer complete control on his project letting him create his own set of utilities.   
-It is specifically based on variables to allow the addition and removal of rules and properties with ease.
+It is specifically based on variables to facilitate the addition and removal of rules and properties.
 
 ## Loop
 Loop is not meant to be a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.

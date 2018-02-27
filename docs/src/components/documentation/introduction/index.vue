@@ -11,7 +11,7 @@
     <div oo-column="row align-center">
       <div oo-column="col col-10@sm col-8@md col-6@lg">
         <h3 class="h4">Introduction</h3>
-        <p>Have you never had a mockup to code and while making it with your go-to css framework you realized that you were only using 10% of it. You had to add your own utilities, your own components and when you tried to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for. And then, you started to wonder if the framework you were using was a real fit.<br>
+        <p>Have you never had a mockup to code and while making it with your go-to css framework you realized that you were only using 10% of it. You had to add your own utilities, your own components and when you tried to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for. Have you even started to wonder if the framework you were using was a real fit?<br>
         Loop has been developed out of that feeling to overcome this problem.</p>
         <h3 class="h4">Loop</h3>
         <p>
@@ -19,7 +19,7 @@
         </p>
         <p>
           Loop works towards flexibilty and customization to give the developer complete control on his project letting him create his own set of utilities.<br>
-          It is specifically based on variables to allow the addition and removal of rules and properties with ease.
+          It is specifically based on variables to facilitate the addition and removal of rules and properties.
         </p>
         <p>
           Loop is not a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.
