@@ -1,0 +1,20 @@
+/**
+ * Replace
+ * @param string $search  The value being searched
+ * @param string $replace The replacement value
+ * @parem string $subject The string being searched and replaced on
+ *
+ * @return string
+ */
+
+@function replace($search, $replace, $subject) {
+    $searchIndex: str-index($subject, $search);
+    @if type-of($search) == 'string' and type-of($replace) == 'string' and type-of($subject) == 'string' and $searchIndex {
+        $subjectStart: str-slice($subject, 1, $searchIndex - 1);
+        $subjectEnd: str-slice($subject, $searchIndex + str-length($search));
+        $newSubject: $subjectStart + $replace + $subjectEnd;
+        @return replace($search, $replace, $newSubject);
+    } @else {
+        @return $subject;
+    }
+}

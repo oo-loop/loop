@@ -28,10 +28,8 @@
  $font-weight-base: 400 !default;
  $line-height-base: 1.5 !default;
  $color-base:       #333 !default;
- $bgcolor-base:     #f9f9f9 !default;
+ $bgcolor-base:     #fff !default;
  $font-smoothing:   true !default;
-
- $font-family-secondary: 'Georgia', times, serif !default;
 
 
 /**
@@ -44,47 +42,65 @@
  $colors: (
     'primary':    $color-primary,
     'secondary':  $color-secondary,
-    'success':    #8cc63f,
-    'warning':    #fbb03b,
-    'danger':     #f72828,
-) !default;
+ ) !default;
 
  $colors-classes: (
     'primary',
     'secondary',
-    'success',
-    'warning',
-    'danger',
  ) !default;
+
+
+ /**
+ * Text Color
+ */
+ $text-colors: () !default;
+ $text-colors-classes: $colors-classes !default;
+ $text-colors-is-important: true !default;
+
+
+/**
+ * Background Color
+ */
+ $bg-colors: () !default;
+ $bg-colors-classes: $colors-classes !default;
+ $bg-colors-is-important: false !default;
+
+
+/**
+ * Border Color
+ */
+ $border-colors: () !default;
+ $border-colors-classes: $colors-classes !default;
+ $border-colors-is-important: true !default;
 
 
 /**
  * Typography
  */
+ $heading-font-sizes: (
+    'h1': (
+        :   3.6rem,
+        sm: 4.6rem,
+    ),
+    'h2': (
+        :   3.2rem,
+        sm: 3.8rem,
+    ),
+    'h3': 2.8rem,
+    'h4': 2.2rem,
+    'h5': 1.8rem,
+    'h6': 1.6rem,
+ ) !default;
+ $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
+
  $heading-color:           $color-base !default;
  $heading-font-family:     $font-family-base !default;
  $heading-font-weight:     500 !default;
  $heading-line-height:     1.125 !default;
  $heading-margin-top:      .2em !default;
  $heading-margin-bottom:   .45em !default;
-
- $h1-font-size: 4rem !default;
- $h2-font-size: 3.4rem !default;
- $h3-font-size: 2.8rem !default;
- $h4-font-size: 2.2rem !default;
- $h5-font-size: 1.8rem !default;
- $h6-font-size: 1.6rem !default;
-
- $heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
- $heading-font-sizes-breakpoints: (
-     sm: (
-         'h1': ($h1-font-size * 1.15), // 4.6rem
-         'h2': ($h2-font-size * 1.12), // 3.8rem
-     )
- ) !default;
-
- $heading-letter-spacing: -.1rem !default;
- $heading-letter-spacing-list: (h1, h2, h3) !default; // set empty if not needed
+ $heading-letter-spacing:  -.1rem !default;
+ $heading-letter-spacing-tags: () !default; // list of header (h1, h2) ...
 
  // Paragraph
  $paragraph-margin-bottom: 1.8rem !default;
@@ -111,6 +127,7 @@ $text-sizes: (
     'tiny':  1.2rem,
 ) !default;
 $text-sizes-breakpoints-classes: () !default;
+$text-sizes-is-important: true !default;
 
 
 /**
@@ -122,26 +139,36 @@ $text-sizes-breakpoints-classes: () !default;
      'center',
  ) !default;
  $text-alignments-breakpoints-classes: () !default;
+ $text-alignments-is-important: false !default;
 
 
 /**
  * Text Transform
  */
  $text-transforms: (
-     'capitalize',
-     'lowercase',
      'uppercase',
  ) !default;
  $text-transforms-breakpoints-classes: () !default;
+ $text-transforms-is-important: false !default;
 
 
 /**
  * Text Decoration
  */
- $text-decorations: (
-     'line-through',
- ) !default;
+ $text-decorations: () !default;
  $text-decorations-breakpoints-classes: () !default;
+ $text-decorations-is-important: false !default;
+
+
+/**
+ * Letter Spacing
+ */
+ $letter-spacings: (
+   'narrow': -.05rem,
+   'wide': .05rem,
+ ) !default;
+ $letter-spacings-breakpoints-classes: () !default;
+ $letter-spacings-is-important: false !default;
 
 
 /**
@@ -151,6 +178,7 @@ $text-sizes-breakpoints-classes: () !default;
      'italic',
  ) !default;
  $font-styles-breakpoints-classes: () !default;
+ $font-styles-is-important: false !default;
 
 
 /**
@@ -161,53 +189,19 @@ $text-sizes-breakpoints-classes: () !default;
      'bold':   700,
  ) !default;
  $font-weights-breakpoints-classes: () !default;
+ $font-weights-is-important: false !default;
 
 
 /**
  * Font Family
  */
+ $font-family-secondary: 'Georgia', times, serif !default;
  $font-families: (
      'primary': $font-family-base,
      'secondary': $font-family-secondary,
  ) !default;
  $font-families-breakpoints-classes: () !default;
-
-
-/**
- * Letter Spacing
- */
- $letter-spacings: (
-     'narrow': -.05rem,
-     'wide': .05rem,
- ) !default;
- $letter-spacings-breakpoints-classes: () !default;
-
-
-/**
- * Text Color
- */
- $text-colors: () !default;
- $text-colors-addon: () !default;
- $text-colors-classes: $colors-classes !default;
- $text-colors-is-important: true !default;
-
-
-/**
- * Background Color
- */
- $bg-colors: () !default;
- $bg-colors-addon: () !default;
- $bg-colors-classes: $colors-classes !default;
- $bg-colors-is-important: false !default;
-
-
-/**
- * Border Color
- */
- $border-colors: () !default;
- $border-colors-addon: () !default;
- $border-colors-classes: $colors-classes !default;
- $border-colors-is-important: true !default;
+ $font-families-is-important: false !default;
 
 
  /**
@@ -235,9 +229,7 @@ $text-sizes-breakpoints-classes: () !default;
  $columns-system: 12 !default;
  $columns-gutter-sizes: (
     'less' : 0,
-    'tiny' : .8rem,
     'small': 1.6rem,
-    'large': 4rem,
 ) !default;
 
  $use-columns-order:          true !default;
@@ -266,40 +258,38 @@ $text-sizes-breakpoints-classes: () !default;
 
 
 /**
- * Code
- */
- $code-bgcolor:         #f5f5f5 !default;
- $code-color:           $color-base !default;
- $code-highlight-color: #d85b43 !default;
-
-
-/**
  * Spacing
  */
+ $use-v-spacing:         true !default;
+ $v-spacing-from:        0 !default;
+ $v-spacing-to:          50 !default;
  $v-spacing-step:        5 !default;
- $v-spacing-limit:       50 !default;
+ $v-spacing-addon:       () !default;
  $v-spacing-breakpoints-classes: () !default;
 
+ $use-h-spacing:         true !default;
+ $h-spacing-from:        0 !default;
+ $h-spacing-to:          25 !default;
  $h-spacing-step:        5 !default;
- $h-spacing-limit:       25 !default;
+ $h-spacing-addon:       () !default;
  $h-spacing-breakpoints-classes: () !default;
 
 
 /**
  * Wrapper
  */
- $wrapper-padding: 2.4rem !default;
  $wrapper-padding-sizes: (
-     '':      $wrapper-padding,
-     'tiny' : .8rem,
-     'small': 1.6rem,
-     'large': 4rem,
+    'tiny':   .8rem,
+    'small':  1.6rem,
+    'medium': 2.4rem,
  ) !default;
+ $wrapper-breakpoints-classes: () !default;
 
 
 /**
  * Button
  */
+ $btn-colors: () !default;
  $btn-colors-classes: $colors-classes !default;
 
  $btn-color:          $color-base !default;
@@ -307,6 +297,7 @@ $text-sizes-breakpoints-classes: () !default;
  $btn-bgcolor:        #fff !default;
  $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
  $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
+ $btn-border-color:   #eee !default;
 
  $btn-padding:        .415em 1.2em !default; // relative to the size of the button
  $btn-font-family:    $font-family-base !default;
@@ -316,7 +307,7 @@ $text-sizes-breakpoints-classes: () !default;
  $btn-border-radius:  .2em !default; // relative to the size of the button
  $btn-box-shadow:     1px 1px 1px 0 #999 !default;
 
-
+ $btn-outline-colors:         $btn-colors !default;
  $btn-outline-colors-classes: $btn-colors-classes !default;
 
  $btn-outline-color:          $btn-color !default; // set inherit to get the colors from the borders
@@ -406,7 +397,12 @@ $text-sizes-breakpoints-classes: () !default;
 /**
  * Float utilities
  */
+ $float: (
+    'left': left,
+    'right': right,
+ ) !default;
  $float-breakpoints-classes: $breakpoints-classes !default;
+ $float-is-important: true !default;
 
 
 /**

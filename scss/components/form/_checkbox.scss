@@ -102,15 +102,11 @@ $checkbox-breakpoints-classes:() !default;
 			border-color: $checkbox-checked-border-color;
 		}
 	}
-	&:focus:not(.disabled) + label::after { @extend %inputFocus; }
-	&.disabled {
-		opacity: 0;
-		& + label::after { @extend %disabled; }
-	}
+	&:focus + label::after { @extend %inputFocus; }
 
 	@include checkbox-size($checkbox-size);
 
-	@if type-of($checkbox-sizes) == 'map' {
+	@if isMap($checkbox-sizes) {
 		@each $size_name, $size_value in $checkbox-sizes {
 			&[#{$loop-component-prefix}-form~="#{$size_name}"] { @include checkbox-size($size_value) }
 		}
@@ -127,6 +123,6 @@ $checkbox-breakpoints-classes:() !default;
 		}
 	}
 
-	@include loop($border-colors, 'border-color', '&[class*="border', $border-colors-addon, true, '"] + label::after');
+	@include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
 	@include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }

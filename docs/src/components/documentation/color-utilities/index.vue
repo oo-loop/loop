@@ -1,26 +1,26 @@
 <template>
 	<div>
 		<h1 class="title">Color Utilities</h1>
-		<p class="text-large">A bunch of handy utilities to customize colors on the fly, targeting text, background and border</p>
-		<p>Every colors set in the global variables <code class="color-info">$colors</code> are available.</p>
-		<p>Each utility is customizable through two main variables:</p>
-		<ul>
-			<li>The classes data variable matching whatever color name set in the variable<code class="color-info">$colors</code>.</li>
-			<li>The custom data variable allowing to add specific names and colors for that particular utility only.</li>
-		</ul>
+		<p class="text-large">A bunch of handy utilities to customize colors on the fly, targeting text, background, border and also svg.</p>
+		<p>Every colors set in the global variables <code class="color-info">$colors</code> are available. They can be easliy added to each utilities by calling the corresponding color names. Or by just calling the variable <code class="color-info">$colors-classes</code> supposedly listing every color names.</p>
+		<p><code class="color-info">$colors-classes</code> is just a handy way to use the same set of colors accross all utilities and components.</p>
 
-		<pretty-code class="language-css" :code="html.global"></pretty-code>
+		<pretty-code class="language-css" :code="html.varGlobal"></pretty-code>
+
+		<p>Changes those two variables at will.</p>
+
+		<pretty-code class="language-css" :code="html.varNewGlobal"></pretty-code>
 
 		<h3 id="text"><a href="#text">#</a> Text</h3>
 		<ul>
 			<li><code class="color-info">$text-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
 			<li><code class="color-info">$text-colors</code> Custom data</li>
 		</ul>
-		<pretty-code class="language-css" :code="html.textVariables"></pretty-code>
+		<pretty-code class="language-css" :code="html.varText"></pretty-code>
 		<p class="color-primary">Here is a short color-primary paragraph</p>
-		<p class="color-success">Here is a short color-success paragraph</p>
 		<p class="color-danger">Here is a short color-danger paragraph</p>
-		<a class="color-base" href="">Here is a color-base link allowing me to overwrite the default color of the link</a>
+		<p class="color-info">Here is a short color-info paragraph</p>
+		<p class="color-success">Here is a short color-success paragraph</p>
 
 		<pretty-code :code="html.text"></pretty-code>
 
@@ -29,12 +29,12 @@
 			<li><code class="color-info">$bg-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
 			<li><code class="color-info">$bg-colors</code> Custom data</li>
 		</ul>
-		<pretty-code class="language-css" :code="html.backgroundVariables"></pretty-code>
-		<div class="bg-primary wrapper -small">
-			<div class="bg-secondary wrapper -small">
-				<div class="bg-success wrapper -small">
-					<div class="bg-warning wrapper -small">
-						<div class="bg-danger wrapper -small">
+		<pretty-code class="language-css" :code="html.varBackground"></pretty-code>
+		<div class="bg-primary wrapper-small">
+			<div class="bg-secondary wrapper-small">
+				<div class="bg-success wrapper-small">
+					<div class="bg-warning wrapper-small">
+						<div class="bg-danger wrapper-small">
 							<div class="bg-body text-center text-small">
 								Background colors
 							</div>
@@ -52,10 +52,10 @@
 			<li><code class="color-info">$border-colors</code> Custom data</li>
 		</ul>
 
-		<div class="bordered border-primary wrapper -small">
-			<div class="bordered border-secondary wrapper -small">
-				<div class="bordered border-success wrapper -small">
-					<div class="bordered border-warning wrapper -small">
+		<div class="bordered border-primary wrapper-small">
+			<div class="bordered border-secondary wrapper-small">
+				<div class="bordered border-success wrapper-small">
+					<div class="bordered border-warning wrapper-small">
 						<div class="bordered border-danger text-center text-small">
 							Border colors
 						</div>
@@ -79,12 +79,13 @@ export default {
 	},
 	data: () => ({
 		html: {
-			global: require('./code/global.html'),
-			text: require('./code/text.html'),
-			textVariables: require('./code/text-variables.html'),
 			background: require('./code/background.html'),
-			backgroundVariables: require('./code/background-variables.html'),
 			border: require('./code/border.html'),
+			text: require('./code/text.html'),
+			varBackground: require('./code/var-background.html'),
+			varGlobal: require('./code/var-global.html'),
+			varNewGlobal: require('./code/var-new-global.html'),
+			varText: require('./code/var-text.html'),
 		}
 	}),
 	methods: {
@@ -92,6 +93,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-	@import '~loop/variables';
+<style lang="scss">
 </style>

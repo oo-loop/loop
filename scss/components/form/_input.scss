@@ -61,9 +61,7 @@ $label-margin:           .3rem !default;
 
     &:focus {
         outline:none;
-        &:not(.disabled) {
-            @extend %inputFocus;
-        }
+        @extend %inputFocus;
     }
 }
 

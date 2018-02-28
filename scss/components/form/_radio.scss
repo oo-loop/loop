@@ -72,15 +72,11 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         }
 	}
 
-    &:focus:not(.disabled) + label::after { @extend %inputFocus; }
-    &.disabled {
-        opacity: 0;
-        & + label::after { @extend %disabled; }
-    }
+    &:focus + label::after { @extend %inputFocus; }
 
     @include radio-size($radio-size);
 
-    @if type-of($radio-sizes) == 'map' {
+    @if isMap($radio-sizes) {
         @each $size_name, $size_value in $radio-sizes {
             &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
         }
@@ -97,6 +93,6 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
         }
     }
 
-    @include loop($border-colors, 'border-color', '&[class*="border', $border-colors-addon, true, '"] + label::after');
+    @include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
     @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }
