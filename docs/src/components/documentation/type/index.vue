@@ -1,10 +1,13 @@
 <template>
 	<div>
 		<h1 class="title">Typography</h1>
-		<p class="text-large">Modifies the base font size by rem.</p>
+		<p class="text-large">Modify the font-size based on rem.<br>
+		1rem = 10px (relative to 62.5% font-size)</p>
 
 		<h3 id="headings"><a href="#headings">#</a> Headings</h3>
-		<p>HTML headings, <markup>h1</markup> through <markup>h6</markup> as well as the classes <code>.h1</code> through <code>.h4</code>.<br>Add/remove classes to match your needs through the variable <code class="color-info">$heading-font-sizes-classes</code></p>
+		<p>HTML headings, <markup>h1</markup> through <markup>h6</markup> matching the set of font-sizes in <code class="color-info">$heading-font-sizes</code>.<br>
+		You can either modify the values by a unique size or a set of sizes mapping the breakpoints for responsive purpose.</p>
+
 
 		<h1>h1 Heading</h1>
 		<h2>h2 Heading</h2>
@@ -12,7 +15,13 @@
 		<h4>h4 Heading</h4>
 		<h5>h5 Heading</h5>
 		<h6>h6 Heading</h6>
+		
+		<pretty-code class="language-css" :code="html.varHeading"></pretty-code>
 
+		<h4>Heading classes</h4>
+		<p>Use the classes set in the variable <code class="color-info">$heading-font-sizes-classes</code>.<br>Add or remove values to match your need, by default </code><code>.h1</code> through <code>.h4</code>.</p>
+
+		<pretty-code class="language-css" :code="html.varHeadingClasses"></pretty-code>
 		<pretty-code :code="html.heading"></pretty-code>
 
 		<h3 id="text-elements"><a href="#text-elements">#</a> Text Elements</h3>
@@ -95,6 +104,8 @@ export default {
 			heading: require('./code/heading.html'),
 			list: require('./code/list.html'),
 			listCenter: require('./code/list-center.html'),
+			varHeading: require('./code/var-heading.html'),
+			varHeadingClasses: require('./code/var-heading-classes.html'),
 		}
 	}),
 	methods: {

@@ -55,7 +55,11 @@
 		<pretty-code class="mt-0" :code="html.stretch"></pretty-code>
 
 		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
-		<p>Change the space between the columns by adding one of the properties <code class="color-secondary">gutter-less</code> <code class="color-secondary">gutter-tiny</code> <code class="color-secondary">gutter-small</code> <code class="color-secondary">gutter-large</code>.<br>The modifier <code class="color-secondary">v-gutter-less</code> will remove the vertical gutter.</p>
+		<p>Change the space between the columns by adding one of the gutter properties present in the variable <code class="color-info">$columns-gutter-sizes</code> (default including <code class="color-secondary">gutter-less</code> <code class="color-secondary">gutter-small</code>).<br>
+		Change the values at your convenience to only match your needs.<br>
+		The modifier <code class="color-secondary">v-gutter-less</code> will remove the vertical gutter.</p>
+
+		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
 		<div oo-column="row gutter-large v-gutter-less">
 		    <div oo-column="col"><p class="cell">large</p></div>
@@ -73,14 +77,12 @@
 		    <div oo-column="col"><p class="cell">tiny</p></div>
 		</div>
 		<div oo-column="row gutter-less v-gutter-less">
-		    <div oo-column="col"><p class="cell">none</p></div>
-		    <div oo-column="col"><p class="cell">none</p></div>
-		    <div oo-column="col"><p class="cell">none</p></div>
+		    <div oo-column="col"><p class="cell">less</p></div>
+		    <div oo-column="col"><p class="cell">less</p></div>
+		    <div oo-column="col"><p class="cell">less</p></div>
 		</div>
 		<pretty-code :code="html.gutter"></pretty-code>
 
-		<p>Need more or less gutters? Change the array <code class="color-info">$columns-gutter-sizes</code> at your convenience to only match your needs.</p>
-		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>
 		<p>Rearrange the order the columns through the properties <code class="color-secondary">order-0@{$breakpoint}</code> to <code class="color-secondary">order-12@{$breakpoint}</code> according to the size of the screen.</p>

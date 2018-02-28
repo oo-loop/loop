@@ -3,28 +3,6 @@
 		<h1 class="title">Miscellaneous</h1>
 		<p class="text-large">A bunch of small handy utilities</p>
 
-		<h3 class="mt-35" id="disabled"><a href="#disabled">#</a> Disabled</h3>
-		<p>Add the class <code>.disabled</code> to a form element or button element to get a disabled <strong>look</strong>.<br>
-		if you really want to make the element disabled, please use the corresponding html attribute</p>
-
-		<input oo-form="input" class="disabled mb-10" disabled value="Disabled input">
-		<div oo-form="select" class="disabled mb-10">
-		  <select disabled>
-			<option value="1">Disabled option</option>
-		  </select>
-	  	</div>
-		<input oo-form="checkbox" class="disabled mb-10" id="checkbox-1" type="checkbox" disabled>
-		<label class="mb-10" for="checkbox-1">Disabled checkbox</label>
-
-		<input oo-form="radio" class="disabled" id="radio-1" type="radio" name="radio" disabled>
-		<label class="mb-10" for="radio-1">Disabled radio</label>
-
-		<a oo-button class="disabled mb-10">Disabled button</a><br>
-		<a oo-button="primary" class="disabled mb-10">Disabled primary button</a><br>
-		<button oo-button="success" class="disabled" disabled>Disabled success button</button>
-
-		<pretty-code :code="html.disabled"></pretty-code>
-
 		<h3 id="rounded"><a href="#rounded">#</a> Rounded</h3>
 		<p>Add the class <code>.rounded</code> to any elements</p>
 
@@ -33,7 +11,7 @@
 
 		<h3 class="mt-35" id="bordered"><a href="#bordered">#</a> Bordered</h3>
 		<p>Add the class <code>.bordered</code> to any elements</p>
-		<div class="wrapper rounded bordered">Rounded Bordered Block</div>
+		<div class="wrapper-medium rounded bordered">Rounded Bordered Block</div>
 
 		<h3 class="mt-35" id="full"><a href="#full">#</a> Full</h3>
 		<p>Add the class <code>.full</code> to any elements to take the full width of the parent container.</p>
@@ -59,9 +37,7 @@ export default {
 		logo
 	},
 	data: () => ({
-		html: {
-			disabled: require('./code/disabled.html'),
-		}
+		html: {}
 	}),
 	methods: {
 	}

@@ -18,6 +18,40 @@
 <style lang="scss">
     @import '~loop/variables';
 
+    $code-bgcolor:         #f5f5f5 !default;
+    $code-color:           $color-base !default;
+    $code-highlight-color: #d85b43 !default;
+
+    code {
+        padding: .2rem .5rem;
+        margin-left: .2rem;
+        margin-right: .2rem;
+
+        font-size: 85%;
+        color: $code-highlight-color;
+        white-space: nowrap;
+        background-color: $code-bgcolor;
+        border-radius: .4rem;
+    }
+
+    pre {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        padding: 1.4rem 2rem;
+
+        background-color: $code-bgcolor;
+        overflow: auto;
+
+        & > code {
+            padding: 0;
+            margin-left: 0;
+            margin-right: 0;
+            color:  $code-color;
+            white-space: pre;
+            border-radius: 0;
+        }
+    }
+
     $variable: #4198e2;
     $attribute: #bbe888;
     $value: #f36c44;

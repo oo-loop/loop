@@ -1,0 +1,53 @@
+/**
+ * isString
+ * @param string|list $data
+ * @return bool
+ */
+
+@function isString($data) {
+    @if type-of($data) == 'string'{
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
+@function isNotString($data) {
+    @return if(isString($data), false, true);
+}
+
+/**
+ * isList
+ * @param string|list $data
+ * @return bool
+ */
+
+@function isList($data) {
+    @if type-of($data) == 'list'{
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
+@function isNotList($data) {
+    @return if(isList($data), false, true);
+}
+
+/**
+ * isMap
+ * @param string|list $data
+ * @return bool
+ */
+
+@function isMap($data) {
+    @if type-of($data) == 'map'{
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
+@function isNotMap($data) {
+    @return if(isMap($data), false, true);
+}

@@ -16,9 +16,7 @@ $use-columns-self-adjustment-breakpoints: false !default;
 
 $columns-gutter-sizes: (
     'less' : 0,
-    'tiny' : .8rem,
     'small': 1.6rem,
-    'large': 4rem,
 ) !default;
 
 // row
@@ -47,8 +45,8 @@ $columns-gutter-sizes: (
     max-width: 100%;
 }
 
-// reponsives classes starting from null
-@each $class in $breakpoints-classes-from-start {
+// reponsives classes starting from default value
+@each $class in $breakpoints-classes-width-default-value {
     @include breakpoint($class) {
         $suffix: '';
         @if $class != '' {

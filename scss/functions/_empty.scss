@@ -4,12 +4,14 @@
  * @return bool
  */
 
+@import 'type';
+
 @function isEmpty($data) {
-    @if type-of($data) == 'string' and str-length($data) == 0 {
+    @if isString($data) and str-length($data) == 0 {
         @return true;
-    } @elseif type-of($data) == 'list' and length($data) == 0 {
+    } @elseif isList($data) and length($data) == 0 {
         @return true;
-    } @elseif {
+    } @else {
         @return false;
     }
 }

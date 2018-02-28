@@ -4,7 +4,7 @@
 		<p class="text-large">Based on hidden status</p>
 		<p>Hide elements <strong>from</strong> the breakpoints through the classes <code>.hidden</code> <code>.hidden@sm</code> <code>.hidden@md</code> <code>.hidden@lg</code><br>
 		(hidden, hidden at sm, hidden at md, hiddden at lg)</p>
-		<div class="bg-secondary wrapper -tiny text-center mb-30">
+		<div class="bg-secondary wrapper-tiny text-center mb-30">
 			<div oo-column="row gutter-tiny">
 				<div oo-column="col">
 					<div class="color-primary bordered">
@@ -82,7 +82,7 @@
 
 		<p>Hide elements <strong>up to</strong> the breakpoints through the classes <code>.hidden!@sm</code> <code>.hidden!@md</code> <code>.hidden!@lg</code><br>
 		(hidden not at sm, hidden not at md, hiddden not at lg)</p>
-		<div class="bg-secondary wrapper -tiny text-center mb-30">
+		<div class="bg-secondary wrapper-tiny text-center mb-30">
 			<div oo-column="row gutter-tiny">
 				<div oo-column="col">
 					<div class="bg-primary bordered"><br></div>
