@@ -4,15 +4,16 @@
 
 // vertical spacing
 $use-v-spacing: true !default;
+$v-spacing-from: 0 !default;
+$v-spacing-to:   50 !default;
 $v-spacing-step: 5 !default;
-$v-spacing-limit: 50 !default;
 $v-spacing-addon: () !default;
 $v-spacing-breakpoints-classes: () !default;
 
 // set default spacing
 $v-spacing: ();
-@for $i from 0 through ceil($v-spacing-limit / $v-spacing-step) {
-    $v-spacing: map-merge($v-spacing, (#{$i*5}: #{$i*5}px));
+@for $i from $v-spacing-from through ceil($v-spacing-to / $v-spacing-step) {
+    $v-spacing: map-merge($v-spacing, (#{$i*$v-spacing-step}: #{$i*$v-spacing-step}px));
 }
 
 // check if any custom sizes have been required
@@ -25,24 +26,26 @@ $v-spacing-addons: ();
 }
 
 @if ($use-v-spacing) {
-    @include loop($v-spacing, 'margin-top', '.mt', $v-spacing-addons, true);
-    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'margin-top', '.mt', $v-spacing-addons, true);
-    @include loop($v-spacing, 'margin-bottom', '.mb', $v-spacing-addons, true);
-    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacing, 'margin-bottom', '.mb', $v-spacing-addons, true);
+    $v-spacings: mergeArray($v-spacing, $v-spacing-addons);
+    @include loop($v-spacings, 'margin-top', '.mt', true);
+    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-top', '.mt', true);
+    @include loop($v-spacings, 'margin-bottom', '.mb', true);
+    @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-bottom', '.mb', true);
 }
 
 // horizontal spacing
 
 $use-h-spacing: true !default;
+$h-spacing-from: 0 !default;
+$h-spacing-to:   25 !default;
 $h-spacing-step: 5 !default;
-$h-spacing-limit: 25 !default;
 $h-spacing-addon: () !default;
 $h-spacing-breakpoints-classes: () !default;
 
 // set default spacing
 $h-spacing: ();
-@for $i from 0 through ceil($h-spacing-limit / $h-spacing-step) {
-    $h-spacing: map-merge($h-spacing, (#{$i*5}: #{$i*5}px));
+@for $i from $h-spacing-from through ceil($h-spacing-to / $h-spacing-step) {
+    $h-spacing: map-merge($h-spacing, (#{$i*$h-spacing-step}: #{$i*$h-spacing-step}px));
 }
 
 // check if any custom sizes have been required
@@ -55,8 +58,9 @@ $h-spacing-addons: ();
 }
 
 @if ($use-h-spacing) {
-    @include loop($h-spacing, 'margin-left', '.ml', $h-spacing-addons, true);
-    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'margin-left', '.ml', $h-spacing-addons, true);
-    @include loop($h-spacing, 'margin-right', '.mr', $h-spacing-addons, true);
-    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacing, 'margin-right', '.mr', $h-spacing-addons, true);
+    $h-spacings: mergeArray($h-spacing, $h-spacing-addons);
+    @include loop($h-spacings, 'margin-left', '.ml', true);
+    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-left', '.ml', true);
+    @include loop($h-spacings, 'margin-right', '.mr', true);
+    @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-right', '.mr', true);
 }

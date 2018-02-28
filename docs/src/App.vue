@@ -112,10 +112,6 @@ export default {
 						route: '#input'
 					},
 					{
-						name: 'Group',
-						route: '#group'
-					},
-					{
 						name: 'Select',
 						route: '#select'
 					},
@@ -165,10 +161,6 @@ export default {
 						route: '#sizes'
 					},
 					{
-						name: 'Weights',
-						route: '#weights'
-					},
-					{
 						name: 'Alignments',
 						route: '#alignments'
 					},
@@ -187,6 +179,10 @@ export default {
 					{
 						name: 'Styles',
 						route: '#styles'
+					},
+					{
+						name: 'Weights',
+						route: '#weights'
 					},
 					{
 						name: 'Families',
@@ -281,15 +277,41 @@ export default {
 }
 </script>
 <style lang="scss">
+	$color-primary:   #6cd7f7;
+	$color-secondary: #254F67;
+	$colors: (
+		'primary':    $color-primary,
+		'secondary':  $color-secondary,
+		'success':    #8cc63f,
+		'warning':    #fbb03b,
+		'danger':     #f72828,
+	);
+	$colors-classes: (
+		'primary',
+		'secondary',
+		'success',
+		'warning',
+		'danger',
+	);
+
 	// some variables
 	@import '~loop/variables';
-	$text-colors-addon: (
-		'base': $color-base,
-		'info': #2689ef,
+	$bg-colors: (
+    	'body' : $bgcolor-base,
 	);
-	$bg-colors-addon: (
-  		'body' : $bgcolor-base,
+	$text-colors: (
+	    'info': #2689ef,
+	    'gray': #999,
+	    'success': #3fc65c,
+  	);
+  	$btn-colors: (
+	  'nectarine':  #ffbe76,
+	  'yellow':     #fffa65,
+	  'salmon':     #ffb8b8,
+	  'purple':     #8e44ad,
+	  'green-sea':  #16a085,
 	);
+
 	$text-alignments-breakpoints-classes: ('sm', 'lg');
 
 	$checkbox-sizes:(
@@ -310,15 +332,13 @@ export default {
 	$input-padding-sizes: (
 		'large': 2rem,
 	);
-	$wrapper-padding-addon: (
-		'wide' : (
-			'': 2rem,
-			sm: 3.2rem,
-		    md: 4.6rem,
-		    lg: 6rem,
-		),
-	);
 
+	$columns-gutter-sizes: (
+	    'less' : 0,
+	    'tiny' : .8rem,
+	    'small': 1.6rem,
+	    'large': 4rem,
+	);
 	$use-columns-self-adjustment-breakpoints: true;
 
 	@import '~loop/loop';
@@ -331,6 +351,10 @@ export default {
 	.sidebar {
 		top: 0;
 		position: sticky;
+		overflow: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+
 		margin-left: -#{$sidebar-size};
 		flex-basis: $sidebar-size;
 		max-width: 	$sidebar-size;
@@ -377,12 +401,12 @@ export default {
     }
 
     .title {
-    	font-size: 4rem;
+    	font-size: 3.2rem;
 		font-weight: 700;
 		text-align: center;
 
 		@include breakpoint(sm) {
-			font-size: 6rem;
+			font-size: 5rem;
 			text-align: left;
 		}
     }
