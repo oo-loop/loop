@@ -96,11 +96,7 @@ $select-themes: (
         }
     }
 
-    &.disabled > select {
-        @extend %disabled;
-    }
-
-    @if isNotEmpty($select-themes) and type-of($select-themes) == 'map' {
+    @if isNotEmpty($select-themes) and isMap($select-themes) {
         @each $theme-name, $theme in $select-themes {
             &[#{$loop-component-prefix}-form~="#{$theme-name}"] {
                 @include selectTheme($theme);

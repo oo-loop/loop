@@ -1,16 +1,4 @@
-$wrapper-padding-sizes: (
-  '':      $wrapper-padding,
-  'tiny':  .8rem,
-  'small': 1.6rem,
-  'large': 4rem,
-
-  /*
-   * map data, set of values
-   */
-  'wide': (
-    '': 2rem,     /* empty for default */
-    sm: 3.2rem,   /* at breakpoint sm */
-    md: 4.6rem,   /* at breakpoint md */
-    lg: 6rem,     /* at breakpoint lg */
-  ),
-) !default;
+<!-- responsive wrapper -->
+<div class="wrapper-tiny wrapper-small@sm wrapper-medium@md wrapper-tiny@lg bg-secondary">
+  <div class="bg-primary"></div>
+</div>

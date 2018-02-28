@@ -6,58 +6,132 @@
 
 		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
 		<p>Quickly change the size of the text. Three sizes as default.</p>
-		<code>.text-large</code><p class="text-large">Text large Lorem ipsum dolor sit amet.</p>
-		<code>.text-small</code><p class="text-small">Text small Lorem ipsum dolor sit amet.</p>
-		<code>.text-tiny</code><p class="text-tiny">Text tiny Lorem ipsum dolor sit amet.</p>
-		<p>Need more or need less? Change the array <code class="color-info">$text-sizes</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.fontSizes"></pretty-code>
+		<code>.text-large</code><p class="text-large color-gray">Text large Lorem ipsum dolor sit amet.</p>
+		<code>.text-small</code><p class="text-small color-gray">Text small Lorem ipsum dolor sit amet.</p>
+		<code>.text-tiny</code><p class="text-tiny color-gray">Text tiny Lorem ipsum dolor sit amet.</p>
+		<p>Need more or need less? Change the set <code class="color-info">$text-sizes</code> at your convenience.</p>
+		<pretty-code class="language-css" :code="html.varFontSizes"></pretty-code>
+
+		<h4>Responsive text</h4>
+		<p>Assign the needed breakpoint to the variables <code class="color-info">$text-sizes-breakpoints-classes</code></p>
+		<pretty-code class="language-css" :code="html.varFontSizesBreakpoint"></pretty-code>
 
 		<h3 id="alignments"><a href="#alignments">#</a> Alignments</h3>
 		<p>Easily change the aligment of the text through the classes <code>.text-left</code> <code>.text-right</code> <code>.text-center</code>.<br>Modify the list of <code class="color-info">$text-alignments</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.textAlignments"></pretty-code>
+		<pretty-code class="language-css" :code="html.varTextAlignments"></pretty-code>
 		<p>Need to have different text alignments for responsive purpose?<br>Add the necessary breakpoints to the list <code class="color-info">$text-alignments-breakpoints-classes</code> and the classes such as <code>text-center@sm</code> <code>text-center@md</code> will be generated</p>
-		<pretty-code class="language-css" :code="html.textAlignmentsResponsive"></pretty-code>
-		<p class="text-center text-left@sm text-center@lg">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
-		<pretty-code :code="html.textAlignmentsSample"></pretty-code>
+		<pretty-code class="language-css" :code="html.varTextAlignmentsBreakpoint"></pretty-code>
+		<p class="text-center text-left@sm text-center@lg color-gray">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
+		<pretty-code :code="html.textAlignments"></pretty-code>
 
 		<h3 id="transforms"><a href="#transforms">#</a> Transforms</h3>
-		<p>Change the capitalization of the text through the classes <code>.text-uppercase</code> <code>.text-lowercase</code> <code>.text-capitalize</code>.<br>The variable <code class="color-info">$text-transforms</code> is available if you want to change the options.</p>
-		<p class="text-lowercase">This is a lowercase text.</p>
-		<p class="text-uppercase">This is an uppercase text.</p>
-		<p class="text-capitalize">This is a capitalize text</p>
+		<p>Change the capitalization of the text through the class <code>.text-uppercase</code>.</p>
+		<p class="text-uppercase color-gray">This is an uppercase text.</p>
 		<pretty-code :code="html.textTransforms"></pretty-code>
+		<p>The variable <code class="color-info">$text-transforms</code> is available if you want to change the options. Any values from the property <code class="color-success">text-transform:</code> can be assigned</p>
+		<pretty-code class="language-css" :code="html.varTextTransforms"></pretty-code>
+		<p class="text-lowercase color-gray">Lowercase text is now available.</p>
+		<p class="text-capitalize color-gray">Capitalize text is now available.</p>
+		<pretty-code :code="html.textTransformsNew"></pretty-code>
+
+		<h4>Responsive text-transform</h4>
+		<p>Assign the needed breakpoint to the variables <code class="color-info">$text-transforms-breakpoints-classes</code>.<br>
+		Get <code>.text-uppercase@lg</code>...</p>
 
 		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
-		<p>Change the decoration of the text through the class <code>.text-line-through</code>
-		<br>The variable <code class="color-info">$text-decorations</code> is available if you want to change the options.</p>
-		<p class="text-line-through">This is a line-through text.</p>
+		<p>Change the decoration of the text</p>
+		<ul>
+			<li><code class="color-info">$text-decorations</code> Variable to set preferences (<strong>empty</strong> from start)</li>
+			<li><code class="color-success">text-decoration:</code> Property based on</li>
+			<li><code>.text-{$decorationName}</code> Classes generated</li>
+		</ul>
+		<pretty-code class="language-css" :code="html.varTextDecorations"></pretty-code>
+		<p class="text-line-through color-gray">This is a line-through text.</p>
+		<p class="text-underline color-gray">This is an underline text.</p>
 		<pretty-code :code="html.textDecorations"></pretty-code>
-
-		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
-		<p>Change the style of the text through the class <code>.text-italic</code>
-		<br>The variable <code class="color-info">$font-styles</code> is available if you want to change the options.</p>
-		<p class="text-italic">This is an italic text.</p>
-		<pretty-code :code="html.fontStyles"></pretty-code>
+		<h4>Responsive</h4>
+		<ul class="mb-25">
+			<li><code class="color-info">$text-decorations-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.text-{$decorationName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
-		<p>Change the letter-spacing of the text through classes such as <code>.letter-spacing-${name}</code></p>
-		<code>.letter-spacing-narrow</code><p class="letter-spacing-narrow">Text strong Lorem ipsum dolor sit amet.</p>
-		<code>.letter-spacing-wide</code><p class="letter-spacing-wide">Text light Lorem ipsum dolor sit amet.</p>
-		<p>Set the array <code class="color-info">$letter-spacings</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.letterSpacings"></pretty-code>
+		<p>Change the letter-spacing of the text.</p>
+		<ul class="mb-25">
+			<li><code class="color-info">$letter-spacings</code> Variable to set preferences (<strong>map format</strong>, default including <code class="color-success">narrow</code> <code class="color-success">wide</code>)</li>
+			<li><code class="color-success">letter-spacing:</code> Property based on</li>
+			<li><code>.letter-spacing-{$letterSpacingName}</code> Classes generated.</li>
+		</ul>
+
+		<pretty-code class="language-css" :code="html.varLetterSpacings"></pretty-code>
+
+		<p class="letter-spacing-narrow color-gray">Text with narrow letter spacing.</p>
+		<p class="letter-spacing-wide color-gray">Text with wide letter spacing.</p>
+		<p class="letter-spacing-wider color-gray">Text width wider letter spacing.</p>
+		<pretty-code :code="html.letterSpacings"></pretty-code>
+
+		<h4>Responsive</h4>
+		<ul class="mb-25">
+			<li><code class="color-info">$letter-spacings-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.letter-spacing-{letterSpacingName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
+
+		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
+		<p>Change the style of the font.</p>
+		<ul>
+			<li><code class="color-info">$font-styles</code> Variable to set preferences</li>
+			<li><code class="color-success">font-style:</code> Property based on</li>
+			<li><code>.font-{$styleName}</code> Classes generated. (default including <code>italic</code>)</li>
+		</ul>
+		<pretty-code class="language-css" :code="html.varFontStyles"></pretty-code>
+		<p class="font-italic color-gray">This is an italic text.</p>
+		<pretty-code :code="html.fontStyles"></pretty-code>
+
+		<h4>Responsive</h4>
+		<ul class="mb-25">
+			<li><code class="color-info">$font-styles-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.font-{$styleName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
-		<p>Quickly change the weight of the text. Two sizes as default.</p>
-		<code>.font-bold</code><p class="font-bold">This paragraph font weight is bold.</p>
-		<code>.font-light</code><p class="font-light">This paragraph font weight is light.</p>
-		<p>Need more or need less? Change the array <code class="color-info">$font-weights</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.fontWeights"></pretty-code>
+		<p>Quickly change the weight of the font.</p>
+		<ul>
+			<li><code class="color-info">$font-weights</code> Variable to set preferences (default including <code class="color-success">light</code> <code class="color-success">bold</code>)</li>
+			<li><code class="color-success">font-weight:</code> Property based on</li>
+			<li><code>.font-{$weightName}</code> Classes generated.</li>
+		</ul>
+
+		<pretty-code class="language-css" :code="html.varFontWeights"></pretty-code>
+
+		<p class="font-thin color-gray">This paragraph font weight is thin.</p>
+		<p class="font-light color-gray">This paragraph font weight is light.</p>
+		<p class="font-bold color-gray">This paragraph font weight is bold.</p>
+
+		<pretty-code :code="html.fontWeights"></pretty-code>
+
+		<h4>Responsive</h4>
+		<ul class="mb-25">
+			<li><code class="color-info">$font-weights-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.font-{$weightName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 		<h3 id="families"><a href="#families">#</a> Families</h3>
-		<p>Set the font family of your text through the classes <code>.font-primary</code> <code>.font-secondary</code>.<br>Modify the list of <code class="color-info">$font-families</code> at your convenience.</p>
-		<pretty-code class="language-css" :code="html.fontFamilies"></pretty-code>
-		<p class="font-secondary">This paragraph is using a serif font set as secondary</p>
-		<pretty-code :code="html.fontFamiliesSample"></pretty-code>
+		<p>Set the font family of the text.</p>
+		<ul class="mb-25">
+			<li><code class="color-info">$font-families</code> Variable to set preferences (<strong>map format</strong>, default including <code class="color-success">primary</code> <code class="color-success">secondary</code>)</li>
+			<li><code class="color-success">font-family:</code> Property based on</li>
+			<li><code>.font-{$familyName}</code> Classes generated.</li>
+		</ul>
+
+		<pretty-code class="language-css" :code="html.varFontFamilies"></pretty-code>
+		<p class="font-secondary color-gray">This paragraph is using a serif font set as secondary</p>
+		<pretty-code :code="html.fontFamilies"></pretty-code>
+
+		<h4>Responsive</h4>
+		<ul class="mb-25">
+			<li><code class="color-info">$font-families-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
+			<li><code>.font-{$familyName}@{$breakpoint}</code> Classes generated</li>
+		</ul>
 
 	</div>
 </template>
@@ -74,17 +148,24 @@ export default {
 	},
 	data: () => ({
 		html: {
-			fontSizes: require('./code/font-sizes.html'),
 			fontWeights: require('./code/font-weights.html'),
-			textAlignments: require('./code/text-alignments.html'),
-			textAlignmentsResponsive: require('./code/text-alignments-responsive.html'),
-			textAlignmentsSample: require('./code/text-alignments-sample.html'),
-			textTransforms: require('./code/text-transforms.html'),
-			textDecorations: require('./code/text-decorations.html'),
 			letterSpacings: require('./code/letter-spacings.html'),
-			fontStyles: require('./code/font-styles.html'),
+			textAlignments: require('./code/text-alignments.html'),
+			textTransforms: require('./code/text-transforms.html'),
+			textTransformsNew: require('./code/text-transforms-new.html'),
+			textDecorations: require('./code/text-decorations.html'),
+			varLetterSpacings: require('./code/var-letter-spacings.html'),
 			fontFamilies: require('./code/font-families.html'),
-			fontFamiliesSample: require('./code/font-families-sample.html'),
+			fontStyles: require('./code/font-styles.html'),
+			varFontFamilies: require('./code/var-font-families.html'),
+			varFontSizes: require('./code/var-font-sizes.html'),
+			varFontSizesBreakpoint: require('./code/var-font-sizes-breakpoint.html'),
+			varFontStyles: require('./code/var-font-styles.html'),
+			varFontWeights: require('./code/var-font-weights.html'),
+			varTextAlignments: require('./code/var-text-alignments.html'),
+			varTextAlignmentsBreakpoint: require('./code/var-text-alignments-breakpoint.html'),
+			varTextDecorations: require('./code/var-text-decorations.html'),
+			varTextTransforms: require('./code/var-text-transforms.html'),
 		}
 	}),
 	methods: {
@@ -93,4 +174,20 @@ export default {
 </script>
 
 <style lang="scss">
+	@import "~loop/mixins/loop";
+	$text-decorations: (
+	  'line-through',
+	  'underline',
+	);
+	@include loop($text-decorations, 'text-decoration', '.text');
+	$letter-spacings: (
+	  'wider': .1rem,
+	);
+	@include loop($letter-spacings, 'letter-spacing', '.letter-spacing');
+
+	$font-weights: (
+	  'thin':   100,
+	);
+	@include loop($font-weights, 'font-weight', '.font');
+
 </style>
