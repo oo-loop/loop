@@ -25,10 +25,7 @@ Loop wants to reconsider the way CSS is created and used, aiming to make it more
 Loop works towards flexibilty and customization to give the developer complete control on his project letting him create his own set of utilities.   
 It is specifically based on variables to facilitate the addition and removal of rules and properties.
 
-Loop is not meant to be a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.
-
-Anything specific to the project you're working on is for you to develop.   
-Loop is here to help.
+Loop is not a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.
 
 ## Semantic
 Loop differentiates components and utilities with semantic for more clarity
