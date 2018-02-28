@@ -347,6 +347,7 @@ $text-sizes-breakpoints-classes: () !default;
  $input-border-radius:    .2em !default; // relative to the size of the input
  $input-box-shadow:       1px 1px 1px 0 rgba(#aaa, .50) !default;
  $input-focus-box-shadow: 1px 1px 2px 0px rgba(#aaa, .85) !default;
+ $input-focus-border-color: $input-border-color !default;
 
  $label-font-weight:      500 !default;
  $label-margin:           .3rem !default;
