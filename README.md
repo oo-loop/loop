@@ -6,7 +6,7 @@
 <em>"Why go in circles?"</em>
 <br>
 <br>
-<strong>CSS Framework for Front-end Developer</strong>
+<strong>CSS Companion for Front-end Developer</strong>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  
@@ -14,7 +14,8 @@
 [![npm](https://img.shields.io/npm/v/oo-loop.svg?style=flat-square)](https://www.npmjs.com/package/oo-loop)
 
 ## Introduction
-Have you never had a mockup to code and while making it with your go-to css framework you realized that you were only using 10% of it. You had to add your own utilities, your own components and when you tried to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for. Have you even started to wonder if the framework you were using was a real fit?.   
+Have you ever worked on a project with your go-to css framework realizing that you were only using 10% of it. You had to add your own utilities, your own components and when trying to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for.   
+Have you ever wonder if the framework you were using was a real fit?.   
 Loop has been developed out of that feeling to overcome this problem.
 
 Loop wants to reconsider the way CSS is created and used, aiming to make it more maintainable, readable and expressive.
