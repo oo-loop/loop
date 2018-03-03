@@ -36,10 +36,10 @@
 		<prettyCode class="language-css language-scss" :code="html.borderRadiusStep8" />
 		<p>Let's apply them to our buttons again</p>
 		
-		<button oo-button class="radius-top-large">Button 1</button>
-		<button oo-button class="radius-top-large">Button 2</button>
-		<button oo-button="primary" class="radius-bottom-large">Button 3</button>
-		<button oo-button="primary" class="radius-bottom-large">Button 4</button>
+		<button oo-button class="radius-top-small">Small Radius Top</button>
+		<button oo-button class="radius-top-large">Large Radius Top</button>
+		<button oo-button="primary" class="radius-bottom-small">Small Radius Bottom</button>
+		<button oo-button="primary" class="radius-bottom-large">Large Radius Bottom</button>
 
 	</div>
 </template>
@@ -76,7 +76,7 @@ export default {
 	@import '~loop/mixins/loop';
 
 	$border-radius: (
-	  'small':  .5rem,
+	  'small':  .8rem,
 	  'large':  1.5rem,
 	);
 	@include loop($border-radius, 'border-radius', '.radius', true);
