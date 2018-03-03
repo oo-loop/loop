@@ -99,7 +99,7 @@
             .pun + .pln {
                 color: #fff;
             }
-            .kwd { color: #cb82f1 }
+            .kwd { color: #b58de0 }
             .lit + .pln + .kwd { color: $value; }
         }
     }

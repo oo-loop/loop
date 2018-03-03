@@ -24,7 +24,7 @@
 		<p>Let's set important flag to true to be able to overwrite anything.</p>
 		<prettyCode class="language-scss" :code="html.borderRadiusStep4" />
 		<prettyCode class="language-css language-scss" :code="html.borderRadiusStep5" />
-		<p>Let's apply it to our buttons</p>
+		<p>Let's apply them to our buttons</p>
 
 		<button oo-button class="radius-small">Small Radius</button>
 		<button oo-button class="radius-large">Large Radius</button>
@@ -34,7 +34,13 @@
 
 		<prettyCode class="language-scss" :code="html.borderRadiusStep7" />
 		<prettyCode class="language-css language-scss" :code="html.borderRadiusStep8" />
+		<p>Let's apply them to our buttons again</p>
 		
+		<button oo-button class="radius-top-large">Button 1</button>
+		<button oo-button class="radius-top-large">Button 2</button>
+		<button oo-button="primary" class="radius-bottom-large">Button 3</button>
+		<button oo-button="primary" class="radius-bottom-large">Button 4</button>
+
 	</div>
 </template>
 
@@ -71,7 +77,6 @@ export default {
 
 	$border-radius: (
 	  'small':  .5rem,
-	  'medium': 1rem,
 	  'large':  1.5rem,
 	);
 	@include loop($border-radius, 'border-radius', '.radius', true);
@@ -79,6 +84,11 @@ export default {
 		$border-radius,
 		('border-top-right-radius', 'border-top-left-radius'),
 		'.radius-top',
+		true
+	);@include loop(
+		$border-radius,
+		('border-bottom-right-radius', 'border-bottom-left-radius'),
+		'.radius-bottom',
 		true
 	);
 </style>
