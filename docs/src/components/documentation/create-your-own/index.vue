@@ -13,6 +13,23 @@
 			<li><code class="color-info">$isImportant</code>Css <strong class="color-danger">!important</strong> rule to add to your values. <em>(Optional)</em></li>
 			<li><code class="color-info">$suffix</code>Css selector to finish with. <em>(Optional)</em></li>
 		</ul>
+
+		<h4>Border radius sample</h4>
+		<p>Let's say your project contains various types of border-radius and you decide to make a set of utilities to simplify its use. Let's use the loop mixin to facilate its creation and expansion.</p>
+
+		<prettyCode class="language-css mb-0" :code="html.borderRadiusStep1" />
+		<prettyCode class="language-scss mt-0" :code="html.borderRadiusStep2" />
+		<p>This will generate</p>
+		<prettyCode class="language-css language-scss" :code="html.borderRadiusStep3" />
+		<p>Let's set important flag to true to be able to overwrite anything.</p>
+		<prettyCode class="language-scss" :code="html.borderRadiusStep4" />
+		<prettyCode class="language-css language-scss" :code="html.borderRadiusStep5" />
+		<p>Let's apply it to our buttons</p>
+
+		<button oo-button="secondary" class="radius-small">Small Radius</button>
+		<button oo-button="secondary" class="radius-medium">Medium Radius</button>
+		<button oo-button="secondary" class="radius-large">Large Radius</button>
+		<prettyCode :code="html.borderRadiusStep6" />
 	</div>
 </template>
 
@@ -29,6 +46,12 @@ export default {
 	data: () => ({
 		html: {
 			loopMixin: require('./code/loop-mixin.html'),
+			borderRadiusStep1: require('./code/border-radius-step1.html'),
+			borderRadiusStep2: require('./code/border-radius-step2.html'),
+			borderRadiusStep3: require('./code/border-radius-step3.html'),
+			borderRadiusStep4: require('./code/border-radius-step4.html'),
+			borderRadiusStep5: require('./code/border-radius-step5.html'),
+			borderRadiusStep6: require('./code/border-radius-step6.html'),
 		}
 	}),
 	methods: {}
@@ -37,4 +60,12 @@ export default {
 
 <style lang="scss" scoped>
 	
+	@import '~loop/mixins/loop';
+
+	$border-radius: (
+	  'small':  .5rem,
+	  'medium': 1rem,
+	  'large':  1.5rem,
+	);
+	@include loop($border-radius, 'border-radius', '.radius', true);
 </style>

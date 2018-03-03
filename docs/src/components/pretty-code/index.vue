@@ -95,5 +95,12 @@
             .str { color: $attribute; }
             .lit + .pln { color: #d4864a; }
         }
+        &.language-css.language-scss{
+            .pun + .pln {
+                color: #fff;
+            }
+            .kwd { color: #cb82f1 }
+            .lit + .pln + .kwd { color: $value; }
+        }
     }
 </style>
