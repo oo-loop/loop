@@ -258,6 +258,12 @@ export default {
 				name: 'Miscellaneous',
 				route: 'miscellaneous',
 				subMenu: []
+			},
+			{
+				name: 'Create Your Own',
+				route: 'create-your-own',
+				label: '@',
+				subMenu: []
 			}
 		],
 		isMenuOpen: false,
