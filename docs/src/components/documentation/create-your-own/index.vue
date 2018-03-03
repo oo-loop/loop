@@ -4,7 +4,7 @@
 		<p class="text-large">Use the loop mixins to create your own set of utilities</p>
 		<p>Loop is only covering general purposes to avoid overloading the developer with superfluous or too specific utilities. However, the loop mixins are at disposal to create your own set to match your needs.</p>
 
-		<h3 id="@loop"><a href="#@loop">#</a> The @loop mixin</h3>
+		<h3 id="loop-mixin"><a href="#loop-mixin">#</a> The loop mixin</h3>
 		<prettyCode class="language-scss" :code="html.loopMixin" />
 		<ul>
 			<li><code class="color-info">$data</code>Css values</li>
@@ -27,7 +27,6 @@
 		<p>Let's apply it to our buttons</p>
 
 		<button oo-button class="radius-small">Small Radius</button>
-		<button oo-button class="radius-medium">Medium Radius</button>
 		<button oo-button class="radius-large">Large Radius</button>
 		<prettyCode :code="html.borderRadiusStep6" />
 
