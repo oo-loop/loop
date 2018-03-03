@@ -7,7 +7,11 @@
 					<ul class="list-unstyle font-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
-							<span class="color-secondary text-tiny"  v-if="item.label">{{item.label}}</span>
+							<span 
+								v-if="item.label"
+								class="text-tiny"
+								:class="item.labelClass ? item.labelClass : ''"
+							>{{item.label}}</span>
 							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
 								<li v-for="subItem in item.subMenu">
 									<template v-if="subItem.route.indexOf('#') > -1">
@@ -49,6 +53,7 @@ export default {
 				name: 'Column',
 				route: 'column',
 				label: 'oo',
+				labelClass: 'color-secondary',
 				subMenu: [
 					{
 						name: 'Responsive',
@@ -72,6 +77,7 @@ export default {
 				name: 'Grid',
 				route: 'grid',
 				label: 'oo',
+				labelClass: 'color-secondary',
 				subMenu: [
 					{
 						name: 'Responsive',
@@ -87,6 +93,7 @@ export default {
 				name: 'Button',
 				route: 'button',
 				label: 'oo',
+				labelClass: 'color-secondary',
 				subMenu: [
 					{
 						name: 'Sizes',
@@ -106,6 +113,7 @@ export default {
 				name: 'Form',
 				route: 'form',
 				label: 'oo',
+				labelClass: 'color-secondary',
 				subMenu: [
 					{
 						name: 'Input',
@@ -263,6 +271,7 @@ export default {
 				name: 'Create Your Own',
 				route: 'create-your-own',
 				label: '@',
+				labelClass: 'color-danger',
 				subMenu: []
 			}
 		],
