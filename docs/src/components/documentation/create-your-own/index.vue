@@ -26,10 +26,16 @@
 		<prettyCode class="language-css language-scss" :code="html.borderRadiusStep5" />
 		<p>Let's apply it to our buttons</p>
 
-		<button oo-button="secondary" class="radius-small">Small Radius</button>
-		<button oo-button="secondary" class="radius-medium">Medium Radius</button>
-		<button oo-button="secondary" class="radius-large">Large Radius</button>
+		<button oo-button class="radius-small">Small Radius</button>
+		<button oo-button class="radius-medium">Medium Radius</button>
+		<button oo-button class="radius-large">Large Radius</button>
 		<prettyCode :code="html.borderRadiusStep6" />
+
+		<p>Now we realize that we also need to apply those radius utilities to top and bottom only.</p> 
+
+		<prettyCode class="language-scss" :code="html.borderRadiusStep7" />
+		<prettyCode class="language-css language-scss" :code="html.borderRadiusStep8" />
+		
 	</div>
 </template>
 
@@ -52,6 +58,8 @@ export default {
 			borderRadiusStep4: require('./code/border-radius-step4.html'),
 			borderRadiusStep5: require('./code/border-radius-step5.html'),
 			borderRadiusStep6: require('./code/border-radius-step6.html'),
+			borderRadiusStep7: require('./code/border-radius-step7.html'),
+			borderRadiusStep8: require('./code/border-radius-step8.html'),
 		}
 	}),
 	methods: {}
@@ -68,4 +76,10 @@ export default {
 	  'large':  1.5rem,
 	);
 	@include loop($border-radius, 'border-radius', '.radius', true);
+	@include loop(
+		$border-radius,
+		('border-top-right-radius', 'border-top-left-radius'),
+		'.radius-top',
+		true
+	);
 </style>

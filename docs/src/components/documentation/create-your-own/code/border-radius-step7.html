@@ -1,0 +1,16 @@
+/**
+ * Pass a list of properties
+ */
+@include loop(
+  $border-radius,
+  ('border-top-right-radius', 'border-top-left-radius'),
+  '.radius-top',
+  true
+);
+
+@include loop(
+  $border-radius,
+  ('border-bottom-right-radius', 'border-bottom-left-radius'),
+  '.radius-bottom',
+  true
+);
