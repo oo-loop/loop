@@ -22,8 +22,8 @@ $columns-gutter-sizes: (
 // row
 [#{$loop-component-prefix}-column~="row"] {
     position: relative;
-    left: -#{$columns-gutter};
-    margin-right: -#{$columns-gutter};
+    // left: -#{$columns-gutter};
+    margin-left: -#{$columns-gutter};
 
     display: flex;
     flex: 0 1 auto;
@@ -34,8 +34,8 @@ $columns-gutter-sizes: (
 
 // columns
 [#{$loop-component-prefix}-column*="col"] {
-    padding-left: $columns-gutter;
-    padding-bottom: $columns-gutter;
+    // padding-left: $columns-gutter;
+    // padding-bottom: $columns-gutter;
 
     flex-shrink: 0;
     flex-grow: 1;
@@ -43,6 +43,8 @@ $columns-gutter-sizes: (
 
     min-width: 0;
     max-width: 100%;
+    margin-left: #{$columns-gutter};
+    margin-bottom:  #{$columns-gutter};
 }
 
 // reponsives classes starting from default value
@@ -62,8 +64,9 @@ $columns-gutter-sizes: (
         // columns
         @for $i from 1 through $columns-system {
             [#{$loop-component-prefix}-column~="col-#{$i}#{$suffix}"] {
-                flex-basis: percentage($i/$columns-system);
-                max-width: percentage($i/$columns-system);
+                $percentage: percentage($i/$columns-system);
+                flex-basis: calc(#{$percentage} - #{$columns-gutter});
+                max-width: calc(#{$percentage} - #{$columns-gutter});
             }
         }
 
@@ -94,8 +97,14 @@ $columns-gutter-sizes: (
         @if $use-columns-self-alignment == true
             and ($use-columns-self-alignment-breakpoints == true or isEmpty($suffix)) {
                 // horizontal alignment
-            [#{$loop-component-prefix}-column~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
-            [#{$loop-component-prefix}-column~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
+            [#{$loop-component-prefix}-column~="self-align-left#{$suffix}"]   {
+                margin-left: initial; margin-right: initial;
+            }
+            [#{$loop-component-prefix}-column~="self-align-center#{$suffix}"] {
+                position: relative;
+                left: #{$columns-gutter / 2};
+                margin-left: auto; margin-right: auto;
+            }
             [#{$loop-component-prefix}-column~="self-align-right#{$suffix}"]  { margin-left: auto; margin-right: initial; }
 
             // vertical alignment
@@ -163,18 +172,17 @@ $columns-gutter-sizes: (
 // gutters
 @each $gutter-name, $gutter-size in $columns-gutter-sizes {
     [#{$loop-component-prefix}-column~="gutter-#{$gutter-name}"] {
-        left: -#{$gutter-size};
-        margin-right: -#{$gutter-size};
+        margin-left: -#{$gutter-size};
 
         > [#{$loop-component-prefix}-column*="col"] {
-            padding-bottom: $gutter-size;
-            padding-left: $gutter-size;
+            margin-bottom: $gutter-size;
+            margin-left: $gutter-size;
         }
     }
 }
 [#{$loop-component-prefix}-column~="v-gutter-less"] {
     > [#{$loop-component-prefix}-column*="col"] {
-        padding-bottom: 0;
+        margin-bottom: 0;
     }
 }
 

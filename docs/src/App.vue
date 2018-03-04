@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<span class="hamburger" @click="toggleMenu()"></span>
-		<div oo-column="row" :class="{ slide: isMenuOpen }">
+		<div oo-column="row v-gutter-less" :class="{ slide: isMenuOpen }">
 			<aside class="sidebar" oo-column="col">
 				<div class="sidebar__content text-small">
 					<ul class="list-unstyle font-bold">
