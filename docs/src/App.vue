@@ -389,10 +389,10 @@ export default {
 
 		transition: margin 300ms ease-in-out;
 
-		.slide & { margin-left: 0; }
+		.slide & { margin-left: $columns-gutter; }
 
 		@include breakpoint(sm) {
-			margin-left: 0;
+			margin-left: $columns-gutter;
 			.slide & { margin-left: calc(-#{$sidebar-size} + #{$layout-padding}); }
 		}
 
