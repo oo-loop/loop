@@ -344,8 +344,8 @@
  * @param $data         list|map    Data to loop through
  * @param $properties   string|list Property name to use
  * @param $prefix       string      String to prepend to the selector
- * @param $is_important bool        Set the !important flag ?
- * @param $suffix       string      String to append to the selector
+ * @param $is-important ?bool       Set the !important flag ?
+ * @param $suffix       ?string     String to append to the selector
  */
 /**
  * Loop breakpoints
@@ -354,8 +354,8 @@
  * @param $data         list|map    Data to loop through
  * @param $properties   string|list Property name to use
  * @param $prefix       string      String to prepend to the selector
- * @param $is_important bool        Set the !important flag ?
- * @param $suffix       string      String to append to the selector
+ * @param $is-important ?bool       Set the !important flag ?
+ * @param $suffix       ?string     String to append to the selector
  */
 /**
  * Loop map keys
@@ -364,8 +364,8 @@
  * @param $map          map         Map to search in
  * @param $properties   string|list Property name to use
  * @param $prefix       string      String to prepend to the selector
- * @param $is_important bool        Set the !important flag ?
- * @param $suffix       string      String to append to the selector
+ * @param $is-important ?bool       Set the !important flag ?
+ * @param $suffix       ?string     String to append to the selector
  */
 /**
  * Loop map keys modifiers
@@ -373,8 +373,8 @@
  * @param $keys         list        keys of the map
  * @param $map          map         map to search in
  * @param $properties   string|list property name to use
- * @param $is_important bool        set the !important flag ?
- * @param $suffix       string      string to append to the selector
+ * @param $is-important ?bool       set the !important flag ?
+ * @param $suffix       ?string     string to append to the selector
  */
 /**
  * Triangle
@@ -925,8 +925,10 @@ hr, .hr {
  */
 [oo-column~="row"] {
   position: relative;
-  left: -2.4rem;
-  margin-right: -2.4rem;
+  right: -1.2rem;
+  left: -4.8rem;
+  margin-left: 2.4rem;
+  margin-right: -4.8rem;
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
@@ -934,13 +936,11 @@ hr, .hr {
 }
 
 [oo-column*="col"] {
-  padding-left: 2.4rem;
-  padding-bottom: 2.4rem;
   flex-shrink: 0;
   flex-grow: 1;
-  flex-basis: 0;
   min-width: 0;
-  max-width: 100%;
+  margin-left: inherit;
+  margin-bottom: 2.4rem;
 }
 
 [oo-column~="col"] {
@@ -949,63 +949,63 @@ hr, .hr {
 }
 
 [oo-column~="col-1"] {
-  flex-basis: 8.333333%;
-  max-width: 8.333333%;
+  flex-basis: calc(8.333333% - 2.4rem);
+  max-width: calc(8.333333% - 2.4rem);
 }
 
 [oo-column~="col-2"] {
-  flex-basis: 16.666667%;
-  max-width: 16.666667%;
+  flex-basis: calc(16.666667% - 2.4rem);
+  max-width: calc(16.666667% - 2.4rem);
 }
 
 [oo-column~="col-3"] {
-  flex-basis: 25%;
-  max-width: 25%;
+  flex-basis: calc(25% - 2.4rem);
+  max-width: calc(25% - 2.4rem);
 }
 
 [oo-column~="col-4"] {
-  flex-basis: 33.333333%;
-  max-width: 33.333333%;
+  flex-basis: calc(33.333333% - 2.4rem);
+  max-width: calc(33.333333% - 2.4rem);
 }
 
 [oo-column~="col-5"] {
-  flex-basis: 41.666667%;
-  max-width: 41.666667%;
+  flex-basis: calc(41.666667% - 2.4rem);
+  max-width: calc(41.666667% - 2.4rem);
 }
 
 [oo-column~="col-6"] {
-  flex-basis: 50%;
-  max-width: 50%;
+  flex-basis: calc(50% - 2.4rem);
+  max-width: calc(50% - 2.4rem);
 }
 
 [oo-column~="col-7"] {
-  flex-basis: 58.333333%;
-  max-width: 58.333333%;
+  flex-basis: calc(58.333333% - 2.4rem);
+  max-width: calc(58.333333% - 2.4rem);
 }
 
 [oo-column~="col-8"] {
-  flex-basis: 66.666667%;
-  max-width: 66.666667%;
+  flex-basis: calc(66.666667% - 2.4rem);
+  max-width: calc(66.666667% - 2.4rem);
 }
 
 [oo-column~="col-9"] {
-  flex-basis: 75%;
-  max-width: 75%;
+  flex-basis: calc(75% - 2.4rem);
+  max-width: calc(75% - 2.4rem);
 }
 
 [oo-column~="col-10"] {
-  flex-basis: 83.333333%;
-  max-width: 83.333333%;
+  flex-basis: calc(83.333333% - 2.4rem);
+  max-width: calc(83.333333% - 2.4rem);
 }
 
 [oo-column~="col-11"] {
-  flex-basis: 91.666667%;
-  max-width: 91.666667%;
+  flex-basis: calc(91.666667% - 2.4rem);
+  max-width: calc(91.666667% - 2.4rem);
 }
 
 [oo-column~="col-12"] {
-  flex-basis: 100%;
-  max-width: 100%;
+  flex-basis: calc(100% - 2.4rem);
+  max-width: calc(100% - 2.4rem);
 }
 
 [oo-column~="self-adjust"] {
@@ -1047,11 +1047,13 @@ hr, .hr {
 }
 
 [oo-column~="self-align-left"] {
-  margin-left: initial;
+  margin-left: inherit;
   margin-right: initial;
 }
 
 [oo-column~="self-align-center"] {
+  position: relative;
+  right: inherit;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1079,52 +1081,52 @@ hr, .hr {
     max-width: 100%;
   }
   [oo-column~="col-1@sm"] {
-    flex-basis: 8.333333%;
-    max-width: 8.333333%;
+    flex-basis: calc(8.333333% - 2.4rem);
+    max-width: calc(8.333333% - 2.4rem);
   }
   [oo-column~="col-2@sm"] {
-    flex-basis: 16.666667%;
-    max-width: 16.666667%;
+    flex-basis: calc(16.666667% - 2.4rem);
+    max-width: calc(16.666667% - 2.4rem);
   }
   [oo-column~="col-3@sm"] {
-    flex-basis: 25%;
-    max-width: 25%;
+    flex-basis: calc(25% - 2.4rem);
+    max-width: calc(25% - 2.4rem);
   }
   [oo-column~="col-4@sm"] {
-    flex-basis: 33.333333%;
-    max-width: 33.333333%;
+    flex-basis: calc(33.333333% - 2.4rem);
+    max-width: calc(33.333333% - 2.4rem);
   }
   [oo-column~="col-5@sm"] {
-    flex-basis: 41.666667%;
-    max-width: 41.666667%;
+    flex-basis: calc(41.666667% - 2.4rem);
+    max-width: calc(41.666667% - 2.4rem);
   }
   [oo-column~="col-6@sm"] {
-    flex-basis: 50%;
-    max-width: 50%;
+    flex-basis: calc(50% - 2.4rem);
+    max-width: calc(50% - 2.4rem);
   }
   [oo-column~="col-7@sm"] {
-    flex-basis: 58.333333%;
-    max-width: 58.333333%;
+    flex-basis: calc(58.333333% - 2.4rem);
+    max-width: calc(58.333333% - 2.4rem);
   }
   [oo-column~="col-8@sm"] {
-    flex-basis: 66.666667%;
-    max-width: 66.666667%;
+    flex-basis: calc(66.666667% - 2.4rem);
+    max-width: calc(66.666667% - 2.4rem);
   }
   [oo-column~="col-9@sm"] {
-    flex-basis: 75%;
-    max-width: 75%;
+    flex-basis: calc(75% - 2.4rem);
+    max-width: calc(75% - 2.4rem);
   }
   [oo-column~="col-10@sm"] {
-    flex-basis: 83.333333%;
-    max-width: 83.333333%;
+    flex-basis: calc(83.333333% - 2.4rem);
+    max-width: calc(83.333333% - 2.4rem);
   }
   [oo-column~="col-11@sm"] {
-    flex-basis: 91.666667%;
-    max-width: 91.666667%;
+    flex-basis: calc(91.666667% - 2.4rem);
+    max-width: calc(91.666667% - 2.4rem);
   }
   [oo-column~="col-12@sm"] {
-    flex-basis: 100%;
-    max-width: 100%;
+    flex-basis: calc(100% - 2.4rem);
+    max-width: calc(100% - 2.4rem);
   }
   [oo-column~="align-left@sm"] {
     justify-content: flex-start;
@@ -1151,10 +1153,12 @@ hr, .hr {
     align-items: flex-end;
   }
   [oo-column~="self-align-left@sm"] {
-    margin-left: initial;
+    margin-left: inherit;
     margin-right: initial;
   }
   [oo-column~="self-align-center@sm"] {
+    position: relative;
+    right: inherit;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1179,52 +1183,52 @@ hr, .hr {
     max-width: 100%;
   }
   [oo-column~="col-1@md"] {
-    flex-basis: 8.333333%;
-    max-width: 8.333333%;
+    flex-basis: calc(8.333333% - 2.4rem);
+    max-width: calc(8.333333% - 2.4rem);
   }
   [oo-column~="col-2@md"] {
-    flex-basis: 16.666667%;
-    max-width: 16.666667%;
+    flex-basis: calc(16.666667% - 2.4rem);
+    max-width: calc(16.666667% - 2.4rem);
   }
   [oo-column~="col-3@md"] {
-    flex-basis: 25%;
-    max-width: 25%;
+    flex-basis: calc(25% - 2.4rem);
+    max-width: calc(25% - 2.4rem);
   }
   [oo-column~="col-4@md"] {
-    flex-basis: 33.333333%;
-    max-width: 33.333333%;
+    flex-basis: calc(33.333333% - 2.4rem);
+    max-width: calc(33.333333% - 2.4rem);
   }
   [oo-column~="col-5@md"] {
-    flex-basis: 41.666667%;
-    max-width: 41.666667%;
+    flex-basis: calc(41.666667% - 2.4rem);
+    max-width: calc(41.666667% - 2.4rem);
   }
   [oo-column~="col-6@md"] {
-    flex-basis: 50%;
-    max-width: 50%;
+    flex-basis: calc(50% - 2.4rem);
+    max-width: calc(50% - 2.4rem);
   }
   [oo-column~="col-7@md"] {
-    flex-basis: 58.333333%;
-    max-width: 58.333333%;
+    flex-basis: calc(58.333333% - 2.4rem);
+    max-width: calc(58.333333% - 2.4rem);
   }
   [oo-column~="col-8@md"] {
-    flex-basis: 66.666667%;
-    max-width: 66.666667%;
+    flex-basis: calc(66.666667% - 2.4rem);
+    max-width: calc(66.666667% - 2.4rem);
   }
   [oo-column~="col-9@md"] {
-    flex-basis: 75%;
-    max-width: 75%;
+    flex-basis: calc(75% - 2.4rem);
+    max-width: calc(75% - 2.4rem);
   }
   [oo-column~="col-10@md"] {
-    flex-basis: 83.333333%;
-    max-width: 83.333333%;
+    flex-basis: calc(83.333333% - 2.4rem);
+    max-width: calc(83.333333% - 2.4rem);
   }
   [oo-column~="col-11@md"] {
-    flex-basis: 91.666667%;
-    max-width: 91.666667%;
+    flex-basis: calc(91.666667% - 2.4rem);
+    max-width: calc(91.666667% - 2.4rem);
   }
   [oo-column~="col-12@md"] {
-    flex-basis: 100%;
-    max-width: 100%;
+    flex-basis: calc(100% - 2.4rem);
+    max-width: calc(100% - 2.4rem);
   }
   [oo-column~="align-left@md"] {
     justify-content: flex-start;
@@ -1251,10 +1255,12 @@ hr, .hr {
     align-items: flex-end;
   }
   [oo-column~="self-align-left@md"] {
-    margin-left: initial;
+    margin-left: inherit;
     margin-right: initial;
   }
   [oo-column~="self-align-center@md"] {
+    position: relative;
+    right: inherit;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1279,52 +1285,52 @@ hr, .hr {
     max-width: 100%;
   }
   [oo-column~="col-1@lg"] {
-    flex-basis: 8.333333%;
-    max-width: 8.333333%;
+    flex-basis: calc(8.333333% - 2.4rem);
+    max-width: calc(8.333333% - 2.4rem);
   }
   [oo-column~="col-2@lg"] {
-    flex-basis: 16.666667%;
-    max-width: 16.666667%;
+    flex-basis: calc(16.666667% - 2.4rem);
+    max-width: calc(16.666667% - 2.4rem);
   }
   [oo-column~="col-3@lg"] {
-    flex-basis: 25%;
-    max-width: 25%;
+    flex-basis: calc(25% - 2.4rem);
+    max-width: calc(25% - 2.4rem);
   }
   [oo-column~="col-4@lg"] {
-    flex-basis: 33.333333%;
-    max-width: 33.333333%;
+    flex-basis: calc(33.333333% - 2.4rem);
+    max-width: calc(33.333333% - 2.4rem);
   }
   [oo-column~="col-5@lg"] {
-    flex-basis: 41.666667%;
-    max-width: 41.666667%;
+    flex-basis: calc(41.666667% - 2.4rem);
+    max-width: calc(41.666667% - 2.4rem);
   }
   [oo-column~="col-6@lg"] {
-    flex-basis: 50%;
-    max-width: 50%;
+    flex-basis: calc(50% - 2.4rem);
+    max-width: calc(50% - 2.4rem);
   }
   [oo-column~="col-7@lg"] {
-    flex-basis: 58.333333%;
-    max-width: 58.333333%;
+    flex-basis: calc(58.333333% - 2.4rem);
+    max-width: calc(58.333333% - 2.4rem);
   }
   [oo-column~="col-8@lg"] {
-    flex-basis: 66.666667%;
-    max-width: 66.666667%;
+    flex-basis: calc(66.666667% - 2.4rem);
+    max-width: calc(66.666667% - 2.4rem);
   }
   [oo-column~="col-9@lg"] {
-    flex-basis: 75%;
-    max-width: 75%;
+    flex-basis: calc(75% - 2.4rem);
+    max-width: calc(75% - 2.4rem);
   }
   [oo-column~="col-10@lg"] {
-    flex-basis: 83.333333%;
-    max-width: 83.333333%;
+    flex-basis: calc(83.333333% - 2.4rem);
+    max-width: calc(83.333333% - 2.4rem);
   }
   [oo-column~="col-11@lg"] {
-    flex-basis: 91.666667%;
-    max-width: 91.666667%;
+    flex-basis: calc(91.666667% - 2.4rem);
+    max-width: calc(91.666667% - 2.4rem);
   }
   [oo-column~="col-12@lg"] {
-    flex-basis: 100%;
-    max-width: 100%;
+    flex-basis: calc(100% - 2.4rem);
+    max-width: calc(100% - 2.4rem);
   }
   [oo-column~="align-left@lg"] {
     justify-content: flex-start;
@@ -1351,10 +1357,12 @@ hr, .hr {
     align-items: flex-end;
   }
   [oo-column~="self-align-left@lg"] {
-    margin-left: initial;
+    margin-left: inherit;
     margin-right: initial;
   }
   [oo-column~="self-align-center@lg"] {
+    position: relative;
+    right: inherit;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1541,27 +1549,29 @@ hr, .hr {
 }
 
 [oo-column~="gutter-less"] {
+  right: -0;
   left: -0;
+  margin-left: 0;
   margin-right: -0;
 }
 
 [oo-column~="gutter-less"] > [oo-column*="col"] {
-  padding-bottom: 0;
-  padding-left: 0;
+  margin-bottom: 0;
 }
 
 [oo-column~="gutter-small"] {
-  left: -1.6rem;
-  margin-right: -1.6rem;
+  right: -0.8rem;
+  left: -3.2rem;
+  margin-left: 1.6rem;
+  margin-right: -3.2rem;
 }
 
 [oo-column~="gutter-small"] > [oo-column*="col"] {
-  padding-bottom: 1.6rem;
-  padding-left: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 
 [oo-column~="v-gutter-less"] > [oo-column*="col"] {
-  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 [oo-column~="clear"] {
