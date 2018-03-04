@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<span class="hamburger" @click="toggleMenu()"></span>
-		<div oo-column="row" :class="{ slide: isMenuOpen }">
+		<div oo-column="row v-gutter-less" :class="{ slide: isMenuOpen }">
 			<aside class="sidebar" oo-column="col">
 				<div class="sidebar__content text-small">
 					<ul class="list-unstyle font-bold">
@@ -389,10 +389,10 @@ export default {
 
 		transition: margin 300ms ease-in-out;
 
-		.slide & { margin-left: 0; }
+		.slide & { margin-left: $columns-gutter; }
 
 		@include breakpoint(sm) {
-			margin-left: 0;
+			margin-left: $columns-gutter;
 			.slide & { margin-left: calc(-#{$sidebar-size} + #{$layout-padding}); }
 		}
 
