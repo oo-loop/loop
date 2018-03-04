@@ -141,7 +141,7 @@
 		    <div oo-column="row v-gutter-less">
 		        <div oo-column="col-3 self-align-right self-align-left@md mb-20"><p class="cell cell--medium"></p></div>
 		        <div oo-column="col-3 self-align-right@md"><p class="cell"></p></div>
-		        <div oo-column="col-9 self-align-right@md align-center@lg"><p class="cell"></p></div>
+		        <div oo-column="col-9 self-align-center@md align-right@lg"><p class="cell"></p></div>
 		    </div>
 		</div>
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>
