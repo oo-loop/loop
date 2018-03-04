@@ -81,6 +81,8 @@
 				</div>
 			</div>
 		</div>
+		<prettyCode class="mt-0" :code="html.borderRadiusStep11" />
+
 	</div>
 </template>
 
@@ -106,6 +108,7 @@ export default {
 			borderRadiusStep8: require('./code/border-radius-step8.html'),
 			borderRadiusStep9: require('./code/border-radius-step9.html'),
 			borderRadiusStep10: require('./code/border-radius-step10.html'),
+			borderRadiusStep11: require('./code/border-radius-step11.html'),
 			loopMixin: require('./code/loop-mixin.html'),
 			loopBreakpointsMixin: require('./code/loop-breakpoints-mixin.html'),
 		}
