@@ -6,51 +6,66 @@
 		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
 		<p>Change the size of the column by using the property <code class="color-secondary">col-{$number}</code>, or let the columns being automatically calculated.<br>Change the size of the column according to the device being targeted through the properties <code class="color-secondary">col-{$number}@{$breakpoint}</code>.</p>
 
-		<div oo-column="row">
-			<div oo-column="col"><p class="cell">auto</p></div>
-			<div oo-column="col"><p class="cell">auto</p></div>
+		<div oo-column="row" class="text-center">
+			<div oo-column="col" class="bg-primary">auto</div>
+			<div oo-column="col" class="bg-primary">auto</div>
 		</div>
-		<div oo-column="row">
-		    <div oo-column="col-12 col-6@sm col-4@md col-3@lg"><p class="cell">size</p></div>
-		    <div oo-column="col-12 col-6@sm col-8@md col-9@lg"><p class="cell">size</p></div>
-		    <div oo-column="col-6 col-7@md col-8@lg"><p class="cell">size</p></div>
-		    <div oo-column="col"><p class="cell cell-3">auto</p></div>
+		<div oo-column="row" class="text-center">
+		    <div oo-column="col-12 col-6@sm col-4@md col-3@lg" class="bg-primary">size</div>
+		    <div oo-column="col-12 col-6@sm col-8@md col-9@lg" class="bg-primary">size</div>
+		    <div oo-column="col-6 col-7@md col-8@lg" class="bg-primary">size</div>
+		    <div oo-column="col" class="bg-primary">auto</div>
 		</div>
 		<pretty-code class="mt-0" :code="html.column"></pretty-code>
 
 		<h4 class="h5">Self Adjust Column</h4>
 		<p>Let the column adjusts itself to the size of the content by adding the property <code class="color-secondary">self-adjust</code> to <code class="color-secondary">col</code>.<br>
 		This property will give you a <em>media component</em> look.</p>
-		<div oo-column="row">
-		    <div oo-column="col self-adjust"><p class="cell">adjust</p></div>
-		    <div oo-column="col"><p class="cell">auto</p></div>
+		<div oo-column="row" class="text-center">
+		    <div oo-column="col self-adjust" class="bg-primary">adjust</div>
+		    <div oo-column="col" class="bg-primary">auto</div>
 		</div>
 		<pretty-code class="mt-0" :code="html.selfAdjust"></pretty-code>
 
 		<p>Enable responsive properties<code class="color-secondary">self-adjust@{breakpoint}</code> by setting <code class="color-info">$use-columns-self-adjustment-breakpoints</code> to <code>true</code>.</p>
-		<div oo-column="row">
-		    <div oo-column="col self-adjust@sm"><p class="cell">adjust@sm</p></div>
-		    <div oo-column="col "><p class="cell">auto</p></div>
-		    <div oo-column="col-12 col-6@sm self-adjust@md"><p class="cell">adjust@md</p></div>
+		<div oo-column="row" class="text-center">
+		    <div oo-column="col self-adjust@sm" class="bg-primary">adjust@sm</div>
+		    <div oo-column="col" class="bg-primary">auto</div>
+		    <div oo-column="col-12 col-6@sm self-adjust@md" class="bg-primary">adjust@md</div>
 		</div>
 		<pretty-code class="mt-0" :code="html.selfAdjustResponsive"></pretty-code>
 
 		<h4 class="h5">Clear Column</h4>
 		<p>Clear the columns and start a new row through the property<code class="color-secondary">clear</code></p>
-		<div oo-column="row">
-		    <div oo-column="col self-adjust"><p class="cell">adjust</p></div>
-		    <div oo-column="col"><p class="cell">auto</p></div>
+		<div oo-column="row" class="text-center">
+		    <div oo-column="col self-adjust" class="bg-primary">adjust</div>
+		    <div oo-column="col" class="bg-primary">auto</div>
 			<div oo-column="clear"></div>
-		    <div oo-column="col"><p class="cell">auto</p></div>
-		    <div oo-column="col"><p class="cell">auto</p></div>
+		    <div oo-column="col" class="bg-primary">auto</div>
+		    <div oo-column="col" class="bg-primary">auto</div>
 		</div>
 		<pretty-code class="mt-0" :code="html.clear"></pretty-code>
 
 		<h4 class="h5">Match Children height</h4>
 		<p>Force each children to have the same height through the property <code class="color-secondary">stretch</code></p>
-		<div oo-column="row stretch">
-		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
-		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center mb-0">Few content</p></div>
+		<p class="color-danger font-bold"> without stretch</p>
+		<div oo-column="row" class="text-center">
+		    <div oo-column="col-12 col-6@sm" class="bg-secondary">
+		    	<p class="bg-primary mb-0">More content<br>in<br>that column</p>
+		    </div>
+		    <div oo-column="col-12 col-6@sm" class="bg-secondary">
+		    	<p class="bg-primary mb-0">Few content</p>
+		    </div>
+		</div>
+		
+		<p class="color-success font-bold"> with stretch</p>
+		<div oo-column="row stretch" class="text-center">
+		    <div oo-column="col-12 col-6@sm" class="bg-secondary">
+		    	<p class="bg-primary mb-0">More content<br>in<br>that column</p>
+		    </div>
+		    <div oo-column="col-12 col-6@sm" class="bg-secondary">
+		    	<p class="bg-primary mb-0">Few content</p>
+		    </div>
 		</div>
 		<pretty-code class="mt-0" :code="html.stretch"></pretty-code>
 
@@ -61,36 +76,36 @@
 
 		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
 
-		<div oo-column="row gutter-large v-gutter-less">
-		    <div oo-column="col"><p class="cell">large</p></div>
-		    <div oo-column="col"><p class="cell">large</p></div>
-		    <div oo-column="col"><p class="cell">large</p></div>
+		<div oo-column="row gutter-large v-gutter-less" class="text-center">
+		    <div oo-column="col" class="bg-primary">large</div>
+		    <div oo-column="col" class="bg-primary">large</div>
+		    <div oo-column="col" class="bg-primary">large</div>
 		</div>
-		<div oo-column="row gutter-small v-gutter-less">
-		    <div oo-column="col"><p class="cell">small</p></div>
-		    <div oo-column="col"><p class="cell">small</p></div>
-		    <div oo-column="col"><p class="cell">small</p></div>
+		<div oo-column="row gutter-small v-gutter-less" class="text-center">
+		    <div oo-column="col" class="bg-primary">small</div>
+		    <div oo-column="col" class="bg-primary">small</div>
+		    <div oo-column="col" class="bg-primary">small</div>
 		</div>
-		<div oo-column="row gutter-tiny v-gutter-less">
-		    <div oo-column="col"><p class="cell">tiny</p></div>
-		    <div oo-column="col"><p class="cell">tiny</p></div>
-		    <div oo-column="col"><p class="cell">tiny</p></div>
+		<div oo-column="row gutter-tiny v-gutter-less" class="text-center">
+		    <div oo-column="col" class="bg-primary">tiny</div>
+		    <div oo-column="col" class="bg-primary">tiny</div>
+		    <div oo-column="col" class="bg-primary">tiny</div>
 		</div>
-		<div oo-column="row gutter-less v-gutter-less">
-		    <div oo-column="col"><p class="cell">less</p></div>
-		    <div oo-column="col"><p class="cell">less</p></div>
-		    <div oo-column="col"><p class="cell">less</p></div>
+		<div oo-column="row gutter-less v-gutter-less" class="text-center">
+		    <div oo-column="col" class="bg-primary">less</div>
+		    <div oo-column="col" class="bg-primary">less</div>
+		    <div oo-column="col" class="bg-primary">less</div>
 		</div>
 		<pretty-code :code="html.gutter"></pretty-code>
 
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>
 		<p>Rearrange the order the columns through the properties <code class="color-secondary">order-0@{$breakpoint}</code> to <code class="color-secondary">order-12@{$breakpoint}</code> according to the size of the screen.</p>
-		<div oo-column="row">
-		  <div oo-column="col-6 col-3@sm order-2@lg"><p class="cell">one</p></div>
-		  <div oo-column="col-6 col-3@sm"><p class="cell">two</p></div>
-		  <div oo-column="col-6 col-3@sm order-4@sm"><p class="cell">three</p></div>
-		  <div oo-column="col-6 col-3@sm order-0@md"><p class="cell">four</p></div>
+		<div oo-column="row" class="text-center">
+		  <div oo-column="col-6 col-3@sm order-2@lg" class="bg-primary">one</div>
+		  <div oo-column="col-6 col-3@sm" class="bg-primary">two</div>
+		  <div oo-column="col-6 col-3@sm order-4@sm" class="bg-primary">three</div>
+		  <div oo-column="col-6 col-3@sm order-0@md" class="bg-primary">four</div>
 		</div>
 		<pretty-code class="mt-0" :code="html.order"></pretty-code>
 		<p>Disable properties <code class="color-secondary">order-*</code> if not needed by setting <code class="color-info">$use-columns-order</code> to <code>false</code>.</p>
@@ -128,7 +143,7 @@
 		<pretty-code :code="html.hAlignment"></pretty-code>
 
 		<div class="bg-secondary">
-		    <div oo-column="row align-between align-evenly@md">
+		    <div oo-column="row align-between align-evenly@md v-gutter-less">
 		        <div oo-column="col-3 col-4@sm"><p class="cell cell--medium"></p></div>
 		        <div oo-column="col-3 col-4@sm"><p class="cell"></p></div>
 		    </div>
@@ -138,10 +153,10 @@
 		<h4 class="h5">Horizontal self alignment</h4>
 		<p>Self alignment is also possible by attaching the mofifiers <code class="color-secondary">self-align-left</code> <code class="color-secondary">self-align-center</code> <code class="color-secondary">self-align-right</code> <code class="color-secondary">self-{$alignment}@{$breakpoint}</code> to <code class="color-secondary">col</code>.
 		<div class="bg-secondary">
-		    <div oo-column="row v-gutter-less">
-		        <div oo-column="col-3 self-align-right self-align-left@md mb-20"><p class="cell cell--medium"></p></div>
+		    <div oo-column="row">
+		        <div oo-column="col-3 self-align-right self-align-left@md"><p class="cell cell--medium"></p></div>
 		        <div oo-column="col-3 self-align-right@md"><p class="cell"></p></div>
-		        <div oo-column="col-9 self-align-center@md align-right@lg"><p class="cell"></p></div>
+		        <div oo-column="col-9 self-align-center@md align-right@lg" class="mb-0"><p class="cell"></p></div>
 		    </div>
 		</div>
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>
@@ -171,7 +186,7 @@
 		<p>Align a child of a column <code class="color-secondary">col</code> through the properties <code class="color-secondary">child-{alignment}</code>.</p>
 		<div oo-column="row stretch">
 		    <div oo-column="col-12 col-6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
-		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary text-center mb-0">Centered verticaly, Right horizontally</p></div>
+		    <div oo-column="col-12 col-6@sm child-align-middle child-align-right"><p class="bg-primary mb-0">Centered verticaly, Right horizontally</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.childAlignment"></pretty-code>
 		<p>If you're not using child alignment properties, disable the option by setting <code class="color-info">$use-columns-child-alignment</code> to <code>false</code>.</p>
