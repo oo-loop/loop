@@ -3,7 +3,7 @@
 		<span class="hamburger" @click="toggleMenu()"></span>
 		<div oo-column="row" :class="{ slide: isMenuOpen }">
 			<aside class="sidebar" oo-column="col">
-				<div class="sidebar__content">
+				<div class="sidebar__content text-small">
 					<ul class="list-unstyle font-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
@@ -272,7 +272,16 @@ export default {
 				route: 'create-your-own',
 				label: '@',
 				labelClass: 'color-danger',
-				subMenu: []
+				subMenu: [
+					{
+						name: 'loop()',
+						route: '#loop-mixin'
+					},
+					{
+						name: 'loopBreakpoints()',
+						route: '#loop-breakpoints-mixin'
+					},
+				]
 			}
 		],
 		isMenuOpen: false,
@@ -388,7 +397,7 @@ export default {
 		}
 
 		&__content {
-			padding: ($layout-padding * 2.5) $layout-padding $layout-padding;
+			padding: ($layout-padding * 2) $layout-padding $layout-padding;
 		}
 	}
 
