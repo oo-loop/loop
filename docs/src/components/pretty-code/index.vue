@@ -7,7 +7,7 @@
     import 'code-prettify/loader/lang-css'
 
     export default {
-        name: 'pretty-code',
+        name: 'prettyCode',
         props: ['code'],
         mounted() {
     		PR.prettyPrint()
@@ -85,6 +85,22 @@
                 font-weight: 700;
             }
             .lit { color: $value; }
+        }
+
+        &.language-scss {
+            .lit { color: #eabc5f; }
+            .pln { color: $color-primary; }
+            .pun { color: #fff; }
+            .kwd { color: $value; }
+            .str { color: $attribute; }
+            .lit + .pln { color: #d4864a; }
+        }
+        &.language-css.language-scss{
+            .pun + .pln {
+                color: #fff;
+            }
+            .kwd { color: #b58de0 }
+            .lit + .pln + .kwd { color: $value; }
         }
     }
 </style>
