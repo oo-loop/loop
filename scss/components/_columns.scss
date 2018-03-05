@@ -204,6 +204,7 @@ $columns-gutter-sizes: (
         }
     }
 }
+
 [#{$loop-component-prefix}-column~="v-gutter-less"] {
     > [#{$loop-component-prefix}-column*="col"] {
         margin-bottom: 0;
