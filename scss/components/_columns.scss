@@ -170,34 +170,8 @@ $columns-gutter-sizes: (
             padding-bottom: $gutter-size;
             padding-left: $gutter-size;
         }
-
-        // reponsives classes starting from default value
-        @each $class in $breakpoints-classes-width-default-value {
-            @include breakpoint($class) {
-                $suffix: '';
-                @if $class != '' {
-                    $suffix: \@#{$class};
-                }
-
-                // auto col
-                > [#{$loop-component-prefix}-column~="col#{$suffix}"] {
-                    flex-basis: 0;
-                    max-width: 100%;
-                }
-
-                // columns
-                @for $i from 1 through $columns-system {
-                    > [#{$loop-component-prefix}-column~="col-#{$i}#{$suffix}"] {
-                        $percentage: percentage($i/$columns-system);
-                        flex-basis: calc(#{$percentage} - #{$gutter-size});
-                        max-width: calc(#{$percentage} - #{$gutter-size});
-                    }
-                }
-            }
-        }
     }
 }
-
 [#{$loop-component-prefix}-column~="v-gutter-less"] {
     > [#{$loop-component-prefix}-column*="col"] {
         padding-bottom: 0;
