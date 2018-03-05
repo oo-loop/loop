@@ -15,6 +15,7 @@ import Float from 'docs/float'
 import Visibility from 'docs/visibility'
 import Wrapper from 'docs/wrapper'
 import Miscellaneous from 'docs/miscellaneous'
+import CreateYourOwn from 'docs/create-your-own'
 
 Vue.use(Router)
 
@@ -91,6 +92,11 @@ export default new Router({
 			path: '/miscellaneous',
 			name: 'miscellaneous',
 			component: Miscellaneous
+		},
+		{
+			path: '/create-your-own',
+			name: 'create-your-own',
+			component: CreateYourOwn
 		}
 	]
 })
