@@ -1,6 +1,6 @@
 {
   "name": "oo-loop",
-  "version": "0.4.0",
+  "version": "0.4.5",
   "description": "CSS companion for Front-end Developer",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
@@ -9,7 +9,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run css",
     "css": "npm run css-compile",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/_loop.scss dist/loop.css"
   },
@@ -40,5 +40,9 @@
   "files": [
     "dist/",
     "scss/"
-  ]
+  ],
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  }
 }

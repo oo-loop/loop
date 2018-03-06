@@ -30,7 +30,7 @@ import prettyCode from '@/components/pretty-code'
 import markup from '@/components/pretty-code/markup'
 
 export default {
-	name: 'Utilities',
+	name: 'Float',
 	components: {
 		prettyCode,
 		markup
