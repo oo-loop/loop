@@ -15,7 +15,7 @@
 							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
 								<li v-for="subItem in item.subMenu">
 									<template v-if="subItem.route.indexOf('#') > -1">
-										<a :href="subItem.route">{{subItem.name}}</a>
+										<router-link :to="subItem.route">{{subItem.name}}</router-link>
 									</template>
 								</li>
 							</ul>

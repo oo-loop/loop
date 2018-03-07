@@ -97,5 +97,12 @@ export default new Router({
 			name: 'create-your-own',
 			component: CreateYourOwn
 		}
-	]
+	],
+	scrollBehavior (to, from, savedPosition) {
+  if (to.hash) {
+    return {
+      selector: to.hash
+    }
+  }
+}
 })
