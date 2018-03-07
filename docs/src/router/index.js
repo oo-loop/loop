@@ -20,7 +20,6 @@ import CreateYourOwn from 'docs/create-your-own'
 Vue.use(Router)
 
 export default new Router({
-	mode: 'history',
 	routes: [
 		{
 			path: '/',
