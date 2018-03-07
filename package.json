@@ -1,7 +1,7 @@
 {
   "name": "oo-loop",
   "version": "0.4.5",
-  "description": "CSS companion for Front-end Developer",
+  "description": "SCSS companion for Front-end Developer",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
   "main": "dist/",
@@ -19,8 +19,9 @@
     "url": "https://github.com/oo-loop/loop.git"
   },
   "keywords": [
-    "css",
+    "scss",
     "sass",
+    "css",
     "front-end",
     "developer",
     "companion",
