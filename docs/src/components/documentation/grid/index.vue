@@ -49,6 +49,17 @@
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
 		</div>
 
+		<h3 class="mt-40" id="order"><a href="#order">#</a> Layout a page with Order</h3>
+		<p>Layout your page by creating areas with <code class="color-secondary">col</code> and <code class="color-secondary">row</code>,<br>
+		and use the modifiers <code class="color-secondary">order-{$number}@{$breakpoint}</code> to move them around between screen sizes.</p>
+		<div oo-grid="layout">
+			<div oo-grid="col-12 col-8@lg" class="wrapper-small bg-primary">Header area</div> 
+			<div oo-grid="col-12 col-4@sm col-3@md col-4@lg order-2@sm order-1@md" class="wrapper-tiny bg-warning">Nav area</div> 
+			<div oo-grid="col-12 col-8@sm col-6@md row-4@sm row-2@md order-1@sm order-2@md order-3@lg" class="wrapper-medium bg-primary main-area">Main area</div> 
+			<div oo-grid="col-12 col-4@sm col-3@md row-2@lg order-3@sm order-2@lg" class="wrapper-small bg-success">Widgets area 1</div> 
+			<div oo-grid="col-12 col-4@sm col-3@md order-4@sm" class="wrapper-small bg-success">Widgets area 2</div>
+			<div oo-grid="col-12 col-4@sm col-3@md order-5@sm" class="wrapper-small bg-success">Widgets area 3</div>
+		</div>
 	</div>
 </template>
 
@@ -97,5 +108,8 @@ export default {
 	@import "~loop/variables";
 	.cell {
 		padding: 1rem;
+	}
+	.main-area {
+		min-height: 300px;
 	}
 </style>
