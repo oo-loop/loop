@@ -6,7 +6,7 @@
 <em>"Why go in circles?"</em>
 <br>
 <br>
-<strong>CSS Companion for Front-end Developer</strong>
+<strong>SCSS Companion for Front-end Developer</strong>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  

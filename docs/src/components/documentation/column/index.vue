@@ -59,7 +59,7 @@
 		Change the values at your convenience to only match your needs.<br>
 		The modifier <code class="color-secondary">v-gutter-less</code> will remove the vertical gutter.</p>
 
-		<pretty-code class="language-css" :code="html.gutterVariables"></pretty-code>
+		<pretty-code class="language-css" :code="html.varGutter"></pretty-code>
 
 		<div oo-column="row gutter-large v-gutter-less">
 		    <div oo-column="col"><p class="cell">large</p></div>
@@ -83,6 +83,16 @@
 		</div>
 		<pretty-code :code="html.gutter"></pretty-code>
 
+		<h4 class="h5">Responsive gutters</h4>
+		<p>Assign a list of needed breakpoints to <code class="color-info">$columns-gutter-sizes-breakpoints-classes</code> and generate modifiers such as <code class="color-secondary">gutter-{$gutterName}@{$breakpoint}</code>.</p>
+		<pretty-code class="language-css" :code="html.varGutterResponsive"></pretty-code>
+
+		<div oo-column="row gutter-less gutter-tiny@sm gutter-small@md gutter-large@lg v-gutter-less">
+		    <div oo-column="col"><p class="cell">Responsive Gutter</p></div>
+		    <div oo-column="col"><p class="cell">Responsive Gutter</p></div>
+		    <div oo-column="col"><p class="cell">Responsive Gutter</p></div>
+		</div>
+		<pretty-code :code="html.gutterResponsive"></pretty-code>
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>
 		<p>Rearrange the order the columns through the properties <code class="color-secondary">order-0@{$breakpoint}</code> to <code class="color-secondary">order-12@{$breakpoint}</code> according to the size of the screen.</p>
@@ -191,7 +201,9 @@ export default {
 		html: {
 			column: require('./code/column.html'),
 			gutter: require('./code/gutter.html'),
-			gutterVariables: require('./code/gutter-variables.html'),
+			gutterResponsive: require('./code/gutter-responsive.html'),
+			varGutter: require('./code/var-gutter.html'),
+			varGutterResponsive: require('./code/var-gutter-responsive.html'),
 			selfAdjust: require('./code/self-adjust.html'),
 			selfAdjustResponsive: require('./code/self-adjust-responsive.html'),
 			clear: require('./code/clear.html'),

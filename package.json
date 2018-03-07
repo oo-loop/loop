@@ -1,7 +1,7 @@
 {
   "name": "oo-loop",
-  "version": "0.4.5",
-  "description": "CSS companion for Front-end Developer",
+  "version": "0.4.6",
+  "description": "SCSS companion for Front-end Developer",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
   "main": "dist/",
@@ -11,15 +11,17 @@
   "scripts": {
     "test": "npm run css",
     "css": "npm run css-compile",
-    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/_loop.scss dist/loop.css"
+    "css-compile": "node-sass --output-style expanded --precision 6 scss/_loop.scss dist/loop.css",
+    "css-compile-min": "node-sass --output-style compressed --precision 6 scss/_loop.scss dist/loop.min.css"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/oo-loop/loop.git"
   },
   "keywords": [
-    "css",
+    "scss",
     "sass",
+    "css",
     "front-end",
     "developer",
     "companion",

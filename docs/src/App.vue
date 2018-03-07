@@ -7,7 +7,7 @@
 					<ul class="list-unstyle font-bold">
 						<li class="mb-10" v-for="(item, index) in listing">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
-							<span 
+							<span
 								v-if="item.label"
 								class="text-tiny"
 								:class="item.labelClass ? item.labelClass : ''"
@@ -363,6 +363,7 @@ export default {
 	    'small': 1.6rem,
 	    'large': 4rem,
 	);
+	$columns-gutter-sizes-breakpoints-classes:(sm, md, lg);
 	$use-columns-self-adjustment-breakpoints: true;
 
 	@import '~loop/loop';
