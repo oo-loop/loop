@@ -18,6 +18,7 @@ $columns-gutter-sizes: (
     'less' : 0,
     'small': 1.6rem,
 ) !default;
+$columns-gutter-sizes-breakpoints-classes: () !default;
 
 // row
 [#{$loop-component-prefix}-column~="row"] {
@@ -161,14 +162,20 @@ $columns-gutter-sizes: (
 
 
 // gutters
-@each $gutter-name, $gutter-size in $columns-gutter-sizes {
-    [#{$loop-component-prefix}-column~="gutter-#{$gutter-name}"] {
-        left: -#{$gutter-size};
-        margin-right: -#{$gutter-size};
+$columns-gutter-sizes-breakpoints-classes: join('', $columns-gutter-sizes-breakpoints-classes);
+@each $class in $columns-gutter-sizes-breakpoints-classes {
+    @include breakpoint($class) {
+        $suffix: if(isEmpty($class), '', \@#{$class});
+        @each $gutter-name, $gutter-size in $columns-gutter-sizes {
+            [#{$loop-component-prefix}-column~="gutter-#{$gutter-name}#{$suffix}"] {
+                left: -#{$gutter-size};
+                margin-right: -#{$gutter-size};
 
-        > [#{$loop-component-prefix}-column*="col"] {
-            padding-bottom: $gutter-size;
-            padding-left: $gutter-size;
+                > [#{$loop-component-prefix}-column*="col"] {
+                    padding-bottom: $gutter-size;
+                    padding-left: $gutter-size;
+                }
+            }
         }
     }
 }
