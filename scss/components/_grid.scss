@@ -4,6 +4,7 @@
 
 $use-grid-gap: true !default;
 $use-v-grid-gap: true !default;
+$use-grid-order: false !default;
 
 $grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
@@ -39,5 +40,19 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 @if $use-grid-gap and $use-v-grid-gap {
 	@each $gap-name, $gap-size in $grid-v-gap-sizes {
 		[#{$loop-component-prefix}-grid~="v-gap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+	}
+}
+
+@if $user-grid-order {
+	@each $class in $breakpoints-classes {
+	    @include breakpoint($class) {
+	        $suffix: \@#{$class};
+			// order-0 to make sure it is first
+			[#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
+
+			@for $i from 1 through $grid-system {
+				[#{$loop-component-prefix}-column~="order-#{$i}#{$suffix}"] { order: $i; }
+			}
+		}
 	}
 }
