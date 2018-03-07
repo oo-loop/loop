@@ -43,15 +43,14 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 }
 
-@if $user-grid-order {
+@if $use-grid-order {
 	@each $class in $breakpoints-classes {
 	    @include breakpoint($class) {
 	        $suffix: \@#{$class};
 			// order-0 to make sure it is first
 			[#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
-
 			@for $i from 1 through $grid-system {
-				[#{$loop-component-prefix}-column~="order-#{$i}#{$suffix}"] { order: $i; }
+				[#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
 			}
 		}
 	}

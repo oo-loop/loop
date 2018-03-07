@@ -366,6 +366,8 @@ export default {
 	$columns-gutter-sizes-breakpoints-classes:(sm, md, lg);
 	$use-columns-self-adjustment-breakpoints: true;
 
+	$use-grid-order: true;
+
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
