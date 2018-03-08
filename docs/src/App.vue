@@ -327,6 +327,7 @@ export default {
 	    'info': #2689ef,
 	    'gray': #999,
 	    'success': #3fc65c,
+		'white': #fff,
   	);
   	$btn-colors: (
 	  'nectarine':  #ffbe76,
