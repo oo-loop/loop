@@ -69,6 +69,15 @@
 			<div oo-grid="col-12 col-4@sm col-3@md row-9@md row-1@lg order-4@sm" class="wrapper-small bg-success">Widgets area 2</div>
 			<div oo-grid="col-12 col-4@sm col-3@md order-5@sm" class="wrapper-small bg-success">Widgets area 3</div>
 		</div>
+
+
+		<h3 class="mt-40" id="order"><a href="#order">#</a> Areas Template</h3>
+		<div oo-grid="area">
+			<div oo-grid="header" class="wrapper-small bg-primary">Header</div>
+			<div oo-grid="main" class="wrapper-small bg-secondary color-white">Main</div>
+			<div oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</div>
+			<div oo-grid="footer" class="wrapper-small bg-success">Footer</div>
+		</div>
 	</div>
 </template>
 
