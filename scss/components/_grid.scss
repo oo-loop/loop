@@ -103,6 +103,10 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 }
 
+@mixin makeGridTemplate($grid-areas) {
+	grid-template-areas: $grid-areas;
+	grid-template-columns: repeat(getAreaColumnNumber($grid-areas), 1fr);
+}
 @mixin makeGridArea($areaNames) {
 	@each $area in $areaNames {
 		[#{$loop-component-prefix}-grid~="#{$area}"] {
@@ -120,36 +124,30 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 
 	@if isList($grid-areas) {
 		[#{$loop-component-prefix}-grid~="areas"] {
-			grid-template-areas: $grid-areas;
-			grid-template-columns: repeat(getAreaColumnNumber($grid-areas), 1fr);
+			@include makeGridTemplate($grid-areas);
+			@include makeGridArea(getAreaNames($grid-areas));
 		}
-		@include makeGridArea(getAreaNames($grid-areas));
 
 	} @else if isMap($grid-areas) {
-		@each $grid-name, $grid-map in $grid-areas {
-
+		@each $grid-name, $grid-sub-areas in $grid-areas {
 			[#{$loop-component-prefix}-grid~="#{$grid-name}"] {
-				@if isMap($grid-map) {
-						$area-names-list: ();
-						@each $breakpoint, $areas in $grid-map {
-							$area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
-							@include breakpoint($breakpoint) {
-								grid-template-areas: $areas;
-								grid-template-columns: repeat(getAreaColumnNumber($areas), 1fr);
-							}
+				@if isMap($grid-sub-areas) {
+					$area-names-list: ();
+					@each $breakpoint, $areas in $grid-sub-areas {
+						$area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
+						@include breakpoint($breakpoint) {
+							@include makeGridTemplate($areas);
 						}
-						@include makeGridArea($area-names-list);
-				} @else if isList($grid-map) {
-					grid-template-areas: $grid-map;
-					grid-template-columns: repeat(getAreaColumnNumber($grid-map), 1fr);
-
-					@include makeGridArea(getAreaNames($grid-map));
+					}
+					@include makeGridArea($area-names-list);
+				} @else if isList($grid-sub-areas) {
+					@include makeGridTemplate($grid-sub-areas);
+					@include makeGridArea(getAreaNames($grid-sub-areas));
 				}
 			}
 		}
 	}
 }
-
 
 // Grid Gap
 @if $use-grid-gap {
