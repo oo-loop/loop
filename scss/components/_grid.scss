@@ -59,17 +59,16 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 }
 
 @function getAreaNames($areas) {
-	$areaNames: ();
+	$list: ();
 	@each $area in $areas {
 		$areaNames: split(' ', $area);
 		@each $areaName in $areaNames {
-			@if index($areaNames, $areaName) == null {
-				$areaNames: join($areaNames, $areaName);
+			@if notInList($areaName, $list) {
+				$list: join($list, $areaName);
 			}
 		}
 	}
-
-	@return $areaNames;
+	@return $list;
 }
 
 @if isNotEmpty($grid-areas) {
@@ -82,6 +81,8 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 
 	$areas: getAreaNames($grid-areas);
+
+	@debug $areas;
 
 	@each $area in $areas {
 		[#{$loop-component-prefix}-grid~="#{$area}"] {
