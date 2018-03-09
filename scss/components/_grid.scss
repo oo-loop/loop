@@ -58,22 +58,34 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 }
 
-
-@if isNotEmpty($grid-areas) {
-
-	$grid-areas-name: ();
-
-	@each $area in $grid-areas {
-		$areaNameList: split(' ', $area);
-		@each $areaName in $areaNameList {
-			@if index($grid-areas-name, $areaName) == null {
-				$grid-areas-name: join($grid-areas-name, $areaName);
+@function getAreaNames($areas) {
+	$areaNames: ();
+	@each $area in $areas {
+		$areaNames: split(' ', $area);
+		@each $areaName in $areaNames {
+			@if index($areaNames, $areaName) == null {
+				$areaNames: join($areaNames, $areaName);
 			}
 		}
 	}
-	@debug $grid-areas-name;
 
-	.areas {
+	@return $areaNames;
+}
+
+@if isNotEmpty($grid-areas) {
+
+	[#{$loop-component-prefix}-grid~="area"] {
+		display: grid;
 		grid-template-areas: $grid-areas;
+		grid-template-columns: repeat($grid-system, 1fr);
+		grid-gap: $grid-gap;
+	}
+
+	$areas: getAreaNames($grid-areas);
+
+	@each $area in $areas {
+		[#{$loop-component-prefix}-grid~="#{$area}"] {
+			grid-area: $area;
+		}
 	}
 }
