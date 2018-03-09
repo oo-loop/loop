@@ -10,7 +10,34 @@ $use-v-grid-gap:  true !default;
 
 $grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
-$grid-areas: "headers header header header" "main main . sidebar" "footer footer footer footer" !default;
+$grid-areas: "header header header header"
+			 "main main main sidebar"
+			 "footer footer footer footer" !default;
+
+$grid-areas: (
+	'page' : (
+		: (
+			"a a a"
+			"b b b"
+			"c c c"
+		),
+		sm: (
+			"a a a"
+			"c c b"
+			"c c b"
+		),
+		md: (
+			"a a a"
+			"b c c"
+			"b c c"
+		),
+		lg: (
+			"b a a"
+			"b c c"
+			"b c c"
+		),
+	)
+);
 
 $grid-gap-sizes: $columns-gutter-sizes !default;
 $grid-v-gap-sizes: $grid-gap-sizes !default;
@@ -70,20 +97,39 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 
 	[#{$loop-component-prefix}-grid~="area"] {
 		display: grid;
-		grid-template-areas: $grid-areas;
 		grid-gap: $grid-gap;
 	}
 
 	@if isList($grid-areas) {
-		$areas: getAreaNames($grid-areas);
 
+		[#{$loop-component-prefix}-grid~="area"] {
+			grid-template-areas: $grid-areas;
+		}
+
+		$areas: getAreaNames($grid-areas);
 		@each $area in $areas {
 			[#{$loop-component-prefix}-grid~="#{$area}"] {
 				grid-area: #{$area};
 			}
 		}
+	} @else if isMap($grid-areas) {
+		@each $grid-name, $grid-map in $grid-areas {
+			[#{$loop-component-prefix}-grid~="#{$grid-name}"] {;
 
-		@debug $areas;
+				@each $breakpoint, $areas in $grid-map {
+					@include breakpoint($breakpoint) {
+						grid-template-areas: $areas;
+
+						$areas: getAreaNames($areas);
+						@each $area in $areas {
+							[#{$loop-component-prefix}-grid~="#{$area}"] {
+								grid-area: #{$area};
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

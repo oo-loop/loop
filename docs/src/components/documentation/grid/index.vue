@@ -72,12 +72,18 @@
 
 
 		<h3 class="mt-40" id="order"><a href="#order">#</a> Areas Template</h3>
-		<div oo-grid="area">
-			<div oo-grid="header" class="wrapper-small bg-primary">Header</div>
-			<div oo-grid="main" class="wrapper-small bg-secondary color-white">Main</div>
-			<div oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</div>
-			<div oo-grid="footer" class="wrapper-small bg-success">Footer</div>
-		</div>
+		<section oo-grid="area" class="mb-40">
+			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
+			<main oo-grid="main" class="wrapper-small bg-secondary color-white">Main</main>
+			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
+			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
+		</section>
+
+		<section oo-grid="area page">
+			<div oo-grid="a" class="wrapper-small bg-primary">A</div>
+			<div oo-grid="b" class="wrapper-small bg-secondary color-white">B</div>
+			<div oo-grid="c" class="wrapper-small bg-warning">C</div>
+		</section>
 	</div>
 </template>
 
