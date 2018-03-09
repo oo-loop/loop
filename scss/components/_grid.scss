@@ -92,6 +92,12 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 	@return $list;
 }
+@function getAreaColumnNumber($areas) {
+	@each $area in $areas {
+		$areaNames: split(' ', $area);
+		@return length($areaNames);
+	}
+}
 
 @if $use-grid-area and isNotEmpty($grid-areas) {
 
@@ -104,6 +110,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 
 		[#{$loop-component-prefix}-grid~="area"] {
 			grid-template-areas: $grid-areas;
+			grid-template-columns: repeat(getAreaColumnNumber($grid-areas), 1fr);
 		}
 
 		$areas: getAreaNames($grid-areas);
