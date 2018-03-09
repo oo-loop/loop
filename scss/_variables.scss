@@ -250,6 +250,7 @@ $text-sizes-is-important: true !default;
 
  $use-grid-gap: true !default;
  $use-v-grid-gap: true !default;
+ $use-grid-order: false !default;
 
  $grid-gap:    $columns-gutter !default;
  $grid-system: $columns-system !default;

@@ -49,6 +49,26 @@
 			<div class="cell bordered border-primary" oo-grid="col-4"></div>
 		</div>
 
+		<h3 class="mt-40" id="order"><a href="#order">#</a> Layout a page with Order</h3>
+		<p>Layout your page by creating areas with <code class="color-secondary">col</code> and <code class="color-secondary">row</code>,<br>
+		and use the modifiers <code class="color-secondary">order-{$number}@{$breakpoint}</code> to move them around between screen sizes.</p>
+
+		<div oo-grid="layout" class="mb-30">
+			<div oo-grid="col-12 order1@md" class="wrapper-small bg-primary">Header area</div>
+			<div oo-grid="col-12 col-4@md row-1@md order-3@md" class="wrapper-small bg-warning">Nav area</div>
+			<div oo-grid="col-12 col-8@sm row-11@md order-2@md" class="wrapper-small bg-secondary color-white">Main area</div>
+			<div oo-grid="col-12 col-4@sm row-10@md order-4@md" class="wrapper-small bg-success">Sidebar area</div>
+		</div>
+
+		<p>A more complex version</p>
+		<div oo-grid="layout">
+			<div oo-grid="col-12 col-8@lg" class="wrapper-small bg-primary">Header area</div>
+			<div oo-grid="col-12 col-4@sm col-3@md col-4@lg order-2@sm order-1@md" class="wrapper-small bg-warning">Nav area</div>
+			<div oo-grid="col-12 col-8@sm col-6@md row-4@sm row-10@md order-1@sm order-2@md order-3@lg" class="wrapper-small bg-secondary color-white">Main area</div>
+			<div oo-grid="col-12 col-4@sm col-3@md row-10@lg order-3@sm order-2@lg" class="wrapper-small bg-success">Widgets area 1</div>
+			<div oo-grid="col-12 col-4@sm col-3@md row-9@md row-1@lg order-4@sm" class="wrapper-small bg-success">Widgets area 2</div>
+			<div oo-grid="col-12 col-4@sm col-3@md order-5@sm" class="wrapper-small bg-success">Widgets area 3</div>
+		</div>
 	</div>
 </template>
 
