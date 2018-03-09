@@ -15,6 +15,11 @@ $grid-areas: "header header header header"
 			 "footer footer footer footer" !default;
 
 $grid-areas: (
+	'sample': (
+		"header header header header"
+		"main main main sidebar"
+		"footer footer footer footer"
+	),
 	'page' : (
 		: (
 			"a a a"
@@ -59,7 +64,6 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 			}
 			@for $i from 1 through $grid-system {
 				[#{$loop-component-prefix}-grid~="col-#{$i}#{$suffix}"] { grid-column: span $i; }
-				[#{$loop-component-prefix}-grid~="row-#{$i}#{$suffix}"] { grid-row: span $i; }
 			}
 		}
 	}
@@ -99,41 +103,47 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 }
 
+@mixin makeGridArea($areaNames) {
+	@each $area in $areaNames {
+		[#{$loop-component-prefix}-grid~="#{$area}"] {
+			grid-area: #{$area};
+		}
+	}
+}
+
 @if $use-grid-area and isNotEmpty($grid-areas) {
 
-	[#{$loop-component-prefix}-grid~="area"] {
+	[#{$loop-component-prefix}-grid~="areas"] {
 		display: grid;
 		grid-gap: $grid-gap;
 	}
 
 	@if isList($grid-areas) {
-
-		[#{$loop-component-prefix}-grid~="area"] {
+		[#{$loop-component-prefix}-grid~="areas"] {
 			grid-template-areas: $grid-areas;
 			grid-template-columns: repeat(getAreaColumnNumber($grid-areas), 1fr);
 		}
+		@include makeGridArea(getAreaNames($grid-areas));
 
-		$areas: getAreaNames($grid-areas);
-		@each $area in $areas {
-			[#{$loop-component-prefix}-grid~="#{$area}"] {
-				grid-area: #{$area};
-			}
-		}
 	} @else if isMap($grid-areas) {
 		@each $grid-name, $grid-map in $grid-areas {
-			[#{$loop-component-prefix}-grid~="#{$grid-name}"] {;
 
-				@each $breakpoint, $areas in $grid-map {
-					@include breakpoint($breakpoint) {
-						grid-template-areas: $areas;
-
-						$areas: getAreaNames($areas);
-						@each $area in $areas {
-							[#{$loop-component-prefix}-grid~="#{$area}"] {
-								grid-area: #{$area};
+			[#{$loop-component-prefix}-grid~="#{$grid-name}"] {
+				@if isMap($grid-map) {
+						$area-names-list: ();
+						@each $breakpoint, $areas in $grid-map {
+							$area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
+							@include breakpoint($breakpoint) {
+								grid-template-areas: $areas;
+								grid-template-columns: repeat(getAreaColumnNumber($areas), 1fr);
 							}
 						}
-					}
+						@include makeGridArea($area-names-list);
+				} @else if isList($grid-map) {
+					grid-template-areas: $grid-map;
+					grid-template-columns: repeat(getAreaColumnNumber($grid-map), 1fr);
+
+					@include makeGridArea(getAreaNames($grid-map));
 				}
 			}
 		}
