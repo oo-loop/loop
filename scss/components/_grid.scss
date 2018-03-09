@@ -2,12 +2,14 @@
  * Grid
  */
 
+$use-grid-areas: true !default;
 $use-grid-gap: true !default;
 $use-v-grid-gap: true !default;
 $use-grid-order: false !default;
 
 $grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
+$grid-areas: "headers header header header" "main main . sidebar" "footer footer footer footer" !default;
 
 $grid-gap-sizes: $columns-gutter-sizes !default;
 $grid-v-gap-sizes: $grid-gap-sizes !default;
@@ -53,5 +55,25 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 				[#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
 			}
 		}
+	}
+}
+
+
+@if isNotEmpty($grid-areas) {
+
+	$grid-areas-name: ();
+
+	@each $area in $grid-areas {
+		$areaNameList: split(' ', $area);
+		@each $areaName in $areaNameList {
+			@if index($grid-areas-name, $areaName) == null {
+				$grid-areas-name: join($grid-areas-name, $areaName);
+			}
+		}
+	}
+	@debug $grid-areas-name;
+
+	.areas {
+		grid-template-areas: $grid-areas;
 	}
 }
