@@ -2,10 +2,11 @@
  * Grid
  */
 
-$use-grid-areas: true !default;
-$use-grid-gap: true !default;
-$use-v-grid-gap: true !default;
-$use-grid-order: false !default;
+$use-grid-layout: true !default;
+$use-grid-area:   true !default;
+$use-grid-order:  false !default;
+$use-grid-gap:    true !default;
+$use-v-grid-gap:  true !default;
 
 $grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
@@ -14,49 +15,43 @@ $grid-areas: "headers header header header" "main main . sidebar" "footer footer
 $grid-gap-sizes: $columns-gutter-sizes !default;
 $grid-v-gap-sizes: $grid-gap-sizes !default;
 
-[#{$loop-component-prefix}-grid~="layout"] {
-	display: grid;
-	grid-template-columns: repeat($grid-system, 1fr);
-	grid-gap: $grid-gap;
-}
 
-@each $class in $breakpoints-classes-width-default-value {
-	@include breakpoint($class) {
-		$suffix: '';
-		@if $class != '' {
-			$suffix: \@#{$class};
-		}
-		@for $i from 1 through $grid-system {
-			[#{$loop-component-prefix}-grid~="col-#{$i}#{$suffix}"] { grid-column: span $i; }
-			[#{$loop-component-prefix}-grid~="row-#{$i}#{$suffix}"] { grid-row: span $i; }
-		}
+// Grid layout
+@if $use-grid-layout {
+	[#{$loop-component-prefix}-grid~="layout"] {
+		display: grid;
+		grid-template-columns: repeat($grid-system, 1fr);
+		grid-gap: $grid-gap;
 	}
-}
 
-@if $use-grid-gap {
-	@each $gap-name, $gap-size in $grid-gap-sizes {
-		[#{$loop-component-prefix}-grid~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
-	}
-}
-
-@if $use-grid-gap and $use-v-grid-gap {
-	@each $gap-name, $gap-size in $grid-v-gap-sizes {
-		[#{$loop-component-prefix}-grid~="v-gap-#{$gap-name}"] { grid-row-gap: $gap-size; }
-	}
-}
-
-@if $use-grid-order {
-	@each $class in $breakpoints-classes {
-	    @include breakpoint($class) {
-	        $suffix: \@#{$class};
-			// order-0 to make sure it is first
-			[#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
+	@each $class in $breakpoints-classes-width-default-value {
+		@include breakpoint($class) {
+			$suffix: '';
+			@if $class != '' {
+				$suffix: \@#{$class};
+			}
 			@for $i from 1 through $grid-system {
-				[#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
+				[#{$loop-component-prefix}-grid~="col-#{$i}#{$suffix}"] { grid-column: span $i; }
+				[#{$loop-component-prefix}-grid~="row-#{$i}#{$suffix}"] { grid-row: span $i; }
+			}
+		}
+	}
+
+	@if $use-grid-order {
+		@each $class in $breakpoints-classes {
+		    @include breakpoint($class) {
+		        $suffix: \@#{$class};
+				// order-0 to make sure it is first
+				[#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
+				@for $i from 1 through $grid-system {
+					[#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
+				}
 			}
 		}
 	}
 }
+
+// Grid Areas
 
 @function getAreaNames($areas) {
 	$list: ();
@@ -71,7 +66,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	@return $list;
 }
 
-@if isNotEmpty($grid-areas) {
+@if $use-grid-area and isNotEmpty($grid-areas) {
 
 	[#{$loop-component-prefix}-grid~="area"] {
 		display: grid;
@@ -80,13 +75,28 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 		grid-gap: $grid-gap;
 	}
 
-	$areas: getAreaNames($grid-areas);
+	@if isList($grid-areas) {
+		$areas: getAreaNames($grid-areas);
 
-	@debug $areas;
-
-	@each $area in $areas {
-		[#{$loop-component-prefix}-grid~="#{$area}"] {
-			grid-area: $area;
+		@each $area in $areas {
+			[#{$loop-component-prefix}-grid~="#{$area}"] {
+				grid-area: $area;
+			}
 		}
+
+		@debug $areas;
+	}
+}
+
+
+// Grid Gap
+@if $use-grid-gap {
+	@each $gap-name, $gap-size in $grid-gap-sizes {
+		[#{$loop-component-prefix}-grid~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
+	}
+}
+@if $use-grid-gap and $use-v-grid-gap {
+	@each $gap-name, $gap-size in $grid-v-gap-sizes {
+		[#{$loop-component-prefix}-grid~="v-gap-#{$gap-name}"] { grid-row-gap: $gap-size; }
 	}
 }
