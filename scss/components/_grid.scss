@@ -71,7 +71,6 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	[#{$loop-component-prefix}-grid~="area"] {
 		display: grid;
 		grid-template-areas: $grid-areas;
-		grid-template-columns: repeat($grid-system, 1fr);
 		grid-gap: $grid-gap;
 	}
 
@@ -80,7 +79,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 
 		@each $area in $areas {
 			[#{$loop-component-prefix}-grid~="#{$area}"] {
-				grid-area: $area;
+				grid-area: #{$area};
 			}
 		}
 
