@@ -1,8 +1,19 @@
 <template>
 	<div>
-		<h1 class="title">Grid Layout<span class="text-small color-primary">oo</span></h1>
+		<h1 class="title">Grid<span class="text-small color-primary">oo</span></h1>
 		<p class="text-large">Component based on CSS Grid.<br>
 		<code class="color-secondary font-bold">oo-grid</code></p>
+
+		<p>The two approaches <strong>layout & areas</strong> might not be needed altogether in a project.<br>
+		Turn on/off the options depending on your preferences.</p>
+		
+		<ul class="mb-30">
+			<li><code class="color-info">$use-grid-layout</code></li>
+			<li><code class="color-info">$use-grid-areas</code></li>
+			<li><code class="color-info">$use-grid-order</code></li>
+			<li><code class="color-info">$use-grid-gap</code></li>
+			<li><code class="color-info">$use-v-grid-gap</code></li>
+		</ul>
 
 		<h3 id="layout"><a href="#layout">#</a> Layout <code class="text-small color-secondary">oo-grid="layout"</code></h3>
 		<p>Use the 12 columns system for both rows and columns with property <code class="color-secondary">col-{$number}</code> <code class="color-secondary">row-{$number}</code> and <code class="color-secondary">col-{$number}@{$breakpoint}</code> <code class="color-secondary">row-{$number}@{$breakpoint}</code> for responsive purpose.</p>
@@ -97,7 +108,7 @@
 		<pretty-code :code="html.orderComplex" />
 
 
-		<h3 class="mt-40" id="order"><a href="#areas">#</a> Areas <code class="text-small color-secondary">oo-grid="areas"</code></h3>
+		<h3 class="mt-40" id="areas"><a href="#areas">#</a> Areas <code class="text-small color-secondary">oo-grid="areas"</code></h3>
 		<p>Create your own template through <code class="color-info">$grid-template-areas</code> and use the name of the areas set in that variable.</p>
 		<pretty-code class="language-css" :code="html.varGrid" />
 
