@@ -248,12 +248,16 @@ $text-sizes-is-important: true !default;
  * Grid
  */
 
- $use-grid-gap: true !default;
- $use-v-grid-gap: true !default;
- $use-grid-order: false !default;
+ $use-grid-layout: true !default;
+ $use-grid-areas:  true !default;
+ $use-grid-order:  true !default;
+ $use-grid-gap:    true !default;
+ $use-v-grid-gap:  true !default;
+
 
  $grid-gap:    $columns-gutter !default;
  $grid-system: $columns-system !default;
+ $grid-template-areas: () !default ;
 
  $grid-gap-sizes: $columns-gutter-sizes !default;
  $grid-v-gap-sizes: $grid-gap-sizes !default;
