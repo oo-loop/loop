@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="title">Grid Layout<span class="text-small color-primary">oo</span> <small class="text-small color-danger">wip</small></h1>
+		<h1 class="title">Grid Layout<span class="text-small color-primary">oo</span></h1>
 		<p class="text-large">Component based on CSS Grid.<br>
 		<code class="color-secondary font-bold">oo-grid</code></p>
 
@@ -121,7 +121,7 @@
 			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
 		</section>
 
-		<h4>Multiple Areas</h4>
+		<h4>Multiple Template Areas</h4>
 		<p>Pass a map of areas to <code class="color-info">$grid-template-areas</code> and use the name of each map as property <code class="color-info">oo-grid="areas {$name}"</code> to get the corresponding area.</p>
 
 		<pretty-code class="language-css" :code="html.varGridMultiple" />
