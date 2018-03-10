@@ -3,58 +3,16 @@
  */
 
 $use-grid-layout: true !default;
-$use-grid-area:   true !default;
-$use-grid-order:  false !default;
+$use-grid-areas:  true !default;
+$use-grid-order:  true !default;
 $use-grid-gap:    true !default;
 $use-v-grid-gap:  true !default;
 
 $grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
+$grid-template-areas: () !default ;
 
-$grid-template-areas: (
-	'sample': (
-		"header header header header"
-		"main main main sidebar"
-		"footer footer footer footer"
-	),
-	'sample-responsive': (
-		: (
-			"header"
-			"sidebar"
-			"main"
-	 		"footer"
-		),
-		sm: (
-			"header header header header"
-			"main main main sidebar"
-	 		"footer footer footer footer"
-		),
-	),
-	'sample-abc': (
-		: (
-			"a"
-			"b"
-			"c"
-		),
-		sm: (
-			"a a"
-			"c b"
-			"c b"
-		),
-		md: (
-			"a a a"
-			"b c c"
-			"b c c"
-		),
-		lg: (
-			"a b b"
-			"a c c"
-			"a . ."
-		),
-	),
-);
-
-$grid-gap-sizes: $columns-gutter-sizes !default;
+$grid-gap-sizes:   $columns-gutter-sizes !default;
 $grid-v-gap-sizes: $grid-gap-sizes !default;
 
 
@@ -140,7 +98,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	@include makeGridArea($area-names-list);
 }
 
-@if $use-grid-area and isNotEmpty($grid-template-areas) {
+@if $use-grid-areas and isNotEmpty($grid-template-areas) {
 
 	[#{$loop-component-prefix}-grid~="areas"] {
 		display: grid;

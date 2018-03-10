@@ -377,6 +377,49 @@ export default {
 
 	$use-grid-order: true;
 
+	$grid-template-areas: (
+		'sample': (
+			"header header header header"
+			"main main main sidebar"
+			"footer footer footer footer"
+		),
+		'sample-responsive': (
+			: (
+				"header"
+				"sidebar"
+				"main"
+		 		"footer"
+			),
+			sm: (
+				"header header header header"
+				"main main main sidebar"
+		 		"footer footer footer footer"
+			),
+		),
+		'sample-abc': (
+			: (
+				"a"
+				"b"
+				"c"
+			),
+			sm: (
+				"a a"
+				"c b"
+				"c b"
+			),
+			md: (
+				"a a a"
+				"b c c"
+				"b c c"
+			),
+			lg: (
+				"a b b"
+				"a c c"
+				"a . ."
+			),
+		),
+	);
+
 	@import '~loop/loop';
 
 	$layout-padding: 2.4rem;
