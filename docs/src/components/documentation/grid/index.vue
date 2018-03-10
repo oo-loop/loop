@@ -4,7 +4,7 @@
 		<p class="text-large">Component based on CSS Grid.<br>
 		<code class="color-secondary font-bold">oo-grid</code></p>
 
-		<h3 id="layout"><a href="#layout">#</a> Layout</h3>
+		<h3 id="layout"><a href="#layout">#</a> Layout <code class="text-small color-secondary">oo-grid="layout"</code></h3>
 		<p>Use the 12 columns system for both rows and columns with property <code class="color-secondary">col-{$number}</code> <code class="color-secondary">row-{$number}</code> and <code class="color-secondary">col-{$number}@{$breakpoint}</code> <code class="color-secondary">row-{$number}@{$breakpoint}</code> for responsive purpose.</p>
 		<div oo-grid="layout">
 			<div class="wrapper-tiny bg-primary" oo-grid="col-6 row-3 col-4@sm">1</div>
@@ -89,7 +89,7 @@
 		<div oo-grid="layout gap-less">
 			<div oo-grid="col-12 col-8@lg" class="wrapper-small bg-primary">Header</div>
 			<div oo-grid="col-12 col-4@sm col-3@md col-4@lg order-2@sm order-1@md" class="wrapper-small bg-warning">Nav</div>
-			<div oo-grid="col-12 col-8@sm col-6@md row-4@sm row-10@md order-1@sm order-2@md order-3@lg" class="wrapper-small bg-secondary color-white" style="min-height:250px">Main</div>
+			<div oo-grid="col-12 col-8@sm col-6@md row-4@sm row-10@md order-1@sm order-2@md order-3@lg" class="wrapper-small bg-secondary color-white main">Main</div>
 			<div oo-grid="col-12 col-4@sm col-3@md row-10@lg order-3@sm order-2@lg" class="wrapper-small bg-success">Widgets 1</div>
 			<div oo-grid="col-12 col-4@sm col-3@md row-9@md row-1@lg order-4@sm" class="wrapper-small bg-warning">Nav 2</div>
 			<div oo-grid="col-12 col-4@sm col-3@md order-5@sm" class="wrapper-small bg-success">Widgets 2</div>
@@ -97,13 +97,18 @@
 		<pretty-code :code="html.orderComplex" />
 
 
-		<h3 class="mt-40" id="order"><a href="#order">#</a> Areas Template</h3>
-		<section oo-grid="areas sample" class="mb-40">
+		<h3 class="mt-40" id="order"><a href="#areas">#</a> Areas <code class="text-small color-secondary">oo-grid="areas"</code></h3>
+		<p>Create your own template through <code class="color-info">$grid-template-areas</code> and use the name of the areas set in that variable.</p>
+		<pretty-code class="language-css" :code="html.varGrid" />
+
+		<section oo-grid="areas sample gap-less" class="mb-40">
 			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
-			<main oo-grid="main" class="wrapper-small bg-secondary color-white">Main</main>
+			<main oo-grid="main" class="wrapper-small bg-secondary color-white main">Main</main>
 			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
 			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
 		</section>
+
+		<pretty-code :code="html.grid" />
 
 		<section oo-grid="areas page">
 			<div oo-grid="a" class="wrapper-small bg-primary">A</div>
@@ -138,6 +143,7 @@ export default {
 			order: require('./code/order.html'),
 			orderComplex: require('./code/order-complex.html'),
 			varGap: require('./code/var-gap.html'),
+			varGrid: require('./code/var-grid.html'),
 		}
 	}),
 	computed: {
@@ -157,7 +163,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 	@import "~loop/variables";
-	.cell {
-		padding: 1rem;
+	.main {
+		min-height: 250px;
 	}
 </style>

@@ -89,7 +89,11 @@ export default {
 					},
 					{
 						name: 'Order',
-						route: '#Order'
+						route: '#order'
+					},
+					{
+						name: 'Areas',
+						route: '#areas'
 					},
 				]
 			},

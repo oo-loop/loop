@@ -10,11 +10,11 @@ $use-v-grid-gap:  true !default;
 
 $grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
-$grid-areas: "header header header header"
+$grid-template-areas: "header header header header"
 			 "main main main sidebar"
 			 "footer footer footer footer" !default;
 
-$grid-areas: (
+$grid-template-areas: (
 	'sample': (
 		"header header header header"
 		"main main main sidebar"
@@ -104,9 +104,9 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 }
 
-@mixin makeGridTemplate($grid-areas) {
-	grid-template-areas: $grid-areas;
-	grid-template-columns: repeat(getAreaColumnNumber($grid-areas), 1fr);
+@mixin makeGridTemplate($grid-template-areas) {
+	grid-template-areas: $grid-template-areas;
+	grid-template-columns: repeat(getAreaColumnNumber($grid-template-areas), 1fr);
 }
 @mixin makeGridArea($areaNames) {
 	@each $area in $areaNames {
@@ -116,21 +116,21 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 	}
 }
 
-@if $use-grid-area and isNotEmpty($grid-areas) {
+@if $use-grid-area and isNotEmpty($grid-template-areas) {
 
 	[#{$loop-component-prefix}-grid~="areas"] {
 		display: grid;
 		grid-gap: $grid-gap;
 	}
 
-	@if isList($grid-areas) {
+	@if isList($grid-template-areas) {
 		[#{$loop-component-prefix}-grid~="areas"] {
-			@include makeGridTemplate($grid-areas);
-			@include makeGridArea(getAreaNames($grid-areas));
+			@include makeGridTemplate($grid-template-areas);
+			@include makeGridArea(getAreaNames($grid-template-areas));
 		}
 
-	} @else if isMap($grid-areas) {
-		@each $grid-name, $grid-sub-areas in $grid-areas {
+	} @else if isMap($grid-template-areas) {
+		@each $grid-name, $grid-sub-areas in $grid-template-areas {
 			[#{$loop-component-prefix}-grid~="#{$grid-name}"] {
 				@if isMap($grid-sub-areas) {
 					$area-names-list: ();
