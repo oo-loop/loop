@@ -170,7 +170,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 			}
 		} @else {
 			@each $grid-name, $grid-sub-areas in $grid-template-areas {
-				[#{$loop-component-prefix}-grid~="#{$grid-name}"] {
+				[#{$loop-component-prefix}-grid~="areas"][#{$loop-component-prefix}-grid~="#{$grid-name}"] {
 					@if isMap($grid-sub-areas) {
 						@include makeGridOnBreakpoints($grid-sub-areas);
 					} @else if isList($grid-sub-areas) {
