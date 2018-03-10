@@ -110,11 +110,29 @@
 
 		<pretty-code :code="html.grid" />
 
-		<section oo-grid="areas page">
+		<h4>Responsive Areas</h4>
+		<p>Pass a map of breakpoint</p>
+		<pretty-code class="language-css" :code="html.varGridResponsive" />
+
+		<section oo-grid="areas sample-responsive gap-less" class="mb-40">
+			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
+			<main oo-grid="main" class="wrapper-small bg-secondary color-white main">Main</main>
+			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
+			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
+		</section>
+
+		<h4>Multiple Areas</h4>
+		<p>Pass a map of areas to <code class="color-info">$grid-template-areas</code> and use the name of each map as property <code class="color-info">oo-grid="areas {$name}"</code> to get the corresponding area.</p>
+
+		<pretty-code class="language-css" :code="html.varGridMultiple" />
+
+		<section oo-grid="areas sample-abc">
 			<div oo-grid="a" class="wrapper-small bg-primary">A</div>
 			<div oo-grid="b" class="wrapper-small bg-secondary color-white">B</div>
 			<div oo-grid="c" class="wrapper-small bg-warning">C</div>
 		</section>
+
+		<pretty-code :code="html.abc" />
 	</div>
 </template>
 
@@ -137,6 +155,7 @@ export default {
 			'small',
 		],
 		html: {
+			abc: require('./code/abc.html'),
 			gap: require('./code/gap.html'),
 			grid: require('./code/grid.html'),
 			layout: require('./code/layout.html'),
@@ -144,6 +163,8 @@ export default {
 			orderComplex: require('./code/order-complex.html'),
 			varGap: require('./code/var-gap.html'),
 			varGrid: require('./code/var-grid.html'),
+			varGridResponsive: require('./code/var-grid-responsive.html'),
+			varGridMultiple: require('./code/var-grid-multiple.html'),
 		}
 	}),
 	computed: {

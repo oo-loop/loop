@@ -10,9 +10,6 @@ $use-v-grid-gap:  true !default;
 
 $grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
-$grid-template-areas: "header header header header"
-			 "main main main sidebar"
-			 "footer footer footer footer" !default;
 
 $grid-template-areas: (
 	'sample': (
@@ -20,7 +17,7 @@ $grid-template-areas: (
 		"main main main sidebar"
 		"footer footer footer footer"
 	),
-	'sample-2': (
+	'sample-responsive': (
 		: (
 			"header"
 			"sidebar"
@@ -33,7 +30,7 @@ $grid-template-areas: (
 	 		"footer footer footer footer"
 		),
 	),
-	'page' : (
+	'sample-abc': (
 		: (
 			"a"
 			"b"
