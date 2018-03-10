@@ -20,6 +20,19 @@ $grid-template-areas: (
 		"main main main sidebar"
 		"footer footer footer footer"
 	),
+	'sample-2': (
+		: (
+			"header"
+			"sidebar"
+			"main"
+	 		"footer"
+		),
+		sm: (
+			"header header header header"
+			"main main main sidebar"
+	 		"footer footer footer footer"
+		),
+	),
 	'page' : (
 		: (
 			"a"
@@ -115,6 +128,20 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 		}
 	}
 }
+@mixin makeGrid($grid-template-areas) {
+	@include makeGridTemplate($grid-template-areas);
+	@include makeGridArea(getAreaNames($grid-template-areas));
+}
+@mixin makeGridOnBreakpoints($grid-template-areas) {
+	$area-names-list: ();
+	@each $breakpoint, $areas in $grid-template-areas {
+		$area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
+		@include breakpoint($breakpoint) {
+			@include makeGridTemplate($areas);
+		}
+	}
+	@include makeGridArea($area-names-list);
+}
 
 @if $use-grid-area and isNotEmpty($grid-template-areas) {
 
@@ -125,25 +152,33 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
 
 	@if isList($grid-template-areas) {
 		[#{$loop-component-prefix}-grid~="areas"] {
-			@include makeGridTemplate($grid-template-areas);
-			@include makeGridArea(getAreaNames($grid-template-areas));
+			@include makeGrid($grid-template-areas);
 		}
 
 	} @else if isMap($grid-template-areas) {
-		@each $grid-name, $grid-sub-areas in $grid-template-areas {
-			[#{$loop-component-prefix}-grid~="#{$grid-name}"] {
-				@if isMap($grid-sub-areas) {
-					$area-names-list: ();
-					@each $breakpoint, $areas in $grid-sub-areas {
-						$area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
-						@include breakpoint($breakpoint) {
-							@include makeGridTemplate($areas);
-						}
+
+		// are keys Breakpoints ?
+		$are-keys-breakpoints: false;
+		$map-keys: map-keys($grid-template-areas);
+		@each $key in $map-keys {
+			@if inList($key, $breakpoints-classes) {
+				$are-keys-breakpoints: true;
+				@break;
+			}
+		}
+
+		@if $are-keys-breakpoints {
+			[#{$loop-component-prefix}-grid~="areas"] {
+				@include makeGridOnBreakpoints($grid-template-areas);
+			}
+		} @else {
+			@each $grid-name, $grid-sub-areas in $grid-template-areas {
+				[#{$loop-component-prefix}-grid~="#{$grid-name}"] {
+					@if isMap($grid-sub-areas) {
+						@include makeGridOnBreakpoints($grid-sub-areas);
+					} @else if isList($grid-sub-areas) {
+						@include makeGrid($grid-sub-areas);
 					}
-					@include makeGridArea($area-names-list);
-				} @else if isList($grid-sub-areas) {
-					@include makeGridTemplate($grid-sub-areas);
-					@include makeGridArea(getAreaNames($grid-sub-areas));
 				}
 			}
 		}
