@@ -80,12 +80,16 @@ export default {
 				labelClass: 'color-secondary',
 				subMenu: [
 					{
-						name: 'Responsive',
-						route: '#responsive'
+						name: 'Layout',
+						route: '#layout'
 					},
 					{
-						name: 'Gaps',
-						route: '#gaps'
+						name: 'Gap',
+						route: '#gap'
+					},
+					{
+						name: 'Order',
+						route: '#Order'
 					},
 				]
 			},
