@@ -6,6 +6,7 @@
 		<h3 id="vertical"><a href="#vertical">#</a> Vertical</h3>
 		<p>Two types of classes are available, <code>.mt-*</code> (margin-top) and <code>.mb-*</code> (margin-bottom).<br>
 		The numbers are based on pixels to give a better understanding of the space representation.<br>The generated values are on the contrary rem units. 11 values are available through 0 to 50 for both top and bottom.</p>
+		<p><strong>Note:</strong> Remember, with 62.5% as <code class="color-info">$font-size-root</code> 1rem = 10px</p>
 		<div oo-column="row">
 			<div oo-column="col-12 self-adjust@sm">
 				<div oo-column="row gutter-tiny">
