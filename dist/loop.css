@@ -79,9 +79,29 @@
  * Visibility Utilities
  */
 /**
- * In Array
+ * isString
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isList
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isMap
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * In List
  * @param $needle    string        the searched value
- * @param $haystack  array|string  the array to search in
+ * @param $haystack  array|string  the list to search in
  * @return bool
  */
 /**
@@ -93,11 +113,6 @@
 /**
  * Is Bright
  * @param color
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
  * @return bool
  */
 /**
@@ -116,12 +131,25 @@
  * @return bool
  */
 /**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
  * Replace
  * @param string $search  The value being searched
  * @param string $replace The replacement value
  * @parem string $subject The string being searched and replaced on
  *
  * @return string
+ */
+/**
+ * Split
+ * @param string $pattern The string character to split your string by
+ * @param string $subject The input string
+ * @param list   $list    The list being populated
+ *
+ * @return list
  */
 /**
  * isString
@@ -144,9 +172,29 @@
  * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
  */
 /**
- * In Array
+ * isString
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isList
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isMap
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * In List
  * @param $needle    string        the searched value
- * @param $haystack  array|string  the array to search in
+ * @param $haystack  array|string  the list to search in
  * @return bool
  */
 /**
@@ -158,11 +206,6 @@
 /**
  * Is Bright
  * @param color
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
  * @return bool
  */
 /**
@@ -181,12 +224,25 @@
  * @return bool
  */
 /**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
  * Replace
  * @param string $search  The value being searched
  * @param string $replace The replacement value
  * @parem string $subject The string being searched and replaced on
  *
  * @return string
+ */
+/**
+ * Split
+ * @param string $pattern The string character to split your string by
+ * @param string $subject The input string
+ * @param list   $list    The list being populated
+ *
+ * @return list
  */
 /**
  * isString
@@ -214,9 +270,29 @@
  * Loop
  */
 /**
- * In Array
+ * isString
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isList
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isMap
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * In List
  * @param $needle    string        the searched value
- * @param $haystack  array|string  the array to search in
+ * @param $haystack  array|string  the list to search in
  * @return bool
  */
 /**
@@ -228,11 +304,6 @@
 /**
  * Is Bright
  * @param color
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
  * @return bool
  */
 /**
@@ -251,12 +322,25 @@
  * @return bool
  */
 /**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
  * Replace
  * @param string $search  The value being searched
  * @param string $replace The replacement value
  * @parem string $subject The string being searched and replaced on
  *
  * @return string
+ */
+/**
+ * Split
+ * @param string $pattern The string character to split your string by
+ * @param string $subject The input string
+ * @param list   $list    The list being populated
+ *
+ * @return list
  */
 /**
  * isString
@@ -279,9 +363,29 @@
  * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
  */
 /**
- * In Array
+ * isString
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isList
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isMap
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * In List
  * @param $needle    string        the searched value
- * @param $haystack  array|string  the array to search in
+ * @param $haystack  array|string  the list to search in
  * @return bool
  */
 /**
@@ -293,11 +397,6 @@
 /**
  * Is Bright
  * @param color
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
  * @return bool
  */
 /**
@@ -316,12 +415,25 @@
  * @return bool
  */
 /**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
  * Replace
  * @param string $search  The value being searched
  * @param string $replace The replacement value
  * @parem string $subject The string being searched and replaced on
  *
  * @return string
+ */
+/**
+ * Split
+ * @param string $pattern The string character to split your string by
+ * @param string $subject The input string
+ * @param list   $list    The list being populated
+ *
+ * @return list
  */
 /**
  * isString
@@ -901,6 +1013,132 @@ hr, .hr {
   }
   [oo-grid~="row-12@lg"] {
     grid-row: span 12;
+  }
+}
+
+@media (min-width: 600px) {
+  [oo-grid~="order-0@sm"] {
+    order: -1;
+  }
+  [oo-grid~="order-1@sm"] {
+    order: 1;
+  }
+  [oo-grid~="order-2@sm"] {
+    order: 2;
+  }
+  [oo-grid~="order-3@sm"] {
+    order: 3;
+  }
+  [oo-grid~="order-4@sm"] {
+    order: 4;
+  }
+  [oo-grid~="order-5@sm"] {
+    order: 5;
+  }
+  [oo-grid~="order-6@sm"] {
+    order: 6;
+  }
+  [oo-grid~="order-7@sm"] {
+    order: 7;
+  }
+  [oo-grid~="order-8@sm"] {
+    order: 8;
+  }
+  [oo-grid~="order-9@sm"] {
+    order: 9;
+  }
+  [oo-grid~="order-10@sm"] {
+    order: 10;
+  }
+  [oo-grid~="order-11@sm"] {
+    order: 11;
+  }
+  [oo-grid~="order-12@sm"] {
+    order: 12;
+  }
+}
+
+@media (min-width: 960px) {
+  [oo-grid~="order-0@md"] {
+    order: -1;
+  }
+  [oo-grid~="order-1@md"] {
+    order: 1;
+  }
+  [oo-grid~="order-2@md"] {
+    order: 2;
+  }
+  [oo-grid~="order-3@md"] {
+    order: 3;
+  }
+  [oo-grid~="order-4@md"] {
+    order: 4;
+  }
+  [oo-grid~="order-5@md"] {
+    order: 5;
+  }
+  [oo-grid~="order-6@md"] {
+    order: 6;
+  }
+  [oo-grid~="order-7@md"] {
+    order: 7;
+  }
+  [oo-grid~="order-8@md"] {
+    order: 8;
+  }
+  [oo-grid~="order-9@md"] {
+    order: 9;
+  }
+  [oo-grid~="order-10@md"] {
+    order: 10;
+  }
+  [oo-grid~="order-11@md"] {
+    order: 11;
+  }
+  [oo-grid~="order-12@md"] {
+    order: 12;
+  }
+}
+
+@media (min-width: 1280px) {
+  [oo-grid~="order-0@lg"] {
+    order: -1;
+  }
+  [oo-grid~="order-1@lg"] {
+    order: 1;
+  }
+  [oo-grid~="order-2@lg"] {
+    order: 2;
+  }
+  [oo-grid~="order-3@lg"] {
+    order: 3;
+  }
+  [oo-grid~="order-4@lg"] {
+    order: 4;
+  }
+  [oo-grid~="order-5@lg"] {
+    order: 5;
+  }
+  [oo-grid~="order-6@lg"] {
+    order: 6;
+  }
+  [oo-grid~="order-7@lg"] {
+    order: 7;
+  }
+  [oo-grid~="order-8@lg"] {
+    order: 8;
+  }
+  [oo-grid~="order-9@lg"] {
+    order: 9;
+  }
+  [oo-grid~="order-10@lg"] {
+    order: 10;
+  }
+  [oo-grid~="order-11@lg"] {
+    order: 11;
+  }
+  [oo-grid~="order-12@lg"] {
+    order: 12;
   }
 }
 
@@ -2229,139 +2467,139 @@ ol.list-center {
  * Spacing
  */
 .mt-0 {
-  margin-top: 0px !important;
+  margin-top: 0rem !important;
 }
 
 .mt-5 {
-  margin-top: 5px !important;
+  margin-top: 0.5rem !important;
 }
 
 .mt-10 {
-  margin-top: 10px !important;
+  margin-top: 1rem !important;
 }
 
 .mt-15 {
-  margin-top: 15px !important;
+  margin-top: 1.5rem !important;
 }
 
 .mt-20 {
-  margin-top: 20px !important;
+  margin-top: 2rem !important;
 }
 
 .mt-25 {
-  margin-top: 25px !important;
+  margin-top: 2.5rem !important;
 }
 
 .mt-30 {
-  margin-top: 30px !important;
+  margin-top: 3rem !important;
 }
 
 .mt-35 {
-  margin-top: 35px !important;
+  margin-top: 3.5rem !important;
 }
 
 .mt-40 {
-  margin-top: 40px !important;
+  margin-top: 4rem !important;
 }
 
 .mt-45 {
-  margin-top: 45px !important;
+  margin-top: 4.5rem !important;
 }
 
 .mt-50 {
-  margin-top: 50px !important;
+  margin-top: 5rem !important;
 }
 
 .mb-0 {
-  margin-bottom: 0px !important;
+  margin-bottom: 0rem !important;
 }
 
 .mb-5 {
-  margin-bottom: 5px !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .mb-10 {
-  margin-bottom: 10px !important;
+  margin-bottom: 1rem !important;
 }
 
 .mb-15 {
-  margin-bottom: 15px !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .mb-20 {
-  margin-bottom: 20px !important;
+  margin-bottom: 2rem !important;
 }
 
 .mb-25 {
-  margin-bottom: 25px !important;
+  margin-bottom: 2.5rem !important;
 }
 
 .mb-30 {
-  margin-bottom: 30px !important;
+  margin-bottom: 3rem !important;
 }
 
 .mb-35 {
-  margin-bottom: 35px !important;
+  margin-bottom: 3.5rem !important;
 }
 
 .mb-40 {
-  margin-bottom: 40px !important;
+  margin-bottom: 4rem !important;
 }
 
 .mb-45 {
-  margin-bottom: 45px !important;
+  margin-bottom: 4.5rem !important;
 }
 
 .mb-50 {
-  margin-bottom: 50px !important;
+  margin-bottom: 5rem !important;
 }
 
 .ml-0 {
-  margin-left: 0px !important;
+  margin-left: 0rem !important;
 }
 
 .ml-5 {
-  margin-left: 5px !important;
+  margin-left: 0.5rem !important;
 }
 
 .ml-10 {
-  margin-left: 10px !important;
+  margin-left: 1rem !important;
 }
 
 .ml-15 {
-  margin-left: 15px !important;
+  margin-left: 1.5rem !important;
 }
 
 .ml-20 {
-  margin-left: 20px !important;
+  margin-left: 2rem !important;
 }
 
 .ml-25 {
-  margin-left: 25px !important;
+  margin-left: 2.5rem !important;
 }
 
 .mr-0 {
-  margin-right: 0px !important;
+  margin-right: 0rem !important;
 }
 
 .mr-5 {
-  margin-right: 5px !important;
+  margin-right: 0.5rem !important;
 }
 
 .mr-10 {
-  margin-right: 10px !important;
+  margin-right: 1rem !important;
 }
 
 .mr-15 {
-  margin-right: 15px !important;
+  margin-right: 1.5rem !important;
 }
 
 .mr-20 {
-  margin-right: 20px !important;
+  margin-right: 2rem !important;
 }
 
 .mr-25 {
-  margin-right: 25px !important;
+  margin-right: 2.5rem !important;
 }
 
 /**

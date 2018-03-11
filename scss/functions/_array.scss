@@ -1,16 +1,27 @@
+@import 'empty';
+
 /**
- * In Array
+ * In List
  * @param $needle    string        the searched value
- * @param $haystack  array|string  the array to search in
+ * @param $haystack  array|string  the list to search in
  * @return bool
  */
 
-@function inArray($needle, $haystack) {
+@function inList($needle, $haystack) {
     @if index($haystack, $needle) == null {
         @return false;
     } @else {
         @return true;
     }
+}
+
+@function notInList($needle, $haystack) {
+    @return if(inList($needle, $haystack), false, true);
+}
+
+// inArray Deprecated
+@function inArray($needle, $haystack) {
+    @return inList($needle, $haystack);
 }
 
 /**
