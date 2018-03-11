@@ -23,13 +23,15 @@
 /**
  * Body Base
  */
+ $font-size-root:   62.5% !default;
+ $font-smoothing:   true !default;
+
  $font-family-base: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
  $font-size-base:   1.6rem !default; // == 16px ( relative to 62.5% font-size )
  $font-weight-base: 400 !default;
  $line-height-base: 1.5 !default;
  $color-base:       #333 !default;
  $bgcolor-base:     #fff !default;
- $font-smoothing:   true !default;
 
 
 /**
@@ -266,6 +268,8 @@ $text-sizes-is-important: true !default;
 /**
  * Spacing
  */
+ $spacing-ratio: 0.1; // with 62.5% on root 10px = 1rem;
+ 
  $use-v-spacing:         true !default;
  $v-spacing-from:        0 !default;
  $v-spacing-to:          50 !default;
