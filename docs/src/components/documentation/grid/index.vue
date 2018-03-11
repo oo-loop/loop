@@ -1,54 +1,149 @@
 <template>
 	<div>
-		<h1 class="title">Grid Layout<span class="text-small color-primary">oo</span> <small class="text-small color-danger">wip</small></h1>
-		<p class="text-large">Component based on CSS grid layout, using the 12 grid system (columns and rows).<br><code class="color-secondary font-bold">oo-grid</code></p>
+		<h1 class="title">Grid<span class="text-small color-primary">oo</span></h1>
+		<p class="text-large">Component based on CSS Grid.<br>
+		<code class="color-secondary font-bold">oo-grid</code></p>
 
-		<h3 id="responsive"><a href="#responsive">#</a> Responsive Columns and Rows</h3>
+		<p>The two approaches <strong>layout & areas</strong> might not be needed altogether in a project.<br>
+		Turn on/off the options depending on your preferences.</p>
+		
+		<ul class="mb-30">
+			<li><code class="color-info">$use-grid-layout</code></li>
+			<li><code class="color-info">$use-grid-areas</code></li>
+			<li><code class="color-info">$use-grid-order</code></li>
+			<li><code class="color-info">$use-grid-gap</code></li>
+			<li><code class="color-info">$use-v-grid-gap</code></li>
+		</ul>
+
+		<h3 id="layout"><a href="#layout">#</a> Layout <code class="text-small color-secondary">oo-grid="layout"</code></h3>
+		<p>Use the 12 columns system for both rows and columns with property <code class="color-secondary">col-{$number}</code> <code class="color-secondary">row-{$number}</code> and <code class="color-secondary">col-{$number}@{$breakpoint}</code> <code class="color-secondary">row-{$number}@{$breakpoint}</code> for responsive purpose.</p>
 		<div oo-grid="layout">
-			<div class="cell bg-primary" oo-grid="col-6 row-3 col-4@sm">1</div>
-			<div class="cell bg-primary" oo-grid="col-6 col-8@sm">2</div>
-			<div class="cell bg-primary" oo-grid="col-6 col-4@sm">3</div>
-			<div class="cell bg-primary" oo-grid="col-6 col-4@sm row-2@sm row-3@md row-4@lg">4</div>
-			<div class="cell bg-primary" oo-grid="col-4">5</div>
-			<div class="cell bg-primary" oo-grid="col-4 col-2@lg">6</div>
-			<div class="cell bg-primary" oo-grid="col-4 row-2@md row-1@lg">7</div>
-			<div class="cell bg-primary" oo-grid="col-12 col-4@sm col-2@lg">8</div>
-			<div class="cell bg-primary" oo-grid="col-12 col-4@md col-8@lg">9</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-6 row-3 col-4@sm">1</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-6 col-8@sm">2</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-6 col-4@sm">3</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-6 col-4@sm row-2@sm row-3@md row-4@lg">4</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-4">5</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-4 col-2@lg">6</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-4 row-2@md row-1@lg">7</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-12 col-4@sm col-2@lg">8</div>
+			<div class="wrapper-tiny bg-primary" oo-grid="col-12 col-4@md col-8@lg">9</div>
 		</div>
 
-		<pretty-code :code="html.responsive" />
+		<pretty-code :code="html.layout" />
 
-		<h3 id="gaps"><a href="#gaps">#</a> Gaps</h3>
+		<h3 id="gaps"><a href="#gap">#</a> Gap</h3>
 		<p>
-			Change the gap between the spans by adding one of the properties <code class="color-secondary">gap-less</code> <code class="color-secondary">gap-tiny</code> <code class="color-secondary">gap-small</code> <code class="color-secondary">gap-large</code> to <code class="color-secondary">grid</code>
-			<br>The same option are available targetting vertical gaps only<code class="color-secondary">v-gap-{$name}</code>.
+			Change the gap between colums and rows with the properties <code class="color-secondary">gap-{$name}</code> <code class="color-secondary">v-gap-{$name}</code> matching the names in the variables <code class="color-info">$grid-gap-sizes</code> and <code class="color-info">$grid-v-gap-sizes</code>.
 		</p>
+
+		<pretty-code class="language-css" :code="html.varGap" />
+		<pretty-code :code="html.gap" />
+
 		<div oo-column="row gutter-tiny">
 			<div oo-column="col self-adjust">
-				<button oo-button="secondary" class="text-tiny" @click="gap = ''">Reset gap</button>
+				<button 
+					:oo-button="gap == '' ? 'secondary' : ''"
+					class="text-tiny"
+					@click="gap = ''"
+				>default gap</button>
 			</div>
 			<div oo-column="col self-adjust" v-for="n in gaps">
-				<button oo-button class="text-tiny" @click="gap = n">gap-{{n}}</button>
+				<button
+					:oo-button="gap == n ? 'secondary' : ''"
+					class="text-tiny"
+					@click="gap = n"
+				>gap-{{n}}</button>
 			</div>
 		</div>
 		<div class="mb-20" oo-column="row gutter-tiny">
 			<div oo-column="col self-adjust">
-				<button oo-button="secondary" class="text-tiny" @click="vGap = ''">Reset v-gap</button>
+				<button 
+					:oo-button="vGap == '' ? 'secondary' : ''"
+					class="text-tiny"
+					@click="vGap = ''"
+				>default v-gap</button>
 			</div>
 			<div oo-column="col self-adjust" v-for="n in gaps">
-				<button oo-button class="text-tiny" @click="vGap = n">v-gap-{{n}}</button>
+				<button
+					:oo-button="vGap == n ? 'secondary' : ''"
+					class="text-tiny"
+					@click="vGap = n"
+				>v-gap-{{n}}</button>
 			</div>
 		</div>
 
 		<div :oo-grid="gridProperty">
-			<div class="cell bordered border-primary" oo-grid="col-4"></div>
-			<div class="cell bordered border-primary" oo-grid="col-4"></div>
-			<div class="cell bordered border-primary" oo-grid="col-4"></div>
-			<div class="cell bordered border-primary" oo-grid="col-4"></div>
-			<div class="cell bordered border-primary" oo-grid="col-4"></div>
-			<div class="cell bordered border-primary" oo-grid="col-4"></div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-6 row-3 col-4@sm">1</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-6 col-8@sm">2</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-6 col-4@sm">3</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-6 col-4@sm row-2@sm row-3@md row-4@lg">4</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-4">5</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-4 col-2@lg">6</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-4 row-2@md row-1@lg">7</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-12 col-4@sm col-2@lg">8</div>
+			<div class="wrapper-tiny bordered border-primary" oo-grid="col-12 col-4@md col-8@lg">9</div>
 		</div>
 
+		<h3 class="mt-40" id="order"><a href="#order">#</a> Order</h3>
+		<p>Layout your page by creating <strong>zones</strong> with <code class="color-secondary">col</code> and <code class="color-secondary">row</code>,<br>
+		and use the properties <code class="color-secondary">order-{$number}@{$breakpoint}</code> to move them around between screen sizes.</p>
+
+		<div oo-grid="layout gap-small" class="mb-30">
+			<div oo-grid="col-12 order1@md" class="wrapper-small bg-primary">Header</div>
+			<div oo-grid="col-12 col-4@md row-1@md order-3@md" class="wrapper-small bg-warning">Nav</div>
+			<div oo-grid="col-12 col-8@sm row-11@md order-2@md" class="wrapper-small bg-secondary color-white">Main</div>
+			<div oo-grid="col-12 col-4@sm row-10@md order-4@md" class="wrapper-small bg-success">Sidebar</div>
+		</div>
+		<pretty-code :code="html.order" />
+
+		<p>A more complex version</p>
+		<div oo-grid="layout gap-less">
+			<div oo-grid="col-12 col-8@lg" class="wrapper-small bg-primary">Header</div>
+			<div oo-grid="col-12 col-4@sm col-3@md col-4@lg order-2@sm order-1@md" class="wrapper-small bg-warning">Nav</div>
+			<div oo-grid="col-12 col-8@sm col-6@md row-4@sm row-10@md order-1@sm order-2@md order-3@lg" class="wrapper-small bg-secondary color-white main">Main</div>
+			<div oo-grid="col-12 col-4@sm col-3@md row-10@lg order-3@sm order-2@lg" class="wrapper-small bg-success">Widgets 1</div>
+			<div oo-grid="col-12 col-4@sm col-3@md row-9@md row-1@lg order-4@sm" class="wrapper-small bg-warning">Nav 2</div>
+			<div oo-grid="col-12 col-4@sm col-3@md order-5@sm" class="wrapper-small bg-success">Widgets 2</div>
+		</div>
+		<pretty-code :code="html.orderComplex" />
+
+
+		<h3 class="mt-40" id="areas"><a href="#areas">#</a> Areas <code class="text-small color-secondary">oo-grid="areas"</code></h3>
+		<p>Create your own template through <code class="color-info">$grid-template-areas</code> and use the name of the areas set in that variable.</p>
+		<pretty-code class="language-css" :code="html.varGrid" />
+
+		<section oo-grid="areas sample gap-less" class="mb-40">
+			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
+			<main oo-grid="main" class="wrapper-small bg-secondary color-white main">Main</main>
+			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
+			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
+		</section>
+
+		<pretty-code :code="html.grid" />
+
+		<h4>Responsive Areas</h4>
+		<p>Pass a map of breakpoint</p>
+		<pretty-code class="language-css" :code="html.varGridResponsive" />
+
+		<section oo-grid="areas sample-responsive gap-less" class="mb-40">
+			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
+			<main oo-grid="main" class="wrapper-small bg-secondary color-white main">Main</main>
+			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
+			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
+		</section>
+
+		<h4>Multiple Template Areas</h4>
+		<p>Pass a map of areas to <code class="color-info">$grid-template-areas</code> and use the name of each map as property <code class="color-info">oo-grid="areas {$name}"</code> to get the corresponding area.</p>
+
+		<pretty-code class="language-css" :code="html.varGridMultiple" />
+
+		<section oo-grid="areas sample-abc">
+			<div oo-grid="a" class="wrapper-small bg-primary">A</div>
+			<div oo-grid="b" class="wrapper-small bg-secondary color-white">B</div>
+			<div oo-grid="c" class="wrapper-small bg-warning">C</div>
+		</section>
+
+		<pretty-code :code="html.abc" />
 	</div>
 </template>
 
@@ -68,14 +163,19 @@ export default {
 		vGap: '',
 		gaps: [
 			'less',
-			'tiny',
 			'small',
-			'large'
 		],
 		html: {
+			abc: require('./code/abc.html'),
+			gap: require('./code/gap.html'),
 			grid: require('./code/grid.html'),
-			responsive: require('./code/responsive.html'),
-			gaps: '',
+			layout: require('./code/layout.html'),
+			order: require('./code/order.html'),
+			orderComplex: require('./code/order-complex.html'),
+			varGap: require('./code/var-gap.html'),
+			varGrid: require('./code/var-grid.html'),
+			varGridResponsive: require('./code/var-grid-responsive.html'),
+			varGridMultiple: require('./code/var-grid-multiple.html'),
 		}
 	}),
 	computed: {
@@ -95,7 +195,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 	@import "~loop/variables";
-	.cell {
-		padding: 1rem;
+	.main {
+		min-height: 250px;
 	}
 </style>

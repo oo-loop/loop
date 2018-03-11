@@ -1,10 +1,10 @@
+@import 'type';
+
 /**
  * Empty
  * @param string|list $data
  * @return bool
  */
-
-@import 'type';
 
 @function isEmpty($data) {
     @if isString($data) and str-length($data) == 0 {
