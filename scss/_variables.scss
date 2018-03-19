@@ -269,7 +269,7 @@ $text-sizes-is-important: true !default;
  * Spacing
  */
  $spacing-ratio: 0.1; // with 62.5% on root 10px = 1rem;
- 
+
  $use-v-spacing:         true !default;
  $v-spacing-from:        0 !default;
  $v-spacing-to:          50 !default;
@@ -339,6 +339,7 @@ $text-sizes-is-important: true !default;
  $input-font-size:        $font-size-base !default;
  $input-font-style:       normal !default;
  $input-line-height:      1.15 !default;
+ $input-height:           2.5em !default;
 
  $input-padding:          .5em .625em !default; // relative to the size of the input
  $input-padding-sizes:    () !default;
