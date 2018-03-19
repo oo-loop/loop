@@ -1947,6 +1947,7 @@ hr, .hr {
   font-size: 1.6rem;
   font-style: normal;
   line-height: 1.15;
+  height: 2.5em;
   border: 1px solid #d6d6d6;
   border-radius: 0.2em;
   background-color: #fff;
@@ -1976,7 +1977,9 @@ label + [oo-form~="select"] {
 [oo-form~="select"] {
   position: relative;
   display: block;
+  height: 2.5em;
   font-size: 1.6rem;
+  line-height: 1.15;
 }
 
 [oo-form~="select"]::before {
@@ -2315,7 +2318,7 @@ label + [oo-form~="select"] {
   }
 }
 
-.container-fuild {
+.container-fluid {
   max-width: none;
 }
 
