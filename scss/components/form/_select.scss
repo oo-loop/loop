@@ -44,7 +44,9 @@ $select-themes: (
 [#{$loop-component-prefix}-form~="select"] {
     position: relative;
     display: block;
+    height: $input-height;
     font-size: $input-font-size;
+    line-height: $input-line-height;
 
     &::before {
         position: absolute;
