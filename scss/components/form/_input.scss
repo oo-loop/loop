@@ -41,6 +41,7 @@ $label-margin:           .3rem !default;
 
     display: block;
     width: 100%;
+    max-width: 100%;
     min-height: $input-height;
 
     color: $input-color;
