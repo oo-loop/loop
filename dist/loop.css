@@ -1942,12 +1942,13 @@ hr, .hr {
   padding: 0.5em 0.625em;
   display: block;
   width: 100%;
+  max-width: 100%;
+  min-height: 2.5em;
   color: #4d4d4d;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   line-height: 1.15;
-  height: 2.5em;
   border: 1px solid #d6d6d6;
   border-radius: 0.2em;
   background-color: #fff;
@@ -1977,7 +1978,7 @@ label + [oo-form~="select"] {
 [oo-form~="select"] {
   position: relative;
   display: block;
-  height: 2.5em;
+  min-height: 2.5em;
   font-size: 1.6rem;
   line-height: 1.15;
 }
