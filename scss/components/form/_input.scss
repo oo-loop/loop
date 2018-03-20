@@ -41,13 +41,13 @@ $label-margin:           .3rem !default;
 
     display: block;
     width: 100%;
+    min-height: $input-height;
 
     color: $input-color;
     font-family: $input-font-family;
     font-size: $input-font-size;
     font-style: $input-font-style;
     line-height: $input-line-height;
-    height: $input-height;
 
     border: $input-border;
     border-radius: $input-border-radius;
