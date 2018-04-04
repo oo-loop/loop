@@ -1,6 +1,6 @@
 {
   "name": "oo-loop",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "description": "SCSS companion for Front-end Developer",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
@@ -34,9 +34,6 @@
   "license": "MIT",
   "devDependencies": {
     "node-sass": "^4.7.2",
-    "normalize.css": "^8.0.0"
-  },
-  "dependencies": {
     "normalize.css": "^8.0.0"
   },
   "files": [
