@@ -56,8 +56,8 @@
 
 		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
 		<p>Change the space between the columns by adding one of the gutter properties present in the variable <code class="color-info">$columns-gutter-sizes</code> (default including <code class="color-secondary">gutter-less</code> <code class="color-secondary">gutter-small</code>).<br>
-		Change the values at your convenience to only match your needs.<br>
-		The modifier <code class="color-secondary">v-gutter-less</code> will remove the vertical gutter.</p>
+		Target vertical spacings only by using the properties present in the variable <code class="color-info">$columns-v-gutter-sizes</code> (default maching the sizes in <code class="color-info">$columns-gutter-sizes</code>).<br>
+		Change the values at your convenience to only match your needs.</p>
 
 		<pretty-code class="language-css" :code="html.varGutter"></pretty-code>
 
@@ -84,7 +84,8 @@
 		<pretty-code :code="html.gutter"></pretty-code>
 
 		<h4 class="h5">Responsive gutters</h4>
-		<p>Assign a list of needed breakpoints to <code class="color-info">$columns-gutter-sizes-breakpoints-classes</code> and generate modifiers such as <code class="color-secondary">gutter-{$gutterName}@{$breakpoint}</code>.</p>
+		<p>Assign a list of needed breakpoints to <code class="color-info">$columns-gutter-sizes-breakpoints-classes</code> and generate modifiers such as <code class="color-secondary">gutter-{$gutterName}@{$breakpoint}</code>.<br>
+    Target vertical spacings only via <code class="color-info">$columns-v-gutter-sizes-breakpoints-classes</code> and generate modifiers such as <code class="color-secondary">v-gutter-{$gutterName}@{$breakpoint}</code>.</p>
 		<pretty-code class="language-css" :code="html.varGutterResponsive"></pretty-code>
 
 		<div oo-column="row gutter-less gutter-tiny@sm gutter-small@md gutter-large@lg v-gutter-less">
@@ -93,6 +94,13 @@
 		    <div oo-column="col"><p class="cell">Responsive Gutter</p></div>
 		</div>
 		<pretty-code :code="html.gutterResponsive"></pretty-code>
+
+    <div oo-column="row v-gutter-large v-gutter-small@sm v-gutter-tiny@md v-gutter-less@lg">
+      <div oo-column="col-12"><p class="cell">Responsive V-gutter</p></div>
+      <div oo-column="col-6"><p class="cell">Responsive V-gutter</p></div>
+      <div oo-column="col-6"><p class="cell">Responsive V-gutter</p></div>
+    </div>
+    <pretty-code :code="html.vGutterResponsive"></pretty-code>
 
 		<h3 id="order"><a href="#order">#</a> Order</h3>
 		<p>Rearrange the order the columns through the properties <code class="color-secondary">order-0@{$breakpoint}</code> to <code class="color-secondary">order-12@{$breakpoint}</code> according to the size of the screen.</p>
@@ -202,6 +210,7 @@ export default {
 			column: require('./code/column.html'),
 			gutter: require('./code/gutter.html'),
 			gutterResponsive: require('./code/gutter-responsive.html'),
+      vGutterResponsive: require('./code/v-gutter-responsive.html'),
 			varGutter: require('./code/var-gutter.html'),
 			varGutterResponsive: require('./code/var-gutter-responsive.html'),
 			selfAdjust: require('./code/self-adjust.html'),

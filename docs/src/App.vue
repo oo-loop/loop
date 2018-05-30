@@ -372,7 +372,9 @@ export default {
 	    'small': 1.6rem,
 	    'large': 4rem,
 	);
+	$columns-v-gutter-sizes: $columns-gutter-sizes;
 	$columns-gutter-sizes-breakpoints-classes:(sm, md, lg);
+	$columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-classes;
 	$use-columns-self-adjustment-breakpoints: true;
 
 	$use-grid-order: true;
