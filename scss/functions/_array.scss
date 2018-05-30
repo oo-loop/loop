@@ -8,20 +8,20 @@
  */
 
 @function inList($needle, $haystack) {
-    @if index($haystack, $needle) == null {
-        @return false;
-    } @else {
-        @return true;
-    }
+  @if index($haystack, $needle) == null {
+    @return false;
+  } @else {
+    @return true;
+  }
 }
 
 @function notInList($needle, $haystack) {
-    @return if(inList($needle, $haystack), false, true);
+  @return if(inList($needle, $haystack), false, true);
 }
 
 // inArray Deprecated
 @function inArray($needle, $haystack) {
-    @return inList($needle, $haystack);
+  @return inList($needle, $haystack);
 }
 
 /**
@@ -32,20 +32,20 @@
  */
 
 @function mergeArray($array1, $array2) {
-    $merge: ();
+  $merge: ();
 
-    // merge if $array1 or $array2 is not empty
-    @if isNotEmpty($array1) {
-        @if type-of($array1) == 'list' and type-of($array2) == 'list' {
-            $merge: join($array1, $array2);
-        } @elseif type-of($array1) == 'map' and type-of($array2) == 'map' {
-            $merge: map-merge($array1, $array2);
-        } @else {
-            $merge: $array1;
-        }
-    } @elseif isNotEmpty($array2) {
-        $merge: $array2;
+  // merge if $array1 or $array2 is not empty
+  @if isNotEmpty($array1) {
+    @if type-of($array1) == 'list' and type-of($array2) == 'list' {
+      $merge: join($array1, $array2);
+    } @elseif type-of($array1) == 'map' and type-of($array2) == 'map' {
+      $merge: map-merge($array1, $array2);
+    } @else {
+      $merge: $array1;
     }
+  } @elseif isNotEmpty($array2) {
+    $merge: $array2;
+  }
 
-    @return $merge;
+  @return $merge;
 }

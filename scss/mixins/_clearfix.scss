@@ -3,10 +3,10 @@
  */
 
 @mixin clearfix {
-	&::before,
-    &::after {
-        display: block;
-        content: '';
-        clear:both;
-    }
+  &::before,
+  &::after {
+    display: block;
+    content: '';
+    clear:both;
+  }
 }

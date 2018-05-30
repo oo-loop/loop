@@ -8,14 +8,14 @@
  */
 
 @function split($pattern, $subject, $list:()) {
- 	$searchIndex: str-index($subject, $pattern);
- 	@if type-of($pattern) == 'string' and type-of($subject) == 'string' and $searchIndex {
- 		$subjectStart: str-slice($subject, 1, $searchIndex - 1);
- 		$subjectEnd: str-slice($subject, $searchIndex + str-length($pattern));
- 		$newList: join($list, $subjectStart);
- 		@return split($pattern, $subjectEnd, $newList);
- 	} @else {
- 		$newList: join($list, $subject);
- 		@return $newList;
- 	}
+  $searchIndex: str-index($subject, $pattern);
+  @if type-of($pattern) == 'string' and type-of($subject) == 'string' and $searchIndex {
+    $subjectStart: str-slice($subject, 1, $searchIndex - 1);
+    $subjectEnd: str-slice($subject, $searchIndex + str-length($pattern));
+    $newList: join($list, $subjectStart);
+    @return split($pattern, $subjectEnd, $newList);
+  } @else {
+    $newList: join($list, $subject);
+    @return $newList;
+  }
 }
