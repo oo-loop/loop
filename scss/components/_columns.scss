@@ -20,6 +20,9 @@ $columns-gutter-sizes: (
 ) !default;
 $columns-gutter-sizes-breakpoints-classes: () !default;
 
+$columns-v-gutter-sizes: $columns-gutter-sizes !default;
+$columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-classes !default;
+
 // row
 [#{$loop-component-prefix}-column~="row"] {
   position: relative;
@@ -179,9 +182,18 @@ $columns-gutter-sizes-breakpoints-classes: join('', $columns-gutter-sizes-breakp
     }
   }
 }
-[#{$loop-component-prefix}-column~="v-gutter-less"] {
-  > [#{$loop-component-prefix}-column*="col"] {
-    padding-bottom: 0;
+
+$columns-v-gutter-sizes-breakpoints-classes: join('', $columns-v-gutter-sizes-breakpoints-classes);
+@each $class in $columns-v-gutter-sizes-breakpoints-classes {
+  @include breakpoint($class) {
+    $suffix: if(isEmpty($class), '', \@#{$class});
+    @each $gutter-name, $gutter-size in $columns-v-gutter-sizes {
+      [#{$loop-component-prefix}-column~="v-gutter-#{$gutter-name}#{$suffix}"] {
+        > [#{$loop-component-prefix}-column*="col"] {
+          padding-bottom: $gutter-size;
+        }
+      }
+    }
   }
 }
 

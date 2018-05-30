@@ -235,6 +235,9 @@ $columns-gutter-sizes: (
 ) !default;
 $columns-gutter-sizes-breakpoints-classes: () !default;
 
+$columns-v-gutter-sizes: $columns-gutter-sizes !default;
+$columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-classes !default;
+
 $use-columns-order:          true !default;
 $use-columns-offset:         false !default;
 $use-columns-alignment:      true !default;
