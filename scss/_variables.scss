@@ -44,8 +44,8 @@ $color-primary:   #6cd7f7 !default;
 $color-secondary: #254F67 !default;
 
 $colors: (
-  'primary':    $color-primary,
-  'secondary':  $color-secondary,
+  'primary': $color-primary,
+  'secondary': $color-secondary,
 ) !default;
 
 $colors-classes: (
@@ -83,11 +83,11 @@ $border-colors-is-important: true !default;
  */
 $heading-font-sizes: (
   'h1': (
-    :   3.6rem,
+    : 3.6rem,
     sm: 4.6rem,
   ),
   'h2': (
-    :   3.2rem,
+    : 3.2rem,
     sm: 3.8rem,
   ),
   'h3': 2.8rem,
@@ -128,7 +128,7 @@ $hr-margins: 1.5rem !default;
 $text-sizes: (
   'large': 2rem,
   'small': 1.4rem,
-  'tiny':  1.2rem,
+  'tiny': 1.2rem,
 ) !default;
 $text-sizes-breakpoints-classes: () !default;
 $text-sizes-is-important: true !default;
@@ -189,8 +189,8 @@ $font-styles-is-important: false !default;
  * Font Weight
  */
 $font-weights: (
-  'light':  300,
-  'bold':   700,
+  'light': 300,
+  'bold': 700,
 ) !default;
 $font-weights-breakpoints-classes: () !default;
 $font-weights-is-important: false !default;
@@ -232,7 +232,7 @@ $containers-max-width: 1080px !default;
 $columns-gutter: 2.4rem !default;
 $columns-system: 12 !default;
 $columns-gutter-sizes: (
-  'less' : 0,
+  'less': 0,
   'small': 1.6rem,
 ) !default;
 $columns-gutter-sizes-breakpoints-classes: () !default;
@@ -293,8 +293,8 @@ $h-spacing-breakpoints-classes: () !default;
  * Wrapper
  */
 $wrapper-padding-sizes: (
-  'tiny':   .8rem,
-  'small':  1.6rem,
+  'tiny': .8rem,
+  'small': 1.6rem,
   'medium': 2.4rem,
 ) !default;
 $wrapper-breakpoints-classes: () !default;

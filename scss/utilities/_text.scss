@@ -11,7 +11,7 @@
 $text-sizes: (
   'large': 2rem,
   'small': 1.4rem,
-  'tiny':  1.2rem,
+  'tiny': 1.2rem,
 ) !default;
 $text-sizes-breakpoints-classes: () !default;
 $text-sizes-is-important: true !default;
@@ -85,8 +85,8 @@ $font-styles-is-important: false !default;
  * Font Weight
  */
 $font-weights: (
-  'light':  300, // font-weight-light
-  'bold':   700, // font-weight-bold
+  'light': 300, // font-weight-light
+  'bold': 700, // font-weight-bold
 ) !default;
 $font-weights-breakpoints-classes: () !default;
 $font-weights-is-important: false !default;
