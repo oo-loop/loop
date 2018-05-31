@@ -7,10 +7,10 @@
 @import '../functions/all';
 
 $breakpoints: (
-	xs: 480px,  // min width
-    sm: 600px,  // min width
-    md: 960px,  // min width
-    lg: 1280px, // min width
+  xs: 480px,  // min width
+  sm: 600px,  // min width
+  md: 960px,  // min width
+  lg: 1280px, // min width
 ) !default;
 
 $breakpoints-classes: (sm, md, lg) !default;
@@ -20,25 +20,25 @@ $pointbreaks-classes: (sm, md, lg) !default;
 $breakpoints-classes-width-default-value: join('', $breakpoints-classes);
 
 @mixin breakpoint($key) {
-	// make sure the key exist
-	@if map-has-key($breakpoints, $key) {
-		$width: map-get($breakpoints, $key);
-		@media (min-width: $width) {
-			@content;
-		}
-	} @elseif isEmpty($key) {
-        @content;
+  // make sure the key exist
+  @if map-has-key($breakpoints, $key) {
+    $width: map-get($breakpoints, $key);
+    @media (min-width: $width) {
+      @content;
     }
+  } @elseif isEmpty($key) {
+    @content;
+  }
 }
 
 @mixin pointbreak($key) {
-	// make sure the key exist
-	@if map-has-key($breakpoints, $key) {
-		$width: map-get($breakpoints, $key) - 1;
-		@media (max-width: $width) {
-			@content;
-		}
-	} @elseif isEmpty($key) {
-        @content;
+  // make sure the key exist
+  @if map-has-key($breakpoints, $key) {
+    $width: map-get($breakpoints, $key) - 1;
+    @media (max-width: $width) {
+      @content;
     }
+  } @elseif isEmpty($key) {
+    @content;
+  }
 }

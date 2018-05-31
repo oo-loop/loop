@@ -9,9 +9,9 @@
  * Text Sizes
  */
 $text-sizes: (
-    'large': 2rem,
-    'small': 1.4rem,
-    'tiny':  1.2rem,
+  'large': 2rem,
+  'small': 1.4rem,
+  'tiny': 1.2rem,
 ) !default;
 $text-sizes-breakpoints-classes: () !default;
 $text-sizes-is-important: true !default;
@@ -24,9 +24,9 @@ $text-sizes-is-important: true !default;
  * Text alignements
  */
 $text-alignments: (
-    'left',
-    'right',
-    'center',
+  'left',
+  'right',
+  'center',
 ) !default;
 $text-alignments-breakpoints-classes: () !default;
 $text-alignments-is-important: false !default;
@@ -39,7 +39,7 @@ $text-alignments-is-important: false !default;
  * Text Transform
  */
 $text-transforms: (
-    'uppercase',
+  'uppercase',
 ) !default;
 $text-transforms-breakpoints-classes: () !default;
 $text-transforms-is-important: false !default;
@@ -60,8 +60,8 @@ $text-decorations-is-important: false !default;
  * Letter Spacing
  */
 $letter-spacings: (
-    'narrow': -.05rem,
-    'wide': .05rem,
+  'narrow': -.05rem,
+  'wide': .05rem,
 ) !default;
 $letter-spacings-breakpoints-classes: () !default;
 $letter-spacings-is-important: false !default;
@@ -74,7 +74,7 @@ $letter-spacings-is-important: false !default;
  * Font Style
  */
 $font-styles: (
-    'italic',
+  'italic',
 ) !default;
 $font-styles-breakpoints-classes: () !default;
 $font-styles-is-important: false !default;
@@ -85,8 +85,8 @@ $font-styles-is-important: false !default;
  * Font Weight
  */
 $font-weights: (
-    'light':  300, // font-weight-light
-    'bold':   700, // font-weight-bold
+  'light': 300, // font-weight-light
+  'bold': 700, // font-weight-bold
 ) !default;
 $font-weights-breakpoints-classes: () !default;
 $font-weights-is-important: false !default;
@@ -99,8 +99,8 @@ $font-weights-is-important: false !default;
  */
 $font-family-secondary: 'Georgia', times, serif !default;
 $font-families: (
-    'primary': $font-family-base,
-    'secondary': $font-family-secondary,
+  'primary': $font-family-base,
+  'secondary': $font-family-secondary,
 ) !default;
 $font-families-breakpoints-classes: () !default;
 $font-families-is-important: false !default;

@@ -4,13 +4,13 @@
  */
 
 @mixin fontSmoothing($smooth : true) {
-	@if $smooth == false {
-		-webkit-font-smoothing: auto;
-		-moz-osx-font-smoothing: auto;
-				 font-smoothing: auto;
-	} @else {
-		-webkit-font-smoothing: antialiased;
-		 -moz-osx-font-smoothing: grayscale;
-				font-smoothing: antialiased;
-	}
+  @if $smooth == false {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    font-smoothing: auto;
+  } @else {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+  }
 }

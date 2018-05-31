@@ -7,15 +7,15 @@
  */
 
 @function isEmpty($data) {
-    @if isString($data) and str-length($data) == 0 {
-        @return true;
-    } @elseif isList($data) and length($data) == 0 {
-        @return true;
-    } @else {
-        @return false;
-    }
+  @if isString($data) and str-length($data) == 0 {
+    @return true;
+  } @elseif isList($data) and length($data) == 0 {
+    @return true;
+  } @else {
+    @return false;
+  }
 }
 
 @function isNotEmpty($data) {
-    @return if(isEmpty($data), false, true);
+  @return if(isEmpty($data), false, true);
 }
