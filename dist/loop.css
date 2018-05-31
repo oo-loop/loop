@@ -1,4 +1,40 @@
 /**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getColors
+ * Get value from the map variable $colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextColors
+ * Get value from the map variable $text-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBgColors
+ * Get value from the map variable $bg-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBorderColors
+ * Get value from the map variable $border-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextSizes
+ * Get value from the map variable $text-sizes
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
  * Variables
  * Change at your own will
  */
@@ -135,6 +171,42 @@
  * @return bool
  */
 /**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getColors
+ * Get value from the map variable $colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextColors
+ * Get value from the map variable $text-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBgColors
+ * Get value from the map variable $bg-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBorderColors
+ * Get value from the map variable $border-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextSizes
+ * Get value from the map variable $text-sizes
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
  * Replace
  * @param string $search  The value being searched
  * @param string $replace The replacement value
@@ -226,6 +298,42 @@
  * Empty
  * @param string|list $data
  * @return bool
+ */
+/**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getColors
+ * Get value from the map variable $colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextColors
+ * Get value from the map variable $text-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBgColors
+ * Get value from the map variable $bg-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBorderColors
+ * Get value from the map variable $border-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextSizes
+ * Get value from the map variable $text-sizes
+ * @param $key  string  key to retrieve the value from
+ * @return string
  */
 /**
  * Replace
@@ -326,6 +434,42 @@
  * @return bool
  */
 /**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getColors
+ * Get value from the map variable $colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextColors
+ * Get value from the map variable $text-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBgColors
+ * Get value from the map variable $bg-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBorderColors
+ * Get value from the map variable $border-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextSizes
+ * Get value from the map variable $text-sizes
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
  * Replace
  * @param string $search  The value being searched
  * @param string $replace The replacement value
@@ -417,6 +561,42 @@
  * Empty
  * @param string|list $data
  * @return bool
+ */
+/**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getColors
+ * Get value from the map variable $colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextColors
+ * Get value from the map variable $text-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBgColors
+ * Get value from the map variable $bg-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBorderColors
+ * Get value from the map variable $border-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextSizes
+ * Get value from the map variable $text-sizes
+ * @param $key  string  key to retrieve the value from
+ * @return string
  */
 /**
  * Replace
@@ -971,7 +1151,7 @@ a {
 }
 
 a:focus, a:hover {
-  color: #254F67;
+  color: #32c7f4;
   text-decoration: none;
 }
 
@@ -2131,6 +2311,10 @@ hr, .hr {
 
 [oo-column~="v-gutter-less"] > [oo-column*="col"] {
   padding-bottom: 0;
+}
+
+[oo-column~="v-gutter-small"] > [oo-column*="col"] {
+  padding-bottom: 1.6rem;
 }
 
 [oo-column~="clear"] {
