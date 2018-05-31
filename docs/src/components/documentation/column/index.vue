@@ -89,16 +89,16 @@
 		<pretty-code class="language-css" :code="html.varGutterResponsive"></pretty-code>
 
 		<div oo-column="row gutter-less gutter-tiny@sm gutter-small@md gutter-large@lg v-gutter-less">
-		    <div oo-column="col"><p class="cell">Responsive Gutter</p></div>
-		    <div oo-column="col"><p class="cell">Responsive Gutter</p></div>
-		    <div oo-column="col"><p class="cell">Responsive Gutter</p></div>
+		    <div oo-column="col"><p class="cell">Responsive gutter</p></div>
+		    <div oo-column="col"><p class="cell">Responsive gutter</p></div>
+		    <div oo-column="col"><p class="cell">Responsive gutter</p></div>
 		</div>
 		<pretty-code :code="html.gutterResponsive"></pretty-code>
 
     <div oo-column="row v-gutter-large v-gutter-small@sm v-gutter-tiny@md v-gutter-less@lg">
-      <div oo-column="col-12"><p class="cell">Responsive V-gutter</p></div>
-      <div oo-column="col-6"><p class="cell">Responsive V-gutter</p></div>
-      <div oo-column="col-6"><p class="cell">Responsive V-gutter</p></div>
+      <div oo-column="col-12"><p class="cell">Responsive v-gutter</p></div>
+      <div oo-column="col-6"><p class="cell">Responsive v-gutter</p></div>
+      <div oo-column="col-6"><p class="cell">Responsive v-gutter</p></div>
     </div>
     <pretty-code :code="html.vGutterResponsive"></pretty-code>
 

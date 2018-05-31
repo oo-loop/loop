@@ -1,3 +1,5 @@
+@import 'functions/map';
+
 /**
  * Variables
  * Change at your own will
@@ -109,7 +111,7 @@ $paragraph-margin-bottom: 1.8rem !default;
 
 // Anchor
 $anchor-color:             $color-primary !default;
-$anchor-color-hover:       $color-secondary !default;
+$anchor-color-hover:       darken($anchor-color, 12%) !default;
 $anchor-text-decoration:   none !default;
 
 // Description list
