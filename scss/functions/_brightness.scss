@@ -7,9 +7,9 @@
 $brightness-threshold: 188 !default; // range from 0 to 255, but more than the half (125)
 
 @function isBright($color) {
-    @if (((red($color) * 299) + (green($color) * 587) + (blue($color) * 114)) / 1000) >= $brightness-threshold {
-        @return true;
-    } @else {
-        @return false;
-    }
+  @if (((red($color) * 299) + (green($color) * 587) + (blue($color) * 114)) / 1000) >= $brightness-threshold {
+    @return true;
+  } @else {
+    @return false;
+  }
 }

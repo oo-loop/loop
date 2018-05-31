@@ -24,62 +24,62 @@ $label-font-weight:      500 !default;
 $label-margin:           .3rem !default;
 
 %inputFocus {
-    @if $input-box-shadow == none and $input-focus-box-shadow != none {
-        box-shadow: $input-focus-box-shadow;
-    } @elseif $input-focus-box-shadow != none {
-        box-shadow: $input-box-shadow, $input-focus-box-shadow;
-    }
+  @if $input-box-shadow == none and $input-focus-box-shadow != none {
+    box-shadow: $input-focus-box-shadow;
+  } @elseif $input-focus-box-shadow != none {
+    box-shadow: $input-box-shadow, $input-focus-box-shadow;
+  }
 
-    @if $input-border-color != $input-focus-border-color {
-        border-color: $input-focus-border-color;
-    }
+  @if $input-border-color != $input-focus-border-color {
+    border-color: $input-focus-border-color;
+  }
 }
 
 %input,
 [#{$loop-component-prefix}-form~="input"] {
-    padding: $input-padding;
+  padding: $input-padding;
 
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-height: $input-height;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: $input-height;
 
-    color: $input-color;
-    font-family: $input-font-family;
-    font-size: $input-font-size;
-    font-style: $input-font-style;
-    line-height: $input-line-height;
+  color: $input-color;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
+  font-style: $input-font-style;
+  line-height: $input-line-height;
 
-    border: $input-border;
-    border-radius: $input-border-radius;
-    background-color: $input-bgcolor;
+  border: $input-border;
+  border-radius: $input-border-radius;
+  background-color: $input-bgcolor;
 
-    @if $input-box-shadow != none {
-        box-shadow: $input-box-shadow;
-    }
+  @if $input-box-shadow != none {
+    box-shadow: $input-box-shadow;
+  }
 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
-    &:focus {
-        outline:none;
-        @extend %inputFocus;
-    }
+  &:focus {
+    outline:none;
+    @extend %inputFocus;
+  }
 }
 
 label {
-    font-weight: $label-font-weight;
-    + [#{$loop-component-prefix}-form~="input"],
-    + [#{$loop-component-prefix}-form~="select"] {
-        margin-top: $label-margin;
-    }
+  font-weight: $label-font-weight;
+  + [#{$loop-component-prefix}-form~="input"],
+  + [#{$loop-component-prefix}-form~="select"] {
+    margin-top: $label-margin;
+  }
 }
 
 @if isNotEmpty($input-padding-sizes) {
-    @each $name, $padding in $input-padding-sizes {
-        [#{$loop-component-prefix}-form~="input"][#{$loop-component-prefix}-form~="#{$name}"] {
-            padding: #{$padding};
-        }
+  @each $name, $padding in $input-padding-sizes {
+    [#{$loop-component-prefix}-form~="input"][#{$loop-component-prefix}-form~="#{$name}"] {
+      padding: #{$padding};
     }
+  }
 }

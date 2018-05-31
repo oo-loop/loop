@@ -15,77 +15,77 @@ $use-toggle-animation: true !default;
 $toggle-sizes:() !default;
 
 @mixin toggle-size($size) {
-    & + label {
-        &::before {
-            min-width: ($size * .7);
-            height: ($size * .7);
-            transform: translate3d(($size * .2), 0, 0);
-        }
-        &::after {
-            margin-right: ($size / 3);
-            min-width: ($size * 1.8);
-            min-height: $size;
-        }
-
-        & + [#{$loop-component-prefix}-form~="toggle"] + label { margin-top: ($size / 3); }
+  & + label {
+    &::before {
+      min-width: ($size * .7);
+      height: ($size * .7);
+      transform: translate3d(($size * .2), 0, 0);
+    }
+    &::after {
+      margin-right: ($size / 3);
+      min-width: ($size * 1.8);
+      min-height: $size;
     }
 
-    &:checked + label::before {
-        transform: translate3d(calc(80% + (#{$size} * .35)), 0, 0);
-    }
+    & + [#{$loop-component-prefix}-form~="toggle"] + label { margin-top: ($size / 3); }
+  }
+
+  &:checked + label::before {
+    transform: translate3d(calc(80% + (#{$size} * .35)), 0, 0);
+  }
 }
 
 [#{$loop-component-prefix}-form~="toggle"] {
-    position: absolute;
-    opacity: 0;
+  position: absolute;
+  opacity: 0;
 
-    & + label {
-    	position: relative;
-        display: flex;
-        align-items: center;
-        width: fit-content;
-        line-height: 1.1;
-        font-weight: $font-weight-base;
+  & + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    line-height: 1.1;
+    font-weight: $font-weight-base;
 
-        &::before {
-            position: absolute;
-            content: '';
-            border-radius: 50%;
-            background-color: $toggle-color;
-            box-shadow: $toggle-box-shadow;
+    &::before {
+      position: absolute;
+      content: '';
+      border-radius: 50%;
+      background-color: $toggle-color;
+      box-shadow: $toggle-box-shadow;
 
-            @if $use-toggle-animation {
-                transition: transform 300ms ease-out;
-            }
-        }
-        &::after {
-            display: flex;
-            order: -1;
-            content:'';
-            border: 1px solid $toggle-border-color;
-            border-radius: 50em;
-            background-color: $toggle-bgcolor;
-            box-shadow: $toggle-box-shadow;
-
-            @if $use-toggle-animation {
-                transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
-            }
-        }
+      @if $use-toggle-animation {
+        transition: transform 300ms ease-out;
+      }
     }
+    &::after {
+      display: flex;
+      order: -1;
+      content:'';
+      border: 1px solid $toggle-border-color;
+      border-radius: 50em;
+      background-color: $toggle-bgcolor;
+      box-shadow: $toggle-box-shadow;
 
-	&:checked + label::after {
-		background-color: $toggle-checked-bgcolor;
-        border-color: $toggle-checked-border-color;
-	}
-    &:focus + label::after { @extend %inputFocus; }
-
-    @include toggle-size($toggle-size);
-
-    @if isMap($toggle-sizes) {
-        @each $size_name, $size_value in $toggle-sizes {
-            &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include toggle-size($size_value) }
-        }
+      @if $use-toggle-animation {
+        transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
+      }
     }
+  }
 
-    [#{$loop-component-prefix}-form~="labelless"] + label::after { margin-right: 0; }
+  &:checked + label::after {
+    background-color: $toggle-checked-bgcolor;
+    border-color: $toggle-checked-border-color;
+  }
+  &:focus + label::after { @extend %inputFocus; }
+
+  @include toggle-size($toggle-size);
+
+  @if isMap($toggle-sizes) {
+    @each $size_name, $size_value in $toggle-sizes {
+      &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include toggle-size($size_value) }
+    }
+  }
+
+  [#{$loop-component-prefix}-form~="labelless"] + label::after { margin-right: 0; }
 }

@@ -7,14 +7,14 @@
 
 
 @mixin loopProperties($properties, $value, $is-important) {
-    // multiple properties
-    @if isList($properties) {
-        @each $property in $properties {
-            #{$property}: if($is-important, #{$value} !important, #{$value});
-        }
-    } @else {
-        #{$properties}: if($is-important, #{$value} !important, #{$value});
+  // multiple properties
+  @if isList($properties) {
+    @each $property in $properties {
+      #{$property}: if($is-important, #{$value} !important, #{$value});
     }
+  } @else {
+    #{$properties}: if($is-important, #{$value} !important, #{$value});
+  }
 }
 
 /**
@@ -28,35 +28,35 @@
  */
 
 @mixin loop($data, $properties, $prefix, $is-important:false, $suffix:'') {
-    $affix: '-';
+  $affix: '-';
 
-    // Make sure to have the correct format or do not generate rules
-    @if isNotEmpty($data) {
-        @if isList($data) {
-            @each $value in $data {
-                #{$prefix}-#{$value}#{$suffix} {
-                    @include loopProperties($properties, $value, $is-important);
-                }
-            }
-        } @elseif isMap($data) {
-            @each $key, $value in $data {
-                $affix: if(isEmpty($key), '', $affix);
-
-                #{$prefix}#{$affix}#{$key}#{$suffix} {
-                    // responsive properties ?
-                    @if isMap($value) {
-                        @each $child-breakpoint, $child-value in $value {
-                            @include breakpoint($child-breakpoint) {
-                                @include loopProperties($properties, $child-value, $is-important);
-                            }
-                        }
-                    } @else {
-                        @include loopProperties($properties, $value, $is-important);
-                    }
-                }
-            }
+  // Make sure to have the correct format or do not generate rules
+  @if isNotEmpty($data) {
+    @if isList($data) {
+      @each $value in $data {
+        #{$prefix}-#{$value}#{$suffix} {
+          @include loopProperties($properties, $value, $is-important);
         }
+      }
+    } @elseif isMap($data) {
+      @each $key, $value in $data {
+        $affix: if(isEmpty($key), '', $affix);
+
+        #{$prefix}#{$affix}#{$key}#{$suffix} {
+          // responsive properties ?
+          @if isMap($value) {
+            @each $child-breakpoint, $child-value in $value {
+              @include breakpoint($child-breakpoint) {
+                @include loopProperties($properties, $child-value, $is-important);
+              }
+            }
+          } @else {
+            @include loopProperties($properties, $value, $is-important);
+          }
+        }
+      }
     }
+  }
 }
 
 
@@ -71,14 +71,14 @@
  * @param $suffix       ?string     String to append to the selector
  */
 @mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $is-important:false, $suffix:'') {
-    @if isNotEmpty($breakpoints) and isNotEmpty($data) {
-        @each $breakpoint in $breakpoints-classes {
-            @include breakpoint($breakpoint) {
-                $suffixes: #{$suffix}\@#{$breakpoint};
-                @include loop($data, $properties, $prefix, $is-important, $suffixes);
-            }
-        }
+  @if isNotEmpty($breakpoints) and isNotEmpty($data) {
+    @each $breakpoint in $breakpoints-classes {
+      @include breakpoint($breakpoint) {
+        $suffixes: #{$suffix}\@#{$breakpoint};
+        @include loop($data, $properties, $prefix, $is-important, $suffixes);
+      }
     }
+  }
 }
 
 
@@ -93,20 +93,20 @@
  * @param $suffix       ?string     String to append to the selector
  */
 @mixin loopMapKeys($keys, $map, $properties, $prefix, $is-important:false, $suffix:'')  {
-    @if isNotEmpty($keys) {
-        $affix: '-';
+  @if isNotEmpty($keys) {
+    $affix: '-';
 
-        @each $key in $keys {
-            @if map-has-key($map, $key) {
-                $value: map-get($map, $key);
-                $selector: #{$prefix}#{$affix}#{$key}#{$suffix};
+    @each $key in $keys {
+      @if map-has-key($map, $key) {
+        $value: map-get($map, $key);
+        $selector: #{$prefix}#{$affix}#{$key}#{$suffix};
 
-                #{$selector}{
-                    @include loopProperties($properties, $value, $is-important);
-                }
-            }
+        #{$selector}{
+          @include loopProperties($properties, $value, $is-important);
         }
+      }
     }
+  }
 }
 
 
@@ -120,5 +120,5 @@
  * @param $suffix       ?string     string to append to the selector
  */
 @mixin loopMapKeysModifiers($keys, $map, $properties, $is-important:false, $suffix:'')  {
-    @include loopMapKeys($keys, $map, $properties, '&.', $is-important, $suffix);
+  @include loopMapKeys($keys, $map, $properties, '&.', $is-important, $suffix);
 }

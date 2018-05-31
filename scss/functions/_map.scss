@@ -1,0 +1,63 @@
+/**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+@function getMapValue($map, $key) {
+  @if map-has-key($map, $key) == false {
+    @warn ('key does not exist when using getMapValue()');
+    @return '';
+  }
+  @return map-get($map, $key);
+}
+
+/**
+ * getColors
+ * Get value from the map variable $colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+@function getColors($key) {
+  @return getMapValue($colors, $key);
+}
+
+/**
+ * getTextColors
+ * Get value from the map variable $text-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+@function getTextColors($key) {
+  @return getMapValue($text-colors, $key);
+}
+
+/**
+ * getBgColors
+ * Get value from the map variable $bg-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+@function getBgColors($key) {
+  @return getMapValue($bg-colors, $key);
+}
+
+/**
+ * getBorderColors
+ * Get value from the map variable $border-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+@function getBorderColors($key) {
+  @return getMapValue($border-colors, $key);
+}
+
+/**
+ * getTextSizes
+ * Get value from the map variable $text-sizes
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+@function getTextSizes($key) {
+  @return getMapValue($text-sizes, $key);
+}

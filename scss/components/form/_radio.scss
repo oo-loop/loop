@@ -15,84 +15,84 @@ $radio-sizes: $checkbox-sizes !default;
 $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
 @mixin radio-size($size) {
-    & + label {
-        &::after {
-            margin-right: ($size / 3);
-        }
-        & + [#{$loop-component-prefix}-form~="radio"] + label { margin-top: ($size / 3); }
+  & + label {
+    &::after {
+      margin-right: ($size / 3);
     }
+    & + [#{$loop-component-prefix}-form~="radio"] + label { margin-top: ($size / 3); }
+  }
 
-    & + label::after,
-    &:checked + label::before {
-        min-width: $size;
-        min-height: $size;
-    }
+  & + label::after,
+  &:checked + label::before {
+    min-width: $size;
+    min-height: $size;
+  }
 }
 
 [#{$loop-component-prefix}-form~="radio"] {
-    position: absolute;
-    opacity: 0;
+  position: absolute;
+  opacity: 0;
 
-    & + label {
-    	position: relative;
-        display: flex;
-        align-items: center;
-        width: fit-content;
-        line-height: 1.1;
-        font-weight: $font-weight-base;
+  & + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    line-height: 1.1;
+    font-weight: $font-weight-base;
 
-        &::before {
-            position: absolute;
-            content: '';
-            border-radius: 50%;
-            @if $use-radio-animation {
-                transform: scale(1.5);
-                transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
-            }
-        }
-        &::after {
-            display: flex;
-            order:-1;
-            content:'';
-            border: 1px solid $radio-border-color;
-            border-radius: 50%;
-            background-color: $radio-bgcolor;
-            box-shadow: $radio-box-shadow;
-        }
+    &::before {
+      position: absolute;
+      content: '';
+      border-radius: 50%;
+      @if $use-radio-animation {
+        transform: scale(1.5);
+        transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
+      }
+    }
+    &::after {
+      display: flex;
+      order:-1;
+      content:'';
+      border: 1px solid $radio-border-color;
+      border-radius: 50%;
+      background-color: $radio-bgcolor;
+      box-shadow: $radio-box-shadow;
+    }
+  }
+
+  &:checked + label {
+    &::before {
+      background-color: $radio-checked-color;
+      transform: scale(0.5);
+    }
+    &::after {
+      background-color: $radio-checked-bgcolor;
+      border-color: $radio-checked-border-color;
+    }
+  }
+
+  &:focus + label::after { @extend %inputFocus; }
+
+  @include radio-size($radio-size);
+
+  @if isMap($radio-sizes) {
+    @each $size_name, $size_value in $radio-sizes {
+      &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
     }
 
-	&:checked + label {
-		&::before {
-            background-color: $radio-checked-color;
-            transform: scale(0.5);
-		}
-        &::after {
-            background-color: $radio-checked-bgcolor;
-            border-color: $radio-checked-border-color;
+    @if isNotEmpty($radio-breakpoints-classes) {
+      @each $breakpoint in $radio-breakpoints-classes {
+        @include breakpoint($breakpoint) {
+          @each $size_name, $size_value in $radio-sizes {
+            $suffix: \@#{$breakpoint};
+            &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include radio-size($size_value) }
+          }
         }
-	}
-
-    &:focus + label::after { @extend %inputFocus; }
-
-    @include radio-size($radio-size);
-
-    @if isMap($radio-sizes) {
-        @each $size_name, $size_value in $radio-sizes {
-            &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
-        }
-
-        @if isNotEmpty($radio-breakpoints-classes) {
-            @each $breakpoint in $radio-breakpoints-classes {
-                @include breakpoint($breakpoint) {
-                    @each $size_name, $size_value in $radio-sizes {
-                        $suffix: \@#{$breakpoint};
-                        &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include radio-size($size_value) }
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 
-    @include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
-    @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }
