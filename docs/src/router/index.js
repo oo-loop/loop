@@ -21,6 +21,7 @@ import CreateYourOwn from 'docs/create-your-own'
 Vue.use(Router)
 
 export default new Router({
+	mode: 'history',
 	routes: [
 		{
 			path: '/',
@@ -104,11 +105,15 @@ export default new Router({
 			component: CreateYourOwn
 		}
 	],
-	scrollBehavior (to, from, savedPosition) {
+	scrollBehavior (to, from, savedPosition) {			
+		if (savedPosition) {
+			return savedPosition	
+		}
 		if (to.hash) {
 			return {
 				selector: to.hash
 			}
 		}
+		return { x: 0, y: 0 }
 	}
 })
