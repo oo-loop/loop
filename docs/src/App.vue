@@ -87,6 +87,10 @@ export default {
 						name: 'Responsive',
 						route: '#responsive'
 					},
+					{
+						name: 'Multiple',
+						route: '#multiple'
+					},
 				]
 			},
 			{

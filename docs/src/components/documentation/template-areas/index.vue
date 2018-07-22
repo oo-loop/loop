@@ -7,7 +7,7 @@
 			<code class="color-secondary font-bold">oo-area</code>
 		</p>
 
-		<h3 class="mt-40" id="template"><a href="#template">#</a> Template</h3>
+		<h3 class="mt-40" id="template"><router-link to="#template">#</router-link> Template</h3>
 		<p
 			>Layout your page by creating your own template through <code class="color-info">$template-areas</code>.<br>
 			Use area names of the template as property via <code class="color-secondary font-bold">oo-area</code>
@@ -21,7 +21,7 @@
 			<footer oo-area="footer" class="wrapper-small bg-success">Footer</footer>
 		</section>
 
-		<h3 id="responsive"><a href="/#responsive">#</a> Responsive Template</h3>
+		<h3 id="responsive"><router-link to="#responsive">#</router-link> Responsive Template</h3>
 		<p>Pass a map of breakpoints with their respective template</p>
 		<pretty-code class="language-css" :code="html.varAreasResponsive" />
 
@@ -32,10 +32,10 @@
 			<footer oo-area="footer" class="wrapper-small bg-success">Footer</footer>
 		</section>
 
-		<h3 id="multiple"><a href="#multiple">#</a> Multiple Templates</h3>
+		<h3 id="multiple"><router-link to="#multiple">#</router-link> Multiple Templates</h3>
 		<p>
 			Create a map of templates and pass the name of each map as property <code class="color-info">oo-template="{$name}"</code>.<br>
-			Using the multiple syntax from start allow you to expand your project easily in the future.
+			Using the multiple syntax from start allow you to easily expand your project in the future.
 		</p>
 
 		<pretty-code class="language-css" :code="html.varAreasMultiple" />
