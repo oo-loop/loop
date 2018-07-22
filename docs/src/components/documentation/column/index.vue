@@ -124,50 +124,50 @@
 		<h4 class="h5">Vertical alignment</h4>
 		<p>Vertically align a group of columns attaching the properties <code class="color-secondary">valign-top</code> <code class="color-secondary">valign-middle</code> <code class="color-secondary">valign-bottom</code> to <code class="color-secondary">oo-row</code>.<br>Responsive properties are also available <code class="color-secondary">{$valignment}@{$breakpoint}</code></p>
 		<div class="bg-secondary">
-		    <div oo-row="valign-bottom@sm valign-middle@md valign-top@lg vgutter-less">
-		        <div oo-col="s6 auto@sm"><p class="cell cell--large"></p></div>
-		        <div oo-col="s6 auto@sm"><p class="cell cell--medium"></p></div>
-		        <div oo-col><p class="cell"></p></div>
-		    </div>
+      <div oo-row="valign-bottom@sm valign-middle@md valign-top@lg vgutter-less">
+        <div oo-col="s6 auto@sm"><p class="cell cell--large"></p></div>
+        <div oo-col="s6 auto@sm"><p class="cell cell--medium"></p></div>
+        <div oo-col><p class="cell"></p></div>
+      </div>
 		</div>
 		<pretty-code :code="html.vAlignment"></pretty-code>
 		<h4 class="h5">Vertical self alignment</h4>
 		<p>Self alignment is also possible by attaching the same mofifiers <code class="color-secondary">self-{$alignment}</code> <code class="color-secondary">self-{$alignment}@{$breakpoint}</code> to <code class="color-secondary">oo-col</code>.
 		<div class="bg-secondary">
-		    <div oo-row="vgutter-less">
-		        <div oo-col><p class="cell cell--large"></p></div>
-		        <div oo-col="s6 s4@sm self-valign-middle self-valign-top@sm self-valign-middle@lg"><p class="cell cell--medium"></p></div>
-		        <div oo-col="s6 s4@sm self-valign-bottom"><p class="cell"></p></div>
-		    </div>
+      <div oo-row="vgutter-less">
+        <div oo-col><p class="cell cell--large"></p></div>
+        <div oo-col="s6 s4@sm self-valign-middle self-valign-top@sm self-valign-middle@lg"><p class="cell cell--medium"></p></div>
+        <div oo-col="s6 s4@sm self-valign-bottom"><p class="cell"></p></div>
+      </div>
 		</div>
 		<pretty-code :code="html.vAlignmentSelf"></pretty-code>
 
 		<h4 class="h5">Horizontal alignment</h4>
 		<p>Horizontally align a group of columns attaching the properties <code class="color-secondary">align-left</code> <code class="color-secondary">align-center</code> <code class="color-secondary">align-right</code> <code class="color-secondary">align-between</code> <code class="color-secondary">align-evenly</code> to <code class="color-secondary">oo-row</code>.<br>Responsive properties are also available <code class="color-secondary">{$alignment}@{$breakpoint}</code></p>
 		<div class="bg-secondary">
-		    <div oo-row="align-center@md align-right@lg vgutter-less">
-		        <div oo-col="s3 s4@sm"><p class="cell cell--medium"></p></div>
-		        <div oo-col="s3 s4@sm"><p class="cell"></p></div>
-		    </div>
+      <div oo-row="align-center@md align-right@lg vgutter-less">
+        <div oo-col="s3 s4@sm"><p class="cell cell--medium"></p></div>
+        <div oo-col="s3 s4@sm"><p class="cell"></p></div>
+      </div>
 		</div>
 		<pretty-code :code="html.hAlignment"></pretty-code>
 
 		<div class="bg-secondary">
-		    <div oo-row="align-between align-evenly@md">
-		        <div oo-col="s3 s4@sm"><p class="cell cell--medium"></p></div>
-		        <div oo-col="s3 s4@sm"><p class="cell"></p></div>
-		    </div>
+      <div oo-row="align-between align-evenly@md">
+        <div oo-col="s3 s4@sm"><p class="cell cell--medium"></p></div>
+        <div oo-col="s3 s4@sm"><p class="cell"></p></div>
+      </div>
 		</div>
 		<pretty-code :code="html.hAlignment2"></pretty-code>
 
 		<h4 class="h5">Horizontal self alignment</h4>
 		<p>Self alignment is also possible by attaching the mofifiers <code class="color-secondary">self-align-left</code> <code class="color-secondary">self-align-center</code> <code class="color-secondary">self-align-right</code> <code class="color-secondary">self-{$alignment}@{$breakpoint}</code> to <code class="color-secondary">oo-col</code>.
 		<div class="bg-secondary">
-		    <div oo-row="vgutter-less">
-		        <div oo-col="s3 self-align-right self-align-left@md mb-20"><p class="cell cell--medium"></p></div>
-		        <div oo-col="s3 self-align-right@md"><p class="cell"></p></div>
-		        <div oo-col="s9 self-align-right@md align-center@lg"><p class="cell"></p></div>
-		    </div>
+		  <div oo-row="vgutter-less">
+        <div oo-col="s3 self-align-right self-align-left@md mb-20"><p class="cell cell--medium"></p></div>
+        <div oo-col="s3 self-align-right@md"><p class="cell"></p></div>
+        <div oo-col="s9 self-align-right@md align-center@lg"><p class="cell"></p></div>
+      </div>
 		</div>
 		<pretty-code :code="html.hAlignmentSelf"></pretty-code>
 
@@ -195,8 +195,8 @@
 		<h4 class="h5">Child alignment</h4>
 		<p>Align a child of a column <code class="color-secondary">col</code> through the properties <code class="color-secondary">child-{alignment}</code>.</p>
 		<div oo-row="stretch">
-		    <div oo-col="s12 s6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
-		    <div oo-col="s12 s6@sm child-valign-middle child-align-right"><p class="bg-primary text-center mb-0">Centered verticaly, Right horizontally</p></div>
+      <div oo-col="s12 s6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
+      <div oo-col="s12 s6@sm child-valign-middle child-align-right"><p class="bg-primary text-center mb-0">Centered verticaly, Right horizontally</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.childAlignment"></pretty-code>
 		<p>If you're not using child alignment properties, disable the option by setting <code class="color-info">$use-columns-child-alignment</code> to <code>false</code>.</p>

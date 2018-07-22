@@ -19,7 +19,7 @@
 		<pretty-code class="language-css" :code="html.varHeading"></pretty-code>
 
 		<h4>Heading classes</h4>
-		<p>Use the classes set in the variable <code class="color-info">$heading-font-sizes-classes</code>.<br>Add or remove values to match your need, by default </code><code>.h1</code> through <code>.h4</code>.</p>
+		<p>Use the classes set in the variable <code class="color-info">$heading-font-sizes-classes</code>.<br>Add or remove values to match your need, by default <code>.h1</code> through <code>.h4</code>.</p>
 
 		<pretty-code class="language-css" :code="html.varHeadingClasses"></pretty-code>
 		<pretty-code :code="html.heading"></pretty-code>

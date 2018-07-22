@@ -7,97 +7,97 @@
 		<p>Two types of classes are available, <code>.mt-*</code> (margin-top) and <code>.mb-*</code> (margin-bottom).<br>
 		The numbers are based on pixels to give a better understanding of the space representation.<br>The generated values are on the contrary rem units. 11 values are available through 0 to 50 for both top and bottom.</p>
 		<p><strong>Note:</strong> Remember, with 62.5% as <code class="color-info">$font-size-root</code> 1rem = 10px</p>
-		<div oo-column="row">
-			<div oo-column="col-12 self-adjust@sm">
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-0</code></div>
-					<div oo-column="col">margin-top: 0;</div>
+		<div oo-row>
+			<div oo-col="s12 fit@sm">
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-0</code></div>
+					<div oo-col>margin-top: 0;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-5</code></div>
-					<div oo-column="col">margin-top: .5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-5</code></div>
+					<div oo-col>margin-top: .5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-10</code></div>
-					<div oo-column="col">margin-top: 1rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-10</code></div>
+					<div oo-col>margin-top: 1rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-15</code></div>
-					<div oo-column="col">margin-top: 1.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-15</code></div>
+					<div oo-col>margin-top: 1.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-20</code></div>
-					<div oo-column="col">margin-top: 2rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-20</code></div>
+					<div oo-col>margin-top: 2rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-25</code></div>
-					<div oo-column="col">margin-top: 2.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-25</code></div>
+					<div oo-col>margin-top: 2.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-30</code></div>
-					<div oo-column="col">margin-top: 3rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-30</code></div>
+					<div oo-col>margin-top: 3rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-35</code></div>
-					<div oo-column="col">margin-top: 3.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-35</code></div>
+					<div oo-col>margin-top: 3.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-40</code></div>
-					<div oo-column="col">margin-top: 4rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-40</code></div>
+					<div oo-col>margin-top: 4rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-45</code></div>
-					<div oo-column="col">margin-top: 4.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-45</code></div>
+					<div oo-col>margin-top: 4.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mt-50</code></div>
-					<div oo-column="col">margin-top: 5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mt-50</code></div>
+					<div oo-col>margin-top: 5rem;</div>
 				</div>
 			</div>
-			<div oo-column="col">
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-0</code></div>
-					<div oo-column="col">margin-bottom: 0;</div>
+			<div oo-col>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-0</code></div>
+					<div oo-col>margin-bottom: 0;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-5</code></div>
-					<div oo-column="col">margin-bottom: .5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-5</code></div>
+					<div oo-col>margin-bottom: .5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-10</code></div>
-					<div oo-column="col">margin-bottom: 1rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-10</code></div>
+					<div oo-col>margin-bottom: 1rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-15</code></div>
-					<div oo-column="col">margin-bottom: 1.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-15</code></div>
+					<div oo-col>margin-bottom: 1.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-20</code></div>
-					<div oo-column="col">margin-bottom: 2rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-20</code></div>
+					<div oo-col>margin-bottom: 2rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-25</code></div>
-					<div oo-column="col">margin-bottom: 2.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-25</code></div>
+					<div oo-col>margin-bottom: 2.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-30</code></div>
-					<div oo-column="col">margin-bottom: 3rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-30</code></div>
+					<div oo-col>margin-bottom: 3rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-35</code></div>
-					<div oo-column="col">margin-bottom: 3.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-35</code></div>
+					<div oo-col>margin-bottom: 3.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-40</code></div>
-					<div oo-column="col">margin-bottom: 4rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-40</code></div>
+					<div oo-col>margin-bottom: 4rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-45</code></div>
-					<div oo-column="col">margin-bottom: 4.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-45</code></div>
+					<div oo-col>margin-bottom: 4.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mb-50</code></div>
-					<div oo-column="col">margin-bottom: 5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mb-50</code></div>
+					<div oo-col>margin-bottom: 5rem;</div>
 				</div>
 			</div>
 		</div>
@@ -109,57 +109,57 @@
 		<p>Two types of classes are available, <code>.ml-*</code> (margin-left) and <code>.mr-*</code> (margin-right).<br>
 		It is based on pixels to give a better understanding of the space representation. 6 values are available through 0 to 25 for both left and right.</p>
 
-		<div oo-column="row">
-			<div oo-column="col-12 self-adjust@sm">
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.ml-0</code></div>
-					<div oo-column="col">margin-left: 0;</div>
+		<div oo-row>
+			<div oo-col="s12 fit@sm">
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.ml-0</code></div>
+					<div oo-col>margin-left: 0;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.ml-5</code></div>
-					<div oo-column="col">margin-left: .5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.ml-5</code></div>
+					<div oo-col>margin-left: .5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.ml-10</code></div>
-					<div oo-column="col">margin-left: 1rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.ml-10</code></div>
+					<div oo-col>margin-left: 1rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.ml-15</code></div>
-					<div oo-column="col">margin-left: 1.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.ml-15</code></div>
+					<div oo-col>margin-left: 1.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.ml-20</code></div>
-					<div oo-column="col">margin-left: 2rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.ml-20</code></div>
+					<div oo-col>margin-left: 2rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.ml-25</code></div>
-					<div oo-column="col">margin-left: 2.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.ml-25</code></div>
+					<div oo-col>margin-left: 2.5rem;</div>
 				</div>
 			</div>
-			<div oo-column="col">
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mr-0</code></div>
-					<div oo-column="col">margin-right: 0;</div>
+			<div oo-col>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mr-0</code></div>
+					<div oo-col>margin-right: 0;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mr-5</code></div>
-					<div oo-column="col">margin-right: .5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mr-5</code></div>
+					<div oo-col>margin-right: .5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mr-10</code></div>
-					<div oo-column="col">margin-right: 1rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mr-10</code></div>
+					<div oo-col>margin-right: 1rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mr-15</code></div>
-					<div oo-column="col">margin-right: 1.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mr-15</code></div>
+					<div oo-col>margin-right: 1.5rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mr-20</code></div>
-					<div oo-column="col">margin-right: 2rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mr-20</code></div>
+					<div oo-col>margin-right: 2rem;</div>
 				</div>
-				<div oo-column="row gutter-tiny">
-					<div oo-column="col self-adjust"><code>.mr-25</code></div>
-					<div oo-column="col">margin-right: 2.5rem;</div>
+				<div oo-row="gutter-tiny">
+					<div oo-col="fit"><code>.mr-25</code></div>
+					<div oo-col>margin-right: 2.5rem;</div>
 				</div>
 			</div>
 		</div>

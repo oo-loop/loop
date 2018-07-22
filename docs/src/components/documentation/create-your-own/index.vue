@@ -69,13 +69,13 @@
 			<li><code>.radius-large@sm</code> <code>.radius-large@md</code> <code>.radius-large@lg</code></li>
 		</ul>
 
-		<div oo-column="row">
-			<div oo-column="col">
+		<div oo-row>
+			<div oo-col>
 				<div class="wrapper-medium bg-primary radius-small@sm radius-large@lg">
 					Responsive radius
 				</div>
 			</div>
-			<div oo-column="col">
+			<div oo-col>
 				<div class="wrapper-medium bg-warning radius-small radius-large@sm radius-less@md radius-small@lg">
 					Responsive radius
 				</div>

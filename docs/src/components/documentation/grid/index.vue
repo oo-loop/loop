@@ -39,15 +39,15 @@
 		<pretty-code class="language-css" :code="html.varGap" />
 		<pretty-code :code="html.gap" />
 
-		<div oo-column="row gutter-tiny">
-			<div oo-column="col self-adjust">
+		<div oo-row="gutter-tiny">
+			<div oo-col="fit">
 				<button 
 					:oo-button="gap == '' ? 'secondary' : ''"
 					class="text-tiny"
 					@click="gap = ''"
 				>default gap</button>
 			</div>
-			<div oo-column="col self-adjust" v-for="n in gaps">
+			<div oo-col="fit" v-for="n in gaps" :key="`gap${n}`">
 				<button
 					:oo-button="gap == n ? 'secondary' : ''"
 					class="text-tiny"
@@ -55,15 +55,15 @@
 				>gap-{{n}}</button>
 			</div>
 		</div>
-		<div class="mb-20" oo-column="row gutter-tiny">
-			<div oo-column="col self-adjust">
+		<div oo-row="gutter-tiny" class="mb-20">
+			<div oo-col="fit">
 				<button 
 					:oo-button="vGap == '' ? 'secondary' : ''"
 					class="text-tiny"
 					@click="vGap = ''"
 				>default v-gap</button>
 			</div>
-			<div oo-column="col self-adjust" v-for="n in gaps">
+			<div oo-col="fit" v-for="n in gaps" :key="`vgap${n}`">
 				<button
 					:oo-button="vGap == n ? 'secondary' : ''"
 					class="text-tiny"
