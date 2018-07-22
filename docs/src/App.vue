@@ -74,6 +74,18 @@ export default {
 				]
 			},
 			{
+				name: 'Template Areas',
+				route: 'template-areas',
+				label: 'oo',
+				labelClass: 'color-secondary',
+				subMenu: [
+					{
+						name: 'Template',
+						route: '#template'
+					},
+				]
+			},
+			{
 				name: 'Grid',
 				route: 'grid',
 				label: 'oo',
@@ -421,6 +433,11 @@ export default {
 			),
 		),
 	);
+
+	$template-areas:
+		"header header header header"
+    "main main main sidebar"
+    "footer footer footer footer";
 
 	@import '~loop/loop';
 

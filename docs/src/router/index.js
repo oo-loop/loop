@@ -5,6 +5,7 @@ import Intro from 'docs/introduction'
 import Type from 'docs/type'
 import Container from 'docs/container'
 import Column from 'docs/column'
+import TemplateAreas from 'docs/template-areas'
 import Grid from 'docs/grid'
 import Form from 'docs/form'
 import Button from 'docs/button'
@@ -41,6 +42,11 @@ export default new Router({
 			path: '/column',
 			name: 'column',
 			component: Column
+		},
+		{
+			path: '/template-areas',
+			name: 'template-areas',
+			component: TemplateAreas
 		},
 		{
 			path: '/grid',

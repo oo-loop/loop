@@ -1,16 +1,14 @@
 /**
- * Areas
+ * Template Areas
  */
 
-$use-areas: true !default;
-$use-areas-gap: true !default;
-$use-areas-vgap: true !default;
+$use-template-areas: true !default;
+$use-template-areas-gap: true !default;
+$use-template-areas-vgap: true !default;
 
-$areas-gap: $columns-gutter !default;
-$areas-templates: () !default;
-
-$areas-gap-sizes: () !default;
-$areas-vgap-sizes: $grid-gap-sizes !default;
+$template-areas: () !default;
+$template-areas-gap-sizes: () !default;
+$template-areas-vgap-sizes: $template-areas-gap-sizes !default;
 
 
 @function getAreaNames($areas) {
@@ -67,29 +65,28 @@ $areas-vgap-sizes: $grid-gap-sizes !default;
   @include makeGridArea($area-names-list);
 }
 
-@if $use-areas and isNotEmpty($areas-templates) {
+@if $use-template-areas and isNotEmpty($template-areas) {
 
-  [#{$loop-component-prefix}-areas] {
+  [#{$loop-component-prefix}-template] {
     display: grid;
-    grid-gap: $grid-gap;
   }
 
-  @if isList($areas-templates) {
-    [#{$loop-component-prefix}-areas] {
-      @include makeGrid($areas-templates);
+  @if isList($template-areas) {
+    [#{$loop-component-prefix}-template] {
+      @include makeGrid($template-areas);
     }
-  } @else if isMap($areas-templates) {
-    @if areKeysBreakpoints($areas-templates) {
-      [#{$loop-component-prefix}-areas] {
-        @include makeGridOnBreakpoints($areas-templates);
+  } @else if isMap($template-areas) {
+    @if areKeysBreakpoints($template-areas) {
+      [#{$loop-component-prefix}-template] {
+        @include makeGridOnBreakpoints($template-areas);
       }
     } @else {
-      @each $area-name, $area-template in $areas-templates {
-        [#{$loop-component-prefix}-areas~="#{$area-name}"] {
-          @if isMap($area-template) {
-            @include makeGridOnBreakpoints($area-template);
-          } @else if isList($area-template) {
-            @include makeGrid($area-template);
+      @each $area-name, $template in $template-areas {
+        [#{$loop-component-prefix}-template~="#{$area-name}"] {
+          @if isMap($template) {
+            @include makeGridOnBreakpoints($template);
+          } @else if isList($template) {
+            @include makeGrid($template);
           }
         }
       }
@@ -97,13 +94,13 @@ $areas-vgap-sizes: $grid-gap-sizes !default;
   }
 }
 
-@if $use-areas-gap {
-  @each $gap-name, $gap-size in $areas-gap-sizes {
-    [#{$loop-component-prefix}-areas~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
+@if $use-template-areas-gap {
+  @each $gap-name, $gap-size in $template-areas-gap-sizes {
+    [#{$loop-component-prefix}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
   }
 }
-@if $use-areas-gap and $use-areas-vgap {
-  @each $gap-name, $gap-size in $areas-vgap-sizes {
-    [#{$loop-component-prefix}-areas~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+@if $use-template-areas-gap and $use-template-areas-vgap {
+  @each $gap-name, $gap-size in $template-areas-vgap-sizes {
+    [#{$loop-component-prefix}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
   }
 }
