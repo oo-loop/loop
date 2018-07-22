@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<span class="hamburger" @click="toggleMenu()"></span>
-		<div oo-column="row" :class="{ slide: isMenuOpen }">
-			<aside class="sidebar" oo-column="col">
+		<div oo-row :class="{ slide: isMenuOpen }">
+			<aside oo-col class="sidebar">
 				<div class="sidebar__content text-small">
 					<ul class="list-unstyle font-bold">
-						<li class="mb-10" v-for="(item, index) in listing">
+						<li class="mb-10" v-for="(item, index) in listing" :key="`list-${index}`">
 							<router-link :to="`${item.route}`">{{item.name}}</router-link>
 							<span
 								v-if="item.label"
@@ -13,7 +13,7 @@
 								:class="item.labelClass ? item.labelClass : ''"
 							>{{item.label}}</span>
 							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
-								<li v-for="subItem in item.subMenu">
+								<li v-for="(subItem, index) in item.subMenu" :key="`sublist-${index}`">
 									<template v-if="subItem.route.indexOf('#') > -1">
 										<router-link :to="subItem.route">{{subItem.name}}</router-link>
 									</template>
@@ -23,7 +23,7 @@
 					</ul>
 				</div>
 			</aside>
-			<div oo-column="col">
+			<div oo-col>
 				<div class="content">
 					<transition name="fade" mode="out-in">
 						<router-view :key="$route.path"></router-view>
@@ -386,7 +386,7 @@ export default {
 			"footer footer footer footer"
 		),
 		'sample-responsive': (
-			: (
+			(): (
 				"header"
 				"sidebar"
 				"main"
@@ -399,7 +399,7 @@ export default {
 			),
 		),
 		'sample-abc': (
-			: (
+			(): (
 				"a"
 				"b"
 				"c"
@@ -472,25 +472,24 @@ export default {
 		}
 	}
 
-    .fade-enter-active,
+  .fade-enter-active,
 	.fade-leave-active {
-        transition: opacity 300ms cubic-bezier(0.85, 1, 0.16, 0.6);
-    }
-    .fade-enter,
+		transition: opacity 300ms cubic-bezier(0.85, 1, 0.16, 0.6);
+  }
+  .fade-enter,
 	.fade-leave-to{
-        opacity: 0;
-    }
+    opacity: 0;
+  }
 
-    .title {
-    	font-size: 3.2rem;
+	.title {
+		font-size: 3.2rem;
 		font-weight: 700;
 		text-align: center;
-
 		@include breakpoint(sm) {
 			font-size: 5rem;
 			text-align: left;
 		}
-    }
+	}
 
 	.hamburger {
 		position: fixed;
