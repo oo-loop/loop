@@ -5,7 +5,7 @@
 		<p>Loop is only covering general purposes to avoid overloading the developer with unnecessary utilities.<br>
 		However, the loop mixins are at disposal to give the possibility to create your own set.</p>
 
-		<h3 id="loop-mixin"><a href="#loop-mixin">#</a> The loop mixin</h3>
+		<h3 id="loop-mixin"><router-link to="#loop-mixin">#</router-link> The loop mixin</h3>
 		<ul>
 			<li><code class="color-info">$data</code>Css values</li>
 			<li><code class="color-info">$properties</code>Css properties</li>
@@ -44,7 +44,7 @@
 			<button oo-button="primary" class="radius-bottom-large">Large Radius Bottom</button>
 		</p>
 
-		<h3 id="loop-breakpoints-mixin"><a href="#loop-breakpoints-mixin">#</a> The loopBreakpoints mixin</h3>
+		<h3 id="loop-breakpoints-mixin"><router-link to="#loop-breakpoints-mixin">#</router-link> The loopBreakpoints mixin</h3>
 		<p>Except the first parameter, the <code>loopBreakpoints()</code> mixin is identical to the <code>loop()</code> mixin.<br>
 		Pass the breakpoints you wish to interact with and follow the same principles of <code>loop()</code>.</p>
 		<ul>

@@ -7,7 +7,7 @@
       <code class="font-bold color-secondary">oo-col</code>
     </p>
 
-		<h3 id="responsive"><a href="#responsive">#</a> Responsive</h3>
+		<h3 id="responsive"><router-link to="#responsive">#</router-link> Responsive</h3>
 		<p>
       Change the size of the column by using the property <code class="color-secondary">s{$number}</code>, or let the columns being automatically calculated.<br>
       Change the size of the column according to the device being targeted through the properties <code class="color-secondary">s{$number}@{$breakpoint}</code> or <code class="color-secondary">auto@{$breakpoint}</code>.
@@ -61,7 +61,7 @@
 		</div>
 		<pretty-code class="mt-0" :code="html.stretch"></pretty-code>
 
-		<h3 id="gutter"><a href="#gutter">#</a> Gutter</h3>
+		<h3 id="gutter"><router-link to="#gutter">#</router-link> Gutter</h3>
 		<p>Change the space between the columns by adding one of the gutter properties present in the variable <code class="color-info">$columns-gutter-sizes</code> (default including <code class="color-secondary">gutter-less</code> <code class="color-secondary">gutter-small</code>).<br>
 		Target vertical spacings only by using the properties present in the variable <code class="color-info">$columns-v-gutter-sizes</code> (default maching the sizes in <code class="color-info">$columns-gutter-sizes</code>).<br>
 		Change the values at your convenience to only match your needs.</p>
@@ -109,7 +109,7 @@
 		</div>
     <pretty-code :code="html.vGutterResponsive"></pretty-code>
 
-		<h3 id="order"><a href="#order">#</a> Order</h3>
+		<h3 id="order"><router-link to="#order">#</router-link> Order</h3>
 		<p>Rearrange the order the columns through the properties <code class="color-secondary">order-0@{$breakpoint}</code> to <code class="color-secondary">order-12@{$breakpoint}</code> according to the size of the screen.</p>
 		<div oo-row>
 		  <div oo-col="s6 s3@sm order-2@lg"><p class="cell">one</p></div>
@@ -120,7 +120,7 @@
 		<pretty-code class="mt-0" :code="html.order"></pretty-code>
 		<p>Disable properties <code class="color-secondary">order-*</code> if not needed by setting <code class="color-info">$use-columns-order</code> to <code>false</code>.</p>
 
-		<h3 id="alignment"><a href="#alignment">#</a> Alignment</h3>
+		<h3 id="alignment"><router-link to="#alignment">#</router-link> Alignment</h3>
 		<h4 class="h5">Vertical alignment</h4>
 		<p>Vertically align a group of columns attaching the properties <code class="color-secondary">valign-top</code> <code class="color-secondary">valign-middle</code> <code class="color-secondary">valign-bottom</code> to <code class="color-secondary">oo-row</code>.<br>Responsive properties are also available <code class="color-secondary">{$valignment}@{$breakpoint}</code></p>
 		<div class="bg-secondary">

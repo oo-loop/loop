@@ -4,7 +4,7 @@
 
 		<p class="text-large">A bunch of handy utilities to customize texts on the fly.<br> Those utilities are made flexible to be able to add and/or remove classes on any projects.<br>Modifing specific variables will keep the strict minimum rules in css, and make the generated file smaller.</p>
 
-		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
+		<h3 id="sizes"><router-link to="#sizes">#</router-link> Sizes</h3>
 		<p>Quickly change the size of the text. Three sizes as default.</p>
 		<code>.text-large</code><p class="text-large color-gray">Text large Lorem ipsum dolor sit amet.</p>
 		<code>.text-small</code><p class="text-small color-gray">Text small Lorem ipsum dolor sit amet.</p>
@@ -16,7 +16,7 @@
 		<p>Assign the needed breakpoint to the variables <code class="color-info">$text-sizes-breakpoints-classes</code></p>
 		<pretty-code class="language-css" :code="html.varFontSizesBreakpoint"></pretty-code>
 
-		<h3 id="alignments"><a href="#alignments">#</a> Alignments</h3>
+		<h3 id="alignments"><router-link to="#alignments">#</router-link> Alignments</h3>
 		<p>Easily change the aligment of the text through the classes <code>.text-left</code> <code>.text-right</code> <code>.text-center</code>.<br>Modify the list of <code class="color-info">$text-alignments</code> at your convenience.</p>
 		<pretty-code class="language-css" :code="html.varTextAlignments"></pretty-code>
 		<p>Need to have different text alignments for responsive purpose?<br>Add the necessary breakpoints to the list <code class="color-info">$text-alignments-breakpoints-classes</code> and the classes such as <code>text-center@sm</code> <code>text-center@md</code> will be generated</p>
@@ -24,7 +24,7 @@
 		<p class="text-center text-left@sm text-center@lg color-gray">My text is centered by default,<br>left aligned from small device and centered again on large device.</p>
 		<pretty-code :code="html.textAlignments"></pretty-code>
 
-		<h3 id="transforms"><a href="#transforms">#</a> Transforms</h3>
+		<h3 id="transforms"><router-link to="#transforms">#</router-link> Transforms</h3>
 		<p>Change the capitalization of the text through the class <code>.text-uppercase</code>.</p>
 		<p class="text-uppercase color-gray">This is an uppercase text.</p>
 		<pretty-code :code="html.textTransforms"></pretty-code>
@@ -38,7 +38,7 @@
 		<p>Assign the needed breakpoint to the variables <code class="color-info">$text-transforms-breakpoints-classes</code>.<br>
 		Get <code>.text-uppercase@lg</code>...</p>
 
-		<h3 id="decorations"><a href="#decorations">#</a> Decorations</h3>
+		<h3 id="decorations"><router-link to="#decorations">#</router-link> Decorations</h3>
 		<p>Change the decoration of the text</p>
 		<ul>
 			<li><code class="color-info">$text-decorations</code> Variable to set preferences (<strong>empty</strong> from start)</li>
@@ -55,7 +55,7 @@
 			<li><code>.text-{$decorationName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
-		<h3 id="letter-spacing"><a href="#letter-spacing">#</a> Letter Spacings</h3>
+		<h3 id="letter-spacings"><router-link to="#letter-spacings">#</router-link> Letter Spacings</h3>
 		<p>Change the letter-spacing of the text.</p>
 		<ul class="mb-25">
 			<li><code class="color-info">$letter-spacings</code> Variable to set preferences (<strong>map format</strong>, default including <code class="color-success">narrow</code> <code class="color-success">wide</code>)</li>
@@ -76,7 +76,7 @@
 			<li><code>.letter-spacing-{letterSpacingName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
-		<h3 id="styles"><a href="#styles">#</a> Styles</h3>
+		<h3 id="styles"><router-link to="#styles">#</router-link> Styles</h3>
 		<p>Change the style of the font.</p>
 		<ul>
 			<li><code class="color-info">$font-styles</code> Variable to set preferences</li>
@@ -93,7 +93,7 @@
 			<li><code>.font-{$styleName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
-		<h3 id="weights"><a href="#weights">#</a> Weights</h3>
+		<h3 id="weights"><router-link to="#weights">#</router-link> Weights</h3>
 		<p>Quickly change the weight of the font.</p>
 		<ul>
 			<li><code class="color-info">$font-weights</code> Variable to set preferences (default including <code class="color-success">light</code> <code class="color-success">bold</code>)</li>
@@ -115,7 +115,7 @@
 			<li><code>.font-{$weightName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
-		<h3 id="families"><a href="#families">#</a> Families</h3>
+		<h3 id="families"><router-link to="#families">#</router-link> Families</h3>
 		<p>Set the font family of the text.</p>
 		<ul class="mb-25">
 			<li><code class="color-info">$font-families</code> Variable to set preferences (<strong>map format</strong>, default including <code class="color-success">primary</code> <code class="color-success">secondary</code>)</li>

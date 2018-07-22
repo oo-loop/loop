@@ -11,7 +11,7 @@
 
 		<pretty-code class="language-css" :code="html.varNewGlobal"></pretty-code>
 
-		<h3 id="text"><a href="#text">#</a> Text</h3>
+		<h3 id="text"><router-link to="#text">#</router-link> Text</h3>
 		<ul>
 			<li><code class="color-info">$text-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
 			<li><code class="color-info">$text-colors</code> Custom data</li>
@@ -24,7 +24,7 @@
 
 		<pretty-code :code="html.text"></pretty-code>
 
-		<h3 id="background"><a href="#background">#</a> Background</h3>
+		<h3 id="background"><router-link to="#background">#</router-link> Background</h3>
 		<ul>
 			<li><code class="color-info">$bg-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>
 			<li><code class="color-info">$bg-colors</code> Custom data</li>
@@ -45,7 +45,7 @@
 		</div>
 		<pretty-code :code="html.background"></pretty-code>
 
-		<h3 id="border"><a href="#border">#</a> Border</h3>
+		<h3 id="border"><router-link to="#border">#</router-link> Border</h3>
 		<p>The same logic applies for borders</p>
 		<ul>
 			<li><code class="color-info">$border-colors-classes</code> Classes data ( default matching <code class="color-info">$colors-classes</code> )</li>

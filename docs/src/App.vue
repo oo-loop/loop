@@ -3,24 +3,26 @@
 		<span class="hamburger" @click="toggleMenu()"></span>
 		<div oo-row :class="{ slide: isMenuOpen }">
 			<aside oo-col class="sidebar">
-				<div class="sidebar__content text-small">
-					<ul class="list-unstyle font-bold">
-						<li class="mb-10" v-for="(item, index) in listing" :key="`list-${index}`">
-							<router-link :to="`${item.route}`">{{item.name}}</router-link>
-							<span
-								v-if="item.label"
-								class="text-tiny"
-								:class="item.labelClass ? item.labelClass : ''"
-							>{{item.label}}</span>
-							<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
-								<li v-for="(subItem, index) in item.subMenu" :key="`sublist-${index}`">
-									<template v-if="subItem.route.indexOf('#') > -1">
-										<router-link :to="subItem.route">{{subItem.name}}</router-link>
-									</template>
-								</li>
-							</ul>
-						</li>
-					</ul>
+				<div class="sidebar-wrapper">
+					<div class="sidebar-content text-small">
+						<ul class="list-unstyle font-bold">
+							<li class="mb-10" v-for="(item, index) in listing" :key="`list-${index}`">
+								<router-link :to="`${item.route}`">{{item.name}}</router-link>
+								<span
+									v-if="item.label"
+									class="text-tiny"
+									:class="item.labelClass ? item.labelClass : ''"
+								>{{item.label}}</span>
+								<ul class="list-unstyle" v-if="item.subMenu.length > 0 && $route.name === item.route">
+									<li v-for="(subItem, index) in item.subMenu" :key="`sublist-${index}`">
+										<template v-if="subItem.route.indexOf('#') > -1">
+											<router-link :to="subItem.route">{{subItem.name}}</router-link>
+										</template>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</aside>
 			<div oo-col>
@@ -449,32 +451,43 @@ export default {
 	body { overflow-x: hidden; }
 
 	.sidebar {
-		top: 0;
-		position: sticky;
-		overflow: auto;
-		overflow-x: hidden;
-		-webkit-overflow-scrolling: touch;
-
 		margin-left: -#{$sidebar-size};
 		flex-basis: $sidebar-size;
 		max-width: 	$sidebar-size;
-		height: 100vh;
-
-		background-color: #fff;
-		box-shadow: -16px 0 0 16px $bgcolor-base, 1px 0 16px 0 #cdcdcd;
-
 		transition: margin 300ms ease-in-out;
-
+		
 		.slide & { margin-left: 0; }
 
 		@include breakpoint(sm) {
 			margin-left: 0;
 			.slide & { margin-left: calc(-#{$sidebar-size} + #{$layout-padding}); }
 		}
+	}
 
-		&__content {
-			padding: ($layout-padding * 2) $layout-padding $layout-padding;
+	.sidebar-wrapper {
+		top: 0;
+		left: -#{$sidebar-size};
+		position: fixed;
+		overflow: auto;
+		width: calc(#{$sidebar-size} - #{$layout-padding});
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+		height: 100vh;
+
+		background-color: #fff;
+		box-shadow: -16px 0 0 16px $bgcolor-base, 1px 0 16px 0 #cdcdcd;
+
+		transition: left 300ms ease-in-out;
+
+		.slide & { left: 0; }
+
+		@include breakpoint(sm) {
+			left: 0;
+			.slide & { left: calc(-#{$sidebar-size} + #{$layout-padding}); }
 		}
+	}
+	.sidebar-content {
+		padding: ($layout-padding * 2) $layout-padding $layout-padding;
 	}
 
 	.content {

@@ -4,7 +4,7 @@
 		<p class="text-large">Components for form elements
 		<br><code class="color-secondary font-bold">oo-form</code></p>
 
-		<h3 id="input"><a href="#input">#</a> Input</h3>
+		<h3 id="input"><router-link to="#input">#</router-link> Input</h3>
 		<p>
 			Use the <code class="color-secondary">input</code> property <code class="color-secondary">oo-form="input"</code> to format the appearance of the textfield.<br>
 			Alter the size of the input by applying any of the <code class="color-info">$text-sizes</code> classes available from text utitlies.<br>
@@ -30,7 +30,7 @@
 
 		<pretty-code :code="html.inputLarge"></pretty-code>
 
-		<h3 id="select"><a href="#select">#</a> Select</h3>
+		<h3 id="select"><router-link to="#select">#</router-link> Select</h3>
 		<p>
 			Use the <code class="color-secondary">select</code> property <code class="color-secondary">oo-form="select"</code> on an element having <markup>select</markup> <strong>as a child</strong><br>
 			Alter the size of the element by applying any of the text-sizes classes available from text utitlies.<br>
@@ -68,7 +68,7 @@
 		</div>
 		<pretty-code :code="html.selectLarge"></pretty-code>
 
-		<h3 id="checkbox"><a href="#checkbox">#</a> Checkbox</h3>
+		<h3 id="checkbox"><router-link to="#checkbox">#</router-link> Checkbox</h3>
 		<p>
 			Use the <code class="color-secondary">checkbox</code> property <code class="color-secondary">oo-form="checkbox"</code> on <markup>input type="checkbox"</markup> <u>preceding</u> <markup>label</markup><br>
 			Alter the appearance of the checkbox by applying classes from the color utilities.
@@ -95,7 +95,7 @@
 
 		<pretty-code :code="html.checkboxSizes"></pretty-code>
 
-		<h3 id="radio"><a href="#radio">#</a> Radio</h3>
+		<h3 id="radio"><router-link to="#radio">#</router-link> Radio</h3>
 		<p>
 			Use the <code class="color-secondary">radio</code> property <code class="color-secondary">oo-form="radio"</code> on <markup>input type="radio"</markup> <u>preceding</u> <markup>label</markup><br>
 			Alter the appearance of the radio by applying classes from the color utilities.
@@ -123,7 +123,7 @@
 
 		<pretty-code :code="html.radioSizes"></pretty-code>
 
-		<h3 id="toggle"><a href="#toggle">#</a> Toggle</h3>
+		<h3 id="toggle"><router-link to="#toggle">#</router-link> Toggle</h3>
 		<p>Use the <code class="color-secondary">toggle</code> property <code class="color-secondary">oo-form="toggle"</code> to <markup>input type="checkbox"</markup> preceding <markup>label</markup></p>
 		<input oo-form="toggle" id="toggle-1" type="checkbox">
 		<label for="toggle-1">Toggle</label>

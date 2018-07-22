@@ -111,7 +111,8 @@ export default new Router({
 		}
 		if (to.hash) {
 			return {
-				selector: to.hash
+				selector: to.hash,
+				x:0
 			}
 		}
 		return { x: 0, y: 0 }

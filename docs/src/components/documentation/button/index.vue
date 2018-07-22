@@ -3,7 +3,7 @@
 		<h1 class="title">Button<span class="text-small color-primary">oo</span></h1>
 		<p class="text-large">Component<br><code class="color-secondary font-bold">oo-button</code></p>
 
-		<h3 id="sizes"><a href="#sizes">#</a> Sizes</h3>
+		<h3 id="sizes"><router-link to="#sizes">#</router-link> Sizes</h3>
 		<p>Alter the size of the button by applying any of the <code class="color-info">$text-sizes</code> classes on your button element.</p>
 		<p>
 		<a oo-button class="text-tiny mb-5">Tiny</a>
@@ -23,7 +23,7 @@
 
 		<pretty-code :code="html.padding"></pretty-code>
 
-		<h3 id="colors"><a href="#colors">#</a> Colors</h3>
+		<h3 id="colors"><router-link to="#colors">#</router-link> Colors</h3>
 		<p>Change the color of the button through the properties <code class="color-secondary">{$colorname}</code> present in the variable <code class="color-info">$btn-colors-classes</code>. Default values including <code class="color-secondary">primary</code> <code class="color-secondary">secondary</code> matching default values from <code class="color-info">$colors-classes</code>.</p>
 		
 		<p>
@@ -65,7 +65,7 @@
 		<p><strong>Note:</strong> If you're getting a black text when expecting a white one or vice-versa, adjust the threshold <code class="color-info">$brightness-threshold</code>(range from 0 <i>black</i> to 255 <i>white</i>).</p>
 
 
-		<h3 id="outline"><a href="#outline">#</a> Outline</h3>
+		<h3 id="outline"><router-link to="#outline">#</router-link> Outline</h3>
 		<p>Change the type of button to outline through the property <code class="color-secondary">outline</code>.<br>
 		Default values are inheriting the colors from your settings for the regular button. It is recommended to change it to suit your needs.</p>
 

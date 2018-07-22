@@ -4,7 +4,7 @@
 		<p class="text-large">Modify the font-size based on rem.<br>
 		1rem = 10px (relative to 62.5% font-size)</p>
 
-		<h3 id="headings"><a href="#headings">#</a> Headings</h3>
+		<h3 id="headings"><router-link to="#headings">#</router-link> Headings</h3>
 		<p>HTML headings, <markup>h1</markup> through <markup>h6</markup> matching the set of font-sizes in <code class="color-info">$heading-font-sizes</code>.<br>
 		You can either modify the values by a unique size or a set of sizes mapping the breakpoints for responsive purpose.</p>
 
@@ -24,7 +24,7 @@
 		<pretty-code class="language-css" :code="html.varHeadingClasses"></pretty-code>
 		<pretty-code :code="html.heading"></pretty-code>
 
-		<h3 id="text-elements"><a href="#text-elements">#</a> Text Elements</h3>
+		<h3 id="text-elements"><router-link to="#text-elements">#</router-link> Text Elements</h3>
 		<p>Common inline HTML elements for semantic.</p>
 		<ul class="list-unstyle">
 			<li><markup>mark</markup> for <mark>highlighted text</mark></li>
@@ -34,7 +34,7 @@
 			<li><markup>em</markup> for <em>emphasized text</em></li>
 		</ul>
 
-		<h3 id="lists"><a href="#lists">#</a> Lists</h3>
+		<h3 id="lists"><router-link to="#lists">#</router-link> Lists</h3>
 		<p>Format the style of the list of elements through the classes <code>.list-unstyle</code> <code>.list-inline</code> <code>.list-divide</code>.</p>
 		<ul>
 			<li>list item 1</li>

@@ -15,7 +15,7 @@
 			<li><code class="color-info">$use-v-grid-gap</code></li>
 		</ul>
 
-		<h3 id="layout"><a href="#layout">#</a> Layout <code class="text-small color-secondary">oo-grid="layout"</code></h3>
+		<h3 id="layout"><router-link to="#layout">#</router-link> Layout <code class="text-small color-secondary">oo-grid="layout"</code></h3>
 		<p>Use the 12 columns system for both rows and columns with property <code class="color-secondary">col-{$number}</code> <code class="color-secondary">row-{$number}</code> and <code class="color-secondary">col-{$number}@{$breakpoint}</code> <code class="color-secondary">row-{$number}@{$breakpoint}</code> for responsive purpose.</p>
 		<div oo-grid="layout">
 			<div class="wrapper-tiny bg-primary" oo-grid="col-6 row-3 col-4@sm">1</div>
@@ -31,7 +31,7 @@
 
 		<pretty-code :code="html.layout" />
 
-		<h3 id="gaps"><a href="#gap">#</a> Gap</h3>
+		<h3 id="gaps"><router-link to="#gap">#</router-link> Gap</h3>
 		<p>
 			Change the gap between colums and rows with the properties <code class="color-secondary">gap-{$name}</code> <code class="color-secondary">v-gap-{$name}</code> matching the names in the variables <code class="color-info">$grid-gap-sizes</code> and <code class="color-info">$grid-v-gap-sizes</code>.
 		</p>
@@ -84,7 +84,7 @@
 			<div class="wrapper-tiny bordered border-primary" oo-grid="col-12 col-4@md col-8@lg">9</div>
 		</div>
 
-		<h3 class="mt-40" id="order"><a href="#order">#</a> Order</h3>
+		<h3 class="mt-40" id="order"><router-link to="#order">#</router-link> Order</h3>
 		<p>Layout your page by creating <strong>zones</strong> with <code class="color-secondary">col</code> and <code class="color-secondary">row</code>,<br>
 		and use the properties <code class="color-secondary">order-{$number}@{$breakpoint}</code> to move them around between screen sizes.</p>
 
@@ -108,7 +108,7 @@
 		<pretty-code :code="html.orderComplex" />
 
 
-		<h3 class="mt-40" id="areas"><a href="#areas">#</a> Areas <code class="text-small color-secondary">oo-grid="areas"</code></h3>
+		<h3 class="mt-40" id="areas"><router-link to="#areas">#</router-link> Areas <code class="text-small color-secondary">oo-grid="areas"</code></h3>
 		<p>Create your own template through <code class="color-info">$grid-template-areas</code> and use the name of the areas set in that variable.</p>
 		<pretty-code class="language-css" :code="html.varGrid" />
 

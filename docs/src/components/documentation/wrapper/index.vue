@@ -27,7 +27,7 @@
 			<div class="bg-primary text-small text-center">.wrapper-large</div>
 		</div>
 
-		<h3><a href="#map-data">#</a> Map Data</h3>
+		<h3 id="map-data"><router-link to="#map-data">#</router-link> Map Data</h3>
 		<p>Make wrapper responsive by setting map data sizes.</p>
 		<pretty-code class="language-css" :code="html.varMapdata"></pretty-code>
 
@@ -35,7 +35,7 @@
 			<div class="bg-primary text-small text-center">.wrapper-wide</div>
 		</div>
 
-		<h3><a href="#responsive">#</a> Responsive</h3>
+		<h3 id="responsive"><router-link to="#responsive">#</router-link> Responsive</h3>
 		<p>Add breakpoints to the variable <code class="color-info">$wrapper-breakpoints-classes</code> to be able to switch wrappers between screen sizes. Creating <code>.wrapper-{$sizeName}@{breakpoint}</code></p>
 		<pretty-code class="language-css" :code="html.varResponsive"></pretty-code>
 
