@@ -199,6 +199,7 @@ $columns-v-gutter-sizes-breakpoints-classes: join('', $columns-v-gutter-sizes-br
 
 // clear
 [#{$loop-component-prefix}-col~="clear"] {
+  padding: 0;
   flex-basis: 100%;
   max-width: 100%;
 }
