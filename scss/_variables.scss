@@ -83,11 +83,11 @@ $border-colors-is-important: true !default;
  */
 $heading-font-sizes: (
   'h1': (
-    : 3.6rem,
+    (): 3.6rem,
     sm: 4.6rem,
   ),
   'h2': (
-    : 3.2rem,
+    (): 3.2rem,
     sm: 3.8rem,
   ),
   'h3': 2.8rem,
@@ -252,21 +252,32 @@ $use-columns-self-adjustment-breakpoints: false !default;
 
 
 /**
+ * Template Areas
+ */
+
+$use-template-areas: true !default;
+$use-template-areas-gap: true !default;
+$use-template-areas-vgap: true !default;
+
+$template-areas: () !default;
+$template-areas-gap-sizes: () !default;
+$template-areas-vgap-sizes: $template-areas-gap-sizes !default;
+
+
+/**
  * Grid
  */
 
 $use-grid-layout: true !default;
-$use-grid-areas:  true !default;
 $use-grid-order:  true !default;
 $use-grid-gap:    true !default;
-$use-v-grid-gap:  true !default;
+$use-grid-vgap:  true !default;
 
-$grid-gap:    $columns-gutter !default;
+$grid-gap: 	  $columns-gutter !default;
 $grid-system: $columns-system !default;
-$grid-template-areas: () !default ;
 
-$grid-gap-sizes: $columns-gutter-sizes !default;
-$grid-v-gap-sizes: $grid-gap-sizes !default;
+$grid-gap-sizes:  $columns-gutter-sizes !default;
+$grid-vgap-sizes: $grid-gap-sizes !default;
 
 
 /**

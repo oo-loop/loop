@@ -4,15 +4,13 @@
 		<p class="text-large">Component based on CSS Grid.<br>
 		<code class="color-secondary font-bold">oo-grid</code></p>
 
-		<p>The two approaches <strong>layout & areas</strong> might not be needed altogether in a project.<br>
-		Turn on/off the options depending on your preferences.</p>
+		<p>Turn on/off the options depending on your preferences.</p>
 		
 		<ul class="mb-30">
 			<li><code class="color-info">$use-grid-layout</code></li>
-			<li><code class="color-info">$use-grid-areas</code></li>
 			<li><code class="color-info">$use-grid-order</code></li>
 			<li><code class="color-info">$use-grid-gap</code></li>
-			<li><code class="color-info">$use-v-grid-gap</code></li>
+			<li><code class="color-info">$use-grid-vgap</code></li>
 		</ul>
 
 		<h3 id="layout"><router-link to="#layout">#</router-link> Layout <code class="text-small color-secondary">oo-grid="layout"</code></h3>
@@ -61,14 +59,14 @@
 					:oo-button="vGap == '' ? 'secondary' : ''"
 					class="text-tiny"
 					@click="vGap = ''"
-				>default v-gap</button>
+				>default vgap</button>
 			</div>
 			<div oo-col="fit" v-for="n in gaps" :key="`vgap${n}`">
 				<button
 					:oo-button="vGap == n ? 'secondary' : ''"
 					class="text-tiny"
 					@click="vGap = n"
-				>v-gap-{{n}}</button>
+				>vgap-{{n}}</button>
 			</div>
 		</div>
 
@@ -129,16 +127,11 @@ export default {
 			'small',
 		],
 		html: {
-			abc: require('./code/abc.html'),
 			gap: require('./code/gap.html'),
-			grid: require('./code/grid.html'),
 			layout: require('./code/layout.html'),
 			order: require('./code/order.html'),
 			orderComplex: require('./code/order-complex.html'),
 			varGap: require('./code/var-gap.html'),
-			varGrid: require('./code/var-grid.html'),
-			varGridResponsive: require('./code/var-grid-responsive.html'),
-			varGridMultiple: require('./code/var-grid-multiple.html'),
 		}
 	}),
 	computed: {
@@ -146,7 +139,7 @@ export default {
 			return this.gap.length > 0 ? `gap-${this.gap}` : ''
 		},
 		vGapProperty () {
-			return this.vGap.length > 0 ? `v-gap-${this.vGap}` : ''
+			return this.vGap.length > 0 ? `vgap-${this.vGap}` : ''
 		},
 		gridProperty() {
 			return `layout ${this.gapProperty} ${this.vGapProperty}`
