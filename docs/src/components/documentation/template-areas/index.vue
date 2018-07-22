@@ -14,36 +14,39 @@
 		</p>
 		<pretty-code class="language-css" :code="html.varAreas" />
 		<pretty-code :code="html.areas" />
-		<section oo-template class="mb-40">
+		<section oo-template="sample" class="mb-40">
 			<header oo-area="header" class="wrapper-small bg-primary">Header</header>
 			<main oo-area="main" class="wrapper-small bg-secondary color-white main">Main</main>
 			<nav oo-area="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
 			<footer oo-area="footer" class="wrapper-small bg-success">Footer</footer>
 		</section>
 
-		<h4>Responsive Areas</h4>
-		<p>Pass a map of breakpoint</p>
+		<h3 id="responsive"><a href="/#responsive">#</a> Responsive Template</h3>
+		<p>Pass a map of breakpoints with their respective template</p>
 		<pretty-code class="language-css" :code="html.varAreasResponsive" />
 
-		<section oo-grid="areas sample-responsive gap-less" class="mb-40">
-			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
-			<main oo-grid="main" class="wrapper-small bg-secondary color-white main">Main</main>
-			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
-			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
+		<section oo-template="sample-responsive" class="mb-40">
+			<header oo-area="header" class="wrapper-small bg-primary">Header</header>
+			<main oo-area="main" class="wrapper-small bg-secondary color-white main">Main</main>
+			<nav oo-area="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
+			<footer oo-area="footer" class="wrapper-small bg-success">Footer</footer>
 		</section>
 
-		<h4>Multiple Template Areas</h4>
-		<p>Pass a map of areas to <code class="color-info">$grid-template-areas</code> and use the name of each map as property <code class="color-info">oo-grid="areas {$name}"</code> to get the corresponding area.</p>
+		<h3 id="multiple"><a href="#multiple">#</a> Multiple Templates</h3>
+		<p>
+			Create a map of templates and pass the name of each map as property <code class="color-info">oo-template="{$name}"</code>.<br>
+			Using the multiple syntax from start allow you to expand your project easily in the future.
+		</p>
 
 		<pretty-code class="language-css" :code="html.varAreasMultiple" />
+		<pretty-code :code="html.abc" />
 
-		<section oo-grid="areas sample-abc">
-			<div oo-grid="a" class="wrapper-small bg-primary">A</div>
-			<div oo-grid="b" class="wrapper-small bg-secondary color-white">B</div>
-			<div oo-grid="c" class="wrapper-small bg-warning">C</div>
+		<section oo-template="sample-abc">
+			<div oo-area="a" class="wrapper-small bg-primary" style="height:250px">A</div>
+			<div oo-area="b" class="wrapper-small bg-secondary color-white">B</div>
+			<div oo-area="c" class="wrapper-small bg-warning">C</div>
 		</section>
 
-		<pretty-code :code="html.abc" />
 	</div>
 </template>
 
@@ -69,9 +72,6 @@ export default {
 			abc: require('./code/abc.html'),
 			gap: require('./code/gap.html'),
 			areas: require('./code/areas.html'),
-			layout: require('./code/layout.html'),
-			order: require('./code/order.html'),
-			orderComplex: require('./code/order-complex.html'),
 			varGap: require('./code/var-gap.html'),
 			varAreas: require('./code/var-areas.html'),
 			varAreasResponsive: require('./code/var-areas-responsive.html'),

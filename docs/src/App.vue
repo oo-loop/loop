@@ -83,6 +83,10 @@ export default {
 						name: 'Template',
 						route: '#template'
 					},
+					{
+						name: 'Responsive',
+						route: '#responsive'
+					},
 				]
 			},
 			{
@@ -391,7 +395,7 @@ export default {
 
 	$use-grid-order: true;
 
-	$grid-template-areas: (
+	$template-areas: (
 		'sample': (
 			"header header header header"
 			"main main main sidebar"
@@ -417,27 +421,21 @@ export default {
 				"c"
 			),
 			sm: (
-				"a a"
-				"c b"
-				"c b"
-			),
-			md: (
 				"a a a"
 				"b c c"
 				"b c c"
 			),
+			md: (
+				"a a b"
+				"c c c"
+			),
 			lg: (
-				"a b b"
-				"a c c"
-				"a . ."
+				"a a a b b"
+				"a a a c c"
+				"a a a . ."
 			),
 		),
 	);
-
-	$template-areas:
-		"header header header header"
-    "main main main sidebar"
-    "footer footer footer footer";
 
 	@import '~loop/loop';
 
