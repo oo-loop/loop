@@ -83,16 +83,16 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     @if $use-columns-alignment == true
       and ($use-columns-alignment-breakpoints == true or isEmpty($suffix)) {
       // horizontal alignment
-      [#{$loop-component-prefix}-col~="align-left#{$suffix}"]   { justify-content: flex-start; }
-      [#{$loop-component-prefix}-col~="align-center#{$suffix}"] { justify-content: center; }
-      [#{$loop-component-prefix}-col~="align-right#{$suffix}"]  { justify-content: flex-end; }
-      [#{$loop-component-prefix}-col~="align-evenly#{$suffix}"] { justify-content: space-evenly; }
-      [#{$loop-component-prefix}-col~="align-between#{$suffix}"]{ justify-content: space-between; }
+      [#{$loop-component-prefix}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
+      [#{$loop-component-prefix}-row~="align-center#{$suffix}"] { justify-content: center; }
+      [#{$loop-component-prefix}-row~="align-right#{$suffix}"]  { justify-content: flex-end; }
+      [#{$loop-component-prefix}-row~="align-evenly#{$suffix}"] { justify-content: space-evenly; }
+      [#{$loop-component-prefix}-row~="align-between#{$suffix}"]{ justify-content: space-between; }
 
       // vertical alignment
-      [#{$loop-component-prefix}-col~="valign-top#{$suffix}"]    { align-items: flex-start; }
-      [#{$loop-component-prefix}-col~="valign-middle#{$suffix}"] { align-items: center; }
-      [#{$loop-component-prefix}-col~="valign-bottom#{$suffix}"] { align-items: flex-end; }
+      [#{$loop-component-prefix}-row~="valign-top#{$suffix}"]    { align-items: flex-start; }
+      [#{$loop-component-prefix}-row~="valign-middle#{$suffix}"] { align-items: center; }
+      [#{$loop-component-prefix}-row~="valign-bottom#{$suffix}"] { align-items: flex-end; }
     }
 
     @if $use-columns-self-alignment == true
