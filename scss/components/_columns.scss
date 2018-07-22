@@ -24,7 +24,7 @@ $columns-v-gutter-sizes: $columns-gutter-sizes !default;
 $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-classes !default;
 
 // row
-[#{$loop-component-prefix}-column~="row"] {
+[#{$loop-component-prefix}-row] {
   position: relative;
   left: -#{$columns-gutter};
   margin-right: -#{$columns-gutter};
@@ -37,7 +37,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 
 
 // columns
-[#{$loop-component-prefix}-column*="col"] {
+[#{$loop-component-prefix}-col] {
   padding-left: $columns-gutter;
   padding-bottom: $columns-gutter;
 
@@ -58,14 +58,14 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     }
 
     // auto col
-    [#{$loop-component-prefix}-column~="col#{$suffix}"] {
+    [#{$loop-component-prefix}-col~="auto#{$suffix}"] {
       flex-basis: 0;
       max-width: 100%;
     }
 
     // columns
     @for $i from 1 through $columns-system {
-      [#{$loop-component-prefix}-column~="col-#{$i}#{$suffix}"] {
+      [#{$loop-component-prefix}-col~="s#{$i}#{$suffix}"] {
         flex-basis: percentage($i/$columns-system);
         max-width: percentage($i/$columns-system);
       }
@@ -73,7 +73,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 
     @if $use-columns-self-adjustment-breakpoints == true or isEmpty($suffix) {
       // adjust to the size of the content
-      [#{$loop-component-prefix}-column~="self-adjust#{$suffix}"] {
+      [#{$loop-component-prefix}-col~="fit#{$suffix}"] {
         min-width: auto;
         flex-grow: 0;
         flex-basis: auto;
@@ -83,49 +83,49 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     @if $use-columns-alignment == true
       and ($use-columns-alignment-breakpoints == true or isEmpty($suffix)) {
       // horizontal alignment
-      [#{$loop-component-prefix}-column~="align-left#{$suffix}"]   { justify-content: flex-start; }
-      [#{$loop-component-prefix}-column~="align-center#{$suffix}"] { justify-content: center; }
-      [#{$loop-component-prefix}-column~="align-right#{$suffix}"]  { justify-content: flex-end; }
-      [#{$loop-component-prefix}-column~="align-evenly#{$suffix}"] { justify-content: space-evenly; }
-      [#{$loop-component-prefix}-column~="align-between#{$suffix}"]{ justify-content: space-between; }
+      [#{$loop-component-prefix}-col~="align-left#{$suffix}"]   { justify-content: flex-start; }
+      [#{$loop-component-prefix}-col~="align-center#{$suffix}"] { justify-content: center; }
+      [#{$loop-component-prefix}-col~="align-right#{$suffix}"]  { justify-content: flex-end; }
+      [#{$loop-component-prefix}-col~="align-evenly#{$suffix}"] { justify-content: space-evenly; }
+      [#{$loop-component-prefix}-col~="align-between#{$suffix}"]{ justify-content: space-between; }
 
       // vertical alignment
-      [#{$loop-component-prefix}-column~="align-top#{$suffix}"]    { align-items: flex-start; }
-      [#{$loop-component-prefix}-column~="align-middle#{$suffix}"] { align-items: center; }
-      [#{$loop-component-prefix}-column~="align-bottom#{$suffix}"] { align-items: flex-end; }
+      [#{$loop-component-prefix}-col~="valign-top#{$suffix}"]    { align-items: flex-start; }
+      [#{$loop-component-prefix}-col~="valign-middle#{$suffix}"] { align-items: center; }
+      [#{$loop-component-prefix}-col~="valign-bottom#{$suffix}"] { align-items: flex-end; }
     }
 
     @if $use-columns-self-alignment == true
       and ($use-columns-self-alignment-breakpoints == true or isEmpty($suffix)) {
           // horizontal alignment
-      [#{$loop-component-prefix}-column~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
-      [#{$loop-component-prefix}-column~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
-      [#{$loop-component-prefix}-column~="self-align-right#{$suffix}"]  { margin-left: auto; margin-right: initial; }
+      [#{$loop-component-prefix}-col~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
+      [#{$loop-component-prefix}-col~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
+      [#{$loop-component-prefix}-col~="self-align-right#{$suffix}"]  { margin-left: auto; margin-right: initial; }
 
       // vertical alignment
-      [#{$loop-component-prefix}-column~="self-align-top#{$suffix}"]    { align-self: flex-start; }
-      [#{$loop-component-prefix}-column~="self-align-middle#{$suffix}"] { align-self: center; }
-      [#{$loop-component-prefix}-column~="self-align-bottom#{$suffix}"] { align-self: flex-end; }
+      [#{$loop-component-prefix}-col~="self-valign-top#{$suffix}"]    { align-self: flex-start; }
+      [#{$loop-component-prefix}-col~="self-valign-middle#{$suffix}"] { align-self: center; }
+      [#{$loop-component-prefix}-col~="self-valign-bottom#{$suffix}"] { align-self: flex-end; }
     }
   }
 }
 
 
 @if $use-columns-child-alignment == true {
-  [#{$loop-component-prefix}-column*="child-align-"] > * {
+  [#{$loop-component-prefix}-col*="child-align-"] > * {
     display: flex;
     flex-direction: column;
   }
 
   // horizontal alignment
-  [#{$loop-component-prefix}-column~="child-align-left"] > *    { align-items: flex-start; }
-  [#{$loop-component-prefix}-column~="child-align-center"] > *  { align-items: center; }
-  [#{$loop-component-prefix}-column~="child-align-right"] > *   { align-items: flex-end; }
+  [#{$loop-component-prefix}-col~="child-align-left"] > *    { align-items: flex-start; }
+  [#{$loop-component-prefix}-col~="child-align-center"] > *  { align-items: center; }
+  [#{$loop-component-prefix}-col~="child-align-right"] > *   { align-items: flex-end; }
 
   // vertical alignment
-  [#{$loop-component-prefix}-column~="child-align-top"] > *    { justify-content: flex-start; }
-  [#{$loop-component-prefix}-column~="child-align-middle"] > * { justify-content: center; }
-  [#{$loop-component-prefix}-column~="child-align-bottom"] > * { justify-content: flex-end; }
+  [#{$loop-component-prefix}-col~="child-valign-top"] > *    { justify-content: flex-start; }
+  [#{$loop-component-prefix}-col~="child-valign-middle"] > * { justify-content: center; }
+  [#{$loop-component-prefix}-col~="child-valign-bottom"] > * { justify-content: flex-end; }
 }
 
 
@@ -136,16 +136,16 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 
     // order-0 to make sure it is first
     @if $use-columns-order == true {
-      [#{$loop-component-prefix}-column~="order-0#{$suffix}"] { order: -1; }
+      [#{$loop-component-prefix}-col~="order-0#{$suffix}"] { order: -1; }
     }
     @for $i from 1 through $columns-system {
       // offset
       @if $use-columns-offset == true {
-        [#{$loop-component-prefix}-column~="offset-#{$i}#{$suffix}"] { margin-left: percentage($i/$columns-system); }
+        [#{$loop-component-prefix}-col~="offset-#{$i}#{$suffix}"] { margin-left: percentage($i/$columns-system); }
       }
       // order
       @if $use-columns-order == true {
-        [#{$loop-component-prefix}-column~="order-#{$i}#{$suffix}"] { order: $i; }
+        [#{$loop-component-prefix}-col~="order-#{$i}#{$suffix}"] { order: $i; }
       }
     }
   }
@@ -153,9 +153,9 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 
 
 // stretch
-[#{$loop-component-prefix}-column~="stretch"] {
+[#{$loop-component-prefix}-row~="stretch"] {
   align-items: stretch;
-  > [#{$loop-component-prefix}-column*="col"] {
+  > [#{$loop-component-prefix}-col] {
     display: flex;
     > * {
       width:100%;
@@ -170,11 +170,11 @@ $columns-gutter-sizes-breakpoints-classes: join('', $columns-gutter-sizes-breakp
   @include breakpoint($class) {
     $suffix: if(isEmpty($class), '', \@#{$class});
     @each $gutter-name, $gutter-size in $columns-gutter-sizes {
-      [#{$loop-component-prefix}-column~="gutter-#{$gutter-name}#{$suffix}"] {
+      [#{$loop-component-prefix}-row~="gutter-#{$gutter-name}#{$suffix}"] {
         left: -#{$gutter-size};
         margin-right: -#{$gutter-size};
 
-        > [#{$loop-component-prefix}-column*="col"] {
+        > [#{$loop-component-prefix}-col] {
           padding-bottom: $gutter-size;
           padding-left: $gutter-size;
         }
@@ -188,8 +188,8 @@ $columns-v-gutter-sizes-breakpoints-classes: join('', $columns-v-gutter-sizes-br
   @include breakpoint($class) {
     $suffix: if(isEmpty($class), '', \@#{$class});
     @each $gutter-name, $gutter-size in $columns-v-gutter-sizes {
-      [#{$loop-component-prefix}-column~="v-gutter-#{$gutter-name}#{$suffix}"] {
-        > [#{$loop-component-prefix}-column*="col"] {
+      [#{$loop-component-prefix}-row~="vgutter-#{$gutter-name}#{$suffix}"] {
+        > [#{$loop-component-prefix}-col] {
           padding-bottom: $gutter-size;
         }
       }
@@ -198,7 +198,7 @@ $columns-v-gutter-sizes-breakpoints-classes: join('', $columns-v-gutter-sizes-br
 }
 
 // clear
-[#{$loop-component-prefix}-column~="clear"] {
+[#{$loop-component-prefix}-col~="clear"] {
   flex-basis: 100%;
   max-width: 100%;
 }
