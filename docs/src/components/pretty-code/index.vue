@@ -51,7 +51,7 @@
             border-radius: 0;
         }
     }
-
+    $tag: #31a5e8;
     $variable: #4198e2;
     $attribute: #bbe888;
     $value: #f36c44;
@@ -64,7 +64,7 @@
 
         code { background-color: inherit; }
 
-        .tag,
+        .tag { color: $tag}
         .atn,
         .pun { color: $color-primary; }
         .atv { color: $attribute; }
