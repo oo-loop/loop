@@ -93,6 +93,10 @@ export default {
 						name: 'Multiple',
 						route: '#multiple'
 					},
+					{
+						name: 'Gap',
+						route: '#gap'
+					},
 				]
 			},
 			{
@@ -112,10 +116,6 @@ export default {
 					{
 						name: 'Order',
 						route: '#order'
-					},
-					{
-						name: 'Areas',
-						route: '#areas'
 					},
 				]
 			},
@@ -441,6 +441,11 @@ export default {
 				"a a a . ."
 			),
 		),
+	);
+
+	$template-areas-gap-sizes: (
+	  'less' : 0,
+		'small': 1.6rem,
 	);
 
 	@import '~loop/loop';

@@ -47,6 +47,40 @@
 			<div oo-area="c" class="wrapper-small bg-warning">C</div>
 		</section>
 
+		<h3 id="gap" class="mt-40"><router-link to="#gap">#</router-link> Gap</h3>
+		<p>
+			Set a gap between areas with the properties <code class="color-secondary">gap-{$name}</code> <code class="color-secondary">vgap-{$name}</code>
+			matching the names in the variables <code class="color-info">$template-areas-gap-sizes</code> and <code class="color-info">$template-areas-vgap-sizes</code>.
+		</p>
+
+		<pretty-code class="language-css" :code="html.varGap" />
+		<pretty-code :code="html.gap" />
+
+		<div oo-row="gutter-tiny">
+			<div oo-col="fit" v-for="n in gaps" :key="`gap${n}`">
+				<button
+					:oo-button="gap == n ? 'secondary' : ''"
+					class="text-tiny"
+					@click="gap = n"
+				>gap-{{n}}</button>
+			</div>
+		</div>
+		<div oo-row="gutter-tiny" class="mb-20">
+			<div oo-col="fit" v-for="n in gaps" :key="`vgap${n}`">
+				<button
+					:oo-button="vGap == n ? 'secondary' : ''"
+					class="text-tiny"
+					@click="vGap = n"
+				>vgap-{{n}}</button>
+			</div>
+		</div>
+
+		<div :oo-template="gridProperty">
+			<div oo-area="a" class="wrapper-small bg-primary" style="height:250px">A</div>
+			<div oo-area="b" class="wrapper-small bg-secondary color-white">B</div>
+			<div oo-area="c" class="wrapper-small bg-warning">C</div>
+		</div>
+
 	</div>
 </template>
 
@@ -62,8 +96,8 @@ export default {
 	props: {
 	},
 	data: () => ({
-		gap: '',
-		vGap: '',
+		gap: 'small',
+		vGap: 'less',
 		gaps: [
 			'less',
 			'small',
@@ -83,10 +117,10 @@ export default {
 			return this.gap.length > 0 ? `gap-${this.gap}` : ''
 		},
 		vGapProperty () {
-			return this.vGap.length > 0 ? `v-gap-${this.vGap}` : ''
+			return this.vGap.length > 0 ? `vgap-${this.vGap}` : ''
 		},
 		gridProperty() {
-			return `layout ${this.gapProperty} ${this.vGapProperty}`
+			return `sample-abc ${this.gapProperty} ${this.vGapProperty}`
 		}
 	},
 	methods: {

@@ -106,44 +106,7 @@
 			<div oo-grid="col-12 col-4@sm col-3@md order-5@sm" class="wrapper-small bg-success">Widgets 2</div>
 		</div>
 		<pretty-code :code="html.orderComplex" />
-
-
-		<h3 class="mt-40" id="areas"><router-link to="#areas">#</router-link> Areas <code class="text-small color-secondary">oo-grid="areas"</code></h3>
-		<p>Create your own template through <code class="color-info">$grid-template-areas</code> and use the name of the areas set in that variable.</p>
-		<pretty-code class="language-css" :code="html.varGrid" />
-
-		<section oo-grid="areas sample gap-less" class="mb-40">
-			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
-			<main oo-grid="main" class="wrapper-small bg-secondary color-white main">Main</main>
-			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
-			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
-		</section>
-
-		<pretty-code :code="html.grid" />
-
-		<h4>Responsive Areas</h4>
-		<p>Pass a map of breakpoint</p>
-		<pretty-code class="language-css" :code="html.varGridResponsive" />
-
-		<section oo-grid="areas sample-responsive gap-less" class="mb-40">
-			<header oo-grid="header" class="wrapper-small bg-primary">Header</header>
-			<main oo-grid="main" class="wrapper-small bg-secondary color-white main">Main</main>
-			<nav oo-grid="sidebar" class="wrapper-small bg-warning">Sidebar</nav>
-			<footer oo-grid="footer" class="wrapper-small bg-success">Footer</footer>
-		</section>
-
-		<h4>Multiple Template Areas</h4>
-		<p>Pass a map of areas to <code class="color-info">$grid-template-areas</code> and use the name of each map as property <code class="color-info">oo-grid="areas {$name}"</code> to get the corresponding area.</p>
-
-		<pretty-code class="language-css" :code="html.varGridMultiple" />
-
-		<section oo-grid="areas sample-abc">
-			<div oo-grid="a" class="wrapper-small bg-primary">A</div>
-			<div oo-grid="b" class="wrapper-small bg-secondary color-white">B</div>
-			<div oo-grid="c" class="wrapper-small bg-warning">C</div>
-		</section>
-
-		<pretty-code :code="html.abc" />
+		
 	</div>
 </template>
 
