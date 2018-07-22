@@ -31,7 +31,7 @@
 
 		<h3 id="gaps"><router-link to="#gap">#</router-link> Gap</h3>
 		<p>
-			Change the gap between colums and rows with the properties <code class="color-secondary">gap-{$name}</code> <code class="color-secondary">v-gap-{$name}</code> matching the names in the variables <code class="color-info">$grid-gap-sizes</code> and <code class="color-info">$grid-v-gap-sizes</code>.
+			Change the gap between colums and rows with the properties <code class="color-secondary">gap-{$name}</code> <code class="color-secondary">vgap-{$name}</code> matching the names in the variables <code class="color-info">$grid-gap-sizes</code> and <code class="color-info">$grid-vgap-sizes</code>.
 		</p>
 
 		<pretty-code class="language-css" :code="html.varGap" />
