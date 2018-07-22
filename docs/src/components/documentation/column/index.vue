@@ -11,7 +11,7 @@
 			<div oo-col><p class="cell">auto</p></div>
 		</div>
 		<div oo-row>
-		    <div oo-col="s12 s6@sm s4@md s3@lg"><p class="cell">size</p></div>
+		    <div oo-col="s12 auto@sm"><p class="cell">auto@sm</p></div>
 		    <div oo-col="s12 s6@sm s8@md s9@lg"><p class="cell">size</p></div>
 		    <div oo-col="s6 s7@md s8@lg"><p class="cell">size</p></div>
 		    <div oo-col><p class="cell cell-3">auto</p></div>
@@ -50,7 +50,7 @@
 		<p>Force each children to have the same height through the property <code class="color-secondary">stretch</code></p>
 		<div oo-row="stretch">
 		    <div oo-col="s12 s6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
-		    <div oo-col="s12 s6@sm"><p class="bg-primary text-center mb-0">Few content</p></div>
+		    <div oo-col><p class="bg-primary text-center mb-0">Few content</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.stretch"></pretty-code>
 
@@ -129,8 +129,8 @@
 		<div class="bg-secondary">
 		    <div oo-row="vgutter-less">
 		        <div oo-col><p class="cell cell--large"></p></div>
-		        <div oo-col="s6 s4@sm self-align-middle self-align-top@sm self-align-middle@lg"><p class="cell cell--medium"></p></div>
-		        <div oo-col="s6 s4@sm self-align-bottom"><p class="cell"></p></div>
+		        <div oo-col="s6 s4@sm self-valign-middle self-valign-top@sm self-valign-middle@lg"><p class="cell cell--medium"></p></div>
+		        <div oo-col="s6 s4@sm self-valign-bottom"><p class="cell"></p></div>
 		    </div>
 		</div>
 		<pretty-code :code="html.vAlignmentSelf"></pretty-code>
@@ -189,7 +189,7 @@
 		<p>Align a child of a column <code class="color-secondary">col</code> through the properties <code class="color-secondary">child-{alignment}</code>.</p>
 		<div oo-row="stretch">
 		    <div oo-col="s12 s6@sm"><p class="bg-primary text-center mb-0">More content<br>in<br>that column</p></div>
-		    <div oo-col="s12 s6@sm child-align-middle child-align-right"><p class="bg-primary text-center mb-0">Centered verticaly, Right horizontally</p></div>
+		    <div oo-col="s12 s6@sm child-valign-middle child-align-right"><p class="bg-primary text-center mb-0">Centered verticaly, Right horizontally</p></div>
 		</div>
 		<pretty-code class="mt-0" :code="html.childAlignment"></pretty-code>
 		<p>If you're not using child alignment properties, disable the option by setting <code class="color-info">$use-columns-child-alignment</code> to <code>false</code>.</p>
