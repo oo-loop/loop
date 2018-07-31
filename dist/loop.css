@@ -1206,6 +1206,11 @@ hr, .hr {
   grid-gap: 2.4rem;
 }
 
+[oo-grid*="col"],
+[oo-grid*="row"] {
+  min-width: 0;
+}
+
 [oo-grid~="col-1"] {
   grid-column: span 1;
 }
