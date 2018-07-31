@@ -24,6 +24,11 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
     grid-gap: $grid-gap;
   }
 
+  [#{$loop-component-prefix}-grid*="col"],
+  [#{$loop-component-prefix}-grid*="row"] {
+    min-width: 0;
+  }
+
   @each $class in $breakpoints-classes-width-default-value {
     @include breakpoint($class) {
       $suffix: '';
@@ -80,6 +85,7 @@ $grid-v-gap-sizes: $grid-gap-sizes !default;
   @each $area in $areaNames {
     [#{$loop-component-prefix}-grid~="#{$area}"] {
       grid-area: #{$area};
+      min-width: 0;
     }
   }
 }
