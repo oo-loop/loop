@@ -46,16 +46,26 @@
 }
 
 /**
- * ooIsRef
+ * isRef
  * Check if a string is a ooFormat
  * @param string  $string
  * @return boolean
  */
-@function ooIsRef($string) {
+@function isRef($string) {
   @if isNotString($string) {
     $string: #{$string};
   }
   @return str-slice($string, 1, 6) == 'ooGet(' and str-slice($string, str-length($string)) == ')';
+}
+
+/**
+ * hasRef
+ * Check if a map has a ooFormat
+ * @param map
+ * @return boolean
+ */
+@function hasRef($map) {
+  @return if(str-index(#{$map}, 'ooGet(') == null, false, true);
 }
 
 /**
@@ -79,7 +89,7 @@
       $path: if(length(split('.', $path)) > 1, replace('.#{$key}', '', $path), replace('#{$key}', '', $path));
     } 
     @else {
-      @if ooIsRef($value) {
+      @if isRef($value) {
         $refererValue: str-slice($value, 7, -2);
         $newValue: ooGet($refererValue, $parentMap);
         $map: ooSet($key, $newValue, $map);

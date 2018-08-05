@@ -28,8 +28,11 @@ $ooLoop: (
 
 @mixin ooInit($custom:null) {
   $map: ooParse($ooLoop);
+  $map: if(hasRef($map), ooParse($map), $map);
+
   @if $custom != null {
     $map: mapMergeDeep($map, $custom);
+    $map: if(hasRef($map), ooParse($map), $map);
   }
   $ooLoop: $map !global;
 }
