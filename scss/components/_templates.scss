@@ -2,15 +2,6 @@
  * Template Areas
  */
 
-$use-template-areas: true !default;
-$use-template-areas-gap: true !default;
-$use-template-areas-vgap: true !default;
-
-$template-areas: () !default;
-$template-areas-gap-sizes: () !default;
-$template-areas-vgap-sizes: $template-areas-gap-sizes !default;
-
-
 @function getAreaNames($areas) {
   $list: ();
   @each $area in $areas {
@@ -45,7 +36,7 @@ $template-areas-vgap-sizes: $template-areas-gap-sizes !default;
 }
 @mixin makeGridArea($areaNames) {
   @each $area in $areaNames {
-    [#{$loop-component-prefix}-area~="#{$area}"] {
+    [#{ooPrefix()}-area~="#{$area}"] {
       grid-area: #{$area};
     }
   }
@@ -65,24 +56,24 @@ $template-areas-vgap-sizes: $template-areas-gap-sizes !default;
   @include makeGridArea($area-names-list);
 }
 
-@if $use-template-areas and isNotEmpty($template-areas) {
+@if oo('template.use') and isNotEmpty(oo('template.areas')) {
 
-  [#{$loop-component-prefix}-template] {
+  [#{ooPrefix()}-template] {
     display: grid;
   }
 
-  @if isList($template-areas) {
-    [#{$loop-component-prefix}-template] {
-      @include makeGrid($template-areas);
+  @if isList(oo('template.areas')) {
+    [#{ooPrefix()}-template] {
+      @include makeGrid(oo('template.areas'));
     }
-  } @else if isMap($template-areas) {
-    @if areKeysBreakpoints($template-areas) {
-      [#{$loop-component-prefix}-template] {
-        @include makeGridOnBreakpoints($template-areas);
+  } @else if isMap(oo('template.areas')) {
+    @if areKeysBreakpoints(oo('template.areas')) {
+      [#{ooPrefix()}-template] {
+        @include makeGridOnBreakpoints(oo('template.areas'));
       }
     } @else {
-      @each $area-name, $template in $template-areas {
-        [#{$loop-component-prefix}-template~="#{$area-name}"] {
+      @each $area-name, $template in oo('template.areas') {
+        [#{ooPrefix()}-template~="#{$area-name}"] {
           @if isMap($template) {
             @include makeGridOnBreakpoints($template);
           } @else if isList($template) {
@@ -94,13 +85,13 @@ $template-areas-vgap-sizes: $template-areas-gap-sizes !default;
   }
 }
 
-@if $use-template-areas-gap {
-  @each $gap-name, $gap-size in $template-areas-gap-sizes {
-    [#{$loop-component-prefix}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
+@if oo('template.gap.use') and isNotEmpty(oo('template.gap.sizes')) {
+  @each $gap-name, $gap-size in oo('template.gap.sizes') {
+    [#{ooPrefix()}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
   }
 }
-@if $use-template-areas-gap and $use-template-areas-vgap {
-  @each $gap-name, $gap-size in $template-areas-vgap-sizes {
-    [#{$loop-component-prefix}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+@if oo('template.gap.use') and isNotEmpty(oo('template.gap.vsizes')) {
+  @each $gap-name, $gap-size in oo('template.gap.vsizes') {
+    [#{ooPrefix()}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
   }
 }

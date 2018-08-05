@@ -5,13 +5,13 @@
 @import 'replace';
 
 /**
- * ooGet
+ * oo
  * Get value from a map with the ooFormat (default $ooLoop)
  * @param string  $key  ooFormat key
  * @param ?map $map the map to update (default $ooLoop)
  * @return map|list|string
  */
-@function ooGet($key, $map:null) {
+@function oo($key, $map:null) {
   $list: split('.', $key);
   $map: if($map == null, $ooLoop, $map);
   @for $i from 1 through length($list) {
@@ -39,7 +39,7 @@
     }
     $map: mapMergeDeep($map, $mapValue);
   } @else {
-    $map: setMapValue($map, nth($list, 1), $value);
+    $map: setMapValue($map, $key, $value);
   }
 
   @return $map;
@@ -55,7 +55,7 @@
   @if isNotString($string) {
     $string: #{$string};
   }
-  @return str-slice($string, 1, 6) == 'ooGet(' and str-slice($string, str-length($string)) == ')';
+  @return str-slice($string, 1, 3) == 'oo(' and str-slice($string, str-length($string)) == ')';
 }
 
 /**
@@ -65,12 +65,12 @@
  * @return boolean
  */
 @function hasRef($map) {
-  @return if(str-index(#{$map}, 'ooGet(') == null, false, true);
+  @return if(str-index(#{$map}, 'oo(') == null, false, true);
 }
 
 /**
  * ooParse
- * Parse a map of data with potential ooReference within (at this stage the ooGet() does not exist
+ * Parse a map of data with potential ooReference within (at this stage the oo() does not exist
  * @param map  $map
  * @param map  $backup the backupMap to refer to when getting data in a nested map
  * @param string  $path  a ooPathFormat to keep in mind where we are in a nested map
@@ -90,8 +90,8 @@
     } 
     @else {
       @if isRef($value) {
-        $refererValue: str-slice($value, 7, -2);
-        $newValue: ooGet($refererValue, $parentMap);
+        $refererValue: str-slice($value, 4, -2);
+        $newValue: oo($refererValue, $parentMap);
         $map: ooSet($key, $newValue, $map);
 
         //update backup
@@ -104,4 +104,13 @@
     }
   }
   @return $map;
+}
+
+/** 
+ * ooPrefix
+ * get loop prefix
+ * @return string
+ */
+@function ooPrefix() {
+  @return if(oo(html5) == true, 'data-oo', 'oo');
 }

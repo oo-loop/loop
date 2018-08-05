@@ -1,8 +1,8 @@
 $ooLoop: (
   html5: false,
-  something: ooGet('someone'),
-  somewheres: ooGet('breakpoints.screens'),
-  someone: ooGet('somewhere'),
+  something: oo('someone'),
+  somewheres: oo('breakpoints.screens'),
+  someone: oo('somewhere'),
   somewhere: 'micantoine',
   font-family: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
 
@@ -12,16 +12,26 @@ $ooLoop: (
       sm: 600px,
       md: 960px,
       lg: 1280px,
-      xxl: ooGet('breakpoints.nested'),
+      xxl: oo('breakpoints.nested'),
       deep: (
         sm: 343px,
-        nested2: ooGet('somewhere')
+        nested2: oo('somewhere')
       )
     ),
     enable: (sm, md, lg),
-    nested: ooGet('someone'),
+    nested: oo('someone'),
     someones: 'mic',
   ),
+
+  template: (
+    use: true,
+    gap: (
+      use: true,
+      sizes: (),
+      vsizes: oo('template.gap.sizes')
+    ),
+    areas: ()
+  )
 ) !default;
 
 @import 'functions/oo';
@@ -37,14 +47,6 @@ $ooLoop: (
   $ooLoop: $map !global;
 }
 
-@include ooInit((
-  html5: true,
-  somehow: ooGet('somewhere'),
-  breakpoints:(
-    enable: ('sm','md'),
-    test:'2'
-  )
-));
+@include ooInit();
 
-// @debug ooGet('breakpoints');
 @debug $ooLoop;

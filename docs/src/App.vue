@@ -443,10 +443,13 @@ export default {
 		),
 	);
 
-	$template-areas-gap-sizes: (
+	@import '~loop/init';
+	$ooLoop: ooSet('template.areas', $template-areas);
+	$ooLoop: ooSet('template.gap.sizes', (
 	  'less' : 0,
 		'small': 1.6rem,
-	);
+	));
+
 
 	@import '~loop/loop';
 
