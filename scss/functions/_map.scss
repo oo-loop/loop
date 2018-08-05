@@ -1,3 +1,5 @@
+@import 'type';
+
 /**
  * getMapValue
  * @param $map  map  map of data
@@ -10,6 +12,40 @@
     @return '';
   }
   @return map-get($map, $key);
+}
+
+
+/**
+ * mapMergeDeep
+ * Non destructive map merge. 
+ * @credit-to  https://gist.github.com/pentzzsolt
+
+ * @param $parentMap  map  map of data to be merged into
+ * @param $childMap  map  the set of data
+ * @return map
+ */
+@function mapMergeDeep($parentMap, $childMap) {
+  $map: $parentMap;
+  @each $key, $value in $childMap {
+    @if (not map-has-key($map, $key)) or (type-of(map-get($map, $key) ) != type-of($value)) or (not (isMap(map-get($map, $key)) and isMap($value))) {
+      $map: map-merge($map, ($key: $value));
+    } @else {
+      $map: map-merge($map, ($key: mapMergeDeep(map-get($map, $key), $value)));
+    }
+  }
+  @return $map;
+}
+
+
+/**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+@function setMapValue($map, $key, $value) {
+  $newSet: ($key: $value);
+  @return map-merge($map, $newSet);
 }
 
 /**

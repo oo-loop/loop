@@ -1,0 +1,47 @@
+$ooLoop: (
+  html5: false,
+  something: ooGet('someone'),
+  somewheres: ooGet('breakpoints.screens'),
+  someone: ooGet('somewhere'),
+  somewhere: 'micantoine',
+  font-family: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
+
+  breakpoints: (
+    screens: (
+      xs: 480px,
+      sm: 600px,
+      md: 960px,
+      lg: 1280px,
+      xxl: ooGet('breakpoints.nested'),
+      deep: (
+        sm: 343px,
+        nested2: ooGet('somewhere')
+      )
+    ),
+    enable: (sm, md, lg),
+    nested: ooGet('someone'),
+    someones: 'mic',
+  ),
+) !default;
+
+@import 'functions/oo';
+
+@mixin ooInit($custom:null) {
+  $map: ooParse($ooLoop);
+  @if $custom != null {
+    $map: mapMergeDeep($map, $custom);
+  }
+  $ooLoop: $map !global;
+}
+
+@include ooInit((
+  html5: true,
+  somehow: ooGet('somewhere'),
+  breakpoints:(
+    enable: ('sm','md'),
+    test:'2'
+  )
+));
+
+// @debug ooGet('breakpoints');
+@debug $ooLoop;

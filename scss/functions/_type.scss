@@ -41,7 +41,7 @@
  */
 
 @function isMap($data) {
-  @if type-of($data) == 'map'{
+  @if type-of($data) == 'map' {
     @return true;
   } @else {
     @return false;

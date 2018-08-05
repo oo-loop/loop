@@ -9,7 +9,7 @@
 @function isEmpty($data) {
   @if isString($data) and str-length($data) == 0 {
     @return true;
-  } @elseif isList($data) and length($data) == 0 {
+  } @else if isList($data) and length($data) == 0 {
     @return true;
   } @else {
     @return false;
