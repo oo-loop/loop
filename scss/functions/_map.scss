@@ -8,7 +8,7 @@
  */
 @function getMapValue($map, $key) {
   @if map-has-key($map, $key) == false {
-    @warn ('key does not exist when using getMapValue()');
+    @warn 'key does not exist when using getMapValue() for' #{$key} 'on' $map;
     @return '';
   }
   @return map-get($map, $key);
