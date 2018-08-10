@@ -1,10 +1,10 @@
 /**
  * Replace
- * @param string $search  The value being searched
- * @param string $replace The replacement value
- * @parem string $subject The string being searched and replaced on
+ * @param String $search  The value being searched
+ * @param String $replace The replacement value
+ * @parem String $subject The string being searched and replaced on
  *
- * @return string
+ * @return String
  */
 
 @function replace($search, $replace, $subject) {
@@ -17,4 +17,9 @@
   } @else {
     @return $subject;
   }
+}
+
+
+@function stripSpaces($string) {
+  @return replace(' ', '', #{$string}); 
 }

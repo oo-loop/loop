@@ -1,4 +1,5 @@
 @import 'empty';
+@import 'number';
 @import 'map';
 @import 'split';
 @import 'type';
@@ -7,8 +8,8 @@
 /**
  * hasRef
  * Check if a map has a ooFormat
- * @param map|string
- * @return boolean
+ * @param Map|String
+ * @return Boolean
  */
  @function hasRef($search) {
   @return if(str-index(#{$search}, 'oo(') == null, false, true);
@@ -17,8 +18,8 @@
 /**
  * isRef
  * Check if a string is a ooFormat
- * @param string  $string
- * @return boolean
+ * @param String  $string
+ * @return Boolean
  */
 @function isRef($string) {
   @if isNotString($string) {
@@ -30,8 +31,8 @@
 /**
  * getRefValue
  * get the ooFormat reference
- * @param string  $string
- * @return string
+ * @param String  $string
+ * @return String
  */
  @function getRefValue($string) {
   @if isNotString($string) {
@@ -43,8 +44,8 @@
 /**
  * extractRef
  * extract the ooFormat reference from a string
- * @param string  $string
- * @return string
+ * @param String  $string The string to extract the ref from
+ * @return String
  */
 @function extractRef($string) {
   @if not hasRef($string) {
@@ -68,9 +69,9 @@
 /**
  * oo
  * Get value from a map with the ooFormat (default $ooLoop)
- * @param string  $key  ooFormat key
- * @param ?map $map the map to update (default $ooLoop)
- * @return map|list|string
+ * @param String  $key  ooFormat key
+ * @param ?Map $map the map to update (default $ooLoop)
+ * @return Map|List|String
  */
 @function oo($key, $map:null) {
   $list: split('.', $key);
@@ -84,10 +85,10 @@
 /**
  * ooSet
  * Set value in  to map with the ooFormat (default $ooLoop)
- * @param string  $key  ooFormat key
- * @param map|list|string  $value  the new value to set
- * @param ?map $map the map to update (default $ooLoop)
- * @return map|list|string
+ * @param String  $key  ooFormat key
+ * @param Map|List|String  $value  the new value to set
+ * @param ?Map $map the map to update (default $ooLoop)
+ * @return Map|List|String
  */
 @function ooSet($key, $value, $map:null) {
   $list: split('.', $key);
@@ -113,10 +114,10 @@
 /**
  * ooAdd
  * Push new map value to an another set of map with the ooFormat (default $ooLoop)
- * @param string $key ooFormat key
- * @param map $mapValue the value to add
- * @param ?map $map the map to update (default $ooLoop)
- * @return map
+ * @param String $key ooFormat key
+ * @param Map $mapValue the value to add
+ * @param ?Map $map the map to update (default $ooLoop)
+ * @return Map
  */
 @function ooAdd($key, $mapValue, $map:null) {
   $currentValue: oo($key, $map);
@@ -133,10 +134,10 @@
 /**
  * ooParse
  * Parse a map of data with potential ooReference within (at this stage the oo() does not exist
- * @param map  $map
- * @param map  $backup the backupMap to refer to when getting data in a nested map
- * @param string  $path  a ooPathFormat to keep in mind where we are in a nested map
- * @return map
+ * @param Map  $map
+ * @param Map  $backup the backupMap to refer to when getting data in a nested map
+ * @param String  $path  a ooPathFormat to keep in mind where we are in a nested map
+ * @return Map
  */
 @function ooParse($map, $backup:null, $path:'') {
   $parentMap: if($backup == null, $map, $backup);
@@ -152,11 +153,11 @@
     } 
     @else if hasRef($value) {
       $ooRef: extractRef($value);
-      $ooRefVal: oo(getRefValue($ooRef), $parentMap);
-      @if not isRef($value) {
-        @debug isAlias($value);
+      $newValue: oo(getRefValue($ooRef), $parentMap);
+      @if isAlias($value){
+        $newValue: getAliasValue($value, $newValue);
       }
-      $map: ooSet($key, $ooRefVal, $map);
+      $map: ooSet($key, $newValue, $map);
 
       //update backup
       @if isEmpty($path) {
@@ -172,38 +173,73 @@
 /** 
  * ooPrefix
  * get loop prefix
- * @return string
+ * @return String
  */
 @function ooPrefix() {
   @return if(oo(html5) == true, 'data-oo', 'oo');
 }
 
-/** 
- * ooDarken
- * darken before init
- * @return string
- */
- @function ooDarken($value, $percentage) {
-  @return darken($value, $percentage);
-}
-
 $ooAlias: ('ooDarken', 'ooLighten');
 
+/** 
+ * Aliases function used before init
+ */
+@function ooDarken($value, $percentage) {
+  @return darken($value, $percentage);
+}
+@function ooLighten($value, $percentage) {
+  @return lighten($value, $percentage);
+}
+
+/** 
+ * isAlias
+ * check if a string is a sass alias function
+ * @param String $string the string to check
+ * @return Boolean
+ */
 @function isAlias($string) {
   $isAlias: false;
-  @debug $string;
   @each $alias in $ooAlias {
-    @debug $alias;
     $aliasLength: str-length($alias);
     @if str-slice($string, 1, $aliasLength + 1) == '#{$alias}(' and str-slice($string, str-length($string)) == ')' {
       $isAlias: true;
     }
   }
   @return $isAlias;
-
-  // @return str-slice($string, 1, 3) == 'oo(' and str-slice($string, str-length($string)) == ')';
-
 }
-// @function ooAliasFunction($) {
 
-// }
+/** 
+ * getAliasValue
+ * retrieve the value of an alias function
+ * @param String $string String using the alias function
+ * @param String $value Value of the 1st parameter
+ * @return Boolean
+ */
+@function getAliasValue($string, $value:null) {
+  $function: null;
+  $params: split(',', #{$string});
+  $param1: nth($params, 1);
+  $param2: null;
+  
+  @each $alias in $ooAlias {
+    $aliasLength: str-length($alias);
+    @if str-slice($string, 1, $aliasLength) == $alias {
+      $function: str-slice(to-lower-case($alias), 3, $aliasLength);
+      $param1: stripSpaces(str-slice($param1, $aliasLength + 2, str-length($param1)));
+      @if function-exists('get-function') {
+        $function: get-function($function);
+      }
+    }
+  }
+
+  $param1: if($value not null, $value, $param1);
+
+  @if length($params) > 1 {
+    $param2: stripSpaces(str-slice(nth($params, 2), 1, -2));
+    $param2: toNumber($param2);
+  } @else {
+    @return call($function, $param1);
+  }
+
+  @return call($function, $param1, $param2);
+}
