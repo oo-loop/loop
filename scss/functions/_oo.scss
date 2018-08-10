@@ -154,12 +154,12 @@
       $ooRef: extractRef($value);
       $ooRefVal: oo(getRefValue($ooRef), $parentMap);
       @if not isRef($value) {
-        @debug $value;
+        @debug isAlias($value);
       }
       $map: ooSet($key, $ooRefVal, $map);
 
       //update backup
-      @if (isEmpty($path)) {
+      @if isEmpty($path) {
         $parentMap: mapMergeDeep($parentMap, $map);
       } @else {
         $parentMap: ooSet($path, $map, $parentMap);
@@ -187,6 +187,23 @@
   @return darken($value, $percentage);
 }
 
+$ooAlias: ('ooDarken', 'ooLighten');
+
+@function isAlias($string) {
+  $isAlias: false;
+  @debug $string;
+  @each $alias in $ooAlias {
+    @debug $alias;
+    $aliasLength: str-length($alias);
+    @if str-slice($string, 1, $aliasLength + 1) == '#{$alias}(' and str-slice($string, str-length($string)) == ')' {
+      $isAlias: true;
+    }
+  }
+  @return $isAlias;
+
+  // @return str-slice($string, 1, 3) == 'oo(' and str-slice($string, str-length($string)) == ')';
+
+}
 // @function ooAliasFunction($) {
 
 // }
