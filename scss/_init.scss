@@ -1,52 +1,148 @@
 $ooLoop: (
   html5: false,
-  something: oo('someone'),
-  somewheres: oo('breakpoints.screens'),
-  someone: oo('somewhere'),
-  somewhere: 'micantoine',
-  font-family: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-
   breakpoints: (
-    screens: (
-      xs: 480px,
-      sm: 600px,
-      md: 960px,
-      lg: 1280px,
-      xxl: oo('breakpoints.nested'),
-      deep: (
-        sm: 343px,
-        nested2: oo('somewhere')
-      )
+    xs: 480px,
+    sm: 600px,
+    md: 960px,
+    lg: 1280px,
+  ),
+  screens: (sm, md, lg),
+
+  base: (
+    root: 62.5%,
+    smoothing: true,
+    font: (
+      family: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
+      size: 1.6rem,
+      weight: 400,
     ),
-    enable: (sm, md, lg),
-    nested: oo('someone'),
-    someones: 'mic',
+    lineHeight: 1.5,
+    color: #333,
+    bgcolor: #fff,
   ),
 
-  template: (
-    use: true,
-    gap: (
-      use: true,
-      sizes: (),
-      vsizes: oo('template.gap.sizes')
+  colors: (
+    main: (
+      primary: #6cd7f7,
+      secondary: #959595,
     ),
-    areas: ()
-  )
+    backgrounds: oo('colors.main'),
+    borders: oo('colors.main'),
+    fonts: oo('colors.main'),
+  ),
+
+  headings: (
+    sizes: (
+      h1: (
+        (): 3.6rem,
+        sm: 4.6rem,
+      ),
+      h2: (
+        (): 3.2rem,
+        sm: 3.8rem,
+      ),
+      h3: 2.8rem,
+      h4: 2.2rem,
+      h5: 1.8rem,
+      h6: 1.6rem,
+    ),
+    classes: ('h1', 'h2', 'h3'),
+    color: oo('base.color'),
+    fontFamily: oo('base.font.family'),
+    fontWeight: 500,
+    lineHeight: 1.125,
+    marginTop: .2em,
+    marginBottom: .45em,
+  ),
+  paragraphMarginBottom: 1.8rem,
+  anchor: (
+    color: oo('colors.main.primary'),
+    hover: ooDarken(oo('anchor.color'), 12%),
+    textDecoration: none,
+  ),
+
+
+
+  label: (
+    fontWeight: 500,
+    margin: .3rem,
+  ),
+  input: (
+    color: #4d4d4d,
+    bgcolor: #fff,
+    fontFamily: oo('base.font.family'),
+    fontSize: oo('base.font.size'),
+    fontWeight: oo('base.font.weight'),
+    lineHeight: 1.15,
+    height: 2.5em,
+    focus: '',
+
+    padding: .5em .625em,
+    sizes: (),
+    borderColor: #d6d6d6,
+    border: 1px solid,
+    radius: .2em,
+    boxShadow:  1px 1px 1px 0 rgba(#aaa, .50),
+  ),
+  // checkbox: (
+  //   animation: true,
+  //   breakpoints: (),
+
+  //   sizes: (
+  //     'key' : '1.8rem',
+  //   ),
+  //   radius: .2em,
+  //   bgcolor: oo('input.bgcolor'),
+  //   border-color: oo('input.border-color'),
+  //   box-shadow: 1px 1px 2px 0 rgba(#aaa, .3),
+  //   checked: (
+  //     color: oo('input.color'),
+  //     bgcolor: oo('input.bgcolor'),
+  //     border-color: oo('checkbox.border-color'),
+  //   )
+  // ),
+  // radio: oo('checkbox'),
+  // select: (
+  //   size: 10px,
+  //   weight: 2px,
+  //   color: oo('input.color'),
+  //   bgcolor: oo('input.bgcolor'),
+  // ),
+
+  // template: (
+  //   use: true,
+  //   areas: (),
+  //   gap: (
+  //     use: true,
+  //     sizes: (),
+  //     vsizes: oo('template.gap.sizes')
+  //   ),
+  // ),
+
+  // use: (
+  //   button: true,
+  //   columns: true,
+  //   grid: false,
+  //   template: true,
+  // )
 ) !default;
+
 
 @import 'functions/oo';
 
 @mixin ooInit($custom:null) {
-  $map: ooParse($ooLoop);
-  $map: if(hasRef($map), ooParse($map), $map);
+  @debug 'init';
 
-  @if $custom != null {
-    $map: mapMergeDeep($map, $custom);
-    $map: if(hasRef($map), ooParse($map), $map);
-  }
+  $map: ooParse($ooLoop);
+  // $map: if(hasRef($map), ooParse($map), $map);
+
+  // @if isMap($custom) and isNotEmpty($custom) {
+  //   $map: mapMergeDeep($map, $custom);
+  //   $map: if(hasRef($map), ooParse($map), $map);
+  // }
   $ooLoop: $map !global;
 }
 
-@include ooInit();
+// @include ooInit();
 
-@debug $ooLoop;
+// @debug $ooLoop;
