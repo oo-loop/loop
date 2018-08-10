@@ -54,12 +54,86 @@ $ooLoop: (
     marginTop: .2em,
     marginBottom: .45em,
   ),
+
   paragraphMarginBottom: 1.8rem,
+
+  list: (
+    marginBottom: oo('paragraphMarginBottom'),
+    dtFontWeight: 700,
+    inlineSpacing: 1em,
+    divide: (
+      spacing: oo('list.inlineSpacing'),
+      size: 1.2em,
+      affix: '|',
+      color: #cdcdcd,
+    )
+  ),
+  
   anchor: (
     color: oo('colors.main.primary'),
     hover: ooDarken(oo('anchor.color'), 12%),
     textDecoration: none,
   ),
+
+  hr: (
+    color: #cdcdcd,
+    margins: 1.5rem,
+  ),
+
+  font: (
+    family: (
+      'primary': oo('base.font.family'),
+      'secondary': ('Georgia', times, serif),
+    ),
+    style: ('italic'),
+    weight: (
+      'light': 300,
+      'bold': 700,
+    )
+  ),
+
+  letterSpacing: (
+    'narrow': -.05rem,
+    'wide': .05rem,
+  ),
+
+  text: (
+    alignment: (
+      'left',
+      'right',
+      'center',
+    ),
+    decoration: (),
+    transform: (
+      'uppercase',
+    ),
+    size: (
+      'large': 2rem,
+      'small': 1.4rem,
+      'tiny': 1.2rem,
+    )
+  ),
+
+  container: (
+    gutter: (
+      base: 1.6rem,
+      sm: 2.4rem,
+    ),
+    maxWidth: 1080px,
+  ),
+
+  column: (
+    system: 12,
+    gutter: (
+      base: 2.4rem,
+      sizes: (
+        'less': 0,
+        'small': 1.6rem,
+      ),
+      vsizes: oo('column.gutter.sizes'),
+    )
+  ),
+
 
 
 
@@ -134,12 +208,12 @@ $ooLoop: (
   @debug 'init';
 
   $map: ooParse($ooLoop);
-  // $map: if(hasRef($map), ooParse($map), $map);
+  $map: if(hasRef($map), ooParse($map), $map);
 
-  // @if isMap($custom) and isNotEmpty($custom) {
-  //   $map: mapMergeDeep($map, $custom);
-  //   $map: if(hasRef($map), ooParse($map), $map);
-  // }
+  @if isMap($custom) and isNotEmpty($custom) {
+    $map: mapMergeDeep($map, $custom);
+    $map: if(hasRef($map), ooParse($map), $map);
+  }
   $ooLoop: $map !global;
 }
 

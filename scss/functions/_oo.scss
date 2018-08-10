@@ -215,7 +215,7 @@ $ooAlias: ('ooDarken', 'ooLighten');
  * @param String $value Value of the 1st parameter
  * @return Boolean
  */
-@function getAliasValue($string, $value:null) {
+@function getAliasValue($string, $param:null) {
   $function: null;
   $params: split(',', #{$string});
   $param1: nth($params, 1);
@@ -232,14 +232,12 @@ $ooAlias: ('ooDarken', 'ooLighten');
     }
   }
 
-  $param1: if($value not null, $value, $param1);
+  $param1: if($param not null, $param, $param1);
 
   @if length($params) > 1 {
     $param2: stripSpaces(str-slice(nth($params, 2), 1, -2));
     $param2: toNumber($param2);
-  } @else {
-    @return call($function, $param1);
+    @return call($function, $param1, $param2);
   }
-
-  @return call($function, $param1, $param2);
+  @return call($function, $param1);
 }
