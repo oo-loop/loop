@@ -93,24 +93,35 @@ $ooLoop: (
   ),
 
   letterSpacing: (
-    'narrow': -.05rem,
-    'wide': .05rem,
+    props: (
+      'narrow': -.05rem,
+      'wide': .05rem,
+    ),
   ),
 
   text: (
     alignment: (
-      'left',
-      'right',
-      'center',
+      props: (
+        'left',
+        'right',
+        'center',
+      ),
+      screens: ()
     ),
     decoration: (),
     transform: (
-      'uppercase',
+      props: (
+        'uppercase',
+      ),
+      screens:()
     ),
     size: (
-      'large': 2rem,
-      'small': 1.4rem,
-      'tiny': 1.2rem,
+      props:(
+        'large': 2rem,
+        'small': 1.4rem,
+        'tiny': 1.2rem,
+      ),
+      screens:(),
     )
   ),
 
@@ -131,10 +142,72 @@ $ooLoop: (
         'small': 1.6rem,
       ),
       vsizes: oo('column.gutter.sizes'),
+      screens:(),
+    ),
+    use: (
+      order: true,
+      offset: false,
+      alignment: true,
+      alignmentBreakpoints: true,
+      selfAlignment: true,
+      selfAlignmentBreakpoints: false,
+      childAlignment: true,
+      childAlignmentBreakpoints: false,
+    )
+  ),
+
+  template: (
+    areas: (),
+    gap: (
+      use: true,
+      sizes: (),
+      vsizes: oo('template.gap.sizes')
+    ),
+  ),
+
+  grid: (
+    system: oo('column.system'),
+    gap: oo('column.gutter'),
+    use: (
+      order: true,
     )
   ),
 
 
+  spacing: (
+    ratio: 0.1, // with 62.5% on root 10px = 1rem
+    h: (
+      use: true,
+      from: 0,
+      to: 25,
+      step: 5,
+      extra: (),
+      screens: (),
+    ),
+    v: (
+      use: true,
+      from: 0,
+      to: 50,
+      step: 5,
+      extra: (),
+      screens: (),
+    ),
+  ),
+
+  wrapper: (
+    'sizes': (
+      'tiny': .8rem,
+      'small': 1.6rem,
+      'medium': 2.4rem,
+    ),
+    'screens': ()
+  ),
+
+  button: (
+    color: oo('base.color'),
+    colorHover: oo('button.color'),
+    variants: oo('colors.main'),
+  ),
 
 
   label: (
@@ -183,22 +256,14 @@ $ooLoop: (
   //   bgcolor: oo('input.bgcolor'),
   // ),
 
-  // template: (
-  //   use: true,
-  //   areas: (),
-  //   gap: (
-  //     use: true,
-  //     sizes: (),
-  //     vsizes: oo('template.gap.sizes')
-  //   ),
-  // ),
+  
 
-  // use: (
-  //   button: true,
-  //   columns: true,
-  //   grid: false,
-  //   template: true,
-  // )
+  use: (
+    button: true,
+    column: true,
+    grid: false,
+    template: true,
+  )
 ) !default;
 
 

@@ -444,12 +444,23 @@ export default {
 	);
 
 	@import '~loop/init';
+
+	
 	$ooLoop: ooSet('template.areas', $template-areas);
 	$ooLoop: ooSet('template.gap.sizes', (
-	  'less' : 0,
+		'less' : 0,
 		'small': 1.6rem,
 	));
 
+	$ooLoop: ooAdd('colors.borders', (
+		'danger': red,
+	));
+
+	@include ooInit();
+
+
+
+	@debug $ooLoop;
 
 	@import '~loop/loop';
 

@@ -56,7 +56,7 @@
   @include makeGridArea($area-names-list);
 }
 
-@if oo('template.use') and isNotEmpty(oo('template.areas')) {
+@if oo('use.template') and isNotEmpty(oo('template.areas')) {
 
   [#{ooPrefix()}-template] {
     display: grid;
