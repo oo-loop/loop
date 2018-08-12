@@ -72,6 +72,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+	@import '~loop/init';
+	@include ooInit();
 	@import '~loop/variables';
 	@import '~loop/mixins/loop';
 

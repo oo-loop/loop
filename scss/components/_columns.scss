@@ -50,7 +50,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 }
 
 // reponsives classes starting from default value
-@each $class in $breakpoints-classes-width-default-value {
+@each $class in join('', oo('screens')) {
   @include breakpoint($class) {
     $suffix: '';
     @if $class != '' {

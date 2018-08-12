@@ -1,23 +1,30 @@
 $ooLoop: (
   html5: false,
+
+  /**
+   * breakpoints
+   * based on material guidelines
+   * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
+   */
   breakpoints: (
-    xs: 480px,
-    sm: 600px,
-    md: 960px,
-    lg: 1280px,
+    xs: 30em, // 480px
+    sm: 37.500em, // 600px
+    md: 60em, // 960px
+    lg: 80em, // 1280px
+    xl: 120em, // 1980px
   ),
   screens: (sm, md, lg),
 
   base: (
-    root: 62.5%,
+    root: 100%,
     smoothing: true,
     font: (
       family: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-      size: 1.6rem,
+      size: 1em,
       weight: 400,
     ),
-    lineHeight: 1.5,
-    color: #333,
+    lineHeight: 1.4,
+    color: #444,
     bgcolor: #fff,
   ),
 

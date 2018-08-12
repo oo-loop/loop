@@ -118,7 +118,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	
+	@import '~loop/init';
+	@include ooInit();
 	@import '~loop/mixins/loop';
 
 	$border-radius: (

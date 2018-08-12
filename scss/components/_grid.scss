@@ -22,7 +22,7 @@ $grid-vgap-sizes: $grid-gap-sizes !default;
     grid-gap: $grid-gap;
   }
 
-  @each $class in $breakpoints-classes-width-default-value {
+  @each $class in join('', oo('screens')) {
     @include breakpoint($class) {
       $suffix: '';
       @if $class != '' {
@@ -36,7 +36,7 @@ $grid-vgap-sizes: $grid-gap-sizes !default;
   }
 
   @if $use-grid-order {
-    @each $class in $breakpoints-classes {
+    @each $class in oo('screens') {
       @include breakpoint($class) {
         $suffix: \@#{$class};
         // order-0 to make sure it is first

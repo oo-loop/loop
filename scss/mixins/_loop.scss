@@ -72,7 +72,7 @@
  */
 @mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $is-important:false, $suffix:'') {
   @if isNotEmpty($breakpoints) and isNotEmpty($data) {
-    @each $breakpoint in $breakpoints-classes {
+    @each $breakpoint in oo('screens') {
       @include breakpoint($breakpoint) {
         $suffixes: #{$suffix}\@#{$breakpoint};
         @include loop($data, $properties, $prefix, $is-important, $suffixes);
