@@ -2,102 +2,74 @@
  * Typography
  */
 
-$heading-font-sizes: (
-  'h1': (
-    (): 3.6rem,
-    sm: 4.6rem,
-  ),
-  'h2': (
-    (): 3.2rem,
-    sm: 3.8rem,
-  ),
-  'h3': 2.8rem,
-  'h4': 2.2rem,
-  'h5': 1.8rem,
-  'h6': 1.6rem,
-) !default;
-$heading-font-sizes-classes: ('h1', 'h2', 'h3', 'h4') !default;
-
-$heading-color:           $color-base !default;
-$heading-font-family:     $font-family-base !default;
-$heading-font-weight:     500 !default;
-$heading-line-height:     1.125 !default;
-$heading-margin-top:      .2em !default;
-$heading-margin-bottom:   .45em !default;
-$heading-letter-spacing:  -.1rem !default;
-$heading-letter-spacing-tags: () !default; // list of tags (h1, h2) ...
-
-// Paragraph
-$paragraph-margin-bottom: 1.8rem !default;
-
-// Anchor
-$anchor-color:             $color-primary !default;
-$anchor-color-hover:       $color-secondary !default;
-$anchor-text-decoration:   none !default;
-
-// Description list
-$definition-list-term-font-weight: 700 !default;
-
-// Hr
-$hr-color: #cdcdcd !default;
-$hr-margins: 1.5rem !default;
+$heading-sizes: oo('headings.sizes');
 
 @mixin headings($heading, $font-size) {
-  margin-top: $heading-margin-top;
-  margin-bottom: $heading-margin-bottom;
-  font-weight: $heading-font-weight;
-  line-height: $heading-line-height;
+  margin-top: oo('headings.marginTop');
+  margin-bottom: oo('headings.marginBottom');
+  font-weight: oo('headings.fontWeight');
+  line-height: oo('headings.lineHeight');
 
   // font-size
   @if isMap($font-size) {
     @each $key, $value in $font-size {
-      @include breakpoint($key) { font-size: $value; }
+      @include breakpoint($key) {
+        font-size: $value;
+      }
     }
   } @else {
     font-size: $font-size;
   }
 
   // add letter spacing for specific
-  @if isNotEmpty($heading-letter-spacing) and inArray($heading, $heading-letter-spacing-tags) {
-    letter-spacing: $heading-letter-spacing;
+  @if isNotEmpty(oo('headings.letterSpacing.gap'))
+    and inList($heading, oo('headings.letterSpacing.headings')) {
+    letter-spacing: oo('headings.letterSpacing.gap');
   }
 
   //add font family rules if different
-  @if $heading-font-family != $font-family-base {
-    font-family: $heading-font-family;
+  @if oo('headings.fontFamily') != oo('base.font.family') {
+    font-family: oo('headings.fontFamily');
   }
 
   //add color rules if different
-  @if $heading-color != $color-base {
-    color: $heading-color;
+  @if oo('headings.color') != oo('base.color') {
+    color: oo('headings.color');
   }
 }
 
-@each $heading, $font-size in $heading-font-sizes {
-  #{$heading} { @include headings($heading, $font-size) }
-
-  @if inArray($heading, $heading-font-sizes-classes) {
-    .#{$heading} { @include headings($heading, $font-size) }
+@each $heading, $font-size in $heading-sizes {
+  #{$heading} {
+    @include headings($heading, $font-size);
+  }
+  @if inList($heading, oo('headings.classes')) {
+    .#{$heading} {
+      @extend #{$heading};
+    }
   }
 }
 
-p,
-ul,
-ol,
-dl {
+p {
   margin-top: 0;
-  margin-bottom: $paragraph-margin-bottom;
+  margin-bottom: oo('paragraph.marginBottom');
 }
 
 a {
-  color: $anchor-color;
+  color: oo('anchor.color');
   text-decoration: none;
 
   &:focus,
   &:hover {
-    color: $anchor-color-hover;
-    text-decoration: $anchor-text-decoration;
+    color: oo('anchor.hover');
+    text-decoration: oo('anchor.textDecoration');
   }
+}
+
+ul,
+ol,
+dl {
+  margin-top: 0;
+  margin-bottom: oo('list.marginBottom');
 }
 
 ul,
@@ -112,7 +84,7 @@ ol {
   }
 }
 
-dt { font-weight: $definition-list-term-font-weight; }
+dt { font-weight: oo('list.dt.fontWeight') }
 dd {
   margin-left: auto;
   + dt {
@@ -121,18 +93,14 @@ dd {
 }
 
 mark {
-  $highlight: lighten($color-primary, 55%);
-  @if lightness($highlight) > percentage(9.5/10) {
-    $highlight: lighten(yellow, 40%);
-  }
   color: inherit;
-  background-color: $highlight;
+  background-color: lighten(yellow, 40%);
 }
 
 hr, .hr {
-  margin-top: $hr-margins;
-  margin-bottom: $hr-margins;
+  margin-top: oo('hr.margin');
+  margin-bottom: oo('hr.margin');
   display: block;
   border:none;
-  border-bottom: 1px solid $hr-color;
+  border-bottom: 1px solid oo('hr.color');
 }
