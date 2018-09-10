@@ -60,8 +60,8 @@ a {
   color: oo('anchor.color');
   text-decoration: none;
 
-  &:focus,
-  &:hover {
+  &[href]:focus,
+  &[href]:hover {
     color: oo('anchor.hover');
     text-decoration: oo('anchor.textDecoration');
   }
