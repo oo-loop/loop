@@ -28,7 +28,7 @@ $heading-sizes: oo('headings.sizes');
   }
 
   //add font family rules if different
-  @if oo('headings.fontFamily') != oo('base.font.family') {
+  @if oo('headings.fontFamily') != oo('base.fontFamily') {
     font-family: oo('headings.fontFamily');
   }
 

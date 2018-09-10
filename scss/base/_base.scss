@@ -19,9 +19,9 @@ html {
 
 body {
   color: oo('base.color');
-  font-family: oo('base.font.family');
-  font-size: oo('base.font.size');
-  font-weight: oo('base.font.weight');
+  font-family: oo('base.fontFamily');
+  font-size: oo('base.fontSize');
+  font-weight: oo('base.fontWeight');
   line-height: oo('base.lineHeight');
   background-color: oo('base.bgcolor');
 }

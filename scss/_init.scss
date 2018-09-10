@@ -18,12 +18,10 @@ $ooLoop: (
   base: (
     root: 100%,
     smoothing: true,
-    font: (
-      family: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-      size: 1em,
-      weight: 400,
-    ),
-    lineHeight: 1.4,
+    fontFamily: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
+    fontSize: 1em, //16px
+    fontWeight: 400,
+    lineHeight: 1.375,
     color: #444,
     bgcolor: #fff,
   ),
@@ -39,57 +37,71 @@ $ooLoop: (
   ),
 
   headings: (
-    sizes: (
-      h1: (
-        (): 3.6rem,
-        sm: 4.6rem,
-      ),
-      h2: (
-        (): 3.2rem,
-        sm: 3.8rem,
-      ),
-      h3: 2.8rem,
-      h4: 2.2rem,
-      h5: 1.8rem,
-      h6: 1.6rem,
-    ),
-    classes: ('h1', 'h2', 'h3'),
-    color: oo('base.color'),
-    fontFamily: oo('base.font.family'),
-    fontWeight: 500,
-    lineHeight: 1.125,
     marginTop: .2em,
     marginBottom: .45em,
-  ),
-
-  paragraphMarginBottom: 1.8rem,
-
-  list: (
-    marginBottom: oo('paragraphMarginBottom'),
-    dtFontWeight: 700,
-    inlineSpacing: 1em,
-    divide: (
-      spacing: oo('list.inlineSpacing'),
-      size: 1.2em,
-      affix: '|',
-      color: #cdcdcd,
+    color: oo('base.color'),
+    sizes: (
+      h1: (
+        (): 2rem, //32px
+        sm: 2.5rem, //40px
+        md: 2.875rem, //46px
+      ),
+      h2: (
+        (): 1.625rem, //26px
+        sm: 2rem, //32px
+        md: 2.25rem, //36px
+      ),
+      h3: (
+        (): 1.375rem, //22px
+        sm: 1.5rem, //24px
+        md: 1.75rem, //28px
+      ),
+      h4: 1.125rem, //18px
+      h5: 1rem, //16px
+      h6: .875rem, //14px
+    ),
+    classes: ('h2', 'h3'),
+    fontFamily: oo('base.fontFamily'),
+    fontWeight: 700,
+    lineHeight: 1.125,
+    letterSpacing: (
+      headings: (h1),
+      gap: -.063rem,
     )
   ),
-  
+
+  paragraph: (
+    marginBottom: 1.125rem,
+  ),
+    
   anchor: (
     color: oo('colors.main.primary'),
     hover: ooDarken(oo('anchor.color'), 12%),
     textDecoration: none,
   ),
 
+  list: (
+    marginBottom: oo('paragraph.marginBottom'),
+    inlineSpacing: 1em,
+    divide: (
+      spacing: oo('list.inlineSpacing'),
+      size: 1.2em,
+      affix: '|',
+      color: #cdcdcd,
+    ),
+    dt: (
+      fontWeight: 700,
+    )
+  ),
+  
   hr: (
     color: #cdcdcd,
-    margins: 1.5rem,
+    margin: 1rem,
   ),
 
   font: (
     family: (
-      'primary': oo('base.font.family'),
+      'primary': oo('base.fontFamily'),
       'secondary': ('Georgia', times, serif),
     ),
     style: ('italic'),
@@ -224,9 +236,9 @@ $ooLoop: (
   input: (
     color: #4d4d4d,
     bgcolor: #fff,
-    fontFamily: oo('base.font.family'),
-    fontSize: oo('base.font.size'),
-    fontWeight: oo('base.font.weight'),
+    fontFamily: oo('base.fontFamily'),
+    fontSize: oo('base.fontSize'),
+    fontWeight: oo('base.fontWeight'),
     lineHeight: 1.15,
     height: 2.5em,
     focus: '',
