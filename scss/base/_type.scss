@@ -2,15 +2,28 @@
  * Typography
  */
 
-$heading-sizes: oo('headings.sizes');
-
-@mixin headings($heading, $font-size) {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: oo('headings.marginTop');
   margin-bottom: oo('headings.marginBottom');
   font-weight: oo('headings.fontWeight');
   line-height: oo('headings.lineHeight');
 
-  // font-size
+  //add font family rules if different
+  @if oo('headings.fontFamily') != oo('base.fontFamily') {
+    font-family: oo('headings.fontFamily');
+  }
+  //add color rules if different
+  @if oo('headings.color') != oo('base.color') {
+    color: oo('headings.color');
+  }
+}
+
+@mixin headings($heading, $font-size) {
   @if isMap($font-size) {
     @each $key, $value in $font-size {
       @include breakpoint($key) {
@@ -21,24 +34,13 @@ $heading-sizes: oo('headings.sizes');
     font-size: $font-size;
   }
 
-  // add letter spacing for specific
   @if isNotEmpty(oo('headings.letterSpacing.gap'))
     and inList($heading, oo('headings.letterSpacing.headings')) {
     letter-spacing: oo('headings.letterSpacing.gap');
   }
-
-  //add font family rules if different
-  @if oo('headings.fontFamily') != oo('base.fontFamily') {
-    font-family: oo('headings.fontFamily');
-  }
-
-  //add color rules if different
-  @if oo('headings.color') != oo('base.color') {
-    color: oo('headings.color');
-  }
 }
 
-@each $heading, $font-size in $heading-sizes {
+@each $heading, $font-size in oo('headings.sizes') {
   #{$heading} {
     @include headings($heading, $font-size);
   }
@@ -75,8 +77,6 @@ dl {
 ul,
 ol {
   padding-left: 18px;
-
-  li { margin-bottom: .2em;}
 
   > ul, ol {
     margin-top: .3em;
