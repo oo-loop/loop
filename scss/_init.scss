@@ -22,7 +22,7 @@ $ooLoop: (
     fontSize: 1em, //16px
     fontWeight: 400,
     lineHeight: 1.375,
-    color: #444,
+    color: #20373e,
     bgcolor: #fff,
   ),
 
@@ -46,19 +46,19 @@ $ooLoop: (
     color: oo('base.color'),
     sizes: (
       h1: (
-        (): 2rem, //32px
+        rt: 2rem, //32px
         sm: 2.5rem, //40px
-        md: 2.875rem, //46px
+        // md: 2.875rem, //46px
       ),
       h2: (
-        (): 1.625rem, //26px
+        rt: 1.625rem, //26px
         sm: 2rem, //32px
-        md: 2.25rem, //36px
+        // md: 2.25rem, //36px
       ),
       h3: (
-        (): 1.375rem, //22px
+        rt: 1.375rem, //22px
         sm: 1.5rem, //24px
-        md: 1.75rem, //28px
+        // md: 1.75rem, //28px
       ),
       h4: 1.125rem, //18px
       h5: 1rem, //16px
@@ -66,10 +66,10 @@ $ooLoop: (
     ),
     classes: ('h2', 'h3'),
     fontFamily: oo('base.fontFamily'),
-    fontWeight: 700,
+    fontWeight: 600,
     lineHeight: 1.125,
     letterSpacing: (
-      headings: (h1),
+      headings: (),
       gap: -.063rem,
     )
   ),
@@ -122,6 +122,9 @@ $ooLoop: (
     ),
   ),
 
+  /**
+   * Text utilites
+   */
   text: (
     alignment: (
       props: (
@@ -129,22 +132,22 @@ $ooLoop: (
         'right',
         'center',
       ),
-      screens: ()
+      screens: (),
     ),
     decoration: (),
     transform: (
       props: (
         'uppercase',
       ),
-      screens:()
+      screens: (),
     ),
     size: (
       props:(
-        'large': 2rem,
-        'small': 1.4rem,
-        'tiny': 1.2rem,
+        'large': 1.250rem,
+        'small': .875rem,
+        'tiny': .8rem,
       ),
-      screens:(),
+      screens: (),
     )
   ),
 
