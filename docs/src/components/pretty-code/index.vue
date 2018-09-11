@@ -17,6 +17,7 @@
 
 <style lang="scss">
     @import '~loop/variables';
+    @import '~loop/mixins/font-smoothing';
 
     $code-bgcolor:         #f5f5f5 !default;
     $code-color:           $color-base !default;
@@ -32,12 +33,13 @@
         white-space: nowrap;
         background-color: $code-bgcolor;
         border-radius: .4rem;
+        @include fontSmoothing(false)
     }
 
     pre {
-        margin-top: 2.5rem;
-        margin-bottom: 2.5rem;
-        padding: 1.4rem 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding: 1rem 1.250rem;
 
         background-color: $code-bgcolor;
         overflow: auto;
@@ -57,8 +59,7 @@
     $value: #f36c44;
 
     pre.prettyprint {
-        padding: 1.4rem 2rem;
-        font-weight: 700;
+        padding: 1rem 1.250rem;
         border: none;
         background-color: #353535;
 
@@ -81,16 +82,14 @@
             .pun,
             .pun + .pln,
             .kwd { color: $color-primary; }
-            .pun + .pln {
-                font-weight: 700;
-            }
             .lit { color: $value; }
         }
 
         &.language-scss {
             .lit { color: #eabc5f; }
             .pln { color: $color-primary; }
-            .pun { color: #fff; }
+            .pun,
+            .pun + .kwd { color: #fff; }
             .kwd { color: $value; }
             .str { color: $attribute; }
             .lit + .pln { color: #d4864a; }
