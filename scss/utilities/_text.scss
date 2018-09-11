@@ -1,23 +1,14 @@
 /**
  * Text utilites
- *
- * Thoses utilities are flexibles for adding and/or removing classes at your convenience
  */
 
 
 /**
  * Text Sizes
  */
-$text-sizes: (
-  'large': 2rem,
-  'small': 1.4rem,
-  'tiny': 1.2rem,
-) !default;
-$text-sizes-breakpoints-classes: () !default;
-$text-sizes-is-important: true !default;
 
-@include loop($text-sizes, 'font-size', '.text', $text-sizes-is-important);
-@include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'font-size', '.text', $text-sizes-is-important);
+@include loop(oo('text.size.props'), 'font-size', '.text', true);
+@include loopBreakpoints(oo('text.size.screens'), oo('text.size.props'), 'font-size', '.text', true);
 
 
 /**
