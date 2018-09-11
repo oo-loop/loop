@@ -1,30 +1,35 @@
 <template>
 	<div>
 		<h1 class="title">Typography</h1>
-		<p class="text-large">Modify the font-size based on rem.<br>
-		1rem = 10px (relative to 62.5% font-size)</p>
+		<p class="text-large">Modify font sizes based on rem unit and relative to 100% font-size (1rem = 16px)</p>
 
-		<h3 id="headings"><router-link to="#headings">#</router-link> Headings</h3>
-		<p>HTML headings, <markup>h1</markup> through <markup>h6</markup> matching the set of font-sizes in <code class="color-info">$heading-font-sizes</code>.<br>
-		You can either modify the values by a unique size or a set of sizes mapping the breakpoints for responsive purpose.</p>
-
-
+		<h2 id="headings"><router-link to="#headings">#</router-link> Headings</h2>
+		<p>HTML headings, <markup>h1</markup> through <markup>h6</markup> matching the set of sizes of the property <code>headings.sizes</code> in <code>$ooLoop</code>.<br>
+		The value of a heading can either be unique or list a map of breakpoints for responsive purpose.</p>
+		
 		<h1>h1 Heading</h1>
 		<h2>h2 Heading</h2>
 		<h3>h3 Heading</h3>
 		<h4>h4 Heading</h4>
 		<h5>h5 Heading</h5>
 		<h6>h6 Heading</h6>
-		
-		<pretty-code class="language-css" :code="html.varHeading"></pretty-code>
 
-		<h4>Heading classes</h4>
+		<pretty-code class="language-scss" :code="html.varHeading"></pretty-code>
+		<p>Change the values at your convenience via the function <code>ooSet(PROPERTY, VALUE)</code><br>
+		(<code>rt</code> stands for <i>root</i>, the default value.)</p>
+
+		<pretty-code class="language-scss" :code="html.varHeadingSet"></pretty-code>
+
+		<p>Change the values from the <code>ooInit()</code> method</p>
+		<pretty-code class="language-scss" :code="html.varHeadingInit"></pretty-code>
+
+		<h3>Heading classes</h3>
 		<p>Use the classes set in the variable <code class="color-info">$heading-font-sizes-classes</code>.<br>Add or remove values to match your need, by default <code>.h1</code> through <code>.h4</code>.</p>
 
 		<pretty-code class="language-css" :code="html.varHeadingClasses"></pretty-code>
 		<pretty-code :code="html.heading"></pretty-code>
 
-		<h3 id="text-elements"><router-link to="#text-elements">#</router-link> Text Elements</h3>
+		<h2 id="text-elements"><router-link to="#text-elements">#</router-link> Text Elements</h2>
 		<p>Common inline HTML elements for semantic.</p>
 		<ul class="list-unstyle">
 			<li><markup>mark</markup> for <mark>highlighted text</mark></li>
@@ -34,7 +39,7 @@
 			<li><markup>em</markup> for <em>emphasized text</em></li>
 		</ul>
 
-		<h3 id="lists"><router-link to="#lists">#</router-link> Lists</h3>
+		<h2 id="lists"><router-link to="#lists">#</router-link> Lists</h2>
 		<p>Format the style of the list of elements through the classes <code>.list-unstyle</code> <code>.list-inline</code> <code>.list-divide</code>.</p>
 		<ul>
 			<li>list item 1</li>
@@ -105,6 +110,8 @@ export default {
 			list: require('./code/list.html'),
 			listCenter: require('./code/list-center.html'),
 			varHeading: require('./code/var-heading.html'),
+			varHeadingSet: require('./code/var-heading-set.html'),
+			varHeadingInit: require('./code/var-heading-init.html'),
 			varHeadingClasses: require('./code/var-heading-classes.html'),
 		}
 	}),

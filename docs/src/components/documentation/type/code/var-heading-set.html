@@ -1,0 +1,21 @@
+/* change h1 and h2 separately */
+$ooLoop: ooSet('headings.sizes.h1', (
+  rt: 2rem,
+  sm: 2.5rem,
+  md: 2.875rem,
+));
+$ooLoop: ooSet('headings.sizes.h2', 1.625rem);
+
+@include ooInit();
+
+/* change h1 and h2 together */
+$ooLoop: ooSet('headings.sizes', (
+  h1: (
+    rt: 2rem,
+    sm: 2.5rem,
+    md: 2.875rem,
+  ),
+  h2: 1.625rem,
+));
+
+@include ooInit();

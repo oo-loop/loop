@@ -464,7 +464,7 @@ export default {
 
 	@import '~loop/loop';
 
-	$layout-padding: 2.4rem;
+	$layout-padding: 1.5rem;
 	$sidebar-size: 220px;
 
 	body { overflow-x: hidden; }
