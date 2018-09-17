@@ -86,6 +86,9 @@ $ooLoop: (
 
   list: (
     marginBottom: oo('paragraph.marginBottom'),
+    dt: (
+      fontWeight: 700,
+    ),
     inlineSpacing: 1em,
     divide: (
       spacing: oo('list.inlineSpacing'),
@@ -93,9 +96,6 @@ $ooLoop: (
       affix: '|',
       color: #cdcdcd,
     ),
-    dt: (
-      fontWeight: 700,
-    )
   ),
   
   hr: (
@@ -103,15 +103,26 @@ $ooLoop: (
     margin: 1rem,
   ),
 
-  font: (
-    family: (
-      'primary': oo('base.fontFamily'),
-      'secondary': ('Georgia', times, serif),
+  /**
+   * Utilities
+   */
+  utilities: (
+    fontFamily: (
+      props: (
+        'primary': oo('base.fontFamily'),
+        'secondary': ('Georgia', times, serif),
+      ),
     ),
+    fontWeight: (
+      props: (
+        'light': 300,
+        'bold': 700,
+      ),
+    )
+  ),
+  font: (
     style: ('italic'),
     weight: (
-      'light': 300,
-      'bold': 700,
     )
   ),
 
