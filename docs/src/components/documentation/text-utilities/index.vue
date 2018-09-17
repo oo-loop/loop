@@ -159,10 +159,4 @@ export default {
 </script>
 
 <style lang="scss">
-	@import "~loop/mixins/loop";
-	$text-decorations: (
-	  'line-through',
-	  'underline',
-	);
-	@include loop($text-decorations, 'text-decoration', '.text');
 </style>

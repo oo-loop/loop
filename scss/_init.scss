@@ -128,20 +128,18 @@ $ooLoop: (
         'right',
         'center',
       )
-    )
+    ),
+    textTransform: (
+      props: (
+        'uppercase',
+      ),
+    ),
   ),
 
   /**
    * Text utilites
    */
   text: (
-    decoration: (),
-    transform: (
-      props: (
-        'uppercase',
-      ),
-      screens: (),
-    ),
     size: (
       props:(
         'large': 1.250rem,

@@ -11,27 +11,6 @@
 @include loopBreakpoints(oo('text.size.screens'), oo('text.size.props'), 'font-size', '.text', true);
 
 
-/**
- * Text Transform
- */
-$text-transforms: (
-  'uppercase',
-) !default;
-$text-transforms-breakpoints-classes: () !default;
-$text-transforms-is-important: false !default;
-@include loop($text-transforms, 'text-transform', '.text', $text-transforms-is-important);
-@include loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text-transform', '.text', $text-transforms-is-important);
-
-
-/**
- * Text Decoration
- */
-$text-decorations: () !default;
-$text-decorations-breakpoints-classes: () !default;
-$text-decorations-is-important: false !default;
-@include loop($text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
-@include loopBreakpoints($text-decorations-breakpoints-classes, $text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
-
 @each $property-name, $options  in oo('utilities') {
 
   $props: if(map-has-key($options, 'props'), oo('props', $options), ());

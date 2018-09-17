@@ -458,6 +458,10 @@ export default {
 		'thin': 100,
 	));
 	$ooLoop: ooSet('utilities.textAlign.screens', ('sm', 'lg'));
+	$ooLoop: ooSet('utilities.textDecoration.props', (
+		'line-through',
+		'underline',
+	));
 
 	@include ooInit();
 
