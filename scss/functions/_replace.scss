@@ -23,3 +23,18 @@
 @function stripSpaces($string) {
   @return replace(' ', '', #{$string}); 
 }
+
+/**
+ * Transform camelCase to kebab-case
+ * @param String $string The string to modify
+ *
+ * @return String
+ */
+@function toKebabCase($string) {
+  $kebabString: '';
+  @for $i from 1 through str-length($string) {
+    $character: str-slice($string, $i, $i);
+    $kebabString: $kebabString + if($character == to-lower-case($character), $character, to-lower-case(-#{$character}));
+  }
+  @return $kebabString;
+}
