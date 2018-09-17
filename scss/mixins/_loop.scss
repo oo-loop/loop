@@ -32,13 +32,17 @@
 
   // Make sure to have the correct format or do not generate rules
   @if isNotEmpty($data) {
-    @if isList($data) {
+    @if isString($data) {
+      #{$prefix}-#{$data}#{$suffix} {
+        @include loopProperties($properties, $data, $is-important);
+      }
+    } @else if isList($data) {
       @each $value in $data {
         #{$prefix}-#{$value}#{$suffix} {
           @include loopProperties($properties, $value, $is-important);
         }
       }
-    } @elseif isMap($data) {
+    } @else if isMap($data) {
       @each $key, $value in $data {
         $affix: if(isEmpty($key), '', $affix);
 

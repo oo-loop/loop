@@ -118,11 +118,9 @@ $ooLoop: (
         'light': 300,
         'bold': 700,
       ),
-    )
-  ),
-  font: (
-    style: ('italic'),
-    weight: (
+    ),
+    fontStyle: (
+      props: ('italic'),
     )
   ),
 

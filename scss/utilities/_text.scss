@@ -47,32 +47,6 @@ $text-decorations-is-important: false !default;
 @include loop($text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
 @include loopBreakpoints($text-decorations-breakpoints-classes, $text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
 
-/**
- * Letter Spacing
- */
-$letter-spacings: (
-  'narrow': -.05rem,
-  'wide': .05rem,
-) !default;
-$letter-spacings-breakpoints-classes: () !default;
-$letter-spacings-is-important: false !default;
-@include loop($letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-is-important);
-@include loopBreakpoints($letter-spacings-breakpoints-classes, $letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-is-important);
-
-
-
-/**
- * Font Style
- */
-$font-styles: (
-  'italic',
-) !default;
-$font-styles-breakpoints-classes: () !default;
-$font-styles-is-important: false !default;
-@include loop($font-styles, 'font-style', '.font', $font-styles-is-important);
-@include loopBreakpoints($font-styles-breakpoints-classes, $font-styles, 'font-style', '.font', $font-styles-is-important);
-
-
 @each $property-name, $options  in oo('utilities') {
 
   $props: if(map-has-key($options, 'props'), oo('props', $options), ());
