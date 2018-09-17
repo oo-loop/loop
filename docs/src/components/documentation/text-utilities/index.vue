@@ -55,21 +55,6 @@
 			<li><code>.text-{$decorationName}@{$breakpoint}</code> Classes generated</li>
 		</ul>
 
-		<h3 id="letter-spacings"><router-link to="#letter-spacings">#</router-link> Letter Spacings</h3>
-		<p>Change the letter-spacing of the text.</p>
-		<ul class="mb-25">
-			<li><code class="color-info">$letter-spacings</code> Variable to set preferences (<strong>map format</strong>, default including <code class="color-success">narrow</code> <code class="color-success">wide</code>)</li>
-			<li><code class="color-success">letter-spacing:</code> Property based on</li>
-			<li><code>.letter-spacing-{$letterSpacingName}</code> Classes generated.</li>
-		</ul>
-
-		<pretty-code class="language-css" :code="html.varLetterSpacings"></pretty-code>
-
-		<p class="letter-spacing-narrow color-gray">Text with narrow letter spacing.</p>
-		<p class="letter-spacing-wide color-gray">Text with wide letter spacing.</p>
-		<p class="letter-spacing-wider color-gray">Text width wider letter spacing.</p>
-		<pretty-code :code="html.letterSpacings"></pretty-code>
-
 		<h4>Responsive</h4>
 		<ul class="mb-25">
 			<li><code class="color-info">$letter-spacings-breakpoints-classes</code> Variable to set breakpoint. (<strong>empty</strong> from start)</li>
@@ -183,6 +168,4 @@ export default {
 	$letter-spacings: (
 	  'wider': .1rem,
 	);
-	@include loop($letter-spacings, 'letter-spacing', '.letter-spacing');
-
 </style>
