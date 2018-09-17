@@ -2,29 +2,31 @@
  * Text utilites
  */
 
-@each $property-name, $options  in oo('utilities') {
-  $props: if(map-has-key($options, 'props'), oo('props', $options), ());
-  $property-name: toKebabCase($property-name);
-  $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', $property-name), 1));
-  $is-important: if(map-has-key($options, 'important'), oo('important', $options), false);
-  $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
-  
-  @if not (str-slice(prefix, 1, 1) == '.') {
-    $prefix: '.' + $prefix;
+@if (oo('use.utilities.text')) {
+  @each $property-name, $options  in oo('utilities') {
+    $props: if(map-has-key($options, 'props'), oo('props', $options), ());
+    $property-name: toKebabCase($property-name);
+    $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', $property-name), 1));
+    $is-important: if(map-has-key($options, 'important'), oo('important', $options), false);
+    $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
+    
+    @if not (str-slice(prefix, 1, 1) == '.') {
+      $prefix: '.' + $prefix;
+    }
+
+    @include loop(
+      $props,
+      $property-name,
+      $prefix,
+      $is-important
+    );
+
+    @include loopBreakpoints(
+      $screens,
+      $props,
+      $property-name,
+      $prefix,
+      $is-important
+    );
   }
-
-  @include loop(
-    $props,
-    $property-name,
-    $prefix,
-    $is-important
-  );
-
-  @include loopBreakpoints(
-    $screens,
-    $props,
-    $property-name,
-    $prefix,
-    $is-important
-  );
 }

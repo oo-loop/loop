@@ -333,33 +333,11 @@ export default {
 <style lang="scss">
 	$color-primary:   #6cd7f7;
 	$color-secondary: #254F67;
-	$colors: (
-		'primary':    $color-primary,
-		'secondary':  $color-secondary,
-		'success':    #8cc63f,
-		'warning':    #fbb03b,
-		'danger':     #f72828,
-	);
-	$colors-classes: (
-		'primary',
-		'secondary',
-		'success',
-		'warning',
-		'danger',
-	);
 
 	// some variables
 	@import '~loop/variables';
-	$bg-colors: (
-    	'body' : $bgcolor-base,
-	);
-	$text-colors: (
-	    'info': #2689ef,
-	    'gray': #999,
-	    'success': #3fc65c,
-		'white': #fff,
-  	);
-  	$btn-colors: (
+		
+  $btn-colors: (
 	  'nectarine':  #ffbe76,
 	  'yellow':     #fffa65,
 	  'salmon':     #ffb8b8,
@@ -450,8 +428,21 @@ export default {
 		'small': 1.6rem,
 	));
 
-	$ooLoop: ooAdd('colors.borders', (
-		'danger': red,
+	$ooLoop: ooSet('colors.main', (
+		'primary': $color-primary,
+		'secondary': $color-secondary,
+		'success': #8cc63f,
+		'warning': #fbb03b,
+		'danger': #f72828,
+	));
+	$ooLoop: ooAdd('colors.backgrounds', (
+		'body': oo('base.bgcolor'),
+	));
+	$ooLoop: ooAdd('colors.fonts', (
+	  'info': #2689ef,
+	  'gray': #999,
+	  'success': #3fc65c,
+		'white': #fff,
 	));
 
 	$ooLoop: ooAdd('utilities.fontWeight.props', (

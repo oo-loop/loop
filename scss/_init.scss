@@ -120,17 +120,17 @@ $ooLoop: (
         'tiny': .8rem,
       ),
       prefix: 'text',
-    )
+    ),
     fontStyle: (
       props: ('italic'),
+    ),
+    fontWeight: (
+      props: (
+        'light': 300,
+        'bold': 700,
       ),
-      fontWeight: (
-        props: (
-          'light': 300,
-          'bold': 700,
-        ),
-      ),
-      textAlign: (
+    ),
+    textAlign: (
       props: (
         'left',
         'right',
@@ -282,6 +282,10 @@ $ooLoop: (
     column: true,
     grid: false,
     template: true,
+    utilities: (
+      color: true,
+      text: true,
+    )
   )
 ) !default;
 
