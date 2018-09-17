@@ -185,9 +185,4 @@ export default {
 	);
 	@include loop($letter-spacings, 'letter-spacing', '.letter-spacing');
 
-	$font-weights: (
-	  'thin':   100,
-	);
-	@include loop($font-weights, 'font-weight', '.font');
-
 </style>

@@ -456,6 +456,10 @@ export default {
 		'danger': red,
 	));
 
+	$ooLoop: ooAdd('utilities.fontWeight.props', (
+		'thin': 100,
+	));
+
 	@include ooInit();
 
 
