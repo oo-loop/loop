@@ -12,21 +12,6 @@
 
 
 /**
- * Text alignements
- */
-$text-alignments: (
-  'left',
-  'right',
-  'center',
-) !default;
-$text-alignments-breakpoints-classes: () !default;
-$text-alignments-is-important: false !default;
-
-@include loop($text-alignments, 'text-align', '.text', $text-alignments-is-important);
-@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-is-important);
-
-
-/**
  * Text Transform
  */
 $text-transforms: (

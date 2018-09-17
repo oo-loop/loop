@@ -115,7 +115,7 @@
  * ooAdd
  * Push new map value to an another set of map with the ooFormat (default $ooLoop)
  * @param String $key ooFormat key
- * @param Map $mapValue the value to add
+ * @param Map|List $mapValue the value to add
  * @param ?Map $map the map to update (default $ooLoop)
  * @return Map
  */
@@ -125,8 +125,13 @@
   @if (isRef($currentValue)) {
     $currentValue: oo(getRefValue($currentValue), $map);
   }
-  $newValue: ooSet($key, mapMergeDeep($currentValue, $mapValue), $map);
 
+  @if isList($currentValue) {
+    $newValue: ooSet($key, append($currentValue, $mapValue), $map);
+    @return $newValue;
+  }
+    
+  $newValue: ooSet($key, mapMergeDeep($currentValue, $mapValue), $map);
   @return $newValue;
 }
 

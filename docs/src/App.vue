@@ -367,8 +367,6 @@ export default {
 	  'green-sea':  #16a085,
 	);
 
-	$text-alignments-breakpoints-classes: ('sm', 'lg');
-
 	$checkbox-sizes:(
 	    'small': 1.6rem,
 	    'large': 2.4rem,
@@ -459,6 +457,7 @@ export default {
 	$ooLoop: ooAdd('utilities.fontWeight.props', (
 		'thin': 100,
 	));
+	$ooLoop: ooSet('utilities.textAlign.screens', ('sm', 'lg'));
 
 	@include ooInit();
 

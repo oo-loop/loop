@@ -121,28 +121,20 @@ $ooLoop: (
     ),
     fontStyle: (
       props: ('italic'),
-    )
-  ),
-
-  letterSpacing: (
-    props: (
-      'narrow': -.05rem,
-      'wide': .05rem,
     ),
+    textAlign: (
+      props: (
+        'left',
+        'right',
+        'center',
+      )
+    )
   ),
 
   /**
    * Text utilites
    */
   text: (
-    alignment: (
-      props: (
-        'left',
-        'right',
-        'center',
-      ),
-      screens: (),
-    ),
     decoration: (),
     transform: (
       props: (

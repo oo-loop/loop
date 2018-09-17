@@ -165,7 +165,4 @@ export default {
 	  'underline',
 	);
 	@include loop($text-decorations, 'text-decoration', '.text');
-	$letter-spacings: (
-	  'wider': .1rem,
-	);
 </style>
