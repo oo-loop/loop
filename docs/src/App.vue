@@ -454,19 +454,17 @@ export default {
 		'underline',
 	));
 
-	$ooLoop: ooAdd('wrapper', (
-		sizes: (
-			'default': .5rem 1rem,
-			'large': 2rem,
-			'wide': (
-				rt: 1.250rem,
-				sm: 2rem,
-				md: 2.875rem,
-				lg: 3rem,
-			),
-			screens: (sm, md, lg)
+	$ooLoop: ooAdd('wrapper.sizes', (
+		'default': .5rem 1rem,
+		'large': 2rem,
+		'wide': (
+			rt: 1.250rem,
+			sm: 2rem,
+			md: 2.875rem,
+			lg: 3rem,
 		)
 	));
+	$ooLoop: ooSet('wrapper.screens', (sm, md, lg));
 
 	@include ooInit();
 
