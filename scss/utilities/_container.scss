@@ -2,25 +2,26 @@
  * Container
  */
 
-$container-gutter: 1.6rem !default;
-$container-gutter-sm: 2.4rem !default;
-$containers-max-width: 1080px !default;
-
-.container,
-.container-fluid {
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-right: $container-gutter;
-  padding-left: $container-gutter;
-
-  display: block;
-  max-width: $containers-max-width;
-
-  @include breakpoint(sm) {
-    padding-left: $container-gutter-sm;
-    padding-right: $container-gutter-sm;
-  }
-}
-
-.container-fluid { max-width: none; }
+ @if oo('use.container') {
+   .container,
+   .container-fluid {
+     margin-left: auto;
+     margin-right: auto;
+   
+     display: block;
+     
+     @if isMap(oo('container.gutter')) {
+       @each $key, $value in oo('container.gutter') {
+         @include breakpoint($key) {
+           padding-right: $value;
+           padding-left: $value;
+         }
+       }
+     } @else if isString(oo('container.gutter')) {
+       padding-right: oo('container.gutter');
+       padding-left: oo('container.gutter');
+     }
+   }
+   
+   .container { max-width: oo('container.maxWidth'); }
+ }

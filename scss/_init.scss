@@ -146,8 +146,8 @@ $ooLoop: (
 
   container: (
     gutter: (
-      base: 1.6rem,
-      sm: 2.4rem,
+      rt: 1rem,
+      sm: 1.5rem,
     ),
     maxWidth: 1080px,
   ),
@@ -283,6 +283,7 @@ $ooLoop: (
     template: true,
     utilities: (
       color: true,
+      container: true,
       text: true,
       visibility: true,
       wrapper: true,
