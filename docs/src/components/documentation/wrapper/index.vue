@@ -70,24 +70,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss" scoped>
-	@import '~loop/init';
-	@include ooInit();
-	@import '~loop/variables';
-	@import '~loop/mixins/loop';
-
-	$new-wrapper-padding-sizes: (
-		'default': 1rem 1.6rem,
-		'large': 3.2rem,
-		'wide': (
-			'': 2rem,
-			sm: 3.2rem,
-		    md: 4.6rem,
-		    lg: 6rem,
-		),
-	);
-	$wrapper-breakpoints-classes: (sm, md, lg);
-	@include loop($new-wrapper-padding-sizes, 'padding', '.wrapper');
-	@include loopBreakpoints($wrapper-breakpoints-classes, $wrapper-padding-sizes, 'padding', '.wrapper');
-</style>

@@ -13,7 +13,7 @@
     @media (min-width: $width) {
       @content;
     }
-  } @else if isEmpty($key) {
+  } @else if isEmpty($key) or $key == 'rt' {
     @content;
   }
 }
@@ -29,7 +29,7 @@
     @media (max-width: $max-width) {
       @content;
     }
-  } @else if isEmpty($key) {
+  } @else if isEmpty($key) or $key == 'rt' {
     @content;
   }
 }
