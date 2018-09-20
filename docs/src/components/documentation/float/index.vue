@@ -50,16 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import '~loop/init';
-	@include ooInit();
 	@import '~loop/variables';
-	@import '~loop/mixins/loop';
-	
-	$new-float: (
-		'none' : none,
-	);
-	@include loop($new-float, 'float', '.float', $float-is-important);
-	@include loopBreakpoints($float-breakpoints-classes, $new-float, 'float', '.float', $float-is-important);
 
 	.cell {
 		padding: 40px;

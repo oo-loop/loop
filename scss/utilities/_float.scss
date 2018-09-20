@@ -2,16 +2,22 @@
  * FLoat utilites
  */
 
-$float: (
-  'left': left,
-  'right': right,
-) !default;
-$float-breakpoints-classes: $breakpoints-classes !default;
-$float-is-important: true !default;
+ @if oo('use.utilities.float') {
+  @include loop(
+    oo('float.props'),
+    'float',
+    '.float',
+    true
+  );
 
-
-@include loop($float, 'float', '.float', $float-is-important);
-@include loopBreakpoints($float-breakpoints-classes, $float, 'float', '.float', $float-is-important);
-
-.clearfix { @include clearfix; }
-.clear    { clear: both; }
+  @include loopBreakpoints(
+    oo('float.screens'),
+    oo('float.props'),
+    'float',
+    '.float',
+    true
+  );
+   
+  .clear { clear: both; }
+  .clearfix { @include clearfix; }
+}

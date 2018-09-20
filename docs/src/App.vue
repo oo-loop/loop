@@ -466,6 +466,8 @@ export default {
 	));
 	$ooLoop: ooSet('wrapper.screens', (sm, md, lg));
 
+	$ooLoop: ooAdd('float.props', 'none');
+
 	@include ooInit();
 
 

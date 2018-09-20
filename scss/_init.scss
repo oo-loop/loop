@@ -144,6 +144,13 @@ $ooLoop: (
     ),
   ),
 
+  float: (
+    props: (
+      'left',
+      'right',
+    )
+  ),
+
   container: (
     gutter: (
       rt: 1rem,
@@ -281,9 +288,10 @@ $ooLoop: (
     column: true,
     grid: false,
     template: true,
+    container: true,
     utilities: (
       color: true,
-      container: true,
+      float: true,
       text: true,
       visibility: true,
       wrapper: true,
