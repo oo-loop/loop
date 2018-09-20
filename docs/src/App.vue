@@ -448,10 +448,24 @@ export default {
 	$ooLoop: ooAdd('utilities.fontWeight.props', (
 		'thin': 100,
 	));
-	$ooLoop: ooSet('utilities.textAlign.screens', ('sm', 'lg'));
+	$ooLoop: ooSet('utilities.textAlign.screens', (sm, lg));
 	$ooLoop: ooSet('utilities.textDecoration.props', (
 		'line-through',
 		'underline',
+	));
+
+	$ooLoop: ooAdd('wrapper', (
+		sizes: (
+			'default': .5rem 1rem,
+			'large': 2rem,
+			'wide': (
+				rt: 1.250rem,
+				sm: 2rem,
+				md: 2.875rem,
+				lg: 3rem,
+			),
+			screens: (sm, md, lg)
+		)
 	));
 
 	@include ooInit();

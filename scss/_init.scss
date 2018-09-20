@@ -28,8 +28,8 @@ $ooLoop: (
 
   colors: (
     main: (
-      primary: #6cd7f7,
-      secondary: #959595,
+      'primary': #6cd7f7,
+      'secondary': #959595,
     ),
     backgrounds: oo('colors.main'),
     borders: oo('colors.main'),
@@ -214,12 +214,12 @@ $ooLoop: (
   ),
 
   wrapper: (
-    'sizes': (
-      'tiny': .8rem,
-      'small': 1.6rem,
-      'medium': 2.4rem,
+    sizes: (
+      'tiny': .5rem,
+      'small': 1rem,
+      'medium': 1.5rem,
     ),
-    'screens': ()
+    screens: ()
   ),
 
   button: (
@@ -285,6 +285,7 @@ $ooLoop: (
     utilities: (
       color: true,
       text: true,
+      wrapper: true,
     )
   )
 ) !default;

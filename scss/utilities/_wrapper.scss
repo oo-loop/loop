@@ -2,12 +2,16 @@
  * Wrapper
  */
 
-$wrapper-padding-sizes: (
-  'tiny': .8rem,
-  'small': 1.6rem,
-  'medium': 2.4rem,
-) !default;
-$wrapper-breakpoints-classes: () !default;
-
-@include loop($wrapper-padding-sizes, 'padding', '.wrapper');
-@include loopBreakpoints($wrapper-breakpoints-classes, $wrapper-padding-sizes, 'padding', '.wrapper');
+@if (oo('use.utilities.wrapper')) {
+  @include loop(
+    oo('wrapper.sizes'),
+    'padding',
+    '.wrapper'
+  );
+  @include loopBreakpoints(
+    oo('wrapper.screens'),
+    oo('wrapper.sizes'),
+    'padding',
+    '.wrapper'
+  );
+}
