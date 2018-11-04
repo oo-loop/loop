@@ -2,7 +2,7 @@
  * FLoat utilites
  */
 
- @if oo('use.utilities.float') {
+@if oo('use.utilities.float') {
   @include loop(
     oo('float.props'),
     'float',
@@ -17,7 +17,7 @@
     '.float',
     true
   );
-   
+    
   .clear { clear: both; }
   .clearfix { @include clearfix; }
 }
