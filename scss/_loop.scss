@@ -3,7 +3,7 @@
 // Functions, mixins and bases
 @import
   "variables",
-  // "init",
+  "map-variables",
   "functions/all",
   "mixins/all",
   "base/all"
@@ -34,3 +34,5 @@
   "utilities/visibility",
   "utilities/wrapper"
 ;
+
+@import "init";

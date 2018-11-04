@@ -1,324 +1,4 @@
-$ooLoop: (
-  html5: false,
-
-  /**
-   * breakpoints
-   * based on material guidelines
-   * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
-   */
-  breakpoints: (
-    xs: 30em, // 480px
-    sm: 37.500em, // 600px
-    md: 60em, // 960px
-    lg: 80em, // 1280px
-    xl: 120em, // 1980px
-  ),
-  screens: (sm, md, lg),
-
-  base: (
-    root: 100%,
-    smoothing: true,
-    fontFamily: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-    fontSize: 1em, //16px
-    fontWeight: 400,
-    lineHeight: 1.375,
-    color: #20373e,
-    bgcolor: #fff,
-  ),
-
-  colors: (
-    main: (
-      'primary': #6cd7f7,
-      'secondary': #959595,
-    ),
-    backgrounds: oo('colors.main'),
-    borders: oo('colors.main'),
-    fonts: oo('colors.main'),
-  ),
-
-
-  /**
-   * types 
-   */
-  headings: (
-    marginTop: .2em,
-    marginBottom: .45em,
-    color: oo('base.color'),
-    sizes: (
-      h1: (
-        rt: 2rem, //32px
-        sm: 2.5rem, //40px
-        // md: 2.875rem, //46px
-      ),
-      h2: (
-        rt: 1.625rem, //26px
-        sm: 2rem, //32px
-        // md: 2.25rem, //36px
-      ),
-      h3: (
-        rt: 1.375rem, //22px
-        sm: 1.5rem, //24px
-        // md: 1.75rem, //28px
-      ),
-      h4: 1.125rem, //18px
-      h5: 1rem, //16px
-      h6: .875rem, //14px
-    ),
-    classes: ('h2', 'h3'),
-    fontFamily: oo('base.fontFamily'),
-    fontWeight: 600,
-    lineHeight: 1.125,
-    letterSpacing: (
-      headings: (),
-      gap: -.063rem,
-    )
-  ),
-
-  paragraph: (
-    marginBottom: 1.125rem,
-  ),
-    
-  anchor: (
-    color: oo('colors.main.primary'),
-    hover: ooDarken(oo('anchor.color'), 12%),
-    textDecoration: none,
-  ),
-
-  list: (
-    marginBottom: oo('paragraph.marginBottom'),
-    dt: (
-      fontWeight: 700,
-    ),
-    inlineSpacing: 1em,
-    divide: (
-      spacing: oo('list.inlineSpacing'),
-      size: 1.2em,
-      affix: '|',
-      color: #cdcdcd,
-    ),
-  ),
-  
-  hr: (
-    color: #cdcdcd,
-    margin: 1rem,
-  ),
-
-  /**
-   * Utilities
-   */
-  utilities: (
-    fontFamily: (
-      props: (
-        'primary': oo('base.fontFamily'),
-        'secondary': ('Georgia', times, serif),
-      ),
-    ),
-    fontSize: (
-      props: (
-        'large': 1.250rem,
-        'small': .875rem,
-        'tiny': .8rem,
-      ),
-      prefix: 'text',
-    ),
-    fontStyle: (
-      props: ('italic'),
-    ),
-    fontWeight: (
-      props: (
-        'light': 300,
-        'bold': 700,
-      ),
-    ),
-    textAlign: (
-      props: (
-        'left',
-        'right',
-        'center',
-      )
-    ),
-    textTransform: (
-      props: (
-        'uppercase',
-      ),
-    ),
-  ),
-
-  float: (
-    props: (
-      'left',
-      'right',
-    ),
-    screens: (),
-  ),
-
-  visibility: (
-    breakpoints: oo('screens'),
-    pointbreaks: oo('screens'),
-  ),
-
-  container: (
-    gutter: (
-      rt: 1rem,
-      sm: 1.5rem,
-    ),
-    maxWidth: 1080px,
-  ),
-
-  column: (
-    system: 12,
-    gutter: (
-      base: 2.4rem,
-      sizes: (
-        'less': 0,
-        'small': 1.6rem,
-      ),
-      vsizes: oo('column.gutter.sizes'),
-      screens:(),
-    ),
-    use: (
-      order: true,
-      offset: false,
-      alignment: true,
-      alignmentBreakpoints: true,
-      selfAlignment: true,
-      selfAlignmentBreakpoints: false,
-      childAlignment: true,
-      childAlignmentBreakpoints: false,
-    )
-  ),
-
-  template: (
-    areas: (),
-    gap: (
-      use: true,
-      sizes: (),
-      vsizes: oo('template.gap.sizes')
-    ),
-  ),
-
-  grid: (
-    system: oo('column.system'),
-    gap: oo('column.gutter'),
-    use: (
-      order: true,
-    )
-  ),
-
-  spacing: (
-    h: (
-      sizes: (
-        '0': 0,
-        '1': .25rem,
-        '2': .75rem,
-        '3': 1.25rem,
-        '4': 1.75rem,
-      ),
-      screens: (),
-    ),
-    v: (
-      sizes: (
-        '0': 0,
-        '1': .5rem,
-        '2': 1rem,
-        '3': 1.5rem,
-        '4': 2rem,
-        '5': 2.5rem,
-      ),
-      screens: (),
-    ),
-  ),
-
-  wrapper: (
-    sizes: (
-      'tiny': .5rem,
-      'small': 1rem,
-      'medium': 1.5rem,
-    ),
-  ),
-
-  button: (
-    color: oo('base.color'),
-    colorHover: oo('button.color'),
-    variants: oo('colors.main'),
-  ),
-
-
-  label: (
-    fontWeight: 500,
-    margin: .3rem,
-  ),
-  input: (
-    color: #4d4d4d,
-    bgcolor: #fff,
-    fontFamily: oo('base.fontFamily'),
-    fontSize: oo('base.fontSize'),
-    fontWeight: oo('base.fontWeight'),
-    lineHeight: 1.15,
-    height: 2.5em,
-    focus: '',
-
-    padding: .5em .625em,
-    sizes: (),
-    borderColor: #d6d6d6,
-    border: 1px solid,
-    radius: .2em,
-    boxShadow:  1px 1px 1px 0 rgba(#aaa, .50),
-  ),
-  // checkbox: (
-  //   animation: true,
-  //   breakpoints: (),
-
-  //   sizes: (
-  //     'key' : '1.8rem',
-  //   ),
-  //   radius: .2em,
-  //   bgcolor: oo('input.bgcolor'),
-  //   border-color: oo('input.border-color'),
-  //   box-shadow: 1px 1px 2px 0 rgba(#aaa, .3),
-  //   checked: (
-  //     color: oo('input.color'),
-  //     bgcolor: oo('input.bgcolor'),
-  //     border-color: oo('checkbox.border-color'),
-  //   )
-  // ),
-  // radio: oo('checkbox'),
-  // select: (
-  //   size: 10px,
-  //   weight: 2px,
-  //   color: oo('input.color'),
-  //   bgcolor: oo('input.bgcolor'),
-  // ),
-
-  
-
-  use: (
-    button: true,
-    column: true,
-    grid: false,
-    template: true,
-    container: true,
-    utilities: (
-      color: true,
-      float: true,
-      list: true,
-      spacing: (
-        h: true,
-        v: true,
-      ),
-      text: true,
-      visibility: true,
-      wrapper: true,
-    )
-  )
-) !default;
-
-
-@import 'functions/oo';
-
 @mixin ooInit($custom:null) {
-  @debug 'init';
-
   $map: ooParse($ooLoop);
   $map: if(hasRef($map), ooParse($map), $map);
 
@@ -327,8 +7,39 @@ $ooLoop: (
     $map: if(hasRef($map), ooParse($map), $map);
   }
   $ooLoop: $map !global;
+
+  @if oo('use.template') {
+    @include initTemplate;
+  }
+  @if oo('use.utilities.color') {
+    @include initColor;
+  }
+  @if oo('use.container') {
+    @include initContainer;
+  }
+  @if oo('use.utilities.float') {
+    @include initFloat;
+  }
+  @if oo('use.utilities.list') {
+    @include initList;
+  }
+  @if oo('use.utilities.spacing.h') {
+    @include initSpacingHorizontal;
+  }
+  @if oo('use.utilities.spacing.v') {
+    @include initSpacingVertical;
+  }
+  @if (oo('use.utilities.text')) {
+    @include initText;
+  }
+  @if (oo('use.utilities.visibility')) {
+    @include initVisibility;
+  }
+  @if (oo('use.utilities.wrapper')) {
+    @include initWrapper;
+  }
 }
 
-// @include ooInit();
+@include ooInit();
 
 // @debug $ooLoop;
