@@ -2,29 +2,28 @@
  * Visibility Utilities
  */
 
- @if (oo('use.utilities.visibility')) {
-   .hidden { display: none !important; }
-   
-   .hidden\@print {
-     @media print { display: none !important; }
-   }
-   .hidden\@screen {
-     @media screen { display: none !important; }
-   }
-   
-   @if isNotEmpty(oo('screens')) {
-     @each $screen in oo('screens') {
-         @include breakpoint($screen) {
-             .hidden\@#{$screen} { display: none !important; }
-         }
-     }
-   }
-   
-   @if isNotEmpty(oo('screens')) {
-     @each $screen in oo('screens') {
-       @include pointbreak($screen) {
-         .hidden\!\@#{$screen} { display: none !important; }
-       }
-     }
-   }
- }
+@if (oo('use.utilities.visibility')) {
+  .hidden { display: none !important; }
+  
+  .hidden\@print {
+    @media print { display: none !important; }
+  }
+  .hidden\@screen {
+    @media screen { display: none !important; }
+  }
+  
+  @if isNotEmpty(oo('visibility.breakpoints')) {
+    @each $screen in oo('visibility.breakpoints') {
+        @include breakpoint($screen) {
+            .hidden\@#{$screen} { display: none !important; }
+        }
+    }
+  }
+  @if isNotEmpty(oo('visibility.pointbreaks')) {
+    @each $screen in oo('visibility.pointbreaks') {
+      @include pointbreak($screen) {
+        .hidden\!\@#{$screen} { display: none !important; }
+      }
+    }
+  }
+}

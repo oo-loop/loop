@@ -152,6 +152,11 @@ $ooLoop: (
     screens: (),
   ),
 
+  visibility: (
+    breakpoints: oo('screens'),
+    pointbreaks: oo('screens'),
+  ),
+
   container: (
     gutter: (
       rt: 1rem,
