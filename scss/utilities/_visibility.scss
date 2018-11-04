@@ -2,7 +2,7 @@
  * Visibility Utilities
  */
 
-@if (oo('use.utilities.visibility')) {
+@mixin initVisibility {
   .hidden { display: none !important; }
   
   .hidden\@print {

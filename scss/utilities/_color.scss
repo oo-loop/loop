@@ -2,7 +2,7 @@
  * Color Utilities
  */
 
-@if (oo('use.utilities.color')) {
+@mixin initColor {
   // Text colors
   @include loop(oo('colors.fonts'), 'color', '.color', true);
   // Bg colors

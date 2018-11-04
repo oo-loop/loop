@@ -3,7 +3,7 @@
  */
 
  // Horizontal
-@if (oo('use.utilities.spacing.h')) {
+@mixin initSpacingHorizontal {
   @include loop(oo('spacing.h.sizes'), 'margin-left', '.ml', true);
   @include loopBreakpoints(oo('spacing.h.screens'), oo('spacing.h.sizes'), 'margin-left', '.ml', true);
   @include loop(oo('spacing.h.sizes'), 'margin-right', '.mr', true);
@@ -11,7 +11,7 @@
 }
 
  // Vertical
-@if (oo('use.utilities.spacing.v')) {
+@mixin initSpacingVertical {
   @include loop(oo('spacing.v.sizes'), 'margin-top', '.mt', true);
   @include loopBreakpoints(oo('spacing.v.screens'), oo('spacing.v.sizes'), 'margin-top', '.mt', true);
   @include loop(oo('spacing.v.sizes'), 'margin-bottom', '.mb', true);

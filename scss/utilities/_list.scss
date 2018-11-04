@@ -2,7 +2,7 @@
  * List
  */
 
-@if oo('use.utilities.list') {
+@mixin initList {
   ul,
   ol {
     &.list-center {

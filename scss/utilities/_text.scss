@@ -2,7 +2,7 @@
  * Text utilites
  */
 
-@if (oo('use.utilities.text')) {
+@mixin initText {
   @each $property-name, $options  in oo('utilities') {
     $props: if(map-has-key($options, 'props'), oo('props', $options), ());
     $property-name: toKebabCase($property-name);

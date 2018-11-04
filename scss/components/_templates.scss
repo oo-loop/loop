@@ -56,42 +56,45 @@
   @include makeGridArea($area-names-list);
 }
 
-@if oo('use.template') and isNotEmpty(oo('template.areas')) {
 
-  [#{ooPrefix()}-template] {
-    display: grid;
-  }
-
-  @if isList(oo('template.areas')) {
+@mixin initTemplate {
+  @if isNotEmpty(oo('template.areas')) {
+  
     [#{ooPrefix()}-template] {
-      @include makeGrid(oo('template.areas'));
+      display: grid;
     }
-  } @else if isMap(oo('template.areas')) {
-    @if areKeysBreakpoints(oo('template.areas')) {
+  
+    @if isList(oo('template.areas')) {
       [#{ooPrefix()}-template] {
-        @include makeGridOnBreakpoints(oo('template.areas'));
+        @include makeGrid(oo('template.areas'));
       }
-    } @else {
-      @each $area-name, $template in oo('template.areas') {
-        [#{ooPrefix()}-template~="#{$area-name}"] {
-          @if isMap($template) {
-            @include makeGridOnBreakpoints($template);
-          } @else if isList($template) {
-            @include makeGrid($template);
+    } @else if isMap(oo('template.areas')) {
+      @if areKeysBreakpoints(oo('template.areas')) {
+        [#{ooPrefix()}-template] {
+          @include makeGridOnBreakpoints(oo('template.areas'));
+        }
+      } @else {
+        @each $area-name, $template in oo('template.areas') {
+          [#{ooPrefix()}-template~="#{$area-name}"] {
+            @if isMap($template) {
+              @include makeGridOnBreakpoints($template);
+            } @else if isList($template) {
+              @include makeGrid($template);
+            }
           }
         }
       }
     }
   }
-}
-
-@if oo('template.gap.use') and isNotEmpty(oo('template.gap.sizes')) {
-  @each $gap-name, $gap-size in oo('template.gap.sizes') {
-    [#{ooPrefix()}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
+  
+  @if oo('template.gap.use') and isNotEmpty(oo('template.gap.sizes')) {
+    @each $gap-name, $gap-size in oo('template.gap.sizes') {
+      [#{ooPrefix()}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
+    }
   }
-}
-@if oo('template.gap.use') and isNotEmpty(oo('template.gap.vsizes')) {
-  @each $gap-name, $gap-size in oo('template.gap.vsizes') {
-    [#{ooPrefix()}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+  @if oo('template.gap.use') and isNotEmpty(oo('template.gap.vsizes')) {
+    @each $gap-name, $gap-size in oo('template.gap.vsizes') {
+      [#{ooPrefix()}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+    }
   }
 }

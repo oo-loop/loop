@@ -2,7 +2,7 @@
  * Wrapper
  */
 
-@if (oo('use.utilities.wrapper')) {
+@mixin initWrapper {
   @include loop(
     oo('wrapper.sizes'),
     'padding',

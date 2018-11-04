@@ -2,26 +2,26 @@
  * Container
  */
 
- @if oo('use.container') {
-   .container,
-   .container-fluid {
-     margin-left: auto;
-     margin-right: auto;
-   
-     display: block;
-     
-     @if isMap(oo('container.gutter')) {
-       @each $key, $value in oo('container.gutter') {
-         @include breakpoint($key) {
-           padding-right: $value;
-           padding-left: $value;
-         }
-       }
-     } @else if isString(oo('container.gutter')) {
-       padding-right: oo('container.gutter');
-       padding-left: oo('container.gutter');
-     }
-   }
-   
-   .container { max-width: oo('container.maxWidth'); }
- }
+@mixin initContainer {
+  .container,
+  .container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+  
+    display: block;
+    
+    @if isMap(oo('container.gutter')) {
+      @each $key, $value in oo('container.gutter') {
+        @include breakpoint($key) {
+          padding-right: $value;
+          padding-left: $value;
+        }
+      }
+    } @else if isString(oo('container.gutter')) {
+      padding-right: oo('container.gutter');
+      padding-left: oo('container.gutter');
+    }
+  }
+  
+  .container { max-width: oo('container.maxWidth'); }
+}
