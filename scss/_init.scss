@@ -199,23 +199,26 @@ $ooLoop: (
     )
   ),
 
-
   spacing: (
-    ratio: 0.1, // with 62.5% on root 10px = 1rem
     h: (
-      use: true,
-      from: 0,
-      to: 25,
-      step: 5,
-      extra: (),
+      sizes: (
+        '0': 0,
+        '1': .25rem,
+        '2': .75rem,
+        '3': 1.25rem,
+        '4': 1.75rem,
+      ),
       screens: (),
     ),
     v: (
-      use: true,
-      from: 0,
-      to: 50,
-      step: 5,
-      extra: (),
+      sizes: (
+        '0': 0,
+        '1': .5rem,
+        '2': 1rem,
+        '3': 1.5rem,
+        '4': 2rem,
+        '5': 2.5rem,
+      )
       screens: (),
     ),
   ),
@@ -293,6 +296,10 @@ $ooLoop: (
       color: true,
       float: true,
       list: true,
+      spacing: (
+        h: true,
+        v: true,
+      ),
       text: true,
       visibility: true,
       wrapper: true,
