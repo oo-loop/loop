@@ -8,6 +8,9 @@
   }
   $ooLoop: $map !global;
 
+  @if oo('use.column') {
+    @include initColumn;
+  }
   @if oo('use.template') {
     @include initTemplate;
   }

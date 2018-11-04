@@ -2,204 +2,181 @@
  * Column
  */
 
-$columns-gutter: 2.4rem !default;
-$columns-system: 12 !default;
-$use-columns-order: true !default;
-$use-columns-offset: false !default;
-$use-columns-alignment: true !default;
-$use-columns-self-alignment: true !default;
-$use-columns-child-alignment: true !default;
+@mixin initColumn {
+  // row
+  [#{ooPrefix()}-row] {
+    position: relative;
+    left: -#{oo('column.gutter.base')};
+    margin-right: -#{oo('column.gutter.base')};
 
-$use-columns-alignment-breakpoints: true !default;
-$use-columns-self-alignment-breakpoints: true !default;
-$use-columns-self-adjustment-breakpoints: false !default;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-$columns-gutter-sizes: (
-  'less' : 0,
-  'small': 1.6rem,
-) !default;
-$columns-gutter-sizes-breakpoints-classes: () !default;
+  // columns
+  [#{ooPrefix()}-col] {
+    padding-left: oo('column.gutter.base');
+    padding-bottom: oo('column.gutter.base');
 
-$columns-v-gutter-sizes: $columns-gutter-sizes !default;
-$columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-classes !default;
+    flex-shrink: 0;
+    flex-grow: 1;
+    flex-basis: 0;
 
-// row
-[#{$loop-component-prefix}-row] {
-  position: relative;
-  left: -#{$columns-gutter};
-  margin-right: -#{$columns-gutter};
+    min-width: 0;
+    max-width: 100%;
+  }
 
-  display: flex;
-  flex: 0 1 auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
+  // reponsives classes starting from root
+  @each $class in join('', oo('column.screens')) {
+    @include breakpoint($class) {
+      $suffix: '';
+      @if $class != '' {
+        $suffix: \@#{$class};
+      }
+
+      // auto col
+      [#{ooPrefix()}-col~="auto#{$suffix}"] {
+        flex-basis: 0;
+        max-width: 100%;
+      }
+
+      // columns
+      @for $i from 1 through oo('column.system') {
+        [#{ooPrefix()}-col~="s#{$i}#{$suffix}"] {
+          flex-basis: percentage($i / oo('column.system'));
+          max-width: percentage($i / oo('column.system'));
+        }
+      }
+
+      @if oo('column.use.fitBreakpoints') or isEmpty($suffix) {
+        // adjust to the size of the content
+        [#{ooPrefix()}-col~="fit#{$suffix}"] {
+          min-width: auto;
+          flex-grow: 0;
+          flex-basis: auto;
+        }
+      }
+
+      @if oo('column.use.alignment')
+        and (oo('column.use.alignmentBreakpoints') isEmpty($suffix)) {
+        // horizontal alignment
+        [#{ooPrefix()}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
+        [#{ooPrefix()}-row~="align-center#{$suffix}"] { justify-content: center; }
+        [#{ooPrefix()}-row~="align-right#{$suffix}"]  { justify-content: flex-end; }
+        [#{ooPrefix()}-row~="align-evenly#{$suffix}"] { justify-content: space-evenly; }
+        [#{ooPrefix()}-row~="align-between#{$suffix}"]{ justify-content: space-between; }
+
+        // vertical alignment
+        [#{ooPrefix()}-row~="valign-top#{$suffix}"]    { align-items: flex-start; }
+        [#{ooPrefix()}-row~="valign-middle#{$suffix}"] { align-items: center; }
+        [#{ooPrefix()}-row~="valign-bottom#{$suffix}"] { align-items: flex-end; }
+      }
+
+      @if oo('column.use.selfAlignment')
+        and (oo('column.use.selfAlignmentBreakpoints') or isEmpty($suffix)) {
+        // horizontal alignment
+        [#{ooPrefix()}-col~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
+        [#{ooPrefix()}-col~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
+        [#{ooPrefix()}-col~="self-align-right#{$suffix}"]  { margin-left: auto; margin-right: initial; }
+
+        // vertical alignment
+        [#{ooPrefix()}-col~="self-valign-top#{$suffix}"]    { align-self: flex-start; }
+        [#{ooPrefix()}-col~="self-valign-middle#{$suffix}"] { align-self: center; }
+        [#{ooPrefix()}-col~="self-valign-bottom#{$suffix}"] { align-self: flex-end; }
+      }
+    }
+  }
 
 
-// columns
-[#{$loop-component-prefix}-col] {
-  padding-left: $columns-gutter;
-  padding-bottom: $columns-gutter;
+  @if oo('column.use.childAlignment') {
+    [#{ooPrefix()}-col*="child-align-"] > * {
+      display: flex;
+      flex-direction: column;
+    }
 
-  flex-shrink: 0;
-  flex-grow: 1;
-  flex-basis: 0;
+    // horizontal alignment
+    [#{ooPrefix()}-col~="child-align-left"] > *    { align-items: flex-start; }
+    [#{ooPrefix()}-col~="child-align-center"] > *  { align-items: center; }
+    [#{ooPrefix()}-col~="child-align-right"] > *   { align-items: flex-end; }
 
-  min-width: 0;
-  max-width: 100%;
-}
+    // vertical alignment
+    [#{ooPrefix()}-col~="child-valign-top"] > *    { justify-content: flex-start; }
+    [#{ooPrefix()}-col~="child-valign-middle"] > * { justify-content: center; }
+    [#{ooPrefix()}-col~="child-valign-bottom"] > * { justify-content: flex-end; }
+  }
 
-// reponsives classes starting from default value
-@each $class in join('', oo('screens')) {
-  @include breakpoint($class) {
-    $suffix: '';
-    @if $class != '' {
+
+  // responsive classes
+  @each $class in oo('column.screens') {
+    @include breakpoint($class) {
       $suffix: \@#{$class};
-    }
 
-    // auto col
-    [#{$loop-component-prefix}-col~="auto#{$suffix}"] {
-      flex-basis: 0;
-      max-width: 100%;
-    }
-
-    // columns
-    @for $i from 1 through $columns-system {
-      [#{$loop-component-prefix}-col~="s#{$i}#{$suffix}"] {
-        flex-basis: percentage($i/$columns-system);
-        max-width: percentage($i/$columns-system);
+      // order-0 to make sure it is first
+      @if oo('column.use.order') {
+        [#{ooPrefix()}-col~="order-0#{$suffix}"] { order: -1; }
       }
-    }
-
-    @if $use-columns-self-adjustment-breakpoints == true or isEmpty($suffix) {
-      // adjust to the size of the content
-      [#{$loop-component-prefix}-col~="fit#{$suffix}"] {
-        min-width: auto;
-        flex-grow: 0;
-        flex-basis: auto;
-      }
-    }
-
-    @if $use-columns-alignment == true
-      and ($use-columns-alignment-breakpoints == true or isEmpty($suffix)) {
-      // horizontal alignment
-      [#{$loop-component-prefix}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
-      [#{$loop-component-prefix}-row~="align-center#{$suffix}"] { justify-content: center; }
-      [#{$loop-component-prefix}-row~="align-right#{$suffix}"]  { justify-content: flex-end; }
-      [#{$loop-component-prefix}-row~="align-evenly#{$suffix}"] { justify-content: space-evenly; }
-      [#{$loop-component-prefix}-row~="align-between#{$suffix}"]{ justify-content: space-between; }
-
-      // vertical alignment
-      [#{$loop-component-prefix}-row~="valign-top#{$suffix}"]    { align-items: flex-start; }
-      [#{$loop-component-prefix}-row~="valign-middle#{$suffix}"] { align-items: center; }
-      [#{$loop-component-prefix}-row~="valign-bottom#{$suffix}"] { align-items: flex-end; }
-    }
-
-    @if $use-columns-self-alignment == true
-      and ($use-columns-self-alignment-breakpoints == true or isEmpty($suffix)) {
-          // horizontal alignment
-      [#{$loop-component-prefix}-col~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
-      [#{$loop-component-prefix}-col~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
-      [#{$loop-component-prefix}-col~="self-align-right#{$suffix}"]  { margin-left: auto; margin-right: initial; }
-
-      // vertical alignment
-      [#{$loop-component-prefix}-col~="self-valign-top#{$suffix}"]    { align-self: flex-start; }
-      [#{$loop-component-prefix}-col~="self-valign-middle#{$suffix}"] { align-self: center; }
-      [#{$loop-component-prefix}-col~="self-valign-bottom#{$suffix}"] { align-self: flex-end; }
-    }
-  }
-}
-
-
-@if $use-columns-child-alignment == true {
-  [#{$loop-component-prefix}-col*="child-align-"] > * {
-    display: flex;
-    flex-direction: column;
-  }
-
-  // horizontal alignment
-  [#{$loop-component-prefix}-col~="child-align-left"] > *    { align-items: flex-start; }
-  [#{$loop-component-prefix}-col~="child-align-center"] > *  { align-items: center; }
-  [#{$loop-component-prefix}-col~="child-align-right"] > *   { align-items: flex-end; }
-
-  // vertical alignment
-  [#{$loop-component-prefix}-col~="child-valign-top"] > *    { justify-content: flex-start; }
-  [#{$loop-component-prefix}-col~="child-valign-middle"] > * { justify-content: center; }
-  [#{$loop-component-prefix}-col~="child-valign-bottom"] > * { justify-content: flex-end; }
-}
-
-
-// responsive classes
-@each $class in $breakpoints-classes {
-  @include breakpoint($class) {
-    $suffix: \@#{$class};
-
-    // order-0 to make sure it is first
-    @if $use-columns-order == true {
-      [#{$loop-component-prefix}-col~="order-0#{$suffix}"] { order: -1; }
-    }
-    @for $i from 1 through $columns-system {
-      // offset
-      @if $use-columns-offset == true {
-        [#{$loop-component-prefix}-col~="offset-#{$i}#{$suffix}"] { margin-left: percentage($i/$columns-system); }
-      }
-      // order
-      @if $use-columns-order == true {
-        [#{$loop-component-prefix}-col~="order-#{$i}#{$suffix}"] { order: $i; }
-      }
-    }
-  }
-}
-
-
-// stretch
-[#{$loop-component-prefix}-row~="stretch"] {
-  align-items: stretch;
-  > [#{$loop-component-prefix}-col] {
-    display: flex;
-    > * {
-      width:100%;
-    }
-  }
-}
-
-
-// gutters
-$columns-gutter-sizes-breakpoints-classes: join('', $columns-gutter-sizes-breakpoints-classes);
-@each $class in $columns-gutter-sizes-breakpoints-classes {
-  @include breakpoint($class) {
-    $suffix: if(isEmpty($class), '', \@#{$class});
-    @each $gutter-name, $gutter-size in $columns-gutter-sizes {
-      [#{$loop-component-prefix}-row~="gutter-#{$gutter-name}#{$suffix}"] {
-        left: -#{$gutter-size};
-        margin-right: -#{$gutter-size};
-
-        > [#{$loop-component-prefix}-col] {
-          padding-bottom: $gutter-size;
-          padding-left: $gutter-size;
+      @for $i from 1 through oo('column.system') {
+        // offset
+        @if oo('column.use.offset') == true {
+          [#{ooPrefix()}-col~="offset-#{$i}#{$suffix}"] { margin-left: percentage($i / oo('column.system')); }
+        }
+        // order
+        @if oo('column.use.order') {
+          [#{ooPrefix()}-col~="order-#{$i}#{$suffix}"] { order: $i; }
         }
       }
     }
   }
-}
 
-$columns-v-gutter-sizes-breakpoints-classes: join('', $columns-v-gutter-sizes-breakpoints-classes);
-@each $class in $columns-v-gutter-sizes-breakpoints-classes {
-  @include breakpoint($class) {
-    $suffix: if(isEmpty($class), '', \@#{$class});
-    @each $gutter-name, $gutter-size in $columns-v-gutter-sizes {
-      [#{$loop-component-prefix}-row~="vgutter-#{$gutter-name}#{$suffix}"] {
-        > [#{$loop-component-prefix}-col] {
-          padding-bottom: $gutter-size;
+
+  // stretch
+  [#{ooPrefix()}-row~="stretch"] {
+    align-items: stretch;
+    > [#{ooPrefix()}-col] {
+      display: flex;
+      > * {
+        width:100%;
+      }
+    }
+  }
+
+  // gutters
+  @each $class in join('', oo('column.gutter.h.screens')) {
+    @include breakpoint($class) {
+      $suffix: if(isEmpty($class), '', \@#{$class});
+      @each $gutter-name, $gutter-size in oo('column.gutter.h.sizes') {
+        [#{ooPrefix()}-row~="gutter-#{$gutter-name}#{$suffix}"] {
+          left: -#{$gutter-size};
+          margin-right: -#{$gutter-size};
+
+          > [#{ooPrefix()}-col] {
+            padding-bottom: $gutter-size;
+            padding-left: $gutter-size;
+          }
         }
       }
     }
   }
-}
 
-// clear
-[#{$loop-component-prefix}-col~="clear"] {
-  padding: 0;
-  flex-basis: 100%;
-  max-width: 100%;
-}
+  @each $class in join('', oo('column.gutter.v.screens')) {
+    @include breakpoint($class) {
+      $suffix: if(isEmpty($class), '', \@#{$class});
+      @each $gutter-name, $gutter-size in oo('column.gutter.v.sizes') {
+        [#{ooPrefix()}-row~="vgutter-#{$gutter-name}#{$suffix}"] {
+          > [#{ooPrefix()}-col] {
+            padding-bottom: $gutter-size;
+          }
+        }
+      }
+    }
+  }
+
+  // clear
+  [#{ooPrefix()}-col~="clear"] {
+    padding: 0;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}  
