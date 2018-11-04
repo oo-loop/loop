@@ -7,7 +7,7 @@
     $props: if(map-has-key($options, 'props'), oo('props', $options), ());
     $property-name: toKebabCase($property-name);
     $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', $property-name), 1));
-    $is-important: if(map-has-key($options, 'important'), oo('important', $options), false);
+    $is-important: if(map-has-key($options, 'important'), oo('important', $options), true);
     $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
     
     @if not (str-slice(prefix, 1, 1) == '.') {
