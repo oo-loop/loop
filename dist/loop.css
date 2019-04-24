@@ -2365,7 +2365,6 @@ hr, .hr {
 [oo-button]:active {
   background-color: #e0e0e0;
   box-shadow: inset 1px 1px 1px 0 #bfbfbf;
-  transform: scale(0.99);
 }
 
 [oo-button].full {
