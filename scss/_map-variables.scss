@@ -39,39 +39,30 @@ $ooLoop: (
     fonts: oo('colors.main'),
   ),
 
-
-  /**
-   * types 
-   */
   headings: (
-    marginTop: .2em,
-    marginBottom: .45em,
-    color: oo('body.color'),
-    sizes: (
-      h1: (
-        rt: 3.2rem, //32px
-        sm: 4rem, //40px
-      ),
-      h2: (
-        rt: 2.6rem, //26px
-        sm: 3.2rem, //32px
-      ),
-      h3: (
-        rt: 2.2rem, //22px
-        sm: 2.4rem, //24px
-      ),
-      h4: 1.8rem, //18px
-      h5: 1.6rem, //16px
-      h6: 1.4rem, //14px
+    props: (
+      marginTop: .2em,
+      marginBottom: .45em,
+      lineHeight: 1.125,
     ),
     classes: ('h2', 'h3'),
-    fontFamily: oo('body.fontFamily'),
-    fontWeight: 600,
-    lineHeight: 1.125,
-    letterSpacing: (
-      headings: (),
-      gap: -.063rem,
-    )
+    sizes: (
+      h1: (
+        rt: 3.2rem,
+        sm: 3.6rem,
+      ),
+      h2: (
+        rt: 2.6rem,
+        sm: 3rem,
+      ),
+      h3: (
+        rt: 2.2rem,
+        sm: 2.4rem,
+      ),
+      h4: 1.8rem,
+      h5: 1.6rem,
+      h6: 1.4rem,
+    ),
   ),
 
   paragraph: (

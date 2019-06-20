@@ -2,105 +2,88 @@
  * Typography
  */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: oo('headings.marginTop');
-  margin-bottom: oo('headings.marginBottom');
-  font-weight: oo('headings.fontWeight');
-  line-height: oo('headings.lineHeight');
-
-  //add font family rules if different
-  @if oo('headings.fontFamily') != oo('base.fontFamily') {
-    font-family: oo('headings.fontFamily');
-  }
-  //add color rules if different
-  @if oo('headings.color') != oo('base.color') {
-    color: oo('headings.color');
-  }
-}
-
-@mixin headings($heading, $font-size) {
-  @if isMap($font-size) {
-    @each $key, $value in $font-size {
-      @include breakpoint($key) {
-        font-size: $value;
+@mixin initType {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @if oo('headings.props') {
+      @each $property-name, $property-value in oo('headings.props') {
+        $property-name: toKebabCase($property-name);
+        #{$property-name}: $property-value;
       }
     }
-  } @else {
-    font-size: $font-size;
   }
-
-  @if isNotEmpty(oo('headings.letterSpacing.gap'))
-    and inList($heading, oo('headings.letterSpacing.headings')) {
-    letter-spacing: oo('headings.letterSpacing.gap');
-  }
-}
-
-@each $heading, $font-size in oo('headings.sizes') {
-  #{$heading} {
-    @include headings($heading, $font-size);
-  }
-  @if inList($heading, oo('headings.classes')) {
-    .#{$heading} {
-      @extend #{$heading};
+  
+  @if oo('headings.sizes') {
+    @each $heading, $font-size in oo('headings.sizes') {
+      #{$heading} {
+        @if isMap($font-size) {
+          @each $key, $value in $font-size {
+            @include breakpoint($key) {
+              font-size: $value;
+            }
+          }
+        } @else {
+          font-size: $font-size;
+        }
+      }
+      @if inList($heading, oo('headings.classes')) {
+        .#{$heading} {
+          @extend #{$heading};
+        }
+      }
     }
   }
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: oo('paragraph.marginBottom');
-}
-
-a {
-  color: oo('anchor.color');
-  text-decoration: none;
-
-  &[href]:focus,
-  &[href]:hover {
-    color: oo('anchor.hover');
-    text-decoration: oo('anchor.textDecoration');
+  
+  p {
+    margin-top: 0;
+    margin-bottom: oo('paragraph.marginBottom');
   }
-}
-
-ul,
-ol,
-dl {
-  margin-top: 0;
-  margin-bottom: oo('list.marginBottom');
-}
-
-ul,
-ol {
-  padding-left: 18px;
-
-  > ul, ol {
-    margin-top: .3em;
-    margin-bottom: .5em
+  
+  a {
+    color: oo('anchor.color');
+    text-decoration: none;
+  
+    &[href]:focus,
+    &[href]:hover {
+      color: oo('anchor.hover');
+      text-decoration: oo('anchor.textDecoration');
+    }
   }
-}
-
-dt { font-weight: oo('list.dt.fontWeight') }
-dd {
-  margin-left: auto;
-  + dt {
-    margin-top: .5em;
+  
+  ul,
+  ol,
+  dl {
+    margin-top: 0;
+    margin-bottom: oo('list.marginBottom');
   }
-}
-
-mark {
-  color: inherit;
-  background-color: lighten(yellow, 40%);
-}
-
-hr, .hr {
-  margin-top: oo('hr.margin');
-  margin-bottom: oo('hr.margin');
-  display: block;
-  border:none;
-  border-bottom: 1px solid oo('hr.color');
+  
+  ul,
+  ol {
+    padding-left: 18px;
+  
+    > ul, ol {
+      margin-top: .3em;
+      margin-bottom: .5em
+    }
+  }
+  
+  dt { font-weight: oo('list.dt.fontWeight') }
+  dd {
+    margin-left: auto;
+    + dt {
+      margin-top: .5em;
+    }
+  }
+  
+  hr, .hr {
+    margin-top: oo('hr.margin');
+    margin-bottom: oo('hr.margin');
+    display: block;
+    border:none;
+    border-bottom: 1px solid oo('hr.color');
+  }
 }
