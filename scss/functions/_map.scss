@@ -26,6 +26,9 @@
  */
 @function mapMergeDeep($parentMap, $childMap) {
   $map: $parentMap;
+  @if not isMap($map) {
+    @return $map;
+  }
   @each $key, $value in $childMap {
     @if (not map-has-key($map, $key)) or (type-of(map-get($map, $key) ) != type-of($value)) or (not (isMap(map-get($map, $key)) and isMap($value))) {
       $map: map-merge($map, ($key: $value));
