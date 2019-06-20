@@ -3,25 +3,27 @@
  * Default body styles
  */
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: oo('base.root');
-  $font-smoothing: oo('base.smoothing');
-  @if $font-smoothing {
-    @include fontSmoothing($font-smoothing);
+@mixin initBase {
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
   }
-}
+  
+  html {
+    font-size: oo('root.fontSize');
+    $font-smoothing: oo('root.smoothing');
+    @if $font-smoothing {
+      @include fontSmoothing($font-smoothing);
+    }
+  }
 
-body {
-  color: oo('base.color');
-  font-family: oo('base.fontFamily');
-  font-size: oo('base.fontSize');
-  font-weight: oo('base.fontWeight');
-  line-height: oo('base.lineHeight');
-  background-color: oo('base.bgcolor');
+  @if oo('body') {
+    body {
+      @each $property-name, $property-value in oo('body') {
+        $property-name: toKebabCase($property-name);
+        #{$property-name}: $property-value;
+      }
+    }
+  }
 }

@@ -8,6 +8,12 @@
   }
   $ooLoop: $map !global;
 
+  @if oo('use.base') {
+    @include initBase;
+  }
+  @if oo('use.type') {
+    @include initType;
+  }
   @if oo('use.column') {
     @include initColumn;
   }
@@ -42,7 +48,3 @@
     @include initWrapper;
   }
 }
-
-@include ooInit();
-
-// @debug $ooLoop;

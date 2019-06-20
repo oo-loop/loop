@@ -1,5 +1,5 @@
 $ooLoop: (
-  html5: false,
+  html5: true,
 
   /**
    * breakpoints
@@ -13,17 +13,20 @@ $ooLoop: (
     lg: 80em, // 1280px
     xl: 120em, // 1980px
   ),
+  
   screens: (sm, md, lg),
 
-  base: (
-    root: 100%,
+  root: (
+    fontSize: 62.5%,
     smoothing: true,
+  ),
+
+  body: (
     fontFamily: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-    fontSize: 1em, //16px
-    fontWeight: 400,
+    fontSize: 1.6em, //16px
     lineHeight: 1.375,
     color: #20373e,
-    bgcolor: #fff,
+    backgroundColor: #fff,
   ),
 
   colors: (
@@ -43,29 +46,26 @@ $ooLoop: (
   headings: (
     marginTop: .2em,
     marginBottom: .45em,
-    color: oo('base.color'),
+    color: oo('body.color'),
     sizes: (
       h1: (
-        rt: 2rem, //32px
-        sm: 2.5rem, //40px
-        // md: 2.875rem, //46px
+        rt: 3.2rem, //32px
+        sm: 4rem, //40px
       ),
       h2: (
-        rt: 1.625rem, //26px
-        sm: 2rem, //32px
-        // md: 2.25rem, //36px
+        rt: 2.6rem, //26px
+        sm: 3.2rem, //32px
       ),
       h3: (
-        rt: 1.375rem, //22px
-        sm: 1.5rem, //24px
-        // md: 1.75rem, //28px
+        rt: 2.2rem, //22px
+        sm: 2.4rem, //24px
       ),
-      h4: 1.125rem, //18px
-      h5: 1rem, //16px
-      h6: .875rem, //14px
+      h4: 1.8rem, //18px
+      h5: 1.6rem, //16px
+      h6: 1.4rem, //14px
     ),
     classes: ('h2', 'h3'),
-    fontFamily: oo('base.fontFamily'),
+    fontFamily: oo('body.fontFamily'),
     fontWeight: 600,
     lineHeight: 1.125,
     letterSpacing: (
@@ -109,7 +109,7 @@ $ooLoop: (
   utilities: (
     fontFamily: (
       props: (
-        'primary': oo('base.fontFamily'),
+        'primary': oo('body.fontFamily'),
         'secondary': ('Georgia', times, serif),
       ),
     ),
@@ -245,7 +245,7 @@ $ooLoop: (
   ),
 
   button: (
-    color: oo('base.color'),
+    color: oo('body.color'),
     colorHover: oo('button.color'),
     variants: oo('colors.main'),
   ),
@@ -258,9 +258,9 @@ $ooLoop: (
   input: (
     color: #4d4d4d,
     bgcolor: #fff,
-    fontFamily: oo('base.fontFamily'),
-    fontSize: oo('base.fontSize'),
-    fontWeight: oo('base.fontWeight'),
+    fontFamily: oo('body.fontFamily'),
+    fontSize: oo('body.fontSize'),
+    fontWeight: oo('body.fontWeight'),
     lineHeight: 1.15,
     height: 2.5em,
     focus: '',
@@ -300,9 +300,11 @@ $ooLoop: (
   
 
   use: (
+    base: true,
+    type: true,
     button: true,
     column: true,
-    grid: false,
+    grid: false, 
     template: true,
     container: true,
     utilities: (
