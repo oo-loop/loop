@@ -7,9 +7,12 @@
  * @return string
  */
 @function getMapValue($map, $key) {
+  @if isNotMap($map) {
+    @return null;
+  }
   @if map-has-key($map, $key) == false {
-    @warn 'key does not exist when using getMapValue() for' #{$key} 'on' $map;
-    @return '';
+    // @warn 'key does not exist when using getMapValue() for' #{$key} 'on' $map;
+    @return null;
   }
   @return map-get($map, $key);
 }
