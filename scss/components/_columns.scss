@@ -160,7 +160,7 @@
 
 
   // gutters
-  @each $gutter-name, $gutter-size in oo('column.gutter.sizes.h') {
+  @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
     [#{ooPrefix()}-row~="gutter-#{$gutter-name}"] {
       @if (isMap($gutter-size)) {
         @each $key, $value in $gutter-size {
@@ -188,8 +188,8 @@
   $vgutter: (
     () : oo('column.gutter.base'),
   );
-  @if isMap(oo('column.gutter.sizes.v')) {
-    $vgutter: map-merge($vgutter, oo('column.gutter.sizes.v'));
+  @if isMap(oo('column.gutter.vsizes')) {
+    $vgutter: map-merge($vgutter, oo('column.gutter.vsizes'));
   }
 
   @each $gutter-name, $gutter-size in $vgutter {

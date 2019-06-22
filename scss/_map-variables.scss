@@ -169,11 +169,9 @@ $ooLoop: (
     gutter: (
       base: oo('container.gutter'),
       sizes: (
-        h: (
-          'less': 0,
-        ),
-        v: oo('column.gutter.sizes.h')
-      )
+        'less': 0,
+      ),
+      vsizes: oo('column.gutter.sizes')
     ),
     screens: oo('screens'),
     use: (
