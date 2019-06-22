@@ -2,18 +2,18 @@
  * Typography
  */
 
-@mixin initType {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @if oo('headings.props') {
+@mixin initHeadings {
+  @if oo('headings.props') {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       @include generateProperties(oo('headings.props'));
     }
   }
-  
+
   @if oo('headings.sizes') {
     @each $heading, $font-size in oo('headings.sizes') {
       #{$heading} {
@@ -34,34 +34,32 @@
       }
     }
   }
-  
+}
+
+@mixin initType {
   p {
-    margin-top: 0;
-    margin-bottom: oo('paragraph.marginBottom');
+    @if oo('paragraph') {
+      @include generateProperties(oo('paragraph'));
+    }
   }
   
   a {
-    color: oo('anchor.color');
-    text-decoration: none;
-  
-    &[href]:focus,
-    &[href]:hover {
-      color: oo('anchor.hover');
-      text-decoration: oo('anchor.textDecoration');
+    @if oo('anchor.props') {
+      @include generateProperties(oo('anchor.props'));
+    }
+    @if oo('anchor.hover') {
+      &[href]:focus,
+      &[href]:hover {
+        @include generateProperties(oo('anchor.hover'));
+      }
     }
   }
   
   ul,
-  ol,
-  dl {
-    margin-top: 0;
-    margin-bottom: oo('list.marginBottom');
-  }
-  
-  ul,
   ol {
-    padding-left: 1.1em;
-  
+    @if oo('list.props') {
+      @include generateProperties(oo('list.props'));
+    }
     > ul, ol {
       margin-top: .3em;
       margin-bottom: .5em
