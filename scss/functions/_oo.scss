@@ -160,7 +160,11 @@
       $ooRef: extractRef($value);
       $newValue: oo(getRefValue($ooRef), $parentMap);
       @if isAlias($value){
-        $newValue: getAliasValue($value, $newValue);
+        @if hasRef($newValue) {
+          $newValue: replace($ooRef, $newValue, $value)
+        } @else {
+          $newValue: getAliasValue($value, $newValue);
+        }
       }
       $map: ooSet($key, $newValue, $map);
 
