@@ -171,21 +171,20 @@ $ooLoop: (
       sizes: (
         h: (
           'less': 0,
-          'small': 1.6rem,
         ),
         v: oo('column.gutter.sizes.h')
       )
     ),
     screens: oo('screens'),
     use: (
-      order: true,
+      order: false,
       offset: false,
       alignment: true,
       alignmentBreakpoints: true,
       fitBreakpoints: false,
       selfAlignment: true,
       selfAlignmentBreakpoints: false,
-      childAlignment: true,
+      childAlignment: false,
     )
   ),
 
