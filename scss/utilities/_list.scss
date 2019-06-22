@@ -11,13 +11,13 @@
       list-style-position: inside;
     }
   }
-  
+
   .list {
     &-unstyle {
       padding-left: 0;
       list-style: none;
   
-      ul { padding-left: 40px; }
+      ul { padding-left: 2.2em; }
       .list-unstyle { padding-left: 1em; }
     }
   

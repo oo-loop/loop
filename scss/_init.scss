@@ -11,6 +11,9 @@
   @if oo('use.base') {
     @include initBase;
   }
+  @if oo('use.headings') {
+    @include initHeadings;
+  }
   @if oo('use.type') {
     @include initType;
   }

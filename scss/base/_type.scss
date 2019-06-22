@@ -38,8 +38,8 @@
 
 @mixin initType {
   p {
-    @if oo('paragraph') {
-      @include generateProperties(oo('paragraph'));
+    @if oo('paragraph.props') {
+      @include generateProperties(oo('paragraph.props'));
     }
   }
   
@@ -62,15 +62,28 @@
     }
     > ul, ol {
       margin-top: .3em;
-      margin-bottom: .5em
+      margin-bottom: .5em;
     }
   }
-  
-  dt { font-weight: oo('list.dt.fontWeight') }
-  dd {
-    margin-left: auto;
-    + dt {
-      margin-top: .5em;
+
+  @if oo('defList') {
+    dl {
+      @if oo('defList.props') {
+        @include generateProperties(oo('defList.props'));
+      }
+    }
+    dt {
+      @if oo('defList.dt') {
+        @include generateProperties(oo('defList.dt'));
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    dd {
+      @if oo('defList.dd') {
+        @include generateProperties(oo('defList.dd'));
+      }
     }
   }
   

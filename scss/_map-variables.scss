@@ -21,7 +21,6 @@ $ooLoop: (
     fontSize: 1.6em, //16px
     lineHeight: 1.375,
     color: #20373e,
-    backgroundColor: #fff,
   ),
 
   colors: (
@@ -61,8 +60,10 @@ $ooLoop: (
   ),
 
   paragraph: (
-    marginTop: 0,
-    marginBottom: 1.125em,
+    props: (
+      marginTop: 0,
+      marginBottom: 1.125em,
+    )
   ),
 
   anchor: (
@@ -81,13 +82,21 @@ $ooLoop: (
       marginBottom: 1.125em,
       paddingLeft: 1.1em,
     ),
-    definition: (
-      dl
-    ),
-    dtProps: (
-      fontWeight: 700,
-    ),
     inlineSpacing: 1em,
+  ),
+
+  defList: (
+    props: (
+      marginTop: 0,
+      marginBottom: 1.125em,
+    ),
+    dt: (
+      fontWeight: 700,
+      marginTop: .5em,
+    ),
+    dd: (
+      marginLeft: auto,
+    ),
   ),
   
   hr: (
