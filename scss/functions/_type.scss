@@ -1,6 +1,6 @@
 /**
  * isString
- * @param string|list $data
+ * @param mixed $data
  * @return bool
  */
 
@@ -17,8 +17,26 @@
 }
 
 /**
+ * isNumber
+ * @param mixed $data
+ * @return bool
+ */
+
+@function isNumber($data) {
+  @if type-of($data) == 'number'{
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function isNotNumber($data) {
+  @return if(isNumber($data), false, true);
+}
+
+/**
  * isList
- * @param string|list $data
+ * @param mixed $data
  * @return bool
  */
 
@@ -36,7 +54,7 @@
 
 /**
  * isMap
- * @param string|list $data
+ * @param mixed $data
  * @return bool
  */
 
