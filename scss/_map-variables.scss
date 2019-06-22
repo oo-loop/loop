@@ -109,44 +109,42 @@ $ooLoop: (
    */
   utilities: (
     fontFamily: (
-      props: (
+      vals: (
         'primary': oo('body.fontFamily'),
         'secondary': ('Georgia', times, serif),
       ),
     ),
     fontSize: (
-      props: (
-        'large': 1.250rem,
-        'small': .875rem,
-        'tiny': .8rem,
+      vals: (
+        'large': 2rem,
+        'small': 1.4rem,
       ),
       prefix: 'text',
     ),
     fontStyle: (
-      props: ('italic'),
+      vals: ('italic'),
     ),
     fontWeight: (
-      props: (
-        'light': 300,
+      vals: (
         'bold': 700,
       ),
     ),
     textAlign: (
-      props: (
+      vals: (
         'left',
         'right',
         'center',
       )
     ),
     textTransform: (
-      props: (
+      vals: (
         'uppercase',
       ),
     ),
   ),
 
   float: (
-    props: (
+    vals: (
       'left',
       'right',
     ),

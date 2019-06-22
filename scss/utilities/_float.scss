@@ -4,7 +4,7 @@
 
 @mixin initFloat {
   @include loop(
-    oo('float.props'),
+    oo('float.vals'),
     'float',
     '.float',
     true
@@ -12,7 +12,7 @@
 
   @include loopBreakpoints(
     oo('float.screens'),
-    oo('float.props'),
+    oo('float.vals'),
     'float',
     '.float',
     true
