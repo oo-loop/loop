@@ -11,16 +11,7 @@ $btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
 $btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
 $btn-border-color:   #eee !default;
 
-$btn-padding:        .415em 1.2em !default; // relative to the size of the button
 $btn-padding-sizes: () !default;
-
-$btn-font-family:    $font-family-base !default;
-$btn-font-size:      $font-size-base !default;
-$btn-font-weight:    700 !default;
-$btn-text-transform: initial !default;
-$btn-border-radius:  .2em !default; // relative to the size of the button
-$btn-box-shadow:     1px 1px 1px 0 #999!default;
-
 
 $btn-outline-colors:         $btn-colors !default;
 $btn-outline-colors-classes: $btn-colors-classes !default;
@@ -34,49 +25,25 @@ $btn-outline-box-shadow:     none !default;
 
 
 [#{$loop-component-prefix}-button] {
-  padding: $btn-padding;
   display: inline-block;
-
-  color: $btn-color;
-  line-height: 1.4;
-  // letter-spacing: .05rem;
-
-  font-family: $btn-font-family;
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
-
   text-align: center;
-  text-decoration: none !important;
-  @if $btn-text-transform != initial {
-      text-transform: $btn-text-transform;
-  }
+  text-decoration: none;
   vertical-align: middle;
-  // white-space: nowrap;
-
-  border: 1px solid $btn-border-color;
-  border-radius: $btn-border-radius;
-  background-color: $btn-bgcolor;
-  box-shadow: $btn-box-shadow;
 
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
 
+  @include generateProperties(oo('button.props'));
 
   &:focus { outline: none; }
 
-  &:hover,
-  &:focus {
-    color: $btn-color-hover;
-    background-color: $btn-bgcolor-hover;
-  }
-  &:active {
-    background-color: $btn-bgcolor-active;
-    box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
-    transform: scale(.99);
+  @each $state, $props in oo('button.states') {
+    &:#{$state} {
+      @include generateProperties($props);
+    }
   }
 
   &.full {

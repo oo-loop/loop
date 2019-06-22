@@ -109,42 +109,42 @@ $ooLoop: (
    */
   utilities: (
     fontFamily: (
-      vals: (
+      values: (
         'primary': oo('body.fontFamily'),
         'secondary': ('Georgia', times, serif),
       ),
     ),
     fontSize: (
-      vals: (
+      values: (
         'large': 2rem,
         'small': 1.4rem,
       ),
       prefix: 'text',
     ),
     fontStyle: (
-      vals: ('italic'),
+      values: ('italic'),
     ),
     fontWeight: (
-      vals: (
+      values: (
         'bold': 700,
       ),
     ),
     textAlign: (
-      vals: (
+      values: (
         'left',
         'right',
         'center',
       )
     ),
     textTransform: (
-      vals: (
+      values: (
         'uppercase',
       ),
     ),
   ),
 
   float: (
-    vals: (
+    values: (
       'left',
       'right',
     ),
@@ -195,33 +195,32 @@ $ooLoop: (
     ),
   ),
 
-  grid: (
-    system: oo('column.system'),
-    gap: oo('column.gutter'),
-    use: (
-      order: true,
-    )
-  ),
+  /// @todo Grid componenent
+  // grid: (
+  //   system: oo('column.system'),
+  //   gap: oo('column.gutter'),
+  //   use: (
+  //     order: true,
+  //   )
+  // ),
 
   spacing: (
     h: (
       sizes: (
         '0': 0,
-        '1': .25rem,
-        '2': .75rem,
-        '3': 1.25rem,
-        '4': 1.75rem,
-      ),
+        '5': .5rem,
+        '10': 1rem,
+        '15': 1.5rem,
+      ),  
       screens: (),
     ),
     v: (
       sizes: (
         '0': 0,
-        '1': .5rem,
-        '2': 1rem,
-        '3': 1.5rem,
-        '4': 2rem,
-        '5': 2.5rem,
+        '5': .5rem,
+        '10': 1rem,
+        '15': 1.5rem,
+        '30': 3rem,
       ),
       screens: (),
     ),
@@ -229,19 +228,41 @@ $ooLoop: (
 
   wrapper: (
     sizes: (
-      'tiny': .5rem,
-      'small': 1rem,
-      'medium': 1.5rem,
+      'tiny': .8rem,
+      'small': 1.6rem,
+      'medium': 2.4rem,
     ),
     screens: (),
   ),
 
   button: (
-    color: oo('body.color'),
-    colorHover: oo('button.color'),
-    variants: oo('colors.main'),
+    props: (
+      padding: .415em 1.2em,
+      fontSize: 1.6rem,
+      fontWeight: bold,
+      color: #333,
+      backgroundColor: #fff,
+      borderRadius: .2em,
+      boxShadow:  1px 1px 1px 0 #999,
+    ),
+    states: (
+      hover: (
+        backgroundColor: ooDarken(oo('button.props.backgroundColor'), 10%),
+      ),
+      focus: oo('button.states.hover'),
+      active: (
+        backgroundColor: ooDarken(oo('button.props.backgroundColor'), 12%),
+        box-shadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
+      ),
+    ),
+    paints: oo('colors.main'),
+    variants: (
+      'large' : (
+        minHeight: 40px,
+        minWidth: 200px,
+      )
+    )
   ),
-
 
   label: (
     fontWeight: 500,

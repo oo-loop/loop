@@ -53,13 +53,13 @@
   }
 
   $start: str-index(#{$string}, 'oo(');
-  $length: str-length($string);
+  $length: str-length(#{$string});
   $end: null;
 
   @for $i from $start through $length {
-    @if str-slice($string, $i, $i) == ')' {
+    @if str-slice(#{$string}, $i, $i) == ')' {
       $end: $i;
-      @return str-slice($string, $start, $end);
+      @return str-slice(#{$string}, $start, $end);
     }
   }
 
@@ -210,7 +210,7 @@ $ooAlias: ('ooDarken', 'ooLighten');
   $isAlias: false;
   @each $alias in $ooAlias {
     $aliasLength: str-length($alias);
-    @if str-slice($string, 1, $aliasLength + 1) == '#{$alias}(' and str-slice($string, str-length($string)) == ')' {
+    @if str-slice(#{$string}, 1, $aliasLength + 1) == '#{$alias}(' and str-slice(#{$string}, str-length(#{$string})) == ')' {
       $isAlias: true;
     }
   }
