@@ -6,8 +6,18 @@
   // row
   [#{ooPrefix()}-row] {
     position: relative;
-    left: -#{oo('column.gutter.base')};
-    margin-right: -#{oo('column.gutter.base')};
+
+    @if (isMap(oo('column.gutter.base'))) {
+      @each $key, $value in oo('column.gutter.base') {
+        @include breakpoint($key) {
+          left: -#{$value};
+          margin-right: -#{$value};
+        }
+      }
+    } @else if isString(oo('column.gutter.base')) or isNumber(oo('column.gutter.base')) {
+      left: -#{oo('column.gutter.base')};
+      margin-right: -#{oo('column.gutter.base')};
+    }
 
     display: flex;
     flex: 0 1 auto;
@@ -17,8 +27,15 @@
 
   // columns
   [#{ooPrefix()}-col] {
-    padding-left: oo('column.gutter.base');
-    padding-bottom: oo('column.gutter.base');
+    @if (isMap(oo('column.gutter.base'))) {
+      @each $key, $value in oo('column.gutter.base') {
+        @include breakpoint($key) {
+          padding-left: $value;
+        }
+      }
+    } @else if isString(oo('column.gutter.base')) {
+      padding-left: oo('column.gutter.base');
+    }
 
     flex-shrink: 0;
     flex-grow: 1;
@@ -89,7 +106,6 @@
     }
   }
 
-
   @if oo('column.use.childAlignment') {
     [#{ooPrefix()}-col*="child-align-"] > * {
       display: flex;
@@ -143,31 +159,50 @@
   }
 
   // gutters
-  @each $class in join('', oo('column.gutter.h.screens')) {
-    @include breakpoint($class) {
-      $suffix: if(isEmpty($class), '', \@#{$class});
-      @each $gutter-name, $gutter-size in oo('column.gutter.h.sizes') {
-        [#{ooPrefix()}-row~="gutter-#{$gutter-name}#{$suffix}"] {
-          left: -#{$gutter-size};
-          margin-right: -#{$gutter-size};
+  @each $gutter-name, $gutter-size in oo('column.gutter.sizes.h') {
+    [#{ooPrefix()}-row~="gutter-#{$gutter-name}"] {
+      @if (isMap($gutter-size)) {
+        @each $key, $value in $gutter-size {
+          @include breakpoint($key) {
+            left: -#{$value};
+            margin-right: -#{$value};
 
-          > [#{ooPrefix()}-col] {
-            padding-bottom: $gutter-size;
-            padding-left: $gutter-size;
+            > [#{ooPrefix()}-col] {
+              padding-left: $value;
+            }
           }
+        }
+      } @else if isString($gutter-size) or isNumber($gutter-size) {
+        left: -#{$gutter-size};
+        margin-right: -#{$gutter-size};
+
+        > [#{ooPrefix()}-col] {
+          padding-left: $gutter-size;
         }
       }
     }
   }
 
-  @each $class in join('', oo('column.gutter.v.screens')) {
-    @include breakpoint($class) {
-      $suffix: if(isEmpty($class), '', \@#{$class});
-      @each $gutter-name, $gutter-size in oo('column.gutter.v.sizes') {
-        [#{ooPrefix()}-row~="vgutter-#{$gutter-name}#{$suffix}"] {
-          > [#{ooPrefix()}-col] {
-            padding-bottom: $gutter-size;
+  // vgutters
+  $vgutter: (
+    () : oo('column.gutter.base'),
+  );
+  @if isMap(oo('column.gutter.sizes.v')) {
+    $vgutter: map-merge($vgutter, oo('column.gutter.sizes.v'));
+  }
+
+  @each $gutter-name, $gutter-size in $vgutter {
+    $suffix: if(isEmpty($gutter-name), '', -#{$gutter-name});
+    [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
+      > [#{ooPrefix()}-col] {
+        @if (isMap($gutter-size)) {
+          @each $key, $value in $gutter-size {
+            @include breakpoint($key) {
+              padding-bottom: $value;
+            }
           }
+        } @else if isString($gutter-size) or isNumber($gutter-size) {
+          padding-bottom: $gutter-size;
         }
       }
     }

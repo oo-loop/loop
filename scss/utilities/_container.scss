@@ -17,7 +17,7 @@
           padding-left: $value;
         }
       }
-    } @else if isString(oo('container.gutter')) {
+    } @else if isString(oo('container.gutter')) or isNumber(oo('container.gutter')) {
       padding-right: oo('container.gutter');
       padding-left: oo('container.gutter');
     }

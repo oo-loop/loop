@@ -158,8 +158,8 @@ $ooLoop: (
 
   container: (
     gutter: (
-      rt: 1rem,
-      sm: 1.5rem,
+      rt: 1.6rem,
+      sm: 2.4rem,
     ),
     maxWidth: 1080px,
   ),
@@ -167,17 +167,13 @@ $ooLoop: (
   column: (
     system: 12,
     gutter: (
-      base: 1.5rem,
-      h: (
-        sizes: (
+      base: oo('container.gutter'),
+      sizes: (
+        h: (
           'less': 0,
-          'small': 1rem,
+          'small': 1.6rem,
         ),
-        screens: (),
-      ),
-      v: (
-        sizes: oo('column.gutter.h.sizes'),
-        screens: oo('column.gutter.h.screens'),
+        v: oo('column.gutter.sizes.h')
       )
     ),
     screens: oo('screens'),
