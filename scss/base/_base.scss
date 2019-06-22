@@ -20,10 +20,7 @@
 
   @if oo('body') {
     body {
-      @each $property-name, $property-value in oo('body') {
-        $property-name: toKebabCase($property-name);
-        #{$property-name}: $property-value;
-      }
+      @include generateProperties(oo('body'));
     }
   }
 }

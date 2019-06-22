@@ -1,0 +1,16 @@
+/**
+ * Generate Properties
+ * @param $propertiesMap 
+ */
+
+@import '../functions/replace';
+@import '../functions/type';
+
+@mixin generateProperties($propertiesMap) {
+  @if isMap($propertiesMap) {
+    @each $property-name, $property-value in $propertiesMap {
+      $property-name: toKebabCase($property-name);
+      #{$property-name}: $property-value;
+    }
+  }
+}

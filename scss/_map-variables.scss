@@ -1,11 +1,6 @@
 $ooLoop: (
   html5: true,
-
-  /**
-   * breakpoints
-   * based on material guidelines
-   * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
-   */
+  
   breakpoints: (
     xs: 30em, // 480px
     sm: 37.500em, // 600px
@@ -45,14 +40,13 @@ $ooLoop: (
       marginBottom: .45em,
       lineHeight: 1.125,
     ),
-    classes: ('h2', 'h3'),
     sizes: (
       h1: (
         rt: 3.2rem,
         sm: 3.6rem,
       ),
       h2: (
-        rt: 2.6rem,
+        rt: 2.8rem,
         sm: 3rem,
       ),
       h3: (
@@ -63,10 +57,12 @@ $ooLoop: (
       h5: 1.6rem,
       h6: 1.4rem,
     ),
+    classes: ('h2', 'h3'),
   ),
 
   paragraph: (
-    marginBottom: 1.125rem,
+    marginTop: 0,
+    marginBottom: 1.125em,
   ),
     
   anchor: (
