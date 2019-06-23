@@ -1,3 +1,5 @@
+@import 'type';
+
 /**
  * Replace
  * @param String $search  The value being searched
@@ -9,7 +11,7 @@
 
 @function replace($search, $replace, $subject) {
   $searchIndex: str-index($subject, $search);
-  @if type-of($search) == 'string' and type-of($replace) == 'string' and type-of($subject) == 'string' and $searchIndex {
+  @if isString($search) and isString($replace) and isString($subject) and $searchIndex {
     $subjectStart: str-slice($subject, 1, $searchIndex - 1);
     $subjectEnd: str-slice($subject, $searchIndex + str-length($search));
     $newSubject: $subjectStart + $replace + $subjectEnd;
@@ -18,7 +20,6 @@
     @return $subject;
   }
 }
-
 
 @function stripSpaces($string) {
   @return replace(' ', '', #{$string}); 
@@ -34,7 +35,7 @@
   $kebabString: '';
   @for $i from 1 through str-length($string) {
     $character: str-slice($string, $i, $i);
-    $kebabString: $kebabString + if($character == to-lower-case($character), $character, to-lower-case(-#{$character}));
+    $kebabString: $kebabString + if($character == to-lower-case($character) or $i == 1, to-lower-case($character), to-lower-case(-#{$character}));
   }
   @return $kebabString;
 }
