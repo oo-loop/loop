@@ -161,7 +161,7 @@
       $newValue: oo(getRefValue($ooRef), $parentMap);
       @if isAlias($value){
         @if hasRef($newValue) {
-          $newValue: replace($ooRef, $newValue, $value)
+          $newValue: replace($ooRef, $newValue, $value);
         } @else {
           $newValue: getAliasValue($value, $newValue);
         }
@@ -188,7 +188,23 @@
   @return if(oo(html5) == true, 'data-oo', 'oo');
 }
 
-$ooAlias: ('ooDarken', 'ooLighten');
+$ooAlias: (
+  (
+    name: 'ooDarken',
+    function: 'darken',
+    params: ('color', 'number'),
+  ),
+  (
+    name: 'ooLighten',
+    function: 'lighten',
+    params: ('color', 'number'),
+  ),
+  (
+    name: 'ooMapMerge',
+    function: 'map-merge',
+    params: ('map', 'map'),
+  ),
+);
 
 /** 
  * Aliases function used before init
@@ -198,6 +214,9 @@ $ooAlias: ('ooDarken', 'ooLighten');
 }
 @function ooLighten($value, $percentage) {
   @return lighten($value, $percentage);
+}
+@function ooMapMerge($map1, $map2) {
+  @return map-merge($map1, $map2);
 }
 
 /** 
@@ -209,8 +228,9 @@ $ooAlias: ('ooDarken', 'ooLighten');
 @function isAlias($string) {
   $isAlias: false;
   @each $alias in $ooAlias {
-    $aliasLength: str-length($alias);
-    @if str-slice(#{$string}, 1, $aliasLength + 1) == '#{$alias}(' and str-slice(#{$string}, str-length(#{$string})) == ')' {
+    $aliasName: getMapValue($alias, 'name');
+    $aliasLength: str-length($aliasName);
+    @if str-slice(#{$string}, 1, $aliasLength + 1) == '#{$aliasName}(' and str-slice(#{$string}, str-length(#{$string})) == ')' {
       $isAlias: true;
     }
   }
@@ -220,20 +240,22 @@ $ooAlias: ('ooDarken', 'ooLighten');
 /** 
  * getAliasValue
  * retrieve the value of an alias function
- * @param String $string String using the alias function
+ * @param String $string The complete alias function
  * @param String $value Value of the 1st parameter
  * @return Boolean
  */
 @function getAliasValue($string, $param:null) {
+  $currentAlias: null;
   $function: null;
   $params: split(',', #{$string});
+
   $param1: nth($params, 1);
-  $param2: null;
-  
   @each $alias in $ooAlias {
-    $aliasLength: str-length($alias);
-    @if str-slice($string, 1, $aliasLength) == $alias {
-      $function: str-slice(to-lower-case($alias), 3, $aliasLength);
+    $aliasName: getMapValue($alias, 'name');
+    $aliasLength: str-length($aliasName);
+    @if str-slice($string, 1, $aliasLength) == $aliasName {
+      $currentAlias: $alias;
+      $function: getMapValue($alias, 'function');
       $param1: stripSpaces(str-slice($param1, $aliasLength + 2, str-length($param1)));
       @if function-exists('get-function') {
         $function: get-function($function);
@@ -244,8 +266,12 @@ $ooAlias: ('ooDarken', 'ooLighten');
   $param1: if($param not null, $param, $param1);
 
   @if length($params) > 1 {
-    $param2: stripSpaces(str-slice(nth($params, 2), 1, -2));
-    $param2: toNumber($param2);
+    $paramLeft: removeFromList($params, 1);
+    $param2: stripSpaces(str-slice(#{$paramLeft}, 1, -2));
+
+    $currentAliasParams: getMapValue($currentAlias, 'params');
+    $param1: toType(nth($currentAliasParams, 1), $param1);
+    $param2: toType(nth($currentAliasParams, 2), $param2);
     @return call($function, $param1, $param2);
   }
   @return call($function, $param1);
