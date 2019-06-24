@@ -1,4 +1,5 @@
 @import 'type';
+@import 'split';
 
 /**
  * Replace
@@ -38,4 +39,49 @@
     $kebabString: $kebabString + if($character == to-lower-case($character) or $i == 1, to-lower-case($character), to-lower-case(-#{$character}));
   }
   @return $kebabString;
+}
+
+/**
+ * Convert to type
+ * @param String $type to be converted into
+ * @param Mixed $data data to check
+ *
+ * @return String
+ */
+@function toType($type, $data) {
+  @if type-of($data) == $type {
+    @return $data;
+  }
+  @if $type == 'color' {
+    @return unquote($data);
+  }
+  @if $type == 'number' {
+    @return toNumber($data);
+  }
+  @if $type == 'map' {
+    ///@todo
+    @return toNumber($data);
+  }
+  @return $data;
+}
+
+/**
+ * Remove element from a list
+ * @param List $list
+ * @param Number $index List index to remove
+ *
+ * @return List
+ */
+@function removeFromList($list, $index) {
+  @if isNotList($list)
+    or isNotNumber($index) {
+    @return $list;
+  }
+  $newList: ();
+  @for $i from 1 through length($list) {
+    @if ($i != $index) {
+      $newList: append($newList, nth($list, $i) , $separator: comma)
+    }
+  }
+  @return $newList;
 }
