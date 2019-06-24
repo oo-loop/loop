@@ -1,10 +1,11 @@
 @import 'type';
+@import 'split';
 
 /**
  * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
- * @return string
+ * @param Map $map map of data
+ * @param String $key key to retrieve the value from
+ * @return String
  */
 @function getMapValue($map, $key) {
   @if isNotMap($map) {
@@ -23,9 +24,9 @@
  * Non destructive map merge. 
  * @credit-to  https://gist.github.com/pentzzsolt
 
- * @param $parentMap  map  map of data to be merged into
- * @param $childMap  map  the set of data
- * @return map
+ * @param Map $parentMap Map of data to be merged into
+ * @param Map $childMap  The set of data
+ * @return Map
  */
 @function mapMergeDeep($parentMap, $childMap) {
   $map: $parentMap;
@@ -45,11 +46,34 @@
 
 /**
  * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
+ * @param Map $map  map of data
+ * @param String $key key to retrieve the value from
  * @return string
  */
 @function setMapValue($map, $key, $value) {
   $newSet: ($key: $value);
   @return map-merge($map, $newSet);
+}
+
+/**
+ * toMap
+ * Conver a stringified map to a map format
+ *
+ * @param String $string Stringified map
+ * @return Map
+ *
+ * @todo consider nested map
+ */
+@function toMap($string) {
+  @if isMap($string) {
+    @return $string;
+  }
+  $map: ();
+  $stripParenthesis: str-slice($string, 2, str-length($string) - 1);
+  $list: split(',', $stripParenthesis);
+  @each $item in $list {
+    $itemList: split(':', $item);
+    $map: setMapValue($map, nth($itemList, 1), nth($itemList, 2));
+  }
+  @return $map;
 }
