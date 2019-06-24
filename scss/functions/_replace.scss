@@ -59,8 +59,7 @@
     @return toNumber($data);
   }
   @if $type == 'map' {
-    ///@todo
-    @return toNumber($data);
+    @return toMap($data);
   }
   @return $data;
 }
