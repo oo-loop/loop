@@ -244,6 +244,7 @@ $ooLoop: (
       backgroundColor: #fff,
       borderRadius: .2em,
       boxShadow:  1px 1px 1px 0 #999,
+      border: 1px solid #eee,
     ),
     states: (
       hover: (
@@ -255,8 +256,18 @@ $ooLoop: (
         box-shadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
       ),
     ),
-    paints: oo('colors.main'),
+    paints: ooMapMerge(
+      oo('colors.main'),
+      (
+        'test': red,
+        'test2': white,
+      )
+    ),
     variants: (
+      'outline': (
+        color: inherit,
+        background-color: transparent,
+      ),
       'large' : (
         minHeight: 40px,
         minWidth: 200px,
