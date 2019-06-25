@@ -35,6 +35,24 @@
 }
 
 /**
+ * isColor
+ * @param mixed $data
+ * @return bool
+ */
+
+@function isColor($data) {
+  @if type-of($data) == 'color'{
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function isNotColor($data) {
+  @return if(isColor($data), false, true);
+}
+
+/**
  * isList
  * @param mixed $data
  * @return bool
