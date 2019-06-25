@@ -1,4 +1,5 @@
 @import 'list';
+@import 'replace';
 @import 'type';
 
 $colorPalette: (
@@ -182,8 +183,16 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
     @return $colorString;
   }
   
-  @if isHexColor('fff') {
-    @debug 'yeah';
+  @if isHexColor($colorString) {
+    $stringLength: str-length($colorString);
+    $red: if(str-length($colorString) == 4, stripSpaces(str-slice($colorString, 2, 2)str-slice($colorString, 2, 2)), str-slice($colorString, 2, 3));
+    $green: if(str-length($colorString) == 4, stripSpaces(str-slice($colorString, 3, 3)str-slice($colorString, 3, 3)), str-slice($colorString, 4, 5));
+    $blue: if(str-length($colorString) == 4, stripSpaces(str-slice($colorString, 4, 4)str-slice($colorString, 4, 4)), str-slice($colorString, 6, 7));
+    
+    $redDecimal: (index($hexValues, str-slice($red, 1,1)) - 1) * 16 + (index($hexValues, str-slice($red, 2,2)) - 1);
+    $greenDecimal: (index($hexValues, str-slice($green, 1,1)) - 1) * 16 + (index($hexValues, str-slice($green, 2,2)) - 1);
+    $blueDecimal: (index($hexValues, str-slice($blue, 1,1)) - 1) * 16 + (index($hexValues, str-slice($blue, 2,2)) - 1);
+    @return rgb($redDecimal, $greenDecimal, $blueDecimal);
   }
 
   @each $colorItem in $colorPalette {
@@ -203,9 +212,8 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 @function isHexColor($colorString) {
   @if str-slice($colorString, 1, 1) == '#'
     and (
-      str-length($colorString == 4
+      str-length($colorString) == 4
       or str-length($colorString) == 7
-    )
   ) {
     @return true;
   }

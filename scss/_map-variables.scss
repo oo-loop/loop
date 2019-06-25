@@ -259,7 +259,7 @@ $ooLoop: (
     paints: ooMapMerge(
       oo('colors.main'),
       (
-        'test': red,
+        'test': #ff0024,
         'test2': white,
       )
     ),
@@ -268,10 +268,9 @@ $ooLoop: (
         color: inherit,
         background-color: transparent,
       ),
-      'large' : (
-        minHeight: 40px,
-        minWidth: 200px,
-      )
+      'full': (
+        width: 100%,
+      ),
     )
   ),
 
