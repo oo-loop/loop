@@ -1,0 +1,19 @@
+@import 'split';
+/**
+ * Extract
+ * @param String $start The string to start width
+ * @param String $end The string to end width
+ * @param String $subject The string to search into
+ *
+ * @return String
+ */
+
+@function extract($start, $end, $subject) {
+  $startIndex: str-index(#{$subject}, $start);
+  $length: str-length(#{$subject});
+
+  $beingWidth: str-slice(#{$subject}, $startIndex, $length);
+  $breakdown: split($end, $beingWidth);
+
+  @return '#{nth($breakdown,1)}#{$end}';
+}
