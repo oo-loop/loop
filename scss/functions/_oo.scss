@@ -171,8 +171,6 @@
       $newValue: oo(getRefValue($ooRef), $parentMap);
 
       @if hasSpreadOperator($value) and isList($value) {
-        @debug 'inside spread';
-        @debug '$newvluae=>' $newValue;
         $refIndex: index($value, '+#{$ooRef}');
         @if isRef($newValue) {
           $newValue: set-nth($value, $refIndex, '+#{$newValue}'),
