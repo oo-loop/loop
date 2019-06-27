@@ -29,6 +29,16 @@
 }
 
 /**
+ * hasSpreadOperator
+ * Check if a reference has the spread operator  
+ * @param String  $ref
+ * @return Boolean
+ */
+@function hasSpreadOperator($ref) {
+  @return if(str-index(#{$ref}, '+oo(') == null, false, true);
+}
+
+/**
  * getRefValue
  * get the ooFormat reference
  * @param String  $string
@@ -159,6 +169,32 @@
     @else if hasRef($value) {
       $ooRef: extractRef($value);
       $newValue: oo(getRefValue($ooRef), $parentMap);
+
+      @if hasSpreadOperator($value) and isList($value) {
+        @debug 'inside spread';
+        @debug '$newvluae=>' $newValue;
+        $refIndex: index($value, '+#{$ooRef}');
+        @if isRef($newValue) {
+          $newValue: set-nth($value, $refIndex, '+#{$newValue}'),
+        } @else {
+          @if isNotMap($newValue) {
+            @error 'spread operator must extend a map type data';
+          }
+          $newMapValue: ();
+          @for $i from 1 through length($value) {
+            @if $i == $refIndex {
+              $newMapValue: map-merge($newMapValue, $newValue);
+            } @else {
+              @if isNotMap(nth($value, $i)) {
+                @error 'spread operator only works along map type data';
+              }
+              $newMapValue: map-merge($newMapValue, nth($value, $i));
+            }
+          }
+          $newValue: $newMapValue;
+        }
+      }
+
       @if isAlias($value){
         @if hasRef($newValue) {
           $newValue: replace($ooRef, $newValue, $value);
