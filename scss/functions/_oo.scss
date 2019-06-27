@@ -1,4 +1,5 @@
 @import 'empty';
+@import 'extract';
 @import 'number';
 @import 'map';
 @import 'split';
@@ -192,14 +193,34 @@
           $newValue: $newMapValue;
         }
       }
+      
+      @if isList($value) and isNotMap($newValue) {
+        $refIndex: index($value, $ooRef);
+        $newListValue: ();
+        @for $i from 1 through length($value) {
+          @if (isAlias(nth($value, $i))) {
+            @if hasRef($newValue) {
+              $newListValue: append($newListValue, replace($ooRef, $newValue, nth($value, $i)));
+            } @else {
+              $newListValue: append($newListValue, getAliasValue(nth($value, $i), $newValue));
+            }
+          } @else if ($i == $refIndex) {
+            $newListValue: append($newListValue, $newValue)
+          } @else {
+            $newListValue: append($newListValue, nth($value, $i))
+          }
+        }
+        $newValue: $newListValue;
+      }
 
-      @if isAlias($value){
+      @if isAlias($value) and isNotList($value) {
         @if hasRef($newValue) {
           $newValue: replace($ooRef, $newValue, $value);
         } @else {
           $newValue: getAliasValue($value, $newValue);
         }
       }
+
       $map: ooSet($key, $newValue, $map);
 
       //update backup
@@ -233,11 +254,6 @@ $ooAlias: (
     function: 'lighten',
     params: ('color', 'number'),
   ),
-  (
-    name: 'ooMapMerge',
-    function: 'map-merge',
-    params: ('map', 'map'),
-  ),
 );
 
 /** 
@@ -248,9 +264,6 @@ $ooAlias: (
 }
 @function ooLighten($value, $percentage) {
   @return lighten($value, $percentage);
-}
-@function ooMapMerge($map1, $map2) {
-  @return map-merge($map1, $map2);
 }
 
 /** 
@@ -277,6 +290,8 @@ $ooAlias: (
  * @param String $string The complete alias function
  * @param String $value Value of the 1st parameter
  * @return Boolean
+ *
+ * @todo review, simplify
  */
 @function getAliasValue($string, $param:null) {
   $currentAlias: null;

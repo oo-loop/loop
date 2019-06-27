@@ -253,14 +253,15 @@ $ooLoop: (
       focus: oo('button.states.hover'),
       active: (
         backgroundColor: ooDarken(oo('button.props.backgroundColor'), 12%),
-        box-shadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
+        boxShadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
       ),
     ),
-    paints: ooMapMerge(
-      oo('colors.main'),
+    paints: (
+      +oo('colors.main'),
       (
-        'test': #ff0024,
-        'test2': white,
+      'test': #ff0024,
+      'test2': white,
+      'test3': rgba(255, 255, 255, .5),
       )
     ),
     variants: (

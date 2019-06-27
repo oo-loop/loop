@@ -45,7 +45,6 @@
       $string: replace($extractFunction, $replaceFunction, $string);
     }
   }
-  @debug $string;
   @return $string;
 }
 
@@ -102,7 +101,7 @@
   $newList: ();
   @for $i from 1 through length($list) {
     @if ($i != $index) {
-      $newList: append($newList, nth($list, $i) , $separator: comma)
+      $newList: append($newList, nth($list, $i), $separator: comma)
     }
   }
   @return $newList;
