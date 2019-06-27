@@ -175,12 +175,18 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
  * toColor
  * @param String stringified color
  * @return Color
+ *
+ * @todo consider rgb, rgba, hls format
  */
 
 @function toColor($colorString) {
 
   @if isColor($colorString) {
     @return $colorString;
+  }
+
+  @if isColor(unquote($colorString)) {
+    @return unquote($colorString);
   }
   
   @if isHexColor($colorString) {
