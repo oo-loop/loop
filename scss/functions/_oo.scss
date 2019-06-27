@@ -62,19 +62,8 @@
   @if not hasRef($string) {
     @return $string;
   }
-
-  $start: str-index(#{$string}, 'oo(');
-  $length: str-length(#{$string});
-  $end: null;
-
-  @for $i from $start through $length {
-    @if str-slice(#{$string}, $i, $i) == ')' {
-      $end: $i;
-      @return str-slice(#{$string}, $start, $end);
-    }
-  }
-
-  @return $string;
+  $extractString: extract('oo(', ')', $string);
+  @return $extractString;
 }
 
 /**
