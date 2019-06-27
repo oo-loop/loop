@@ -184,10 +184,6 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
   @if isColor($colorString) {
     @return $colorString;
   }
-
-  @if isColor(unquote($colorString)) {
-    @return unquote($colorString);
-  }
   
   @if isHexColor($colorString) {
     $stringLength: str-length($colorString);
