@@ -1,6 +1,6 @@
 @import 'empty';
 @import 'extract';
-@import 'number';
+@import 'list';
 @import 'map';
 @import 'split';
 @import 'type';
@@ -315,7 +315,7 @@ $ooAlias: (
   $param1: if($param not null, $param, $param1);
 
   @if length($params) > 1 {
-    $paramLeft: removeFromList($params, 1);
+    $paramLeft: removeListItem($params, 1);
     $param2: stripSpaces(str-slice(#{$paramLeft}, 1, -2));
 
     $currentAliasParams: getMapValue($currentAlias, 'params');

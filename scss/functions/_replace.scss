@@ -68,14 +68,19 @@
  * @param String $type to be converted into
  * @param Mixed $data data to check
  *
+ * @todo add list type
+ *
  * @return String
  */
 @function toType($type, $data) {
   @if type-of($data) == $type {
     @return $data;
   }
+  @if $type == 'string' {
+    @return #{$data};
+  }
   @if $type == 'color' {
-    @return unquote($data);
+    @return toColor($data);
   }
   @if $type == 'number' {
     @return toNumber($data);
@@ -84,25 +89,4 @@
     @return toMap($data);
   }
   @return $data;
-}
-
-/**
- * Remove element from a list
- * @param List $list
- * @param Number $index List index to remove
- *
- * @return List
- */
-@function removeFromList($list, $index) {
-  @if isNotList($list)
-    or isNotNumber($index) {
-    @return $list;
-  }
-  $newList: ();
-  @for $i from 1 through length($list) {
-    @if ($i != $index) {
-      $newList: append($newList, nth($list, $i), $separator: comma)
-    }
-  }
-  @return $newList;
 }
