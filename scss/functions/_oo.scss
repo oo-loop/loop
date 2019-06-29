@@ -82,6 +82,7 @@
   @return $map;
 }
 
+
 /**
  * ooSet
  * Set value in  to map with the ooFormat (default $ooLoop)
@@ -162,7 +163,7 @@
 
       @if hasSpreadOperator($value) and isList($value) {
         $refIndex: index($value, '+#{$ooRef}');
-        @if isRef($newValue) {
+        @if hasRef($newValue) {
           $newValue: set-nth($value, $refIndex, '+#{$newValue}'),
         } @else {
           @if isNotMap($newValue) {
@@ -172,10 +173,13 @@
           @for $i from 1 through length($value) {
             @if $i == $refIndex {
               $newMapValue: map-merge($newMapValue, $newValue);
+            } @else if hasSpreadOperator(nth($value, $i)) {
+              $ooRefItem: extractRef(nth($value, $i));
+              $newValueItem: oo(getRefValue($ooRefItem), $parentMap);
+              $newMapValue: map-merge($newMapValue, $newValueItem);
+            } @else if isNotMap(nth($value, $i)) {
+              @error 'spread operator only works along map type data';
             } @else {
-              @if isNotMap(nth($value, $i)) {
-                @error 'spread operator only works along map type data';
-              }
               $newMapValue: map-merge($newMapValue, nth($value, $i));
             }
           }
