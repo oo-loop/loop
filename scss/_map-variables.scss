@@ -240,6 +240,7 @@ $ooLoop: (
       padding: .415em 1.2em,
       fontSize: 1.6rem,
       fontWeight: bold,
+      lineHeight: 1.2,
       color: #333,
       backgroundColor: #fff,
       borderRadius: .2em,
@@ -256,19 +257,9 @@ $ooLoop: (
         boxShadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
       ),
     ),
-    paints: (
-      +oo('colors.main'),
-      (
-      'test': #ff0024,
-      'test2': white,
-      'test3': rgba(255, 255, 255, .5),
-      )
-    ),
+    paints: oo('colors.main'),
     variants: (
-      'outline': (
-        color: inherit,
-        background-color: transparent,
-      ),
+      outline: true,
       'full': (
         width: 100%,
       ),

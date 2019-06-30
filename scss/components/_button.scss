@@ -1,156 +1,85 @@
 /**
  * Button
  */
-$btn-colors: () !default;
-$btn-colors-classes: $colors-classes !default;
-
-$btn-color:          $color-base !default;
-$btn-color-hover:    $btn-color !default;
-$btn-bgcolor:        #fff !default;
-$btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
-$btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
-$btn-border-color:   #eee !default;
-
-$btn-padding-sizes: () !default;
-
-$btn-outline-colors:         $btn-colors !default;
-$btn-outline-colors-classes: $btn-colors-classes !default;
-
-$btn-outline-color:          $btn-color !default; // set inherit to get the colors from the borders
-$btn-outline-padding:        $btn-padding !default;
-$btn-outline-font-family:    $btn-font-family !default;
-$btn-outline-font-weight:    $btn-font-weight !default;
-$btn-outline-text-transform: $btn-text-transform !default;
-$btn-outline-box-shadow:     none !default;
-
-
-[#{$loop-component-prefix}-button] {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-
-  cursor: pointer;
-  user-select: none;
-  touch-action: manipulation;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  @include generateProperties(oo('button.props'));
-
-  &:focus { outline: none; }
-
-  @each $state, $props in oo('button.states') {
-    &:#{$state} {
-      @include generateProperties($props);
-    }
-  }
-
-  &.full {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-}
 
 @mixin paintButton($color-value) {
-  color: if(isBright($color-value), $color-base, #fff);
-  background-color: $color-value;
+  $color: if(isBright($color-value), darken($color-value, 80%), #fff);
   
-  @if $btn-border-color != transparent {
+  color: $color;
+  background-color: $color-value;
+  @if oo('button.props.border') {
     border-color: $color-value;
   }
-  &:hover,
-  &:focus {
-    color: if(isBright($color-value), $color-base, #fff);
-    border-color: darken($color-value, 10%);
-    background-color: darken($color-value, 10%);
-  }
-  &:active {
-    border-color: darken($color-value, 12%);
-    background-color: darken($color-value, 12%);
-    box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
-  }
-}
 
-@if isNotEmpty($btn-colors-classes) {
-  @each $color in $btn-colors-classes { 
-    [#{$loop-component-prefix}-button~="#{$color}"] {
-      @include paintButton(map-get($colors, $color));
-    }
-  }
-}
+  @if oo('button.variants.outline') {
+    &[#{ooPrefix()}-button~="outline"] {
+      color: if(isBright($color-value, 210), darken($color-value, 30%), $color-value);
+      background: transparent;
 
-@if isNotEmpty($btn-colors) and isMap($btn-colors) {
-  @each $name, $value in $btn-colors {
-    [#{$loop-component-prefix}-button~="#{$name}"] {
-      @include paintButton($value);
-    }
-  }
-}
-
-@mixin paintButtonOutline($color-value) {
-  @if $btn-outline-color == inherit {
-    color: $color-value;
-  }
-  border-color: $color-value;
-
-  &:hover,
-  &:focus {
-    color: if(isBright($color-value), $color-base, #fff);
-    border-color: darken($color-value, 10%);
-    background-color: darken($color-value, 10%);
-  }
-  &:active {
-    color: if(isBright($color-value), $color-base, #fff);
-    border-color: darken($color-value, 12%);
-    background-color: darken($color-value, 12%);
-    box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
-  }
-}
-
-@if isNotEmpty($btn-outline-colors-classes) or (isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors)) {
-  [#{$loop-component-prefix}-button~="outline"] {
-    background-color: transparent;
-
-    @if $btn-outline-padding != $btn-padding {
-      padding: $btn-outline-padding
-    }
-    @if $btn-outline-font-family != $btn-font-family {
-      font-family: $btn-outline-font-family
-    }
-    @if $btn-outline-font-weight != $btn-font-weight {
-      font-weight: $btn-outline-font-weight
-    }
-    @if $btn-outline-text-transform != $btn-text-transform {
-      text-transform: $btn-outline-text-transform
-    }
-    @if $btn-outline-color != inherit {
-      color: $btn-outline-color;
-    }
-    @if $btn-box-shadow != $btn-outline-box-shadow {
-      box-shadow: $btn-outline-box-shadow;
-    }
-  }
-  @if isNotEmpty($btn-outline-colors-classes) {
-    @each $color in $btn-outline-colors-classes {
-      &[#{$loop-component-prefix}-button~="#{$color}"] {
-        @include paintButtonOutline(map-get($colors, $color));
+      @if oo('button.props.border') and isBright($color-value, 210) {
+        border-color: darken($color-value, 20%);
       }
     }
   }
-  @if isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors) {
-    @each $name, $value in $btn-colors {
-      &[#{$loop-component-prefix}-button~="#{$name}"] {
-        @include paintButtonOutline($value);
-      }
+
+  &:hover,
+  &:focus {
+    color: $color;
+    background-color: darken($color-value, 10%);
+    @if oo('button.props.border') {
+      border-color: darken($color-value, 10%);
+    }
+  }
+  &:active {
+    color: $color;
+    background-color: darken($color-value, 12%);
+    box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+    @if oo('button.props.border') {
+      border-color: darken($color-value, 12%);
     }
   }
 }
 
-@if isNotEmpty($btn-padding-sizes) {
-  @each $name, $padding in $btn-padding-sizes {
-    [#{$loop-component-prefix}-button~="#{$name}"] {
-      padding: #{$padding};
+@mixin initButton {
+
+  [#{ooPrefix()}-button] {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    @include generateProperties(oo('button.props'));
+
+    &:focus { outline: none; }
+
+    @each $state, $props in oo('button.states') {
+      &:#{$state} {
+        @include generateProperties($props);
+      }
+    }
+  }
+  
+  @if isNotEmpty(oo('button.paints') and isMap(oo('button.paints'))) {
+    @each $name, $value in oo('button.paints') {
+      [#{ooPrefix()}-button~="#{$name}"] {
+        @include paintButton($value);
+      }
+    }
+  }
+
+  @if isNotEmpty(oo('button.variants')) {
+    @each $name, $props in oo('button.variants') {
+      @if isMap($props) {
+        [#{ooPrefix()}-button~="#{$name}"] {
+          @include generateProperties($props);
+        }
+      }
     }
   }
 }
