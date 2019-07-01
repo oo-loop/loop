@@ -14,3 +14,13 @@
     }
   }
 }
+
+@mixin generateStatesProperties($statesPropertiesMap) {
+  @if isMap($statesPropertiesMap) {
+    @each $state, $props in $statesPropertiesMap {
+      &:#{$state} {
+        @include generateProperties($props);
+      }
+    }
+  }
+}
