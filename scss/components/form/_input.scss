@@ -37,35 +37,7 @@ $label-margin:           .3rem !default;
 
 %input,
 [#{$loop-component-prefix}-form~="input"] {
-  padding: $input-padding;
-
   display: block;
-  width: 100%;
-  max-width: 100%;
-  min-height: $input-height;
-
-  color: $input-color;
-  font-family: $input-font-family;
-  font-size: $input-font-size;
-  font-style: $input-font-style;
-  line-height: $input-line-height;
-
-  border: $input-border;
-  border-radius: $input-border-radius;
-  background-color: $input-bgcolor;
-
-  @if $input-box-shadow != none {
-    box-shadow: $input-box-shadow;
-  }
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  &:focus {
-    outline:none;
-    @extend %inputFocus;
-  }
 }
 
 label {
@@ -76,10 +48,11 @@ label {
   }
 }
 
-@if isNotEmpty($input-padding-sizes) {
-  @each $name, $padding in $input-padding-sizes {
-    [#{$loop-component-prefix}-form~="input"][#{$loop-component-prefix}-form~="#{$name}"] {
-      padding: #{$padding};
-    }
+@mixin initTextField {
+  [#{ooPrefix()}-input] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    @include generateProperties(oo('input.props'));
+    @include generateStatesProperties(oo('input.states'));
   }
 }

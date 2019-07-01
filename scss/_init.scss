@@ -28,6 +28,9 @@
   @if oo('use.button') {
     @include initButton;
   }
+  @if oo('use.input.textfield') {
+    @include initTextField;
+  }
   @if oo('use.utilities.color') {
     @include initColor;
   }

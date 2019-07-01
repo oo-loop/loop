@@ -251,15 +251,20 @@ $ooLoop: (
       hover: (
         backgroundColor: ooDarken(oo('button.props.backgroundColor'), 10%),
       ),
-      focus: oo('button.states.hover'),
+      focus: (
+        +oo('button.states.hover'),
+        (
+          outline: none,
+        )
+      ),
       active: (
         backgroundColor: ooDarken(oo('button.props.backgroundColor'), 12%),
         boxShadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
       ),
     ),
     paints: oo('colors.main'),
+    outline: true,
     variants: (
-      outline: true,
       'full': (
         width: 100%,
       ),
@@ -271,21 +276,26 @@ $ooLoop: (
     margin: .3rem,
   ),
   input: (
-    color: #4d4d4d,
-    bgcolor: #fff,
-    fontFamily: oo('body.fontFamily'),
-    fontSize: oo('body.fontSize'),
-    fontWeight: oo('body.fontWeight'),
-    lineHeight: 1.15,
-    height: 2.5em,
-    focus: '',
-
-    padding: .5em .625em,
-    sizes: (),
-    borderColor: #d6d6d6,
-    border: 1px solid,
-    radius: .2em,
-    boxShadow:  1px 1px 1px 0 rgba(#aaa, .50),
+    props: (
+      padding: .5em .625em,
+      display: block,
+      width: 100%,
+      minHeight: 2.5em,
+      color: #4d4d4d,
+      fontSize: 1.6rem,
+      lineHeight: 1.15,
+      backgroundColor: #fff,
+      border: 1px solid #d6d6d6,
+      borderRadius: .2em,
+      boxShadow: 1px 1px 1px 0 rgba(#aaa, .50),
+    ),
+    states: (
+      focus: (
+        outline: none,
+        boxShadow: 1px 1px 2px 0px rgba(#aaa, .85),
+      ),
+    ),
+    variants: (),
   ),
   // checkbox: (
   //   animation: true,
@@ -319,8 +329,12 @@ $ooLoop: (
     headings: true,
     type: true,
     button: true,
+    input: (
+      textfield: true,
+      textarea: true,
+    ),
     column: true,
-    grid: false, 
+    grid: false,
     template: true,
     container: true,
     utilities: (
