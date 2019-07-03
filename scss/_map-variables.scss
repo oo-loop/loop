@@ -297,6 +297,20 @@ $ooLoop: (
     ),
     variants: (),
   ),
+  select: (
+    props: oo('input.props'),
+    states: oo('input.states'),
+    selector: (
+      default: (
+        size: 10px,
+        weight: 2px,
+        color: #4d4d4d,
+        bgcolor: #fff, 
+      ),
+      variants: (),
+    ),
+    variants: (),
+  ),
   // checkbox: (
   //   animation: true,
   //   breakpoints: (),
@@ -332,6 +346,7 @@ $ooLoop: (
     input: (
       textfield: true,
       textarea: true,
+      select: true,
     ),
     column: true,
     grid: false,

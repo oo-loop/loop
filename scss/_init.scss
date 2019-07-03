@@ -31,6 +31,9 @@
   @if oo('use.input.textfield') {
     @include initTextField;
   }
+  @if oo('use.input.select') {
+    @include initSelectField;
+  }
   @if oo('use.utilities.color') {
     @include initColor;
   }
