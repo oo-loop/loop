@@ -237,15 +237,14 @@ $ooLoop: (
 
   button: (
     props: (
-      padding: .415em 1.2em,
+      padding: .438em 1.2em,
       fontSize: 1.6rem,
       fontWeight: bold,
-      lineHeight: 1.2,
+      lineHeight: 1.5,
       color: #333,
       backgroundColor: #fff,
+      border: 1px solid #cecece,
       borderRadius: .2em,
-      boxShadow:  1px 1px 1px 0 #999,
-      border: 1px solid #eee,
     ),
     states: (
       hover: (
@@ -287,12 +286,11 @@ $ooLoop: (
       backgroundColor: #fff,
       border: 1px solid #d6d6d6,
       borderRadius: .2em,
-      boxShadow: 1px 1px 1px 0 rgba(#aaa, .50),
     ),
     states: (
       focus: (
         outline: none,
-        boxShadow: 1px 1px 2px 0px rgba(#aaa, .85),
+        boxShadow: 0 0 8px 0px rgba(#aaa, .25),
       ),
     ),
     variants: (),
