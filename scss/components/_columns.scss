@@ -46,7 +46,7 @@
   }
 
   // reponsives classes starting from root
-  @each $class in join('', oo('column.screens')) {
+  @each $class in join('rt', oo('column.screens')) {
     @include breakpoint($class) {
       $suffix: '';
       @if $class != '' {

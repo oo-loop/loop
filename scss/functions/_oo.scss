@@ -74,11 +74,17 @@
  * @return Map|List|String
  */
 @function oo($key, $map:null) {
-  $list: split('.', $key);
   $map: if($map == null, $ooLoop, $map);
+
+  @if str-index($key, '.') == null {
+    @return getMapValue($map, $key);
+  }
+
+  $list: split('.', $key);
   @for $i from 1 through length($list) {
     $map: getMapValue($map, nth($list, $i));
   }
+ 
   @return $map;
 }
 

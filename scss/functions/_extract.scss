@@ -1,4 +1,3 @@
-@import 'split';
 /**
  * Extract
  * @param String $start The string to start width
@@ -9,11 +8,8 @@
  */
 
 @function extract($start, $end, $subject) {
-  $startIndex: str-index(#{$subject}, $start);
-  $length: str-length(#{$subject});
+  $startIndex: str-index(#{$subject}, #{$start});
+  $endIndex: str-index(#{$subject}, #{$end}) + str-length(#{$end}) - 1;
 
-  $beingWidth: str-slice(#{$subject}, $startIndex, $length);
-  $breakdown: split($end, $beingWidth);
-
-  @return '#{nth($breakdown,1)}#{$end}';
+  @return str-slice(#{$subject}, $startIndex, $endIndex);
 }
