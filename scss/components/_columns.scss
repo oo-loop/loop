@@ -49,7 +49,7 @@
   @each $class in join('rt', oo('column.screens')) {
     @include breakpoint($class) {
       $suffix: '';
-      @if $class != '' {
+      @if $class != 'rt' {
         $suffix: \@#{$class};
       }
 
