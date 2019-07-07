@@ -104,9 +104,6 @@ $ooLoop: (
     margin: 1rem,
   ),
 
-  /**
-   * Utilities
-   */
   utilities: (
     fontFamily: (
       values: (
@@ -290,7 +287,7 @@ $ooLoop: (
     states: (
       focus: (
         outline: none,
-        boxShadow: 0 0 8px 0px rgba(#aaa, .25),
+        boxShadow: 0 0 8px 0 rgba(#aaa, .25),
       ),
     ),
     variants: (),
@@ -309,6 +306,26 @@ $ooLoop: (
     ),
     variants: (),
   ),
+  checkbox: (
+    props: (
+      backgroundColor: #fff,
+      border: 1px solid #d6d6d6,
+      borderRadius: .2em,
+    ),
+    checked: (
+      markColor: #fff,
+      props: (
+        backgroundColor: oo('colors.main.primary'),
+        border: 1px solid oo('colors.main.primary'),
+      )
+    ),
+    sizes: (
+      default: 18px,
+      variants: ()
+    ),
+    screens: (),
+  ),
+
   // checkbox: (
   //   animation: true,
   //   breakpoints: (),
@@ -327,13 +344,6 @@ $ooLoop: (
   //   )
   // ),
   // radio: oo('checkbox'),
-  // select: (
-  //   size: 10px,
-  //   weight: 2px,
-  //   color: oo('input.color'),
-  //   bgcolor: oo('input.bgcolor'),
-  // ),
-
   
 
   use: (
@@ -345,6 +355,7 @@ $ooLoop: (
       textfield: true,
       textarea: true,
       select: true,
+      checkbox: true,
     ),
     column: true,
     grid: false,

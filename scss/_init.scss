@@ -34,6 +34,9 @@
   @if oo('use.input.select') {
     @include initSelectField;
   }
+  @if oo('use.input.checkbox') {
+    @include initCheckbox;
+  }
   @if oo('use.utilities.color') {
     @include initColor;
   }
