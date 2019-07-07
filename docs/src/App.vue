@@ -334,25 +334,8 @@ export default {
 	$color-primary:   #6cd7f7;
 	$color-secondary: #254F67;
 
-	// some variables
-	@import '~loop/variables';
-		
-  $btn-colors: (
-	  'nectarine':  #ffbe76,
-	  'yellow':     #fffa65,
-	  'salmon':     #ffb8b8,
-	  'purple':     #8e44ad,
-	  'green-sea':  #16a085,
-	);
+	@import '~loop/loop';
 
-	$checkbox-sizes:(
-	    'small': 1.6rem,
-	    'large': 2.4rem,
-	);
-	$radio-sizes:(
-		'medium': 2.4rem,
-	    'large': 3.2rem,
-	);
 	$toggle-sizes:(
 	  	'large': 4rem,
 	);
@@ -363,17 +346,6 @@ export default {
 	$input-padding-sizes: (
 		'large': 2rem,
 	);
-
-	$columns-gutter-sizes: (
-	    'less' : 0,
-	    'tiny' : .8rem,
-	    'small': 1.6rem,
-	    'large': 4rem,
-	);
-	$columns-v-gutter-sizes: $columns-gutter-sizes;
-	$columns-gutter-sizes-breakpoints-classes:(sm, md, lg);
-	$columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-classes;
-	$use-columns-self-adjustment-breakpoints: true;
 
 	$use-grid-order: true;
 
@@ -419,15 +391,24 @@ export default {
 		),
 	);
 
-	@import '~loop/init';
-
+	$ooLoop: ooSet('checkbox.sizes.variants', (
+		'small': 1.6rem,
+		'large': 3rem,
+	));
+	$ooLoop: ooSet('radio.sizes.variants', (
+		'medium': 2.4rem,
+	  'large': 3.2rem,
+	));
 	
 	$ooLoop: ooSet('template.areas', $template-areas);
 	$ooLoop: ooSet('template.gap.sizes', (
 		'less' : 0,
 		'small': 1.6rem,
 	));
+	$ooLoop: ooSet('column.use.order', true);
+	$ooLoop: ooSet('column.use.childAlignment', true);
 
+	$ooLoop: ooSet('html5', false);
 	$ooLoop: ooSet('colors.main', (
 		'primary': $color-primary,
 		'secondary': $color-secondary,
@@ -445,36 +426,37 @@ export default {
 		'white': #fff,
 	));
 
-	$ooLoop: ooAdd('utilities.fontWeight.props', (
+	$ooLoop: ooAdd('utilities.fontWeight.values', (
 		'thin': 100,
 	));
 	$ooLoop: ooSet('utilities.textAlign.screens', (sm, lg));
-	$ooLoop: ooSet('utilities.textDecoration.props', (
+	$ooLoop: ooSet('utilities.textDecoration.values', (
 		'line-through',
 		'underline',
 	));
 
 	$ooLoop: ooAdd('wrapper.sizes', (
-		'default': .5rem 1rem,
-		'large': 2rem,
+		'default': .8rem 1.6rem,
+		'large': 3.2rem,
 		'wide': (
-			rt: 1.250rem,
-			sm: 2rem,
-			md: 2.875rem,
-			lg: 3rem,
+			rt: 2rem,
+			sm: 3.2rem,
+			md: 4.6rem,
+			lg: 6rem,
 		)
 	));
 	$ooLoop: ooSet('wrapper.screens', (sm, md, lg));
+	$ooLoop: ooAdd('button.paints', (
+	  'nectarine':  #ffbe76,
+	  'yellow':     #fffa65,
+	  'salmon':     #ffb8b8,
+	  'purple':     #8e44ad,
+	  'green-sea':  #16a085,
+	));
 
-	$ooLoop: ooAdd('float.props', 'none');
+	$ooLoop: ooAdd('float.values', 'none');
 
 	@include ooInit();
-
-
-
-	@debug $ooLoop;
-
-	@import '~loop/loop';
 
 	$layout-padding: 1.5rem;
 	$sidebar-size: 220px;

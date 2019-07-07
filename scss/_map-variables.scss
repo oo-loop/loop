@@ -315,8 +315,26 @@ $ooLoop: (
     checked: (
       markColor: #fff,
       props: (
-        backgroundColor: oo('colors.main.primary'),
-        border: 1px solid oo('colors.main.primary'),
+        backgroundColor: #4d4d4d,
+        border: 1px solid #4d4d4d,
+      )
+    ),
+    sizes: (
+      default: 18px,
+      variants: ()
+    ),
+    screens: (),
+  ),
+  radio: (
+    props: (
+      backgroundColor: #fff,
+      border: 1px solid #d6d6d6,
+    ),
+    checked: (
+      markColor: #fff,
+      props: (
+        backgroundColor: #4d4d4d,
+        border: 1px solid #4d4d4d,
       )
     ),
     sizes: (
@@ -356,6 +374,7 @@ $ooLoop: (
       textarea: true,
       select: true,
       checkbox: true,
+      radio: true,
     ),
     column: true,
     grid: false,

@@ -3,22 +3,25 @@
  */
 
 @mixin checkboxSize($size) {
-  $mark-width: floor($size * 0.4);
-  $mark-height: floor($size * 0.6);
-  $mark-border-width: floor($size * 0.12);
+  @if isNotNumber($size) {
+    @error 'The checkbox $size must be a number';
+  }
+  $mark-width: $size * 0.4;
+  $mark-height: $size * 0.6;
+  $mark-border-width: $size * 0.12;
 
   & + label {
     &::before {
-      left: floor(($size / 2) - ($mark-width / 2) + ($mark-border-width / 3));
+      left: ($size / 2) - ($mark-width / 2) + ($mark-border-width / 3);
     }
     &::after {
-      margin-right: floor($size / 2.5);
+      margin-right: $size / 2.5;
       min-width: $size;
       min-height: $size;
     }
 
     & + [#{ooPrefix()}-checkbox] + label {
-      margin-top: floor($size / 3);
+      margin-top: $size / 3;
     }
   }
   &:checked + label::before {

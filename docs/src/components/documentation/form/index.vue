@@ -6,15 +6,15 @@
 
 		<h3 id="input"><router-link to="#input">#</router-link> Input</h3>
 		<p>
-			Use the <code class="color-secondary">input</code> property <code class="color-secondary">oo-form="input"</code> to format the appearance of the textfield.<br>
+			Use the <code class="color-secondary">input</code> property <code class="color-secondary">oo-input</code> to format the appearance of the textfield.<br>
 			Alter the size of the input by applying any of the <code class="color-info">$text-sizes</code> classes available from text utitlies.<br>
 			Alter the appearance of the input by applying any classes from the color utitlies.
 		</p>
 		<label for="default-input">Input</label>
-		<input oo-form="input" class="mb-15" id="default-input" type="text">
+		<input oo-input class="mb-15" id="default-input" type="text">
 
 		<label for="input-text-large">Larger input with text-large</label>
-		<input oo-form="input" class="border-danger text-large" id="input-text-large" type="text">
+		<input oo-input class="border-danger text-large" id="input-text-large" type="text">
 		<p class="text-tiny color-danger mt-5">Textfield is required.</p>
 
 		<pretty-code :code="html.input"></pretty-code>
@@ -26,7 +26,7 @@
 		<pretty-code class="language-css" :code="html.inputPaddingVariable"></pretty-code>
 
 		<label for="large-default-input">Large input</label>
-		<input oo-form="input large" class="mb-15" id="large-default-input" type="text">
+		<input oo-input="large" class="mb-15" id="large-default-input" type="text">
 
 		<pretty-code :code="html.inputLarge"></pretty-code>
 
@@ -38,7 +38,7 @@
 		</p>
 
 		<label> Select Tiny Option</label>
-		<div oo-form="select" class="text-tiny mb-15">
+		<div oo-select class="text-tiny mb-15">
 			<select>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -47,7 +47,7 @@
 		</div>
 
 		<label> Select Option</label>
-		<div oo-form="select" class="border-danger">
+		<div oo-select class="border-danger">
 			<select>
 				<option value="1">Option 1</option>
 				<option value="2">Option 2</option>
@@ -61,7 +61,7 @@
 		<p>Optionally add extra dimension to your select inheriting values from <code class="color-info">$input-padding-sizes</code></p>
 
 		<label> Select Option</label>
-		<div oo-form="select large">
+		<div oo-select="large">
 			<select>
 				<option value="1">Option 1</option>
 			</select>
@@ -73,9 +73,9 @@
 			Use the <code class="color-secondary">checkbox</code> property <code class="color-secondary">oo-form="checkbox"</code> on <markup>input type="checkbox"</markup> <u>preceding</u> <markup>label</markup><br>
 			Alter the appearance of the checkbox by applying classes from the color utilities.
 		</p>
-		<input oo-form="checkbox" id="checkbox-1" type="checkbox">
+		<input oo-checkbox id="checkbox-1" type="checkbox">
 		<label for="checkbox-1">Checkbox 1</label>
-		<input oo-form="checkbox" class="border-danger" id="checkbox-2" type="checkbox">
+		<input oo-checkbox class="border-danger" id="checkbox-2" type="checkbox">
 		<label for="checkbox-2">Checkbox 2</label>
 		<p class="text-tiny color-danger mt-5">Checkbox is required</p>
 
@@ -84,25 +84,25 @@
 		<p>Need extra sizes? Set values to the variable <code class="color-info">$checkbox-sizes</code>.<br>It will generate <code class="color-secondary">oo-form</code> properties with the name you created. Those sizes will only modify the dimenstion of the checkbox itself (not the label). If you wish to tweak the label, directly apply any of the text utilities on it.</p>
 		<pretty-code class="language-css" :code="html.checkboxSizesVariable"></pretty-code>
 
-		<input oo-form="checkbox small" id="checkbox-small-1" type="checkbox">
+		<input oo-checkbox="small" id="checkbox-small-1" type="checkbox">
 		<label class="text-small" for="checkbox-small-1">Checkbox small 1</label>
-		<input oo-form="checkbox small" id="checkbox-small-2" type="checkbox">
+		<input oo-checkbox="small" id="checkbox-small-2" type="checkbox">
 		<label class="text-small mb-15" for="checkbox-small-2">Checkbox small 2</label>
-		<input oo-form="checkbox large" id="checkbox-large-1" type="checkbox">
+		<input oo-checkbox="large" id="checkbox-large-1" type="checkbox">
 		<label for="checkbox-large-1">Checkbox large 1</label>
-		<input oo-form="checkbox large" id="checkbox-large-2" type="checkbox">
+		<input oo-checkbox="large" id="checkbox-large-2" type="checkbox">
 		<label for="checkbox-large-2">Checkbox large 2</label>
 
 		<pretty-code :code="html.checkboxSizes"></pretty-code>
 
 		<h3 id="radio"><router-link to="#radio">#</router-link> Radio</h3>
 		<p>
-			Use the <code class="color-secondary">radio</code> property <code class="color-secondary">oo-form="radio"</code> on <markup>input type="radio"</markup> <u>preceding</u> <markup>label</markup><br>
+			Use the <code class="color-secondary">radio</code> property <code class="color-secondary">oo-radio</code> on <markup>input type="radio"</markup> <u>preceding</u> <markup>label</markup><br>
 			Alter the appearance of the radio by applying classes from the color utilities.
 		</p>
-		<input oo-form="radio" id="radio-1" type="radio" name="radio">
+		<input oo-radio id="radio-1" type="radio" name="radio">
 		<label for="radio-1">Radio 1</label>
-		<input oo-form="radio" class="border-danger" id="radio-2" type="radio" name="radio">
+		<input oo-radio class="border-danger" id="radio-2" type="radio" name="radio">
 		<label for="radio-2">Radio 2</label>
 		<p class="text-tiny color-danger mt-5">Radio is required</p>
 
@@ -111,14 +111,14 @@
 		<p>Need extra sizes? Set values to the variable <code class="color-info">$radio-sizes</code>.</p>
 		<pretty-code class="language-css" :code="html.radioSizesVariable"></pretty-code>
 
-		<input oo-form="radio medium" id="radio-medium-1" type="radio" name="radio-medium">
+		<input oo-radio="medium" id="radio-medium-1" type="radio" name="radio-medium">
 		<label for="radio-medium-1">Radio medium 1</label>
-		<input oo-form="radio medium" id="radio-medium-2" type="radio" name="radio-medium">
+		<input oo-radio="medium" id="radio-medium-2" type="radio" name="radio-medium">
 		<label class="mb-15" for="radio-medium-2">Radio medium 2</label>
 
-		<input oo-form="radio large" id="radio-large-1" type="radio" name="radio-large">
+		<input oo-radio="large" id="radio-large-1" type="radio" name="radio-large">
 		<label class="text-large" for="radio-large-1">Radio large 1</label>
-		<input oo-form="radio large" id="radio-large-2" type="radio" name="radio-large">
+		<input oo-radio="large" id="radio-large-2" type="radio" name="radio-large">
 		<label class="text-large" for="radio-large-2">Radio large 2</label>
 
 		<pretty-code :code="html.radioSizes"></pretty-code>

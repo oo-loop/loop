@@ -37,6 +37,9 @@
   @if oo('use.input.checkbox') {
     @include initCheckbox;
   }
+  @if oo('use.input.radio') {
+    @include initRadio;
+  }
   @if oo('use.utilities.color') {
     @include initColor;
   }
