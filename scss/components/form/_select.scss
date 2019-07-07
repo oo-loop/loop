@@ -40,13 +40,13 @@
       bottom: 0;
       content: '';
 
-      $borderProps: oo('input.props.border');
+      $borderProps: oo('select.props.border');
       @if ($borderProps) {
         border-top: $borderProps;
         border-right: $borderProps;
         border-bottom: $borderProps;
       }
-      $borderRadiusProps: oo('input.props.borderRadius');
+      $borderRadiusProps: oo('select.props.borderRadius');
       @if ($borderRadiusProps) {
         border-top-right-radius: $borderRadiusProps;
         border-bottom-right-radius: $borderRadiusProps;
@@ -61,7 +61,7 @@
       border-bottom-style: solid;
       border-right-style: solid;
       pointer-events: none;
-      transform: rotateZ(45deg) translate3d(-50%, -50%, 0);
+      transform: rotateZ(45deg) translateY(-50%) translateX(-50%);
     }
 
     @if oo('select.selector.default') {
@@ -82,8 +82,15 @@
       &::-ms-expand { // hide the default arrow in ie10 and ie11
         display: none;
       }
-      @include generateProperties(oo('select.props'));
-      @include generateStatesProperties(oo('select.states'));
+
+      @if not oo('use.input.textfield') or oo('select.props') != oo('input.props') {
+        @include generateProperties(oo('select.props'));
+        @include generateProperties(oo('select.states'));
+      } @else if oo('use.input.textfield')
+        and oo('select.props') == oo('input.props')
+        and oo('select.states') != oo('input.states') {
+          @include generateProperties(oo('select.states'));
+      }
     }
 
     @if oo('select.variants') and isMap(oo('select.variants')) {

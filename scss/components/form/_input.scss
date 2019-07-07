@@ -49,10 +49,23 @@ label {
 }
 
 @mixin initTextField {
-  [#{ooPrefix()}-input] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    @include generateProperties(oo('input.props'));
-    @include generateStatesProperties(oo('input.states'));
+  @if oo('use.input.select') and oo('select.props') == oo('input.props') {
+    [#{ooPrefix()}-input],
+    [#{ooPrefix()}-select] > select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      @include generateProperties(oo('input.props'));
+
+      @if oo('select.states') == oo('input.states') {
+        @include generateStatesProperties(oo('input.states'));
+      }
+    }
+  } @else {
+    [#{ooPrefix()}-input] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      @include generateProperties(oo('input.props'));
+      @include generateStatesProperties(oo('input.states'));
+    }
   }
 }
