@@ -24,13 +24,22 @@ $ooLoop: (
   ),
 
   colors: (
-    main: (
-      'primary': #6cd7f7,
+    main:(
+     'primary': #6cd7f7,
       'secondary': #959595,
     ),
-    backgrounds: oo('colors.main'),
-    borders: oo('colors.main'),
-    fonts: oo('colors.main'),
+    utilities: (
+      color: (
+        values: oo('colors.main'),
+      ),
+      backgroundColor: (
+        prefix: 'bg',
+        values: oo('colors.main'),
+      ),
+      borderColor: (
+        values: oo('colors.main'),
+      ),
+    )
   ),
 
   headings: (
@@ -117,11 +126,11 @@ $ooLoop: (
       ),
     ),
     fontSize: (
+      prefix: 'text',
       values: (
         'large': 2rem,
         'small': 1.4rem,
       ),
-      prefix: 'text',
     ),
     fontStyle: (
       values: ('italic'),
