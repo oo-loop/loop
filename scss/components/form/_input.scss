@@ -2,43 +2,6 @@
  * Input
  */
 
-$input-color:            #4d4d4d !default;
-$input-bgcolor:          #fff !default;
-$input-font-family:      $font-family-base !default;
-$input-font-size:        $font-size-base !default;
-$input-font-style:       normal !default;
-$input-line-height:      1.15 !default;
-$input-height:           2.5em !default;
-
-$input-padding:          .5em .625em !default; // relative to the size of the input
-$input-padding-sizes:    () !default;
-
-$input-border-color:     #d6d6d6 !default;
-$input-border:           1px solid $input-border-color !default;
-$input-border-radius:    .2em !default; // relative to the size of the input
-$input-box-shadow:       1px 1px 1px 0 rgba(#aaa, .50) !default;
-$input-focus-box-shadow: 1px 1px 2px 0px rgba(#aaa, .85) !default;
-$input-focus-border-color: $input-border-color !default;
-
-$label-font-weight:      500 !default;
-$label-margin:           .3rem !default;
-
-%inputFocus {
-  @if $input-box-shadow == none and $input-focus-box-shadow != none {
-    box-shadow: $input-focus-box-shadow;
-  } @elseif $input-focus-box-shadow != none {
-    box-shadow: $input-box-shadow, $input-focus-box-shadow;
-  }
-
-  @if $input-border-color != $input-focus-border-color {
-    border-color: $input-focus-border-color;
-  }
-}
-
-%input,
-[#{$loop-component-prefix}-form~="input"] {
-  display: block;
-}
 
 label {
   font-weight: $label-font-weight;
