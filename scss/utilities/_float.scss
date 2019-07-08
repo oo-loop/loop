@@ -3,21 +3,11 @@
  */
 
 @mixin initFloat {
-  @include loop(
-    oo('float.values'),
-    'float',
-    '.float',
-    true
-  );
-
-  @include loopBreakpoints(
-    oo('float.screens'),
-    oo('float.values'),
-    'float',
-    '.float',
-    true
-  );
-    
-  .clear { clear: both; }
-  .clearfix { @include clearfix; }
+  @if isNotEmpty(oo('float.utilities')) {
+    @include generateUtilities(oo('float.utilities'));
+  }
+  @if oo('float.clear') {
+    .clear { clear: both; }
+    .clearfix { @include clearfix; }
+  }
 }

@@ -155,11 +155,13 @@ $ooLoop: (
   ),
 
   float: (
-    values: (
-      'left',
-      'right',
+    utilities: (
+      values: (
+        'left',
+        'right',
+      ),
     ),
-    screens: (),
+    clearfix: true,
   ),
 
   visibility: (
