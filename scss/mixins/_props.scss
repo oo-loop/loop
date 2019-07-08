@@ -24,3 +24,14 @@
     }
   }
 }
+
+@mixin generateStyles($element) {
+  @if isMap($element) {
+    @if map-has-key($element, 'props') {
+      @include generateProperties(map-get($element, 'props')); 
+    }
+    @if map-has-key($element, 'states') {
+      @include generateStatesProperties(map-get($element, 'states')); 
+    }
+  }
+}

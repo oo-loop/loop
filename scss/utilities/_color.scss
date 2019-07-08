@@ -3,7 +3,7 @@
  */
 
 @mixin initColor {
-  @include loop(oo('colors.fonts'), 'color', '.color', true);
-  @include loop(oo('colors.backgrounds'), 'background-color', '.bg', true);
-  @include loop(oo('colors.borders'), 'border-color', '.border', true);
+  @if isNotEmpty(oo('colors.utilities')) {
+    @include generateUtilities(oo('colors.utilities'));
+  }
 }
