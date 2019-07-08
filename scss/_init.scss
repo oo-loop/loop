@@ -40,6 +40,9 @@
   @if oo('use.input.radio') {
     @include initRadio;
   }
+  @if oo('use.input.toggle') {
+    @include initToggle;
+  }
   @if oo('use.utilities.color') {
     @include initColor;
   }

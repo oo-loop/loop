@@ -343,26 +343,30 @@ $ooLoop: (
     ),
     screens: (),
   ),
-
-  // checkbox: (
-  //   animation: true,
-  //   breakpoints: (),
-
-  //   sizes: (
-  //     'key' : '1.8rem',
-  //   ),
-  //   radius: .2em,
-  //   bgcolor: oo('input.bgcolor'),
-  //   border-color: oo('input.border-color'),
-  //   box-shadow: 1px 1px 2px 0 rgba(#aaa, .3),
-  //   checked: (
-  //     color: oo('input.color'),
-  //     bgcolor: oo('input.bgcolor'),
-  //     border-color: oo('checkbox.border-color'),
-  //   )
-  // ),
-  // radio: oo('checkbox'),
-  
+  toggle: (
+    props: (
+      border: 1px solid #d6d6d6,
+      borderRadius: 50em,
+      backgroundColor: #d6d6d6,
+      transition: (background-color 300ms ease-in-out, border-color 300ms ease-in-out),
+    ),
+    toggler: (
+      borderRadius: 50%,
+      backgroundColor: #fff,
+      boxShadow: 1px 1px 2px 0 rgba(#4d4d4d, 0.3),
+      transition: transform 300ms ease-out,
+    ),
+    checked: (
+      props: (
+        borderColor: #4d4d4d,
+        backgroundColor: oo('toggle.checked.props.borderColor'),
+      )
+    ),
+    sizes: (
+      default: 2.4rem,
+      variants: (),
+    )
+  ),
 
   use: (
     base: true,
@@ -375,6 +379,7 @@ $ooLoop: (
       select: true,
       checkbox: true,
       radio: true,
+      toggle: true,
     ),
     column: true,
     grid: false,
