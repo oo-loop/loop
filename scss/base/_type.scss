@@ -47,10 +47,9 @@
     @if oo('anchor.props') {
       @include generateProperties(oo('anchor.props'));
     }
-    @if oo('anchor.hover') {
-      &[href]:focus,
-      &[href]:hover {
-        @include generateProperties(oo('anchor.hover'));
+    @if oo('anchor.states') {
+      &[href] {
+        @include generateStatesProperties(oo('anchor.states'));
       }
     }
   }
@@ -88,10 +87,10 @@
   }
   
   hr, .hr {
-    margin-top: oo('hr.margin');
-    margin-bottom: oo('hr.margin');
     display: block;
     border:none;
-    border-bottom: 1px solid oo('hr.color');
+    @if oo('hr.props') {
+      @include generateProperties(oo('hr.props'));
+    }
   }
 }

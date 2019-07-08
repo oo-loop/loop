@@ -71,8 +71,11 @@ $ooLoop: (
       color: oo('colors.main.primary'),
       textDecoration: none,
     ),
-    hover: (
-      color: ooDarken(oo('anchor.props.color'), 12%),
+    states: (
+      hover: (
+        color: ooDarken(oo('anchor.props.color'), 12%),
+      ),
+      focus: oo('anchor.states.hover'),
     )
   ),
 
@@ -100,8 +103,10 @@ $ooLoop: (
   ),
   
   hr: (
-    color: #cdcdcd,
-    margin: 1rem,
+    props:(
+      margin: 1rem auto,
+      border-bottom: 1px solid #cdcdcd,
+    )
   ),
 
   utilities: (
