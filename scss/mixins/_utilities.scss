@@ -8,11 +8,11 @@
  */
 
  @mixin generateUtilities($utilitiesMap) {
-  @each $property-name, $options  in $utilitiesMap {
+  @each $name, $options  in $utilitiesMap {
     @if isMap($options) {
       $props: if(map-has-key($options, 'values'), oo('values', $options), ());
-      $property-name: toKebabCase($property-name);
-      $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', $property-name), 1));
+      $property-name: if(map-has-key($options, 'property'), oo('property', $options), toKebabCase($name));
+      $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', toKebabCase($name)), 1));
       $is-important: if(map-has-key($options, 'important'), oo('important', $options), true);
       $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
       

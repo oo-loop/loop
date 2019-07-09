@@ -164,6 +164,15 @@ $ooLoop: (
     clearfix: true,
   ),
 
+  wrapper: (
+    property: 'padding',
+    values:(
+      'tiny': .8rem,
+      'small': 1.6rem,
+      'medium': 2.4rem,
+    ),
+  ),
+
   visibility: (
     breakpoints: oo('screens'),
     pointbreaks: oo('screens'),
@@ -237,15 +246,6 @@ $ooLoop: (
       ),
       screens: (),
     ),
-  ),
-
-  wrapper: (
-    sizes: (
-      'tiny': .8rem,
-      'small': 1.6rem,
-      'medium': 2.4rem,
-    ),
-    screens: (),
   ),
 
   button: (

@@ -3,15 +3,7 @@
  */
 
 @mixin initWrapper {
-  @include loop(
-    oo('wrapper.sizes'),
-    'padding',
-    '.wrapper'
-  );
-  @include loopBreakpoints(
-    oo('wrapper.screens'),
-    oo('wrapper.sizes'),
-    'padding',
-    '.wrapper'
-  );
+  @if isNotEmpty(oo('wrapper')) {
+    @include generateUtilities((wrapper: oo('wrapper')));
+  }
 }
