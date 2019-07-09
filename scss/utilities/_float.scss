@@ -4,9 +4,12 @@
 
 @mixin initFloat {
   @if isNotEmpty(oo('float.utilities')) {
-    @include generateUtilities(oo('float.utilities'));
+    $utilities: (
+      float: oo('float.utilities')
+    );
+    @include generateUtilities($utilities);
   }
-  @if oo('float.clear') {
+  @if oo('float.clearfix') {
     .clear { clear: both; }
     .clearfix { @include clearfix; }
   }
