@@ -119,12 +119,6 @@ $ooLoop: (
   ),
 
   utilities: (
-    fontFamily: (
-      values: (
-        'primary': oo('body.fontFamily'),
-        'secondary': ('Georgia', times, serif),
-      ),
-    ),
     fontSize: (
       prefix: 'text',
       values: (
