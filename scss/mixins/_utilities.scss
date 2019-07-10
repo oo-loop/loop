@@ -8,6 +8,12 @@
  */
 
  @mixin generateUtilities($utilitiesMap) {
+
+  @if map-has-key($utilitiesMap, 'values')
+    and map-has-key($utilitiesMap, 'name') {
+    $utilitiesMap: (map-get($utilitiesMap, 'name'): $utilitiesMap);
+  }
+
   @each $name, $options  in $utilitiesMap {
     @if isMap($options) {
       $props: if(map-has-key($options, 'values'), oo('values', $options), ());
