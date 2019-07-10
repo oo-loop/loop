@@ -3,11 +3,12 @@
  */
 
 @mixin initFloat {
-  @if isNotEmpty(oo('float.utilities')) {
-    @include generateUtilities((float: oo('float.utilities')));
-  }
   @if oo('float.clearfix') {
     .clear { clear: both; }
     .clearfix { @include clearfix; }
+  }
+  @if isNotEmpty(oo('float.values')) {
+    $float: map-remove(oo('float'), 'clearfix');
+    @include generateUtilities((float: $float));
   }
 }

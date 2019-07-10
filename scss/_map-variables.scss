@@ -149,11 +149,9 @@ $ooLoop: (
   ),
 
   float: (
-    utilities: (
-      values: (
-        'left',
-        'right',
-      ),
+    values: (
+      'left',
+      'right',
     ),
     clearfix: true,
   ),
@@ -222,19 +220,20 @@ $ooLoop: (
 
   spacing: (
     marginLeft: (
+      prefix: 'ml',
       values: (
         '0': 0,
         '5': .5rem,
         '10': 1rem,
         '15': 1.5rem,
       ),
-      prefix: 'ml',
     ),
     marginRight: (
-      values: oo('spacing.marginLeft.values'),
       prefix: 'mr',
+      values: oo('spacing.marginLeft.values'),
     ),
     marginTop: (
+      prefix: 'mt',
       values: (
         '0': 0,
         '5': .5rem,
@@ -242,12 +241,11 @@ $ooLoop: (
         '15': 1.5rem,
         '30': 3rem,
       ),
-      prefix: 'mt',
     ),
     marginBottom: (
-      values: oo('spacing.marginTop.values'),
       prefix: 'mb',
-    )
+      values: oo('spacing.marginTop.values'),
+    ),
   ),
 
   button: (
