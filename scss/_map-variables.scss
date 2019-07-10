@@ -221,25 +221,33 @@ $ooLoop: (
   // ),
 
   spacing: (
-    h: (
-      sizes: (
+    marginLeft: (
+      values: (
         '0': 0,
         '5': .5rem,
         '10': 1rem,
         '15': 1.5rem,
-      ),  
-      screens: (),
+      ),
+      prefix: 'ml',
     ),
-    v: (
-      sizes: (
+    marginRight: (
+      values: oo('spacing.marginLeft.values'),
+      prefix: 'mr',
+    ),
+    marginTop: (
+      values: (
         '0': 0,
         '5': .5rem,
         '10': 1rem,
         '15': 1.5rem,
         '30': 3rem,
       ),
-      screens: (),
+      prefix: 'mt',
     ),
+    marginBottom: (
+      values: oo('spacing.marginTop.values'),
+      prefix: 'mb',
+    )
   ),
 
   button: (
@@ -395,16 +403,13 @@ $ooLoop: (
     grid: false,
     template: true,
     container: true,
+    visibility: true,
     utilities: (
       color: true,
       float: true,
       list: true,
-      spacing: (
-        h: true,
-        v: true,
-      ),
+      spacing: true,
       text: true,
-      visibility: true,
       wrapper: true,
     )
   )

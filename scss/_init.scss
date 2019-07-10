@@ -49,23 +49,20 @@
   @if oo('use.container') {
     @include initContainer;
   }
+  @if (oo('use.visibility')) {
+    @include initVisibility;
+  }
   @if oo('use.utilities.float') {
     @include initFloat;
   }
   @if oo('use.utilities.list') {
     @include initList;
   }
-  @if oo('use.utilities.spacing.h') {
-    @include initSpacingHorizontal;
-  }
-  @if oo('use.utilities.spacing.v') {
-    @include initSpacingVertical;
+  @if oo('use.utilities.spacing') {
+    @include initSpacing;
   }
   @if (oo('use.utilities.text')) {
     @include initText;
-  }
-  @if (oo('use.utilities.visibility')) {
-    @include initVisibility;
   }
   @if (oo('use.utilities.wrapper')) {
     @include initWrapper;
