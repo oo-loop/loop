@@ -2,8 +2,8 @@
  * Color Utilities
  */
 
-@mixin initColor {
-  @if isNotEmpty(oo('colors.utilities')) {
-    @include generateUtilities(oo('colors.utilities'));
+@mixin initPaint {
+  @if isNotEmpty(oo('paint')) {
+    @include generateUtilities(oo('paint'));
   }
 }

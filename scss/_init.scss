@@ -43,8 +43,8 @@
   @if oo('use.input.toggle') {
     @include initToggle;
   }
-  @if oo('use.utilities.color') {
-    @include initColor;
+  @if oo('use.utilities.paint') {
+    @include initPaint;
   }
   @if oo('use.container') {
     @include initContainer;
@@ -61,8 +61,8 @@
   @if oo('use.utilities.spacing') {
     @include initSpacing;
   }
-  @if (oo('use.utilities.text')) {
-    @include initText;
+  @if (oo('use.utilities.type')) {
+    @include initType;
   }
   @if (oo('use.utilities.wrapper')) {
     @include initWrapper;

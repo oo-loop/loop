@@ -24,22 +24,8 @@ $ooLoop: (
   ),
 
   colors: (
-    main:(
-     'primary': #6cd7f7,
-      'secondary': #959595,
-    ),
-    utilities: (
-      color: (
-        values: oo('colors.main'),
-      ),
-      backgroundColor: (
-        prefix: 'bg',
-        values: oo('colors.main'),
-      ),
-      borderColor: (
-        values: oo('colors.main'),
-      ),
-    )
+    'primary': #6cd7f7,
+    'secondary': #959595,
   ),
 
   headings: (
@@ -77,7 +63,7 @@ $ooLoop: (
 
   anchor: (
     props: (
-      color: oo('colors.main.primary'),
+      color: oo('colors.primary'),
       textDecoration: none,
     ),
     states: (
@@ -118,7 +104,20 @@ $ooLoop: (
     )
   ),
 
-  utilities: (
+  paint: (
+    color: (
+      values: oo('colors'),
+    ),
+    backgroundColor: (
+      prefix: 'bg',
+      values: oo('colors'),
+    ),
+    borderColor: (
+      values: oo('colors'),
+    ),
+  ),
+
+  type: (
     fontSize: (
       prefix: 'text',
       values: (
@@ -162,6 +161,36 @@ $ooLoop: (
       'tiny': .8rem,
       'small': 1.6rem,
       'medium': 2.4rem,
+    ),
+  ),
+
+  spacing: (
+    marginLeft: (
+      prefix: 'ml',
+      values: (
+        '0': 0,
+        '5': .5rem,
+        '10': 1rem,
+        '15': 1.5rem,
+      ),
+    ),
+    marginRight: (
+      prefix: 'mr',
+      values: oo('spacing.marginLeft.values'),
+    ),
+    marginTop: (
+      prefix: 'mt',
+      values: (
+        '0': 0,
+        '5': .5rem,
+        '10': 1rem,
+        '15': 1.5rem,
+        '30': 3rem,
+      ),
+    ),
+    marginBottom: (
+      prefix: 'mb',
+      values: oo('spacing.marginTop.values'),
     ),
   ),
 
@@ -218,36 +247,6 @@ $ooLoop: (
   //   )
   // ),
 
-  spacing: (
-    marginLeft: (
-      prefix: 'ml',
-      values: (
-        '0': 0,
-        '5': .5rem,
-        '10': 1rem,
-        '15': 1.5rem,
-      ),
-    ),
-    marginRight: (
-      prefix: 'mr',
-      values: oo('spacing.marginLeft.values'),
-    ),
-    marginTop: (
-      prefix: 'mt',
-      values: (
-        '0': 0,
-        '5': .5rem,
-        '10': 1rem,
-        '15': 1.5rem,
-        '30': 3rem,
-      ),
-    ),
-    marginBottom: (
-      prefix: 'mb',
-      values: oo('spacing.marginTop.values'),
-    ),
-  ),
-
   button: (
     props: (
       padding: .438em 1.2em,
@@ -274,7 +273,7 @@ $ooLoop: (
         boxShadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
       ),
     ),
-    paints: oo('colors.main'),
+    paints: oo('colors'),
     outline: true,
     variants: (
       'full': (
@@ -403,11 +402,11 @@ $ooLoop: (
     container: true,
     visibility: true,
     utilities: (
-      color: true,
       float: true,
       list: true,
       spacing: true,
-      text: true,
+      type: true,
+      paint: true,
       wrapper: true,
     )
   )

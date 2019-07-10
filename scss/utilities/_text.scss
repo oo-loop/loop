@@ -2,8 +2,8 @@
  * Text utilites
  */
 
-@mixin initText {
-  @if isNotEmpty(oo('utilities')) {
-    @include generateUtilities(oo('utilities'));
+@mixin initType {
+  @if isNotEmpty(oo('type')) {
+    @include generateUtilities(oo('type'));
   }
 }

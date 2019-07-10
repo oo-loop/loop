@@ -409,33 +409,31 @@ export default {
 	$ooLoop: ooSet('column.use.childAlignment', true);
 
 	$ooLoop: ooSet('html5', false);
-	$ooLoop: ooSet('colors.main', (
+	$ooLoop: ooSet('colors', (
 		'primary': $color-primary,
 		'secondary': $color-secondary,
 		'success': #8cc63f,
 		'warning': #fbb03b,
 		'danger': #f72828,
 	));
-	$ooLoop: ooAdd('colors.backgrounds', (
-		'body': oo('base.bgcolor'),
-	));
-	$ooLoop: ooAdd('colors.fonts', (
+
+	$ooLoop: ooAdd('paint.color.values', (
 	  'info': #2689ef,
 	  'gray': #999,
 	  'success': #3fc65c,
 		'white': #fff,
 	));
 
-	$ooLoop: ooAdd('utilities.fontWeight.values', (
+	$ooLoop: ooAdd('text.fontWeight.values', (
 		'thin': 100,
 	));
-	$ooLoop: ooSet('utilities.textAlign.screens', (sm, lg));
-	$ooLoop: ooSet('utilities.textDecoration.values', (
+	$ooLoop: ooSet('text.textAlign.screens', (sm, lg));
+	$ooLoop: ooSet('text.textDecoration.values', (
 		'line-through',
 		'underline',
 	));
 
-	$ooLoop: ooAdd('wrapper.sizes', (
+	$ooLoop: ooAdd('wrapper.values', (
 		'default': .8rem 1.6rem,
 		'large': 3.2rem,
 		'wide': (
