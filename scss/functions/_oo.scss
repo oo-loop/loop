@@ -129,6 +129,11 @@
 @function ooAdd($key, $mapValue, $map:null) {
   $currentValue: oo($key, $map);
 
+  @if isEmpty($currentValue) {
+    $newValue: ooSet($key, $mapValue, $map);
+    @return $newValue;
+  }
+
   @if (isRef($currentValue)) {
     $currentValue: oo(getRefValue($currentValue), $map);
     @if isRef($currentValue) {
