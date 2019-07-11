@@ -67,4 +67,7 @@
   @if (oo('use.utilities.wrapper')) {
     @include initWrapper;
   }
+  @if (oo('utilities')) {
+    @include generateUtilities(oo('utilities'));
+  }
 }

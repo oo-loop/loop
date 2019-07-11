@@ -417,18 +417,19 @@ export default {
 		'danger': #f72828,
 	));
 
-	$ooLoop: ooAdd('paint.color.values', (
+	$ooLoop: ooAdd('paint.font.values', (
 	  'info': #2689ef,
 	  'gray': #999,
 	  'success': #3fc65c,
 		'white': #fff,
 	));
 
-	$ooLoop: ooAdd('text.fontWeight.values', (
+
+	$ooLoop: ooAdd('type.fontWeight.values', (
 		'thin': 100,
 	));
-	$ooLoop: ooSet('text.textAlign.screens', (sm, lg));
-	$ooLoop: ooSet('text.textDecoration.values', (
+	$ooLoop: ooSet('type.textAlign.screens', (sm, lg));
+	$ooLoop: ooSet('type.textDecoration.values', (
 		'line-through',
 		'underline',
 	));
@@ -453,6 +454,15 @@ export default {
 	));
 
 	$ooLoop: ooAdd('float.values', 'none');
+
+	$ooLoop: ooAdd('utilities', (
+		borderRadius: (
+			prefix: 'border',
+			values: (
+				rounded: '50em',
+			)
+		)
+	));
 
 	@include ooInit();
 
