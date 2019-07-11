@@ -131,6 +131,14 @@
 
   @if (isRef($currentValue)) {
     $currentValue: oo(getRefValue($currentValue), $map);
+    @if isRef($currentValue) {
+      $ooRef: extractRef($currentValue);
+      $newValue: ooSet($key, (
+        '+#{$ooRef}',
+        $mapValue
+      ), $map);
+      @return $newValue;
+    }
   }
 
   @if isList($currentValue) {
