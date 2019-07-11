@@ -105,14 +105,18 @@ $ooLoop: (
   ),
 
   paint: (
-    color: (
+    font: (
+      prefix: 'color',
+      property: 'color',
       values: oo('colors'),
     ),
-    backgroundColor: (
+    background: (
       prefix: 'bg',
+      property: 'background-color',
       values: oo('colors'),
     ),
-    borderColor: (
+    border: (
+      property: 'border-color',
       values: oo('colors'),
     ),
   ),
