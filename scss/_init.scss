@@ -62,7 +62,7 @@
     @include initSpacing;
   }
   @if (oo('use.utilities.type')) {
-    @include initType;
+    @include initText;
   }
   @if (oo('use.utilities.wrapper')) {
     @include initWrapper;
