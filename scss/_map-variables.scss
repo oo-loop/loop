@@ -289,9 +289,14 @@ $ooLoop: (
   ),
 
   label: (
-    fontWeight: 500,
-    margin: .3rem,
+    props: (
+      marginBottom: .3rem,
+      display: inline-block,
+      fontWeight: 500,
+      lineHeight: 1.5
+    )
   ),
+
   input: (
     props: (
       padding: .5em .625em,

@@ -3,15 +3,15 @@
  */
 
 
-label {
-  font-weight: $label-font-weight;
-  + [#{$loop-component-prefix}-form~="input"],
-  + [#{$loop-component-prefix}-form~="select"] {
-    margin-top: $label-margin;
-  }
-}
+ 
+ @mixin initTextField {
 
-@mixin initTextField {
+  @if oo('label.props') {
+    label {
+      @include generateProperties(oo('label.props'));
+    }
+  }
+
   @if oo('use.input.select') and oo('select.props') == oo('input.props') {
     [#{ooPrefix()}-input],
     [#{ooPrefix()}-select] > select {
