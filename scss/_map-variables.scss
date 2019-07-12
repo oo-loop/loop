@@ -35,23 +35,14 @@ $ooLoop: (
       lineHeight: 1.125,
     ),
     sizes: (
-      h1: (
-        rt: 3.2rem,
-        sm: 3.6rem,
-      ),
-      h2: (
-        rt: 2.8rem,
-        sm: 3rem,
-      ),
-      h3: (
-        rt: 2.2rem,
-        sm: 2.4rem,
-      ),
+      h1: 3.2rem,
+      h2: 2.6rem,
+      h3: 2.2rem,
       h4: 1.8rem,
       h5: 1.6rem,
       h6: 1.4rem,
     ),
-    classes: ('h2', 'h3'),
+    classes: (),
   ),
 
   paragraph: (
