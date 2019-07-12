@@ -11,9 +11,6 @@
   $mark-border-width: $size * 0.12;
 
   & + label {
-    &::before {
-      left: ($size / 2) - ($mark-width / 2) + ($mark-border-width / 3);
-    }
     &::after {
       margin-right: $size / 2.5;
       min-width: $size;
@@ -57,11 +54,12 @@
     &:checked + label {
       &::before {
         position: absolute;
-        bottom: 28%;
+        top: 0;
+        left: 0;
         content:'';
         border-right: solid oo('checkbox.checked.markColor');
         border-bottom: solid oo('checkbox.checked.markColor');
-        transform: rotateZ(40deg);
+        transform: translate(80%) translateY(20%) rotateZ(40deg);
       }
       &::after {
         @include generateProperties(oo('checkbox.checked.props'));

@@ -337,6 +337,7 @@ $ooLoop: (
       backgroundColor: #fff,
       border: 1px solid #d6d6d6,
       borderRadius: .2em,
+      transition: background-color 250ms ease-out,
     ),
     checked: (
       markColor: #fff,
@@ -346,7 +347,7 @@ $ooLoop: (
       )
     ),
     sizes: (
-      default: 18px,
+      default: 1.8rem,
       variants: ()
     ),
     screens: (),
@@ -361,10 +362,11 @@ $ooLoop: (
       props: (
         backgroundColor: #4d4d4d,
         border: 1px solid #4d4d4d,
+        transition: background-color 250ms ease-out,
       )
     ),
     sizes: (
-      default: 18px,
+      default: 1.8rem,
       variants: ()
     ),
     screens: (),
