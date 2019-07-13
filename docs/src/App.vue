@@ -331,25 +331,18 @@ export default {
 }
 </script>
 <style lang="scss">
-	$color-primary:   #6cd7f7;
-	$color-secondary: #254F67;
-
 	@import '~loop/loop';
 
-	$toggle-sizes:(
-	  	'large': 4rem,
-	);
-	$btn-padding-sizes: (
-	    'baggy': 1.2em 2em,
-		'tight': .05em .1em,
-	);
-	$input-padding-sizes: (
-		'large': 2rem,
-	);
-
-	$use-grid-order: true;
-
-	$template-areas: (
+	$ooLoop: ooSet('checkbox.sizes.variants', (
+		'small': 1.6rem,
+		'large': 3rem,
+	));
+	$ooLoop: ooSet('radio.sizes.variants', (
+		'medium': 2.4rem,
+	  'large': 3.2rem,
+	));
+	
+	$ooLoop: ooSet('template.areas', (
 		'sample': (
 			"header header header header"
 			"main main main sidebar"
@@ -389,18 +382,8 @@ export default {
 				"a a a . ."
 			),
 		),
-	);
+	));
 
-	$ooLoop: ooSet('checkbox.sizes.variants', (
-		'small': 1.6rem,
-		'large': 3rem,
-	));
-	$ooLoop: ooSet('radio.sizes.variants', (
-		'medium': 2.4rem,
-	  'large': 3.2rem,
-	));
-	
-	$ooLoop: ooSet('template.areas', $template-areas);
 	$ooLoop: ooSet('template.gap.sizes', (
 		'less' : 0,
 		'small': 1.6rem,
@@ -409,9 +392,7 @@ export default {
 	$ooLoop: ooSet('column.use.childAlignment', true);
 
 	$ooLoop: ooSet('html5', false);
-	$ooLoop: ooSet('colors', (
-		'primary': $color-primary,
-		'secondary': $color-secondary,
+	$ooLoop: ooAdd('colors', (
 		'success': #8cc63f,
 		'warning': #fbb03b,
 		'danger': #f72828,

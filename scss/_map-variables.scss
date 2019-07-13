@@ -229,9 +229,8 @@ $ooLoop: (
   template: (
     areas: (),
     gap: (
-      use: true,
       sizes: (),
-      vsizes: oo('template.gap.sizes')
+      vsizes: (),
     ),
   ),
 
