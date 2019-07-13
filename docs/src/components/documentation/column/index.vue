@@ -239,12 +239,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import "~loop/variables";
 	.cell {
 		margin-bottom: 0;
 		text-align: center;
 		min-height: 2.4rem;
-		background-color: $color-primary;
+		background-color: #6cd7f7;
 
 		&--medium {
 			min-height: 4.8rem;

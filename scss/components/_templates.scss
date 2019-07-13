@@ -23,7 +23,7 @@
 @function areKeysBreakpoints($grid-template-areas){
   $map-keys: map-keys($grid-template-areas);
   @each $key in $map-keys {
-    @if inList($key, $breakpoints-classes) {
+    @if inList($key, oo('breakpoints')) {
       @return true;
     }
   }
@@ -59,7 +59,6 @@
 
 @mixin initTemplate($templates: oo('template')) {
   @if oo('areas', $templates) {
-
     [#{ooPrefix()}-template] {
       display: grid;
     }

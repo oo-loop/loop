@@ -112,7 +112,7 @@ $ooLoop: (
     ),
   ),
 
-  type: (
+  text: (
     fontSize: (
       prefix: 'text',
       values: (
@@ -408,7 +408,7 @@ $ooLoop: (
       float: true,
       list: true,
       spacing: true,
-      type: true,
+      text: true,
       paint: true,
       wrapper: true,
     )

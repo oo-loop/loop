@@ -1,12 +1,15 @@
-@mixin ooInit($custom:null) {
+@mixin ooPrepare($custom:null) {
   $map: ooParse($ooLoop);
   $map: if(hasRef($map), ooParse($map), $map);
-
   @if isMap($custom) and isNotEmpty($custom) {
     $map: mapMergeDeep($map, $custom);
     $map: if(hasRef($map), ooParse($map), $map);
   }
   $ooLoop: $map !global;
+}
+
+@mixin ooInit($custom:null) {
+  @include ooPrepare($custom);
 
   @debug $ooLoop;
 
@@ -43,14 +46,14 @@
   @if oo('use.input.toggle') {
     @include initToggle;
   }
-  @if oo('use.utilities.paint') {
-    @include initPaint;
-  }
   @if oo('use.container') {
     @include initContainer;
   }
   @if (oo('use.visibility')) {
     @include initVisibility;
+  }
+  @if oo('use.utilities.paint') {
+    @include initPaint;
   }
   @if oo('use.utilities.float') {
     @include initFloat;
@@ -61,7 +64,7 @@
   @if oo('use.utilities.spacing') {
     @include initSpacing;
   }
-  @if (oo('use.utilities.type')) {
+  @if (oo('use.utilities.text')) {
     @include initText;
   }
   @if (oo('use.utilities.wrapper')) {

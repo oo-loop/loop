@@ -477,7 +477,7 @@ export default {
 		height: 100vh;
 
 		background-color: #fff;
-		box-shadow: -16px 0 0 16px $bgcolor-base, 1px 0 16px 0 #cdcdcd;
+		box-shadow: -16px 0 0 16px #fff, 1px 0 16px 0 #cdcdcd;
 
 		transition: left 300ms ease-in-out;
 
@@ -534,10 +534,10 @@ export default {
 		width: 20px;
 		height: 12px;
 
-		border-top: 3px solid $color-base;
-		border-bottom: 3px solid $color-base;
-		background-color: $color-primary;
-		outline: solid 3px $color-primary;
+		border-top: 3px solid oo('body.color');
+		border-bottom: 3px solid oo('body.color');
+		background-color: oo('colors.primary');
+		outline: solid 3px oo('colors.primary');
 
 		cursor: pointer;
 
@@ -549,7 +549,7 @@ export default {
 
 			display: block;
 			content: '';
-			border-top: 3px solid $color-base;
+			border-top: 3px solid oo('body.color');
 			transform: translateY(-50%);
 		}
 	}

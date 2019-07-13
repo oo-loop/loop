@@ -50,13 +50,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import '~loop/variables';
-
 	.cell {
 		padding: 40px;
 		display: block;
 		color: #fff;
 		font-style: normal;
-		background-color: $color-secondary;
+		background-color: #959595;
 	}
 </style>

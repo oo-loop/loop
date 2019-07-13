@@ -2,15 +2,23 @@
  * Grid
  */
 
+
+$loop-prefix: 'oo' !default;
+$loop-component-html5-validity: false !default;
+$loop-component-prefix: if($loop-component-html5-validity, #{'data-'}#{$loop-prefix}, $loop-prefix) !default;
+
 $use-grid-layout: true !default;
-$use-grid-order:  true !default;
-$use-grid-gap:    true !default;
-$use-grid-vgap:  true !default;
+$use-grid-order: true !default;
+$use-grid-gap: true !default;
+$use-grid-vgap: true !default;
 
-$grid-gap: 	  $columns-gutter !default;
-$grid-system: $columns-system !default;
+$grid-gap: 2.4rem !default;
+$grid-system: 12 !default;
 
-$grid-gap-sizes:  $columns-gutter-sizes !default;
+$grid-gap-sizes: (
+  'less': 0,
+  'small': 1.6rem,
+) !default;
 $grid-vgap-sizes: $grid-gap-sizes !default;
 
 

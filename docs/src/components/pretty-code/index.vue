@@ -16,11 +16,11 @@
 </script>
 
 <style lang="scss">
-    @import '~loop/variables';
-    @import '~loop/mixins/font-smoothing';
+    @import '~loop/loop';
+    @include ooPrepare;
 
     $code-bgcolor:         #f5f5f5 !default;
-    $code-color:           $color-base !default;
+    $code-color:           #333333 !default;
     $code-highlight-color: #d85b43 !default;
 
     code {
@@ -67,7 +67,7 @@
 
         .tag { color: $tag}
         .atn,
-        .pun { color: $color-primary; }
+        .pun { color: oo('colors.primary'); }
         .atv { color: $attribute; }
         .pln {
             color: #fff;
@@ -81,13 +81,13 @@
             .str { color: $attribute; }
             .pun,
             .pun + .pln,
-            .kwd { color: $color-primary; }
+            .kwd { color: oo('colors.primary'); }
             .lit { color: $value; }
         }
 
         &.language-scss {
             .lit { color: #eabc5f; }
-            .pln { color: $color-primary; }
+            .pln { color: oo('colors.primary'); }
             .pun,
             .pun + .kwd { color: #fff; }
             .kwd { color: $value; }

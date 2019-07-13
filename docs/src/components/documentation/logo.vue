@@ -1180,10 +1180,11 @@
 </script>
 
 <style lang="scss">
-    @import '~loop/variables';
-	.color-primary .path {
-	    fill: $color-primary;
-	    fill-rule:evenodd;
-        clip-rule:evenodd;
-    }
+  @import '~loop/loop';
+  @include ooPrepare;
+  .color-primary .path {
+    fill: oo('colors.primary');
+    fill-rule:evenodd;
+    clip-rule:evenodd;
+  }
 </style>

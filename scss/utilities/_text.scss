@@ -3,7 +3,7 @@
  */
 
 @mixin initText {
-  @if isNotEmpty(oo('type')) {
-    @include generateUtilities(oo('type'));
+  @if isNotEmpty(oo('text')) {
+    @include generateUtilities(oo('text'));
   }
 }
