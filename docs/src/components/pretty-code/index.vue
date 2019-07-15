@@ -17,7 +17,7 @@
 
 <style lang="scss">
     @import '~loop/loop';
-    @include ooPrepare;
+    @include ooInit;
 
     $code-bgcolor:         #f5f5f5 !default;
     $code-color:           #333333 !default;

@@ -1,15 +1,20 @@
-@mixin ooPrepare($custom:null) {
+@mixin ooInit($custom:null) {
+
   $map: ooParse($ooLoop);
   $map: if(hasRef($map), ooParse($map), $map);
   @if isMap($custom) and isNotEmpty($custom) {
     $map: mapMergeDeep($map, $custom);
     $map: if(hasRef($map), ooParse($map), $map);
   }
+  $map: setMapValue($map, 'init', true);
   $ooLoop: $map !global;
 }
 
-@mixin ooInit($custom:null) {
-  @include ooPrepare($custom);
+@mixin ooCreate($custom:null) {
+
+  @if not oo('init') {
+    @include ooInit($custom);
+  }
 
   @debug $ooLoop;
 

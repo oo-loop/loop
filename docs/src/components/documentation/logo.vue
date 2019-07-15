@@ -1181,7 +1181,7 @@
 
 <style lang="scss">
   @import '~loop/loop';
-  @include ooPrepare;
+  @include ooInit;
   .color-primary .path {
     fill: oo('colors.primary');
     fill-rule:evenodd;

@@ -445,7 +445,7 @@ export default {
 		)
 	));
 
-	@include ooInit();
+	@include ooCreate();
 
 	$layout-padding: 1.5rem;
 	$sidebar-size: 220px;
