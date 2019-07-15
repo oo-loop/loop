@@ -47,9 +47,7 @@
  * @param String $type to be converted into
  * @param Mixed $data data to check
  *
- * @todo add list type
- *
- * @return String
+ * @return mixed
  */
 @function toType($type, $data) {
   @if type-of($data) == $type {
@@ -63,6 +61,9 @@
   }
   @if $type == 'number' {
     @return toNumber($data);
+  }
+  @if $type == 'list' {
+    @return toList($data);
   }
   @if $type == 'map' {
     @return toMap($data);

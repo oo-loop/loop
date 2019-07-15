@@ -39,3 +39,10 @@
   }
   @return $newList;
 }
+
+@function toList($value) {
+  @if isList($value) {
+    @return $value;
+  }
+  @return ($value,);
+}
