@@ -1,0 +1,50 @@
+@import '../functions/replace';
+@import '../functions/type';
+@import 'props';
+
+/**
+ * Generate Component Variants
+ * @param $componentName Name of the component to attach the variants
+ * @param $variantsMap
+ */
+
+@mixin generateComponentVariants($componentName, $variantsMap) {
+  @if isNotEmpty($variantsMap) {
+    @each $name, $props in $variantsMap {
+      @if isMap($props) {
+        [#{ooPrefix()}-#{$componentName}~="#{toKebabCase($name)}"] {
+          @include generateProperties($props);
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Generate Component
+ * @param $componentMap 
+ */
+
+@mixin generateComponent($componentMap) {
+  $name: if(map-has-key($componentMap, 'name'), toKebabCase(map-get($componentMap, 'name')), null);
+  $props: if(map-has-key($componentMap, 'props'), map-get($componentMap, 'props'), null);
+
+  @if isNotEmpty($name) and isNotEmpty($props) {
+    [#{ooPrefix()}-#{$name}] {
+      @include generateStyles($componentMap);
+    }
+    @if map-has-key($componentMap, 'variants') {
+      @include generateComponentVariants($name, map-get($componentMap, 'variants'));
+    }
+  }
+}
+
+@mixin generateComponents($components) {
+  @each $name, $componentMap in $components {
+    @if not map-has-key($componentMap, 'name') {
+      $componentMap: map-merge(('name': $name) , $componentMap);
+    }
+    @include generateComponent($componentMap);
+  }
+}

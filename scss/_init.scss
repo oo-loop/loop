@@ -78,4 +78,7 @@
   @if (oo('utilities')) {
     @include generateUtilities(oo('utilities'));
   }
+  @if (oo('components')) {
+    @include generateComponents(oo('components'));
+  }
 }
