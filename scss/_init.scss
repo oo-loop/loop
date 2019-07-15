@@ -57,6 +57,12 @@
   @if (oo('use.visibility')) {
     @include initVisibility;
   }
+  @if (oo('use.custom.utilities')) {
+    @include generateUtilities(oo('utilities'));
+  }
+  @if (oo('use.custom.components')) {
+    @include generateComponents(oo('components'));
+  }
   @if oo('use.utilities.paint') {
     @include initPaint;
   }
@@ -74,11 +80,5 @@
   }
   @if (oo('use.utilities.wrapper')) {
     @include initWrapper;
-  }
-  @if (oo('utilities')) {
-    @include generateUtilities(oo('utilities'));
-  }
-  @if (oo('components')) {
-    @include generateComponents(oo('components'));
   }
 }

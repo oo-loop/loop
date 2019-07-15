@@ -191,8 +191,6 @@ $ooLoop: (
     ),
   ),
 
-  utilities: (),
-
   visibility: (
     breakpoints: oo('screens'),
     pointbreaks: oo('screens'),
@@ -388,6 +386,9 @@ $ooLoop: (
     )
   ),
 
+  utilities: (),
+  components: (),
+
   use: (
     base: true,
     headings: true,
@@ -406,6 +407,10 @@ $ooLoop: (
     template: true,
     container: true,
     visibility: true,
+    custom: (
+      utilities: true,
+      components: true,
+    ),
     utilities: (
       float: true,
       list: true,
@@ -413,6 +418,6 @@ $ooLoop: (
       spacing: true,
       text: true,
       wrapper: true,
-    )
+    ),
   )
 ) !default;
