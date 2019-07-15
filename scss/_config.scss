@@ -201,14 +201,15 @@ $ooLoop: (
       rt: 1.6rem,
       sm: 2.4rem,
     ),
-    maxWidth: 1080px,
+    maxWidth: 1280px,
   ),
+
 
   column: (
     system: 12,
     gutter: (
-      base: oo('container.gutter'),
       sizes: (
+        'base': oo('container.gutter'),
         'less': 0,
       ),
       vsizes: oo('column.gutter.sizes')

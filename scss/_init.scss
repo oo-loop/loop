@@ -1,5 +1,4 @@
 @mixin ooInit($custom:null) {
-
   $map: ooParse($ooLoop);
   $map: if(hasRef($map), ooParse($map), $map);
   @if isMap($custom) and isNotEmpty($custom) {
@@ -11,7 +10,6 @@
 }
 
 @mixin ooCreate($custom:null) {
-
   @if not oo('init') {
     @include ooInit($custom);
   }

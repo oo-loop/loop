@@ -3,44 +3,18 @@
  */
 
 @mixin initColumn {
-  // row
   [#{ooPrefix()}-row] {
     position: relative;
-
-    @if (isMap(oo('column.gutter.base'))) {
-      @each $key, $value in oo('column.gutter.base') {
-        @include breakpoint($key) {
-          left: -#{$value};
-          margin-right: -#{$value};
-        }
-      }
-    } @else if isString(oo('column.gutter.base')) or isNumber(oo('column.gutter.base')) {
-      left: -#{oo('column.gutter.base')};
-      margin-right: -#{oo('column.gutter.base')};
-    }
-
     display: flex;
     flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  // columns
   [#{ooPrefix()}-col] {
-    @if (isMap(oo('column.gutter.base'))) {
-      @each $key, $value in oo('column.gutter.base') {
-        @include breakpoint($key) {
-          padding-left: $value;
-        }
-      }
-    } @else if isString(oo('column.gutter.base')) {
-      padding-left: oo('column.gutter.base');
-    }
-
     flex-shrink: 0;
     flex-grow: 1;
     flex-basis: 0;
-
     min-width: 0;
     max-width: 100%;
   }
@@ -135,7 +109,7 @@
       }
       @for $i from 1 through oo('column.system') {
         // offset
-        @if oo('column.use.offset') == true {
+        @if oo('column.use.offset') {
           [#{ooPrefix()}-col~="offset-#{$i}#{$suffix}"] { margin-left: percentage($i / oo('column.system')); }
         }
         // order
@@ -158,10 +132,10 @@
     }
   }
 
-
-  // gutters
+  // gutter
   @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
-    [#{ooPrefix()}-row~="gutter-#{$gutter-name}"] {
+    $selector: if(isEmpty($gutter-name) or $gutter-name == 'base', 'row', 'row~="gutter-#{$gutter-name}"');
+    [#{ooPrefix()}-#{$selector}] {
       @if (isMap($gutter-size)) {
         @each $key, $value in $gutter-size {
           @include breakpoint($key) {
@@ -183,17 +157,8 @@
       }
     }
   }
-
-  // vgutters
-  $vgutter: (
-    () : oo('column.gutter.base'),
-  );
-  @if isMap(oo('column.gutter.vsizes')) {
-    $vgutter: map-merge($vgutter, oo('column.gutter.vsizes'));
-  }
-
-  @each $gutter-name, $gutter-size in $vgutter {
-    $suffix: if(isEmpty($gutter-name), '', -#{$gutter-name});
+  @each $gutter-name, $gutter-size in oo('column.gutter.vsizes') {
+    $suffix: if(isEmpty($gutter-name) or $gutter-name == 'base', '', '-#{$gutter-name}');
     [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
       > [#{ooPrefix()}-col] {
         @if (isMap($gutter-size)) {
