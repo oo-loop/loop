@@ -157,22 +157,78 @@
       }
     }
   }
-  @each $gutter-name, $gutter-size in oo('column.gutter.vsizes') {
+  @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
     $suffix: if(isEmpty($gutter-name) or $gutter-name == 'base', '', '-#{$gutter-name}');
     [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
       > [#{ooPrefix()}-col] {
-        @if (isMap($gutter-size)) {
-          @each $key, $value in $gutter-size {
+        @if (isMap($vgutter-size)) {
+          @each $key, $value in $vgutter-size {
             @include breakpoint($key) {
               padding-bottom: $value;
             }
           }
-        } @else if isString($gutter-size) or isNumber($gutter-size) {
-          padding-bottom: $gutter-size;
+        } @else if isString($vgutter-size) or isNumber($vgutter-size) {
+          padding-bottom: $vgutter-size;
         }
       }
     }
   }
+
+  // gutter breakpoints responsive
+  $gutterSceens: oo('column.gutter.screens');
+  @if isString($gutterSceens) {
+    $gutterSceens: toList($gutterSceens);
+  }
+  @each $class, $gutter-name in $gutterSceens {
+    @include breakpoint($class) {
+      $suffix: \@#{$class};
+      @if isNotEmpty($gutter-name) {
+        $gutterNames: toList($gutter-name);
+        @each $name in $gutterNames {
+          $gutter-size: oo('column.gutter.sizes.#{$name}');
+          @if $gutter-size {
+            [#{ooPrefix()}-row~="gutter-#{$name}#{$suffix}"] {
+              left: -#{$gutter-size};
+              margin-right: -#{$gutter-size};
+              > [#{ooPrefix()}-col] {
+                padding-left: $gutter-size;
+              }
+            }
+          }
+          $vgutter-size: oo('column.gutter.vsizes.#{$name}');
+          @if $vgutter-size {
+            [#{ooPrefix()}-row~="vgutter-#{$name}#{$suffix}"] {
+              > [#{ooPrefix()}-col] {
+                padding-bottom: $vgutter-size;
+              }
+            }
+          }
+        }
+      } @else {
+        @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
+          @if isString($gutter-size) or isNumber($gutter-size) {
+            [#{ooPrefix()}-row~="gutter-#{$gutter-name}#{$suffix}"] {
+              left: -#{$gutter-size};
+              margin-right: -#{$gutter-size};
+              > [#{ooPrefix()}-col] {
+                padding-left: $gutter-size;
+              }
+            }
+          } 
+        }
+        @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
+          @if isString($vgutter-size) or isNumber($vgutter-size) {
+            [#{ooPrefix()}-row~="vgutter-#{$gutter-name}#{$suffix}"] {
+              > [#{ooPrefix()}-col] {
+                padding-bottom: $vgutter-size;
+              }
+            }
+          } 
+        }
+      }
+    }
+  }
+
 
   // clear
   [#{ooPrefix()}-col~="clear"] {

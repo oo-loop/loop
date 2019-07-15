@@ -212,7 +212,8 @@ $ooLoop: (
         'base': oo('container.gutter'),
         'less': 0,
       ),
-      vsizes: oo('column.gutter.sizes')
+      vsizes: oo('column.gutter.sizes'),
+      screens: (),
     ),
     screens: oo('screens'),
     use: (

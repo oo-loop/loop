@@ -7,13 +7,16 @@
  */
 
 @function isEmpty($data) {
+  @if type-of($data) == 'null' {
+    @return true;
+  }
   @if isString($data) and str-length($data) == 0 {
     @return true;
-  } @else if isList($data) and length($data) == 0 {
-    @return true;
-  } @else {
-    @return false;
   }
+  @if isList($data) and length($data) == 0 {
+    @return true;
+  }
+  @return false;
 }
 
 @function isNotEmpty($data) {
