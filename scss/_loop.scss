@@ -2,7 +2,7 @@
 
 // Functions, mixins and bases
 @import
-  "map-variables",
+  "config",
   "functions/all",
   "mixins/all",
   "base/all"
@@ -10,15 +10,11 @@
 
 // Components
 @import
-  "components/templates",
-  "components/grid",
-  "components/columns",
   "components/button",
-  "components/form/input",
-  "components/form/select",
-  "components/form/checkbox",
-  "components/form/radio",
-  "components/form/toggle"
+  "components/columns",
+  "components/form",
+  "components/grid",
+  "components/templates"
 ;
 
 // Utilities

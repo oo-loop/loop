@@ -12,15 +12,14 @@
   
   html {
     font-size: oo('root.fontSize');
-    $font-smoothing: oo('root.smoothing');
-    @if $font-smoothing {
-      @include fontSmoothing($font-smoothing);
+    @if oo('root.smoothing') {
+      @include fontSmoothing(oo('root.smoothing'));
     }
   }
 
-  @if oo('body') {
+  @if oo('body.props') {
     body {
-      @include generateProperties(oo('body'));
+      @include generateProperties(oo('body.props'));
     }
   }
 }

@@ -37,18 +37,18 @@
 }
 
 @mixin initType {
-  p {
-    @if oo('paragraph.props') {
+  @if oo('paragraph.props') {
+    p {
       @include generateProperties(oo('paragraph.props'));
     }
   }
   
-  a {
-    @if oo('anchor.props') {
+  @if oo('anchor.props') {
+    a {
       @include generateProperties(oo('anchor.props'));
     }
     @if oo('anchor.states') {
-      &[href] {
+      a[href] {
         @include generateStatesProperties(oo('anchor.states'));
       }
     }
@@ -66,21 +66,21 @@
   }
 
   @if oo('defList') {
-    dl {
-      @if oo('defList.props') {
+    @if oo('defList.props') {
+      dl {
         @include generateProperties(oo('defList.props'));
       }
     }
-    dt {
-      @if oo('defList.dt') {
+    @if oo('defList.dt') {
+      dt {
         @include generateProperties(oo('defList.dt'));
         &:first-child {
           margin-top: 0;
         }
       }
     }
-    dd {
-      @if oo('defList.dd') {
+    @if oo('defList.dd') {
+      dd {
         @include generateProperties(oo('defList.dd'));
       }
     }

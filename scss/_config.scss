@@ -8,7 +8,7 @@ $ooLoop: (
     lg: 80em, // 1280px
     xl: 120em, // 1980px
   ),
-  
+
   screens: (sm, md, lg),
 
   root: (
@@ -17,10 +17,12 @@ $ooLoop: (
   ),
 
   body: (
-    fontFamily: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-    fontSize: 1.6em, //16px
-    lineHeight: 1.375,
-    color: #20373e,
+    props: (
+      fontFamily: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
+      fontSize: 1.6em, //16px
+      lineHeight: 1.375,
+      color: #20373e,
+    )
   ),
 
   colors: (
@@ -407,9 +409,9 @@ $ooLoop: (
     utilities: (
       float: true,
       list: true,
+      paint: true,
       spacing: true,
       text: true,
-      paint: true,
       wrapper: true,
     )
   )
