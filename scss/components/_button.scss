@@ -42,7 +42,6 @@
 }
 
 @mixin initButton {
-
   [#{ooPrefix()}-button] {
     display: inline-block;
     text-align: center;
@@ -68,12 +67,6 @@
   }
 
   @if isNotEmpty(oo('button.variants')) {
-    @each $name, $props in oo('button.variants') {
-      @if isMap($props) {
-        [#{ooPrefix()}-button~="#{$name}"] {
-          @include generateProperties($props);
-        }
-      }
-    }
+    @include generateComponentVariants('button', oo('button.variants'));
   }
 }
