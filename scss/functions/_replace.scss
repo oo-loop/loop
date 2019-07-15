@@ -28,27 +28,6 @@
 }
 
 /**
- * Reformat Standard Sass Functions
- * Save stringified structure and avoid desctructuring the function during a split
- * By replacing comma to semiColon 
- * @param String $string The string to modify
- *
- * @return String
- */
-
-@function reformatStandardFunctions($string) {
-  $standardFunctionNames: ('rgba', 'rgb');
-  @each $name in $standardFunctionNames {
-    @if str-index($string,'#{$name}(') {
-      $extractFunction: extract('#{$name}(', ')', $string);
-      $replaceFunction: replace(',', ';', $extractFunction);
-      $string: replace($extractFunction, $replaceFunction, $string);
-    }
-  }
-  @return $string;
-}
-
-/**
  * Transform camelCase to kebab-case
  * @param String $string The string to modify
  *
