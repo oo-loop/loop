@@ -1,4 +1,4 @@
-@import 'empty';
+@import 'type';
 
 /**
  * In List
@@ -38,31 +38,4 @@
     }
   }
   @return $newList;
-}
-
-
-/**
- * mergeArray
- * @param $array1  list|map list or map
- * @param $array2  list|map list or map being the same type of $array1
- * @return list|map
- */
-
-@function mergeArray($array1, $array2) {
-  $merge: ();
-
-  // merge if $array1 or $array2 is not empty
-  @if isNotEmpty($array1) {
-    @if type-of($array1) == 'list' and type-of($array2) == 'list' {
-      $merge: join($array1, $array2);
-    } @else if type-of($array1) == 'map' and type-of($array2) == 'map' {
-      $merge: map-merge($array1, $array2);
-    } @else {
-      $merge: $array1;
-    }
-  } @else if isNotEmpty($array2) {
-    $merge: $array2;
-  }
-
-  @return $merge;
 }
