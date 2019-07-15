@@ -2,9 +2,7 @@
  * Loop
  */
 
-@import '../functions/all';
 @import 'breakpoint';
-
 
 @mixin loopProperties($properties, $value, $is-important) {
   // multiple properties
@@ -83,46 +81,4 @@
       }
     }
   }
-}
-
-
-/**
- * Loop map keys
- *
- * @param $keys         list        Keys of the map
- * @param $map          map         Map to search in
- * @param $properties   string|list Property name to use
- * @param $prefix       string      String to prepend to the selector
- * @param $is-important ?bool       Set the !important flag ?
- * @param $suffix       ?string     String to append to the selector
- */
-@mixin loopMapKeys($keys, $map, $properties, $prefix, $is-important:false, $suffix:'')  {
-  @if isNotEmpty($keys) {
-    $affix: '-';
-
-    @each $key in $keys {
-      @if map-has-key($map, $key) {
-        $value: map-get($map, $key);
-        $selector: #{$prefix}#{$affix}#{$key}#{$suffix};
-
-        #{$selector}{
-          @include loopProperties($properties, $value, $is-important);
-        }
-      }
-    }
-  }
-}
-
-
-/**
- * Loop map keys modifiers
- *
- * @param $keys         list        keys of the map
- * @param $map          map         map to search in
- * @param $properties   string|list property name to use
- * @param $is-important ?bool       set the !important flag ?
- * @param $suffix       ?string     string to append to the selector
- */
-@mixin loopMapKeysModifiers($keys, $map, $properties, $is-important:false, $suffix:'')  {
-  @include loopMapKeys($keys, $map, $properties, '&.', $is-important, $suffix);
 }
