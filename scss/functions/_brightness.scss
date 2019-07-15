@@ -1,3 +1,5 @@
+@import 'type';
+
 /**
  * Is Bright
  * @param color
@@ -6,9 +8,11 @@
  */
 
 @function isBright($color, $threshold: 188) {
-  @if (((red($color) * 299) + (green($color) * 587) + (blue($color) * 114)) / 1000) >= $threshold {
-    @return true;
-  } @else {
+  @if isNotColor($color) {
     @return false;
   }
+  @if (((red($color) * 299) + (green($color) * 587) + (blue($color) * 114)) / 1000) >= $threshold {
+    @return true;
+  }
+  @return false;
 }
