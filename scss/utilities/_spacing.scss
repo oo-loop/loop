@@ -2,9 +2,8 @@
  * Spacing
  */
 
- // Horizontal
 @mixin initSpacing {
-  @if isNotEmpty(oo('spacing')) {
+  @if oo('spacing') {
     @include generateUtilities(oo('spacing'));
   }
 }

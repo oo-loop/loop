@@ -7,7 +7,7 @@
     .clear { clear: both; }
     .clearfix { @include clearfix; }
   }
-  @if isNotEmpty(oo('float.values')) {
+  @if oo('float.values') {
     $float: map-remove(oo('float'), 'clearfix');
     @include generateUtilities((float: $float));
   }

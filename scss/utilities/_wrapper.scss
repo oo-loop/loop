@@ -3,7 +3,7 @@
  */
 
 @mixin initWrapper {
-  @if isNotEmpty(oo('wrapper')) {
+  @if oo('wrapper') {
     @include generateUtilities((wrapper: oo('wrapper')));
   }
 }
