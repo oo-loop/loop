@@ -32,14 +32,44 @@
         $prefix,
         $is-important
       );
-  
-      @include loopBreakpoints(
-        $screens,
-        $props,
-        $property-name,
-        $prefix,
-        $is-important
-      );
+
+      @if isMap($screens) {
+        @each $class, $props-name in $screens {
+          @if isEmpty($props-name) {
+            @include loopBreakpoints(
+              $class,
+              $props,
+              $property-name,
+              $prefix,
+              $is-important
+            )
+          } @else {
+            $props-name: toList($props-name);
+            $props-target: ();
+            @each $name in $props-name {
+              $prop-value: oo(#{$name}, $props);
+              @if $prop-value {
+                $props-target: map-merge($props-target, ($name: $prop-value));
+              }
+            }
+            @include loopBreakpoints(
+              $class,
+              $props-target,
+              $property-name,
+              $prefix,
+              $is-important
+            )
+          }
+        }
+      } @else {
+        @include loopBreakpoints(
+          $screens,
+          $props,
+          $property-name,
+          $prefix,
+          $is-important
+        );
+      }
     }
   }
 }
