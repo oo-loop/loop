@@ -26,8 +26,6 @@
  */
 
 @mixin loop($data, $properties, $prefix, $is-important:false, $suffix:'') {
-  $affix: '-';
-
   // Make sure to have the correct format or do not generate rules
   @if isNotEmpty($data) {
     @if isString($data) {
@@ -42,11 +40,11 @@
       }
     } @else if isMap($data) {
       @each $key, $value in $data {
-        $affix: if(isEmpty($key), '', $affix);
+        $affix: if(isEmpty($key), '', '-');
 
         #{$prefix}#{$affix}#{$key}#{$suffix} {
           // responsive properties ?
-          @if isMap($value) {
+          @if isMap($value) and str-index($suffix, $substring: "\@") == null {
             @each $child-breakpoint, $child-value in $value {
               @include breakpoint($child-breakpoint) {
                 @include loopProperties($properties, $child-value, $is-important);
@@ -74,10 +72,13 @@
  */
 @mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $is-important:false, $suffix:'') {
   @if isNotEmpty($breakpoints) and isNotEmpty($data) {
-    @each $breakpoint in oo('screens') {
+    @if isString($breakpoints) {
+      $breakpoints: toList($breakpoints);
+    }
+    @each $breakpoint in $breakpoints {
       @include breakpoint($breakpoint) {
-        $suffixes: #{$suffix}\@#{$breakpoint};
-        @include loop($data, $properties, $prefix, $is-important, $suffixes);
+        $breakpoint-suffix: #{$suffix}\@#{$breakpoint};
+        @include loop($data, $properties, $prefix, $is-important, $breakpoint-suffix);
       }
     }
   }
