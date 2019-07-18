@@ -261,7 +261,7 @@ $ooLoop: (
         backgroundColor: ooDarken(oo('button.props.backgroundColor'), 10%),
       ),
       focus: (
-        +oo('button.states.hover'),
+        _oo('button.states.hover'),
         (
           outline: none,
         )

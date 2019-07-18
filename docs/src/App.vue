@@ -404,6 +404,13 @@ export default {
 	  'success': #3fc65c,
 		'white': #fff,
 	));
+	
+	$ooLoop: ooSet('paint.background.values', (
+		_oo('paint.font.values'),
+		(
+			'olive': olive,
+		)
+	));
 
 
 	$ooLoop: ooAdd('type.fontWeight.values', (

@@ -36,7 +36,7 @@
  * @return Boolean
  */
 @function hasSpreadOperator($ref) {
-  @return if(str-index(#{$ref}, '+oo(') == null, false, true);
+  @return if(str-index(#{$ref}, '_oo(') == null, false, true);
 }
 
 /**
@@ -66,6 +66,7 @@
   @return $extractString;
 }
 
+
 /**
  * oo
  * Get value from a map with the ooFormat (default $ooLoop)
@@ -87,7 +88,6 @@
  
   @return $map;
 }
-
 
 /**
  * ooSet
@@ -139,7 +139,7 @@
     @if isRef($currentValue) {
       $ooRef: extractRef($currentValue);
       $newValue: ooSet($key, (
-        '+#{$ooRef}',
+        '_#{$ooRef}',
         $mapValue
       ), $map);
       @return $newValue;
@@ -181,9 +181,9 @@
       $newValue: oo(getRefValue($ooRef), $parentMap);
 
       @if hasSpreadOperator($value) and isList($value) {
-        $refIndex: index($value, '+#{$ooRef}');
+        $refIndex: index($value, '_#{$ooRef}');
         @if hasRef($newValue) {
-          $newValue: set-nth($value, $refIndex, '+#{$newValue}'),
+          $newValue: set-nth($value, $refIndex, '_#{$newValue}'),
         } @else {
           @if isNotMap($newValue) {
             @error 'spread operator must extend a map type data';
