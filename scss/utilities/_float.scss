@@ -5,7 +5,14 @@
 @mixin initFloat {
   @if oo('float.clearfix') {
     .clear { clear: both; }
-    .clearfix { @include clearfix; }
+    .clearfix { 
+      &::before,
+      &::after {
+        display: block;
+        content: '';
+        clear:both;
+      }
+    }
   }
   @if oo('float.values') {
     $float: map-remove(oo('float'), 'clearfix');
