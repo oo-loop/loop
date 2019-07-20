@@ -46,7 +46,7 @@
         border-right: $borderProps;
         border-bottom: $borderProps;
       }
-      $borderRadiusProps: oo('select.props.borderRadius');
+      $borderRadiusProps: if(oo('select.props.borderRadius'), oo('select.props.borderRadius'), oo('select.props.border-radius'));
       @if ($borderRadiusProps) {
         border-top-right-radius: $borderRadiusProps;
         border-bottom-right-radius: $borderRadiusProps;
