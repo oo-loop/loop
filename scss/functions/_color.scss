@@ -1,7 +1,3 @@
-@import 'list';
-@import 'replace';
-@import 'type';
-
 $colorPalette: (
   black,
   silver,
@@ -173,12 +169,11 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 
 /**
  * toColor
- * @param String stringified color
- * @return Color
+ * @param string stringified color
+ * @return color
  *
  * @todo consider rgb, rgba, hls format
  */
-
 @function toColor($colorString) {
 
   @if isColor($colorString) {
@@ -206,9 +201,10 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
   @return $colorString;
 }
 
+
 /**
  * isHexColor
- * @param String stringified color
+ * @param string stringified color
  * @return boolean
  */ 
 @function isHexColor($colorString) {
@@ -217,6 +213,23 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
       str-length($colorString) == 4
       or str-length($colorString) == 7
   ) {
+    @return true;
+  }
+  @return false;
+}
+
+
+/**
+ * Is Bright
+ * @param color
+ * @param threshold range from 0 to 255, but more than the half (125)
+ * @return bool
+ */
+ @function isBright($color, $threshold: 188) {
+  @if isNotColor($color) {
+    @return false;
+  }
+  @if (((red($color) * 299) + (green($color) * 587) + (blue($color) * 114)) / 1000) >= $threshold {
     @return true;
   }
   @return false;

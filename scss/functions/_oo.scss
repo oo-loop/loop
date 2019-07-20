@@ -1,16 +1,8 @@
-@import 'empty';
-@import 'extract';
-@import 'list';
-@import 'map';
-@import 'split';
-@import 'type';
-@import 'replace';
-
 /**
  * hasRef
  * Check if a map has a ooFormat
- * @param Map|String
- * @return Boolean
+ * @param mixed
+ * @return bool
  */
  @function hasRef($search) {
   @return if(str-index(#{$search}, 'oo(') == null, false, true);
@@ -19,8 +11,8 @@
 /**
  * isRef
  * Check if a string is a ooFormat
- * @param String  $string
- * @return Boolean
+ * @param string $string
+ * @return bool
  */
 @function isRef($string) {
   @if isNotString($string) {
@@ -32,8 +24,8 @@
 /**
  * hasSpreadOperator
  * Check if a reference has the spread operator  
- * @param String  $ref
- * @return Boolean
+ * @param string  $ref
+ * @return bool
  */
 @function hasSpreadOperator($ref) {
   @return if(str-index(#{$ref}, '_oo(') == null, false, true);
@@ -42,7 +34,7 @@
 /**
  * getRefValue
  * get the ooFormat reference
- * @param String  $string
+ * @param string $string
  * @return String
  */
  @function getRefValue($string) {
@@ -55,8 +47,8 @@
 /**
  * extractRef
  * extract the ooFormat reference from a string
- * @param String  $string The string to extract the ref from
- * @return String
+ * @param string  $string The string to extract the ref from
+ * @return string
  */
 @function extractRef($string) {
   @if not hasRef($string) {
@@ -70,9 +62,9 @@
 /**
  * oo
  * Get value from a map with the ooFormat (default $ooLoop)
- * @param String  $key  ooFormat key
- * @param ?Map $map the map to update (default $ooLoop)
- * @return Map|List|String
+ * @param string  $key  ooFormat key
+ * @param map|null $map the map to update (default $ooLoop)
+ * @return mixed
  */
 @function oo($key, $map:null) {
   $map: if($map == null, $ooLoop, $map);
@@ -91,11 +83,11 @@
 
 /**
  * ooSet
- * Set value in  to map with the ooFormat (default $ooLoop)
- * @param String  $key  ooFormat key
- * @param Map|List|String  $value  the new value to set
- * @param ?Map $map the map to update (default $ooLoop)
- * @return Map|List|String
+ * Set value in to map with the ooFormat (default $ooLoop)
+ * @param string $key  ooFormat key
+ * @param mixed  $value  the new value to set
+ * @param map|null $map the map to update (default $ooLoop)
+ * @return mixed
  */
 @function ooSet($key, $value, $map:null) {
   $list: split('.', $key);
@@ -121,10 +113,10 @@
 /**
  * ooAdd
  * Push new map value to an another set of map with the ooFormat (default $ooLoop)
- * @param String $key ooFormat key
- * @param Map|List $mapValue the value to add
- * @param ?Map $map the map to update (default $ooLoop)
- * @return Map
+ * @param string $key ooFormat key
+ * @param map|list $mapValue the value to add
+ * @param map|null $map the map to update (default $ooLoop)
+ * @return map
  */
 @function ooAdd($key, $mapValue, $map:null) {
   $currentValue: oo($key, $map);
@@ -159,10 +151,10 @@
 /**
  * ooParse
  * Parse a map of data with potential ooReference within (at this stage the oo() does not exist
- * @param Map  $map
- * @param Map  $backup the backupMap to refer to when getting data in a nested map
- * @param String  $path  a ooPathFormat to keep in mind where we are in a nested map
- * @return Map
+ * @param map $map
+ * @param map $backup the backupMap to refer to when getting data in a nested map
+ * @param string $path  a ooPathFormat to keep in mind where we are in a nested map
+ * @return map
  */
 @function ooParse($map, $backup:null, $path:'') {
   $parentMap: if($backup == null, $map, $backup);
@@ -249,7 +241,7 @@
 /** 
  * ooPrefix
  * get loop prefix
- * @return String
+ * @return string
  */
 @function ooPrefix() {
   @return if(oo(html5) == true, 'data-oo', 'oo');
@@ -281,8 +273,8 @@ $ooAlias: (
 /** 
  * isAlias
  * check if a string is a sass alias function
- * @param String $string the string to check
- * @return Boolean
+ * @param string $string the string to check
+ * @return bool
  */
 @function isAlias($string) {
   $isAlias: false;
@@ -299,9 +291,9 @@ $ooAlias: (
 /** 
  * getAliasValue
  * retrieve the value of an alias function
- * @param String $string The complete alias function
- * @param String $value Value of the 1st parameter
- * @return Boolean
+ * @param string $string The complete alias function
+ * @param string $value Value of the 1st parameter
+ * @return bool
  *
  * @todo review, simplify
  */
@@ -327,7 +319,7 @@ $ooAlias: (
   $param1: if($param not null, $param, $param1);
 
   @if length($params) > 1 {
-    $paramLeft: removeListItem($params, 1);
+    $paramLeft: removeInList($params, 1);
     $param2: stripSpaces(str-slice(#{$paramLeft}, 1, -2));
 
     $currentAliasParams: getMapValue($currentAlias, 'params');

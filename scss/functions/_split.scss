@@ -1,15 +1,15 @@
 /**
  * Split
- * @param String $pattern The string character to split your string by
- * @param String $subject The input string
- * @param List   $list    The list being populated
+ * @param string $pattern The string character to split your string by
+ * @param string $subject The input string
+ * @param list   $list    The list being populated
  *
- * @return List
+ * @return list
  */
 
 @function split($pattern, $subject, $list:()) {
   $searchIndex: str-index($subject, $pattern);
-  @if type-of($pattern) == 'string' and type-of($subject) == 'string' and $searchIndex {
+  @if isString($pattern) and isString($subject) and $searchIndex {
     $subjectStart: str-slice($subject, 1, $searchIndex - 1);
     $subjectEnd: str-slice($subject, $searchIndex + str-length($pattern));
     $newList: join($list, $subjectStart);

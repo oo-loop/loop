@@ -119,6 +119,7 @@ export default {
 
 <style lang="scss" scoped>
 	@import '~loop/config';
+	@import '~loop/functions/all';
 	@import '~loop/mixins/loop';
 
 	$border-radius: (

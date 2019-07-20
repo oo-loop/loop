@@ -1,9 +1,7 @@
-@import 'type';
-
 /**
  * In List
- * @param $needle    string        the searched value
- * @param $haystack  array|string  the list to search in
+ * @param string $needle the searched value
+ * @param string|list $haystack the list to search in
  * @return bool
  */
 
@@ -21,12 +19,12 @@
 
 /**
  * Remove element from a list
- * @param List $list
- * @param Number $index List index to remove
+ * @param list $list
+ * @param number $index List index to remove
  *
  * @return List
  */
- @function removeListItem($list, $index) {
+ @function removeInList($list, $index) {
   @if isNotList($list)
     or isNotNumber($index) {
     @return $list;

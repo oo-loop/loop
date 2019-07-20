@@ -1,10 +1,10 @@
 /**
  * Extract
- * @param String $start The string to start width
- * @param String $end The string to end width
- * @param String $subject The string to search into
+ * @param string $start The string to start width
+ * @param string $end The string to end width
+ * @param string $subject The string to search into
  *
- * @return String
+ * @return string
  */
 
 @function extract($start, $end, $subject) {
