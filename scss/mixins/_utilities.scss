@@ -1,14 +1,10 @@
-@import '../functions/replace';
-@import '../functions/type';
 @import 'loop';
 
 /**
  * Generate Utilities
  * @param $utilitiesMap 
  */
-
  @mixin generateUtilities($utilitiesMap) {
-
   @if map-has-key($utilitiesMap, 'values')
     and map-has-key($utilitiesMap, 'name') {
     $utilitiesMap: (map-get($utilitiesMap, 'name'): $utilitiesMap);
@@ -17,9 +13,9 @@
   @each $name, $options in $utilitiesMap {
     @if isMap($options) {
       $props: if(map-has-key($options, 'values'), oo('values', $options), ());
-      $property-name: if(map-has-key($options, 'property'), oo('property', $options), toKebabCase($name));
+      $propertyName: if(map-has-key($options, 'property'), oo('property', $options), toKebabCase($name));
       $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', toKebabCase($name)), 1));
-      $is-important: if(map-has-key($options, 'important'), oo('important', $options), true);
+      $isImportant: if(map-has-key($options, 'important'), oo('important', $options), true);
       $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
       
       @if not (str-slice(prefix, 1, 1) == '.') {
@@ -28,36 +24,36 @@
 
       @include loop(
         $props,
-        $property-name,
+        $propertyName,
         $prefix,
-        $is-important
+        $isImportant
       );
 
       @if isMap($screens) {
-        @each $class, $props-name in $screens {
-          @if isEmpty($props-name) {
+        @each $class, $propsName in $screens {
+          @if isEmpty($propsName) {
             @include loopBreakpoints(
               $class,
               $props,
-              $property-name,
+              $propertyName,
               $prefix,
-              $is-important
+              $isImportant
             )
           } @else {
-            $props-name: toList($props-name);
-            $props-target: ();
-            @each $name in $props-name {
+            $propsName: toList($propsName);
+            $propsTarget: ();
+            @each $name in $propsName {
               $prop-value: oo(#{$name}, $props);
               @if $prop-value {
-                $props-target: map-merge($props-target, ($name: $prop-value));
+                $propsTarget: map-merge($propsTarget, ($name: $prop-value));
               }
             }
             @include loopBreakpoints(
               $class,
-              $props-target,
-              $property-name,
+              $propsTarget,
+              $propertyName,
               $prefix,
-              $is-important
+              $isImportant
             )
           }
         }
@@ -65,9 +61,9 @@
         @include loopBreakpoints(
           $screens,
           $props,
-          $property-name,
+          $propertyName,
           $prefix,
-          $is-important
+          $isImportant
         );
       }
     }

@@ -1,41 +1,39 @@
-/**
- * Loop
- */
-
 @import 'breakpoint';
 
-@mixin loopProperties($properties, $value, $is-important) {
+/**
+ * Loop Properties
+ */
+@mixin loopProperties($properties, $value, $isImportant) {
   // multiple properties
   @if isList($properties) {
     @each $property in $properties {
-      #{$property}: if($is-important, #{$value} !important, #{$value});
+      #{$property}: if($isImportant, #{$value} !important, #{$value});
     }
   } @else {
-    #{$properties}: if($is-important, #{$value} !important, #{$value});
+    #{$properties}: if($isImportant, #{$value} !important, #{$value});
   }
 }
 
 /**
  * Loop
  *
- * @param $data         list|map    Data to loop through
- * @param $properties   string|list Property name to use
- * @param $prefix       string      String to prepend to the selector
- * @param $is-important ?bool       Set the !important flag ?
- * @param $suffix       ?string     String to append to the selector
+ * @param list|map $data Data to loop through
+ * @param string|list $properties Property name to use
+ * @param string $prefix String to prepend to the selector
+ * @param bool|false $isImportant Set the !important flag ?
+ * @param $suffix string String to append to the selector
  */
-
-@mixin loop($data, $properties, $prefix, $is-important:false, $suffix:'') {
+@mixin loop($data, $properties, $prefix, $isImportant:false, $suffix:'') {
   // Make sure to have the correct format or do not generate rules
   @if isNotEmpty($data) {
     @if isString($data) {
       #{$prefix}-#{$data}#{$suffix} {
-        @include loopProperties($properties, $data, $is-important);
+        @include loopProperties($properties, $data, $isImportant);
       }
     } @else if isList($data) {
       @each $value in $data {
         #{$prefix}-#{$value}#{$suffix} {
-          @include loopProperties($properties, $value, $is-important);
+          @include loopProperties($properties, $value, $isImportant);
         }
       }
     } @else if isMap($data) {
@@ -47,11 +45,11 @@
           @if isMap($value) and str-index($suffix, $substring: "\@") == null {
             @each $child-breakpoint, $child-value in $value {
               @include breakpoint($child-breakpoint) {
-                @include loopProperties($properties, $child-value, $is-important);
+                @include loopProperties($properties, $child-value, $isImportant);
               }
             }
           } @else {
-            @include loopProperties($properties, $value, $is-important);
+            @include loopProperties($properties, $value, $isImportant);
           }
         }
       }
@@ -59,26 +57,25 @@
   }
 }
 
-
 /**
  * Loop breakpoints
  *
- * @param $breakpoints  list        List of breakpoints classes
- * @param $data         list|map    Data to loop through
- * @param $properties   string|list Property name to use
- * @param $prefix       string      String to prepend to the selector
- * @param $is-important ?bool       Set the !important flag ?
- * @param $suffix       ?string     String to append to the selector
+ * @param list $breakpoints List of breakpoints classes
+ * @param list|map $data Data to loop through
+ * @param string|list $properties Property name to use
+ * @param string $prefix String to prepend to the selector
+ * @param bool|false $isImportant Set the !important flag ?
+ * @param string $suffix String to append to the selector
  */
-@mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $is-important:false, $suffix:'') {
+@mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $isImportant:false, $suffix:'') {
   @if isNotEmpty($breakpoints) and isNotEmpty($data) {
     @if isString($breakpoints) {
       $breakpoints: toList($breakpoints);
     }
     @each $breakpoint in $breakpoints {
       @include breakpoint($breakpoint) {
-        $breakpoint-suffix: #{$suffix}\@#{$breakpoint};
-        @include loop($data, $properties, $prefix, $is-important, $breakpoint-suffix);
+        $breakpointSuffix: #{$suffix}\@#{$breakpoint};
+        @include loop($data, $properties, $prefix, $isImportant, $breakpointSuffix);
       }
     }
   }

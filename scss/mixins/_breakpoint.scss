@@ -4,7 +4,6 @@
  * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
  */
 
-@import '../functions/oo';
 
 @mixin breakpoint($key) {
   // make sure the key exist
@@ -21,12 +20,12 @@
 @mixin pointbreak($key) {
   // make sure the key exist
   @if map-has-key(oo('breakpoints'), $key) {
-    $min-width: map-get(oo('breakpoints'), $key);
-    $max-width: $min-width - 1;
-    @if unit($min-width) == 'em' or unit('rem') {
-      $max-width: $min-width - 0.001;
+    $minWidth: map-get(oo('breakpoints'), $key);
+    $maxWidth: $minWidth - 1;
+    @if unit($minWidth) == 'em' or unit('rem') {
+      $maxWidth: $minWidth - 0.001;
     }
-    @media (max-width: $max-width) {
+    @media (max-width: $maxWidth) {
       @content;
     }
   } @else if isEmpty($key) or $key == 'rt' {
