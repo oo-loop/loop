@@ -2,4 +2,12 @@
  * Miscellaneous
  */
 
-.responsive	  { max-width: 100%; height: auto; }
+@mixin initMisc {
+  @if oo('misc') {
+    @each $name, $misc in oo('misc') {
+      .#{$name} {
+        @include generateStyles($misc);
+      }
+    }
+  }
+}

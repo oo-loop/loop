@@ -97,6 +97,7 @@ $ooLoop: (
     )
   ),
 
+  // Utility format
   paint: (
     font: (
       prefix: 'color',
@@ -114,6 +115,7 @@ $ooLoop: (
     ),
   ),
 
+  // Utility format
   text: (
     fontSize: (
       prefix: 'text',
@@ -144,6 +146,7 @@ $ooLoop: (
     ),
   ),
 
+  // Utility format
   float: (
     values: (
       'left',
@@ -152,6 +155,7 @@ $ooLoop: (
     clearfix: true,
   ),
 
+  // Utility format
   wrapper: (
     property: 'padding',
     values: (
@@ -161,6 +165,7 @@ $ooLoop: (
     ),
   ),
 
+  // Utility format
   spacing: (
     marginLeft: (
       prefix: 'ml',
@@ -390,6 +395,14 @@ $ooLoop: (
 
   utilities: (),
   components: (),
+  misc: (
+    responsive: (
+      props: (
+        maxWidth: 100%,
+        height: auto,
+      )
+    ),
+  ),
 
   use: (
     base: true,
@@ -421,5 +434,6 @@ $ooLoop: (
       text: true,
       wrapper: true,
     ),
+    misc: true,
   )
 ) !default;

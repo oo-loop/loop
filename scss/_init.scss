@@ -55,6 +55,9 @@
   @if (oo('use.visibility')) {
     @include initVisibility;
   }
+  @if (oo('use.misc')) {
+    @include initMisc;
+  }
   @if (oo('use.custom.utilities')) {
     @include generateUtilities(oo('utilities'));
   }
