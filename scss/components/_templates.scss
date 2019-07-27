@@ -56,6 +56,40 @@
   @include makeGridArea($area-names-list);
 }
 
+@mixin makeGapOnBreakpoint($breakpoint, $gap-sizes, $vertical: false) {
+  @include breakpoint($breakpoint) {
+    @each $gap-name, $gap-size in $gap-sizes {
+      @if $vertical {
+        [#{ooPrefix()}-template~="vgap-#{$gap-name}\@#{$breakpoint}"] { grid-row-gap: $gap-size; }
+      } @else {
+        [#{ooPrefix()}-template~="gap-#{$gap-name}\@#{$breakpoint}"] { grid-gap: $gap-size; }
+      }
+    }
+  }
+}
+@mixin makeGapOnScreens($screens, $gap-sizes, $vertical: false) {
+  @if isMap($screens) {
+    @each $class, $gap-names in $screens {
+      @if isEmpty($gap-names) {
+        @include makeGapOnBreakpoint($class, $gap-sizes, $vertical);
+      } @else {
+        $gap-names: toList($gap-names);
+        $gap-targets: ();
+        @each $name in $gap-names {
+          $size: oo(#{$name}, $gap-sizes);
+          @if $size{
+            $gap-targets: map-merge($gap-targets, ($name: $size));
+          }
+        }
+        @include makeGapOnBreakpoint($class, $gap-targets, $vertical);
+      }
+    }
+  } @else {
+    @each $class in $screens {
+      @include makeGapOnBreakpoint($class, $gap-sizes, $vertical);
+    }
+  }
+}
 
 @mixin initTemplate($templates: oo('template')) {
   @if oo('areas', $templates) {
@@ -86,14 +120,25 @@
     }
   }
 
-  @if oo('gap.sizes', $templates) {
-    @each $gap-name, $gap-size in oo('gap.sizes', $templates) {
+  $screens: oo('gap.screens', $templates);
+  $vscreens: oo('gap.vscreens', $templates);
+  $gap-sizes: oo('gap.sizes', $templates);
+  $gap-vsizes: oo('gap.sizes', $templates);
+
+  @if $gap-sizes {
+    @each $gap-name, $gap-size in $gap-sizes {
       [#{ooPrefix()}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
     }
+    @if $screens {
+      @include makeGapOnScreens($screens, $gap-sizes);
+    }
   }
-  @if oo('gap.vsizes', $templates) {
-    @each $gap-name, $gap-size in oo('gap.vsizes', $templates) {
+  @if $gap-vsizes {
+    @each $gap-name, $gap-size in $gap-vsizes {
       [#{ooPrefix()}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+    }
+    @if $vscreens {
+      @include makeGapOnScreens($vscreens, $gap-vsizes, true);
     }
   }
 }
