@@ -87,12 +87,12 @@
   }
 
   @if oo('gap.sizes', $templates) {
-    @each $gap-name, $gap-size in oo('template.gap.sizes') {
+    @each $gap-name, $gap-size in oo('gap.sizes', $templates) {
       [#{ooPrefix()}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
     }
   }
   @if oo('gap.vsizes', $templates) {
-    @each $gap-name, $gap-size in oo('template.gap.vsizes') {
+    @each $gap-name, $gap-size in oo('gap.vsizes', $templates) {
       [#{ooPrefix()}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
     }
   }
