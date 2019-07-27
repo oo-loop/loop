@@ -51,7 +51,7 @@
       }
 
       @if oo('column.use.alignment')
-        and (oo('column.use.alignmentBreakpoints') isEmpty($suffix)) {
+        and (oo('column.use.alignmentBreakpoints') or isEmpty($suffix)) {
         // horizontal alignment
         [#{ooPrefix()}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
         [#{ooPrefix()}-row~="align-center#{$suffix}"] { justify-content: center; }
