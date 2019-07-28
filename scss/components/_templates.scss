@@ -121,10 +121,7 @@
   }
 
   $screens: oo('gap.screens', $templates);
-  $vscreens: oo('gap.vscreens', $templates);
   $gap-sizes: oo('gap.sizes', $templates);
-  $gap-vsizes: oo('gap.sizes', $templates);
-
   @if $gap-sizes {
     @each $gap-name, $gap-size in $gap-sizes {
       [#{ooPrefix()}-template~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
@@ -133,6 +130,9 @@
       @include makeGapOnScreens($screens, $gap-sizes);
     }
   }
+
+  $vscreens: oo('gap.vscreens', $templates);
+  $gap-vsizes: oo('gap.vsizes', $templates);
   @if $gap-vsizes {
     @each $gap-name, $gap-size in $gap-vsizes {
       [#{ooPrefix()}-template~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
