@@ -4,6 +4,9 @@
  */
 
 @mixin initBase {
+
+  @include InitNormalize;
+  
   *,
   *::after,
   *::before {
