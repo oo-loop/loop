@@ -1,42 +1,35 @@
 <p align="center">
-    <img align="center" src="https://avatars2.githubusercontent.com/u/36288586?s=400" width="200" alt="">
+    <img align="center" src="https://avatars2.githubusercontent.com/u/36288586?s=300" width="150" alt="">
 </p>
-<h3 align="center">Loop</h3>
+<h1 align="center">Loop CSS</h1>
 <p align="center">
-<em>"Why go in circles?"</em>
-<br>
-<br>
-<strong>SCSS Companion for Front-end Developer</strong>
+<strong>Highly customizable Sass Framework</strong>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  
 
-[![npm](https://img.shields.io/npm/v/oo-loop.svg?style=flat-square)](https://www.npmjs.com/package/oo-loop)
+[![npm](https://img.shields.io/npm/v/oo-loop)](https://www.npmjs.com/package/oo-loop)
 
-## Introduction
+
+Loop is a Sass (scss) framework aiming to create a more maintainable and readable CSS. Fully customizable, It gives you complete control on your project to let you create and match your styles with your design needs.
+
+Loop offers an easy way to manage and access all your variables in one single map.
+
+## Why Loop ?
 Have you ever worked on a project with your go-to css framework realizing that you were only using 10% of it. You had to add your own utilities, your own components and when trying to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for.   
 Have you ever wonder if the framework you were using was a real fit?.
 
 Loop has been developed out of that feeling to overcome this problem.
 
-## Loop
-Loop wants to reconsider the way CSS is created and used, aiming to make it more maintainable, readable and expressive.
-
-Loop works towards flexibilty and customization to give the developer complete control on his project letting him create his own set of utilities.   
-It is specifically based on variables to facilitate the addition and removal of rules and properties.
-
-Loop is not a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.
+## Philosophy
+Loop is not a framework providing any possible existing components. It's more like a companion for CSS development, encouring the use and creation of utilities while considering recurring components. Make CSS readable and expressive.
 
 ## Semantic
 Loop differentiates components and utilities with semantic for more clarity
 
-* `oo-componentName` loop attribute for component
+* `data-oo-componentName` or `oo-componentName` loop attribute for component
 * `.utilityName` class attribute for utility.
 
-## Beware
-The loop attribute is not a valid html5 attribute.   
-If it does concern you, set the variable `$loop-component-html5-validity` to true.   
-Loop components will be then available through the data attribute `data-oo-componentName`.
 
 ## Start
 Use yarn
