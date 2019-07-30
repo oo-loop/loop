@@ -425,6 +425,7 @@ export default {
 
 	$ooLoop: ooAdd('wrapper.values', (
 		'default': .8rem 1.6rem,
+		'tiny': .8rem,
 		'large': 3.2rem,
 		'wide': (
 			rt: 2rem,

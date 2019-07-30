@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Loop CSS</h1>
 <p align="center">
-<strong>Highly customizable Sass Framework</strong>
+<strong>Customizable Scss Framework for Flexible Design</strong>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  
@@ -13,7 +13,7 @@
 
 Loop is a Sass (scss) framework aiming to create a more maintainable and readable CSS. Fully customizable, It gives you complete control on your project to let you create and match your styles with your design needs.
 
-Loop offers an easy way to manage and access all your variables in one single map.
+Loop offers easy management and access to all your variables in one config file.
 
 ## Why Loop ?
 Have you ever worked on a project with your go-to css framework realizing that you were only using 10% of it. You had to add your own utilities, your own components and when trying to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for.   
@@ -22,7 +22,7 @@ Have you ever wonder if the framework you were using was a real fit?.
 Loop has been developed out of that feeling to overcome this problem.
 
 ## Philosophy
-Loop is not a framework providing any possible existing components. It's more like a companion for CSS development, encouring the use and creation of utilities while considering recurring components. Make CSS readable and expressive.
+Loop is not a framework providing any possible existing components. It's more like a companion for CSS development, encouraging the use and creation of utilities while considering recurring components. Make CSS readable and expressive.
 
 ## Semantic
 Loop differentiates components and utilities with semantic for more clarity
