@@ -76,20 +76,6 @@ $ooLoop: (
     inlineSpacing: 1em,
   ),
 
-  defList: (
-    props: (
-      marginTop: 0,
-      marginBottom: 1.125em,
-    ),
-    dt: (
-      fontWeight: 700,
-      marginTop: .5em,
-    ),
-    dd: (
-      marginLeft: auto,
-    ),
-  ),
-  
   hr: (
     props:(
       margin: 1rem auto,
@@ -275,7 +261,7 @@ $ooLoop: (
       ),
       active: (
         backgroundColor: ooDarken(oo('button.props.backgroundColor'), 12%),
-        boxShadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
+        box-shadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
       ),
     ),
     paints: oo('colors'),

@@ -65,27 +65,6 @@
     }
   }
 
-  @if oo('defList') {
-    @if oo('defList.props') {
-      dl {
-        @include generateProperties(oo('defList.props'));
-      }
-    }
-    @if oo('defList.dt') {
-      dt {
-        @include generateProperties(oo('defList.dt'));
-        &:first-child {
-          margin-top: 0;
-        }
-      }
-    }
-    @if oo('defList.dd') {
-      dd {
-        @include generateProperties(oo('defList.dd'));
-      }
-    }
-  }
-  
   hr, .hr {
     display: block;
     border:none;
