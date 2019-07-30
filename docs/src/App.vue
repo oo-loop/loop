@@ -413,11 +413,12 @@ export default {
 	));
 
 
-	$ooLoop: ooAdd('type.fontWeight.values', (
+	$ooLoop: ooAdd('text.fontWeight.values', (
 		'thin': 100,
 	));
-	$ooLoop: ooSet('type.textAlign.screens', (sm, lg));
-	$ooLoop: ooSet('type.textDecoration.values', (
+	$ooLoop: ooAdd('text.fontStyle.values', 'oblique');
+	$ooLoop: ooSet('text.textAlign.screens', (sm, lg));
+	$ooLoop: ooSet('text.textDecoration.values', (
 		'line-through',
 		'underline',
 	));
@@ -444,7 +445,7 @@ export default {
 	$ooLoop: ooAdd('float.values', 'none');
 
 	$ooLoop: ooAdd('utilities', (
-		borderRadius: (
+		border-radius: (
 			prefix: 'border',
 			values: (
 				rounded: '50em',

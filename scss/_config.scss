@@ -49,7 +49,7 @@ $ooLoop: (
 
   paragraph: (
     props: (
-      marginTop: 0,
+      marginTop: .5em,
       marginBottom: 1.125em,
     )
   ),
@@ -111,7 +111,7 @@ $ooLoop: (
       ),
     ),
     fontStyle: (
-      values: ('italic'),
+      values: 'italic',
     ),
     fontWeight: (
       values: (

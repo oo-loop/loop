@@ -67,7 +67,7 @@
 
   hr, .hr {
     display: block;
-    border:none;
+    border: none;
     @if oo('hr.props') {
       @include generateProperties(oo('hr.props'));
     }
