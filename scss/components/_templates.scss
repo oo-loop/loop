@@ -20,15 +20,6 @@
     @return length($areaNames);
   }
 }
-@function areKeysBreakpoints($grid-template-areas){
-  $map-keys: map-keys($grid-template-areas);
-  @each $key in $map-keys {
-    @if inList($key, oo('breakpoints')) {
-      @return true;
-    }
-  }
-  @return false;
-}
 
 @mixin makeGridTemplate($grid-template-areas) {
   grid-template-areas: $grid-template-areas;

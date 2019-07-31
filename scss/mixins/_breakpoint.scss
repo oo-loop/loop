@@ -32,3 +32,13 @@
     @content;
   }
 }
+
+@function areKeysBreakpoints($map){
+  $map-keys: map-keys($map);
+  @each $key in $map-keys {
+    @if inList($key, oo('breakpoints')) {
+      @return true;
+    }
+  }
+  @return false;
+}
