@@ -147,7 +147,7 @@
   }
 
   $vscreens: oo('gap.vscreens', $templates);
-  $vgap-vsizes: oo('gap.vsizes', $templates);
+  $gap-vsizes: oo('gap.vsizes', $templates);
   @if $gap-vsizes {
     $non-responsise-gap-vsizes: ();
     @each $gap-name, $gap-size in $gap-vsizes {
