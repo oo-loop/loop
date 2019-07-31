@@ -128,7 +128,8 @@
   @if $gap-sizes {
     $non-responsise-gap-sizes: ();
     @each $gap-name, $gap-size in $gap-sizes {
-      [#{ooPrefix()}-template~="gap-#{$gap-name}"] {
+      $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="gap-#{$gap-name}"');
+      [#{ooPrefix()}-#{$selector}] {
         @if (isMap($gap-size)) {
           @each $key, $value in $gap-size {
             @include breakpoint($key) {
@@ -147,11 +148,12 @@
   }
 
   $vscreens: oo('gap.vscreens', $templates);
-  $gap-vsizes: oo('gap.vsizes', $templates);
-  @if $gap-vsizes {
-    $non-responsise-gap-vsizes: ();
-    @each $gap-name, $gap-size in $gap-vsizes {
-      [#{ooPrefix()}-template~="vgap-#{$gap-name}"] {
+  $vgap-sizes: oo('gap.vsizes', $templates);
+  @if $vgap-sizes {
+    $non-responsise-vgap-sizes: ();
+    @each $gap-name, $gap-size in $vgap-sizes {
+      $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="vgap-#{$gap-name}"');
+      [#{ooPrefix()}-#{$selector}] {
         @if (isMap($gap-size)) {
           @each $key, $value in $gap-size {
             @include breakpoint($key) {
@@ -160,12 +162,12 @@
           }
         } @else {
           grid-row-gap: $gap-size;
-          $non-responsise-gap-vsizes: map-merge(($gap-name: $gap-size), $non-responsise-gap-vsizes)
+          $non-responsise-vgap-sizes: map-merge(($gap-name: $gap-size), $non-responsise-vgap-sizes)
         }
       }
     }
     @if $vscreens {
-      @include makeGapOnScreens($vscreens, $non-responsise-gap-vsizes, true);
+      @include makeGapOnScreens($vscreens, $non-responsise-vgap-sizes, true);
     }
   }
 }
