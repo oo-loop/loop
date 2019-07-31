@@ -206,16 +206,6 @@ $ooLoop: (
       screens: (),
     ),
     screens: oo('screens'),
-    use: (
-      order: false,
-      offset: false,
-      alignment: true,
-      alignmentBreakpoints: true,
-      fitBreakpoints: false,
-      selfAlignment: true,
-      selfAlignmentBreakpoints: false,
-      childAlignment: false,
-    )
   ),
 
   template: (
@@ -404,7 +394,18 @@ $ooLoop: (
       radio: true,
       toggle: true,
     ),
-    column: true,
+    column: (
+      system: true,
+      order: false,
+      offset: false,
+      alignment: true,
+      alignmentBreakpoints: true,
+      fitBreakpoints: false,
+      selfAlignment: true,
+      selfAlignmentBreakpoints: false,
+      childAlignment: false,
+    ),
+
     grid: false,
     template: true,
     container: true,

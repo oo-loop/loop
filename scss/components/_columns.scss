@@ -41,7 +41,7 @@
         }
       }
 
-      @if oo('column.use.fitBreakpoints') or isEmpty($suffix) {
+      @if oo('use.column.fitBreakpoints') or isEmpty($suffix) {
         // adjust to the size of the content
         [#{ooPrefix()}-col~="fit#{$suffix}"] {
           min-width: auto;
@@ -50,8 +50,8 @@
         }
       }
 
-      @if oo('column.use.alignment')
-        and (oo('column.use.alignmentBreakpoints') or isEmpty($suffix)) {
+      @if oo('use.column.alignment')
+        and (oo('use.column.alignmentBreakpoints') or isEmpty($suffix)) {
         // horizontal alignment
         [#{ooPrefix()}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
         [#{ooPrefix()}-row~="align-center#{$suffix}"] { justify-content: center; }
@@ -65,8 +65,8 @@
         [#{ooPrefix()}-row~="valign-bottom#{$suffix}"] { align-items: flex-end; }
       }
 
-      @if oo('column.use.selfAlignment')
-        and (oo('column.use.selfAlignmentBreakpoints') or isEmpty($suffix)) {
+      @if oo('use.column.selfAlignment')
+        and (oo('use.column.selfAlignmentBreakpoints') or isEmpty($suffix)) {
         // horizontal alignment
         [#{ooPrefix()}-col~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
         [#{ooPrefix()}-col~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
@@ -80,7 +80,7 @@
     }
   }
 
-  @if oo('column.use.childAlignment') {
+  @if oo('use.column.childAlignment') {
     [#{ooPrefix()}-col*="child-align-"] > * {
       display: flex;
       flex-direction: column;
@@ -104,16 +104,16 @@
       $suffix: \@#{$class};
 
       // order-0 to make sure it is first
-      @if oo('column.use.order') {
+      @if oo('use.column.order') {
         [#{ooPrefix()}-col~="order-0#{$suffix}"] { order: -1; }
       }
       @for $i from 1 through oo('column.system') {
         // offset
-        @if oo('column.use.offset') {
+        @if oo('use.column.offset') {
           [#{ooPrefix()}-col~="offset-#{$i}#{$suffix}"] { margin-left: percentage($i / oo('column.system')); }
         }
         // order
-        @if oo('column.use.order') {
+        @if oo('use.column.order') {
           [#{ooPrefix()}-col~="order-#{$i}#{$suffix}"] { order: $i; }
         }
       }
