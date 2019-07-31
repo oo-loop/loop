@@ -387,9 +387,13 @@ export default {
 	$ooLoop: ooSet('template.gap.sizes', (
 		'less' : 0,
 		'small': 1.6rem,
+		'flex': (
+			rt: 2rem,
+			sm: 5rem,
+		),
 	));
-	$ooLoop: ooSet('column.use.order', true);
-	$ooLoop: ooSet('column.use.childAlignment', true);
+	$ooLoop: ooSet('use.column.order', true);
+	$ooLoop: ooSet('use.column.childAlignment', true);
 
 	$ooLoop: ooSet('html5', false);
 	$ooLoop: ooAdd('colors', (
