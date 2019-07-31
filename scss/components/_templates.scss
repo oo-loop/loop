@@ -85,6 +85,9 @@
       }
     }
   } @else {
+    @if isString($screens) {
+      $screens: toList($screens);
+    }
     @each $class in $screens {
       @include makeGapOnBreakpoint($class, $gap-sizes, $vertical);
     }
