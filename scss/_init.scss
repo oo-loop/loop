@@ -58,10 +58,10 @@
   @if (oo('use.misc')) {
     @include initMisc;
   }
-  @if (oo('use.custom.utilities')) {
+  @if (oo('utilities')) {
     @include generateUtilities(oo('utilities'));
   }
-  @if (oo('use.custom.components')) {
+  @if (oo('components')) {
     @include generateComponents(oo('components'));
   }
   @if oo('use.utilities.paint') {
