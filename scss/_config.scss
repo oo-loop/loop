@@ -199,11 +199,12 @@ $ooLoop: (
     system: 12,
     gutter: (
       sizes: (
-        'base': oo('container.gutter'),
+        default: oo('container.gutter'),
         'less': 0,
       ),
-      vsizes: oo('column.gutter.sizes'),
       screens: (),
+      vsizes: oo('column.gutter.sizes'),
+      vscreens: (),
     ),
     screens: oo('screens'),
   ),
@@ -410,6 +411,8 @@ $ooLoop: (
     template: true,
     container: true,
     visibility: true,
+    misc: true,
+
     utilities: (
       float: true,
       list: true,
@@ -418,6 +421,5 @@ $ooLoop: (
       text: true,
       wrapper: true,
     ),
-    misc: true,
   )
 ) !default;

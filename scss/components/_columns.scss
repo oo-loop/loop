@@ -134,7 +134,7 @@
 
   // gutter
   @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
-    $selector: if(isEmpty($gutter-name) or $gutter-name == 'base', 'row', 'row~="gutter-#{$gutter-name}"');
+    $selector: if(isEmpty($gutter-name) or $gutter-name == 'default', 'row', 'row~="gutter-#{$gutter-name}"');
     [#{ooPrefix()}-#{$selector}] {
       @if (isMap($gutter-size)) {
         @each $key, $value in $gutter-size {
@@ -158,7 +158,7 @@
     }
   }
   @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
-    $suffix: if(isEmpty($gutter-name) or $gutter-name == 'base', '', '-#{$gutter-name}');
+    $suffix: if(isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
     [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
       > [#{ooPrefix()}-col] {
         @if (isMap($vgutter-size)) {
