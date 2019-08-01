@@ -75,7 +75,11 @@
 
   $list: split('.', $key);
   @for $i from 1 through length($list) {
-    $map: getMapValue($map, nth($list, $i));
+    $value: getMapValue($map, nth($list, $i));
+    @if $i == length($list) and isEmpty($value) {
+      $value: getMapValue($map, toKebabCase(nth($list, $i)));
+    }
+    $map: $value;
   }
  
   @return $map;
@@ -171,8 +175,7 @@
       $map: setMapValue($map, $key, $newValue);
       // clear latest child in path to go backup in the nested environment 
       $path: if(length(split('.', $path)) > 1, replace('.#{$key}', '', $path), replace('#{$key}', '', $path));
-    } 
-    @else if hasRef($value) {
+    } @else if hasRef($value) {
       $ooRef: extractRef($value);
       $newValue: oo(getRefValue($ooRef), $parentMap);
 
