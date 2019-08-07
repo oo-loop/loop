@@ -197,6 +197,7 @@ $ooLoop: (
 
   column: (
     system: 12,
+    screens: oo('screens'),
     gutter: (
       sizes: (
         default: oo('container.gutter'),
@@ -206,7 +207,9 @@ $ooLoop: (
       vsizes: oo('column.gutter.sizes'),
       vscreens: (),
     ),
-    screens: oo('screens'),
+    order: (
+      screens: oo('column.screens'),
+    ),
   ),
 
   template: (

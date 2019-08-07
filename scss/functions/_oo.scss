@@ -169,7 +169,7 @@
   
   @each $key, $value in $map {
     @if isMap($value) {
-      // set path to remember where we can from in a nested environment
+      // set path to remember where we came from in a nested environment
       $path: if(isEmpty($path), '#{$key}', '#{$path}.#{$key}');
       $newValue: ooParse($value, $parentMap, $path);
       $map: setMapValue($map, $key, $newValue);
