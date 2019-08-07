@@ -122,7 +122,8 @@
         }
       }
 
-      @if inList($class, toList(oo('column.fit.screens'))) or isEmpty($suffix) {
+      @if oo('use.column.fit')
+        and (inList($class, toList(oo('column.fit.screens'))) or isEmpty($suffix)) {
         [#{ooPrefix()}-col~="fit#{$suffix}"] {
           min-width: auto;
           flex-grow: 0;
@@ -131,7 +132,7 @@
       }
 
       @if oo('use.column.alignment')
-        and (oo('use.column.alignmentBreakpoints') or isEmpty($suffix)) {
+        and (inList($class, toList(oo('column.alignment.screens'))) or isEmpty($suffix)) {
         // horizontal alignment
         [#{ooPrefix()}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
         [#{ooPrefix()}-row~="align-center#{$suffix}"] { justify-content: center; }

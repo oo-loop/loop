@@ -207,6 +207,9 @@ $ooLoop: (
       vsizes: oo('column.gutter.sizes'),
       vscreens: (),
     ),
+    alignment: (
+      screens: oo('column.screens'),
+    ),
     fit: (
       screens: oo('column.screens'),
     ),
@@ -410,7 +413,6 @@ $ooLoop: (
       order: false,
       offset: false,
       alignment: true,
-      alignmentBreakpoints: true,
       selfAlignment: true,
       selfAlignmentBreakpoints: false,
       childAlignment: false,
