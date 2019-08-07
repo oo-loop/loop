@@ -122,8 +122,7 @@
         }
       }
 
-      @if oo('use.column.fitBreakpoints') or isEmpty($suffix) {
-        // adjust to the size of the content
+      @if inList($class, toList(oo('column.fit.screens'))) or isEmpty($suffix) {
         [#{ooPrefix()}-col~="fit#{$suffix}"] {
           min-width: auto;
           flex-grow: 0;
