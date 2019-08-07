@@ -147,7 +147,7 @@
       }
 
       @if oo('use.column.selfAlignment')
-        and (oo('use.column.selfAlignmentBreakpoints') or isEmpty($suffix)) {
+        and (inList($class, toList(oo('column.selfAlignment.screens'))) or isEmpty($suffix)) {
         // horizontal alignment
         [#{ooPrefix()}-col~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
         [#{ooPrefix()}-col~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }

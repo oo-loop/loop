@@ -210,6 +210,9 @@ $ooLoop: (
     alignment: (
       screens: oo('column.screens'),
     ),
+    selfAlignment: (
+      screens: oo('column.screens'),
+    ),
     fit: (
       screens: oo('column.screens'),
     ),
@@ -414,7 +417,6 @@ $ooLoop: (
       offset: false,
       alignment: true,
       selfAlignment: true,
-      selfAlignmentBreakpoints: false,
       childAlignment: false,
     ),
 
