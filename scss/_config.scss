@@ -207,6 +207,9 @@ $ooLoop: (
       vsizes: oo('column.gutter.sizes'),
       vscreens: (),
     ),
+    offset: (
+      screens: oo('column.screens'),
+    ),
     order: (
       screens: oo('column.screens'),
     ),
