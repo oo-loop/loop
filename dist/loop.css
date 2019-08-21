@@ -2743,6 +2743,7 @@ label + [oo-form~="select"] {
 
 [oo-form~="toggle"] + label::before {
   position: absolute;
+  left: 0;
   content: '';
   border-radius: 50%;
   background-color: #fff;
@@ -2767,6 +2768,7 @@ label + [oo-form~="select"] {
 }
 
 [oo-form~="toggle"] + label::before {
+  top: calc(50% - (1.68rem / 2));
   min-width: 1.68rem;
   height: 1.68rem;
   transform: translate3d(0.48rem, 0, 0);
