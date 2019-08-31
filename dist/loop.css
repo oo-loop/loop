@@ -2676,6 +2676,7 @@ label + [oo-form~="select"] {
 
 [oo-form~="radio"] + label::before {
   position: absolute;
+  top: 0;
   left: 0;
   content: '';
   border-radius: 50%;
