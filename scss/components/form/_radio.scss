@@ -43,6 +43,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
     &::before {
       position: absolute;
+      top: 0;
       left: 0;
       content: '';
       border-radius: 50%;
