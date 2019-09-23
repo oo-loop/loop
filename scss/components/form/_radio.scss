@@ -53,6 +53,7 @@
     &:checked + label {
       &::before {
         position: absolute;
+        left: 0;
         content: '';
         border-radius: 50%;
         background-color: oo('radio.checked.markColor');
