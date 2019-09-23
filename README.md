@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Loop CSS</h1>
 <p align="center">
-<strong>Customizable Scss Framework for Flexible Design</strong>
+<strong>Customizable Scss Framework for Flexible Development</strong>
 <br>
     <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
 </p>  
