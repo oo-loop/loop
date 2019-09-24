@@ -26,7 +26,7 @@
     @return $data;
   }
   @if $type == 'string' {
-    @return #{$data};
+    @return inspect($data);
   }
   @if $type == 'color' {
     @return toColor($data);

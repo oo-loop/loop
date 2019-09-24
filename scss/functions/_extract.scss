@@ -8,8 +8,11 @@
  */
 
 @function extract($start, $end, $subject) {
-  $startIndex: str-index(#{$subject}, #{$start});
-  $endIndex: str-index(#{$subject}, #{$end}) + str-length(#{$end}) - 1;
+  @if isNotString($subject) {
+    $subject: inspect($subject)
+  }
+  $startIndex: str-index($subject, $start);
+  $endIndex: str-index($subject, $end) + str-length($end) - 1;
 
-  @return str-slice(#{$subject}, $startIndex, $endIndex);
+  @return str-slice($subject, $startIndex, $endIndex);
 }

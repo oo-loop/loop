@@ -15,6 +15,9 @@
   @return $list;
 }
 @function getAreaColumnNumber($areas) {
+  @if isEmpty($areas) {
+    @return 0;
+  }
   @each $area in $areas {
     $areaNames: split(' ', $area);
     @return length($areaNames);
@@ -86,7 +89,7 @@
 }
 
 @mixin initTemplate($templates: oo('template')) {
-  @if oo('areas', $templates) {
+  @if isNotEmpty(oo('areas', $templates)) {
     [#{ooPrefix()}-template] {
       display: grid;
     }

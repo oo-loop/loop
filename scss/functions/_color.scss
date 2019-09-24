@@ -175,6 +175,9 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
  * @todo consider rgb, rgba, hls format
  */
 @function toColor($colorString) {
+  @if isEmpty($colorString) {
+    @return $colorString;
+  }
 
   @if isColor($colorString) {
     @return $colorString;
@@ -193,7 +196,7 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
   }
 
   @each $colorItem in $colorPalette {
-    @if to-lower-case($colorString) == to-lower-case(quote($colorItem)) {
+    @if to-lower-case($colorString) == to-lower-case(inspect($colorItem)) {
       @return $colorItem; 
     }
   }
@@ -208,6 +211,10 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
  * @return boolean
  */ 
 @function isHexColor($colorString) {
+  @if isEmpty($colorString) {
+    @return false;
+  }
+
   @if str-slice($colorString, 1, 1) == '#'
     and (
       str-length($colorString) == 4

@@ -5,7 +5,10 @@
  * @return bool
  */
  @function hasRef($search) {
-  @return if(str-index(#{$search}, 'oo(') == null, false, true);
+  @if isNotString($search) {
+    $search: inspect($search);
+  }
+  @return if(str-index($search, 'oo(') == null, false, true);
 }
 
 /**
@@ -16,7 +19,7 @@
  */
 @function isRef($string) {
   @if isNotString($string) {
-    $string: #{$string};
+    $string: inspect($string);
   }
   @return str-slice($string, 1, 3) == 'oo(' and str-slice($string, str-length($string)) == ')';
 }
@@ -28,7 +31,10 @@
  * @return bool
  */
 @function hasSpreadOperator($ref) {
-  @return if(str-index(#{$ref}, '_oo(') == null, false, true);
+  @if isNotString($ref) {
+    $ref: inspect($ref);
+  }
+  @return if(str-index($ref, '_oo(') == null, false, true);
 }
 
 /**
@@ -39,7 +45,7 @@
  */
  @function getRefValue($string) {
   @if isNotString($string) {
-    $string: #{$string};
+    $string: inspect($string);
   }
   @return str-slice($string, 4, -2);
 }
@@ -51,6 +57,9 @@
  * @return string
  */
 @function extractRef($string) {
+  @if isNotString($string) {
+    $string: inspect($string)
+  }
   @if not hasRef($string) {
     @return $string;
   }
@@ -69,11 +78,17 @@
 @function oo($key, $map:null) {
   $map: if($map == null, $ooLoop, $map);
 
+  // double check if quotes exist (issue with some sass version and PostCSS Parser)
+  @if str-slice($key, 1, 1) == '"' and str-slice($key, str-length($key), - 1) == '"' {
+    $key: str-slice($key, 2, str-length($key) - 1);
+  }
+
   @if str-index($key, '.') == null {
     @return getMapValue($map, $key);
   }
 
   $list: split('.', $key);
+
   @for $i from 1 through length($list) {
     $value: getMapValue($map, nth($list, $i));
     @if $i == length($list) and isEmpty($value) {
@@ -132,6 +147,7 @@
 
   @if (isRef($currentValue)) {
     $currentValue: oo(getRefValue($currentValue), $map);
+
     @if isRef($currentValue) {
       $ooRef: extractRef($currentValue);
       $newValue: ooSet($key, (
@@ -181,7 +197,7 @@
 
       @if hasSpreadOperator($value) and isList($value) {
         $refIndex: index($value, '_#{$ooRef}');
-        @if hasRef($newValue) {
+        @if isRef($newValue) {
           $newValue: set-nth($value, $refIndex, '_#{$newValue}'),
         } @else {
           @if isNotMap($newValue) {
@@ -271,9 +287,15 @@ $ooAlias: (
  * Aliases function used before init
  */
 @function ooDarken($value, $percentage) {
+  @if isNotColor($value) {
+    @return $value;
+  }
   @return darken($value, $percentage);
 }
 @function ooLighten($value, $percentage) {
+  @if isNotColor($value) {
+    @return $value;
+  }
   @return lighten($value, $percentage);
 }
 
@@ -284,6 +306,10 @@ $ooAlias: (
  * @return bool
  */
 @function isAlias($string) {
+  @if isNotString($string) {
+    @return false;
+  }
+
   $isAlias: false;
   @each $alias in $ooAlias {
     $aliasName: getMapValue($alias, 'name');
@@ -307,7 +333,7 @@ $ooAlias: (
 @function getAliasValue($string, $param:null) {
   $currentAlias: null;
   $function: null;
-  $params: split(',', #{$string});
+  $params: split(',', inspect($string));
 
   $param1: nth($params, 1);
   @each $alias in $ooAlias {
@@ -323,7 +349,7 @@ $ooAlias: (
     }
   }
 
-  $param1: if($param not null, $param, $param1);
+  $param1: if($param == null, $param1, $param);
 
   @if length($params) > 1 {
     $paramLeft: removeInList($params, 1);
@@ -332,6 +358,11 @@ $ooAlias: (
     $currentAliasParams: getMapValue($currentAlias, 'params');
     $param1: toType(nth($currentAliasParams, 1), $param1);
     $param2: toType(nth($currentAliasParams, 2), $param2);
+
+    @if $param1 == null or $param2 == null {
+      @return $string;
+    }
+
     @return call($function, $param1, $param2);
   }
   @return call($function, $param1);
