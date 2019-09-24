@@ -1,71 +1,71 @@
-/**
- * Grid
- * @todo Refactor, add to config
- */
+// /**
+//  * Grid
+//  * @todo Refactor, add to config
+//  */
 
 
-$loop-prefix: 'oo' !default;
-$loop-component-html5-validity: false !default;
-$loop-component-prefix: if($loop-component-html5-validity, #{'data-'}#{$loop-prefix}, $loop-prefix) !default;
+// $loop-prefix: 'oo' !default;
+// $loop-component-html5-validity: false !default;
+// $loop-component-prefix: if($loop-component-html5-validity, #{'data-'}#{$loop-prefix}, $loop-prefix) !default;
 
-$use-grid-layout: true !default;
-$use-grid-order: true !default;
-$use-grid-gap: true !default;
-$use-grid-vgap: true !default;
+// $use-grid-layout: true !default;
+// $use-grid-order: true !default;
+// $use-grid-gap: true !default;
+// $use-grid-vgap: true !default;
 
-$grid-gap: 2.4rem !default;
-$grid-system: 12 !default;
+// $grid-gap: 2.4rem !default;
+// $grid-system: 12 !default;
 
-$grid-gap-sizes: (
-  'less': 0,
-  'small': 1.6rem,
-) !default;
-$grid-vgap-sizes: $grid-gap-sizes !default;
+// $grid-gap-sizes: (
+//   'less': 0,
+//   'small': 1.6rem,
+// ) !default;
+// $grid-vgap-sizes: $grid-gap-sizes !default;
 
 
-// Grid layout
-@if $use-grid-layout {
-  [#{$loop-component-prefix}-grid~="layout"] {
-    display: grid;
-    grid-template-columns: repeat($grid-system, 1fr);
-    grid-gap: $grid-gap;
-  }
+// // Grid layout
+// @if $use-grid-layout {
+//   [#{$loop-component-prefix}-grid~="layout"] {
+//     display: grid;
+//     grid-template-columns: repeat($grid-system, 1fr);
+//     grid-gap: $grid-gap;
+//   }
 
-  @each $class in join('', oo('screens')) {
-    @include breakpoint($class) {
-      $suffix: '';
-      @if $class != '' {
-        $suffix: \@#{$class};
-      }
-      @for $i from 1 through $grid-system {
-        [#{$loop-component-prefix}-grid~="col-#{$i}#{$suffix}"] { grid-column: span $i; }
-        [#{$loop-component-prefix}-grid~="row-#{$i}#{$suffix}"] { grid-row: span $i; }
-      }
-    }
-  }
+//   @each $class in join('', oo('screens')) {
+//     @include breakpoint($class) {
+//       $suffix: '';
+//       @if $class != '' {
+//         $suffix: \@#{$class};
+//       }
+//       @for $i from 1 through $grid-system {
+//         [#{$loop-component-prefix}-grid~="col-#{$i}#{$suffix}"] { grid-column: span $i; }
+//         [#{$loop-component-prefix}-grid~="row-#{$i}#{$suffix}"] { grid-row: span $i; }
+//       }
+//     }
+//   }
 
-  @if $use-grid-order {
-    @each $class in oo('screens') {
-      @include breakpoint($class) {
-        $suffix: \@#{$class};
-        // order-0 to make sure it is first
-        [#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
-        @for $i from 1 through $grid-system {
-          [#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
-        }
-      }
-    }
-  }
-}
+//   @if $use-grid-order {
+//     @each $class in oo('screens') {
+//       @include breakpoint($class) {
+//         $suffix: \@#{$class};
+//         // order-0 to make sure it is first
+//         [#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
+//         @for $i from 1 through $grid-system {
+//           [#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
+//         }
+//       }
+//     }
+//   }
+// }
 
-// Grid Gap
-@if $use-grid-gap {
-  @each $gap-name, $gap-size in $grid-gap-sizes {
-    [#{$loop-component-prefix}-grid~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
-  }
-}
-@if $use-grid-gap and $use-grid-vgap {
-  @each $gap-name, $gap-size in $grid-vgap-sizes {
-    [#{$loop-component-prefix}-grid~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
-  }
-}
+// // Grid Gap
+// @if $use-grid-gap {
+//   @each $gap-name, $gap-size in $grid-gap-sizes {
+//     [#{$loop-component-prefix}-grid~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
+//   }
+// }
+// @if $use-grid-gap and $use-grid-vgap {
+//   @each $gap-name, $gap-size in $grid-vgap-sizes {
+//     [#{$loop-component-prefix}-grid~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+//   }
+// }
