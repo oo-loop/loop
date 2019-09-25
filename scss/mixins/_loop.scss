@@ -48,7 +48,7 @@
                 @include loopProperties($properties, $child-value, $isImportant);
               }
             }
-          } @else {
+          } @else if isNotMap($value) {
             @include loopProperties($properties, $value, $isImportant);
           }
         }
