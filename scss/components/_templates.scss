@@ -30,8 +30,10 @@
 }
 @mixin makeGridArea($areaNames) {
   @each $area in $areaNames {
-    [#{ooPrefix()}-area~="#{$area}"] {
-      grid-area: #{$area};
+    @if $area != '.' {
+      [#{ooPrefix()}-area~="#{$area}"] {
+        grid-area: #{$area};
+      }
     }
   }
 }
