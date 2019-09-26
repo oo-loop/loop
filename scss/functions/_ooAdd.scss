@@ -1,0 +1,41 @@
+/**
+ * ooAdd
+ * Push new map value to an another set of map with the ooFormat (default $ooLoop)
+ * @param string $key ooFormat key
+ * @param map|list $mapValue the value to add
+ * @param map|null $map the map to update (default $ooLoop)
+ * @return map
+ */
+@function ooAdd($key, $mapValue, $map:null) {
+  $currentValue: oo($key, $map);
+
+  @if isEmpty($currentValue) {
+    $newValue: ooSet($key, $mapValue, $map);
+    @return $newValue;
+  }
+
+  @if (isRef($currentValue)) {
+    $currentValue: oo(getRefValue($currentValue), $map);
+
+    @if isRef($currentValue) {
+      $ooRef: extractRef($currentValue);
+      $newValue: ooSet($key, (
+        '_#{$ooRef}',
+        $mapValue
+      ), $map);
+      @return $newValue;
+    }
+  }
+
+  @if isString($currentValue) {
+    $currentValue: toList($currentValue);
+  }
+
+  @if isList($currentValue) {
+    $newValue: ooSet($key, append($currentValue, $mapValue), $map);
+    @return $newValue;
+  }
+    
+  $newValue: ooSet($key, mapMergeDeep($currentValue, $mapValue), $map);
+  @return $newValue;
+}

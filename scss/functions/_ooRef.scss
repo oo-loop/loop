@@ -1,0 +1,68 @@
+/**
+ * hasRef
+ * Check if a map has a ooFormat
+ * @param mixed
+ * @return bool
+ */
+ @function hasRef($search) {
+  @if isNotString($search) {
+    $search: inspect($search);
+  }
+  @return if(str-index($search, 'oo(') == null, false, true);
+}
+
+/**
+ * isRef
+ * Check if a string is a ooFormat
+ * @param string $string
+ * @return bool
+ */
+@function isRef($string) {
+  @if isNotString($string) {
+    $string: inspect($string);
+  }
+  @return str-slice($string, 1, 3) == 'oo(' and str-slice($string, str-length($string)) == ')';
+}
+
+/**
+ * hasSpreadOperator
+ * Check if a reference has the spread operator  
+ * @param string  $ref
+ * @return bool
+ */
+@function hasSpreadOperator($ref) {
+  @if isNotString($ref) {
+    $ref: inspect($ref);
+  }
+  @return if(str-index($ref, '_oo(') == null, false, true);
+}
+
+/**
+ * getRefValue
+ * get the ooFormat reference
+ * @param string $string
+ * @return String
+ */
+ @function getRefValue($string) {
+  @if isNotString($string) {
+    $string: inspect($string);
+  }
+  @return str-slice($string, 4, -2);
+}
+
+/**
+ * extractRef
+ * extract the ooFormat reference from a string
+ * @param string  $string The string to extract the ref from
+ * @return string
+ */
+@function extractRef($string) {
+  @if isNotString($string) {
+    $string: inspect($string)
+  }
+  @if not hasRef($string) {
+    @return $string;
+  }
+  $extractString: extract('oo(', ')', $string);
+  @return $extractString;
+}

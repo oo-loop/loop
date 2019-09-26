@@ -1,0 +1,97 @@
+$ooAlias: (
+  (
+    name: 'ooDarken',
+    function: 'darken',
+    params: ('color', 'number'),
+  ),
+  (
+    name: 'ooLighten',
+    function: 'lighten',
+    params: ('color', 'number'),
+  ),
+);
+
+/** 
+ * Aliases function used before init
+ */
+@function ooDarken($value, $percentage) {
+  @if isNotColor($value) {
+    @return $value;
+  }
+  @return darken($value, $percentage);
+}
+@function ooLighten($value, $percentage) {
+  @if isNotColor($value) {
+    @return $value;
+  }
+  @return lighten($value, $percentage);
+}
+
+/** 
+ * isAlias
+ * check if a string is a sass alias function
+ * @param string $string the string to check
+ * @return bool
+ */
+@function isAlias($string) {
+  @if isNotString($string) {
+    @return false;
+  }
+
+  $isAlias: false;
+  @each $alias in $ooAlias {
+    $aliasName: getMapValue($alias, 'name');
+    $aliasLength: str-length($aliasName);
+    @if str-slice(#{$string}, 1, $aliasLength + 1) == '#{$aliasName}(' and str-slice(#{$string}, str-length(#{$string})) == ')' {
+      $isAlias: true;
+    }
+  }
+  @return $isAlias;
+}
+
+/** 
+ * getAliasValue
+ * retrieve the value of an alias function
+ * @param string $string The complete alias function
+ * @param string $value Value of the 1st parameter
+ * @return bool
+ *
+ * @todo review, simplify
+ */
+@function getAliasValue($string, $param:null) {
+  $currentAlias: null;
+  $function: null;
+  $params: split(',', inspect($string));
+
+  $param1: nth($params, 1);
+  @each $alias in $ooAlias {
+    $aliasName: getMapValue($alias, 'name');
+    $aliasLength: str-length($aliasName);
+    @if str-slice($string, 1, $aliasLength) == $aliasName {
+      $currentAlias: $alias;
+      $function: getMapValue($alias, 'function');
+      $param1: stripSpaces(str-slice($param1, $aliasLength + 2, str-length($param1)));
+      @if function-exists('get-function') {
+        $function: get-function($function);
+      }
+    }
+  }
+
+  $param1: if($param == null, $param1, $param);
+
+  @if length($params) > 1 {
+    $paramLeft: removeInList($params, 1);
+    $param2: stripSpaces(str-slice(#{$paramLeft}, 1, -2));
+
+    $currentAliasParams: getMapValue($currentAlias, 'params');
+    $param1: toType(nth($currentAliasParams, 1), $param1);
+    $param2: toType(nth($currentAliasParams, 2), $param2);
+
+    @if $param1 == null or $param2 == null {
+      @return $string;
+    }
+
+    @return call($function, $param1, $param2);
+  }
+  @return call($function, $param1);
+}
