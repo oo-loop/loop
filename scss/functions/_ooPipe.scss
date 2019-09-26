@@ -1,0 +1,15 @@
+/**
+ * ooPipe
+ * Pipe list of ooSet Rules
+ * @param list $setters List of map rules for ooSet
+ * @return ooLoop
+ */
+@function ooPipe($setters...) {
+  $map: $ooLoop;
+  @each $setter in $setters {
+    @each $path, $value in $setter {
+      $map: ooSet($path, $value, $map);
+    }
+  }
+  @return $map;
+}
