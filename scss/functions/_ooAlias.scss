@@ -87,7 +87,7 @@ $ooAlias: (
     $param1: toType(nth($currentAliasParams, 1), $param1);
     $param2: toType(nth($currentAliasParams, 2), $param2);
 
-    @if $param1 == null or $param2 == null {
+    @if type-of($param1) != nth($currentAliasParams, 1) or type-of($param2) != nth($currentAliasParams, 2) {
       @return $string;
     }
 

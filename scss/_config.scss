@@ -56,20 +56,20 @@ $ooLoop: (
 
   anchor: (
     props: (
-      color: oo('colors.primary'),
+      color: this('colors.primary'),
       textDecoration: none,
     ),
     states: (
       hover: (
-        color: ooDarken(oo('anchor.props.color'), 12%),
+        color: ooDarken(this('anchor.props.color'), 12%),
       ),
-      focus: oo('anchor.states.hover'),
+      focus: this('anchor.states.hover'),
     )
   ),
 
   list: (
     props: (
-      marginTop: 0,
+      marginTop: .5em,
       marginBottom: 1.125em,
       paddingLeft: 1.1em,
     ),
@@ -79,7 +79,7 @@ $ooLoop: (
   hr: (
     props:(
       margin: 1rem auto,
-      border-bottom: 1px solid #cdcdcd,
+      borderBottom: 1px solid #cdcdcd,
     )
   ),
 
@@ -88,16 +88,16 @@ $ooLoop: (
     font: (
       prefix: 'color',
       property: 'color',
-      values: oo('colors'),
+      values: this('colors'),
     ),
     background: (
       prefix: 'bg',
       property: 'background-color',
-      values: oo('colors'),
+      values: this('colors'),
     ),
     border: (
       property: 'border-color',
-      values: oo('colors'),
+      values: this('colors'),
     ),
   ),
 
@@ -163,7 +163,7 @@ $ooLoop: (
     ),
     marginRight: (
       prefix: 'mr',
-      values: oo('spacing.marginLeft.values'),
+      values: this('spacing.marginLeft.values'),
     ),
     marginTop: (
       prefix: 'mt',
@@ -177,13 +177,13 @@ $ooLoop: (
     ),
     marginBottom: (
       prefix: 'mb',
-      values: oo('spacing.marginTop.values'),
+      values: this('spacing.marginTop.values'),
     ),
   ),
 
   visibility: (
-    breakpoints: oo('screens'),
-    pointbreaks: oo('screens'),
+    breakpoints: this('screens'),
+    pointbreaks: this('screens'),
   ),
 
   container: (
@@ -197,30 +197,30 @@ $ooLoop: (
 
   column: (
     system: 12,
-    screens: oo('screens'),
+    screens: this('screens'),
     gutter: (
       sizes: (
-        default: oo('container.gutter'),
+        default: this('container.gutter'),
         'less': 0,
       ),
       screens: (),
-      vsizes: oo('column.gutter.sizes'),
+      vsizes: this('column.gutter.sizes'),
       vscreens: (),
     ),
     alignment: (
-      screens: oo('column.screens'),
+      screens: this('column.screens'),
     ),
     selfAlignment: (
-      screens: oo('column.screens'),
+      screens: this('column.screens'),
     ),
     fit: (
-      screens: oo('column.screens'),
+      screens: this('column.screens'),
     ),
     offset: (
-      screens: oo('column.screens'),
+      screens: this('column.screens'),
     ),
     order: (
-      screens: oo('column.screens'),
+      screens: this('column.screens'),
     ),
   ),
 
@@ -236,8 +236,8 @@ $ooLoop: (
 
   /// @todo Grid componenent
   // grid: (
-  //   system: oo('column.system'),
-  //   gap: oo('column.gutter'),
+  //   system: this('column.system'),
+  //   gap: this('column.gutter'),
   //   use: (
   //     order: true,
   //   )
@@ -256,20 +256,20 @@ $ooLoop: (
     ),
     states: (
       hover: (
-        backgroundColor: ooDarken(oo('button.props.backgroundColor'), 10%),
+        backgroundColor: ooDarken(this('button.props.backgroundColor'), 10%),
       ),
       focus: (
-        _oo('button.states.hover'),
+        _this('button.states.hover'),
         (
           outline: none,
         )
       ),
       active: (
-        backgroundColor: ooDarken(oo('button.props.backgroundColor'), 12%),
-        box-shadow: inset 1px 1px 1px 0 ooDarken(oo('button.props.backgroundColor'), 25%),
+        backgroundColor: ooDarken(this('button.props.backgroundColor'), 12%),
+        box-shadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
       ),
     ),
-    paints: oo('colors'),
+    paints: this('colors'),
     outline: true,
     variants: (
       'full': (
@@ -309,8 +309,8 @@ $ooLoop: (
     variants: (),
   ),
   select: (
-    props: oo('input.props'),
-    states: oo('input.states'),
+    props: this('input.props'),
+    states: this('input.states'),
     selector: (
       default: (
         size: 10px,
@@ -377,7 +377,7 @@ $ooLoop: (
     checked: (
       props: (
         borderColor: #4d4d4d,
-        backgroundColor: oo('toggle.checked.props.borderColor'),
+        backgroundColor: this('toggle.checked.props.borderColor'),
       )
     ),
     sizes: (

@@ -8,7 +8,7 @@
   @if isNotString($search) {
     $search: inspect($search);
   }
-  @return if(str-index($search, 'oo(') == null, false, true);
+  @return if(str-index($search, 'this(') == null, false, true);
 }
 
 /**
@@ -21,7 +21,7 @@
   @if isNotString($string) {
     $string: inspect($string);
   }
-  @return str-slice($string, 1, 3) == 'oo(' and str-slice($string, str-length($string)) == ')';
+  @return str-slice($string, 1, 5) == 'this(' and str-slice($string, str-length($string)) == ')';
 }
 
 /**
@@ -34,7 +34,7 @@
   @if isNotString($ref) {
     $ref: inspect($ref);
   }
-  @return if(str-index($ref, '_oo(') == null, false, true);
+  @return if(str-index($ref, '_this(') == null, false, true);
 }
 
 /**
@@ -47,7 +47,7 @@
   @if isNotString($string) {
     $string: inspect($string);
   }
-  @return str-slice($string, 4, -2);
+  @return str-slice($string, 6, -2);
 }
 
 /**
@@ -63,6 +63,6 @@
   @if not hasRef($string) {
     @return $string;
   }
-  $extractString: extract('oo(', ')', $string);
+  $extractString: extract('this(', ')', $string);
   @return $extractString;
 }
