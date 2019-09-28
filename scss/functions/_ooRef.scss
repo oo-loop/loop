@@ -38,16 +38,30 @@
 }
 
 /**
- * getRefValue
- * get the ooFormat reference
+ * getRefPath
+ * get the ooFormat reference path
  * @param string $string
  * @return String
  */
- @function getRefValue($string) {
+ @function getRefPath($string) {
   @if isNotString($string) {
     $string: inspect($string);
   }
   @return str-slice($string, 6, -2);
+}
+
+/**
+ * getRefValue
+ * Retrieve the value of a reference
+ * @param string $ref the reference
+ * @map map $map the map look through
+ */
+ @function getRefValue($ref, $map) {
+  $value: oo(getRefPath($ref), $map);
+  @if isRef($value) {
+    $value: getRefValue($value, $map);
+  }
+  @return $value;
 }
 
 /**

@@ -15,16 +15,7 @@
   }
 
   @if (isRef($currentValue)) {
-    $currentValue: oo(getRefValue($currentValue), $map);
-
-    @if isRef($currentValue) {
-      $ooRef: extractRef($currentValue);
-      $newValue: ooSet($key, (
-        '_#{$ooRef}',
-        $mapValue
-      ), $map);
-      @return $newValue;
-    }
+    $currentValue: getRefValue($currentValue, $map);
   }
 
   @if isString($currentValue) {

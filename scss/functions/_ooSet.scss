@@ -17,7 +17,7 @@
     }
     $map: mapMergeDeep($map, $mapValue);
   } @else if isRef($value) {
-    $ooRefVal: oo(getRefValue($value), $map);
+    $ooRefVal: getRefValue($value, $map);
     $mapValue: ooSet($key, $ooRefVal, $map);
     $map: mapMergeDeep($map, $mapValue);
   } @else {

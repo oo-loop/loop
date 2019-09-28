@@ -19,7 +19,7 @@
       $path: if(length(split('.', $path)) > 1, replace('.#{$key}', '', $path), replace('#{$key}', '', $path));
     } @else if hasRef($value) {
       $ooRef: extractRef($value);
-      $newValue: oo(getRefValue($ooRef), $parentMap);
+      $newValue: getRefValue($ooRef, $parentMap);
 
       @if hasSpreadOperator($value) and isList($value) {
         $refIndex: index($value, '_#{$ooRef}');
@@ -35,7 +35,7 @@
               $newMapValue: map-merge($newMapValue, $newValue);
             } @else if hasSpreadOperator(nth($value, $i)) {
               $ooRefItem: extractRef(nth($value, $i));
-              $newValueItem: oo(getRefValue($ooRefItem), $parentMap);
+              $newValueItem: oo(getRefPath($ooRefItem), $parentMap);
               $newMapValue: map-merge($newMapValue, $newValueItem);
             } @else if isNotMap(nth($value, $i)) {
               @error 'spread operator only works along map type data';
