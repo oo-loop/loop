@@ -17,10 +17,10 @@
     @include initBase;
   }
   @if oo('use.headings') {
-    @include initHeadings;
+    @include Headings;
   }
   @if oo('use.type') {
-    @include initType;
+    @include Type;
   }
   @if oo('use.column.system') {
     @include initColumn;

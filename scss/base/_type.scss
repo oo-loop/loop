@@ -2,8 +2,13 @@
  * Typography
  */
 
-@mixin initHeadings {
-  @if oo('headings.props') {
+@mixin Headings($headings: oo('headings')) {
+  @if $headings != oo('headings') {
+    $map: mapMergeDeep($ooLoop, (headings: $headings));
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
+
+  @if isNotEmpty(oo('headings.props')) {
     h1,
     h2,
     h3,
@@ -14,7 +19,7 @@
     }
   }
 
-  @if oo('headings.sizes') {
+  @if isNotEmpty(oo('headings.sizes')) {
     @each $heading, $font-size in oo('headings.sizes') {
       #{$heading} {
         @if isMap($font-size) {
@@ -27,7 +32,7 @@
           font-size: $font-size;
         }
       }
-      @if inList($heading, oo('headings.classes')) {
+      @if isNotEmpty(oo('headgins.classes')) and inList($heading, oo('headgins.classes')) {
         .#{$heading} {
           @extend #{$heading};
         }
@@ -36,7 +41,12 @@
   }
 }
 
-@mixin initType {
+@mixin Type($type: null) {
+  @if $type != null {
+    $map: mapMergeDeep($ooLoop, $type);
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
+
   @if oo('paragraph.props') {
     p {
       @include generateProperties(oo('paragraph.props'));
