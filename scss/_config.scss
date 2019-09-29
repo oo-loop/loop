@@ -97,7 +97,7 @@ $ooLoop: (
     ),
     border: (
       property: 'border-color',
-      values: this('colors'),
+      values: (),
     ),
   ),
 
@@ -266,7 +266,7 @@ $ooLoop: (
       ),
       active: (
         backgroundColor: ooDarken(this('button.props.backgroundColor'), 12%),
-        box-shadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
+        boxShadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
       ),
     ),
     paints: this('colors'),
