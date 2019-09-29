@@ -21,30 +21,30 @@
       $ooRef: extractRef($value);
       $newValue: getRefValue($ooRef, $parentMap);
 
-      @if hasSpreadOperator($value) and isList($value) {
-        $refIndex: index($value, '_#{$ooRef}');
-        @if isRef($newValue) {
-          $newValue: set-nth($value, $refIndex, '_#{$newValue}'),
-        } @else {
-          @if isNotMap($newValue) {
-            @error 'spread operator must extend a map type data';
-          }
-          $newMapValue: ();
-          @for $i from 1 through length($value) {
-            @if $i == $refIndex {
-              $newMapValue: map-merge($newMapValue, $newValue);
-            } @else if hasSpreadOperator(nth($value, $i)) {
-              $ooRefItem: extractRef(nth($value, $i));
-              $newValueItem: oo(getRefPath($ooRefItem), $parentMap);
-              $newMapValue: map-merge($newMapValue, $newValueItem);
-            } @else if isNotMap(nth($value, $i)) {
-              @error 'spread operator only works along map type data';
-            } @else {
-              $newMapValue: map-merge($newMapValue, nth($value, $i));
-            }
-          }
-          $newValue: $newMapValue;
+      @if hasSpreadOperator($value) {
+        @if isNotList($value) {
+          @error 'spread operator must be used within a list';
         }
+        @if isNotMap($newValue) {
+          @error 'spread operator must extend another map';
+        }
+        $refIndex: index($value, '_#{$ooRef}');
+
+        $newMapValue: ();
+        @for $i from 1 through length($value) {
+          @if $i == $refIndex {
+            $newMapValue: map-merge($newMapValue, $newValue);
+          } @else if hasSpreadOperator(nth($value, $i)) {
+            $ooRefItem: extractRef(nth($value, $i));
+            $newValueItem: getRefValue($ooRefItem, $parentMap);
+            $newMapValue: map-merge($newMapValue, $newValueItem);
+          } @else if isNotMap(nth($value, $i)) {
+            @error 'spread operator only works along map';
+          } @else {
+            $newMapValue: map-merge($newMapValue, nth($value, $i));
+          }
+        }
+        $newValue: $newMapValue;
       }
       
       @if isList($value) and isNotMap($newValue) {
