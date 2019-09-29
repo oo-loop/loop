@@ -1,6 +1,5 @@
 @mixin ooInit($custom:null) {
-  $map: ooParse($ooLoop);
-  $map: if(hasRef($map), ooParse($map), $map);
+  $map: if(hasRef($ooLoop), ooParse($ooLoop), $ooLoop);
   @if isMap($custom) and isNotEmpty($custom) {
     $map: mapMergeDeep($map, $custom);
     $map: if(hasRef($map), ooParse($map), $map);
@@ -13,8 +12,6 @@
   @if not oo('init') {
     @include ooInit($custom);
   }
-
-  // @debug $ooLoop;
 
   @if oo('use.base') {
     @include initBase;
