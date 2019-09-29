@@ -90,37 +90,45 @@
   }
 }
 
-@mixin initTemplate($templates: oo('template')) {
-  @if isNotEmpty(oo('areas', $templates)) {
+@mixin makeTemplate($template) {
+  @if isList(oo('areas', $template)) {
     [#{ooPrefix()}-template] {
-      display: grid;
+      @include makeGrid(oo('areas', $template));
     }
-  
-    @if isList(oo('areas', $templates)) {
+  } @else if isMap(oo('areas', $template)) {
+    @if areKeysBreakpoints(oo('areas', $template)) {
       [#{ooPrefix()}-template] {
-        @include makeGrid(oo('areas', $templates));
+        @include makeGridOnBreakpoints(oo('areas', $template));
       }
-    } @else if isMap(oo('areas', $templates)) {
-      @if areKeysBreakpoints(oo('areas', $templates)) {
-        [#{ooPrefix()}-template] {
-          @include makeGridOnBreakpoints(oo('areas', $templates));
-        }
-      } @else {
-        @each $area-name, $template in oo('areas', $templates) {
-          [#{ooPrefix()}-template~="#{$area-name}"] {
-            @if isMap($template) {
-              @include makeGridOnBreakpoints($template);
-            } @else if isList($template) {
-              @include makeGrid($template);
-            }
+    } @else {
+      @each $area-name, $grid in oo('areas', $template) {
+        [#{ooPrefix()}-template~="#{$area-name}"] {
+          @if isMap($grid) {
+            @include makeGridOnBreakpoints($grid);
+          } @else if isList($grid) {
+            @include makeGrid($grid);
           }
         }
       }
     }
   }
+}
 
-  $screens: oo('gap.screens', $templates);
-  $gap-sizes: oo('gap.sizes', $templates);
+@mixin Template($template: oo('template')) {
+  @if $template != oo('template') {
+    $map: mapMergeDeep($ooLoop, (template: $template));
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
+
+  @if isNotEmpty(oo('areas', $template)) {
+    [#{ooPrefix()}-template] {
+      display: grid;
+    }
+    @include makeTemplate($template);
+  }
+
+  $screens: oo('gap.screens', $template);
+  $gap-sizes: oo('gap.sizes', $template);
   @if $gap-sizes {
     $gap-sizes: if(isString($gap-sizes), (default: $gap-sizes), $gap-sizes);
     @if areKeysBreakpoints($gap-sizes) {
@@ -154,8 +162,8 @@
     }
   }
 
-  $vscreens: oo('gap.vscreens', $templates);
-  $vgap-sizes: oo('gap.vsizes', $templates);
+  $vscreens: oo('gap.vscreens', $template);
+  $vgap-sizes: oo('gap.vsizes', $template);
   @if $vgap-sizes {
     $vgap-sizes: if(isString($vgap-sizes), (default: $vgap-sizes), $vgap-sizes);
     @if areKeysBreakpoints($vgap-sizes) {
