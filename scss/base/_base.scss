@@ -3,9 +3,13 @@
  * Default body styles
  */
 
-@mixin initBase {
+@mixin Base($base: null) {
+  @if $base != null {
+    $map: mapMergeDeep($ooLoop, $base);
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
 
-  @include InitNormalize;
+  @include Normalize;
 
   *,
   *::after,

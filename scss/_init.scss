@@ -14,7 +14,7 @@
   }
 
   @if oo('use.base') {
-    @include initBase;
+    @include Base;
   }
   @if oo('use.headings') {
     @include Headings;
