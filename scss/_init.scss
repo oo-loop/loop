@@ -23,7 +23,7 @@
     @include Type;
   }
   @if oo('use.column.system') {
-    @include initColumn;
+    @include Column;
   }
   @if oo('use.template') {
     @include initTemplate;

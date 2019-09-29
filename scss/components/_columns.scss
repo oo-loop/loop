@@ -83,7 +83,12 @@
   }
 }
 
-@mixin initColumn {
+@mixin Column($column: oo('column')) {
+  @if $column != oo('column') {
+    $map: mapMergeDeep($ooLoop, (column: $column));
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
+
   [#{ooPrefix()}-row] {
     position: relative;
     display: flex;
