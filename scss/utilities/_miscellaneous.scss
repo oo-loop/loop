@@ -2,8 +2,10 @@
  * Miscellaneous
  */
 
-@mixin initMisc {
-  @if oo('misc') {
+@mixin Misc($param: null) {
+  @include initComponent('misc', $param);
+
+  @if isNotEmpty(oo('misc')) {
     @each $name, $misc in oo('misc') {
       .#{$name} {
         @include generateStyles($misc);
