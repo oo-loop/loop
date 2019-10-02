@@ -65,7 +65,7 @@
     @include Radio;
   }
   @if oo('use.input.toggle') {
-    @include initToggle;
+    @include Toggle;
   }
   @if oo('use.container') {
     @include initContainer;
