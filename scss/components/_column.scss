@@ -83,8 +83,8 @@
   }
 }
 
-@mixin Column($column: null) {
-  @include initComponent('column', $column);
+@mixin Column($param: null) {
+  @include initComponent('column', $param);
 
   [#{ooPrefix()}-row] {
     position: relative;

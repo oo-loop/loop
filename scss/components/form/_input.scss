@@ -2,8 +2,8 @@
  * Input
  */
 
-@mixin Label($label: null) {
-  @include initComponent('label', $label);
+@mixin Label($param: null) {
+  @include initComponent('label', $param);
   @if isNotEmpty(oo('label.props')) {
     label {
       @include generateProperties(oo('label.props'));
@@ -11,8 +11,8 @@
   }
 }
 
-@mixin TextField($input: null) {
-  @include initComponent('input', $input);
+@mixin TextField($param: null) {
+  @include initComponent('input', $param);
 
   [#{ooPrefix()}-input] {
     -webkit-appearance: none;

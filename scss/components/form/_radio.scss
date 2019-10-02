@@ -26,7 +26,9 @@
   }
 }
 
-@mixin initRadio {
+@mixin Radio($param: null) {
+  @include initComponent('radio', $param);
+
   [#{ooPrefix()}-radio] {
     position: absolute;
     opacity: 0;

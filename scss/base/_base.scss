@@ -3,8 +3,8 @@
  * Default body styles
  */
 
-@mixin Base($base: null) {
-  @include initComponent('base', $base, false);
+@mixin Base($param: null) {
+  @include initComponent('base', $param, false);
   @include Normalize;
 
   *,

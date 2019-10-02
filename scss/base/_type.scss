@@ -2,8 +2,8 @@
  * Typography
  */
 
-@mixin Headings($headings: null) {
-  @include initComponent('headings', $headings);
+@mixin Headings($param: null) {
+  @include initComponent('headings', $param);
 
   @if isNotEmpty(oo('headings.props')) {
     h1,
@@ -38,8 +38,8 @@
   }
 }
 
-@mixin Type($type: null) {
-  @include initComponent('type', $type, false);
+@mixin Type($param: null) {
+  @include initComponent('type', $param, false);
 
   @if oo('paragraph.props') {
     p {

@@ -59,10 +59,10 @@
     @include SelectField;
   }
   @if oo('use.input.checkbox') {
-    @include initCheckbox;
+    @include Checkbox;
   }
   @if oo('use.input.radio') {
-    @include initRadio;
+    @include Radio;
   }
   @if oo('use.input.toggle') {
     @include initToggle;

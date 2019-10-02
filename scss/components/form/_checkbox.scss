@@ -29,7 +29,9 @@
   }
 }
 
-@mixin initCheckbox {
+@mixin Checkbox($param: null) {
+  @include initComponent('checkbox', $param);
+
   [#{ooPrefix()}-checkbox] {
     position: absolute;
     opacity: 0;
