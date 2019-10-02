@@ -83,7 +83,7 @@
   }
 }
 
-@mixin Column($column: oo('column')) {
+@mixin Column($column: null) {
   @include initComponent('column', $column);
 
   [#{ooPrefix()}-row] {

@@ -2,7 +2,7 @@
  * Typography
  */
 
-@mixin Headings($headings: oo('headings')) {
+@mixin Headings($headings: null) {
   @include initComponent('headings', $headings);
 
   @if isNotEmpty(oo('headings.props')) {
@@ -39,12 +39,7 @@
 }
 
 @mixin Type($type: null) {
-  $ooLoop: ooAdd('include', 'type') !global;
-
-  @if $type != null {
-    $map: mapMergeDeep($ooLoop, $type);
-    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
-  }
+  @include initComponent('type', $type, false);
 
   @if oo('paragraph.props') {
     p {

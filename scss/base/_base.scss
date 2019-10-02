@@ -4,11 +4,7 @@
  */
 
 @mixin Base($base: null) {
-  @if $base != null {
-    $map: mapMergeDeep($ooLoop, $base);
-    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
-  }
-
+  @include initComponent('base', $base, false);
   @include Normalize;
 
   *,

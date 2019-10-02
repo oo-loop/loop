@@ -1,3 +1,20 @@
+/**
+ * Init single component
+ * @param string $name Name of settings
+ * @param map $settings data
+ * @param bool $use-name-as-param Use the name as parameter in settings
+ */
+ @mixin initComponent($name, $settings, $use-name-as-param: true) {
+  $ooLoop: ooAdd('include', $name) !global;
+  @if $settings != null {
+    $map: mapMergeDeep($ooLoop, if($use-name-as-param, (#{$name}: $settings), $settings));
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
+}
+
+/**
+ * Init ooLoop settings
+ */
 @mixin ooInit($custom:null) {
   $map: if(hasRef($ooLoop), ooParse($ooLoop), $ooLoop);
   @if isMap($custom) and isNotEmpty($custom) {
@@ -8,14 +25,9 @@
   $ooLoop: $map !global;
 }
 
-@mixin initComponent($name, $settings) {
-  $ooLoop: ooAdd('include', $name) !global;
-  @if $settings != oo(#{$name}) {
-    $map: mapMergeDeep($ooLoop, (#{$name}: $settings));
-    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
-  }
-}
-
+/**
+ * Inclue ooLoop components
+ */
 @mixin ooCreate($custom:null) {
   @if not oo('init') {
     @include ooInit($custom);
@@ -24,13 +36,13 @@
   @if oo('use.base') {
     @include Base;
   }
-  @if oo('use.headings') and notInList('headings', oo('include')) {
+  @if oo('use.headings') {
     @include Headings;
   }
   @if oo('use.type') {
     @include Type;
   }
-  @if oo('use.column.system') and notInList('column', oo('include')) {
+  @if oo('use.column.system') {
     @include Column;
   }
   @if oo('use.template') {
