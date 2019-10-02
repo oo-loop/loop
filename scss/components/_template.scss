@@ -91,17 +91,17 @@
 }
 
 @mixin makeTemplate($template) {
-  @if isList(oo('areas', $template)) {
+  @if isList($template) {
     [#{ooPrefix()}-template] {
-      @include makeGrid(oo('areas', $template));
+      @include makeGrid($template);
     }
-  } @else if isMap(oo('areas', $template)) {
-    @if areKeysBreakpoints(oo('areas', $template)) {
+  } @else if isMap($template) {
+    @if areKeysBreakpoints($template) {
       [#{ooPrefix()}-template] {
-        @include makeGridOnBreakpoints(oo('areas', $template));
+        @include makeGridOnBreakpoints($template);
       }
     } @else {
-      @each $area-name, $grid in oo('areas', $template) {
+      @each $area-name, $grid in $template {
         [#{ooPrefix()}-template~="#{$area-name}"] {
           @if isMap($grid) {
             @include makeGridOnBreakpoints($grid);
@@ -114,18 +114,18 @@
   }
 }
 
-@mixin Template($template: oo('template')) {
+@mixin Template($template: null) {
   @include initComponent('template', $template);
 
-  @if isNotEmpty(oo('areas', $template)) {
+  @if isNotEmpty(oo('template.areas')) {
     [#{ooPrefix()}-template] {
       display: grid;
     }
-    @include makeTemplate($template);
+    @include makeTemplate(oo('template.areas'));
   }
 
-  $screens: oo('gap.screens', $template);
-  $gap-sizes: oo('gap.sizes', $template);
+  $screens: oo('template.gap.screens');
+  $gap-sizes: oo('template.gap.sizes');
   @if $gap-sizes {
     $gap-sizes: if(isString($gap-sizes), (default: $gap-sizes), $gap-sizes);
     @if areKeysBreakpoints($gap-sizes) {
@@ -159,8 +159,8 @@
     }
   }
 
-  $vscreens: oo('gap.vscreens', $template);
-  $vgap-sizes: oo('gap.vsizes', $template);
+  $vscreens: oo('template.gap.vscreens');
+  $vgap-sizes: oo('template.gap.vsizes');
   @if $vgap-sizes {
     $vgap-sizes: if(isString($vgap-sizes), (default: $vgap-sizes), $vgap-sizes);
     @if areKeysBreakpoints($vgap-sizes) {
