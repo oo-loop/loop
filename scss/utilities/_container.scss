@@ -2,24 +2,27 @@
  * Container
  */
 
-@mixin initContainer {
+@mixin Container($param: null) {
+  @include initComponent('container', $param);
+
   .container,
   .container-fluid {
     margin-left: auto;
-    margin-right: auto;
-  
+    margin-right: auto;  
     display: block;
-    
-    @if isMap(oo('container.gutter')) {
-      @each $key, $value in oo('container.gutter') {
+
+    $gutter: oo('container.gutter');
+
+    @if isMap($gutter) {
+      @each $key, $value in $gutter {
         @include breakpoint($key) {
           padding-right: $value;
           padding-left: $value;
         }
       }
-    } @else if isString(oo('container.gutter')) or isNumber(oo('container.gutter')) {
-      padding-right: oo('container.gutter');
-      padding-left: oo('container.gutter');
+    } @else if isString($gutter) or isNumber($gutter) {
+      padding-right: $gutter;
+      padding-left: $gutter;
     }
   }
   

@@ -68,7 +68,7 @@
     @include Toggle;
   }
   @if oo('use.container') {
-    @include initContainer;
+    @include Container;
   }
   @if (oo('use.visibility')) {
     @include initVisibility;
