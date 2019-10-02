@@ -115,10 +115,7 @@
 }
 
 @mixin Template($template: oo('template')) {
-  @if $template != oo('template') {
-    $map: mapMergeDeep($ooLoop, (template: $template));
-    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
-  }
+  @include initComponent('template', $template);
 
   @if isNotEmpty(oo('areas', $template)) {
     [#{ooPrefix()}-template] {

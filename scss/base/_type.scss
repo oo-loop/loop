@@ -3,10 +3,7 @@
  */
 
 @mixin Headings($headings: oo('headings')) {
-  @if $headings != oo('headings') {
-    $map: mapMergeDeep($ooLoop, (headings: $headings));
-    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
-  }
+  @include initComponent('headings', $headings);
 
   @if isNotEmpty(oo('headings.props')) {
     h1,
@@ -42,6 +39,8 @@
 }
 
 @mixin Type($type: null) {
+  $ooLoop: ooAdd('include', 'type') !global;
+
   @if $type != null {
     $map: mapMergeDeep($ooLoop, $type);
     $ooLoop: if(hasRef($map), ooParse($map), $map) !global;

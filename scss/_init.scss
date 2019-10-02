@@ -8,6 +8,14 @@
   $ooLoop: $map !global;
 }
 
+@mixin initComponent($name, $settings) {
+  $ooLoop: ooAdd('include', $name) !global;
+  @if $settings != oo(#{$name}) {
+    $map: mapMergeDeep($ooLoop, (#{$name}: $settings));
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
+}
+
 @mixin ooCreate($custom:null) {
   @if not oo('init') {
     @include ooInit($custom);
@@ -16,20 +24,20 @@
   @if oo('use.base') {
     @include Base;
   }
-  @if oo('use.headings') {
+  @if oo('use.headings') and notInList('headings', oo('include')) {
     @include Headings;
   }
   @if oo('use.type') {
     @include Type;
   }
-  @if oo('use.column.system') {
+  @if oo('use.column.system') and notInList('column', oo('include')) {
     @include Column;
   }
   @if oo('use.template') {
     @include Template;
   }
   @if oo('use.button') {
-    @include initButton;
+    @include Button;
   }
   @if oo('use.input.textfield') {
     @include initTextField;
