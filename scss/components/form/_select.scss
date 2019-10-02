@@ -28,7 +28,9 @@
   }
 }
 
-@mixin initSelectField {
+@mixin SelectField($select: null) {
+  @include initComponent('select', $select);
+
   [#{ooPrefix()}-select] {
     position: relative;
     display: block;
@@ -83,13 +85,11 @@
         display: none;
       }
 
-      @if not oo('use.input.textfield') or oo('select.props') != oo('input.props') {
+      @if oo('select.props') == oo('input.props') and inList('input', 'include') {
+        @extend [#{ooPrefix()}-input];
+      } @else {
         @include generateProperties(oo('select.props'));
-        @include generateProperties(oo('select.states'));
-      } @else if oo('use.input.textfield')
-        and oo('select.props') == oo('input.props')
-        and oo('select.states') != oo('input.states') {
-          @include generateProperties(oo('select.states'));
+        @include generateStatesProperties(oo('select.states'));
       }
     }
 

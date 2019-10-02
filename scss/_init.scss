@@ -52,10 +52,11 @@
     @include Button;
   }
   @if oo('use.input.textfield') {
-    @include initTextField;
+    @include Label;
+    @include TextField;
   }
   @if oo('use.input.select') {
-    @include initSelectField;
+    @include SelectField;
   }
   @if oo('use.input.checkbox') {
     @include initCheckbox;

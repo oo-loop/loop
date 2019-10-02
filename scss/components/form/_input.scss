@@ -2,34 +2,23 @@
  * Input
  */
 
-
- 
- @mixin initTextField {
-
-  @if oo('label.props') {
+@mixin Label($label: null) {
+  @include initComponent('label', $label);
+  @if isNotEmpty(oo('label.props')) {
     label {
       @include generateProperties(oo('label.props'));
     }
   }
+}
 
-  @if oo('use.input.select') and oo('select.props') == oo('input.props') {
-    [#{ooPrefix()}-input],
-    [#{ooPrefix()}-select] > select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      @include generateProperties(oo('input.props'));
+@mixin TextField($input: null) {
+  @include initComponent('input', $input);
 
-      @if oo('select.states') == oo('input.states') {
-        @include generateStatesProperties(oo('input.states'));
-      }
-    }
-  } @else {
-    [#{ooPrefix()}-input] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      @include generateProperties(oo('input.props'));
-      @include generateStatesProperties(oo('input.states'));
-    }
+  [#{ooPrefix()}-input] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    @include generateProperties(oo('input.props'));
+    @include generateStatesProperties(oo('input.states'));
   }
 
   @if isNotEmpty(oo('input.variants')) {
