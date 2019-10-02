@@ -2,7 +2,9 @@
  * Visibility Utilities
  */
 
-@mixin initVisibility {
+@mixin Visibility($param: null) {
+  @include initComponent('visibility', $param);
+
   .hidden { display: none !important; }
   
   .hidden\@print {
