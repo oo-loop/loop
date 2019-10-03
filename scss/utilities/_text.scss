@@ -2,7 +2,8 @@
  * Text utilites
  */
 
-@mixin initText {
+@mixin Text($param: null) {
+  @include initComponent('text', $param);
   @if oo('text') {
     @include generateUtilities(oo('text'));
   }

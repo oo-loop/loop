@@ -76,28 +76,28 @@
   @if (oo('use.misc')) {
     @include Misc;
   }
+  @if oo('use.utilities.paint') {
+    @include Paint;
+  }
+  @if (oo('use.utilities.text')) {
+    @include Text;
+  }
+  @if oo('use.utilities.float') {
+    @include Float;
+  }
+  @if oo('use.utilities.list') {
+    @include List;
+  }
+  @if oo('use.utilities.spacing') {
+    @include Spacing;
+  }
+  @if (oo('use.utilities.wrapper')) {
+    @include Wrapper;
+  }
   @if (oo('utilities')) {
     @include generateUtilities(oo('utilities'));
   }
   @if (oo('components')) {
     @include generateComponents(oo('components'));
-  }
-  @if oo('use.utilities.paint') {
-    @include initPaint;
-  }
-  @if oo('use.utilities.float') {
-    @include initFloat;
-  }
-  @if oo('use.utilities.list') {
-    @include initList;
-  }
-  @if oo('use.utilities.spacing') {
-    @include initSpacing;
-  }
-  @if (oo('use.utilities.text')) {
-    @include initText;
-  }
-  @if (oo('use.utilities.wrapper')) {
-    @include initWrapper;
   }
 }

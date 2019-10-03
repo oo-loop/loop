@@ -2,8 +2,9 @@
  * Spacing
  */
 
-@mixin initSpacing {
-  @if oo('spacing') {
+@mixin Spacing($param: null) {
+  @include initComponent('spacing', $param);
+  @if isNotEmpty(oo('spacing')) {
     @include generateUtilities(oo('spacing'));
   }
 }

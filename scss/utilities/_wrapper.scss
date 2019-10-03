@@ -2,8 +2,9 @@
  * Wrapper
  */
 
-@mixin initWrapper {
-  @if oo('wrapper') {
+@mixin Wrapper($param: null) {
+  @include initComponent('wrapper', $param);
+  @if isNotEmpty(oo('wrapper')) {
     @include generateUtilities((wrapper: oo('wrapper')));
   }
 }

@@ -1,9 +1,0 @@
-/**
- * Color Utilities
- */
-
-@mixin initPaint {
-  @if oo('paint') {
-    @include generateUtilities(oo('paint'));
-  }
-}
