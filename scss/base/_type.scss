@@ -3,7 +3,7 @@
  */
 
 @mixin Headings($param: null) {
-  @include initComponent('headings', $param);
+  @include initElement('headings', $param);
 
   @if isNotEmpty(oo('headings.props')) {
     h1,
@@ -39,7 +39,7 @@
 }
 
 @mixin Type($param: null) {
-  @include initComponent('type', $param, false);
+  @include initElement('type', $param, false);
 
   @if oo('paragraph.props') {
     p {

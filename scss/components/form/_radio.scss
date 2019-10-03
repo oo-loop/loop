@@ -27,7 +27,7 @@
 }
 
 @mixin Radio($param: null) {
-  @include initComponent('radio', $param);
+  @include initElement('radio', $param);
 
   [#{ooPrefix()}-radio] {
     position: absolute;

@@ -3,7 +3,7 @@
  */
 
 @mixin Paint($param: null) {
-  @include initComponent('paint', $param);
+  @include initElement('paint', $param);
   @if isNotEmpty(oo('paint')) {
     @include generateUtilities(oo('paint'));
   }

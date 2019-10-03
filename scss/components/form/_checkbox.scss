@@ -30,7 +30,7 @@
 }
 
 @mixin Checkbox($param: null) {
-  @include initComponent('checkbox', $param);
+  @include initElement('checkbox', $param);
 
   [#{ooPrefix()}-checkbox] {
     position: absolute;

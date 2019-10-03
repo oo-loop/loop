@@ -115,7 +115,7 @@
 }
 
 @mixin Template($param: null) {
-  @include initComponent('template', $param);
+  @include initElement('template', $param);
 
   @if isNotEmpty(oo('template.areas')) {
     [#{ooPrefix()}-template] {

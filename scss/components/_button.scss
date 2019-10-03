@@ -42,7 +42,7 @@
 }
 
 @mixin Button($param: null) {
-  @include initComponent('button', $param);
+  @include initElement('button', $param);
 
   [#{ooPrefix()}-button] {
     display: inline-block;

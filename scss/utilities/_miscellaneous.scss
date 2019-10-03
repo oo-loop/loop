@@ -3,7 +3,7 @@
  */
 
 @mixin Misc($param: null) {
-  @include initComponent('misc', $param);
+  @include initElement('misc', $param);
 
   @if isNotEmpty(oo('misc')) {
     @each $name, $misc in oo('misc') {

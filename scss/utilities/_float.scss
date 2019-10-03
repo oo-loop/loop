@@ -3,7 +3,7 @@
  */
 
 @mixin Float($param: null) {
-  @include initComponent('float', $param);
+  @include initElement('float', $param);
 
   @if oo('float.clearfix') {
     .clear { clear: both; }

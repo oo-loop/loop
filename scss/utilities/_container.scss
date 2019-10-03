@@ -3,7 +3,7 @@
  */
 
 @mixin Container($param: null) {
-  @include initComponent('container', $param);
+  @include initElement('container', $param);
 
   .container,
   .container-fluid {

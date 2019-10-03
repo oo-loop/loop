@@ -3,7 +3,7 @@
  */
 
 @mixin Label($param: null) {
-  @include initComponent('label', $param);
+  @include initElement('label', $param);
   @if isNotEmpty(oo('label.props')) {
     label {
       @include generateProperties(oo('label.props'));
@@ -12,7 +12,7 @@
 }
 
 @mixin TextField($param: null) {
-  @include initComponent('input', $param);
+  @include initElement('input', $param);
 
   [#{ooPrefix()}-input] {
     -webkit-appearance: none;

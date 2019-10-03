@@ -28,7 +28,7 @@
 }
 
 @mixin Toggle($param: null) {
-  @include initComponent('toggle', $param);
+  @include initElement('toggle', $param);
 
   [#{ooPrefix()}-toggle] {
     position: absolute;

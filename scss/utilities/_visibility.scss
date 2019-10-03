@@ -3,7 +3,7 @@
  */
 
 @mixin Visibility($param: null) {
-  @include initComponent('visibility', $param);
+  @include initElement('visibility', $param);
 
   .hidden { display: none !important; }
   

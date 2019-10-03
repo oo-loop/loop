@@ -3,7 +3,7 @@
  */
 
 @mixin Text($param: null) {
-  @include initComponent('text', $param);
+  @include initElement('text', $param);
   @if oo('text') {
     @include generateUtilities(oo('text'));
   }

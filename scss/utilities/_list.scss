@@ -3,7 +3,7 @@
  */
 
 @mixin List($param: null) {
-  @include initComponent('list', $param);
+  @include initElement('list', $param);
   ul,
   ol {
     &.list-center {

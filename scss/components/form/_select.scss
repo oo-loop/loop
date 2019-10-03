@@ -29,7 +29,7 @@
 }
 
 @mixin SelectField($param: null) {
-  @include initComponent('select', $param);
+  @include initElement('select', $param);
 
   [#{ooPrefix()}-select] {
     position: relative;

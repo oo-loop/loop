@@ -3,7 +3,7 @@
  */
 
 @mixin Spacing($param: null) {
-  @include initComponent('spacing', $param);
+  @include initElement('spacing', $param);
   @if isNotEmpty(oo('spacing')) {
     @include generateUtilities(oo('spacing'));
   }

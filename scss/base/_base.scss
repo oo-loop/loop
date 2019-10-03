@@ -4,7 +4,7 @@
  */
 
 @mixin Base($param: null) {
-  @include initComponent('base', $param, false);
+  @include initElement('base', $param, false);
   @include Normalize;
 
   *,

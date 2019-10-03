@@ -3,7 +3,7 @@
  */
 
 @mixin Wrapper($param: null) {
-  @include initComponent('wrapper', $param);
+  @include initElement('wrapper', $param);
   @if isNotEmpty(oo('wrapper')) {
     @include generateUtilities((wrapper: oo('wrapper')));
   }

@@ -84,7 +84,7 @@
 }
 
 @mixin Column($param: null) {
-  @include initComponent('column', $param);
+  @include initElement('column', $param);
 
   [#{ooPrefix()}-row] {
     position: relative;
