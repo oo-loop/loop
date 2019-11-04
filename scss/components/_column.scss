@@ -108,12 +108,12 @@
       $suffix: '';
       @if $class != 'rt' {
         $suffix: \@#{$class};
-      }
 
-      // auto col
-      [#{ooPrefix()}-col~="auto#{$suffix}"] {
-        flex-basis: 0;
-        max-width: 100%;
+        // auto col
+        [#{ooPrefix()}-col~="auto#{$suffix}"] {
+          flex-basis: 0;
+          max-width: 100%;
+        }
       }
 
       // columns
