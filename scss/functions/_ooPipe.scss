@@ -10,7 +10,7 @@
     @if getMapValue($rule, 'action') == 'add' {
       $map: ooAdd(getMapValue($rule, 'path'), getMapValue($rule, 'value'), $map);
     } @else {
-      $map: ooSet(getMapValue($rule, 'path'), getMapValue($rule, 'value'), $map);
+      $map: ooSetHard(getMapValue($rule, 'path'), getMapValue($rule, 'value'), $map);
     }
   }
   @return $map;

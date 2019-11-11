@@ -4,11 +4,21 @@
  * @param string $key  ooFormat key
  * @param mixed  $value  the new value to set
  * @param map|null $map the map to update (default $ooLoop)
+ * @param bool   $hard  is the hard mode (replacing) or soft (merging)
  * @return mixed
  */
- @function ooSet($key, $value, $map:null) {
+@function ooSet($key, $value, $map:null, $hard:true) {
+  $map: if($hard, ooSetHard($key, $value, $map), ooSetSoft($key, $value, $map));
+  @return $map;
+}
+
+@function ooSetSoft($key, $value, $map:null) {
   $list: split('.', $key);
   $map:  if($map == null, $ooLoop, $map);
+  
+  @if isRef($value) {
+    $value: getRefValue($value, $map);
+  }
   
   @if length($list) > 1 {
     $mapValue: $value;
@@ -16,12 +26,40 @@
       $mapValue: ( #{nth($list, length($list) - $i + 1)} : $mapValue );
     }
     $map: mapMergeDeep($map, $mapValue);
-  } @else if isRef($value) {
-    $ooRefVal: getRefValue($value, $map);
-    $mapValue: ooSet($key, $ooRefVal, $map);
-    $map: mapMergeDeep($map, $mapValue);
   } @else {
     $map: setMapValue($map, $key, $value);
+  }
+  
+  @return $map;
+}
+
+@function ooSetHard($key, $value, $map:null) {
+  $list: split('.', $key);
+  $map:  if($map == null, $ooLoop, $map);
+
+  @if isRef($value) {
+    $value: getRefValue($value, $map);
+  }
+
+  @if length($list) > 1 {
+    $key: replace("#{nth($list , 1)}.", '', $key);
+    $mapValue: getMapValue($map, nth($list , 1));
+
+    @if ($mapValue == null) {
+      $mapValue: ();
+    }
+
+    $map: map-merge(
+      $map,
+      (
+        nth($list, 1): map-merge(
+          $mapValue, 
+          ooSetHard($key, $value, $mapValue)
+        ),
+      )
+    );
+  } @else {
+    $map: ($key: $value); 
   }
 
   @return $map;
@@ -52,32 +90,32 @@
 }
 
 /**
- * ooSetPaintFont
+ * ooPaintFont
  * Set value for font's paint on $ooLoop
  * @param mixed  $value  the new value to set
  * @return $ooLoop
  */
-@function ooSetPaintFont($value) {
+@function ooPaintFont($value) {
   @return ooSet('paint.font.values', $value);
 }
 
 /**
- * ooSetPaintBg
+ * ooPaintBg
  * Set value for background's paint on $ooLoop
  * @param mixed  $value  the new value to set
  * @return $ooLoop
  */
-@function ooSetPaintBg($value) {
+@function ooPaintBg($value) {
   @return ooSet('paint.background.values', $value);
 }
 
 /**
- * ooSetPaintBorder
+ * ooPaintBorder
  * Set value for border's paint on $ooLoop
  * @param mixed  $value  the new value to set
  * @return $ooLoop
  */
-@function ooSetPaintBorder($value) {
+@function ooPaintBorder($value) {
   @return ooSet('paint.border.values', $value);
 }
 

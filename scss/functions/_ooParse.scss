@@ -90,13 +90,13 @@
         }
       }
 
-      $map: ooSet($key, $newValue, $map);
+      $map: ooSetSoft($key, $newValue, $map);
 
       //update backup
       @if isEmpty($path) {
         $parentMap: mapMergeDeep($parentMap, $map);
       } @else {
-        $parentMap: ooSet($path, $map, $parentMap);
+        $parentMap: ooSetSoft($path, $map, $parentMap);
       }
     }
   }

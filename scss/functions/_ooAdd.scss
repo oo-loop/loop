@@ -10,7 +10,7 @@
   $currentValue: oo($key, $map);
 
   @if isEmpty($currentValue) {
-    $newValue: ooSet($key, $mapValue, $map);
+    $newValue: ooSetSoft($key, $mapValue, $map);
     @return $newValue;
   }
 
@@ -23,10 +23,10 @@
   }
 
   @if isList($currentValue) {
-    $newValue: ooSet($key, append($currentValue, $mapValue), $map);
+    $newValue: ooSetSoft($key, append($currentValue, $mapValue), $map);
     @return $newValue;
   }
     
-  $newValue: ooSet($key, mapMergeDeep($currentValue, $mapValue), $map);
+  $newValue: ooSetSoft($key, mapMergeDeep($currentValue, $mapValue), $map);
   @return $newValue;
 }
