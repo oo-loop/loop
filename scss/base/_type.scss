@@ -52,7 +52,7 @@
       @include generateProperties(oo('anchor.props'));
     }
     @if oo('anchor.states') {
-      a[href] {
+      [href] {
         @include generateStatesProperties(oo('anchor.states'));
       }
     }
