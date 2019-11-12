@@ -29,7 +29,7 @@
           font-size: $font-size;
         }
       }
-      @if isNotEmpty(oo('headgins.classes')) and inList($heading, oo('headgins.classes')) {
+      @if isNotEmpty(oo('headings.classes')) and inList($heading, oo('headings.classes')) {
         .#{$heading} {
           @extend #{$heading};
         }
