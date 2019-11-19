@@ -1,0 +1,10 @@
+/**
+ * Color Utilities
+ */
+
+@mixin Color($param: null) {
+  @include initElement('color', $param);
+  @if isNotEmpty(oo('color')) {
+    @include generateUtilities(oo('color'));
+  }
+}

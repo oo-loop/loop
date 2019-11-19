@@ -76,8 +76,8 @@
   @if (oo('use.misc')) {
     @include Misc;
   }
-  @if oo('use.utilities.paint') {
-    @include Paint;
+  @if oo('use.utilities.color') {
+    @include Color;
   }
   @if (oo('use.utilities.text')) {
     @include Text;
