@@ -42,7 +42,9 @@
           @error 'spread operator must be used within a list';
         }
         @if isNotMap($newValue) {
-          @error 'spread operator must extend another map';
+          //the use of replace is for some sass version
+          $ooRefPathList: split('.', replace('"', '', getRefPath($ooRef)));
+          $newValue: (nth($ooRefPathList, length($ooRefPathList)): $newValue);
         }
         $refIndex: index($value, '_#{$ooRef}');
 
