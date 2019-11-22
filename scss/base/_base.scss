@@ -5,13 +5,6 @@
 
 @mixin Base($param: null) {
   @include initElement('base', $param, false);
-  @include Normalize;
-
-  *,
-  *::after,
-  *::before {
-    box-sizing: border-box;
-  }
   
   html {
     font-size: oo('root.fontSize');

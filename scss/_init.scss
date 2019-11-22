@@ -34,6 +34,7 @@
   }
 
   @if oo('use.base') {
+    @include Normalize;
     @include Base;
   }
   @if oo('use.headings') {
@@ -70,7 +71,7 @@
   @if oo('use.container') {
     @include Container;
   }
-  @if (oo('use.visibility')) {
+  @if oo('use.visibility') {
     @include Visibility;
   }
   @if (oo('use.misc')) {
@@ -79,7 +80,7 @@
   @if oo('use.utilities.color') {
     @include Color;
   }
-  @if (oo('use.utilities.text')) {
+  @if oo('use.utilities.text') {
     @include Text;
   }
   @if oo('use.utilities.float') {
@@ -91,13 +92,13 @@
   @if oo('use.utilities.spacing') {
     @include Spacing;
   }
-  @if (oo('use.utilities.wrapper')) {
+  @if oo('use.utilities.wrapper') {
     @include Wrapper;
   }
-  @if (oo('utilities')) {
+  @if oo('utilities') {
     @include generateUtilities(oo('utilities'));
   }
-  @if (oo('components')) {
+  @if oo('components') {
     @include generateComponents(oo('components'));
   }
 }

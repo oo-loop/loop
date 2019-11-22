@@ -250,7 +250,7 @@ $ooLoop: (
   button: (
     props: (
       padding: .438em 1.2em,
-      fontSize: 1.6rem,
+      fontSize: 1.4rem,
       fontWeight: bold,
       lineHeight: 1.5,
       color: #333,
@@ -407,6 +407,7 @@ $ooLoop: (
     headings: true,
     type: true,
     button: true,
+    
     input: (
       textfield: true,
       textarea: true,
@@ -415,6 +416,7 @@ $ooLoop: (
       radio: true,
       toggle: false,
     ),
+
     column: (
       system: true,
       fit: true,
@@ -432,9 +434,9 @@ $ooLoop: (
     misc: true,
 
     utilities: (
+      color: true,
       float: true,
       list: true,
-      color: true,
       spacing: true,
       text: true,
       wrapper: true,
