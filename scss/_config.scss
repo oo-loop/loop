@@ -16,18 +16,14 @@ $ooLoop: (
     'secondary': #959595,
   ),
 
-  root: (
-    fontSize: 62.5%,
-    smoothing: true,
-  ),
-
-  body: (
+  base: (
     props: (
       fontFamily: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-      fontSize: 1.6em, //16px
+      fontSize: 1em, // 16px
       lineHeight: 1.375,
       color: #2c444c,
-    )
+    ),
+    smoothing: true,
   ),
 
   headings: (
@@ -37,12 +33,12 @@ $ooLoop: (
       lineHeight: 1.125,
     ),
     sizes: (
-      h1: 3.2rem,
-      h2: 2.6rem,
-      h3: 2.2rem,
-      h4: 1.8rem,
-      h5: 1.6rem,
-      h6: 1.4rem,
+      h1: 2rem,
+      h2: rem(26),
+      h3: rem(22),
+      h4: rem(18),
+      h5: 1rem,
+      h6: rem(14),
     ),
     classes: (),
   ),
@@ -106,8 +102,8 @@ $ooLoop: (
     fontSize: (
       prefix: 'text',
       values: (
-        'large': 2rem,
-        'small': 1.4rem,
+        'large': rem(20),
+        'small': rem(14),
       ),
     ),
     fontStyle: (
@@ -145,8 +141,8 @@ $ooLoop: (
   wrapper: (
     property: 'padding',
     values: (
-      'small': 1.6rem,
-      'medium': 2.4rem,
+      'small': 1rem,
+      'medium': 1.5rem,
     ),
   ),
 
@@ -157,9 +153,9 @@ $ooLoop: (
       property: 'margin-left',
       values: (
         '0': 0,
-        '5': .5rem,
-        '10': 1rem,
-        '15': 1.5rem,
+        '5': rem(5),
+        '10': rem(10),
+        '15': rem(15),
       ),
     ),
     right: (
@@ -172,10 +168,10 @@ $ooLoop: (
       property: 'margin-top',
       values: (
         '0': 0,
-        '5': .5rem,
-        '10': 1rem,
-        '15': 1.5rem,
-        '30': 3rem,
+        '5': rem(5),
+        '10': rem(10),
+        '15': rem(15),
+        '30': rem(30),
       ),
     ),
     bottom: (
@@ -192,8 +188,8 @@ $ooLoop: (
 
   container: (
     gutter: (
-      rt: 1.6rem,
-      sm: 2.4rem,
+      rt: 1rem,
+      sm: 1.5rem,
     ),
     maxWidth: 1280px,
   ),
@@ -250,7 +246,7 @@ $ooLoop: (
   button: (
     props: (
       padding: .438em 1.2em,
-      fontSize: 1.4rem,
+      fontSize: rem(14),
       fontWeight: bold,
       lineHeight: 1.5,
       color: #333,
@@ -260,7 +256,7 @@ $ooLoop: (
     ),
     states: (
       hover: (
-        color: #333,
+        color: this('button.props.color'),
         backgroundColor: ooDarken(this('button.props.backgroundColor'), 10%),
       ),
       focus: (
@@ -285,7 +281,7 @@ $ooLoop: (
 
   label: (
     props: (
-      marginBottom: .3rem,
+      marginBottom: rem(3),
       display: inline-block,
       fontWeight: 500,
       lineHeight: 1.5
@@ -299,7 +295,7 @@ $ooLoop: (
       width: 100%,
       minHeight: 2.5em,
       color: #4d4d4d,
-      fontSize: 1.6rem,
+      fontSize: 1rem,
       lineHeight: 1.15,
       backgroundColor: #fff,
       border: 1px solid #d6d6d6,
@@ -342,7 +338,7 @@ $ooLoop: (
       )
     ),
     sizes: (
-      default: 1.8rem,
+      default: rem(18),
       variants: ()
     ),
     screens: (),
@@ -361,7 +357,7 @@ $ooLoop: (
       )
     ),
     sizes: (
-      default: 1.8rem,
+      default: rem(18),
       variants: ()
     ),
     screens: (),
@@ -386,7 +382,7 @@ $ooLoop: (
       )
     ),
     sizes: (
-      default: 2.4rem,
+      default: 1.5rem,
       variants: (),
     )
   ),

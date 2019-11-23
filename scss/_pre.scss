@@ -1,0 +1,14 @@
+// Set available functions before configuration
+
+
+/**
+ * rem
+ * Convert pixel unit to Rem unit
+
+ * @param number $value pixel value
+ * @param number $base pixel value for 1rem
+ * @return number rem value
+ */
+ @function rem($pixel, $base: 16) {
+  @return  ((1rem * $pixel) / $base);
+}
