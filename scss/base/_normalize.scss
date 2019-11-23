@@ -340,14 +340,4 @@
   [hidden] {
     display: none;
   }
-
-  /**
-   * Add border-box to facilitate the development
-   * (Added by Loop)
-   */
-  *,
-  *::after,
-  *::before {
-    box-sizing: border-box;
-  }
 }

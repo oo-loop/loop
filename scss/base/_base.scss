@@ -4,18 +4,22 @@
  */
 
 @mixin Base($param: null) {
-  @include initElement('base', $param, false);
-  
-  html {
-    font-size: oo('root.fontSize');
-    @if oo('root.smoothing') {
-      @include fontSmoothing(oo('root.smoothing'));
-    }
+  @include initElement('base', $param);
+
+  @include Normalize;
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
   }
 
-  @if oo('body.props') {
-    body {
-      @include generateProperties(oo('body.props'));
+  body {
+    @if oo('base.props') {
+      @include generateProperties(oo('base.props'));
+    }
+    @if oo('base.smoothing') {
+      @include fontSmoothing(oo('base.smoothing'));
     }
   }
 }

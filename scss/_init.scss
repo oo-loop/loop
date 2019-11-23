@@ -34,7 +34,6 @@
   }
 
   @if oo('use.base') {
-    @include Normalize;
     @include Base;
   }
   @if oo('use.headings') {
