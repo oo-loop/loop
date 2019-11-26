@@ -27,7 +27,7 @@
     }
     $map: mapMergeDeep($map, $mapValue);
   } @else {
-    $map: setMapValue($map, $key, $value);
+    $map: mapMergeDeep($map, (#{$key}: $value));
   }
   
   @return $map;
