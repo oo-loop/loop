@@ -6,7 +6,7 @@
   left: -#{$size};
   margin-right: -#{$size};
   > [#{ooPrefix()}-col] {
-    padding-left: $size;
+    border-left-width: $size;
   }
 }
 @mixin columnGutterScreens($screens, $vertical:false) {
@@ -25,7 +25,7 @@
             [#{ooPrefix()}-row~="#{$prefix}-#{$name}#{$suffix}"] {
               @if $vertical {
                 > [#{ooPrefix()}-col] {
-                  padding-bottom: $gutter-size;
+                  border-bottom-width: $gutter-size;
                 }
               } @else {
                 @include columnGutterProps($gutter-size);
@@ -39,7 +39,7 @@
             [#{ooPrefix()}-row~="#{$prefix}-#{$gutter-name}#{$suffix}"] {
               @if $vertical {
                 > [#{ooPrefix()}-col] {
-                  padding-bottom: $gutter-size;
+                  border-bottom-width: $gutter-size;
                 }
               } @else {
                 @include columnGutterProps($gutter-size);
@@ -201,40 +201,54 @@
   }
 
   // gutter
-  @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
-    $selector: if(isEmpty($gutter-name) or $gutter-name == 'default', 'row', 'row~="gutter-#{$gutter-name}"');
-    [#{ooPrefix()}-#{$selector}] {
-      @if (isMap($gutter-size)) {
-        @each $key, $value in $gutter-size {
-          @include breakpoint($key) {
-            @include columnGutterProps($value);
-          }
-        }
-      } @else if isString($gutter-size) or isNumber($gutter-size) {
-        @include columnGutterProps($gutter-size);
-      }
+  @if isNotEmpty(oo('column.gutter.sizes')) {
+    [#{ooPrefix()}-row] > [#{ooPrefix()}-col] {
+      background-clip: padding-box;
+      border-left-style: solid;
+      border-left-color: transparent;
     }
-  }
-  @include columnGutterScreens(oo('column.gutter.screens'));
 
-  // vgutter
-  @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
-    $suffix: if(isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
-    [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
-      > [#{ooPrefix()}-col] {
-        @if (isMap($vgutter-size)) {
-          @each $key, $value in $vgutter-size {
+    @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
+      $selector: if(isEmpty($gutter-name) or $gutter-name == 'default', 'row', 'row~="gutter-#{$gutter-name}"');
+      [#{ooPrefix()}-#{$selector}] {
+        @if (isMap($gutter-size)) {
+          @each $key, $value in $gutter-size {
             @include breakpoint($key) {
-              padding-bottom: $value;
+              @include columnGutterProps($value);
             }
           }
-        } @else if isString($vgutter-size) or isNumber($vgutter-size) {
-          padding-bottom: $vgutter-size;
+        } @else if isString($gutter-size) or isNumber($gutter-size) {
+          @include columnGutterProps($gutter-size);
         }
       }
     }
+    @include columnGutterScreens(oo('column.gutter.screens'));
   }
-  @include columnGutterScreens(oo('column.gutter.vscreens'), true);
+
+  // vgutter
+  @if isNotEmpty(oo('column.gutter.sizes')) {
+    [#{ooPrefix()}-row~="vgutter"] > [#{ooPrefix()}-col] {
+      border-bottom-style: solid;
+      border-bottom-color: transparent;
+    }
+    @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
+      $suffix: if(isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
+      [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
+        > [#{ooPrefix()}-col] {
+          @if (isMap($vgutter-size)) {
+            @each $key, $value in $vgutter-size {
+              @include breakpoint($key) {
+                border-bottom-width: $value;
+              }
+            }
+          } @else if isString($vgutter-size) or isNumber($vgutter-size) {
+            border-bottom-width: $vgutter-size;
+          }
+        }
+      }
+    }
+    @include columnGutterScreens(oo('column.gutter.vscreens'), true);
+  }
 
   // clear
   [#{ooPrefix()}-col~="clear"] {
