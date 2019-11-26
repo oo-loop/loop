@@ -4,9 +4,7 @@
  */
 
 @mixin Base($param: null) {
-  @include initElement('base', $param);
-
-  @include Normalize;
+  @include initElement('body', $param);
 
   *,
   *::after,
@@ -14,12 +12,14 @@
     box-sizing: border-box;
   }
 
+  @include Normalize;
+
   body {
-    @if oo('base.props') {
-      @include generateProperties(oo('base.props'));
+    @if oo('body.props') {
+      @include generateProperties(oo('body.props'));
     }
-    @if oo('base.smoothing') {
-      @include fontSmoothing(oo('base.smoothing'));
+    @if oo('body.smoothing') {
+      @include fontSmoothing(oo('body.smoothing'));
     }
   }
 }
