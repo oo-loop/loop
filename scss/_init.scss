@@ -42,7 +42,7 @@
   @if oo('use.type') {
     @include Type;
   }
-  @if oo('use.column.system') {
+  @if oo('use.column') {
     @include Column;
   }
   @if oo('use.template') {

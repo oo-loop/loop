@@ -196,8 +196,8 @@ $ooLoop: (
 
 
   column: (
-    system: 12,
     screens: this('screens'),
+    system: 12,
     gutter: (
       sizes: (
         default: this('container.gutter'),
@@ -208,18 +208,26 @@ $ooLoop: (
       vscreens: (),
     ),
     alignment: (
+      use: true,
       screens: this('column.screens'),
     ),
     selfAlignment: (
+      use: true,
       screens: this('column.screens'),
     ),
+    childAlignment: (
+      use: false,
+    ),
     fit: (
+      use: true,
       screens: this('column.screens'),
     ),
     offset: (
+      use: false,
       screens: this('column.screens'),
     ),
     order: (
+      use: false,
       screens: this('column.screens'),
     ),
   ),
@@ -233,15 +241,6 @@ $ooLoop: (
       vscreens: (),
     ),
   ),
-
-  /// @todo Grid component
-  // grid: (
-  //   system: this('column.system'),
-  //   gap: this('column.gutter'),
-  //   use: (
-  //     order: true,
-  //   )
-  // ),
 
   button: (
     props: (
@@ -402,7 +401,6 @@ $ooLoop: (
     base: true,
     headings: true,
     type: true,
-    button: true,
     
     input: (
       textfield: true,
@@ -413,18 +411,10 @@ $ooLoop: (
       toggle: false,
     ),
 
-    column: (
-      system: true,
-      fit: true,
-      order: false,
-      offset: false,
-      alignment: true,
-      selfAlignment: true,
-      childAlignment: false,
-    ),
-
-    grid: false,
+    column: true,
     template: true,
+    button: true,
+
     container: true,
     visibility: true,
     misc: true,
