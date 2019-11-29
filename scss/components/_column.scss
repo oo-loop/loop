@@ -148,9 +148,9 @@
         [#{ooPrefix()}-row~="align-between#{$suffix}"]{ justify-content: space-between; }
 
         // vertical alignment
-        [#{ooPrefix()}-row~="valign-top#{$suffix}"]    { align-items: flex-start; }
-        [#{ooPrefix()}-row~="valign-middle#{$suffix}"] { align-items: center; }
-        [#{ooPrefix()}-row~="valign-bottom#{$suffix}"] { align-items: flex-end; }
+        [#{ooPrefix()}-row~="align-top#{$suffix}"]    { align-items: flex-start; }
+        [#{ooPrefix()}-row~="align-middle#{$suffix}"] { align-items: center; }
+        [#{ooPrefix()}-row~="align-bottom#{$suffix}"] { align-items: flex-end; }
       }
 
       @if oo('column.selfAlignment.use')
@@ -161,9 +161,9 @@
         [#{ooPrefix()}-col~="self-align-right#{$suffix}"]  { margin-left: auto; margin-right: initial; }
 
         // vertical alignment
-        [#{ooPrefix()}-col~="self-valign-top#{$suffix}"]    { align-self: flex-start; }
-        [#{ooPrefix()}-col~="self-valign-middle#{$suffix}"] { align-self: center; }
-        [#{ooPrefix()}-col~="self-valign-bottom#{$suffix}"] { align-self: flex-end; }
+        [#{ooPrefix()}-col~="self-align-top#{$suffix}"]    { align-self: flex-start; }
+        [#{ooPrefix()}-col~="self-align-middle#{$suffix}"] { align-self: center; }
+        [#{ooPrefix()}-col~="self-align-bottom#{$suffix}"] { align-self: flex-end; }
       }
     }
   }
