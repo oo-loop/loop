@@ -250,8 +250,9 @@
 
   // clear
   [#{ooPrefix()}-col~="clear"] {
-    padding: 0;
+    margin: 0 !important;
     flex-basis: 100%;
     max-width: 100%;
+    border: 0 !important;
   }
 }  
