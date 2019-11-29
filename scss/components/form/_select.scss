@@ -34,6 +34,7 @@
   [#{ooPrefix()}-select] {
     position: relative;
     display: block;
+    clear: both;
 
     &::before {
       position: absolute;
