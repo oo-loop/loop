@@ -20,6 +20,8 @@
   }
 
   &:checked + label::before {
+    $halfSize: $size / 2;
+    top: calc(50% - #{$halfSize});
     min-width: $size;
     min-height: $size;
     transform: scale(.4);
