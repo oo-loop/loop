@@ -96,6 +96,7 @@
     flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
+    clear: both;
   }
 
   [#{ooPrefix()}-col] {
