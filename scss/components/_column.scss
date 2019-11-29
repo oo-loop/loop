@@ -4,9 +4,17 @@
 
 @mixin columnGutterProps($size) {
   left: -#{$size};
+  margin-top: -#{$size};
   margin-right: -#{$size};
   > [#{ooPrefix()}-col] {
     border-left-width: $size;
+    margin-top: $size;
+  }
+}
+@mixin columnVGutterProps($size) {
+  margin-top: -#{$size};
+  > [#{ooPrefix()}-col] {
+    margin-top: $size;
   }
 }
 @mixin columnGutterScreens($screens, $vertical:false) {
@@ -24,9 +32,7 @@
           @if $gutter-size {
             [#{ooPrefix()}-row~="#{$prefix}-#{$name}#{$suffix}"] {
               @if $vertical {
-                > [#{ooPrefix()}-col] {
-                  border-bottom-width: $gutter-size;
-                }
+                @include columnVGutterProps($gutter-size);
               } @else {
                 @include columnGutterProps($gutter-size);
               }
@@ -38,9 +44,7 @@
           @if isString($gutter-size) or isNumber($gutter-size) {
             [#{ooPrefix()}-row~="#{$prefix}-#{$gutter-name}#{$suffix}"] {
               @if $vertical {
-                > [#{ooPrefix()}-col] {
-                  border-bottom-width: $gutter-size;
-                }
+                @include columnVGutterProps($gutter-size);
               } @else {
                 @include columnGutterProps($gutter-size);
               }
@@ -116,7 +120,6 @@
         }
 
       }
-      
       // columns
       @for $i from 1 through oo('column.system') {
         [#{ooPrefix()}-col~="span#{$i}#{$suffix}"] {
@@ -228,23 +231,17 @@
 
   // vgutter
   @if isNotEmpty(oo('column.gutter.sizes')) {
-    [#{ooPrefix()}-row~="vgutter"] > [#{ooPrefix()}-col] {
-      border-bottom-style: solid;
-      border-bottom-color: transparent;
-    }
     @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
       $suffix: if(isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
-      [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
-        > [#{ooPrefix()}-col] {
-          @if (isMap($vgutter-size)) {
-            @each $key, $value in $vgutter-size {
-              @include breakpoint($key) {
-                border-bottom-width: $value;
-              }
-            }
-          } @else if isString($vgutter-size) or isNumber($vgutter-size) {
-            border-bottom-width: $vgutter-size;
+      @if (isMap($vgutter-size)) {
+        @each $key, $value in $vgutter-size {
+          [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
+            @include columnVGutterProps($value);
           }
+        }
+      } @else if isString($vgutter-size) or isNumber($vgutter-size) {
+        [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
+          @include columnVGutterProps($vgutter-size);
         }
       }
     }

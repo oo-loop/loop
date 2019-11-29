@@ -199,13 +199,13 @@ $ooLoop: (
     screens: this('screens'),
     system: 12,
     gutter: (
+      screens: (),
       sizes: (
         default: this('container.gutter'),
         'less': 0,
       ),
-      screens: (),
-      vsizes: this('column.gutter.sizes'),
       vscreens: (),
+      vsizes: (),
     ),
     alignment: (
       use: true,
