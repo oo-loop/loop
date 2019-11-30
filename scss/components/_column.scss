@@ -72,13 +72,13 @@
       @if isNotEmpty($values) {
         $values: toList($values);
         @each $value in $values {
-          [#{ooPrefix()}-col~="#{$attribute-name}-#{$value}#{$suffix}"] {
-            #{$prop-name}: call($prop-function, $i);
+          [#{ooPrefix()}-col~="#{$attribute-name}#{$value}#{$suffix}"] {
+            #{$prop-name}: call($prop-function, $value);
           }
         }
       } @else {
         @for $i from 0 to oo('column.system') {
-          [#{ooPrefix()}-col~="#{$attribute-name}-#{$i}#{$suffix}"] { 
+          [#{ooPrefix()}-col~="#{$attribute-name}#{$i}#{$suffix}"] { 
             #{$prop-name}: call($prop-function, $i);
           }
         }
