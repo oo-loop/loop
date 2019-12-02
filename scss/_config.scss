@@ -209,11 +209,11 @@ $ooLoop: (
     ),
     alignment: (
       use: true,
-      screens: this('column.screens'),
+      screens: (),
     ),
     selfAlignment: (
       use: true,
-      screens: this('column.screens'),
+      screens: (),
     ),
     childAlignment: (
       use: false,
