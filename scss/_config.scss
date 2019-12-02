@@ -222,10 +222,6 @@ $ooLoop: (
       use: true,
       screens: this('column.screens'),
     ),
-    offset: (
-      use: false,
-      screens: this('column.screens'),
-    ),
     order: (
       use: false,
       screens: this('column.screens'),

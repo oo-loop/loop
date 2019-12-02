@@ -59,9 +59,6 @@
 @function columnSetOrder($index) {
   @return if($index > 0, $index, -1);
 }
-@function columnSetOffset($index) {
-  @return percentage(($index + 1) / oo('column.system'));
-}
 @mixin columnResponsiveAttribute($attribute-name, $prop-name, $prop-function) {
   @if function-exists('get-function') {
     $prop-function: get-function($prop-function);
@@ -188,10 +185,6 @@
   // Order
   @if oo('column.order.use') and isNotEmpty(oo('column.order.screens')) {
     @include columnResponsiveAttribute('order', 'order', 'columnSetOrder');
-  }
-  // offset
-  @if oo('column.offset.use') and isNotEmpty(oo('column.offset.screens')) {
-    @include columnResponsiveAttribute('offset', 'margin-left', 'columnSetOffset');
   }
 
   // stretch
