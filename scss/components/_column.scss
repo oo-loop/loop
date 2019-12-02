@@ -60,7 +60,7 @@
   @return if($index > 0, $index, -1);
 }
 @function columnSetOffset($index) {
-  @return percentage(($i + 1) / oo('column.system'));
+  @return percentage(($index + 1) / oo('column.system'));
 }
 @mixin columnResponsiveAttribute($attribute-name, $prop-name, $prop-function) {
   @if function-exists('get-function') {
