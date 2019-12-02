@@ -4,17 +4,23 @@
 
 @mixin columnGutterProps($size) {
   left: -#{$size};
-  margin-top: -#{$size};
+  margin-bottom: -#{$size};
   margin-right: -#{$size};
   > [#{ooPrefix()}-col] {
+    margin-bottom: $size;
     border-left-width: $size;
-    margin-top: $size;
+    @if $size == 0 {
+      background-clip: border-box;
+    }
   }
 }
 @mixin columnVGutterProps($size) {
-  margin-top: -#{$size};
+  margin-bottom: -#{$size};
   > [#{ooPrefix()}-col] {
-    margin-top: $size;
+    margin-bottom: $size;
+    @if $size == 0 {
+      background-clip: border-box;
+    }
   }
 }
 @mixin columnGutterScreens($screens, $vertical:false) {
