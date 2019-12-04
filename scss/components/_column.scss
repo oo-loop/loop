@@ -9,18 +9,12 @@
   > [#{ooPrefix()}-col] {
     margin-bottom: $size;
     border-left-width: $size;
-    @if $size == 0 {
-      background-clip: border-box;
-    }
   }
 }
 @mixin columnVGutterProps($size) {
   margin-bottom: -#{$size};
   > [#{ooPrefix()}-col] {
     margin-bottom: $size;
-    @if $size == 0 {
-      background-clip: border-box;
-    }
   }
 }
 @mixin columnGutterScreens($screens, $vertical:false) {
