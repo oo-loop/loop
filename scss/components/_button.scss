@@ -31,10 +31,15 @@
       border-color: darken($color-value, 10%);
     }
   }
+  &:focus {
+    outline: 2px solid lighten($color-value, 10%);
+    box-shadow: 0 0 3px 4px lighten($color-value, 10%);
+  }
   &:active {
     color: $color;
     background-color: darken($color-value, 12%);
     box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+    outline: none;
     @if oo('button.props.border') {
       border-color: darken($color-value, 12%);
     }
@@ -60,8 +65,8 @@
     @include generateStatesProperties(oo('button.states'));
   }
   
-  @if isNotEmpty(oo('button.paints') and isMap(oo('button.paints'))) {
-    @each $name, $value in oo('button.paints') {
+  @if isNotEmpty(oo('button.colors') and isMap(oo('button.colors'))) {
+    @each $name, $value in oo('button.colors') {
       [#{ooPrefix()}-button~="#{$name}"] {
         @include paintButton($value);
       }
