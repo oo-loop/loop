@@ -254,19 +254,15 @@ $ooLoop: (
         color: this('button.props.color'),
         backgroundColor: ooDarken(this('button.props.backgroundColor'), 10%),
       ),
-      focus: (
-        _this('button.states.hover'),
-        (
-          outline: none,
-        )
-      ),
+      focus: this('button.states.hover'),
       active: (
         backgroundColor: ooDarken(this('button.props.backgroundColor'), 12%),
         boxShadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
+        outline: none,
       ),
     ),
     colors: this('palette'),
-    outline: true,
+    outline: false,
     variants: (
       'full': (
         width: 100%,
