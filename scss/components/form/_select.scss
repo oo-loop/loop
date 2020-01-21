@@ -34,8 +34,7 @@
   [#{ooPrefix()}-select] {
     position: relative;
     display: block;
-    clear: both;
-
+  
     &::before {
       position: absolute;
       top: 0;
@@ -94,17 +93,6 @@
       }
     }
 
-    @if oo('select.variants') and isMap(oo('select.variants')) {
-      @each $name, $props in oo('select.variants') {
-        &[#{ooPrefix()}-select~="#{$name}"] > select {
-          @include generateProperties($props);
-          @if map-has-key($props, 'padding') {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-
     &[class*="color-"] {
       > select { color: inherit !important; }
     }
@@ -115,6 +103,52 @@
       > select,
       &::before {
         border-color: inherit !important;
+      }
+    }
+  }
+
+  @if oo('select.variants') and isMap(oo('select.variants')) {
+    @each $name, $props in oo('select.variants') {
+
+      [#{ooPrefix()}-select~="#{$name}"] {
+        /**
+        * @todo Think about a clever way to apply all those exceptions to the selector
+        */
+        @if map-has-key($props, 'background-color') {
+          &::before {
+            background-color: map-get($props, 'background-color');
+          }
+        } @else if map-has-key($props, 'backgroundColor') {
+          &::before {
+            background-color: map-get($props, 'backgroundColor');
+          }
+        }
+        @if map-has-key($props, 'border-color') {
+          &::before {
+            border-color: map-get($props, 'border-color');
+          }
+        } @else if map-has-key($props, 'borderColor') {
+          &::before {
+            background-color: map-get($props, 'borderColor');
+          }
+        }
+        @if map-has-key($props, 'border-radius') {
+          &::before {
+            border-top-right-radius: map-get($props, 'border-radius');
+            border-bottom-right-radius: map-get($props, 'border-radius');
+          }
+        } @else if map-has-key($props, 'borderRadius') {
+          &::before {
+            border-top-right-radius: map-get($props, 'borderRadius');
+            border-bottom-right-radius: map-get($props, 'borderRadius');
+          }
+        }
+        > select {
+          @include generateProperties($props);
+          @if map-has-key($props, 'padding') {
+            padding-right: 0;
+          }
+        }
       }
     }
   }
