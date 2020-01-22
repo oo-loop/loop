@@ -20,6 +20,13 @@
   @if map-has-key($theme, 'bgcolor') {
     &::before { background-color: map-get($theme, 'bgcolor'); }
   }
+  @if map-has-key($theme, 'border') {
+    &::before { 
+      border-top: map-get($theme, 'border');
+      border-right: map-get($theme, 'border');
+      border-bottom: map-get($theme, 'border');
+    }
+  }
   @if map-has-key($theme, 'color') {
     &::after {
       border-bottom-color: map-get($theme, 'color');
@@ -41,13 +48,7 @@
       right: 0;
       bottom: 0;
       content: '';
-
-      $borderProps: oo('select.props.border');
-      @if ($borderProps) {
-        border-top: $borderProps;
-        border-right: $borderProps;
-        border-bottom: $borderProps;
-      }
+      
       $borderRadiusProps: if(oo('select.props.borderRadius'), oo('select.props.borderRadius'), oo('select.props.border-radius'));
       @if ($borderRadiusProps) {
         border-top-right-radius: $borderRadiusProps;
@@ -66,15 +67,8 @@
       transform: rotateZ(45deg) translateY(-50%) translateX(-50%);
     }
 
-    @if oo('select.selector.default') {
-      @include selectTheme(oo('select.selector.default'));
-    }
-    @if oo('select.selector.variants') and isMap(oo('select.selector.variants')) {
-      @each $name, $theme in oo('select.selector.variants') {
-        &[#{ooPrefix()}-select~="#{$name}"] {
-          @include selectTheme($theme);
-        }
-      }
+    @if oo('select.selector') {
+      @include selectTheme(oo('select.selector'));
     }
 
     > select {
@@ -143,8 +137,12 @@
             border-bottom-right-radius: map-get($props, 'borderRadius');
           }
         }
+
+        @if map-has-key($props, 'selector') and isMap(map-get($props, 'selector')) {
+          @include selectTheme(map-get($props, 'selector'));
+        }
         > select {
-          @include generateProperties($props);
+          @include generateProperties(map-remove($props, 'selector'));
           @if map-has-key($props, 'padding') {
             padding-right: 0;
           }

@@ -303,16 +303,14 @@ $ooLoop: (
   select: (
     props: this('input.props'),
     states: this('input.states'),
-    variants: this('input.variants'),
     selector: (
-      default: (
-        size: 10px,
-        weight: 2px,
-        color: #4d4d4d,
-        bgcolor: #fff, 
-      ),
-      variants: (),
+      size: 10px,
+      weight: 2px,
+      color: this('select.props.color'),
+      bgcolor: this('select.props.backgroundColor'),
+      border: this('select.props.border'),
     ),
+    variants: this('input.variants'),
   ),
   checkbox: (
     props: (
