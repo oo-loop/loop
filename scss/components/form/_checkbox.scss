@@ -68,19 +68,21 @@
       }
     }
 
-    @include checkboxSize(oo('checkbox.sizes.default'));
-
-    @if isNotEmpty(oo('checkbox.sizes.variants')) {
-      @each $name, $size in oo('checkbox.sizes.variants') {
-        &[#{ooPrefix()}-checkbox~="#{$name}"] {
+    @if isNotEmpty(oo('checkbox.sizes')) {
+      @each $name, $size in oo('checkbox.sizes') {
+        @if $name == 'default' {
           @include checkboxSize($size);
+        } @else {
+          &[#{ooPrefix()}-checkbox~="#{$name}"] {
+            @include checkboxSize($size);
+          }
         }
       }
 
       @if isNotEmpty(oo('checkbox.screens')) {
         @each $breakpoint in oo('checkbox.screens') {
           @include breakpoint($breakpoint) {
-            @each $name, $size in oo('checkbox.sizes.variants') {
+            @each $name, $size in oo('checkbox.sizes') {
               $suffix: \@#{$breakpoint};
               &[#{ooPrefix()}-checkbox~="#{$name}#{$suffix}"] {
                 @include checkboxSize($size);
@@ -90,8 +92,8 @@
         }
       }
     }
-    @if (oo('colors.borders')) {
-      @include loop(oo('colors.borders'), 'border-color', '&[class*="border', true, '"] + label::after');
+    @if (oo('color.border.values')) {
+      @include loop(oo('color.border.values'), 'border-color', '&[class*="border', true, '"] + label::after');
     }
   }
 }
