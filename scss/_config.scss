@@ -303,7 +303,7 @@ $ooLoop: (
   select: (
     props: this('input.props'),
     states: this('input.states'),
-    selector: (
+    caret: (
       size: 10px,
       weight: 2px,
       color: this('select.props.color'),
