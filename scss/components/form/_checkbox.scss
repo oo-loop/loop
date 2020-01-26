@@ -27,6 +27,10 @@
     border-right-width: $mark-border-width;
     border-bottom-width: $mark-border-width;
   }
+
+  &[#{ooPrefix()}-checkbox~="inline"] + label:not(:last-child) {
+    margin-right: $size * 0.8;
+  }
 }
 
 @mixin Checkbox($param: null) {
@@ -95,5 +99,8 @@
     @if (oo('color.border.values')) {
       @include loop(oo('color.border.values'), 'border-color', '&[class*="border', true, '"] + label::after');
     }
+  }
+  [#{ooPrefix()}-checkbox~="inline"] + label {
+    display: inline-flex;
   }
 }

@@ -328,7 +328,6 @@ $ooLoop: (
     ),
     sizes: (
       default: rem(18),
-      variants: ()
     ),
     screens: (),
   ),
@@ -341,7 +340,7 @@ $ooLoop: (
       markColor: #fff,
       props: (
         backgroundColor: #4d4d4d,
-        border: 1px solid #4d4d4d,
+        borderColor: #4d4d4d,
         transition: background-color 250ms ease-out,
       )
     ),
