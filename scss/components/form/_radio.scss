@@ -26,6 +26,10 @@
     min-height: $size;
     transform: scale(.4);
   }
+
+  &[#{ooPrefix()}-radio~="inline"] + label:not(:last-child) {
+    margin-right: $size * 0.8;
+  }
 }
 
 @mixin Radio($param: null) {
@@ -68,19 +72,21 @@
       }
     }
 
-    @include radioSize(oo('radio.sizes.default'));
-
-    @if isNotEmpty(oo('radio.sizes.variants')) {
-      @each $name, $size in oo('radio.sizes.variants') {
-        &[#{ooPrefix()}-radio~="#{$name}"] {
+    @if isNotEmpty(oo('radio.sizes')) {
+      @each $name, $size in oo('radio.sizes') {
+        @if $name == 'default' {
           @include radioSize($size);
+        } @else {
+          &[#{ooPrefix()}-radio~="#{$name}"] {
+            @include radioSize($size);
+          }
         }
       }
 
       @if isNotEmpty(oo('radio.screens')) {
         @each $breakpoint in oo('radio.screens') {
           @include breakpoint($breakpoint) {
-            @each $name, $size in oo('radio.sizes.variants') {
+            @each $name, $size in oo('radio.sizes') {
               $suffix: \@#{$breakpoint};
               &[#{ooPrefix()}-radio~="#{$name}#{$suffix}"] {
                 @include radioSize($size);
@@ -91,8 +97,11 @@
       }
     }
 
-    @if (oo('colors.borders')) {
-      @include loop(oo('colors.borders'), 'border-color', '&[class*="border', true, '"] + label::after');
+    @if (oo('color.border.values')) {
+      @include loop(oo('color.border.values'), 'border-color', '&[class*="border', true, '"] + label::after');
     }
+  }
+  [#{ooPrefix()}-radio~="inline"] + label {
+    display: inline-flex;
   }
 }
