@@ -64,11 +64,13 @@
       @include generateProperties(oo('toggle.checked.props'));
     }
 
-    @include toggleSize(oo('toggle.sizes.default'));
-
-    @if isMap(oo('toggle.sizes.variants')) {
-      @each $name, $value in oo('toggle.sizes.variants') {
-        &[#{ooPrefix()}-toggle~="#{$name}"] { @include toggleSize($value) }
+    @if isMap(oo('toggle.sizes')) {
+      @each $name, $size in oo('toggle.sizes') {
+        @if $name == 'default' {
+          @include toggleSize($size)
+        } @else {
+          &[#{ooPrefix()}-toggle~="#{$name}"] { @include toggleSize($size) }
+        }
       }
     }
   }
