@@ -23,18 +23,27 @@
 
  * @param map $parentMap Map of data to be merged into
  * @param map $childMap  The set of data
+ * @param map $refMap   The base map to refer too,
+   usually equivalent to the $ooLoop before going into nested merge
  * @return map
  */
-@function mapMergeDeep($parentMap, $childMap) {
+@function mapMergeDeep($parentMap, $childMap, $refMap:null) {
   $map: $parentMap;
   @if not isMap($map) {
     @return $map;
   }
-  @each $key, $value in $childMap {
+
+  $refMap: if($refMap == null, $ooLoop, $refMap);
+
+  @each $key, $value in $childMap {   
+    @if isRef(map-get($map, $key)) {
+      $mapValue: getRefValue(map-get($map, $key), $refMap);
+      $map: map-merge($map, ($key: $mapValue));
+    }
     @if (not map-has-key($map, $key)) or (type-of(map-get($map, $key) ) != type-of($value)) or (not (isMap(map-get($map, $key)) and isMap($value))) {
-      $map: map-merge($map, ($key: $value));
+       $map: map-merge($map, ($key: $value));
     } @else {
-      $map: map-merge($map, ($key: mapMergeDeep(map-get($map, $key), $value)));
+      $map: map-merge($map, ($key: mapMergeDeep(map-get($map, $key), $value, $refMap)));
     }
   }
   @return $map;

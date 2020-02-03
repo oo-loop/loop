@@ -27,6 +27,6 @@
     @return $newValue;
   }
     
-  $newValue: ooSetSoft($key, mapMergeDeep($currentValue, $mapValue), $map);
+  $newValue: ooSetSoft($key, mapMergeDeep($currentValue, $mapValue, $map), $map);
   @return $newValue;
 }
