@@ -43,9 +43,15 @@
             $propsName: toList($propsName);
             $propsTarget: ();
             @each $name in $propsName {
-              $prop-value: oo(#{$name}, $props);
+              $prop-value: '';
+              @if isList($props) {
+                $index: index($props, $name);
+                $prop-value: nth($props, $index);
+              } @else {
+                $prop-value: oo(#{$name}, $props);
+              }
               @if $prop-value {
-                $propsTarget: map-merge($propsTarget, ($name: $prop-value));
+                $propsTarget: map-merge($propsTarget, (#{$name}: $prop-value));
               }
             }
             @include loopBreakpoints(
