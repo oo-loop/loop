@@ -24,7 +24,7 @@
   @if isNotEmpty(oo('visibility.pointbreaks')) {
     @each $screen in oo('visibility.pointbreaks') {
       @include pointbreak($screen) {
-        .hidden\!\@#{$screen} { display: none !important; }
+        .\!hidden\@#{$screen} { display: none !important; }
       }
     }
   }
