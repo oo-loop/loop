@@ -3,45 +3,47 @@
  */
 
 @mixin paintButton($color-value) {
-  $color: if(isBright($color-value), darken($color-value, 80%), #fff);
+  @if isColor($color-value) {
+    $color: if(isBright($color-value), darken($color-value, 80%), #fff);
+    
+    color: $color;
+    background-color: $color-value;
+    @if oo('button.props.border') {
+      border-color: $color-value;
+    }
   
-  color: $color;
-  background-color: $color-value;
-  @if oo('button.props.border') {
-    border-color: $color-value;
-  }
-
-  @if oo('button.outline') {
-    &[#{ooPrefix()}-button~="outline"] {
-      color: if(isBright($color-value, 210), darken($color-value, 30%), $color-value);
-      background: transparent;
-      box-shadow: none;
-
-      @if oo('button.props.border') and isBright($color-value, 210) {
-        border-color: darken($color-value, 20%);
+    @if oo('button.outline') {
+      &[#{ooPrefix()}-button~="outline"] {
+        color: if(isBright($color-value, 210), darken($color-value, 30%), $color-value);
+        background: transparent;
+        box-shadow: none;
+  
+        @if oo('button.props.border') and isBright($color-value, 210) {
+          border-color: darken($color-value, 30%);
+        }
       }
     }
-  }
-
-  &:hover,
-  &:focus {
-    color: $color;
-    background-color: darken($color-value, 10%);
-    @if oo('button.props.border') {
-      border-color: darken($color-value, 10%);
+  
+    &:hover,
+    &:focus {
+      color: $color;
+      background-color: darken($color-value, 10%);
+      @if oo('button.props.border') {
+        border-color: darken($color-value, 10%);
+      }
     }
-  }
-  &:focus {
-    outline: 2px solid lighten($color-value, 10%);
-    box-shadow: 0 0 3px 4px lighten($color-value, 10%);
-  }
-  &:active {
-    color: $color;
-    background-color: darken($color-value, 12%);
-    box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
-    outline: none;
-    @if oo('button.props.border') {
-      border-color: darken($color-value, 12%);
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 3px 4px lighten($color-value, 5%);
+    }
+    &:active {
+      color: $color;
+      background-color: darken($color-value, 12%);
+      box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+      outline: none;
+      @if oo('button.props.border') {
+        border-color: darken($color-value, 12%);
+      }
     }
   }
 }
