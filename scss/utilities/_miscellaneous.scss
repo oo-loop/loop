@@ -7,7 +7,7 @@
 
   @if isNotEmpty(oo('misc')) {
     @each $name, $misc in oo('misc') {
-      .#{$name} {
+      .#{toKebabCase($name)} {
         @include generateStyles($misc);
       }
     }
