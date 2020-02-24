@@ -333,11 +333,11 @@ export default {
 <style lang="scss">
 	@import '~loop/loop';
 
-	$ooLoop: ooSet('checkbox.sizes.variants', (
+	$ooLoop: ooSet('checkbox.sizes', (
 		'small': 1.6rem,
 		'large': 3rem,
 	));
-	$ooLoop: ooSet('radio.sizes.variants', (
+	$ooLoop: ooSet('radio.sizes', (
 		'medium': 2.4rem,
 	  'large': 3.2rem,
 	));
@@ -392,25 +392,26 @@ export default {
 			sm: 5rem,
 		),
 	));
-	$ooLoop: ooSet('use.column.order', true);
-	$ooLoop: ooSet('use.column.childAlignment', true);
+	$ooLoop: ooSet('column.order.use', true);
+	$ooLoop: ooSet('column.childAlignment.use', true);
 
 	$ooLoop: ooSet('html5', false);
-	$ooLoop: ooAdd('colors', (
+
+	$ooLoop: ooAdd('palette', (
 		'success': #8cc63f,
 		'warning': #fbb03b,
 		'danger': #f72828,
 	));
 
-	$ooLoop: ooAdd('paint.font.values', (
+	$ooLoop: ooAdd('color.font.values', (
 	  'info': #2689ef,
 	  'gray': #999,
 	  'success': #3fc65c,
 		'white': #fff,
 	));
 	
-	$ooLoop: ooSet('paint.background.values', (
-		_oo('paint.font.values'),
+	$ooLoop: ooSet('color.background.values', (
+		_this('color.font.values'),
 		(
 			'olive': olive,
 		)
@@ -440,7 +441,7 @@ export default {
 	));
 
 	$ooLoop: ooSet('wrapper.screens', (sm, md, lg));
-	$ooLoop: ooAdd('button.paints', (
+	$ooLoop: ooAdd('button.colors', (
 	  'nectarine':  #ffbe76,
 	  'yellow':     #fffa65,
 	  'salmon':     #ffb8b8,

@@ -21,7 +21,7 @@ $ooLoop: (
       fontFamily: ('Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
       fontSize: 1em, // 16px
       lineHeight: 1.375,
-      color: #2c444c,
+      color: #444,
     ),
     smoothing: true,
   ),
@@ -376,7 +376,7 @@ $ooLoop: (
   utilities: (),
   components: (),
   misc: (
-    responsive: (
+    'responsive': (
       props: (
         maxWidth: 100%,
         height: auto,
