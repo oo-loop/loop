@@ -4,7 +4,7 @@
 
 @mixin checkboxSize($size) {
   @if isNotNumber($size) {
-    @error 'The checkbox $size must be a number';
+    @error 'The checkbox #{$size} must be a number';
   }
   $mark-width: $size * 0.4;
   $mark-height: $size * 0.6;
