@@ -59,7 +59,7 @@
       )
     );
   } @else {
-    $map: ($key: $value); 
+    $map: map-merge($map, ($key: $value));
   }
 
   @return $map;
