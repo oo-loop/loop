@@ -12,7 +12,7 @@ $ooLoop: (
   screens: (sm, md, lg),
 
   palette: (
-    'primary': #0ea7d6,
+    'primary': #28a6c7,
     'secondary': #959595,
   ),
 
@@ -103,9 +103,8 @@ $ooLoop: (
   ),
 
   // Utility format
-  text: (
+  typo: (
     fontSize: (
-      prefix: 'text',
       values: (
         'large': rem(20),
         'small': rem(14),
@@ -117,6 +116,7 @@ $ooLoop: (
     fontWeight: (
       values: (
         'bold': 700,
+        'light': 300,
       ),
     ),
     textAlign: (
@@ -248,7 +248,7 @@ $ooLoop: (
       padding: .438em 1.2em,
       fontSize: rem(14),
       fontWeight: bold,
-      lineHeight: 1.5,
+      lineHeight: 1.45,
       color: #333,
       backgroundColor: #fff,
       border: 1px solid #cecece,
@@ -392,7 +392,7 @@ $ooLoop: (
   use: (
     base: true,
     headings: true,
-    type: true,
+    content: true,
     
     input: (
       textfield: true,
@@ -415,7 +415,7 @@ $ooLoop: (
       float: true,
       list: true,
       spacing: true,
-      text: true,
+      typo: true,
       wrapper: true,
     ),
   )

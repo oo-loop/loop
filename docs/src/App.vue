@@ -418,12 +418,12 @@ export default {
 	));
 
 
-	$ooLoop: ooAdd('text.fontWeight.values', (
+	$ooLoop: ooAdd('typo.fontWeight.values', (
 		'thin': 100,
 	));
-	$ooLoop: ooAdd('text.fontStyle.values', 'oblique');
-	$ooLoop: ooSet('text.textAlign.screens', (sm, lg));
-	$ooLoop: ooSet('text.textDecoration.values', (
+	$ooLoop: ooAdd('typo.fontStyle.values', 'oblique');
+	$ooLoop: ooSet('typo.textAlign.screens', (sm, lg));
+	$ooLoop: ooSet('typo.textDecoration.values', (
 		'line-through',
 		'underline',
 	));

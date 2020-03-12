@@ -38,8 +38,8 @@
   }
 }
 
-@mixin Type($param: null) {
-  @include initElement('type', $param, false);
+@mixin Content($param: null) {
+  @include initElement('content', $param, false);
 
   @if oo('paragraph.props') {
     p {

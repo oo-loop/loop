@@ -39,8 +39,8 @@
   @if oo('use.headings') {
     @include Headings;
   }
-  @if oo('use.type') {
-    @include Type;
+  @if oo('use.content') {
+    @include Content;
   }
   @if oo('use.column') {
     @include Column;
@@ -79,8 +79,8 @@
   @if oo('use.utilities.color') {
     @include Color;
   }
-  @if oo('use.utilities.text') {
-    @include Text;
+  @if oo('use.utilities.typo') {
+    @include Typography;
   }
   @if oo('use.utilities.float') {
     @include Float;
