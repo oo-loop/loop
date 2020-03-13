@@ -128,13 +128,19 @@
             background-color: map-get($props, 'backgroundColor');
           }
         }
-        @if map-has-key($props, 'border-color') {
+        @if map-has-key($props, 'border-color') and (
+          not map-has-key($props, 'caret')
+          or isNotColor(getMapValue(map-get($props, 'caret'), 'border'))
+        ) {
           &::before {
             border-color: map-get($props, 'border-color');
           }
-        } @else if map-has-key($props, 'borderColor') {
+        } @else if map-has-key($props, 'borderColor') and (
+          not map-has-key($props, 'caret')
+          or isNotColor(getMapValue(map-get($props, 'caret'), 'border'))
+        ) {
           &::before {
-            background-color: map-get($props, 'borderColor');
+            border-color: map-get($props, 'borderColor');
           }
         }
         @if map-has-key($props, 'border-radius') {
