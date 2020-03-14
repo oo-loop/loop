@@ -18,16 +18,20 @@
   "components/template"
 ;
 
+// Helper classes
+@import
+  "helpers/container",
+  "helpers/list",
+  "helpers/miscellaneous",
+  "helpers/visibility"
+;
+
 // Utilities
 @import
-  "utilities/container",
   "utilities/float",
-  "utilities/list",
-  "utilities/miscellaneous",
   "utilities/color",
   "utilities/spacing",
   "utilities/typography",
-  "utilities/visibility",
   "utilities/wrapper"
 ;
 
