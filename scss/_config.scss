@@ -18,7 +18,7 @@ $ooLoop: (
 
   body: (
     props: (
-      fontFamily: ('Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
+      fontFamily: (-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
       fontSize: 1em, // 16px
       lineHeight: 1.375,
       color: #444,

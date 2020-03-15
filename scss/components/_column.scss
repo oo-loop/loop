@@ -199,6 +199,18 @@
   }
 
   // gutter
+  @if isString(oo('column.gutter')) or isNumber(oo('column.gutter')) {
+    [#{ooPrefix()}-row] > [#{ooPrefix()}-col] {
+      background-clip: padding-box;
+      border-left-style: solid;
+      border-left-color: transparent;
+    }
+    [#{ooPrefix()}-row] {
+      $gutter-size: oo('column.gutter');
+      @include columnGutterProps($gutter-size);
+      @include columnVGutterProps($gutter-size);
+    }
+  }
   @if isNotEmpty(oo('column.gutter.sizes')) {
     [#{ooPrefix()}-row] > [#{ooPrefix()}-col] {
       background-clip: padding-box;
@@ -224,7 +236,7 @@
   }
 
   // vgutter
-  @if isNotEmpty(oo('column.gutter.sizes')) {
+  @if isNotEmpty(oo('column.gutter.vsizes')) {
     @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
       $suffix: if(isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
       @if (isMap($vgutter-size)) {
