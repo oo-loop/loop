@@ -7,9 +7,8 @@
 @function isString($data) {
   @if type-of($data) == 'string'{
     @return true;
-  } @else {
-    @return false;
   }
+  @return false;
 }
 
 @function isNotString($data) {
@@ -25,9 +24,8 @@
 @function isNumber($data) {
   @if type-of($data) == 'number'{
     @return true;
-  } @else {
-    @return false;
   }
+  @return false;
 }
 
 @function isNotNumber($data) {
@@ -43,9 +41,8 @@
 @function isColor($data) {
   @if type-of($data) == 'color'{
     @return true;
-  } @else {
-    @return false;
   }
+  @return false;
 }
 
 @function isNotColor($data) {
@@ -61,9 +58,8 @@
 @function isList($data) {
   @if type-of($data) == 'list'{
     @return true;
-  } @else {
-    @return false;
   }
+  @return false;
 }
 
 @function isNotList($data) {
@@ -79,9 +75,8 @@
 @function isMap($data) {
   @if type-of($data) == 'map' {
     @return true;
-  } @else {
-    @return false;
   }
+  @return false;
 }
 
 @function isNotMap($data) {
