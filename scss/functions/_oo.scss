@@ -36,5 +36,5 @@
  * @return string
  */
 @function ooPrefix() {
-  @return if(oo(html5) == true, 'data-oo', 'oo');
+  @return if(oo(dataAttr) == true, 'data-oo', 'oo');
 }
