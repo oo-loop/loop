@@ -130,11 +130,7 @@
     $gap-sizes: if(isString($gap-sizes), (default: $gap-sizes), $gap-sizes);
     @if areKeysBreakpoints($gap-sizes) {
       [#{ooPrefix()}-template] {
-        @each $key, $value in $gap-sizes {
-          @include breakpoint($key) {
-            grid-gap: $value;
-          }
-        }
+        @include generatePropertiesBreakpoint('grid-gap', $gap-sizes);
       }
     } @else {
       $non-responsise-gap-sizes: ();
@@ -142,11 +138,7 @@
         $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="gap-#{$gap-name}"');
         [#{ooPrefix()}-#{$selector}] {
           @if (isMap($gap-size)) {
-            @each $key, $value in $gap-size {
-              @include breakpoint($key) {
-                grid-gap: $value;
-              }
-            }
+            @include generatePropertiesBreakpoint('grid-gap', $gap-size);
           } @else {
             grid-gap: $gap-size;
             $non-responsise-gap-sizes: map-merge(($gap-name: $gap-size), $non-responsise-gap-sizes)
@@ -165,11 +157,7 @@
     $vgap-sizes: if(isString($vgap-sizes), (default: $vgap-sizes), $vgap-sizes);
     @if areKeysBreakpoints($vgap-sizes) {
       [#{ooPrefix()}-template] {
-        @each $key, $value in $vgap-sizes {
-          @include breakpoint($key) {
-            grid-row-gap: $value;
-          }
-        }
+        @include generatePropertiesBreakpoint('grid-row-gap', $vgap-sizes);
       }
     } @else {
       $non-responsise-vgap-sizes: ();
@@ -177,11 +165,7 @@
         $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="vgap-#{$gap-name}"');
         [#{ooPrefix()}-#{$selector}] {
           @if (isMap($gap-size)) {
-            @each $key, $value in $gap-size {
-              @include breakpoint($key) {
-                grid-row-gap: $value;
-              }
-            }
+            @include generatePropertiesBreakpoint('grid-row-gap', $gap-size);
           } @else {
             grid-row-gap: $gap-size;
             $non-responsise-vgap-sizes: map-merge(($gap-name: $gap-size), $non-responsise-vgap-sizes)

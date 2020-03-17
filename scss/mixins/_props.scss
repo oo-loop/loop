@@ -7,7 +7,19 @@
   @if isMap($propertiesMap) {
     @each $propertyName, $propertyValue in $propertiesMap {
       $propertyName: toKebabCase($propertyName);
-      #{$propertyName}: $propertyValue;
+      @if isMap(propertyValue) and areKeysBreakpoints($propertyValue) {
+        @include generatePropertiesBreakpoint($propertyName, $propertyValue)
+      } @else {
+        #{$propertyName}: $propertyValue;
+      }
+    }
+  }
+}
+
+@mixin generatePropertiesBreakpoint($propertyName, $valueMap) {
+  @each $key, $value in $valueMap {
+    @include breakpoint($key) {
+      #{$propertyName}: $value;
     }
   }
 }
