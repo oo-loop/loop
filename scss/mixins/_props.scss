@@ -8,7 +8,7 @@
     @each $propertyName, $propertyValue in $propertiesMap {
       $propertyName: toKebabCase($propertyName);
       @if isMap(propertyValue) and areKeysBreakpoints($propertyValue) {
-        @include generatePropertiesBreakpoint($propertyName, $propertyValue)
+        @include generatePropertyBreakpoints($propertyName, $propertyValue)
       } @else {
         #{$propertyName}: $propertyValue;
       }
@@ -16,11 +16,23 @@
   }
 }
 
-@mixin generatePropertiesBreakpoint($propertyName, $valueMap) {
+@mixin generatePropertyBreakpoints($propertyName, $valueMap) {
   @each $key, $value in $valueMap {
     @include breakpoint($key) {
       #{$propertyName}: $value;
     }
+  }
+}
+@mixin breakpointProperty($propertiesMap) {
+  @if isNotMap($propertiesMap) {
+    @error 'Pass a property Map with `breakpointProperty()`';
+  }
+  @each $propertyName, $propertyValue in $propertiesMap {
+    $propertyName: toKebabCase($propertyName);
+    @if not areKeysBreakpoints($propertyValue) {
+      @error 'Use a breakpoint map as a property value with `breakpointProperty()`';
+    }
+    @include generatePropertyBreakpoints($propertyName, $propertyValue)
   }
 }
 
