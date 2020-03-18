@@ -24,19 +24,19 @@
       }
     }
   
-    &:hover,
-    &:focus {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $color;
       background-color: darken($color-value, 10%);
       @if oo('button.props.border') {
         border-color: darken($color-value, 10%);
       }
     }
-    &:focus {
+    &:focus:not(:disabled) {
       outline: none;
       box-shadow: 0 0 3px 4px lighten($color-value, 5%);
     }
-    &:active {
+    &:active:not(:disabled) {
       color: $color;
       background-color: darken($color-value, 12%);
       box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
@@ -62,6 +62,10 @@
     touch-action: manipulation;
     -webkit-appearance: none;
     -moz-appearance: none;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
 
     @include generateProperties(oo('button.props'));
     @include generateStatesProperties(oo('button.states'));

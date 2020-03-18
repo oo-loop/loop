@@ -265,6 +265,9 @@ $ooLoop: (
         boxShadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
         outline: none,
       ),
+      disabled: (
+        opacity: .75,
+      ),
     ),
     colors: this('palette'),
     outline: false,
