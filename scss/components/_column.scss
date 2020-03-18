@@ -199,25 +199,29 @@
   }
 
   // gutter
-  @if isString(oo('column.gutter')) or isNumber(oo('column.gutter')) {
+  @if isNotEmpty(oo('column.gutter')) {
     [#{ooPrefix()}-row] > [#{ooPrefix()}-col] {
       background-clip: padding-box;
       border-left-style: solid;
       border-left-color: transparent;
     }
+  }
+
+  @if isString(oo('column.gutter')) or isNumber(oo('column.gutter')) {
     [#{ooPrefix()}-row] {
       $gutter-size: oo('column.gutter');
       @include columnGutterProps($gutter-size);
-      @include columnVGutterProps($gutter-size);
     }
-  }
-  @if isNotEmpty(oo('column.gutter.sizes')) {
-    [#{ooPrefix()}-row] > [#{ooPrefix()}-col] {
-      background-clip: padding-box;
-      border-left-style: solid;
-      border-left-color: transparent;
+  } @else if isMap(oo('column.gutter')) and areKeysBreakpoints(oo('column.gutter')) {
+    [#{ooPrefix()}-row] {
+      $gutter-size: oo('column.gutter');
+      @each $key, $value in $gutter-size {
+        @include breakpoint($key) {
+          @include columnGutterProps($value);
+        }
+      }
     }
-
+  } @else if isNotEmpty(oo('column.gutter.sizes')) {
     @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
       $selector: if(isEmpty($gutter-name) or $gutter-name == 'default', 'row', 'row~="gutter-#{$gutter-name}"');
       [#{ooPrefix()}-#{$selector}] {
