@@ -31,6 +31,14 @@
       @if oo('button.props.border') {
         border-color: darken($color-value, 10%);
       }
+      @if oo('button.outline') {
+        &[#{ooPrefix()}-button~="outline"] {
+          background-color: $color-value;
+          @if oo('button.props.border') {
+            border-color: $color-value;
+          }
+        }
+      }
     }
     &:focus:not(:disabled) {
       outline: none;
