@@ -124,7 +124,21 @@
     @include makeTemplate(oo('template.areas'));
   }
 
-  $screens: oo('template.gap.screens');
+  @if isString(oo('template.gap')) or isNumber(oo('template.gap')) {
+    [#{ooPrefix()}-template] {
+      grid-gap: oo('template.gap');
+    }
+  } @else if isMap(oo('template.gap')) and areKeysBreakpoints(oo('template.gap')) {
+    [#{ooPrefix()}-template] {
+      $gap-size: oo('template.gap');
+      @each $key, $value in $gap-size {
+        @include breakpoint($key) {
+          grid-gap: $value;
+        }
+      }
+    }
+  }
+
   $gap-sizes: oo('template.gap.sizes');
   @if $gap-sizes {
     $gap-sizes: if(isString($gap-sizes), (default: $gap-sizes), $gap-sizes);
@@ -145,13 +159,13 @@
           }
         }
       }
+      $screens: oo('template.gap.screens');
       @if $screens {
         @include makeGapOnScreens($screens, $non-responsise-gap-sizes);
       }
     }
   }
 
-  $vscreens: oo('template.gap.vscreens');
   $vgap-sizes: oo('template.gap.vsizes');
   @if $vgap-sizes {
     $vgap-sizes: if(isString($vgap-sizes), (default: $vgap-sizes), $vgap-sizes);
@@ -172,6 +186,7 @@
           }
         }
       }
+      $vscreens: oo('template.gap.vscreens');
       @if $vscreens {
         @include makeGapOnScreens($vscreens, $non-responsise-vgap-sizes, true);
       }
