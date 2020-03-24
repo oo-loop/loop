@@ -7,8 +7,15 @@
   @if isMap($propertiesMap) {
     @each $propertyName, $propertyValue in $propertiesMap {
       $propertyName: toKebabCase($propertyName);
-      @if isMap(propertyValue) and areKeysBreakpoints($propertyValue) {
-        @include generatePropertyBreakpoints($propertyName, $propertyValue)
+      @if isMap($propertyValue) and areKeysBreakpoints($propertyValue) {
+        @include generatePropertyBreakpoints($propertyName, $propertyValue);
+      } @else if isMap($propertyValue) and $propertyName == '>' {
+        @each $childSelector, $childProps in $propertyValue {
+          $childSelector: toKebabCase($childSelector);
+          #{$childSelector} {
+            @include generateProperties($childProps);
+          }
+        }
       } @else {
         #{$propertyName}: $propertyValue;
       }
