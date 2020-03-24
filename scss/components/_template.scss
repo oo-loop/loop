@@ -130,12 +130,7 @@
     }
   } @else if isMap(oo('template.gap')) and areKeysBreakpoints(oo('template.gap')) {
     [#{ooPrefix()}-template] {
-      $gap-size: oo('template.gap');
-      @each $key, $value in $gap-size {
-        @include breakpoint($key) {
-          grid-gap: $value;
-        }
-      }
+      @include generatePropertyBreakpoints('grid-gap', oo('template.gap'));
     }
   }
 
