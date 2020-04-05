@@ -1,18 +1,17 @@
 {
   "name": "oo-loop",
-  "version": "0.4.11",
-  "description": "SCSS companion for Front-end Developer",
+  "version": "1.0.0-beta",
+  "description": "Dev companion for flexible and expressive CSS",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
-  "main": "dist/",
+  "main": "scss/_loop.scss",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "npm run css",
-    "css": "npm run css-compile",
-    "css-compile": "node-sass --output-style expanded --precision 6 scss/_loop.scss dist/loop.css",
-    "css-compile-min": "node-sass --output-style compressed --precision 6 scss/_loop.scss dist/loop.min.css"
+    "dev": "node-sass -r --output-style expanded --precision 6 src/index.scss dist/loop.css",
+    "build": "node-sass --output-style compressed --precision 6 src/index.scss dist/loop.css",
+    "watch": "npm run dev && npm run dev -- -w"
   },
   "repository": {
     "type": "git",
@@ -22,8 +21,9 @@
     "scss",
     "sass",
     "css",
-    "front-end",
-    "developer",
+    "flexible",
+    "expressive",
+    "frontend",
     "companion",
     "framework"
   ],
@@ -33,8 +33,7 @@
   "author": "GPlus Media",
   "license": "MIT",
   "devDependencies": {
-    "node-sass": "^4.9.0",
-    "normalize.css": "^8.0.0"
+    "node-sass": "^4.13.1"
   },
   "files": [
     "dist/",
