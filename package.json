@@ -1,45 +1,47 @@
 {
   "name": "oo-loop",
   "version": "1.0.0-beta",
-  "description": "Dev companion for flexible and expressive CSS",
-  "style": "dist/loop.css",
-  "sass": "scss/_loop.scss",
-  "main": "scss/_loop.scss",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "dev": "node-sass -r --output-style expanded --precision 6 src/index.scss dist/loop.css",
-    "build": "node-sass --output-style compressed --precision 6 src/index.scss dist/loop.css",
-    "watch": "npm run dev && npm run dev -- -w",
-    "test": "node-sass --output-style expanded --source-comments false --precision 6 tests --output tests/build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/oo-loop/loop.git"
-  },
+  "description": "Loop, Dev companion for flexible and expressive CSS",
   "keywords": [
     "scss",
     "sass",
     "css",
+    "loop",
     "flexible",
     "expressive",
     "frontend",
     "companion",
     "framework"
   ],
+  "homepage": "https://oo-loop.github.io/",
   "bugs": {
     "url": "https://github.com/oo-loop/loop/issues"
   },
-  "author": "GPlus Media",
   "license": "MIT",
-  "devDependencies": {
-    "node-sass": "^4.13.1"
+  "author": {
+    "name": "micantoine"
   },
   "files": [
     "dist/",
     "scss/"
   ],
+  "main": "scss/_loop.scss",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oo-loop/loop.git"
+  },
+  "scripts": {
+    "dev": "node-sass -r --output-style expanded --precision 6 src/index.scss dist/loop.css",
+    "build": "node-sass --output-style compressed --precision 6 src/index.scss dist/loop.css",
+    "watch": "npm run dev && npm run dev -- -w",
+    "example": "node-sass --output-style expanded --source-comments false --precision 6 example --output example/build"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
