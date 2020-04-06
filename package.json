@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "node-sass -r --output-style expanded --precision 6 src/index.scss dist/loop.css",
     "build": "node-sass --output-style compressed --precision 6 src/index.scss dist/loop.css",
-    "watch": "npm run dev && npm run dev -- -w"
+    "watch": "npm run dev && npm run dev -- -w",
+    "test": "node-sass --output-style expanded --source-comments false --precision 6 tests --output tests/build"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-docs/node_modules/
+tests/build/
 node_modules/
 
 \.DS_Store
