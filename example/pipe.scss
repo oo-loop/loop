@@ -58,7 +58,7 @@ $ooLoop: ooPipe(
       )
     ),
     screens: (
-      sm: (), // none specified
+      sm: '*', // all values
       md: ('tiny', 'small', 'medium'),
       lg: ('small', 'medium')
     )
