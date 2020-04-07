@@ -25,7 +25,19 @@
   @each $class, $gutter-name in $screens {
     @include breakpoint($class) {
       $suffix: \@#{$class};
-      @if isNotEmpty($gutter-name) {
+      @if $gutter-name == '*' or isList($screens) {
+        @each $gutter-name, $gutter-size in oo('#{$config-name}') {
+          @if isString($gutter-size) or isNumber($gutter-size) {
+            [#{ooPrefix()}-row~="#{$prefix}-#{$gutter-name}#{$suffix}"] {
+              @if $vertical {
+                @include columnVGutterProps($gutter-size);
+              } @else {
+                @include columnGutterProps($gutter-size);
+              }
+            }
+          } 
+        }
+      } @else if isNotEmpty($gutter-name) {
         $gutter-names: toList($gutter-name);
         @each $name in $gutter-names {
           $gutter-size: oo('#{$config-name}.#{$name}');
@@ -38,18 +50,6 @@
               }
             }
           }
-        }
-      } @else {
-        @each $gutter-name, $gutter-size in oo('#{$config-name}') {
-          @if isString($gutter-size) or isNumber($gutter-size) {
-            [#{ooPrefix()}-row~="#{$prefix}-#{$gutter-name}#{$suffix}"] {
-              @if $vertical {
-                @include columnVGutterProps($gutter-size);
-              } @else {
-                @include columnGutterProps($gutter-size);
-              }
-            }
-          } 
         }
       }
     }
@@ -66,17 +66,17 @@
   @each $class, $values in oo('column.#{$attribute-name}.screens') {
     @include breakpoint($class) {
       $suffix: \@#{$class};
-      @if isNotEmpty($values) {
+      @if $values == '*' {
+        @for $i from 0 to oo('column.system') {
+          [#{ooPrefix()}-col~="#{$attribute-name}#{$i}#{$suffix}"] { 
+            #{$prop-name}: call($prop-function, $i);
+          }
+        }
+      } @else if isNotEmpty($values) {
         $values: toList($values);
         @each $value in $values {
           [#{ooPrefix()}-col~="#{$attribute-name}#{$value}#{$suffix}"] {
             #{$prop-name}: call($prop-function, $value);
-          }
-        }
-      } @else {
-        @for $i from 0 to oo('column.system') {
-          [#{ooPrefix()}-col~="#{$attribute-name}#{$i}#{$suffix}"] { 
-            #{$prop-name}: call($prop-function, $i);
           }
         }
       }

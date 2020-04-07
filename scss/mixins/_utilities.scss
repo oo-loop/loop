@@ -31,7 +31,7 @@
 
       @if isMap($screens) {
         @each $class, $propsName in $screens {
-          @if isEmpty($propsName) or $propsName == '*' {
+          @if $propsName == '*' {
             @include loopBreakpoints(
               $class,
               $props,
@@ -39,7 +39,7 @@
               $prefix,
               $isImportant
             )
-          } @else {
+          } @else if isNotEmpty($propsName) {
             $propsName: toList($propsName);
             $propsTarget: ();
             @each $name in $propsName {
