@@ -41,7 +41,7 @@
         $gutter-names: toList($gutter-name);
         @each $name in $gutter-names {
           $gutter-size: oo('#{$config-name}.#{$name}');
-          @if $gutter-size {
+          @if isString($gutter-size) or isNumber($gutter-size) {
             [#{ooPrefix()}-row~="#{$prefix}-#{$name}#{$suffix}"] {
               @if $vertical {
                 @include columnVGutterProps($gutter-size);
