@@ -397,7 +397,7 @@ $ooLoop: (
     headings: true,
     content: true,
     
-    input: (
+    form: (
       textfield: true,
       select: true,
       checkbox: true,
@@ -411,12 +411,12 @@ $ooLoop: (
 
     container: true,
     visibility: true,
+    list: true,
     misc: true,
 
     utilities: (
       color: true,
       float: true,
-      list: true,
       spacing: true,
       typo: true,
       wrapper: true,

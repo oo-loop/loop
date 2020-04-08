@@ -51,20 +51,20 @@
   @if oo('use.button') {
     @include Button;
   }
-  @if oo('use.input.textfield') {
+  @if oo('use.form.textfield') {
     @include Label;
     @include TextField;
   }
-  @if oo('use.input.select') {
+  @if oo('use.form.select') {
     @include SelectField;
   }
-  @if oo('use.input.checkbox') {
+  @if oo('use.form.checkbox') {
     @include Checkbox;
   }
-  @if oo('use.input.radio') {
+  @if oo('use.form.radio') {
     @include Radio;
   }
-  @if oo('use.input.toggle') {
+  @if oo('use.form.toggle') {
     @include Toggle;
   }
   @if oo('use.container') {
@@ -72,6 +72,9 @@
   }
   @if oo('use.visibility') {
     @include Visibility;
+  }
+  @if oo('use.list') {
+    @include List;
   }
   @if (oo('use.misc')) {
     @include Misc;
@@ -84,9 +87,6 @@
   }
   @if oo('use.utilities.float') {
     @include Float;
-  }
-  @if oo('use.utilities.list') {
-    @include List;
   }
   @if oo('use.utilities.spacing') {
     @include Spacing;
