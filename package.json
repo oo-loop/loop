@@ -23,9 +23,10 @@
   },
   "files": [
     "dist/",
-    "scss/"
+    "scss/",
+    "loop.scss"
   ],
-  "style": "dist/loop.css",
+  "style": "scss/_loop.scss",
   "sass": "scss/_loop.scss",
   "main": "scss/_loop.scss",
   "directories": {
