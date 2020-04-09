@@ -1,45 +1,56 @@
+<p align="center"><a href="https://oo-loop.github.io/" title="loop"><img src="https://avatars2.githubusercontent.com/u/36288586?s=300" width="150" alt=""></a></p>
 <p align="center">
-    <img align="center" src="https://avatars2.githubusercontent.com/u/36288586?s=400" width="200" alt="">
+<a href="https://www.npmjs.com/package/oo-loop"><img alt="Npm" src="https://img.shields.io/npm/v/oo-loop.svg"></a>
+<a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg"></a>
 </p>
-<h3 align="center">Loop</h3>
-<p align="center">
-<em>"Why go in circles?"</em>
-<br>
-<br>
-<strong>SCSS Companion for Front-end Developer</strong>
-<br>
-    <a href="https://oo-loop.github.io/" title="documentation">> Documentation</a>  
-</p>  
 
-[![npm](https://img.shields.io/npm/v/oo-loop.svg?style=flat-square)](https://www.npmjs.com/package/oo-loop)
+# Loop
 
-## Introduction
-Have you ever worked on a project with your go-to css framework realizing that you were only using 10% of it. You had to add your own utilities, your own components and when trying to reuse something from its library, you actually had to overwrite some rules, tweak it, in order to reproduce what you wish for.   
-Have you ever wonder if the framework you were using was a real fit?.
+**Dev Companion for Flexible and Expressive CSS**
 
-Loop has been developed out of that feeling to overcome this problem.
+[Loop](https://oo-loop.github.io/) is a fully customizable Sass framework aiming to create a more maintainable and readable CSS.
+It gives you complete control on your project to let you create and match your styles with your design needs.
 
-## Loop
-Loop wants to reconsider the way CSS is created and used, aiming to make it more maintainable, readable and expressive.
+## Installation
 
-Loop works towards flexibilty and customization to give the developer complete control on his project letting him create his own set of utilities.   
-It is specifically based on variables to facilitate the addition and removal of rules and properties.
+Quick install via *npm* or *yarn*
 
-Loop is not a framework providing any possible existing components. Its philosophy is to be non-opinionated and to be more like a companion for CSS development assisting the developer matching their styles with their design needs.
+`npm install oo-loop` / `yarn add oo-loop`
 
-## Semantic
-Loop differentiates components and utilities with semantic for more clarity
+Being a sass framework, Loop requires a sass environment to be setup. Here are some options
+- [Sass](https://sass-lang.com/install) applications or command line
+- [node-sass](https://github.com/sass/node-sass#readme)
+- Webpack and [sass loader](https://webpack.js.org/loaders/sass-loader/)
+- Rollup and [rollup-plugin-sass](https://github.com/differui/rollup-plugin-sass#readme)
 
-* `oo-componentName` loop attribute for component
-* `.utilityName` class attribute for utility.
+## Getting started
 
-## Beware
-The loop attribute is not a valid html5 attribute.   
-If it does concern you, set the variable `$loop-component-html5-validity` to true.   
-Loop components will be then available through the data attribute `data-oo-componentName`.
+Import Loop framework into your sass file and launch it to start developing with it.
+Basing all its settings around the [config map](https://oo-loop.github.io/docs/config), the main file is the only import needed. 
 
-## Start
-Use yarn
-`yarn add oo-loop`   
-Use Npm
-`npm install oo-loop`
+```scss
+@import 'oo-loop/loop'; // Import
+@include ooCreate(); // Launch
+```
+
+## Separation of concerns
+
+Loop differentiates [components](https://oo-loop.github.io/docs/components) and [utilities](https://oo-loop.github.io/docs/utilities) with semantic for more clarity
+
+- `data-oo-componentName` / `oo-componentName` for component attributes
+- `.prefixName-valueName` for utility classes
+
+## Documentation
+
+To know more how to use Loop in your project check the live [documentation](https://oo-loop.github.io/)
+
+## Why Loop?
+
+The first iteration of Loop (0.4) focused on bringing the minimum to bootstrap any project. Instead of providing any possible existing components, Loop worked towards flexibility and customization to let the developer manage his own set of utilities; thus, making the CSS easier to maintain. Loop also introduced a new component syntax to improve HTML readibility making styling code more expressive and less confusing.
+
+Loop v1 continues into the same philosophy tackling this time the variables situation. What we often get from a css framework, is a list of single variable to customize elements or components properties. The list, covering a multitude of parameters, tends to be exhaustive and can become painful while searching for a possible change.
+
+Loop proposes to treat the variables as a single structured map to facilitate its use. As the result, the config map is enabling easy parsing and access to all the data during the development. Moreover, the introduction of properties such props and states offers a complete control over the style of elements and components. It is simplifying its customization by allowing you to add whatever CSS properties your need without worrying if it's changeable or not.
+
+## License
+[MIT](https://opensource.org/licenses/MIT)

@@ -1,44 +1,38 @@
-/**
- * breakpoints
- * based on material guidelines
- * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
- */
-
-@import '../functions/all';
-
-$breakpoints: (
-  xs: 480px,  // min width
-  sm: 600px,  // min width
-  md: 960px,  // min width
-  lg: 1280px, // min width
-) !default;
-
-$breakpoints-classes: (sm, md, lg) !default;
-$pointbreaks-classes: (sm, md, lg) !default;
-
-// including the first step
-$breakpoints-classes-width-default-value: join('', $breakpoints-classes);
-
 @mixin breakpoint($key) {
   // make sure the key exist
-  @if map-has-key($breakpoints, $key) {
-    $width: map-get($breakpoints, $key);
+  @if map-has-key(oo('breakpoints'), $key) {
+    $width: map-get(oo('breakpoints'), $key);
     @media (min-width: $width) {
       @content;
     }
-  } @elseif isEmpty($key) {
+  } @else if isEmpty($key) or $key == 'rt' {
     @content;
   }
 }
 
 @mixin pointbreak($key) {
   // make sure the key exist
-  @if map-has-key($breakpoints, $key) {
-    $width: map-get($breakpoints, $key) - 1;
-    @media (max-width: $width) {
+  @if map-has-key(oo('breakpoints'), $key) {
+    $minWidth: map-get(oo('breakpoints'), $key);
+    $maxWidth: $minWidth - 1;
+    @if unit($minWidth) == 'em' or unit('rem') {
+      $maxWidth: $minWidth - 0.001;
+    }
+    @media (max-width: $maxWidth) {
       @content;
     }
-  } @elseif isEmpty($key) {
+  } @else if isEmpty($key) or $key == 'rt' {
     @content;
   }
+}
+
+@function areKeysBreakpoints($map){
+  $breakpointsKeys: join('rt', map-keys(oo('breakpoints')));
+  $mapKeys: map-keys($map);
+  @each $key in $mapKeys {
+    @if inList($key, $breakpointsKeys) {
+      @return true;
+    }
+  }
+  @return false;
 }

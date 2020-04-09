@@ -1,0 +1,101 @@
+/// Init single element
+/// @param string $name Name of settings
+/// @param map $settings data
+/// @param bool $use-name-as-param Use the name as parameter in settings
+
+@mixin initElement($name, $settings, $use-name-as-param: true) {
+  $ooLoop: ooAdd('include', $name) !global;
+  @if $settings != null {
+    $map: mapMergeDeep($ooLoop, if($use-name-as-param, (#{$name}: $settings), $settings));
+    $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
+  }
+}
+
+
+/// Init ooLoop configs
+
+@mixin ooInit($custom:null) {
+  $map: if(hasRef($ooLoop), ooParse($ooLoop), $ooLoop);
+  @if isMap($custom) and isNotEmpty($custom) {
+    $map: mapMergeDeep($map, $custom);
+    $map: if(hasRef($map), ooParse($map), $map);
+  }
+  $map: setMapValue($map, 'init', true);
+  $ooLoop: $map !global;
+}
+
+/// Include ooLoop components and utilities base on $ooLoop config
+
+@mixin ooCreate($custom:null) {
+  @if not oo('init') {
+    @include ooInit($custom);
+  }
+
+  @if oo('use.base') {
+    @include Base;
+  }
+  @if oo('use.headings') {
+    @include Headings;
+  }
+  @if oo('use.content') {
+    @include Content;
+  }
+  @if oo('use.column') {
+    @include Column;
+  }
+  @if oo('use.template') {
+    @include Template;
+  }
+  @if oo('use.button') {
+    @include Button;
+  }
+  @if oo('use.form.textfield') {
+    @include Label;
+    @include TextField;
+  }
+  @if oo('use.form.select') {
+    @include SelectField;
+  }
+  @if oo('use.form.checkbox') {
+    @include Checkbox;
+  }
+  @if oo('use.form.radio') {
+    @include Radio;
+  }
+  @if oo('use.form.toggle') {
+    @include Toggle;
+  }
+  @if oo('use.container') {
+    @include Container;
+  }
+  @if oo('use.visibility') {
+    @include Visibility;
+  }
+  @if oo('use.list') {
+    @include List;
+  }
+  @if (oo('use.misc')) {
+    @include Misc;
+  }
+  @if oo('use.utilities.color') {
+    @include Color;
+  }
+  @if oo('use.utilities.typo') {
+    @include Typography;
+  }
+  @if oo('use.utilities.float') {
+    @include Float;
+  }
+  @if oo('use.utilities.spacing') {
+    @include Spacing;
+  }
+  @if oo('use.utilities.wrapper') {
+    @include Wrapper;
+  }
+  @if oo('utilities') {
+    @include generateUtilities(oo('utilities'));
+  }
+  @if oo('components') {
+    @include generateComponents(oo('components'));
+  }
+}

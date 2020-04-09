@@ -1,0 +1,56 @@
+@import 'scss/loop';
+
+$ooLoop: ooSet('template.areas', (
+  'home': (
+    rt: (
+      "header"
+      "main"
+      "sidebar"
+      "footer"
+    ),
+    sm: (
+      "header header header header"
+      "main main main sidebar"
+      "footer footer footer footer"
+    ),
+  ),
+  'abc': (
+    rt: (
+      "a" "b" "c"
+    ),
+    sm: (
+      "a a"
+      "c b"
+      "c b"
+    ),
+    md: (
+      "a a a"
+      "b c c"
+      "b c c"
+    ),
+    lg: (
+      "a b b"
+      "a c c"
+      "a . ."
+    ),
+  ),
+));
+
+$ooLoop: ooSet('template.gap', (
+  sizes: (
+    default: 1rem,
+    'less': 0,
+    'small': (
+      rt: .25rem,
+      sm: .5rem,
+    ),
+  ),
+  vsizes: (
+    'less': 0,
+  ),
+  screens: ('sm', 'lg'),
+  vscreens: this('template.gap.screens'),
+));
+
+@include ooInit;
+@include Template;

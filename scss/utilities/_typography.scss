@@ -1,0 +1,8 @@
+// Typography utilites
+
+@mixin Typography($param: null) {
+  @include initElement('typo', $param);
+  @if oo('typo') {
+    @include generateUtilities(oo('typo'));
+  }
+}

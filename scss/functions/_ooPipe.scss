@@ -1,0 +1,32 @@
+/// ooPipe
+/// Pipe list of ooSet Rules
+/// @param list $rules List of rules
+/// @return ooLoop
+
+@function ooPipe($rules...) {
+  $map: $ooLoop;
+  @each $rule in $rules {
+    @if getMapValue($rule, 'action') == 'add' {
+      $map: ooAdd(getMapValue($rule, 'path'), getMapValue($rule, 'value'), $map);
+    } @else {
+      $map: ooSetHard(getMapValue($rule, 'path'), getMapValue($rule, 'value'), $map);
+    }
+  }
+  @return $map;
+}
+
+@function _set($path, $value) {
+  @return (
+    path: $path,
+    value: $value,
+    action: 'set',
+  );
+}
+
+@function _add($path, $value) {
+  @return (
+    path: $path,
+    value: $value,
+    action: 'add',
+  );
+}

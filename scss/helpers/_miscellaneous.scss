@@ -1,0 +1,13 @@
+// Miscellaneous
+
+@mixin Misc($param: null) {
+  @include initElement('misc', $param);
+
+  @if isNotEmpty(oo('misc')) {
+    @each $name, $misc in oo('misc') {
+      .#{toKebabCase($name)} {
+        @include generateStyles($misc);
+      }
+    }
+  }
+}

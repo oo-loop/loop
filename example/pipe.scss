@@ -1,0 +1,90 @@
+@import 'scss/loop';
+
+$ooLoop: ooPipe(
+  /* Color */
+  _add('color.font.values', (
+    'body': this('body.props.color'),
+    'warning': #ce8a0d,
+  )),
+  _add('color.background.values', (
+    'danger': #f7c8c8
+  )),
+  _set('color.border.values', this('palette')),
+
+  /* Typography */
+  _add('typo', (
+    fontSize: (values: (
+      'tiny': rem(12),
+      'medium': rem(16),
+      'grow': (
+        rt: 1rem,
+        md: 1.25rem,
+        lg: 1.5rem,
+      ),
+    )),
+    fontWeight: (values: (
+      'light': 300,
+      'regular': 400,
+      'heavy': 800,
+    )),
+    fontFamily: (values: (
+      'code': (Consolas, Monaco, "Andale Mono", "Ubuntu Mono"),
+      'monospace': monospace,
+      'serif': (Georgia, "Times New Roman", Times),
+    )),
+    letterSpacing: (
+      prefix: 'text',
+      values: (
+        'tight': -1px,
+        'wide': .5px,
+        'wider': 1.5px,
+      )
+    ),
+    textAlign: (
+      screens: (md, lg)
+    ),
+  )),
+
+  /* wrapper */
+  _add('wrapper', (
+    values: (
+      'less': 0,
+      'tiny': .5rem,
+      'wide': (
+        rt: 1rem,
+        sm: 2rem,
+        md: 3rem,
+        lg: 4rem,
+      )
+    ),
+    screens: (
+      sm: '*', // all values
+      md: ('tiny', 'small', 'medium'),
+      lg: ('small', 'medium')
+    )
+  )),
+
+  /* extras */
+  _add('utilities', (
+    display: (
+      prefix: 'd',
+      values: 'block'
+    ),
+    overflow: (
+      values: 'hidden',
+    ),
+    shape: (
+      property: 'border-radius',
+      values: (
+        'squircle': 1em,
+        'stadium': 50em,
+      ),
+    ),
+  )),
+);
+
+@include ooInit;
+@include Color;
+@include Typography;
+@include Wrapper;
+@include generateUtilities(oo('utilities'));

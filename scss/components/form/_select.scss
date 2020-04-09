@@ -1,25 +1,10 @@
-/**
- * Select
- */
+// Select
 
-$select-size:    10px !default;
-$select-weight:  2px !default;
-$select-color:   $input-color !default;
-$select-bgcolor: $input-bgcolor !default;
-
-$select-themes: (
-// 'plain' : (
-//     'size' : $select-size,
-//     'color': $select-bgcolor,
-//     'bgcolor': $input-border-color,
-// )
-) !default;
-
-@mixin selectTheme($theme) {
+@mixin caretTheme($theme) {
   @if map-has-key($theme, 'size') {
-    &::before { width: (map-get($theme, 'size') * 3); }
+    &::before { width: (map-get($theme, 'size') * 4); }
     &::after {
-      right: map-get($theme, 'size');
+      right: map-get($theme, 'size') * 1.5;
       width: map-get($theme, 'size');
       height: map-get($theme, 'size');
     }
@@ -33,6 +18,18 @@ $select-themes: (
   @if map-has-key($theme, 'bgcolor') {
     &::before { background-color: map-get($theme, 'bgcolor'); }
   }
+  $border: map-get($theme, 'border');
+  @if map-has-key($theme, 'border') {
+    &::before {
+      @if isColor($border) {
+        border-color: $border;
+      } @else if $border != oo('select.props.border') {
+        border-top: $border;
+        border-right: $border;
+        border-bottom: $border;
+      }
+    }
+  }
   @if map-has-key($theme, 'color') {
     &::after {
       border-bottom-color: map-get($theme, 'color');
@@ -41,90 +38,131 @@ $select-themes: (
   }
 }
 
-[#{$loop-component-prefix}-form~="select"] {
-  position: relative;
-  display: block;
-  min-height: $input-height;
-  font-size: $input-font-size;
-  line-height: $input-line-height;
+@mixin SelectField($param: null) {
+  @include initElement('select', $param);
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-
-    content: '';
-
-    border-top: $input-border;
-    border-right: $input-border;
-    border-bottom: $input-border;
-    border-top-right-radius: $input-border-radius;
-    border-bottom-right-radius: $input-border-radius;
-
-    pointer-events: none;
-  }
-
-  &::after {
-    position: absolute;
-    top: 50%;
-
-    content: '';
-
-    border-bottom-style: solid;
-    border-right-style: solid;
-
-    pointer-events: none;
-    transform: rotateZ(45deg) translate3d(-50%, -50%, 0);
-  }
-
-  @include selectTheme((
-    'size' : $select-size,
-    'color': $select-color,
-    'bgcolor': $select-bgcolor,
-    'weight': $select-weight,
-  ));
-
-  > select {
-    @extend %input;
-    margin: 0;
-    height: 100%;
-    font-size: inherit;
-    appearance:none;
-
-    /* hide the default arrow in ie10 and ie11 */
-    &::-ms-expand {
-      display: none;
+  [#{ooPrefix()}-select] {
+    position: relative;
+    display: block;
+  
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      
+      $borderProps: oo('select.props.border');
+      @if ($borderProps) {
+        border-top: $borderProps;
+        border-right: $borderProps;
+        border-bottom: $borderProps;
+      }
+      $borderRadiusProps: if(oo('select.props.borderRadius'), oo('select.props.borderRadius'), oo('select.props.border-radius'));
+      @if ($borderRadiusProps) {
+        border-top-right-radius: $borderRadiusProps;
+        border-bottom-right-radius: $borderRadiusProps;
+      }
+      pointer-events: none;
     }
-  }
 
-  @if isNotEmpty($select-themes) and isMap($select-themes) {
-    @each $theme-name, $theme in $select-themes {
-      &[#{$loop-component-prefix}-form~="#{$theme-name}"] {
-        @include selectTheme($theme);
+    &::after {
+      position: absolute;
+      top: 50%;
+      content: '';
+      border-bottom-style: solid;
+      border-right-style: solid;
+      pointer-events: none;
+      transform: rotateZ(45deg) translateY(-50%) translateX(-50%);
+    }
+
+    @if oo('select.caret') {
+      @include caretTheme(oo('select.caret'));
+    }
+
+    > select {
+      margin: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      &::-ms-expand { // hide the default arrow in ie10 and ie11
+        display: none;
+      }
+
+      @if oo('select.props') == oo('input.props') and inList('input', 'include') {
+        @extend [#{ooPrefix()}-input];
+      } @else {
+        @include generateProperties(oo('select.props'));
+        @include generateStatesProperties(oo('select.states'));
+      }
+    }
+
+    &[class*="color-"] {
+      > select { color: inherit !important; }
+    }
+    &[class*="bg-"] {
+      > select { background-color: inherit !important; }
+    }
+    &[class*="border-"] {
+      > select,
+      &::before {
+        border-color: inherit !important;
       }
     }
   }
 
-  &[class*="color-"] {
-    > select { color: inherit !important; }
-  }
-  &[class*="bg-"] {
-    > select { background-color: inherit !important; }
-  }
-  &[class*="border-"] {
-    > select,
-    &::before {
-      border-color: inherit !important;
-    }
-  }
-}
+  @if oo('select.variants') and isMap(oo('select.variants')) {
+    @each $name, $props in oo('select.variants') {
 
-@if isNotEmpty($input-padding-sizes) {
-  @each $name, $padding in $input-padding-sizes {
-    [#{$loop-component-prefix}-form~="select"][#{$loop-component-prefix}-form~="#{$name}"] > select {
-      padding: #{$padding};
-      padding-right: 0;
+      [#{ooPrefix()}-select~="#{$name}"] {
+        /**
+        * @todo Think about a clever way to apply all those exceptions to the selector
+        */
+        @if map-has-key($props, 'background-color') {
+          &::before {
+            background-color: map-get($props, 'background-color');
+          }
+        } @else if map-has-key($props, 'backgroundColor') {
+          &::before {
+            background-color: map-get($props, 'backgroundColor');
+          }
+        }
+        @if map-has-key($props, 'border-color') and (
+          not map-has-key($props, 'caret')
+          or isNotColor(getMapValue(map-get($props, 'caret'), 'border'))
+        ) {
+          &::before {
+            border-color: map-get($props, 'border-color');
+          }
+        } @else if map-has-key($props, 'borderColor') and (
+          not map-has-key($props, 'caret')
+          or isNotColor(getMapValue(map-get($props, 'caret'), 'border'))
+        ) {
+          &::before {
+            border-color: map-get($props, 'borderColor');
+          }
+        }
+        @if map-has-key($props, 'border-radius') {
+          &::before {
+            border-top-right-radius: map-get($props, 'border-radius');
+            border-bottom-right-radius: map-get($props, 'border-radius');
+          }
+        } @else if map-has-key($props, 'borderRadius') {
+          &::before {
+            border-top-right-radius: map-get($props, 'borderRadius');
+            border-bottom-right-radius: map-get($props, 'borderRadius');
+          }
+        }
+
+        @if map-has-key($props, 'caret') and isMap(map-get($props, 'caret')) {
+          @include caretTheme(map-get($props, 'caret'));
+        }
+        > select {
+          @include generateProperties(map-remove($props, 'caret'));
+          @if map-has-key($props, 'padding') {
+            padding-right: 0;
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,42 @@
+/// In List
+/// @param string $needle the searched value
+/// @param string|list $haystack the list to search in
+/// @return bool
+
+@function inList($needle, $haystack) {
+  @if index($haystack, $needle) == null {
+    @return false;
+  } @else {
+    @return true;
+  }
+}
+
+@function notInList($needle, $haystack) {
+  @return if(inList($needle, $haystack), false, true);
+}
+
+/// Remove element from a list
+/// @param list $list
+/// @param number $index List index to remove
+/// @return List
+
+@function removeInList($list, $index) {
+  @if isNotList($list)
+    or isNotNumber($index) {
+    @return $list;
+  }
+  $newList: ();
+  @for $i from 1 through length($list) {
+    @if ($i != $index) {
+      $newList: append($newList, nth($list, $i), $separator: comma)
+    }
+  }
+  @return $newList;
+}
+
+@function toList($value) {
+  @if isList($value) {
+    @return $value;
+  }
+  @return ($value,);
+}

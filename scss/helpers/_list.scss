@@ -1,0 +1,35 @@
+// List
+
+@mixin List($param: null) {
+  @include initElement('list', $param);
+  ul,
+  ol {
+    &.list-center {
+      text-align: center;
+      padding-left: 0;
+      list-style-position: inside;
+    }
+  }
+
+  .list {
+    &-unstyle {
+      padding-left: 0;
+      list-style: none;
+  
+      ul { padding-left: 2.2em; }
+      .list-unstyle { padding-left: 1em; }
+    }
+  
+    &-inline {
+      padding-left: 0;
+      list-style: none;
+      > li {
+        margin-bottom: 0;
+        display: inline-block;
+        &:not(:last-child) {
+          margin-right: oo('list.inlineSpacing');
+        }
+      }
+    }
+  }
+}

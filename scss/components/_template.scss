@@ -1,0 +1,188 @@
+// Template Areas
+
+@function getAreaNames($areas) {
+  $list: ();
+  @each $area in $areas {
+    $areaNames: split(' ', $area);
+    @each $areaName in $areaNames {
+      @if notInList($areaName, $list) {
+        $list: join($list, $areaName);
+      }
+    }
+  }
+  @return $list;
+}
+@function getAreaColumnNumber($areas) {
+  @if isEmpty($areas) {
+    @return 0;
+  }
+  @each $area in $areas {
+    $areaNames: split(' ', $area);
+    @return length($areaNames);
+  }
+}
+
+@mixin makeGridTemplate($grid-template-areas) {
+  grid-template-areas: $grid-template-areas;
+  grid-template-columns: repeat(getAreaColumnNumber($grid-template-areas), 1fr);
+}
+@mixin makeGridArea($areaNames) {
+  @each $area in $areaNames {
+    @if $area != '.' {
+      [#{ooPrefix()}-area~="#{$area}"] {
+        grid-area: #{$area};
+      }
+    }
+  }
+}
+@mixin makeGrid($grid-template-areas) {
+  @include makeGridTemplate($grid-template-areas);
+  @include makeGridArea(getAreaNames($grid-template-areas));
+}
+@mixin makeGridOnBreakpoints($grid-template-areas) {
+  $area-names-list: ();
+  @each $breakpoint, $areas in $grid-template-areas {
+    $area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
+    @include breakpoint($breakpoint) {
+      @include makeGridTemplate($areas);
+    }
+  }
+  @include makeGridArea($area-names-list);
+}
+
+@mixin makeGapOnBreakpoint($breakpoint, $gap-sizes, $vertical: false) {
+  @include breakpoint($breakpoint) {
+    @each $gap-name, $gap-size in $gap-sizes {
+      @if $vertical {
+        [#{ooPrefix()}-template~="vgap-#{$gap-name}\@#{$breakpoint}"] { grid-row-gap: $gap-size; }
+      } @else {
+        [#{ooPrefix()}-template~="gap-#{$gap-name}\@#{$breakpoint}"] { grid-gap: $gap-size; }
+      }
+    }
+  }
+}
+@mixin makeGapOnScreens($screens, $gap-sizes, $vertical: false) {
+  @if isMap($screens) {
+    @each $class, $gap-names in $screens {
+      @if isEmpty($gap-names) {
+        @include makeGapOnBreakpoint($class, $gap-sizes, $vertical);
+      } @else {
+        $gap-names: toList($gap-names);
+        $gap-targets: ();
+        @each $name in $gap-names {
+          $size: oo(#{$name}, $gap-sizes);
+          @if $size{
+            $gap-targets: map-merge($gap-targets, ($name: $size));
+          }
+        }
+        @include makeGapOnBreakpoint($class, $gap-targets, $vertical);
+      }
+    }
+  } @else {
+    @if isString($screens) {
+      $screens: toList($screens);
+    }
+    @each $class in $screens {
+      @include makeGapOnBreakpoint($class, $gap-sizes, $vertical);
+    }
+  }
+}
+
+@mixin makeTemplate($template) {
+  @if isList($template) {
+    [#{ooPrefix()}-template] {
+      @include makeGrid($template);
+    }
+  } @else if isMap($template) {
+    @if areKeysBreakpoints($template) {
+      [#{ooPrefix()}-template] {
+        @include makeGridOnBreakpoints($template);
+      }
+    } @else {
+      @each $area-name, $grid in $template {
+        [#{ooPrefix()}-template~="#{$area-name}"] {
+          @if isMap($grid) {
+            @include makeGridOnBreakpoints($grid);
+          } @else if isList($grid) {
+            @include makeGrid($grid);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin Template($param: null) {
+  @include initElement('template', $param);
+
+  @if isNotEmpty(oo('template.areas')) {
+    [#{ooPrefix()}-template] {
+      display: grid;
+    }
+    @include makeTemplate(oo('template.areas'));
+  }
+
+  @if isString(oo('template.gap')) or isNumber(oo('template.gap')) {
+    [#{ooPrefix()}-template] {
+      grid-gap: oo('template.gap');
+    }
+  } @else if isMap(oo('template.gap')) and areKeysBreakpoints(oo('template.gap')) {
+    [#{ooPrefix()}-template] {
+      @include generatePropertyBreakpoints('grid-gap', oo('template.gap'));
+    }
+  }
+
+  $gap-sizes: oo('template.gap.sizes');
+  @if $gap-sizes {
+    $gap-sizes: if(isString($gap-sizes), (default: $gap-sizes), $gap-sizes);
+    @if areKeysBreakpoints($gap-sizes) {
+      [#{ooPrefix()}-template] {
+        @include generatePropertyBreakpoints('grid-gap', $gap-sizes);
+      }
+    } @else {
+      $non-responsise-gap-sizes: ();
+      @each $gap-name, $gap-size in $gap-sizes {
+        $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="gap-#{$gap-name}"');
+        [#{ooPrefix()}-#{$selector}] {
+          @if (isMap($gap-size)) {
+            @include generatePropertyBreakpoints('grid-gap', $gap-size);
+          } @else {
+            grid-gap: $gap-size;
+            $non-responsise-gap-sizes: map-merge(($gap-name: $gap-size), $non-responsise-gap-sizes)
+          }
+        }
+      }
+      $screens: oo('template.gap.screens');
+      @if $screens {
+        @include makeGapOnScreens($screens, $non-responsise-gap-sizes);
+      }
+    }
+  }
+
+  $vgap-sizes: oo('template.gap.vsizes');
+  @if $vgap-sizes {
+    $vgap-sizes: if(isString($vgap-sizes), (default: $vgap-sizes), $vgap-sizes);
+    @if areKeysBreakpoints($vgap-sizes) {
+      [#{ooPrefix()}-template] {
+        @include generatePropertyBreakpoints('grid-row-gap', $vgap-sizes);
+      }
+    } @else {
+      $non-responsise-vgap-sizes: ();
+      @each $gap-name, $gap-size in $vgap-sizes {
+        $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="vgap-#{$gap-name}"');
+        [#{ooPrefix()}-#{$selector}] {
+          @if (isMap($gap-size)) {
+            @include generatePropertyBreakpoints('grid-row-gap', $gap-size);
+          } @else {
+            grid-row-gap: $gap-size;
+            $non-responsise-vgap-sizes: map-merge(($gap-name: $gap-size), $non-responsise-vgap-sizes)
+          }
+        }
+      }
+      $vscreens: oo('template.gap.vscreens');
+      @if $vscreens {
+        @include makeGapOnScreens($vscreens, $non-responsise-vgap-sizes, true);
+      }
+    }
+  }
+}

@@ -1,158 +1,71 @@
-/**
- * Grid
- */
-
-$use-grid-layout: true !default;
-$use-grid-areas:  true !default;
-$use-grid-order:  true !default;
-$use-grid-gap:    true !default;
-$use-v-grid-gap:  true !default;
-
-$grid-gap: 	  $columns-gutter !default;
-$grid-system: $columns-system !default;
-$grid-template-areas: () !default ;
-
-$grid-gap-sizes:   $columns-gutter-sizes !default;
-$grid-v-gap-sizes: $grid-gap-sizes !default;
+// /**
+//  * Grid
+//  * @todo Refactor, add to config
+//  */
 
 
-// Grid layout
-@if $use-grid-layout {
-  [#{$loop-component-prefix}-grid~="layout"] {
-    display: grid;
-    grid-template-columns: repeat($grid-system, 1fr);
-    grid-gap: $grid-gap;
-  }
+// $loop-prefix: 'oo' !default;
+// $loop-component-html5-validity: false !default;
+// $loop-component-prefix: if($loop-component-html5-validity, #{'data-'}#{$loop-prefix}, $loop-prefix) !default;
 
-  [#{$loop-component-prefix}-grid*="col"],
-  [#{$loop-component-prefix}-grid*="row"] {
-    min-width: 0;
-  }
+// $use-grid-layout: true !default;
+// $use-grid-order: true !default;
+// $use-grid-gap: true !default;
+// $use-grid-vgap: true !default;
 
-  @each $class in $breakpoints-classes-width-default-value {
-    @include breakpoint($class) {
-      $suffix: '';
-      @if $class != '' {
-        $suffix: \@#{$class};
-      }
-      @for $i from 1 through $grid-system {
-        [#{$loop-component-prefix}-grid~="col-#{$i}#{$suffix}"] { grid-column: span $i; }
-        [#{$loop-component-prefix}-grid~="row-#{$i}#{$suffix}"] { grid-row: span $i; }
-      }
-    }
-  }
+// $grid-gap: 2.4rem !default;
+// $grid-system: 12 !default;
 
-  @if $use-grid-order {
-    @each $class in $breakpoints-classes {
-      @include breakpoint($class) {
-        $suffix: \@#{$class};
-        // order-0 to make sure it is first
-        [#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
-        @for $i from 1 through $grid-system {
-          [#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
-        }
-      }
-    }
-  }
-}
+// $grid-gap-sizes: (
+//   'less': 0,
+//   'small': 1.6rem,
+// ) !default;
+// $grid-vgap-sizes: $grid-gap-sizes !default;
 
-// Grid Areas
 
-@function getAreaNames($areas) {
-  $list: ();
-  @each $area in $areas {
-    $areaNames: split(' ', $area);
-    @each $areaName in $areaNames {
-      @if notInList($areaName, $list) {
-        $list: join($list, $areaName);
-      }
-    }
-  }
-  @return $list;
-}
-@function getAreaColumnNumber($areas) {
-  @each $area in $areas {
-    $areaNames: split(' ', $area);
-    @return length($areaNames);
-  }
-}
+// // Grid layout
+// @if $use-grid-layout {
+//   [#{$loop-component-prefix}-grid~="layout"] {
+//     display: grid;
+//     grid-template-columns: repeat($grid-system, 1fr);
+//     grid-gap: $grid-gap;
+//   }
 
-@mixin makeGridTemplate($grid-template-areas) {
-  grid-template-areas: $grid-template-areas;
-  grid-template-columns: repeat(getAreaColumnNumber($grid-template-areas), 1fr);
-}
-@mixin makeGridArea($areaNames) {
-  @each $area in $areaNames {
-    [#{$loop-component-prefix}-grid~="#{$area}"] {
-      grid-area: #{$area};
-      min-width: 0;
-    }
-  }
-}
-@mixin makeGrid($grid-template-areas) {
-  @include makeGridTemplate($grid-template-areas);
-  @include makeGridArea(getAreaNames($grid-template-areas));
-}
-@mixin makeGridOnBreakpoints($grid-template-areas) {
-  $area-names-list: ();
-  @each $breakpoint, $areas in $grid-template-areas {
-    $area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
-    @include breakpoint($breakpoint) {
-      @include makeGridTemplate($areas);
-    }
-  }
-  @include makeGridArea($area-names-list);
-}
+//   @each $class in join('', oo('screens')) {
+//     @include breakpoint($class) {
+//       $suffix: '';
+//       @if $class != '' {
+//         $suffix: \@#{$class};
+//       }
+//       @for $i from 1 through $grid-system {
+//         [#{$loop-component-prefix}-grid~="col-#{$i}#{$suffix}"] { grid-column: span $i; }
+//         [#{$loop-component-prefix}-grid~="row-#{$i}#{$suffix}"] { grid-row: span $i; }
+//       }
+//     }
+//   }
 
-@if $use-grid-areas and isNotEmpty($grid-template-areas) {
+//   @if $use-grid-order {
+//     @each $class in oo('screens') {
+//       @include breakpoint($class) {
+//         $suffix: \@#{$class};
+//         // order-0 to make sure it is first
+//         [#{$loop-component-prefix}-grid~="order-0#{$suffix}"] { order: -1; }
+//         @for $i from 1 through $grid-system {
+//           [#{$loop-component-prefix}-grid~="order-#{$i}#{$suffix}"] { order: $i; }
+//         }
+//       }
+//     }
+//   }
+// }
 
-  [#{$loop-component-prefix}-grid~="areas"] {
-    display: grid;
-    grid-gap: $grid-gap;
-  }
-
-  @if isList($grid-template-areas) {
-    [#{$loop-component-prefix}-grid~="areas"] {
-      @include makeGrid($grid-template-areas);
-    }
-  } @else if isMap($grid-template-areas) {
-
-    // are keys Breakpoints ?
-    $are-keys-breakpoints: false;
-    $map-keys: map-keys($grid-template-areas);
-    @each $key in $map-keys {
-      @if inList($key, $breakpoints-classes) {
-        $are-keys-breakpoints: true;
-        @break;
-      }
-    }
-
-    @if $are-keys-breakpoints {
-      [#{$loop-component-prefix}-grid~="areas"] {
-        @include makeGridOnBreakpoints($grid-template-areas);
-      }
-    } @else {
-      @each $grid-name, $grid-sub-areas in $grid-template-areas {
-        [#{$loop-component-prefix}-grid~="areas"][#{$loop-component-prefix}-grid~="#{$grid-name}"] {
-          @if isMap($grid-sub-areas) {
-            @include makeGridOnBreakpoints($grid-sub-areas);
-          } @else if isList($grid-sub-areas) {
-            @include makeGrid($grid-sub-areas);
-          }
-        }
-      }
-    }
-  }
-}
-
-// Grid Gap
-@if $use-grid-gap {
-  @each $gap-name, $gap-size in $grid-gap-sizes {
-    [#{$loop-component-prefix}-grid~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
-  }
-}
-@if $use-grid-gap and $use-v-grid-gap {
-  @each $gap-name, $gap-size in $grid-v-gap-sizes {
-    [#{$loop-component-prefix}-grid~="v-gap-#{$gap-name}"] { grid-row-gap: $gap-size; }
-  }
-}
+// // Grid Gap
+// @if $use-grid-gap {
+//   @each $gap-name, $gap-size in $grid-gap-sizes {
+//     [#{$loop-component-prefix}-grid~="gap-#{$gap-name}"] { grid-gap: $gap-size; }
+//   }
+// }
+// @if $use-grid-gap and $use-grid-vgap {
+//   @each $gap-name, $gap-size in $grid-vgap-sizes {
+//     [#{$loop-component-prefix}-grid~="vgap-#{$gap-name}"] { grid-row-gap: $gap-size; }
+//   }
+// }
