@@ -1,5 +1,9 @@
 # Loop changelog
 
+## 1.0.0-beta
+
+New Version implementing the single config map approach
+
 ## 0.4.17
 
 * Fix Radio button on IE 11
