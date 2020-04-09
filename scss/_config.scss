@@ -1,0 +1,425 @@
+$ooLoop: (
+  dataAttr: true,
+
+  breakpoints: (
+    xs: 30em, // 480px
+    sm: 37.500em, // 600px
+    md: 60em, // 960px
+    lg: 80em, // 1280px
+    xl: 120em, // 1980px
+  ),
+
+  screens: (sm, md, lg),
+
+  palette: (
+    'primary': #28a6c7,
+    'secondary': #959595,
+  ),
+
+  body: (
+    props: (
+      fontFamily: (-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
+      fontSize: 1em, // 16px
+      lineHeight: 1.375,
+      color: #444,
+    ),
+    smoothing: true,
+  ),
+
+  headings: (
+    props: (
+      marginTop: .67em,
+      marginBottom: .45em,
+      lineHeight: 1.125,
+    ),
+    sizes: (
+      h1: 2rem,
+      h2: rem(26),
+      h3: rem(22),
+      h4: rem(18),
+      h5: 1rem,
+      h6: rem(14),
+    ),
+    classes: (),
+  ),
+
+  paragraph: (
+    props: (
+      marginTop: .5em,
+      marginBottom: 1.125em,
+    )
+  ),
+
+  anchor: (
+    props: (
+      color: this('palette.primary'),
+      textDecoration: none,
+    ),
+    states: (
+      hover: (
+        color: ooDarken(this('anchor.props.color'), 12%),
+      ),
+      focus: this('anchor.states.hover'),
+    )
+  ),
+
+  list: (
+    props: (
+      marginTop: .5em,
+      marginBottom: 1.125em,
+      paddingLeft: 1.1em,
+    ),
+    inlineSpacing: 1em,
+  ),
+
+  hr: (
+    props:(
+      margin: 1rem auto,
+      borderBottom: 1px solid #cdcdcd,
+    )
+  ),
+
+  // Utility format
+  color: (
+    font: (
+      prefix: 'color',
+      property: 'color',
+      values: this('palette'),
+    ),
+    background: (
+      prefix: 'bg',
+      property: 'background-color',
+      values: (
+        _this('palette'),
+        (
+          'secondary': #f8f8f8,
+        )
+      )
+    ),
+    border: (
+      property: 'border-color',
+      values: (),
+    ),
+  ),
+
+  // Utility format
+  typo: (
+    fontSize: (
+      values: (
+        'large': rem(20),
+        'small': rem(14),
+      ),
+    ),
+    fontStyle: (
+      values: 'italic',
+    ),
+    fontWeight: (
+      values: (
+        'bold': 700,
+        'light': 300,
+      ),
+    ),
+    textAlign: (
+      values: (
+        'left',
+        'right',
+        'center',
+      )
+    ),
+    textTransform: (
+      values: (
+        'uppercase',
+      ),
+    ),
+  ),
+
+  // Utility format
+  float: (
+    values: (
+      'left',
+      'right',
+    ),
+    clearfix: true,
+  ),
+
+  // Utility format
+  wrapper: (
+    property: 'padding',
+    values: (
+      'small': 1rem,
+      'medium': 1.5rem,
+    ),
+  ),
+
+  // Utility format
+  spacing: (
+    left: (
+      prefix: 'ml',
+      property: 'margin-left',
+      values: (
+        '0': 0,
+        '5': rem(5),
+        '10': rem(10),
+        '15': rem(15),
+      ),
+    ),
+    right: (
+      prefix: 'mr',
+      property: 'margin-right',
+      values: this('spacing.left.values'),
+    ),
+    top: (
+      prefix: 'mt',
+      property: 'margin-top',
+      values: (
+        '0': 0,
+        '5': rem(5),
+        '10': rem(10),
+        '15': rem(15),
+        '30': rem(30),
+      ),
+    ),
+    bottom: (
+      prefix: 'mb',
+      property: 'margin-bottom',
+      values: this('spacing.top.values'),
+    ),
+  ),
+
+  visibility: (
+    breakpoints: this('screens'),
+    pointbreaks: this('screens'),
+  ),
+
+  container: (
+    gutter: (
+      rt: 1rem,
+      sm: 1.5rem,
+    ),
+    maxWidth: 1280px,
+  ),
+
+
+  column: (
+    screens: this('screens'),
+    system: 12,
+    gutter: (
+      screens: (),
+      sizes: (
+        default: this('container.gutter'),
+        'less': 0,
+      ),
+      vscreens: (),
+      vsizes: (),
+    ),
+    alignment: (
+      use: true,
+      screens: (),
+    ),
+    selfAlignment: (
+      use: true,
+      screens: (),
+    ),
+    childAlignment: (
+      use: false,
+    ),
+    fit: (
+      use: true,
+      screens: this('column.screens'),
+    ),
+    order: (
+      use: false,
+      screens: this('column.screens'),
+    ),
+  ),
+
+  template: (
+    areas: (),
+    gap: (
+      sizes: (),
+      screens: (),
+      vsizes: (),
+      vscreens: (),
+    ),
+  ),
+
+  button: (
+    props: (
+      padding: .438em 1.2em,
+      fontSize: rem(14),
+      fontWeight: bold,
+      lineHeight: 1.45,
+      color: #333,
+      backgroundColor: #fff,
+      border: 1px solid #cecece,
+      borderRadius: .2em,
+    ),
+    states: (
+      hover: (
+        color: this('button.props.color'),
+        backgroundColor: ooDarken(this('button.props.backgroundColor'), 10%),
+      ),
+      focus: this('button.states.hover'),
+      active: (
+        backgroundColor: ooDarken(this('button.props.backgroundColor'), 12%),
+        boxShadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
+        outline: none,
+      ),
+      disabled: (
+        opacity: .75,
+      ),
+    ),
+    colors: this('palette'),
+    outline: false,
+    variants: (
+      'full': (
+        width: 100%,
+      ),
+    )
+  ),
+
+  label: (
+    props: (
+      marginBottom: rem(3),
+      display: inline-block,
+      fontWeight: 500,
+      lineHeight: 1.5
+    )
+  ),
+
+  input: (
+    props: (
+      padding: .5em .625em,
+      display: block,
+      width: 100%,
+      minHeight: 2.5em,
+      color: #4d4d4d,
+      fontSize: 1rem,
+      lineHeight: 1.15,
+      backgroundColor: #fff,
+      border: 1px solid #d6d6d6,
+      borderRadius: .2em,
+    ),
+    states: (
+      focus: (
+        outline: none,
+        boxShadow: 0 0 8px 0 rgba(#aaa, .25),
+      ),
+    ),
+    variants: (),
+  ),
+  select: (
+    props: this('input.props'),
+    states: this('input.states'),
+    caret: (
+      size: 10px,
+      weight: 2px,
+      color: this('select.props.color'),
+      bgcolor: this('select.props.backgroundColor'),
+      border: this('select.props.border'),
+    ),
+    variants: this('input.variants'),
+  ),
+  checkbox: (
+    props: (
+      backgroundColor: #fff,
+      border: 1px solid #d6d6d6,
+      borderRadius: .2em,
+      transition: background-color 250ms ease-out,
+    ),
+    checked: (
+      markColor: #fff,
+      props: (
+        backgroundColor: #4d4d4d,
+        border: 1px solid #4d4d4d,
+      )
+    ),
+    sizes: (
+      default: rem(18),
+    ),
+    screens: (),
+  ),
+  radio: (
+    props: (
+      backgroundColor: #fff,
+      border: 1px solid #d6d6d6,
+    ),
+    checked: (
+      markColor: #fff,
+      props: (
+        backgroundColor: #4d4d4d,
+        borderColor: #4d4d4d,
+        transition: background-color 250ms ease-out,
+      )
+    ),
+    sizes: (
+      default: rem(18),
+    ),
+    screens: (),
+  ),
+  toggle: (
+    props: (
+      border: 1px solid #d6d6d6,
+      borderRadius: 50em,
+      backgroundColor: #d6d6d6,
+      transition: (background-color 300ms ease-in-out, border-color 300ms ease-in-out),
+    ),
+    toggler: (
+      borderRadius: 50%,
+      backgroundColor: #fff,
+      boxShadow: 1px 1px 2px 0 rgba(#4d4d4d, 0.3),
+      transition: transform 300ms ease-out,
+    ),
+    checked: (
+      props: (
+        borderColor: #4d4d4d,
+        backgroundColor: this('toggle.checked.props.borderColor'),
+      )
+    ),
+    sizes: (
+      default: 1.5rem,
+    )
+  ),
+
+  utilities: (),
+  components: (),
+  misc: (
+    'responsive': (
+      props: (
+        maxWidth: 100%,
+        height: auto,
+      )
+    ),
+  ),
+
+  use: (
+    base: true,
+    headings: true,
+    content: true,
+    
+    form: (
+      textfield: true,
+      select: true,
+      checkbox: true,
+      radio: true,
+      toggle: false,
+    ),
+
+    column: true,
+    template: true,
+    button: true,
+
+    container: true,
+    visibility: true,
+    list: true,
+    misc: true,
+
+    utilities: (
+      color: true,
+      float: true,
+      spacing: true,
+      typo: true,
+      wrapper: true,
+    ),
+  )
+) !default;

@@ -1,0 +1,19 @@
+@import 'scss/loop';
+
+@include ooInit;
+
+@include Column((
+  gutter: (
+    sizes: (
+      'small': .5rem,
+      'large': 1.5rem,
+    ),
+    vsizes: this('column.gutter.sizes'),
+    screens: (
+      sm: ('small', 'large'),
+      md: (),
+      lg: '*'
+    ),
+    vscreens: ('sm', 'md')
+  )
+));

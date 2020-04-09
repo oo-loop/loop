@@ -1,67 +1,8 @@
-/**
- * Spacing
- */
-$spacing-ratio: 0.1; // with 62.5% on root 10px = 1rem;
+// Spacing
 
-// vertical spacing
-$use-v-spacing: true !default;
-$v-spacing-from: 0 !default;
-$v-spacing-to:   50 !default;
-$v-spacing-step: 5 !default;
-$v-spacing-addon: () !default;
-$v-spacing-breakpoints-classes: () !default;
-
-// set default spacing
-$v-spacing: ();
-@for $i from $v-spacing-from through ceil($v-spacing-to / $v-spacing-step) {
-  $v-spacing: map-merge($v-spacing, (#{$i*$v-spacing-step}: #{$i*$v-spacing-step * $spacing-ratio}rem));
-}
-
-// check if any custom sizes have been required
-$v-spacing-addons: ();
-@if length($v-spacing-addon) > 0 {
-  @each $value in $v-spacing-addon {
-    $spacing_value: if($value == auto, auto, #{$value * $spacing-ratio}rem);
-    $v-spacing-addons: map-merge($v-spacing-addons, (#{$value}: $spacing_value));
+@mixin Spacing($param: null) {
+  @include initElement('spacing', $param);
+  @if isNotEmpty(oo('spacing')) {
+    @include generateUtilities(oo('spacing'));
   }
-}
-
-@if ($use-v-spacing) {
-  $v-spacings: mergeArray($v-spacing, $v-spacing-addons);
-  @include loop($v-spacings, 'margin-top', '.mt', true);
-  @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-top', '.mt', true);
-  @include loop($v-spacings, 'margin-bottom', '.mb', true);
-  @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-bottom', '.mb', true);
-}
-
-// horizontal spacing
-
-$use-h-spacing: true !default;
-$h-spacing-from: 0 !default;
-$h-spacing-to:   25 !default;
-$h-spacing-step: 5 !default;
-$h-spacing-addon: () !default;
-$h-spacing-breakpoints-classes: () !default;
-
-// set default spacing
-$h-spacing: ();
-@for $i from $h-spacing-from through ceil($h-spacing-to / $h-spacing-step) {
-  $h-spacing: map-merge($h-spacing, (#{$i*$h-spacing-step}: #{$i*$h-spacing-step * $spacing-ratio}rem));
-}
-
-// check if any custom sizes have been required
-$h-spacing-addons: ();
-@if length($h-spacing-addon) > 0 {
-  @each $value in $h-spacing-addon {
-    $spacing_value: if($value == auto, auto, #{$value * $spacing-ratio}rem);
-    $h-spacing-addons: map-merge($h-spacing-addons, (#{$value}: $spacing_value));
-  }
-}
-
-@if ($use-h-spacing) {
-  $h-spacings: mergeArray($h-spacing, $h-spacing-addons);
-  @include loop($h-spacings, 'margin-left', '.ml', true);
-  @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-left', '.ml', true);
-  @include loop($h-spacings, 'margin-right', '.mr', true);
-  @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-right', '.mr', true);
 }

@@ -1,28 +1,8 @@
-/**
- * Color Utilities
- */
+// Color Utilities
 
-// Text colors
-$text-colors: () !default;
-$text-colors-classes: $colors-classes !default;
-$text-colors-is-important: true !default;
-
-@include loop($text-colors, 'color', '.color', $text-colors-is-important);
-@include loopMapKeys($text-colors-classes, $colors, 'color', '.color', $text-colors-is-important);
-
-// Bg colors
-$bg-colors: () !default;
-$bg-colors-classes: $colors-classes !default;
-$bg-colors-is-important: false !default;
-
-@include loop($bg-colors, 'background-color', '.bg', $bg-colors-is-important);
-@include loopMapKeys($bg-colors-classes, $colors, 'background-color', '.bg', $bg-colors-is-important);
-
-// Border colors
-$border-colors: () !default;
-$border-colors-classes: $colors-classes !default;
-$border-colors-is-important: true !default;
-
-@include loop($border-colors, 'border-color', '.border', $border-colors-is-important);
-@include loopMapKeys($border-colors-classes, $colors, 'border-color', '.border', $border-colors-is-important);
-
+@mixin Color($param: null) {
+  @include initElement('color', $param);
+  @if isNotEmpty(oo('color')) {
+    @include generateUtilities(oo('color'));
+  }
+}

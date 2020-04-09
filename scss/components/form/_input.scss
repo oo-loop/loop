@@ -1,85 +1,25 @@
-/**
- * Input
- */
+// Input
 
-$input-color:            #4d4d4d !default;
-$input-bgcolor:          #fff !default;
-$input-font-family:      $font-family-base !default;
-$input-font-size:        $font-size-base !default;
-$input-font-style:       normal !default;
-$input-line-height:      1.15 !default;
-$input-height:           2.5em !default;
-
-$input-padding:          .5em .625em !default; // relative to the size of the input
-$input-padding-sizes:    () !default;
-
-$input-border-color:     #d6d6d6 !default;
-$input-border:           1px solid $input-border-color !default;
-$input-border-radius:    .2em !default; // relative to the size of the input
-$input-box-shadow:       1px 1px 1px 0 rgba(#aaa, .50) !default;
-$input-focus-box-shadow: 1px 1px 2px 0px rgba(#aaa, .85) !default;
-$input-focus-border-color: $input-border-color !default;
-
-$label-font-weight:      500 !default;
-$label-margin:           .3rem !default;
-
-%inputFocus {
-  @if $input-box-shadow == none and $input-focus-box-shadow != none {
-    box-shadow: $input-focus-box-shadow;
-  } @elseif $input-focus-box-shadow != none {
-    box-shadow: $input-box-shadow, $input-focus-box-shadow;
-  }
-
-  @if $input-border-color != $input-focus-border-color {
-    border-color: $input-focus-border-color;
-  }
-}
-
-%input,
-[#{$loop-component-prefix}-form~="input"] {
-  padding: $input-padding;
-
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  min-height: $input-height;
-
-  color: $input-color;
-  font-family: $input-font-family;
-  font-size: $input-font-size;
-  font-style: $input-font-style;
-  line-height: $input-line-height;
-
-  border: $input-border;
-  border-radius: $input-border-radius;
-  background-color: $input-bgcolor;
-
-  @if $input-box-shadow != none {
-    box-shadow: $input-box-shadow;
-  }
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  &:focus {
-    outline:none;
-    @extend %inputFocus;
-  }
-}
-
-label {
-  font-weight: $label-font-weight;
-  + [#{$loop-component-prefix}-form~="input"],
-  + [#{$loop-component-prefix}-form~="select"] {
-    margin-top: $label-margin;
-  }
-}
-
-@if isNotEmpty($input-padding-sizes) {
-  @each $name, $padding in $input-padding-sizes {
-    [#{$loop-component-prefix}-form~="input"][#{$loop-component-prefix}-form~="#{$name}"] {
-      padding: #{$padding};
+@mixin Label($param: null) {
+  @include initElement('label', $param);
+  @if isNotEmpty(oo('label.props')) {
+    label {
+      @include generateProperties(oo('label.props'));
     }
+  }
+}
+
+@mixin TextField($param: null) {
+  @include initElement('input', $param);
+
+  [#{ooPrefix()}-input] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    @include generateProperties(oo('input.props'));
+    @include generateStatesProperties(oo('input.states'));
+  }
+
+  @if isNotEmpty(oo('input.variants')) {
+    @include generateComponentVariants('input', oo('input.variants'));
   }
 }

@@ -1,0 +1,105 @@
+/// ooParse
+/// Parse a map of data making sure all references is being replaced
+/// @param map $map
+/// @return map
+
+@function ooParse($map) {
+  $map: parser($map);
+
+  @if (hasRef($map)) {
+    $map: ooParse($map);
+  }
+
+  @return $map;
+}
+
+/// parser
+/// Parse a map of data with potential ref `this()` within
+/// @param map $map
+/// @param map $backup the backupMap to refer to when getting data in a nested map
+/// @param string $path  a ooPathFormat to keep in mind where we are in a nested map
+/// @return map
+
+@function parser($map, $backup:null, $path:'') {
+  $parentMap: if($backup == null, $map, $backup);
+  
+  @each $key, $value in $map {
+    @if isMap($value) {
+      // set path to remember where we came from in a nested environment
+      $path: if(isEmpty($path), '#{$key}', '#{$path}.#{$key}');
+      $newValue: parser($value, $parentMap, $path);
+      $map: setMapValue($map, $key, $newValue);
+      // clear latest child in path to go backup in the nested environment 
+      $path: if(length(split('.', $path)) > 1, replace('.#{$key}', '', $path), replace('#{$key}', '', $path));
+    } @else if hasRef($value) {
+      $ooRef: extractRef($value);
+      $newValue: getRefValue($ooRef, $parentMap);
+
+      @if hasSpreadOperator($value) {
+        @if isNotList($value) {
+          @error 'spread operator must be used within a list';
+        }
+        @if isNotMap($newValue) {
+          //the use of replace is for some sass version
+          $ooRefPathList: split('.', replace('"', '', getRefPath($ooRef)));
+          $newValue: (nth($ooRefPathList, length($ooRefPathList)): $newValue);
+        }
+        $refIndex: index($value, '_#{$ooRef}');
+
+        $newMapValue: ();
+        @for $i from 1 through length($value) {
+          @if $i == $refIndex {
+            $newMapValue: map-merge($newMapValue, $newValue);
+          } @else if hasSpreadOperator(nth($value, $i)) {
+            $ooRefItem: extractRef(nth($value, $i));
+            $newValueItem: getRefValue($ooRefItem, $parentMap);
+            $newMapValue: map-merge($newMapValue, $newValueItem);
+          } @else if isNotMap(nth($value, $i)) {
+            @error 'spread operator only works along map';
+          } @else {
+            $newMapValue: map-merge($newMapValue, nth($value, $i));
+          }
+        }
+        $newValue: $newMapValue;
+      }
+      
+      @if isList($value) and isNotMap($newValue) {
+        $refIndex: index($value, $ooRef);
+        $newListValue: ();
+        @for $i from 1 through length($value) {
+          @if (isAlias(nth($value, $i))) {
+            @if hasRef($newValue) {
+              $newListValue: append($newListValue, replace($ooRef, $newValue, nth($value, $i)));
+            } @else {
+              $newListValue: append($newListValue, getAliasValue(nth($value, $i), $newValue));
+            }
+          } @else if ($i == $refIndex) {
+            $newListValue: append($newListValue, $newValue)
+          } @else {
+            $newListValue: append($newListValue, nth($value, $i))
+          }
+        }
+        $newValue: $newListValue;
+      }
+
+      @if isAlias($value) and isNotList($value) {
+        @if hasRef($newValue) {
+          $newValue: replace($ooRef, $newValue, $value);
+        } @else {
+          $newValue: getAliasValue($value, $newValue);
+        }
+      }
+
+      $map: ooSetSoft($key, $newValue, $map);
+
+      //update backup
+      @if isEmpty($path) {
+        $parentMap: mapMergeDeep($parentMap, $map);
+      } @else {
+        $parentMap: ooSetSoft($path, $map, $parentMap);
+      }
+    }
+  }
+
+  @return $map;
+}

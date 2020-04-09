@@ -1,0 +1,8 @@
+/// ooUse
+/// Set value for headings on $ooLoop
+/// @param map $config update value
+/// @return $ooLoop
+
+@function ooUse($config) {
+  @return ooSetSoft('use', $config);
+}

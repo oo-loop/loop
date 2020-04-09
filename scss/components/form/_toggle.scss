@@ -1,20 +1,6 @@
-/**
- * Toggle
- */
+// Toggle
 
-$toggle-size:                  2.4rem !default;
-$toggle-color:                 $input-bgcolor !default;
-$toggle-bgcolor:               $input-border-color !default;
-$toggle-border-color:          $toggle-bgcolor !default;
-$toggle-box-shadow:            $checkbox-box-shadow !default;
-
-$toggle-checked-bgcolor:       $input-color !default;
-$toggle-checked-border-color:  $toggle-checked-bgcolor !default;
-
-$use-toggle-animation: true !default;
-$toggle-sizes:() !default;
-
-@mixin toggle-size($size) {
+@mixin toggleSize($size) {
   & + label {
     &::before {
       $toggler-size: $size * .7;
@@ -24,12 +10,14 @@ $toggle-sizes:() !default;
       transform: translate3d(($size * .2), 0, 0);
     }
     &::after {
-      margin-right: ($size / 3);
-      min-width: ($size * 1.8);
+      margin-right: $size / 2.5;
+      min-width: $size * 1.8;
       min-height: $size;
     }
 
-    & + [#{$loop-component-prefix}-form~="toggle"] + label { margin-top: ($size / 3); }
+    & + [#{ooPrefix()}-toggle] + label {
+      margin-top: ($size / 3);
+    }
   }
 
   &:checked + label::before {
@@ -37,58 +25,51 @@ $toggle-sizes:() !default;
   }
 }
 
-[#{$loop-component-prefix}-form~="toggle"] {
-  position: absolute;
-  opacity: 0;
+@mixin Toggle($param: null) {
+  @include initElement('toggle', $param);
 
-  & + label {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    line-height: 1.1;
-    font-weight: $font-weight-base;
+  [#{ooPrefix()}-toggle] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 
-    &::before {
-      position: absolute;
-      left: 0;
-      content: '';
-      border-radius: 50%;
-      background-color: $toggle-color;
-      box-shadow: $toggle-box-shadow;
-
-      @if $use-toggle-animation {
-        transition: transform 300ms ease-out;
-      }
-    }
-    &::after {
+    & + label {
+      position: relative;
       display: flex;
-      order: -1;
-      content:'';
-      border: 1px solid $toggle-border-color;
-      border-radius: 50em;
-      background-color: $toggle-bgcolor;
-      box-shadow: $toggle-box-shadow;
+      align-items: center;
+      width: fit-content;
+      font-weight: inherit;
+      line-height: 1.1;
 
-      @if $use-toggle-animation {
-        transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
+      &::before {
+        position: absolute;
+        left: 0;
+        content: '';
+        @include generateProperties(oo('toggle.toggler'));
+      }
+      &::after {
+        display: flex;
+        order: -1;
+        content:'';
+        @include generateProperties(oo('toggle.props'));
+      }
+      &:empty::after {
+        margin-right: 0 !important;
+      }
+    }
+
+    &:checked + label::after {
+      @include generateProperties(oo('toggle.checked.props'));
+    }
+
+    @if isMap(oo('toggle.sizes')) {
+      @each $name, $size in oo('toggle.sizes') {
+        @if $name == 'default' {
+          @include toggleSize($size)
+        } @else {
+          &[#{ooPrefix()}-toggle~="#{$name}"] { @include toggleSize($size) }
+        }
       }
     }
   }
-
-  &:checked + label::after {
-    background-color: $toggle-checked-bgcolor;
-    border-color: $toggle-checked-border-color;
-  }
-  &:focus + label::after { @extend %inputFocus; }
-
-  @include toggle-size($toggle-size);
-
-  @if isMap($toggle-sizes) {
-    @each $size_name, $size_value in $toggle-sizes {
-      &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include toggle-size($size_value) }
-    }
-  }
-
-  [#{$loop-component-prefix}-form~="labelless"] + label::after { margin-right: 0; }
 }

@@ -1,0 +1,76 @@
+@import 'loop';
+
+/// Generate Utilities
+/// @param $utilitiesMap 
+
+ @mixin generateUtilities($utilitiesMap) {
+  @if map-has-key($utilitiesMap, 'values')
+    and map-has-key($utilitiesMap, 'name') {
+    $utilitiesMap: (map-get($utilitiesMap, 'name'): $utilitiesMap);
+  }
+
+  @each $name, $options in $utilitiesMap {
+    @if isMap($options) {
+      $props: if(map-has-key($options, 'values'), oo('values', $options), ());
+      $propertyName: if(map-has-key($options, 'property'), oo('property', $options), toKebabCase($name));
+      $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', toKebabCase($name)), 1));
+      $isImportant: if(map-has-key($options, 'important'), oo('important', $options), true);
+      $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
+      
+      @if not (str-slice(prefix, 1, 1) == '.') {
+        $prefix: '.' + $prefix;
+      }
+
+      @include loop(
+        $props,
+        $propertyName,
+        $prefix,
+        $isImportant
+      );
+
+      @if isMap($screens) {
+        @each $class, $propsName in $screens {
+          @if $propsName == '*' {
+            @include loopBreakpoints(
+              $class,
+              $props,
+              $propertyName,
+              $prefix,
+              $isImportant
+            )
+          } @else if isNotEmpty($propsName) {
+            $propsName: toList($propsName);
+            $propsTarget: ();
+            @each $name in $propsName {
+              $prop-value: '';
+              @if isList($props) {
+                $index: index($props, $name);
+                $prop-value: nth($props, $index);
+              } @else {
+                $prop-value: oo(#{$name}, $props);
+              }
+              @if $prop-value {
+                $propsTarget: map-merge($propsTarget, (#{$name}: $prop-value));
+              }
+            }
+            @include loopBreakpoints(
+              $class,
+              $propsTarget,
+              $propertyName,
+              $prefix,
+              $isImportant
+            )
+          }
+        }
+      } @else {
+        @include loopBreakpoints(
+          $screens,
+          $props,
+          $propertyName,
+          $prefix,
+          $isImportant
+        );
+      }
+    }
+  }
+}

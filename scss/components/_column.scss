@@ -1,0 +1,266 @@
+// Column
+
+@mixin columnGutterProps($size) {
+  left: -#{$size};
+  margin-bottom: -#{$size};
+  margin-right: -#{$size};
+  > [#{ooPrefix()}-col] {
+    margin-bottom: $size;
+    border-left-width: $size;
+  }
+}
+@mixin columnVGutterProps($size) {
+  margin-bottom: -#{$size};
+  > [#{ooPrefix()}-col] {
+    margin-bottom: $size;
+  }
+}
+@mixin columnGutterScreens($screens, $vertical:false) {
+  $screens: if(isString($screens), toList($screens), $screens);
+  $config-name: if($vertical, 'column.gutter.vsizes', 'column.gutter.sizes');
+  $prefix: if($vertical, 'vgutter', 'gutter');
+
+  @each $class, $gutter-name in $screens {
+    @include breakpoint($class) {
+      $suffix: \@#{$class};
+      @if $gutter-name == '*' or isList($screens) {
+        @each $gutter-name, $gutter-size in oo('#{$config-name}') {
+          @if isString($gutter-size) or isNumber($gutter-size) {
+            [#{ooPrefix()}-row~="#{$prefix}-#{$gutter-name}#{$suffix}"] {
+              @if $vertical {
+                @include columnVGutterProps($gutter-size);
+              } @else {
+                @include columnGutterProps($gutter-size);
+              }
+            }
+          } 
+        }
+      } @else if isNotEmpty($gutter-name) {
+        $gutter-names: toList($gutter-name);
+        @each $name in $gutter-names {
+          $gutter-size: oo('#{$config-name}.#{$name}');
+          @if isString($gutter-size) or isNumber($gutter-size) {
+            [#{ooPrefix()}-row~="#{$prefix}-#{$name}#{$suffix}"] {
+              @if $vertical {
+                @include columnVGutterProps($gutter-size);
+              } @else {
+                @include columnGutterProps($gutter-size);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@function columnSetOrder($index) {
+  @return if($index > 0, $index, -1);
+}
+@mixin columnResponsiveAttribute($attribute-name, $prop-name, $prop-function) {
+  @if function-exists('get-function') {
+    $prop-function: get-function($prop-function);
+  }
+  @each $class, $values in oo('column.#{$attribute-name}.screens') {
+    @include breakpoint($class) {
+      $suffix: \@#{$class};
+      @if $values == '*' {
+        @for $i from 0 to oo('column.system') {
+          [#{ooPrefix()}-col~="#{$attribute-name}#{$i}#{$suffix}"] { 
+            #{$prop-name}: call($prop-function, $i);
+          }
+        }
+      } @else if isNotEmpty($values) {
+        $values: toList($values);
+        @each $value in $values {
+          [#{ooPrefix()}-col~="#{$attribute-name}#{$value}#{$suffix}"] {
+            #{$prop-name}: call($prop-function, $value);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin Column($param: null) {
+  @include initElement('column', $param);
+
+  [#{ooPrefix()}-row] {
+    position: relative;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    clear: both;
+  }
+
+  [#{ooPrefix()}-col] {
+    flex-shrink: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  // reponsives classes starting from root
+  @each $class in join('rt', oo('column.screens')) {
+    @include breakpoint($class) {
+      $suffix: '';
+      @if $class != 'rt' {
+        $suffix: \@#{$class};
+
+        // auto col
+        [#{ooPrefix()}-col~="auto#{$suffix}"] {
+          flex-basis: 0;
+          max-width: 100%;
+        }
+
+      }
+      // columns
+      @for $i from 1 through oo('column.system') {
+        [#{ooPrefix()}-col~="span#{$i}#{$suffix}"] {
+          flex-basis: percentage($i / oo('column.system'));
+          max-width: percentage($i / oo('column.system'));
+        }
+      }
+
+      @if oo('column.fit.use')
+        and (inList($class, toList(oo('column.fit.screens'))) or isEmpty($suffix)) {
+        [#{ooPrefix()}-col~="fit#{$suffix}"] {
+          min-width: auto;
+          flex-grow: 0;
+          flex-basis: auto;
+        }
+      }
+
+      @if oo('column.alignment.use')
+        and (inList($class, toList(oo('column.alignment.screens'))) or isEmpty($suffix)) {
+        // horizontal alignment
+        [#{ooPrefix()}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
+        [#{ooPrefix()}-row~="align-center#{$suffix}"] { justify-content: center; }
+        [#{ooPrefix()}-row~="align-right#{$suffix}"]  { justify-content: flex-end; }
+        [#{ooPrefix()}-row~="align-evenly#{$suffix}"] { justify-content: space-evenly; }
+        [#{ooPrefix()}-row~="align-between#{$suffix}"]{ justify-content: space-between; }
+
+        // vertical alignment
+        [#{ooPrefix()}-row~="valign-top#{$suffix}"]    { align-items: flex-start; }
+        [#{ooPrefix()}-row~="valign-middle#{$suffix}"] { align-items: center; }
+        [#{ooPrefix()}-row~="valign-bottom#{$suffix}"] { align-items: flex-end; }
+      }
+
+      @if oo('column.selfAlignment.use')
+        and (inList($class, toList(oo('column.selfAlignment.screens'))) or isEmpty($suffix)) {
+        // horizontal alignment
+        [#{ooPrefix()}-col~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
+        [#{ooPrefix()}-col~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
+        [#{ooPrefix()}-col~="self-align-right#{$suffix}"]  { margin-left: auto; margin-right: initial; }
+
+        // vertical alignment
+        [#{ooPrefix()}-col~="self-valign-top#{$suffix}"]    { align-self: flex-start; }
+        [#{ooPrefix()}-col~="self-valign-middle#{$suffix}"] { align-self: center; }
+        [#{ooPrefix()}-col~="self-valign-bottom#{$suffix}"] { align-self: flex-end; }
+      }
+    }
+  }
+
+  @if oo('column.childAlignment.use') {
+    [#{ooPrefix()}-col*="child-align-"] > * {
+      display: flex;
+      flex-direction: column;
+    }
+
+    // horizontal alignment
+    [#{ooPrefix()}-col~="child-align-left"] > *    { align-items: flex-start; }
+    [#{ooPrefix()}-col~="child-align-center"] > *  { align-items: center; }
+    [#{ooPrefix()}-col~="child-align-right"] > *   { align-items: flex-end; }
+
+    // vertical alignment
+    [#{ooPrefix()}-col~="child-valign-top"] > *    { justify-content: flex-start; }
+    [#{ooPrefix()}-col~="child-valign-middle"] > * { justify-content: center; }
+    [#{ooPrefix()}-col~="child-valign-bottom"] > * { justify-content: flex-end; }
+  }
+
+  // Order
+  @if oo('column.order.use') and isNotEmpty(oo('column.order.screens')) {
+    @include columnResponsiveAttribute('order', 'order', 'columnSetOrder');
+  }
+
+  // stretch
+  [#{ooPrefix()}-row~="stretch"] {
+    align-items: stretch;
+    > [#{ooPrefix()}-col] {
+      display: flex;
+      > * {
+        width:100%;
+      }
+    }
+  }
+
+  // gutter
+  @if isNotEmpty(oo('column.gutter')) {
+    [#{ooPrefix()}-row] > [#{ooPrefix()}-col] {
+      background-clip: padding-box;
+      border-left-style: solid;
+      border-left-color: transparent;
+    }
+  }
+
+  @if isString(oo('column.gutter')) or isNumber(oo('column.gutter')) {
+    [#{ooPrefix()}-row] {
+      $gutter-size: oo('column.gutter');
+      @include columnGutterProps($gutter-size);
+    }
+  } @else if isMap(oo('column.gutter')) and areKeysBreakpoints(oo('column.gutter')) {
+    [#{ooPrefix()}-row] {
+      $gutter-size: oo('column.gutter');
+      @each $key, $value in $gutter-size {
+        @include breakpoint($key) {
+          @include columnGutterProps($value);
+        }
+      }
+    }
+  } @else if isNotEmpty(oo('column.gutter.sizes')) {
+    @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
+      $selector: if(isEmpty($gutter-name) or $gutter-name == 'default', 'row', 'row~="gutter-#{$gutter-name}"');
+      [#{ooPrefix()}-#{$selector}] {
+        @if (isMap($gutter-size)) {
+          @each $key, $value in $gutter-size {
+            @include breakpoint($key) {
+              @include columnGutterProps($value);
+            }
+          }
+        } @else if isString($gutter-size) or isNumber($gutter-size) {
+          @include columnGutterProps($gutter-size);
+        }
+      }
+    }
+    @include columnGutterScreens(oo('column.gutter.screens'));
+  }
+
+  // vgutter
+  @if isNotEmpty(oo('column.gutter.vsizes')) {
+    @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
+      $suffix: if(isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
+      @if (isMap($vgutter-size)) {
+        @each $key, $value in $vgutter-size {
+          [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
+            @include columnVGutterProps($value);
+          }
+        }
+      } @else if isString($vgutter-size) or isNumber($vgutter-size) {
+        [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
+          @include columnVGutterProps($vgutter-size);
+        }
+      }
+    }
+    @include columnGutterScreens(oo('column.gutter.vscreens'), true);
+  }
+
+  // clear
+  [#{ooPrefix()}-col~="clear"] {
+    margin: 0 !important;
+    flex-basis: 100%;
+    max-width: 100%;
+    border: 0 !important;
+  }
+}  

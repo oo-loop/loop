@@ -1,16 +1,12 @@
-/**
- * fontSmoothing
- * @param $smooth bool Apply smoothing ?
- */
+/// fontSmoothing
+/// @param bool $smooth Apply smoothing ?
 
 @mixin fontSmoothing($smooth : true) {
   @if $smooth == false {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
-    font-smoothing: auto;
   } @else {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
   }
 }

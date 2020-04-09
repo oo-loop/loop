@@ -1,0 +1,69 @@
+
+/// Generate Properties
+/// @param $propertiesMap 
+
+@mixin generateProperties($propertiesMap) {
+  @if isMap($propertiesMap) {
+    @each $propertyName, $propertyValue in $propertiesMap {
+      $propertyName: toKebabCase($propertyName);
+
+      @if inList($propertyName, ('before', 'after')) {
+        &::#{$propertyName} {
+          @include generateProperties($propertyValue);
+        }
+      } @else if isMap($propertyValue) and areKeysBreakpoints($propertyValue) {
+        @include generatePropertyBreakpoints($propertyName, $propertyValue);
+      } @else if isMap($propertyValue) and $propertyName == '>' {
+        @each $childSelector, $childProps in $propertyValue {
+          $childSelector: toKebabCase($childSelector);
+          #{$childSelector} {
+            @include generateProperties($childProps);
+          }
+        }
+      } @else {
+        #{$propertyName}: $propertyValue;
+      }
+    }
+  }
+}
+
+@mixin generatePropertyBreakpoints($propertyName, $valueMap) {
+  @each $key, $value in $valueMap {
+    @include breakpoint($key) {
+      #{$propertyName}: $value;
+    }
+  }
+}
+@mixin breakpointProperty($propertiesMap) {
+  @if isNotMap($propertiesMap) {
+    @error 'Pass a property Map with `breakpointProperty()`';
+  }
+  @each $propertyName, $propertyValue in $propertiesMap {
+    $propertyName: toKebabCase($propertyName);
+    @if not areKeysBreakpoints($propertyValue) {
+      @error 'Use a breakpoint map as a property value with `breakpointProperty()`';
+    }
+    @include generatePropertyBreakpoints($propertyName, $propertyValue)
+  }
+}
+
+@mixin generateStatesProperties($statesPropertiesMap) {
+  @if isMap($statesPropertiesMap) {
+    @each $state, $props in $statesPropertiesMap {
+      &:#{$state} {
+        @include generateProperties($props);
+      }
+    }
+  }
+}
+
+@mixin generateStyles($element) {
+  @if isMap($element) {
+    @if map-has-key($element, 'props') {
+      @include generateProperties(map-get($element, 'props')); 
+    }
+    @if map-has-key($element, 'states') {
+      @include generateStatesProperties(map-get($element, 'states')); 
+    }
+  }
+}

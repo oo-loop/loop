@@ -1,63 +1,81 @@
-/**
- * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
- * @return string
- */
+/// getMapValue
+/// @param map $map map of data
+/// @param string $key key to retrieve the value from
+/// @return string
+
 @function getMapValue($map, $key) {
+  @if isNotMap($map) {
+    @return null;
+  }
   @if map-has-key($map, $key) == false {
-    @warn ('key does not exist when using getMapValue()');
-    @return '';
+    // @warn 'key does not exist when using getMapValue() for' #{$key} 'on' $map;
+    @return null;
   }
   @return map-get($map, $key);
 }
 
-/**
- * getColors
- * Get value from the map variable $colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-@function getColors($key) {
-  @return getMapValue($colors, $key);
+
+
+/// mapMergeDeep
+/// Non destructive map merge. 
+/// @credit-to  https://gist.github.com/pentzzsolt
+/// @param map $parentMap Map of data to be merged into
+/// @param map $childMap The set of data
+/// @param map $refMap The base map to refer too,
+///   usually equivalent to the $ooLoop before going into nested merge
+/// @return map
+
+@function mapMergeDeep($parentMap, $childMap, $refMap:null) {
+  $map: $parentMap;
+  @if not isMap($map) {
+    @return $map;
+  }
+
+  $refMap: if($refMap == null, $ooLoop, $refMap);
+
+  @each $key, $value in $childMap {   
+    @if isRef(map-get($map, $key)) {
+      $mapValue: getRefValue(map-get($map, $key), $refMap);
+      $map: map-merge($map, ($key: $mapValue));
+    }
+    @if (not map-has-key($map, $key)) or (type-of(map-get($map, $key) ) != type-of($value)) or (not (isMap(map-get($map, $key)) and isMap($value))) {
+       $map: map-merge($map, ($key: $value));
+    } @else {
+      $map: map-merge($map, ($key: mapMergeDeep(map-get($map, $key), $value, $refMap)));
+    }
+  }
+  @return $map;
 }
 
-/**
- * getTextColors
- * Get value from the map variable $text-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-@function getTextColors($key) {
-  @return getMapValue($text-colors, $key);
+
+/// setMapValue
+/// @param map $map  map of data
+/// @param string $key key to retrieve the value from
+/// @return string
+
+@function setMapValue($map, $key, $value) {
+  $newSet: ($key: $value);
+  @return map-merge($map, $newSet);
 }
 
-/**
- * getBgColors
- * Get value from the map variable $bg-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-@function getBgColors($key) {
-  @return getMapValue($bg-colors, $key);
-}
+/// toMap [w.i.p]
+/// Convert a stringified map to a map format
+/// @param string $string Stringified map
+/// @return map
 
-/**
- * getBorderColors
- * Get value from the map variable $border-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-@function getBorderColors($key) {
-  @return getMapValue($border-colors, $key);
-}
+/// @todo consider type change
+/// @todo consider nested map
 
-/**
- * getTextSizes
- * Get value from the map variable $text-sizes
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-@function getTextSizes($key) {
-  @return getMapValue($text-sizes, $key);
+@function toMap($string) {
+  @if isMap($string) {
+    @return $string;
+  }
+  $map: ();
+  $stripParenthesis: str-slice($string, 2, str-length($string) - 1);
+  $list: split(',', $stripParenthesis);
+  @each $item in $list {
+    $itemList: split(':', $item);
+    $map: setMapValue($map, nth($itemList, 1), nth($itemList, 2));
+  }
+  @return $map;
 }

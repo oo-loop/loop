@@ -1,13 +1,8 @@
-/**
- * Wrapper
- */
+// Wrapper
 
-$wrapper-padding-sizes: (
-  'tiny': .8rem,
-  'small': 1.6rem,
-  'medium': 2.4rem,
-) !default;
-$wrapper-breakpoints-classes: () !default;
-
-@include loop($wrapper-padding-sizes, 'padding', '.wrapper');
-@include loopBreakpoints($wrapper-breakpoints-classes, $wrapper-padding-sizes, 'padding', '.wrapper');
+@mixin Wrapper($param: null) {
+  @include initElement('wrapper', $param);
+  @if isNotEmpty(oo('wrapper')) {
+    @include generateUtilities((wrapper: oo('wrapper')));
+  }
+}
