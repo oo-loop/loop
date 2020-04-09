@@ -167,13 +167,13 @@ $colorPalette: (
 
 $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
 
-/**
- * toColor
- * @param string stringified color
- * @return color
- *
- * @todo consider rgb, rgba, hls format
- */
+
+/// toColor
+/// @param string stringified color
+/// @return color
+///
+/// @todo consider rgb, rgba, hls format
+
 @function toColor($colorString) {
   @if isEmpty($colorString) {
     @return $colorString;
@@ -205,11 +205,10 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 }
 
 
-/**
- * isHexColor
- * @param string stringified color
- * @return boolean
- */ 
+/// isHexColor
+/// @param string stringified color
+/// @return boolean
+
 @function isHexColor($colorString) {
   @if isEmpty($colorString) {
     @return false;
@@ -226,13 +225,12 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 }
 
 
-/**
- * Is Bright
- * @param color
- * @param threshold range from 0 to 255, but more than the half (125)
- * @return bool
- */
- @function isBright($color, $threshold: 188) {
+/// Is Bright
+/// @param color
+/// @param threshold range from 0 to 255, but more than the half (125)
+/// @return bool
+
+@function isBright($color, $threshold: 188) {
   @if isNotColor($color) {
     @return false;
   }

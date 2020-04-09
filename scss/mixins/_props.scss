@@ -1,7 +1,6 @@
-/**
- * Generate Properties
- * @param $propertiesMap 
- */
+
+/// Generate Properties
+/// @param $propertiesMap 
 
 @mixin generateProperties($propertiesMap) {
   @if isMap($propertiesMap) {

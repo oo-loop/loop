@@ -1,7 +1,4 @@
-/**
- * Container
- */
-
+// Container
 @mixin Container($param: null) {
   @include initElement('container', $param);
 

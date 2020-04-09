@@ -1,6 +1,4 @@
-/**
- * Visibility Utilities
- */
+// Visibility Utilities
 
 @mixin Visibility($param: null) {
   @include initElement('visibility', $param);

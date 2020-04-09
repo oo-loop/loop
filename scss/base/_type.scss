@@ -1,6 +1,4 @@
-/**
- * Typography
- */
+// Typography
 
 @mixin Headings($param: null) {
   @include initElement('headings', $param);

@@ -1,6 +1,4 @@
-/**
- * FLoat utilites
- */
+// FLoat utilites
 
 @mixin Float($param: null) {
   @include initElement('float', $param);

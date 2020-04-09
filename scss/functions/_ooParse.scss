@@ -1,10 +1,9 @@
-/**
- * ooParse
- * Parse a map of data making sure all references is being replaced
- * @param map $map
- * @return map
- */
- @function ooParse($map) {
+/// ooParse
+/// Parse a map of data making sure all references is being replaced
+/// @param map $map
+/// @return map
+
+@function ooParse($map) {
   $map: parser($map);
 
   @if (hasRef($map)) {
@@ -14,14 +13,13 @@
   @return $map;
 }
 
-/**
- * parser
- * Parse a map of data with potential ref `this()` within
- * @param map $map
- * @param map $backup the backupMap to refer to when getting data in a nested map
- * @param string $path  a ooPathFormat to keep in mind where we are in a nested map
- * @return map
- */
+/// parser
+/// Parse a map of data with potential ref `this()` within
+/// @param map $map
+/// @param map $backup the backupMap to refer to when getting data in a nested map
+/// @param string $path  a ooPathFormat to keep in mind where we are in a nested map
+/// @return map
+
 @function parser($map, $backup:null, $path:'') {
   $parentMap: if($backup == null, $map, $backup);
   

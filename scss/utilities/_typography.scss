@@ -1,6 +1,4 @@
-/**
- * Typography utilites
- */
+// Typography utilites
 
 @mixin Typography($param: null) {
   @include initElement('typo', $param);

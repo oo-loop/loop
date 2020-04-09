@@ -11,9 +11,9 @@ $ooAlias: (
   ),
 );
 
-/** 
- * Aliases function used before init
- */
+
+// Aliases function used before init
+
 @function ooDarken($value, $percentage) {
   @if isNotColor($value) {
     @return $value;
@@ -27,12 +27,11 @@ $ooAlias: (
   @return lighten($value, $percentage);
 }
 
-/** 
- * isAlias
- * check if a string is a sass alias function
- * @param string $string the string to check
- * @return bool
- */
+/// isAlias
+/// check if a string is a sass alias function
+/// @param string $string the string to check
+/// @return bool
+
 @function isAlias($string) {
   @if isNotString($string) {
     @return false;
@@ -49,15 +48,15 @@ $ooAlias: (
   @return $isAlias;
 }
 
-/** 
- * getAliasValue
- * retrieve the value of an alias function
- * @param string $string The complete alias function
- * @param string $value Value of the 1st parameter
- * @return bool
- *
- * @todo review, simplify
- */
+
+/// getAliasValue
+/// retrieve the value of an alias function
+/// @param string $string The complete alias function
+/// @param string $value Value of the 1st parameter
+/// @return bool
+
+/// @todo review, simplify
+
 @function getAliasValue($string, $param:null) {
   $currentAlias: null;
   $function: null;

@@ -1,9 +1,8 @@
 @import 'props';
 
-/**
- * Create component
- * @param string $name 
- */
+/// Create component
+/// @param string $name 
+
 @mixin ooComponent($name) {
   @if isNotString($name) {
     @error 'Parameter $name on ooComponent must be a string';
@@ -13,11 +12,10 @@
   }
 }
 
-/**
- * Create component Variant
- * @param string $name
- * @param string $variantName
- */
+/// Create component Variant
+/// @param string $name
+/// @param string $variantName
+
 @mixin ooComponentVariant($name, $variantName) {
   @if isNotString($name) {
     @error 'Parameter $name on ooComponentVariant must be a string';
@@ -30,11 +28,10 @@
   }
 }
 
-/**
- * Generate Component Variants
- * @param $componentName Name of the component to attach the variants
- * @param $variantsMap
- */
+/// Generate Component Variants
+/// @param $componentName Name of the component to attach the variants
+/// @param $variantsMap
+
 @mixin generateComponentVariants($componentName, $variantsMap) {
   @if isNotEmpty($variantsMap) {
     @each $name, $props in $variantsMap {
@@ -48,10 +45,9 @@
 }
 
 
-/**
- * Generate Component
- * @param $componentMap 
- */
+/// Generate Component
+/// @param $componentMap 
+
 @mixin generateComponent($componentMap) {
   $name: if(map-has-key($componentMap, 'name'), toKebabCase(map-get($componentMap, 'name')), null);
   $props: if(map-has-key($componentMap, 'props'), map-get($componentMap, 'props'), null);

@@ -1,11 +1,10 @@
-/**
- * ooAdd
- * Push new map value to an another set of map with the ooFormat (default $ooLoop)
- * @param string $key ooFormat key
- * @param map|list $mapValue the value to add
- * @param map|null $map the map to update (default $ooLoop)
- * @return map
- */
+/// ooAdd
+/// Push new map value to an another set of map with the ooFormat (default $ooLoop)
+/// @param string $key ooFormat key
+/// @param map|list $mapValue the value to add
+/// @param map|null $map the map to update (default $ooLoop)
+/// @return map
+
 @function ooAdd($key, $mapValue, $map:null) {
   $currentValue: oo($key, $map);
 

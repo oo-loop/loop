@@ -1,10 +1,9 @@
-/**
- * oo
- * Get value from a map with the ooFormat (default $ooLoop)
- * @param string  $key  ooFormat key
- * @param map|null $map the map to update (default $ooLoop)
- * @return mixed
- */
+/// oo
+/// Get value from a map with the ooFormat (default $ooLoop)
+/// @param string  $key  ooFormat key
+/// @param map|null $map the map to update (default $ooLoop)
+/// @return mixed
+
 @function oo($key, $map:null) {
   $map: if($map == null, $ooLoop, $map);
 
@@ -30,11 +29,10 @@
   @return $map;
 }
 
-/** 
- * ooPrefix
- * get loop prefix
- * @return string
- */
+/// ooPrefix
+/// get loop prefix
+/// @return string
+
 @function ooPrefix() {
   @return if(oo(dataAttr) == true, 'data-oo', 'oo');
 }

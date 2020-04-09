@@ -1,8 +1,6 @@
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
+/// Empty
+/// @param string|list $data
+/// @return bool
 
 @function isEmpty($data) {
   @if type-of($data) == 'null' {

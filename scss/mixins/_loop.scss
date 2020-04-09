@@ -1,8 +1,7 @@
 @import 'breakpoint';
 
-/**
- * Loop Properties
- */
+
+// Loop Properties
 @mixin loopProperties($properties, $value, $isImportant) {
   // multiple properties
   @if isList($properties) {
@@ -14,15 +13,14 @@
   }
 }
 
-/**
- * Loop
- *
- * @param list|map $data Data to loop through
- * @param string|list $properties Property name to use
- * @param string $prefix String to prepend to the selector
- * @param bool|false $isImportant Set the !important flag ?
- * @param $suffix string String to append to the selector
- */
+
+/// Loop
+/// @param list|map $data Data to loop through
+/// @param string|list $properties Property name to use
+/// @param string $prefix String to prepend to the selector
+/// @param bool|false $isImportant Set the !important flag ?
+/// @param $suffix string String to append to the selector
+
 @mixin loop($data, $properties, $prefix, $isImportant:false, $suffix:'') {
   // Make sure to have the correct format or do not generate rules
   @if isNotEmpty($data) {
@@ -57,16 +55,14 @@
   }
 }
 
-/**
- * Loop breakpoints
- *
- * @param list $breakpoints List of breakpoints classes
- * @param list|map $data Data to loop through
- * @param string|list $properties Property name to use
- * @param string $prefix String to prepend to the selector
- * @param bool|false $isImportant Set the !important flag ?
- * @param string $suffix String to append to the selector
- */
+/// Loop breakpoints
+/// @param list $breakpoints List of breakpoints classes
+/// @param list|map $data Data to loop through
+/// @param string|list $properties Property name to use
+/// @param string $prefix String to prepend to the selector
+/// @param bool|false $isImportant Set the !important flag ?
+/// @param string $suffix String to append to the selector
+
 @mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $isImportant:false, $suffix:'') {
   @if isNotEmpty($breakpoints) and isNotEmpty($data) {
     @if isString($breakpoints) {

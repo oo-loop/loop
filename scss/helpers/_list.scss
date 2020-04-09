@@ -1,6 +1,4 @@
-/**
- * List
- */
+// List
 
 @mixin List($param: null) {
   @include initElement('list', $param);

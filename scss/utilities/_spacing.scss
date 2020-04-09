@@ -1,6 +1,4 @@
-/**
- * Spacing
- */
+// Spacing
 
 @mixin Spacing($param: null) {
   @include initElement('spacing', $param);

@@ -1,22 +1,21 @@
-/**
- * hasRef
- * Check if a map has a ooFormat
- * @param mixed
- * @return bool
- */
- @function hasRef($search) {
+/// hasRef
+/// Check if a map has a ooFormat
+/// @param mixed
+/// @return bool
+
+@function hasRef($search) {
   @if isNotString($search) {
     $search: inspect($search);
   }
   @return if(str-index($search, 'this(') == null, false, true);
 }
 
-/**
- * isRef
- * Check if a string is a ooFormat
- * @param string $string
- * @return bool
- */
+
+/// isRef
+/// Check if a string is a ooFormat
+/// @param string $string
+/// @return bool
+
 @function isRef($string) {
   @if isNotString($string) {
     $string: inspect($string);
@@ -24,12 +23,11 @@
   @return str-slice($string, 1, 5) == 'this(' and str-slice($string, str-length($string)) == ')';
 }
 
-/**
- * hasSpreadOperator
- * Check if a reference has the spread operator  
- * @param string  $ref
- * @return bool
- */
+/// hasSpreadOperator
+/// Check if a reference has the spread operator  
+/// @param string  $ref
+/// @return bool
+
 @function hasSpreadOperator($ref) {
   @if isNotString($ref) {
     $ref: inspect($ref);
@@ -37,26 +35,24 @@
   @return if(str-index($ref, '_this(') == null, false, true);
 }
 
-/**
- * getRefPath
- * get the ooFormat reference path
- * @param string $string
- * @return String
- */
- @function getRefPath($string) {
+/// getRefPath
+/// get the ooFormat reference path
+/// @param string $string
+/// @return String
+
+@function getRefPath($string) {
   @if isNotString($string) {
     $string: inspect($string);
   }
   @return str-slice($string, 6, -2);
 }
 
-/**
- * getRefValue
- * Retrieve the value of a reference
- * @param string $ref the reference
- * @map map $map the map look through
- */
- @function getRefValue($ref, $map) {
+/// getRefValue
+/// Retrieve the value of a reference
+/// @param string $ref the reference
+/// @map map $map the map look through
+
+@function getRefValue($ref, $map) {
   $value: oo(getRefPath($ref), $map);
   @if isRef($value) {
     $value: getRefValue($value, $map);
@@ -64,12 +60,11 @@
   @return $value;
 }
 
-/**
- * extractRef
- * extract the ooFormat reference from a string
- * @param string  $string The string to extract the ref from
- * @return string
- */
+/// extractRef
+/// extract the ooFormat reference from a string
+/// @param string  $string The string to extract the ref from
+/// @return string
+
 @function extractRef($string) {
   @if isNotString($string) {
     $string: inspect($string)

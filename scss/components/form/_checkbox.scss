@@ -1,6 +1,4 @@
-/**
- * Checkbox
- */
+// Checkbox
 
 @mixin checkboxSize($size) {
   @if isNotNumber($size) {

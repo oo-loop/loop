@@ -1,11 +1,8 @@
-/**
- * toNumber
- * convert a string to number
- * @credit-to Hugo Giraudel https://www.sassmeister.com/gist/9fa19d254864f33d4a80
-
- * @param string $string value to be parsed
- * @return number
- */
+/// toNumber
+/// convert a string to number
+/// @credit-to Hugo Giraudel https://www.sassmeister.com/gist/9fa19d254864f33d4a80
+/// @param string $string value to be parsed
+/// @return number
 
 @function toNumber($value) {
   @if type-of($value) == 'number' {
@@ -40,15 +37,14 @@
 }
 
 
-/**
- * toLength
- * Add unit to a value
- * @credit-to Hugo Giraudel
+/// toLength
+/// Add unit to a value
+/// @credit-to Hugo Giraudel
 
- * @param number $value Value to add unit to
- * @param string $unit String representation of the unit 
- * @return number number with unit
- */
+/// @param number $value Value to add unit to
+/// @param string $unit String representation of the unit 
+/// @return number number with unit
+
 @function toLength($value, $unit) {
   $units: ('px': 1px, 'cm': 1cm, 'mm': 1mm, '%': 1%, 'ch': 1ch, 'pc': 1pc, 'in': 1in, 'em': 1em, 'rem': 1rem, 'pt': 1pt, 'ex': 1ex, 'vw': 1vw, 'vh': 1vh, 'vmin': 1vmin, 'vmax': 1vmax);
   @if not index(map-keys($units), $unit) {

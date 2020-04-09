@@ -1,6 +1,4 @@
-/**
- * Color Utilities
- */
+// Color Utilities
 
 @mixin Color($param: null) {
   @include initElement('color', $param);

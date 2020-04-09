@@ -1,7 +1,5 @@
-/**
- * Base
- * Default body styles
- */
+// Base
+// Default body styles
 
 @mixin Base($param: null) {
   @include initElement('body', $param);

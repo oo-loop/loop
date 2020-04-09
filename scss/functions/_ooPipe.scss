@@ -1,9 +1,8 @@
-/**
- * ooPipe
- * Pipe list of ooSet Rules
- * @param list $rules List of rules
- * @return ooLoop
- */
+/// ooPipe
+/// Pipe list of ooSet Rules
+/// @param list $rules List of rules
+/// @return ooLoop
+
 @function ooPipe($rules...) {
   $map: $ooLoop;
   @each $rule in $rules {

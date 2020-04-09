@@ -1,7 +1,5 @@
-/**
- * fontSmoothing
- * @param bool $smooth Apply smoothing ?
- */
+/// fontSmoothing
+/// @param bool $smooth Apply smoothing ?
 
 @mixin fontSmoothing($smooth : true) {
   @if $smooth == false {

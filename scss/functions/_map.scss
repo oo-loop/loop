@@ -1,9 +1,8 @@
-/**
- * getMapValue
- * @param map $map map of data
- * @param string $key key to retrieve the value from
- * @return string
- */
+/// getMapValue
+/// @param map $map map of data
+/// @param string $key key to retrieve the value from
+/// @return string
+
 @function getMapValue($map, $key) {
   @if isNotMap($map) {
     @return null;
@@ -16,17 +15,16 @@
 }
 
 
-/**
- * mapMergeDeep
- * Non destructive map merge. 
- * @credit-to  https://gist.github.com/pentzzsolt
 
- * @param map $parentMap Map of data to be merged into
- * @param map $childMap  The set of data
- * @param map $refMap   The base map to refer too,
-   usually equivalent to the $ooLoop before going into nested merge
- * @return map
- */
+/// mapMergeDeep
+/// Non destructive map merge. 
+/// @credit-to  https://gist.github.com/pentzzsolt
+/// @param map $parentMap Map of data to be merged into
+/// @param map $childMap The set of data
+/// @param map $refMap The base map to refer too,
+///   usually equivalent to the $ooLoop before going into nested merge
+/// @return map
+
 @function mapMergeDeep($parentMap, $childMap, $refMap:null) {
   $map: $parentMap;
   @if not isMap($map) {
@@ -50,27 +48,24 @@
 }
 
 
-/**
- * setMapValue
- * @param map $map  map of data
- * @param string $key key to retrieve the value from
- * @return string
- */
+/// setMapValue
+/// @param map $map  map of data
+/// @param string $key key to retrieve the value from
+/// @return string
+
 @function setMapValue($map, $key, $value) {
   $newSet: ($key: $value);
   @return map-merge($map, $newSet);
 }
 
-/**
- * toMap [w.i.p]
- * Convert a stringified map to a map format
- *
- * @param string $string Stringified map
- * @return map
- *
- * @todo consider type change
- * @todo consider nested map
- */
+/// toMap [w.i.p]
+/// Convert a stringified map to a map format
+/// @param string $string Stringified map
+/// @return map
+
+/// @todo consider type change
+/// @todo consider nested map
+
 @function toMap($string) {
   @if isMap($string) {
     @return $string;

@@ -1,11 +1,8 @@
-/**
- * Replace
- * @param string $search  The value being searched
- * @param string $replace The replacement value
- * @parem string $subject The string being searched and replaced on
- *
- * @return String
- */
+/// Replace
+/// @param string $search  The value being searched
+/// @param string $replace The replacement value
+/// @parem string $subject The string being searched and replaced on
+/// @return String
 
 @function replace($search, $replace, $subject) {
   $searchIndex: str-index($subject, $search);

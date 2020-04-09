@@ -1,6 +1,4 @@
-/**
- * Column
- */
+// Column
 
 @mixin columnGutterProps($size) {
   left: -#{$size};

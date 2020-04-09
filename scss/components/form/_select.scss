@@ -1,6 +1,4 @@
-/**
- * Select
- */
+// Select
 
 @mixin caretTheme($theme) {
   @if map-has-key($theme, 'size') {

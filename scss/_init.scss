@@ -1,10 +1,9 @@
-/**
- * Init single element
- * @param string $name Name of settings
- * @param map $settings data
- * @param bool $use-name-as-param Use the name as parameter in settings
- */
- @mixin initElement($name, $settings, $use-name-as-param: true) {
+/// Init single element
+/// @param string $name Name of settings
+/// @param map $settings data
+/// @param bool $use-name-as-param Use the name as parameter in settings
+
+@mixin initElement($name, $settings, $use-name-as-param: true) {
   $ooLoop: ooAdd('include', $name) !global;
   @if $settings != null {
     $map: mapMergeDeep($ooLoop, if($use-name-as-param, (#{$name}: $settings), $settings));
@@ -12,9 +11,9 @@
   }
 }
 
-/**
- * Init ooLoop configs
- */
+
+/// Init ooLoop configs
+
 @mixin ooInit($custom:null) {
   $map: if(hasRef($ooLoop), ooParse($ooLoop), $ooLoop);
   @if isMap($custom) and isNotEmpty($custom) {
@@ -25,9 +24,8 @@
   $ooLoop: $map !global;
 }
 
-/**
- * Include ooLoop components and utilities base on $ooLoop config
- */
+/// Include ooLoop components and utilities base on $ooLoop config
+
 @mixin ooCreate($custom:null) {
   @if not oo('init') {
     @include ooInit($custom);

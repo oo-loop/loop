@@ -1,6 +1,4 @@
-/**
- * Miscellaneous
- */
+// Miscellaneous
 
 @mixin Misc($param: null) {
   @include initElement('misc', $param);

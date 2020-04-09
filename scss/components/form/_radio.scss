@@ -1,6 +1,4 @@
-/**
- * Radio
- */
+// Radio
 
 @mixin radioSize($size) {
   @if isNotNumber($size) {

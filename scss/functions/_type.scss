@@ -1,8 +1,6 @@
-/**
- * isString
- * @param mixed $data
- * @return bool
- */
+/// isString
+/// @param mixed $data
+/// @return bool
 
 @function isString($data) {
   @if type-of($data) == 'string'{
@@ -15,11 +13,9 @@
   @return if(isString($data), false, true);
 }
 
-/**
- * isNumber
- * @param mixed $data
- * @return bool
- */
+/// isNumber
+/// @param mixed $data
+/// @return bool
 
 @function isNumber($data) {
   @if type-of($data) == 'number'{
@@ -32,11 +28,9 @@
   @return if(isNumber($data), false, true);
 }
 
-/**
- * isColor
- * @param mixed $data
- * @return bool
- */
+/// isColor
+/// @param mixed $data
+/// @return bool
 
 @function isColor($data) {
   @if type-of($data) == 'color'{
@@ -49,11 +43,9 @@
   @return if(isColor($data), false, true);
 }
 
-/**
- * isList
- * @param mixed $data
- * @return bool
- */
+/// isList
+/// @param mixed $data
+/// @return bool
 
 @function isList($data) {
   @if type-of($data) == 'list'{
@@ -66,11 +58,9 @@
   @return if(isList($data), false, true);
 }
 
-/**
- * isMap
- * @param mixed $data
- * @return bool
- */
+/// isMap
+/// @param mixed $data
+/// @return bool
 
 @function isMap($data) {
   @if type-of($data) == 'map' {

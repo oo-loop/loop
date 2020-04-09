@@ -1,6 +1,4 @@
-/**
- * Wrapper
- */
+// Wrapper
 
 @mixin Wrapper($param: null) {
   @include initElement('wrapper', $param);

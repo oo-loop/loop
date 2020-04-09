@@ -1,11 +1,8 @@
-/**
- * Split
- * @param string $pattern The string character to split your string by
- * @param string $subject The input string
- * @param list   $list    The list being populated
- *
- * @return list
- */
+/// Split
+/// @param string $pattern The string character to split your string by
+/// @param string $subject The input string
+/// @param list   $list    The list being populated
+/// @return list
 
 @function split($pattern, $subject, $list:()) {
   $searchIndex: str-index($subject, $pattern);

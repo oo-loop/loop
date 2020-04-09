@@ -1,10 +1,9 @@
-/**
- * Transform camelCase to kebab-case
- * @param string $string The string to modify
- *
- * @return string
- */
- @function toKebabCase($string) {
+
+/// Transform camelCase to kebab-case
+/// @param string $string The string to modify
+/// @return string
+
+@function toKebabCase($string) {
   $kebabString: '';
   @for $i from 1 through str-length($string) {
     $character: str-slice($string, $i, $i);
@@ -14,14 +13,12 @@
 }
 
 
-/**
- * Convert to type
- * @param string $type to be converted into
- * @param mixed $data data to check
- *
- * @return mixed
- */
- @function toType($type, $data) {
+/// Convert to type
+/// @param string $type to be converted into
+/// @param mixed $data data to check
+/// @return mixed
+
+@function toType($type, $data) {
   @if type-of($data) == $type {
     @return $data;
   }

@@ -1,6 +1,4 @@
-/**
- * Button
- */
+// Button
 
 @mixin paintButton($color-value) {
   @if isColor($color-value) {

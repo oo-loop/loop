@@ -1,12 +1,11 @@
-/**
- * ooSet
- * Set value in to map with the ooFormat (default $ooLoop)
- * @param string $key  ooFormat key
- * @param mixed  $value  the new value to set
- * @param bool   $hard  is the hard mode (destructive) or soft (non destructive)
- * @param map|null $map the map to update (default $ooLoop)
- * @return mixed
- */
+/// ooSet
+/// Set value in to map with the ooFormat (default $ooLoop)
+/// @param string $key  ooFormat key
+/// @param mixed  $value  the new value to set
+/// @param bool   $hard  is the hard mode (destructive) or soft (non destructive)
+/// @param map|null $map the map to update (default $ooLoop)
+/// @return mixed
+
 @function ooSet($key, $value, $hard:true, $map:null) {
   $map: if($hard, ooSetHard($key, $value, $map), ooSetSoft($key, $value, $map));
   @return $map;

@@ -1,9 +1,8 @@
 @import 'loop';
 
-/**
- * Generate Utilities
- * @param $utilitiesMap 
- */
+/// Generate Utilities
+/// @param $utilitiesMap 
+
  @mixin generateUtilities($utilitiesMap) {
   @if map-has-key($utilitiesMap, 'values')
     and map-has-key($utilitiesMap, 'name') {

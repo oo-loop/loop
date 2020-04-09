@@ -1,9 +1,7 @@
-/**
- * In List
- * @param string $needle the searched value
- * @param string|list $haystack the list to search in
- * @return bool
- */
+/// In List
+/// @param string $needle the searched value
+/// @param string|list $haystack the list to search in
+/// @return bool
 
 @function inList($needle, $haystack) {
   @if index($haystack, $needle) == null {
@@ -17,14 +15,12 @@
   @return if(inList($needle, $haystack), false, true);
 }
 
-/**
- * Remove element from a list
- * @param list $list
- * @param number $index List index to remove
- *
- * @return List
- */
- @function removeInList($list, $index) {
+/// Remove element from a list
+/// @param list $list
+/// @param number $index List index to remove
+/// @return List
+
+@function removeInList($list, $index) {
   @if isNotList($list)
     or isNotNumber($index) {
     @return $list;
