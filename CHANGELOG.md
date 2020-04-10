@@ -1,8 +1,14 @@
 # Loop changelog
 
-## 1.0.0-beta
+## 1.0.0-beta 2020-04-10
 
-New Version implementing the single config map approach
+New Version implementing the single config map approach for the framework settings
+
+- Initialize Loop from `ooInit()` and launch it from `ooCreate()`
+- Configuration from Functions `ooSet()` `ooAdd()` `ooPipe()`
+- New Column and Form syntax
+- New Template component
+- New Utilities structure
 
 ## 0.4.17
 
