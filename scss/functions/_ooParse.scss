@@ -39,20 +39,19 @@
         @if isNotList($value) {
           @error 'spread operator must be used within a list';
         }
-        @if isNotMap($newValue) {
-          //the use of replace is for some sass version
-          $ooRefPathList: split('.', replace('"', '', getRefPath($ooRef)));
-          $newValue: (nth($ooRefPathList, length($ooRefPathList)): $newValue);
-        }
+
         $refIndex: index($value, '_#{$ooRef}');
 
         $newMapValue: ();
         @for $i from 1 through length($value) {
-          @if $i == $refIndex {
-            $newMapValue: map-merge($newMapValue, $newValue);
-          } @else if hasSpreadOperator(nth($value, $i)) {
-            $ooRefItem: extractRef(nth($value, $i));
-            $newValueItem: getRefValue($ooRefItem, $parentMap);
+          @if hasSpreadOperator(nth($value, $i)) {
+            $ooRefItem: if($i == $refIndex, $ooRef, extractRef(nth($value, $i)));
+            $newValueItem:  if($i == $refIndex, $newValue, getRefValue($ooRefItem, $parentMap));
+            @if isNotMap($newValueItem) {
+              //the use of replace is for some sass version
+              $ooRefPathList: split('.', replace('"', '', getRefPath($ooRefItem)));
+              $newValueItem: (nth($ooRefPathList, length($ooRefPathList)): $newValueItem);
+            }
             $newMapValue: map-merge($newMapValue, $newValueItem);
           } @else if isNotMap(nth($value, $i)) {
             @error 'spread operator only works along map';
