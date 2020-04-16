@@ -1,7 +1,7 @@
 {
   "name": "oo-loop",
   "version": "1.0.0-beta",
-  "description": "Loop, Dev companion for flexible and expressive CSS",
+  "description": "Loop framework, flexible and expressive CSS",
   "keywords": [
     "scss",
     "sass",
@@ -9,8 +9,7 @@
     "loop",
     "flexible",
     "expressive",
-    "frontend",
-    "companion",
+    "front-end",
     "framework"
   ],
   "homepage": "https://oo-loop.github.io/",
