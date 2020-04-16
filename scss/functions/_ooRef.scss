@@ -50,7 +50,8 @@
 /// getRefValue
 /// Retrieve the value of a reference
 /// @param string $ref the reference
-/// @map map $map the map look through
+/// @param map $map the map look through
+/// @return mixed
 
 @function getRefValue($ref, $map) {
   $value: oo(getRefPath($ref), $map);
@@ -58,6 +59,39 @@
     $value: getRefValue($value, $map);
   }
   @return $value;
+}
+
+/// getSpreadMap
+/// Return the map built by the spreads 
+/// @param list $list the list creating the map
+/// @param map $map the map look through
+/// @return map
+
+@function getSpreadMap($list, $map) {
+  @if isNotList($list) {
+    @error 'spread operator must be used within a list';
+  }
+  $newMapValue: ();
+  @for $i from 1 through length($list) {
+    @if hasSpreadOperator(nth($list, $i)) {
+      $ref: extractRef(nth($list, $i));
+      $refValue: getRefValue($ref, $map);
+      @if hasSpreadOperator($refValue) {
+        $refValue: getSpreadMap($refValue, $map);
+      }
+      @if isNotMap($refValue) {
+        //the use of replace is for some sass version
+        $refPathList: split('.', replace('"', '', getRefPath($ref)));
+        $refValue: (nth($refPathList, length($refPathList)): $refValue);
+      }
+      $newMapValue: map-merge($newMapValue, $refValue);
+    } @else if isNotMap(nth($list, $i)) {
+      @error 'spread operator only works along map';
+    } @else {
+      $newMapValue: map-merge($newMapValue, nth($list, $i));
+    }
+  }
+  @return $newMapValue;
 }
 
 /// extractRef
