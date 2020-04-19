@@ -5,7 +5,7 @@
   @each $area in $areas {
     $areaNames: split(' ', $area);
     @each $areaName in $areaNames {
-      $hasValueIndex: str-index($areaName, ':');
+      $hasValueIndex: str-index($areaName, '|');
       $areaName: if($hasValueIndex, str-slice($areaName, 1, $hasValueIndex - 1), $areaName);
       @if notInList($areaName, $list) {
         $list: join($list, $areaName);
