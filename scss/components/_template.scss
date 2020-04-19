@@ -5,6 +5,8 @@
   @each $area in $areas {
     $areaNames: split(' ', $area);
     @each $areaName in $areaNames {
+      $hasValueIndex: str-index($areaName, ':');
+      $areaName: if($hasValueIndex, str-slice($areaName, 1, $hasValueIndex - 1), $areaName);
       @if notInList($areaName, $list) {
         $list: join($list, $areaName);
       }
@@ -23,8 +25,44 @@
 }
 
 @mixin makeGridTemplate($grid-template-areas) {
-  grid-template-areas: $grid-template-areas;
-  grid-template-columns: repeat(getAreaColumnNumber($grid-template-areas), 1fr);
+  @if str-index(inspect($grid-template-areas), ':') {
+    $template-areas: ();
+    $columnsMap: ();
+
+    @each $row in $grid-template-areas {
+      $columnItems: split(' ', $row);
+      $areaNames: null;
+
+      @for $i from 1 through length($columnItems) {
+        $columnName: nth($columnItems, $i);
+        $hasValueIndex: str-index($columnName, ':');
+
+        $areaName: if($hasValueIndex, str-slice($columnName, 1, $hasValueIndex - 1), $columnName);
+        $areaNames: if(null == $areaNames, $areaName, $areaNames + ' #{$areaName}');
+
+        $currentColumnValue: getMapValue($columnsMap, $i);
+
+        @if $hasValueIndex {
+          $number: toNumber(str-slice($columnName, $hasValueIndex + 1, str-length($columnName)));
+          $columnsMap: setMapValue($columnsMap, $i, $number);
+        } @else if $currentColumnValue == null {
+          $columnsMap: setMapValue($columnsMap, $i, auto);
+        }
+      }
+      $template-areas: join($template-areas, "#{$areaNames}");
+    }
+
+    $template-columns: null;
+    @each $index, $value in $columnsMap {
+      $template-columns: if(isEmpty($template-columns), $value, append($template-columns, $value, 'space'));
+    }
+
+    grid-template-areas: $template-areas;
+    grid-template-columns: $template-columns;
+  } @else {
+    grid-template-areas: $grid-template-areas;
+    grid-template-columns: repeat(getAreaColumnNumber($grid-template-areas), 1fr);
+  }
 }
 @mixin makeGridArea($areaNames) {
   @each $area in $areaNames {

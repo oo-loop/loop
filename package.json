@@ -39,7 +39,7 @@
     "dev": "node-sass -r --output-style expanded --precision 6 src/index.scss dist/loop.css",
     "build": "node-sass --output-style compressed --precision 6 src/index.scss dist/loop.css",
     "watch": "npm run dev && npm run dev -- -w",
-    "example": "node-sass --output-style expanded --source-comments false --precision 6 example --output example/build"
+    "example": "node-sass --output-style expanded --source-comments false --precision 6 example --output example/build -w"
   },
   "devDependencies": {
     "node-sass": "^4.13.1"
