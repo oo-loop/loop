@@ -25,17 +25,16 @@
 }
 
 @mixin makeGridTemplate($grid-template-areas) {
-  @if str-index(inspect($grid-template-areas), ':') {
+  @if str-index(inspect($grid-template-areas), '|') {
     $template-areas: ();
     $columnsMap: ();
 
     @each $row in $grid-template-areas {
       $columnItems: split(' ', $row);
       $areaNames: null;
-
       @for $i from 1 through length($columnItems) {
         $columnName: nth($columnItems, $i);
-        $hasValueIndex: str-index($columnName, ':');
+        $hasValueIndex: str-index($columnName, '|');
 
         $areaName: if($hasValueIndex, str-slice($columnName, 1, $hasValueIndex - 1), $columnName);
         $areaNames: if(null == $areaNames, $areaName, $areaNames + ' #{$areaName}');

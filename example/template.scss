@@ -2,9 +2,9 @@
 
 $ooLoop: ooSet('template.areas', (
   'fixed': (
-    "logo:100px nav nav"
-    "main main sidebar:200px"
-    "footer footer footer"
+    "logo|100px nav nav"
+    "main main sidebar|200px"
+    "footer footer|300px footer"
   ),
   'home': (
     rt: (
