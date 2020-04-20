@@ -1,6 +1,11 @@
 # Loop changelog
 
-## 1.0.0-beta 2020-04-10
+## 1.0.0-beta.1
+
+- Fix spread operator chaining
+- Add option to set a size for a template area column
+
+## 1.0.0-beta
 
 New Version implementing the single config map approach for the framework settings
 

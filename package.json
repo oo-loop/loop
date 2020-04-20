@@ -1,7 +1,7 @@
 {
   "name": "oo-loop",
-  "version": "1.0.0-beta",
-  "description": "Loop, Dev companion for flexible and expressive CSS",
+  "version": "1.0.0-beta.1",
+  "description": "Loop framework, flexible and expressive CSS",
   "keywords": [
     "scss",
     "sass",
@@ -9,8 +9,7 @@
     "loop",
     "flexible",
     "expressive",
-    "frontend",
-    "companion",
+    "front-end",
     "framework"
   ],
   "homepage": "https://oo-loop.github.io/",
@@ -40,7 +39,7 @@
     "dev": "node-sass -r --output-style expanded --precision 6 src/index.scss dist/loop.css",
     "build": "node-sass --output-style compressed --precision 6 src/index.scss dist/loop.css",
     "watch": "npm run dev && npm run dev -- -w",
-    "example": "node-sass --output-style expanded --source-comments false --precision 6 example --output example/build"
+    "example": "node-sass --output-style expanded --source-comments false --precision 6 -w example/ -o example/build"
   },
   "devDependencies": {
     "node-sass": "^4.13.1"

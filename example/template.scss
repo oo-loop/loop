@@ -1,6 +1,11 @@
 @import 'scss/loop';
 
 $ooLoop: ooSet('template.areas', (
+  'fixed': (
+    "logo|100px nav nav"
+    "main main sidebar|200px"
+    "footer footer footer"
+  ),
   'home': (
     rt: (
       "header"

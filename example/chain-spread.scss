@@ -1,0 +1,13 @@
+@import 'scss/loop';
+
+$ooLoop: ooSet('color.border.values', (
+  _this('palette.primary'),
+  _this('color.background.values'),
+  (
+    'danger': red,
+  ),
+));
+
+@include ooInit;
+
+@include Color;
