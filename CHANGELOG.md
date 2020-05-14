@@ -1,5 +1,9 @@
 # Loop changelog
 
+## 1.0.0-beta.2
+
+- Reset properly the column to auto on breakpoint `auto@sm` `auto@md` `auto@lg` 
+
 ## 1.0.0-beta.1
 
 - Fix spread operator chaining
