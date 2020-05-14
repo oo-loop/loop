@@ -50,7 +50,7 @@ The first iteration of Loop (0.4) focused on bringing the minimum to bootstrap a
 
 Loop v1 continues into the same philosophy tackling this time the variables situation. What we often get from a css framework, is a list of single variable to customize elements or components properties. The list, covering a multitude of parameters, tends to be exhaustive and can become painful while searching for a possible change.
 
-Loop proposes to treat the variables as a single structured map to facilitate its use. As the result, the config map is enabling easy parsing and access to all the data during the development. Moreover, the introduction of properties such props and states offers a complete control over the style of elements and components. It is simplifying its customization by allowing you to add whatever CSS properties your need without worrying if it's changeable or not.
+Loop proposes to treat the variables as a single structured map to facilitate its use. As the result, the config map is enabling easy parsing and access to all the data during the development. Moreover, the introduction of properties such props and states offers a complete control over the style of elements and components. It is simplifying its customization by allowing you to add whatever CSS properties you need without worrying if it's changeable or not.
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
