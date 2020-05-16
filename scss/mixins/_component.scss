@@ -50,15 +50,16 @@
 
 @mixin generateComponent($componentMap) {
   $name: if(map-has-key($componentMap, 'name'), toKebabCase(map-get($componentMap, 'name')), null);
-  $props: if(map-has-key($componentMap, 'props'), map-get($componentMap, 'props'), null);
+  $hasProps: if(map-has-key($componentMap, 'props') or map-has-key($componentMap, 'states'), true, false);
+  $variants: if(map-has-key($componentMap, 'variants'), map-get($componentMap, 'variants'), null);
 
-  @if isNotEmpty($name) and isNotEmpty($props) {
+  @if isNotEmpty($name) and $hasProps {
     [#{ooPrefix()}-#{$name}] {
       @include generateStyles($componentMap);
     }
-    @if map-has-key($componentMap, 'variants') {
-      @include generateComponentVariants($name, map-get($componentMap, 'variants'));
-    }
+  }
+  @if isNotEmpty($name) and isNotEmpty($variants) {
+    @include generateComponentVariants($name, $variants);
   }
 }
 
