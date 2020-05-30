@@ -46,7 +46,7 @@
 
 
 /// Generate Component
-/// @param $componentMap 
+/// @param $componentMap
 
 @mixin generateComponent($componentMap) {
   $name: if(map-has-key($componentMap, 'name'), toKebabCase(map-get($componentMap, 'name')), null);

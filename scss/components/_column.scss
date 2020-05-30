@@ -265,4 +265,8 @@
     max-width: 100%;
     border: 0 !important;
   }
+
+  @if isNotEmpty(oo('column.variants')) {
+    @include generateComponentVariants('col', oo('column.variants'));
+  }
 }  
