@@ -4,7 +4,7 @@
 /// @param bool $use-name-as-param Use the name as parameter in settings
 
 @mixin initElement($name, $settings, $use-name-as-param: true) {
-  $ooLoop: ooAdd('include', $name) !global;
+  // $ooLoop: ooAdd('include', $name) !global; // for styleguide
   @if $settings != null {
     $map: mapMergeDeep($ooLoop, if($use-name-as-param, (#{$name}: $settings), $settings));
     $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
