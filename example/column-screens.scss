@@ -15,5 +15,10 @@
       lg: '*'
     ),
     vscreens: ('sm', 'md')
+  ),
+  variants: (
+    'w100': (
+      min-width: (sm: 100px)
+    )
   )
 ));

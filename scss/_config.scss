@@ -1,5 +1,5 @@
 $ooLoop: (
-  dataAttr: true,
+  dataAttr: false,
 
   breakpoints: (
     xs: 30em, // 480px
@@ -18,9 +18,9 @@ $ooLoop: (
 
   body: (
     props: (
-      fontFamily: (-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
-      fontSize: 1em, // 16px
-      lineHeight: 1.375,
+      font-family: (-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif),
+      font-size: 1em, // 16px
+      line-height: 1.375,
       color: #444,
     ),
     smoothing: true,
@@ -28,9 +28,9 @@ $ooLoop: (
 
   headings: (
     props: (
-      marginTop: .67em,
-      marginBottom: .45em,
-      lineHeight: 1.125,
+      margin-top: .67em,
+      margin-bottom: .45em,
+      line-height: 1.125,
     ),
     sizes: (
       h1: 2rem,
@@ -45,15 +45,15 @@ $ooLoop: (
 
   paragraph: (
     props: (
-      marginTop: .5em,
-      marginBottom: 1.125em,
+      margin-top: .5em,
+      margin-bottom: 1.125em,
     )
   ),
 
   anchor: (
     props: (
       color: this('palette.primary'),
-      textDecoration: none,
+      text-decoration: none,
     ),
     states: (
       hover: (
@@ -65,9 +65,9 @@ $ooLoop: (
 
   list: (
     props: (
-      marginTop: .5em,
-      marginBottom: 1.125em,
-      paddingLeft: 1.1em,
+      margin-top: .5em,
+      margin-bottom: 1.125em,
+      padding-left: 1.1em,
     ),
     inlineSpacing: 1em,
   ),
@@ -75,7 +75,7 @@ $ooLoop: (
   hr: (
     props:(
       margin: 1rem auto,
-      borderBottom: 1px solid #cdcdcd,
+      border-bottom: 1px solid #cdcdcd,
     )
   ),
 
@@ -246,23 +246,23 @@ $ooLoop: (
   button: (
     props: (
       padding: .438em 1.2em,
-      fontSize: rem(14),
-      fontWeight: bold,
-      lineHeight: 1.45,
+      font-size: rem(14),
+      font-weight: bold,
+      line-height: 1.45,
       color: #333,
-      backgroundColor: #fff,
+      background-color: #fff,
       border: 1px solid #cecece,
-      borderRadius: .2em,
+      border-radius: .2em,
     ),
     states: (
       hover: (
         color: this('button.props.color'),
-        backgroundColor: ooDarken(this('button.props.backgroundColor'), 10%),
+        background-color: ooDarken(this('button.props.backgroundColor'), 10%),
       ),
       focus: this('button.states.hover'),
       active: (
-        backgroundColor: ooDarken(this('button.props.backgroundColor'), 12%),
-        boxShadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
+        background-color: ooDarken(this('button.props.backgroundColor'), 12%),
+        box-shadow: inset 1px 1px 1px 0 ooDarken(this('button.props.backgroundColor'), 25%),
         outline: none,
       ),
       disabled: (
@@ -280,10 +280,10 @@ $ooLoop: (
 
   label: (
     props: (
-      marginBottom: rem(3),
+      margin-bottom: rem(3),
       display: inline-block,
-      fontWeight: 500,
-      lineHeight: 1.5
+      font-weight: 500,
+      line-height: 1.5
     )
   ),
 
@@ -292,18 +292,18 @@ $ooLoop: (
       padding: .5em .625em,
       display: block,
       width: 100%,
-      minHeight: 2.5em,
+      min-height: 2.5em,
       color: #4d4d4d,
-      fontSize: 1rem,
-      lineHeight: 1.15,
-      backgroundColor: #fff,
+      font-size: 1rem,
+      line-height: 1.15,
+      background-color: #fff,
       border: 1px solid #d6d6d6,
-      borderRadius: .2em,
+      border-radius: .2em,
     ),
     states: (
       focus: (
         outline: none,
-        boxShadow: 0 0 8px 0 rgba(#aaa, .25),
+        box-shadow: 0 0 8px 0 rgba(#aaa, .25),
       ),
     ),
     variants: (),
@@ -322,15 +322,15 @@ $ooLoop: (
   ),
   checkbox: (
     props: (
-      backgroundColor: #fff,
+      background-color: #fff,
       border: 1px solid #d6d6d6,
-      borderRadius: .2em,
+      border-radius: .2em,
       transition: background-color 250ms ease-out,
     ),
     checked: (
       markColor: #fff,
       props: (
-        backgroundColor: #4d4d4d,
+        background-color: #4d4d4d,
         border: 1px solid #4d4d4d,
       )
     ),
@@ -341,14 +341,14 @@ $ooLoop: (
   ),
   radio: (
     props: (
-      backgroundColor: #fff,
+      background-color: #fff,
       border: 1px solid #d6d6d6,
     ),
     checked: (
       markColor: #fff,
       props: (
-        backgroundColor: #4d4d4d,
-        borderColor: #4d4d4d,
+        background-color: #4d4d4d,
+        border-color: #4d4d4d,
         transition: background-color 250ms ease-out,
       )
     ),
@@ -360,20 +360,20 @@ $ooLoop: (
   toggle: (
     props: (
       border: 1px solid #d6d6d6,
-      borderRadius: 50em,
-      backgroundColor: #d6d6d6,
+      border-radius: 50em,
+      background-color: #d6d6d6,
       transition: (background-color 300ms ease-in-out, border-color 300ms ease-in-out),
     ),
     toggler: (
-      borderRadius: 50%,
-      backgroundColor: #fff,
-      boxShadow: 1px 1px 2px 0 rgba(#4d4d4d, 0.3),
+      border-radius: 50%,
+      background-color: #fff,
+      box-shadow: 1px 1px 2px 0 rgba(#4d4d4d, 0.3),
       transition: transform 300ms ease-out,
     ),
     checked: (
       props: (
-        borderColor: #4d4d4d,
-        backgroundColor: this('toggle.checked.props.borderColor'),
+        border-color: #4d4d4d,
+        background-color: this('toggle.checked.props.borderColor'),
       )
     ),
     sizes: (
@@ -386,7 +386,7 @@ $ooLoop: (
   misc: (
     'responsive': (
       props: (
-        maxWidth: 100%,
+        max-width: 100%,
         height: auto,
       )
     ),
@@ -396,18 +396,18 @@ $ooLoop: (
     base: true,
     headings: true,
     content: true,
-    
-    form: (
-      textfield: true,
-      select: true,
-      checkbox: true,
-      radio: true,
-      toggle: false,
-    ),
 
     column: true,
     template: true,
     button: true,
+
+    form: (
+      input: true,
+      select: false,
+      checkbox: false,
+      radio: false,
+      toggle: false,
+    ),
 
     container: true,
     visibility: true,
@@ -416,9 +416,9 @@ $ooLoop: (
 
     utilities: (
       color: true,
-      float: true,
-      spacing: true,
       typo: true,
+      spacing: true,
+      float: true,
       wrapper: true,
     ),
   )

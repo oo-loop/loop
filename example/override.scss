@@ -1,0 +1,9 @@
+@import 'scss/loop';
+
+@include ooInit;
+@include Base((
+  props: (
+    color: red,
+    fontFamily: ("Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif),
+  )
+));
