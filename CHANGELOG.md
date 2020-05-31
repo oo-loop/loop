@@ -5,7 +5,7 @@
 ### Changes
 - Unify all `props` to use kebab-case css properties
 - `dataAttr` is set to *false* by default, back to `oo-component` from start
-- Form inputs are not included by default except for `oo-input`
+- Form inputs components are not included by default except for `oo-input`
 
 ### Features
 - Add `variants` property to column
