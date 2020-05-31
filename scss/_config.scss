@@ -418,8 +418,8 @@ $ooLoop: (
       color: true,
       typo: true,
       spacing: true,
-      float: false,
-      wrapper: false,
+      float: true,
+      wrapper: true,
     ),
   )
 ) !default;
