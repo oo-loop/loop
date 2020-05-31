@@ -1,5 +1,5 @@
 $ooLoop: (
-  dataAttr: true,
+  dataAttr: false,
 
   breakpoints: (
     xs: 30em, // 480px
@@ -411,8 +411,8 @@ $ooLoop: (
 
     container: true,
     visibility: true,
-    list: false,
-    misc: false,
+    list: true,
+    misc: true,
 
     utilities: (
       color: true,
