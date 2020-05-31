@@ -77,19 +77,19 @@
   @if (oo('use.misc')) {
     @include Misc;
   }
-  @if oo('use.utilities.color') {
+  @if oo('use.utilities.color') or oo('use.utilities') == true {
     @include Color;
   }
-  @if oo('use.utilities.typo') {
+  @if oo('use.utilities.typo') or oo('use.utilities') == true {
     @include Typography;
   }
-  @if oo('use.utilities.float') {
+  @if oo('use.utilities.float') or oo('use.utilities') == true {
     @include Float;
   }
-  @if oo('use.utilities.spacing') {
+  @if oo('use.utilities.spacing') or oo('use.utilities') == true {
     @include Spacing;
   }
-  @if oo('use.utilities.wrapper') {
+  @if oo('use.utilities.wrapper') or oo('use.utilities') == true {
     @include Wrapper;
   }
   @if oo('utilities') {

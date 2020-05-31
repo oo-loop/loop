@@ -411,15 +411,15 @@ $ooLoop: (
 
     container: true,
     visibility: true,
-    list: true,
-    misc: true,
+    list: false,
+    misc: false,
 
     utilities: (
       color: true,
-      float: true,
-      spacing: true,
       typo: true,
-      wrapper: true,
+      spacing: true,
+      float: false,
+      wrapper: false,
     ),
   )
 ) !default;
