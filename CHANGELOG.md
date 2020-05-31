@@ -1,5 +1,16 @@
 # Loop changelog
 
+## 1.0.0
+
+### Changes
+- Unify all `props` to use kebab-case css properties
+- `dataAttr` is set to *false* by default, back to `oo-component` from start
+- Form inputs are not included by default except for `oo-input`
+
+### Features
+- Add `variants` property to column
+- Ability to generate variants component only from the config map
+
 ## 1.0.0-beta.2
 
 - Reset properly the column to auto on breakpoint `auto@sm` `auto@md` `auto@lg` 
