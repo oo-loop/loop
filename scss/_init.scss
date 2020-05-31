@@ -49,20 +49,20 @@
   @if oo('use.button') {
     @include Button;
   }
-  @if oo('use.form.textfield') {
+  @if oo('use.form.input') or oo('use.form') == true {
     @include Label;
-    @include TextField;
+    @include InputField;
   }
-  @if oo('use.form.select') {
+  @if oo('use.form.select') or oo('use.form') == true {
     @include SelectField;
   }
-  @if oo('use.form.checkbox') {
+  @if oo('use.form.checkbox') or oo('use.form') == true {
     @include Checkbox;
   }
-  @if oo('use.form.radio') {
+  @if oo('use.form.radio') or oo('use.form') == true {
     @include Radio;
   }
-  @if oo('use.form.toggle') {
+  @if oo('use.form.toggle') or oo('use.form') == true {
     @include Toggle;
   }
   @if oo('use.container') {

@@ -1,2 +1,5 @@
 @import 'scss/loop';
-@include ooCreate;
+$ooLoop: ooUse((
+  form: true,
+));
+@include ooCreate();

@@ -396,18 +396,18 @@ $ooLoop: (
     base: true,
     headings: true,
     content: true,
-    
-    form: (
-      textfield: true,
-      select: true,
-      checkbox: true,
-      radio: true,
-      toggle: false,
-    ),
 
     column: true,
     template: true,
-    button: true,
+    button: false,
+
+    form: (
+      input: false,
+      select: false,
+      checkbox: false,
+      radio: false,
+      toggle: false,
+    ),
 
     container: true,
     visibility: true,

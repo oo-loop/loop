@@ -9,7 +9,7 @@
   }
 }
 
-@mixin TextField($param: null) {
+@mixin InputField($param: null) {
   @include initElement('input', $param);
 
   [#{ooPrefix()}-input] {
