@@ -399,10 +399,10 @@ $ooLoop: (
 
     column: true,
     template: true,
-    button: false,
+    button: true,
 
     form: (
-      input: false,
+      input: true,
       select: false,
       checkbox: false,
       radio: false,
