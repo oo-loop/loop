@@ -36,7 +36,13 @@
   @if isNotEmpty($variantsMap) {
     @each $name, $props in $variantsMap {
       @if isMap($props) {
+        $hasStates: if(map-has-key($props, 'states'), map-get($props, 'states'), null);
         [#{ooPrefix()}-#{$componentName}~="#{toKebabCase($name)}"] {
+          @if map-has-key($props, 'states') {
+            $states: map-get($props, 'states');
+            $props: map-remove($props, 'states');
+            @include generateStatesProperties($states);
+          }
           @include generateProperties($props);
         }
       }
