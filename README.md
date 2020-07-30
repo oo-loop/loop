@@ -8,7 +8,7 @@
 
 **Flexible and Expressive CSS**
 
-[Loop](https://oo-loop.github.io/) is a fully customizable Sass framework aiming to create a more maintainable and readable CSS.
+[Loop](https://oo-loop.github.io/) is a fully customizable CSS framework built with Sass aiming to create a more maintainable and readable Code.
 It gives you complete control on your project to let you create and match your styles with your design needs.
 
 ## Installation

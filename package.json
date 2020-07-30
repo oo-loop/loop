@@ -1,7 +1,7 @@
 {
   "name": "oo-loop",
-  "version": "1.0.0",
-  "description": "Loop framework, flexible and expressive CSS",
+  "version": "1.0.1",
+  "description": "Loop CSS framework, flexible and expressive CSS",
   "keywords": [
     "scss",
     "sass",
