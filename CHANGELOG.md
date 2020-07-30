@@ -1,5 +1,11 @@
 # Loop changelog
 
+## 1.0.1 : 2020-07-30
+
+- Add missing `states` properties in variants
+- Fix rule to add any pseudo elements, states and pseudo-selectors from `props`
+- Bump lodash from 4.17.15 to 4.17.19
+
 ## 1.0.0
 
 ### Changes
