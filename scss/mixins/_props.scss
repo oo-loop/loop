@@ -7,8 +7,8 @@
     @each $propertyName, $propertyValue in $propertiesMap {
       $propertyName: toKebabCase($propertyName);
 
-      @if inList($propertyName, ('before', 'after')) {
-        &::#{$propertyName} {
+      @if isString($propertyName) and str-slice($propertyName,1,1) == ':' {
+        &#{$propertyName} {
           @include generateProperties($propertyValue);
         }
       } @else if isMap($propertyValue) and areKeysBreakpoints($propertyValue) {
