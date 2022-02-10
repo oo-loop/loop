@@ -42,7 +42,7 @@
     "example": "node-sass --output-style expanded --source-comments false --precision 6 -w example/ -o example/build"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   },
   "engines": {
     "node": ">= 6.0.0",
