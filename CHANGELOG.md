@@ -1,5 +1,13 @@
 # Loop changelog
 
+## 1.0.2: 2022-04-04
+
+### Fixes
+- Fix `pointbreak()` on rem unit
+- Fix generating double properties when merging custom map with camelCase `props`
+- Fix the lost of references when merging custom config on `init`
+- Bump dependencies
+
 ## 1.0.1 : 2020-07-30
 
 - Add missing `states` properties in variants
