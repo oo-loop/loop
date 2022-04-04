@@ -15,11 +15,11 @@
 /// Init ooLoop configs
 
 @mixin ooInit($custom:null) {
-  $map: if(hasRef($ooLoop), ooParse($ooLoop), $ooLoop);
+  $map: $ooLoop;
   @if isMap($custom) and isNotEmpty($custom) {
     $map: mapMergeDeep($map, $custom);
-    $map: if(hasRef($map), ooParse($map), $map);
   }
+  $map: if(hasRef($map), ooParse($map), $map);
   $map: setMapValue($map, 'init', true);
   $ooLoop: $map !global;
 }
