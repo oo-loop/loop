@@ -21,11 +21,11 @@
 /// @credit-to  https://gist.github.com/pentzzsolt
 /// @param map $parentMap Map of data to be merged into
 /// @param map $childMap The set of data
-/// @param map $refMap The base map to refer too,
-///   usually equivalent to the $ooLoop before going into nested merge
+/// @param map $refMap The base map to refer too, usually equivalent to the $ooLoop before going into nested merge
+/// @param bool $forceKebab force the use of kebab-case property
 /// @return map
 
-@function mapMergeDeep($parentMap, $childMap, $refMap:null) {
+@function mapMergeDeep($parentMap, $childMap, $refMap:null, $forceKebab: false) {
   $map: $parentMap;
   @if not isMap($map) {
     @return $map;
@@ -34,6 +34,7 @@
   $refMap: if($refMap == null, $ooLoop, $refMap);
 
   @each $key, $value in $childMap {
+    $key: if($forceKebab, toKebabCase($key), $key);
     @if isRef(map-get($map, $key)) {
       $mapValue: getRefValue(map-get($map, $key), $refMap);
       $map: map-merge($map, ($key: $mapValue));
@@ -41,7 +42,7 @@
     @if (not map-has-key($map, $key)) or (type-of(map-get($map, $key) ) != type-of($value)) or (not (isMap(map-get($map, $key)) and isMap($value))) {
       $map: map-merge($map, ($key: $value));
     } @else {
-      $map: map-merge($map, ($key: mapMergeDeep(map-get($map, $key), $value, $refMap)));
+      $map: map-merge($map, ($key: mapMergeDeep(map-get($map, $key), $value, $refMap, inList($key, ('props', 'states')))));
     }
   }
   @return $map;
