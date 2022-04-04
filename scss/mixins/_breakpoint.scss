@@ -15,7 +15,7 @@
   @if map-has-key(oo('breakpoints'), $key) {
     $minWidth: map-get(oo('breakpoints'), $key);
     $maxWidth: $minWidth - 1;
-    @if unit($minWidth) == 'em' or unit('rem') {
+    @if inList(unit($minWidth), ('em', 'rem')) {
       $maxWidth: $minWidth - 0.001;
     }
     @media (max-width: $maxWidth) {
