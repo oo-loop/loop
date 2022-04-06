@@ -1,5 +1,12 @@
 # Loop changelog
 
+## 1.0.3: 2022-04-05
+
+### Feature
+- Set up function to return the alias information
+### Fixes
+- Return the reference value and send a warning if the alias function cannot be performed
+
 ## 1.0.2: 2022-04-04
 
 ### Fixes
