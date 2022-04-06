@@ -48,6 +48,33 @@ $ooAlias: (
   @return $isAlias;
 }
 
+/// getAliasInfo
+/// retrieve the alias information
+/// @param string $aliasFunction The complete alias function
+/// @return map|null
+
+@function getAliasInfo($aliasFunction) {
+  @each $alias in $ooAlias {
+    $aliasName: getMapValue($alias, 'name');
+    $aliasLength: str-length($aliasName);
+    $aliasFunctionName: stripSpaces(str-slice($aliasFunction, 1, $aliasLength));
+
+    @if $aliasFunctionName == $aliasName {
+      $currentAlias: $alias;
+      $functionName: getMapValue($alias, 'function');
+
+      @return (
+        name: $aliasName,
+        nameLength: $aliasLength,
+        function: if(function-exists('get-function'), get-function($functionName), $functionName),
+        functionName: $functionName,
+        paramType: getMapValue($alias, 'paramType'),
+      );
+    }
+  }
+
+  @return null;
+}
 
 /// getAliasValue
 /// retrieve the value of an alias function
