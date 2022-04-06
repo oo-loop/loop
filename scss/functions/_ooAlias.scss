@@ -2,12 +2,12 @@ $ooAlias: (
   (
     name: 'ooDarken',
     function: 'darken',
-    params: ('color', 'number'),
+    paramType: ('color', 'number'),
   ),
   (
     name: 'ooLighten',
     function: 'lighten',
-    params: ('color', 'number'),
+    paramType: ('color', 'number'),
   ),
 );
 
@@ -48,49 +48,79 @@ $ooAlias: (
   @return $isAlias;
 }
 
+/// getAliasInfo
+/// retrieve the alias information
+/// @param string $aliasFunction The complete alias function
+/// @return map|null
 
-/// getAliasValue
-/// retrieve the value of an alias function
-/// @param string $string The complete alias function
-/// @param string $value Value of the 1st parameter
-/// @return bool
-
-/// @todo review, simplify
-
-@function getAliasValue($string, $param:null) {
-  $currentAlias: null;
-  $function: null;
-  $params: split(',', inspect($string));
-
-  $param1: nth($params, 1);
+@function getAliasInfo($aliasFunction) {
   @each $alias in $ooAlias {
     $aliasName: getMapValue($alias, 'name');
     $aliasLength: str-length($aliasName);
-    @if str-slice($string, 1, $aliasLength) == $aliasName {
+    $aliasFunctionName: stripSpaces(str-slice($aliasFunction, 1, $aliasLength));
+
+    @if $aliasFunctionName == $aliasName {
       $currentAlias: $alias;
-      $function: getMapValue($alias, 'function');
-      $param1: stripSpaces(str-slice($param1, $aliasLength + 2, str-length($param1)));
-      @if function-exists('get-function') {
-        $function: get-function($function);
-      }
+      $functionName: getMapValue($alias, 'function');
+
+      @return (
+        name: $aliasName,
+        nameLength: $aliasLength,
+        function: if(function-exists('get-function'), get-function($functionName), $functionName),
+        functionName: $functionName,
+        paramType: getMapValue($alias, 'paramType'),
+      );
     }
   }
 
-  $param1: if($param == null, $param1, $param);
+  @return null;
+}
+
+/// getAliasValue
+/// retrieve the value of an alias function
+/// @param string $aliasFunction The complete alias function
+/// @param string $value Value of the 1st parameter
+/// @return bool
+
+@function getAliasValue($aliasFunction, $value:null) {
+  $name: null;
+  $paramType: null;
+  $function: null;
+  $params: split(',', inspect($aliasFunction));
+  $param1: nth($params, 1);
+
+  $aliasInfo: getAliasInfo($aliasFunction);
+
+  @if $aliasInfo != null {
+    $name: getMapValue($aliasInfo, 'name');
+    $function: getMapValue($aliasInfo, 'function');
+    $paramType: getMapValue($aliasInfo, 'paramType');
+    $param1: stripSpaces(str-slice($param1, getMapValue($aliasInfo, 'nameLength') + 2, str-length($param1)));
+  }
+
+  $param1: if($value==null, $param1, $value);
 
   @if length($params) > 1 {
-    $paramLeft: removeInList($params, 1);
-    $param2: stripSpaces(str-slice(#{$paramLeft}, 1, -2));
+    $param2: stripSpaces(str-slice(#{nth($params, 2)}, 1, -2));
 
-    $currentAliasParams: getMapValue($currentAlias, 'params');
-    $param1: toType(nth($currentAliasParams, 1), $param1);
-    $param2: toType(nth($currentAliasParams, 2), $param2);
+    $param1Type: null;
+    $param2Type: null;
 
-    @if type-of($param1) != nth($currentAliasParams, 1) or type-of($param2) != nth($currentAliasParams, 2) {
-      @return $string;
+    @if $paramType != null {
+      $param1Type: nth($paramType, 1);
+      $param2Type: nth($paramType, 2);
+    }
+
+    $param1: toType($param1Type, $param1);
+    $param2: toType($param2Type, $param2);
+ 
+    @if type-of($param1) != $param1Type or type-of($param2) != $param2Type {
+      @warn('The alias `#{$aliasFunction}` is targetting `#{$value}` and therefore cannot be used with the sass function `#{getMapValue($aliasInfo, 'functionName')}`');
+      @return $value;
     }
 
     @return call($function, $param1, $param2);
   }
+
   @return call($function, $param1);
 }
