@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import 'functions/map';
 
 /**
@@ -83,11 +84,11 @@ $border-colors-is-important: true !default;
  */
 $heading-font-sizes: (
   'h1': (
-    '': 3.6rem,
+    rt: 3.6rem,
     sm: 4.6rem,
   ),
   'h2': (
-    '': 3.2rem,
+    rt: 3.2rem,
     sm: 3.8rem,
   ),
   'h3': 2.8rem,
@@ -111,7 +112,7 @@ $paragraph-margin-bottom: 1.8rem !default;
 
 // Anchor
 $anchor-color:             $color-primary !default;
-$anchor-color-hover:       darken($anchor-color, 12%) !default;
+$anchor-color-hover:       color.adjust($anchor-color, $lightness: -12%) !default;
 $anchor-text-decoration:   none !default;
 
 // Description list
@@ -309,8 +310,8 @@ $btn-colors-classes: $colors-classes !default;
 $btn-color:          $color-base !default;
 $btn-color-hover:    $btn-color !default;
 $btn-bgcolor:        #fff !default;
-$btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
-$btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
+$btn-bgcolor-hover:  color.adjust($btn-bgcolor, $lightness: -10%) !default;
+$btn-bgcolor-active: color.adjust($btn-bgcolor, $lightness: -12%) !default;
 $btn-border-color:   #eee !default;
 
 $btn-padding:        .415em 1.2em !default; // relative to the size of the button
