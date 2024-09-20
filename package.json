@@ -11,8 +11,8 @@
   "scripts": {
     "test": "npm run css",
     "css": "npm run css-compile",
-    "css-compile": "node-sass --output-style expanded --precision 6 scss/_loop.scss dist/loop.css",
-    "css-compile-min": "node-sass --output-style compressed --precision 6 scss/_loop.scss dist/loop.min.css"
+    "css-compile": "sass --watch --style=expanded scss/_loop.scss dist/loop.css",
+    "css-compile-min": "sass --style=compressed scss/_loop.scss dist/loop.min.css"
   },
   "repository": {
     "type": "git",
@@ -33,8 +33,8 @@
   "author": "GPlus Media",
   "license": "MIT",
   "devDependencies": {
-    "node-sass": "^4.9.0",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "sass": "^1.79.2"
   },
   "files": [
     "dist/",
