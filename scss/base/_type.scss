@@ -1,14 +1,17 @@
+@use 'sass:color';
+@use 'sass:math';
+
 /**
  * Typography
  */
 
 $heading-font-sizes: (
   'h1': (
-    : 3.6rem,
+    '': 3.6rem,
     sm: 4.6rem,
   ),
   'h2': (
-    : 3.2rem,
+    '': 3.2rem,
     sm: 3.8rem,
   ),
   'h3': 2.8rem,
@@ -121,10 +124,12 @@ dd {
 }
 
 mark {
-  $highlight: lighten($color-primary, 55%);
-  @if lightness($highlight) > percentage(9.5/10) {
-    $highlight: lighten(yellow, 40%);
+  $highlight: color.adjust($color-primary, $lightness: 55%);
+
+  @if color.channel($highlight, 'lightness', $space: hsl) > math.percentage(math.div(9.5,10)) {
+    $highlight: color.adjust(yellow, $lightness: 40%);
   }
+
   color: inherit;
   background-color: $highlight;
 }

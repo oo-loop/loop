@@ -1,3 +1,5 @@
+@use 'sass:color';
+@use 'sass:math';
 /**
  * Is Bright
  * @param color
@@ -7,7 +9,11 @@
 $brightness-threshold: 188 !default; // range from 0 to 255, but more than the half (125)
 
 @function isBright($color) {
-  @if (((red($color) * 299) + (green($color) * 587) + (blue($color) * 114)) / 1000) >= $brightness-threshold {
+  $red: color.channel($color, 'red', $space: rgb);
+  $green: color.channel($color, 'green', $space: rgb);
+  $blue: color.channel($color, 'blue', $space: rgb);
+
+  @if (math.div(($red * 299) + ($green * 587) + ($blue * 114), 1000)) >= $brightness-threshold {
     @return true;
   } @else {
     @return false;

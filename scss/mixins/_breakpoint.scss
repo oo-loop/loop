@@ -26,7 +26,7 @@ $breakpoints-classes-width-default-value: join('', $breakpoints-classes);
     @media (min-width: $width) {
       @content;
     }
-  } @elseif isEmpty($key) {
+  } @else if isEmpty($key) {
     @content;
   }
 }
@@ -38,7 +38,7 @@ $breakpoints-classes-width-default-value: join('', $breakpoints-classes);
     @media (max-width: $width) {
       @content;
     }
-  } @elseif isEmpty($key) {
+  } @else if isEmpty($key) {
     @content;
   }
 }

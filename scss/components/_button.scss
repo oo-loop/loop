@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 /**
  * Button
  */
@@ -75,7 +77,7 @@ $btn-outline-box-shadow:     none !default;
   }
   &:active {
     background-color: $btn-bgcolor-active;
-    box-shadow: inset 1px 1px 1px 0 darken($btn-bgcolor, 25%);
+    box-shadow: inset 1px 1px 1px 0 color.adjust($btn-bgcolor, $lightness: -20%);
   }
 
   &.full {
@@ -87,25 +89,25 @@ $btn-outline-box-shadow:     none !default;
 @mixin paintButton($color-value) {
   color: if(isBright($color-value), $color-base, #fff);
   background-color: $color-value;
-  
+
   @if $btn-border-color != transparent {
     border-color: $color-value;
   }
   &:hover,
   &:focus {
     color: if(isBright($color-value), $color-base, #fff);
-    border-color: darken($color-value, 10%);
-    background-color: darken($color-value, 10%);
+    border-color: color.adjust($color-value, $lightness: -10%);
+    background-color: color.adjust($color-value, $lightness: -10%);
   }
   &:active {
-    border-color: darken($color-value, 12%);
-    background-color: darken($color-value, 12%);
-    box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+    border-color: color.adjust($color-value, $lightness: -12%);
+    background-color: color.adjust($color-value, $lightness: -12%);
+    box-shadow: inset  1px 1px 1px 0 color.adjust($color-value, $lightness: -25%);
   }
 }
 
 @if isNotEmpty($btn-colors-classes) {
-  @each $color in $btn-colors-classes { 
+  @each $color in $btn-colors-classes {
     [#{$loop-component-prefix}-button~="#{$color}"] {
       @include paintButton(map-get($colors, $color));
     }
@@ -129,14 +131,14 @@ $btn-outline-box-shadow:     none !default;
   &:hover,
   &:focus {
     color: if(isBright($color-value), $color-base, #fff);
-    border-color: darken($color-value, 10%);
-    background-color: darken($color-value, 10%);
+    border-color: color.adjust($color-value, $lightness: -10%);
+    background-color: color.adjust($color-value, $lightness: -10%);
   }
   &:active {
     color: if(isBright($color-value), $color-base, #fff);
-    border-color: darken($color-value, 12%);
-    background-color: darken($color-value, 12%);
-    box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+    border-color: color.adjust($color-value, $lightness: -12%);
+    background-color: color.adjust($color-value, $lightness: -12%);
+    box-shadow: inset  1px 1px 1px 0 color.adjust($color-value, $lightness: -25%);
   }
 }
 
@@ -162,18 +164,19 @@ $btn-outline-box-shadow:     none !default;
     @if $btn-box-shadow != $btn-outline-box-shadow {
       box-shadow: $btn-outline-box-shadow;
     }
-  }
-  @if isNotEmpty($btn-outline-colors-classes) {
-    @each $color in $btn-outline-colors-classes {
-      &[#{$loop-component-prefix}-button~="#{$color}"] {
-        @include paintButtonOutline(map-get($colors, $color));
+
+    @if isNotEmpty($btn-outline-colors-classes) {
+      @each $color in $btn-outline-colors-classes {
+        &[#{$loop-component-prefix}-button~="#{$color}"] {
+          @include paintButtonOutline(map-get($colors, $color));
+        }
       }
     }
-  }
-  @if isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors) {
-    @each $name, $value in $btn-colors {
-      &[#{$loop-component-prefix}-button~="#{$name}"] {
-        @include paintButtonOutline($value);
+    @if isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors) {
+      @each $name, $value in $btn-colors {
+        &[#{$loop-component-prefix}-button~="#{$name}"] {
+          @include paintButtonOutline($value);
+        }
       }
     }
   }
