@@ -9,10 +9,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "npm run css",
-    "css": "npm run css-compile",
-    "css-compile": "sass --watch --style=expanded scss/_loop.scss dist/loop.css",
-    "css-compile-min": "sass --style=compressed scss/_loop.scss dist/loop.min.css"
+    "dev": "sass --watch --style=expanded --no-source-map scss/_loop.scss dist/loop.css",
+    "build": "sass --style=compressed --no-source-map scss/_loop.scss dist/loop.min.css"
   },
   "repository": {
     "type": "git",
