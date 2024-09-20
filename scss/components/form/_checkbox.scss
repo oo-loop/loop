@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
  * Checkbox
  */
@@ -22,7 +24,7 @@ $checkbox-breakpoints-classes:() !default;
 
   & + label {
     &::before {
-      left: ($size / 2) - ($checked_width / 2) + ($checked_border-width / 3);
+      left: math.div($size, 2) - math.div($checked_width, 2) + math.div($checked_border-width, 3);
       @if $use-checkbox-animation {
         min-width: ($checked_width * 2);
         min-height: ($checked_height * 2);
@@ -31,12 +33,12 @@ $checkbox-breakpoints-classes:() !default;
       }
     }
     &::after {
-      margin-right: ($size / 3);
+      margin-right: math.div($size, 3);
       min-width: $size;
       min-height: $size;
     }
 
-    & + [#{$loop-component-prefix}-form~="checkbox"] + label { margin-top: ($size / 3); }
+    & + [#{$loop-component-prefix}-form~="checkbox"] + label { margin-top: math.div($size, 3); }
   }
   &:checked + label::before {
     min-width: $checked_width;

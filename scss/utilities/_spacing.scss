@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
  * Spacing
  */
@@ -13,7 +15,7 @@ $v-spacing-breakpoints-classes: () !default;
 
 // set default spacing
 $v-spacing: ();
-@for $i from $v-spacing-from through ceil($v-spacing-to / $v-spacing-step) {
+@for $i from $v-spacing-from through math.ceil(math.div($v-spacing-to, $v-spacing-step)) {
   $v-spacing: map-merge($v-spacing, (#{$i*$v-spacing-step}: #{$i*$v-spacing-step * $spacing-ratio}rem));
 }
 
@@ -45,7 +47,7 @@ $h-spacing-breakpoints-classes: () !default;
 
 // set default spacing
 $h-spacing: ();
-@for $i from $h-spacing-from through ceil($h-spacing-to / $h-spacing-step) {
+@for $i from $h-spacing-from through math.ceil(math.div($h-spacing-to, $h-spacing-step)) {
   $h-spacing: map-merge($h-spacing, (#{$i*$h-spacing-step}: #{$i*$h-spacing-step * $spacing-ratio}rem));
 }
 

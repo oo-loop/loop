@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
  * Radio
  */
@@ -17,9 +19,9 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 @mixin radio-size($size) {
   & + label {
     &::after {
-      margin-right: ($size / 3);
+      margin-right: math.div($size, 3);
     }
-    & + [#{$loop-component-prefix}-form~="radio"] + label { margin-top: ($size / 3); }
+    & + [#{$loop-component-prefix}-form~="radio"] + label { margin-top: math.div($size, 3); }
   }
 
   & + label::after,

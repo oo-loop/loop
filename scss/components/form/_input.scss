@@ -26,7 +26,7 @@ $label-margin:           .3rem !default;
 %inputFocus {
   @if $input-box-shadow == none and $input-focus-box-shadow != none {
     box-shadow: $input-focus-box-shadow;
-  } @elseif $input-focus-box-shadow != none {
+  } @else if $input-focus-box-shadow != none {
     box-shadow: $input-box-shadow, $input-focus-box-shadow;
   }
 

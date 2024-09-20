@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
  * Column
  */
@@ -66,8 +68,8 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     // columns
     @for $i from 1 through $columns-system {
       [#{$loop-component-prefix}-column~="col-#{$i}#{$suffix}"] {
-        flex-basis: percentage($i/$columns-system);
-        max-width: percentage($i/$columns-system);
+        flex-basis: percentage(math.div($i, $columns-system));
+        max-width: percentage(math.div($i, $columns-system));
       }
     }
 

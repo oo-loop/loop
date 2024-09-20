@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
  * List
  */
@@ -43,15 +45,15 @@ ol {
     list-style: none;
     display: flex;
     flex-flow: wrap;
-        
+
     > li {
       margin-bottom: 0;
       display: flex;
       align-items: center;
 
       &:not(:last-child)::after {
-        padding-left: ($list-divide-spacing / 2);
-        padding-right: ($list-divide-spacing / 2);
+        padding-left: math.div($list-divide-spacing, 2);
+        padding-right: math.div($list-divide-spacing, 2);
 
         display: inline-block;
         content: $list-divide-affix;
