@@ -1,12 +1,20 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use "sass:string";
+
 $ooAlias: (
   (
     name: 'ooDarken',
-    function: 'darken',
+    function: 'adjust-color',
+    keywordsArg: ('lightness': -1),
     paramType: ('color', 'number'),
   ),
   (
     name: 'ooLighten',
-    function: 'lighten',
+    function: 'adjust-color',
+    keywordsArg: ('lightness': 1),
     paramType: ('color', 'number'),
   ),
 );
@@ -18,13 +26,13 @@ $ooAlias: (
   @if isNotColor($value) {
     @return $value;
   }
-  @return darken($value, $percentage);
+  @return color.adjust($value, $lightness: -$percentage);
 }
 @function ooLighten($value, $percentage) {
   @if isNotColor($value) {
     @return $value;
   }
-  @return lighten($value, $percentage);
+  @return color.adjust($value, $lightness: $percentage);
 }
 
 /// isAlias
@@ -40,8 +48,8 @@ $ooAlias: (
   $isAlias: false;
   @each $alias in $ooAlias {
     $aliasName: getMapValue($alias, 'name');
-    $aliasLength: str-length($aliasName);
-    @if str-slice(#{$string}, 1, $aliasLength + 1) == '#{$aliasName}(' and str-slice(#{$string}, str-length(#{$string})) == ')' {
+    $aliasLength: string.length($aliasName);
+    @if string.slice(#{$string}, 1, $aliasLength + 1) == '#{$aliasName}(' and string.slice(#{$string}, string.length(#{$string})) == ')' {
       $isAlias: true;
     }
   }
@@ -56,8 +64,8 @@ $ooAlias: (
 @function getAliasInfo($aliasFunction) {
   @each $alias in $ooAlias {
     $aliasName: getMapValue($alias, 'name');
-    $aliasLength: str-length($aliasName);
-    $aliasFunctionName: stripSpaces(str-slice($aliasFunction, 1, $aliasLength));
+    $aliasLength: string.length($aliasName);
+    $aliasFunctionName: stripSpaces(string.slice($aliasFunction, 1, $aliasLength));
 
     @if $aliasFunctionName == $aliasName {
       $currentAlias: $alias;
@@ -66,8 +74,9 @@ $ooAlias: (
       @return (
         name: $aliasName,
         nameLength: $aliasLength,
-        function: if(function-exists('get-function'), get-function($functionName), $functionName),
+        function: if(meta.function-exists('get-function'), meta.get-function($functionName), $functionName),
         functionName: $functionName,
+        keywordsArg: getMapValue($alias, 'keywordsArg'),
         paramType: getMapValue($alias, 'paramType'),
       );
     }
@@ -85,30 +94,32 @@ $ooAlias: (
 @function getAliasValue($aliasFunction, $value:null) {
   $name: null;
   $paramType: null;
+  $keywordsArg: null;
   $function: null;
-  $params: split(',', inspect($aliasFunction));
-  $param1: nth($params, 1);
+  $params: string.split(',', meta.inspect($aliasFunction));
+  $param1: list.nth($params, 1);
 
   $aliasInfo: getAliasInfo($aliasFunction);
 
   @if $aliasInfo != null {
     $name: getMapValue($aliasInfo, 'name');
     $function: getMapValue($aliasInfo, 'function');
+    $keywordsArg: getMapValue($aliasInfo, 'keywordsArg');
     $paramType: getMapValue($aliasInfo, 'paramType');
-    $param1: stripSpaces(str-slice($param1, getMapValue($aliasInfo, 'nameLength') + 2, str-length($param1)));
+    $param1: stripSpaces(string.slice($param1, getMapValue($aliasInfo, 'nameLength') + 2, string.length($param1)));
   }
 
   $param1: if($value==null, $param1, $value);
 
   @if length($params) > 1 {
-    $param2: stripSpaces(str-slice(#{nth($params, 2)}, 1, -2));
+    $param2: stripSpaces(string.slice(#{list.nth($params, 2)}, 1, -2));
 
     $param1Type: null;
     $param2Type: null;
 
     @if $paramType != null {
-      $param1Type: nth($paramType, 1);
-      $param2Type: nth($paramType, 2);
+      $param1Type: list.nth($paramType, 1);
+      $param2Type: list.nth($paramType, 2);
     }
 
     $param1: toType($param1Type, $param1);
@@ -119,8 +130,16 @@ $ooAlias: (
       @return $value;
     }
 
-    @return call($function, $param1, $param2);
+    @if isMap($keywordsArg) {
+      $argKey: list.nth(map.keys($keywordsArg), 1);
+      $param2: map.get($keywordsArg, $argKey) * $param2;
+      @if ($argKey == 'lightness') {
+        @return meta.call($function, $param1, $lightness: $param2);
+      }
+    }
+
+    @return meta.call($function, $param1, $param2);
   }
 
-  @return call($function, $param1);
+  @return meta.call($function, $param1);
 }
