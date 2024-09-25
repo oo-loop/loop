@@ -13,7 +13,7 @@
     @if isMap($options) {
       $props: if(map-has-key($options, 'values'), oo('values', $options), ());
       $propertyName: if(map-has-key($options, 'property'), oo('property', $options), toKebabCase($name));
-      $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', toKebabCase($name)), 1));
+      $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(splitDeep('-', toKebabCase($name)), 1));
       $isImportant: if(map-has-key($options, 'important'), oo('important', $options), true);
       $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
       

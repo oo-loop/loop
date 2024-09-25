@@ -4,13 +4,13 @@
 /// @param list   $list    The list being populated
 /// @return list
 
-@function split($pattern, $subject, $list:()) {
+@function splitDeep($pattern, $subject, $list:()) {
   $searchIndex: str-index($subject, $pattern);
   @if isString($pattern) and isString($subject) and $searchIndex {
     $subjectStart: str-slice($subject, 1, $searchIndex - 1);
     $subjectEnd: str-slice($subject, $searchIndex + str-length($pattern));
     $newList: join($list, $subjectStart);
-    @return split($pattern, $subjectEnd, $newList);
+    @return splitDeep($pattern, $subjectEnd, $newList);
   } @else {
     $newList: join($list, $subject);
     @return $newList;

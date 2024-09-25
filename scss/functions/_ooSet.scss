@@ -1,3 +1,5 @@
+@use 'sass:string';
+
 /// ooSet
 /// Set value in to map with the ooFormat (default $ooLoop)
 /// @param string $key  ooFormat key
@@ -12,7 +14,7 @@
 }
 
 @function ooSetSoft($key, $value, $map:null) {
-  $list: split('.', $key);
+  $list: string.split('.', $key);
   $map:  if($map == null, $ooLoop, $map);
   
   @if isRef($value) {
@@ -33,7 +35,7 @@
 }
 
 @function ooSetHard($key, $value, $map:null) {
-  $list: split('.', $key);
+  $list: string.split('.', $key);
   $map:  if($map == null, $ooLoop, $map);
 
   @if isRef($value) {

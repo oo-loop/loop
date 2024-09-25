@@ -1,9 +1,11 @@
+@use "sass:string";
+
 // Template Areas
 
 @function getAreaNames($areas) {
   $list: ();
   @each $area in $areas {
-    $areaNames: split(' ', $area);
+    $areaNames: string.split(' ', $area);
     @each $areaName in $areaNames {
       $hasValueIndex: str-index($areaName, '|');
       $areaName: if($hasValueIndex, str-slice($areaName, 1, $hasValueIndex - 1), $areaName);
@@ -19,7 +21,7 @@
     @return 0;
   }
   @each $area in $areas {
-    $areaNames: split(' ', $area);
+    $areaNames: string.split(' ', $area);
     @return length($areaNames);
   }
 }
@@ -30,7 +32,7 @@
     $columnsMap: ();
 
     @each $row in $grid-template-areas {
-      $columnItems: split(' ', $row);
+      $columnItems: string.split(' ', $row);
       $areaNames: null;
       @for $i from 1 through length($columnItems) {
         $columnName: nth($columnItems, $i);

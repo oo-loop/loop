@@ -1,3 +1,5 @@
+@use 'sass:string';
+
 /// getMapValue
 /// @param map $map map of data
 /// @param string $key key to retrieve the value from
@@ -73,9 +75,9 @@
   }
   $map: ();
   $stripParenthesis: str-slice($string, 2, str-length($string) - 1);
-  $list: split(',', $stripParenthesis);
+  $list: string.split(',', $stripParenthesis);
   @each $item in $list {
-    $itemList: split(':', $item);
+    $itemList: string.split(':', $item);
     $map: setMapValue($map, nth($itemList, 1), nth($itemList, 2));
   }
   @return $map;

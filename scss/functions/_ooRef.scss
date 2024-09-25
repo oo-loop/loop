@@ -1,3 +1,5 @@
+@use 'sass:string';
+
 /// hasRef
 /// Check if a map has a ooFormat
 /// @param mixed
@@ -81,7 +83,7 @@
       }
       @if isNotMap($refValue) {
         //the use of replace is for some sass version
-        $refPathList: split('.', replace('"', '', getRefPath($ref)));
+        $refPathList: string.split('.', replace('"', '', getRefPath($ref)));
         $refValue: (nth($refPathList, length($refPathList)): $refValue);
       }
       $newMapValue: map-merge($newMapValue, $refValue);
