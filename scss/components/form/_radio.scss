@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Radio
 
 @mixin radioSize($size) {
@@ -8,17 +10,17 @@
 
   & + label {
     &::after {
-      margin-right: $size / 2;
+      margin-right: math.div($size, 2);
       min-width: $size;
       min-height: $size;
     }
     & + [#{ooPrefix()}-radio] + label {
-      margin-top: $size / 3;
+      margin-top: math.div($size, 3);
     }
   }
 
   &:checked + label::before {
-    $halfSize: $size / 2;
+    $halfSize: math.div($size, 2);
     top: calc(50% - #{$halfSize});
     min-width: $size;
     min-height: $size;

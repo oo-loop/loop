@@ -1,8 +1,10 @@
+@use 'sass:color';
+
 // Button
 
 @mixin paintButton($color-value) {
   @if isColor($color-value) {
-    $color: if(isBright($color-value), darken($color-value, 80%), #fff);
+    $color: if(isBright($color-value), color.adjust($color-value, $lightness: -80%), #fff);
     
     color: $color;
     background-color: $color-value;
@@ -12,12 +14,12 @@
   
     @if oo('button.outline') {
       &[#{ooPrefix()}-button~="outline"] {
-        color: if(isBright($color-value, 210), darken($color-value, 30%), $color-value);
+        color: if(isBright($color-value, 210), color.adjust($color-value, $lightness: -30%), $color-value);
         background: transparent;
         box-shadow: none;
   
         @if oo('button.props.border') and isBright($color-value, 210) {
-          border-color: darken($color-value, 30%);
+          border-color: color.adjust($color-value, $lightness: -30%);
         }
       }
     }
@@ -25,9 +27,9 @@
     &:hover:not(:disabled),
     &:focus:not(:disabled) {
       color: $color;
-      background-color: darken($color-value, 10%);
+      background-color: color.adjust($color-value, $lightness: -10%);
       @if oo('button.props.border') {
-        border-color: darken($color-value, 10%);
+        border-color: color.adjust($color-value, $lightness: -10%);
       }
       @if oo('button.outline') {
         &[#{ooPrefix()}-button~="outline"] {
@@ -40,15 +42,15 @@
     }
     &:focus:not(:disabled) {
       outline: none;
-      box-shadow: 0 0 3px 4px lighten($color-value, 5%);
+      box-shadow: 0 0 3px 4px color.adjust($color-value, $lightness: 5%);
     }
     &:active:not(:disabled) {
       color: $color;
-      background-color: darken($color-value, 12%);
-      box-shadow: inset  1px 1px 1px 0 darken($color-value, 25%);
+      background-color: color.adjust($color-value, $lightness: -12%);
+      box-shadow: inset  1px 1px 1px 0 color.adjust($color-value, $lightness: -25%);
       outline: none;
       @if oo('button.props.border') {
-        border-color: darken($color-value, 12%);
+        border-color: color.adjust($color-value, $lightness: -12%);
       }
     }
   }

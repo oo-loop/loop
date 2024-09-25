@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Column
 
 @mixin columnGutterProps($size) {
@@ -121,8 +123,8 @@
       // columns
       @for $i from 1 through oo('column.system') {
         [#{ooPrefix()}-col~="span#{$i}#{$suffix}"] {
-          flex-basis: percentage($i / oo('column.system'));
-          max-width: percentage($i / oo('column.system'));
+          flex-basis: math.percentage(math.div($i, oo('column.system')));
+          max-width: math.percentage(math.div($i, oo('column.system')));
         }
       }
 
