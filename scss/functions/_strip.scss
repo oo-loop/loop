@@ -1,7 +1,9 @@
+@use 'replace';
+
 /// Strip white spaces
 /// @param string
 /// @return string
 
 @function stripSpaces($string) {
-  @return replace(' ', '', #{$string}); 
+  @return replace.replace(' ', '', #{$string}); 
 }

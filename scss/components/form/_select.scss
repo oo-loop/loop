@@ -1,27 +1,30 @@
+@use 'sass:map';
+@use '../../fn';
+
 // Select
 
 @mixin caretTheme($theme) {
-  @if map-has-key($theme, 'size') {
-    &::before { width: (map-get($theme, 'size') * 4); }
+  @if map.has-key($theme, 'size') {
+    &::before { width: (map.get($theme, 'size') * 4); }
     &::after {
-      right: map-get($theme, 'size') * 1.5;
-      width: map-get($theme, 'size');
-      height: map-get($theme, 'size');
+      right: map.get($theme, 'size') * 1.5;
+      width: map.get($theme, 'size');
+      height: map.get($theme, 'size');
     }
   }
-  @if map-has-key($theme, 'weight') {
+  @if map.has-key($theme, 'weight') {
     &::after {
-      border-bottom-width: map-get($theme, 'weight');
-      border-right-width: map-get($theme, 'weight');
+      border-bottom-width: map.get($theme, 'weight');
+      border-right-width: map.get($theme, 'weight');
     }
   }
-  @if map-has-key($theme, 'bgcolor') {
-    &::before { background-color: map-get($theme, 'bgcolor'); }
+  @if map.has-key($theme, 'bgcolor') {
+    &::before { background-color: map.get($theme, 'bgcolor'); }
   }
-  $border: map-get($theme, 'border');
-  @if map-has-key($theme, 'border') {
+  $border: map.get($theme, 'border');
+  @if map.has-key($theme, 'border') {
     &::before {
-      @if isColor($border) {
+      @if fn.isColor($border) {
         border-color: $border;
       } @else if $border != oo('select.props.border') {
         border-top: $border;
@@ -30,10 +33,10 @@
       }
     }
   }
-  @if map-has-key($theme, 'color') {
+  @if map.has-key($theme, 'color') {
     &::after {
-      border-bottom-color: map-get($theme, 'color');
-      border-right-color: map-get($theme, 'color');
+      border-bottom-color: map.get($theme, 'color');
+      border-right-color: map.get($theme, 'color');
     }
   }
 }
@@ -88,7 +91,7 @@
         display: none;
       }
 
-      @if oo('select.props') == oo('input.props') and inList('input', 'include') {
+      @if oo('select.props') == oo('input.props') and fn.inList('input', 'include') {
         @extend [#{ooPrefix()}-input];
       } @else {
         @include generateProperties(oo('select.props'));
@@ -110,55 +113,55 @@
     }
   }
 
-  @if oo('select.variants') and isMap(oo('select.variants')) {
+  @if oo('select.variants') and fn.isMap(oo('select.variants')) {
     @each $name, $props in oo('select.variants') {
 
       [#{ooPrefix()}-select~="#{$name}"] {
         /**
         * @todo Think about a clever way to apply all those exceptions to the selector
         */
-        @if map-has-key($props, 'background-color') {
+        @if map.has-key($props, 'background-color') {
           &::before {
-            background-color: map-get($props, 'background-color');
+            background-color: map.get($props, 'background-color');
           }
-        } @else if map-has-key($props, 'backgroundColor') {
+        } @else if map.has-key($props, 'backgroundColor') {
           &::before {
-            background-color: map-get($props, 'backgroundColor');
-          }
-        }
-        @if map-has-key($props, 'border-color') and (
-          not map-has-key($props, 'caret')
-          or isNotColor(getMapValue(map-get($props, 'caret'), 'border'))
-        ) {
-          &::before {
-            border-color: map-get($props, 'border-color');
-          }
-        } @else if map-has-key($props, 'borderColor') and (
-          not map-has-key($props, 'caret')
-          or isNotColor(getMapValue(map-get($props, 'caret'), 'border'))
-        ) {
-          &::before {
-            border-color: map-get($props, 'borderColor');
+            background-color: map.get($props, 'backgroundColor');
           }
         }
-        @if map-has-key($props, 'border-radius') {
+        @if map.has-key($props, 'border-color') and (
+          not map.has-key($props, 'caret')
+          or fn.isNotColor(fn.getMapValue(map.get($props, 'caret'), 'border'))
+        ) {
           &::before {
-            border-top-right-radius: map-get($props, 'border-radius');
-            border-bottom-right-radius: map-get($props, 'border-radius');
+            border-color: map.get($props, 'border-color');
           }
-        } @else if map-has-key($props, 'borderRadius') {
+        } @else if map.has-key($props, 'borderColor') and (
+          not map.has-key($props, 'caret')
+          or fn.isNotColor(fn.getMapValue(map.get($props, 'caret'), 'border'))
+        ) {
           &::before {
-            border-top-right-radius: map-get($props, 'borderRadius');
-            border-bottom-right-radius: map-get($props, 'borderRadius');
+            border-color: map.get($props, 'borderColor');
+          }
+        }
+        @if map.has-key($props, 'border-radius') {
+          &::before {
+            border-top-right-radius: map.get($props, 'border-radius');
+            border-bottom-right-radius: map.get($props, 'border-radius');
+          }
+        } @else if map.has-key($props, 'borderRadius') {
+          &::before {
+            border-top-right-radius: map.get($props, 'borderRadius');
+            border-bottom-right-radius: map.get($props, 'borderRadius');
           }
         }
 
-        @if map-has-key($props, 'caret') and isMap(map-get($props, 'caret')) {
-          @include caretTheme(map-get($props, 'caret'));
+        @if map.has-key($props, 'caret') and fn.isMap(map.get($props, 'caret')) {
+          @include caretTheme(map.get($props, 'caret'));
         }
         > select {
-          @include generateProperties(map-remove($props, 'caret'));
-          @if map-has-key($props, 'padding') {
+          @include generateProperties(map.remove($props, 'caret'));
+          @if map.has-key($props, 'padding') {
             padding-right: 0;
           }
         }

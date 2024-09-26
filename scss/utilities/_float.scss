@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use '../fn';
+
 // FLoat utilites
 
 @mixin Float($param: null) {
@@ -14,8 +17,8 @@
       }
     }
   }
-  @if isNotEmpty(oo('float.values')) {
-    $float: map-remove(oo('float'), 'clearfix');
+  @if fn.isNotEmpty(oo('float.values')) {
+    $float: map.remove(oo('float'), 'clearfix');
     @include generateUtilities((float: $float));
   }
 }

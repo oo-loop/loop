@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Set available functions before configuration
 
 /// rem
@@ -7,5 +9,5 @@
 /// @return number rem value
 
 @function rem($pixel, $base: 16) {
-  @return  ((1rem * $pixel) / $base);
+  @return math.div((1rem * $pixel), $base);
 }

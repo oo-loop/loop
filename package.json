@@ -1,6 +1,6 @@
 {
   "name": "oo-loop",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Loop CSS framework, flexible and expressive CSS",
   "keywords": [
     "scss",
@@ -36,13 +36,12 @@
     "url": "https://github.com/oo-loop/loop.git"
   },
   "scripts": {
-    "dev": "node-sass -r --output-style expanded --precision 6 src/index.scss dist/loop.css",
-    "build": "node-sass --output-style compressed --precision 6 src/index.scss dist/loop.css",
-    "watch": "npm run dev && npm run dev -- -w",
-    "example": "node-sass --output-style expanded --precision 6 example/src -o example/build"
+    "dev": "sass --watch --style=expanded --no-source-map src/index.scss:dist/loop.css scss",
+    "build": "sass --style=compressed --no-source-map src/index.scss dist/loop.css",
+    "example": "sass --watch --style=expanded --no-source-map example/src:example/build"
   },
   "devDependencies": {
-    "node-sass": "^7.0.0"
+    "sass": "^1.79.3"
   },
   "engines": {
     "node": ">= 6.0.0",

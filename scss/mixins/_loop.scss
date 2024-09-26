@@ -1,10 +1,10 @@
-@import 'breakpoint';
-
+@use 'sass:string';
+@use '../fn';
 
 // Loop Properties
 @mixin loopProperties($properties, $value, $isImportant) {
   // multiple properties
-  @if isList($properties) {
+  @if fn.isList($properties) {
     @each $property in $properties {
       #{$property}: if($isImportant, #{$value} !important, #{$value});
     }
@@ -23,30 +23,30 @@
 
 @mixin loop($data, $properties, $prefix, $isImportant:false, $suffix:'') {
   // Make sure to have the correct format or do not generate rules
-  @if isNotEmpty($data) {
-    @if isString($data) {
+  @if fn.isNotEmpty($data) {
+    @if fn.isString($data) {
       #{$prefix}-#{$data}#{$suffix} {
         @include loopProperties($properties, $data, $isImportant);
       }
-    } @else if isList($data) {
+    } @else if fn.isList($data) {
       @each $value in $data {
         #{$prefix}-#{$value}#{$suffix} {
           @include loopProperties($properties, $value, $isImportant);
         }
       }
-    } @else if isMap($data) {
+    } @else if fn.isMap($data) {
       @each $key, $value in $data {
-        $affix: if(isEmpty($key), '', '-');
+        $affix: if(fn.isEmpty($key), '', '-');
 
         #{$prefix}#{$affix}#{$key}#{$suffix} {
           // responsive properties ?
-          @if isMap($value) and str-index($suffix, $substring: "\@") == null {
+          @if fn.isMap($value) and string.index($suffix, $substring: "\@") == null {
             @each $child-breakpoint, $child-value in $value {
               @include breakpoint($child-breakpoint) {
                 @include loopProperties($properties, $child-value, $isImportant);
               }
             }
-          } @else if isNotMap($value) {
+          } @else if fn.isNotMap($value) {
             @include loopProperties($properties, $value, $isImportant);
           }
         }
@@ -64,9 +64,9 @@
 /// @param string $suffix String to append to the selector
 
 @mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $isImportant:false, $suffix:'') {
-  @if isNotEmpty($breakpoints) and isNotEmpty($data) {
-    @if isString($breakpoints) {
-      $breakpoints: toList($breakpoints);
+  @if fn.isNotEmpty($breakpoints) and fn.isNotEmpty($data) {
+    @if fn.isString($breakpoints) {
+      $breakpoints: fn.toList($breakpoints);
     }
     @each $breakpoint in $breakpoints {
       @include breakpoint($breakpoint) {

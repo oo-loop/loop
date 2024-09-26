@@ -1,7 +1,10 @@
+@use 'sass:math';
+@use '../../fn';
+
 // Checkbox
 
 @mixin checkboxSize($size) {
-  @if isNotNumber($size) {
+  @if fn.isNotNumber($size) {
     @error 'The checkbox #{$size} must be a number';
   }
   $mark-width: $size * 0.4;
@@ -10,13 +13,13 @@
 
   & + label {
     &::after {
-      margin-right: $size / 2.5;
+      margin-right: math.div($size, 2.5);
       min-width: $size;
       min-height: $size;
     }
 
     & + [#{ooPrefix()}-checkbox] + label {
-      margin-top: $size / 3;
+      margin-top: math.div($size, 3);
     }
   }
   &:checked + label::before {
@@ -70,7 +73,7 @@
       }
     }
 
-    @if isNotEmpty(oo('checkbox.sizes')) {
+    @if fn.isNotEmpty(oo('checkbox.sizes')) {
       @each $name, $size in oo('checkbox.sizes') {
         @if $name == 'default' {
           @include checkboxSize($size);
@@ -81,7 +84,7 @@
         }
       }
 
-      @if isNotEmpty(oo('checkbox.screens')) {
+      @if fn.isNotEmpty(oo('checkbox.screens')) {
         @each $breakpoint in oo('checkbox.screens') {
           @include breakpoint($breakpoint) {
             @each $name, $size in oo('checkbox.sizes') {

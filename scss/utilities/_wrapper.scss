@@ -1,8 +1,10 @@
+@use '../fn';
+
 // Wrapper
 
 @mixin Wrapper($param: null) {
   @include initElement('wrapper', $param);
-  @if isNotEmpty(oo('wrapper')) {
+  @if fn.isNotEmpty(oo('wrapper')) {
     @include generateUtilities((wrapper: oo('wrapper')));
   }
 }

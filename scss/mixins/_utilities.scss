@@ -1,23 +1,26 @@
-@import 'loop';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+@use '../fn';
 
 /// Generate Utilities
 /// @param $utilitiesMap 
 
  @mixin generateUtilities($utilitiesMap) {
-  @if map-has-key($utilitiesMap, 'values')
-    and map-has-key($utilitiesMap, 'name') {
-    $utilitiesMap: (map-get($utilitiesMap, 'name'): $utilitiesMap);
+  @if map.has-key($utilitiesMap, 'values')
+    and map.has-key($utilitiesMap, 'name') {
+    $utilitiesMap: (map.get($utilitiesMap, 'name'): $utilitiesMap);
   }
 
   @each $name, $options in $utilitiesMap {
-    @if isMap($options) {
-      $props: if(map-has-key($options, 'values'), oo('values', $options), ());
-      $propertyName: if(map-has-key($options, 'property'), oo('property', $options), toKebabCase($name));
-      $prefix: if(map-has-key($options, 'prefix'), oo('prefix', $options), nth(split('-', toKebabCase($name)), 1));
-      $isImportant: if(map-has-key($options, 'important'), oo('important', $options), true);
-      $screens: if(map-has-key($options, 'screens'), oo('screens', $options), ());
+    @if fn.isMap($options) {
+      $props: if(map.has-key($options, 'values'), oo('values', $options), ());
+      $propertyName: if(map.has-key($options, 'property'), oo('property', $options), fn.toKebabCase($name));
+      $prefix: if(map.has-key($options, 'prefix'), oo('prefix', $options), list.nth(fn.splitDeep('-', fn.toKebabCase($name)), 1));
+      $isImportant: if(map.has-key($options, 'important'), oo('important', $options), true);
+      $screens: if(map.has-key($options, 'screens'), oo('screens', $options), ());
       
-      @if not (str-slice(prefix, 1, 1) == '.') {
+      @if not (string.slice(prefix, 1, 1) == '.') {
         $prefix: '.' + $prefix;
       }
 
@@ -28,7 +31,7 @@
         $isImportant
       );
 
-      @if isMap($screens) {
+      @if fn.isMap($screens) {
         @each $class, $propsName in $screens {
           @if $propsName == '*' {
             @include loopBreakpoints(
@@ -38,19 +41,19 @@
               $prefix,
               $isImportant
             )
-          } @else if isNotEmpty($propsName) {
-            $propsName: toList($propsName);
+          } @else if fn.isNotEmpty($propsName) {
+            $propsName: fn.toList($propsName);
             $propsTarget: ();
             @each $name in $propsName {
               $prop-value: '';
-              @if isList($props) {
-                $index: index($props, $name);
-                $prop-value: nth($props, $index);
+              @if fn.isList($props) {
+                $index: list.index($props, $name);
+                $prop-value: list.nth($props, $index);
               } @else {
                 $prop-value: oo(#{$name}, $props);
               }
               @if $prop-value {
-                $propsTarget: map-merge($propsTarget, (#{$name}: $prop-value));
+                $propsTarget: map.merge($propsTarget, (#{$name}: $prop-value));
               }
             }
             @include loopBreakpoints(

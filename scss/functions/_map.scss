@@ -1,53 +1,24 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+@use 'type';
+@use 'split';
+
 /// getMapValue
 /// @param map $map map of data
 /// @param string $key key to retrieve the value from
 /// @return string
 
 @function getMapValue($map, $key) {
-  @if isNotMap($map) {
+  @if type.isNotMap($map) {
     @return null;
   }
-  @if map-has-key($map, $key) == false {
+  @if map.has-key($map, $key) == false {
     // @warn 'key does not exist when using getMapValue() for' #{$key} 'on' $map;
     @return null;
   }
-  @return map-get($map, $key);
+  @return map.get($map, $key);
 }
-
-
-
-/// mapMergeDeep
-/// Non destructive map merge. 
-/// @credit-to  https://gist.github.com/pentzzsolt
-/// @param map $parentMap Map of data to be merged into
-/// @param map $childMap The set of data
-/// @param map $refMap The base map to refer too, usually equivalent to the $ooLoop before going into nested merge
-/// @param bool $forceKebab force the use of kebab-case property
-/// @return map
-
-@function mapMergeDeep($parentMap, $childMap, $refMap:null, $forceKebab: false) {
-  $map: $parentMap;
-  @if not isMap($map) {
-    @return $map;
-  }
-
-  $refMap: if($refMap == null, $ooLoop, $refMap);
-
-  @each $key, $value in $childMap {
-    $key: if($forceKebab, toKebabCase($key), $key);
-    @if isRef(map-get($map, $key)) {
-      $mapValue: getRefValue(map-get($map, $key), $refMap);
-      $map: map-merge($map, ($key: $mapValue));
-    }
-    @if (not map-has-key($map, $key)) or (type-of(map-get($map, $key) ) != type-of($value)) or (not (isMap(map-get($map, $key)) and isMap($value))) {
-      $map: map-merge($map, ($key: $value));
-    } @else {
-      $map: map-merge($map, ($key: mapMergeDeep(map-get($map, $key), $value, $refMap, inList($key, ('props', 'states')))));
-    }
-  }
-  @return $map;
-}
-
 
 /// setMapValue
 /// @param map $map  map of data
@@ -56,7 +27,7 @@
 
 @function setMapValue($map, $key, $value) {
   $newSet: ($key: $value);
-  @return map-merge($map, $newSet);
+  @return map.merge($map, $newSet);
 }
 
 /// toMap [w.i.p]
@@ -68,15 +39,15 @@
 /// @todo consider nested map
 
 @function toMap($string) {
-  @if isMap($string) {
+  @if type.isMap($string) {
     @return $string;
   }
   $map: ();
-  $stripParenthesis: str-slice($string, 2, str-length($string) - 1);
-  $list: split(',', $stripParenthesis);
+  $stripParenthesis: string.slice($string, 2, string.length($string) - 1);
+  $list: fn.splitDeep(',', $stripParenthesis);
   @each $item in $list {
-    $itemList: split(':', $item);
-    $map: setMapValue($map, nth($itemList, 1), nth($itemList, 2));
+    $itemList: fn.splitDeep(':', $item);
+    $map: setMapValue($map, list.nth($itemList, 1), list.nth($itemList, 2));
   }
   @return $map;
 }
