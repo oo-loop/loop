@@ -1,0 +1,42 @@
+@use 'sass:list';
+@use 'sass:string';
+@use '../fn';
+
+/// oo
+/// Get value from a map with the ooFormat (default $ooLoop)
+/// @param string  $key  ooFormat key
+/// @param map|null $map the map to update (default $ooLoop)
+/// @return mixed
+
+@function oo($key, $map:null) {
+  $map: if($map == null, $ooLoop, $map);
+
+  // double check if quotes exist (issue with some sass version and PostCSS Parser)
+  @if string.slice($key, 1, 1) == '"' and string.slice($key, string.length($key), - 1) == '"' {
+    $key: string.slice($key, 2, string.length($key) - 1);
+  }
+
+  @if string.index($key, '.') == null {
+    @return fn.getMapValue($map, $key);
+  }
+
+  $list: fn.splitDeep('.', $key);
+
+  @for $i from 1 through list.length($list) {
+    $value: fn.getMapValue($map, list.nth($list, $i));
+    @if $i == list.length($list) and fn.isEmpty($value) {
+      $value: fn.getMapValue($map, fn.toKebabCase(list.nth($list, $i)));
+    }
+    $map: $value;
+  }
+ 
+  @return $map;
+}
+
+/// ooPrefix
+/// get loop prefix
+/// @return string
+
+@function ooPrefix() {
+  @return if(oo(dataAttr) == true, 'data-oo', 'oo');
+}

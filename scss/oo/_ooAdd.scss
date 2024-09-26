@@ -1,3 +1,6 @@
+@use 'sass:list';
+@use '../fn';
+
 /// ooAdd
 /// Push new map value to an another set of map with the ooFormat (default $ooLoop)
 /// @param string $key ooFormat key
@@ -8,7 +11,7 @@
 @function ooAdd($key, $mapValue, $map:null) {
   $currentValue: oo($key, $map);
 
-  @if isEmpty($currentValue) {
+  @if fn.isEmpty($currentValue) {
     $newValue: ooSetSoft($key, $mapValue, $map);
     @return $newValue;
   }
@@ -17,15 +20,15 @@
     $currentValue: getRefValue($currentValue, $map);
   }
 
-  @if isString($currentValue) {
-    $currentValue: toList($currentValue);
+  @if fn.isString($currentValue) {
+    $currentValue: fn.toList($currentValue);
   }
 
-  @if isList($currentValue) {
-    $newValue: ooSetSoft($key, append($currentValue, $mapValue), $map);
+  @if fn.isList($currentValue) {
+    $newValue: ooSetSoft($key, list.append($currentValue, $mapValue), $map);
     @return $newValue;
   }
     
-  $newValue: ooSetSoft($key, mapMergeDeep($currentValue, $mapValue, $map), $map);
+  $newValue: ooSetSoft($key, ooMergeDeep($currentValue, $mapValue, $map), $map);
   @return $newValue;
 }

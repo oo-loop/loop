@@ -1,4 +1,8 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
 @use 'sass:string';
+@use '../fn';
 
 /// hasRef
 /// Check if a map has a ooFormat
@@ -6,10 +10,10 @@
 /// @return bool
 
 @function hasRef($search) {
-  @if isNotString($search) {
-    $search: inspect($search);
+  @if fn.isNotString($search) {
+    $search: meta.inspect($search);
   }
-  @return if(str-index($search, 'this(') == null, false, true);
+  @return if(string.index($search, 'this(') == null, false, true);
 }
 
 
@@ -19,10 +23,10 @@
 /// @return bool
 
 @function isRef($string) {
-  @if isNotString($string) {
-    $string: inspect($string);
+  @if fn.isNotString($string) {
+    $string: meta.inspect($string);
   }
-  @return str-slice($string, 1, 5) == 'this(' and str-slice($string, str-length($string)) == ')';
+  @return string.slice($string, 1, 5) == 'this(' and string.slice($string, string.length($string)) == ')';
 }
 
 /// hasSpreadOperator
@@ -31,10 +35,10 @@
 /// @return bool
 
 @function hasSpreadOperator($ref) {
-  @if isNotString($ref) {
-    $ref: inspect($ref);
+  @if fn.isNotString($ref) {
+    $ref: meta.inspect($ref);
   }
-  @return if(str-index($ref, '_this(') == null, false, true);
+  @return if(string.index($ref, '_this(') == null, false, true);
 }
 
 /// getRefPath
@@ -43,10 +47,10 @@
 /// @return String
 
 @function getRefPath($string) {
-  @if isNotString($string) {
-    $string: inspect($string);
+  @if fn.isNotString($string) {
+    $string: meta.inspect($string);
   }
-  @return str-slice($string, 6, -2);
+  @return string.slice($string, 6, -2);
 }
 
 /// getRefValue
@@ -70,27 +74,27 @@
 /// @return map
 
 @function getSpreadMap($list, $map) {
-  @if isNotList($list) {
+  @if fn.isNotList($list) {
     @error 'spread operator must be used within a list';
   }
   $newMapValue: ();
-  @for $i from 1 through length($list) {
-    @if hasSpreadOperator(nth($list, $i)) {
-      $ref: extractRef(nth($list, $i));
+  @for $i from 1 through list.length($list) {
+    @if hasSpreadOperator(list.nth($list, $i)) {
+      $ref: extractRef(list.nth($list, $i));
       $refValue: getRefValue($ref, $map);
       @if hasSpreadOperator($refValue) {
         $refValue: getSpreadMap($refValue, $map);
       }
-      @if isNotMap($refValue) {
+      @if fn.isNotMap($refValue) {
         //the use of replace is for some sass version
-        $refPathList: string.split('.', replace('"', '', getRefPath($ref)));
-        $refValue: (nth($refPathList, length($refPathList)): $refValue);
+        $refPathList: fn.splitDeep('.', fn.replace('"', '', getRefPath($ref)));
+        $refValue: (list.nth($refPathList, list.length($refPathList)): $refValue);
       }
-      $newMapValue: map-merge($newMapValue, $refValue);
-    } @else if isNotMap(nth($list, $i)) {
+      $newMapValue: map.merge($newMapValue, $refValue);
+    } @else if fn.isNotMap(list.nth($list, $i)) {
       @error 'spread operator only works along map';
     } @else {
-      $newMapValue: map-merge($newMapValue, nth($list, $i));
+      $newMapValue: map.merge($newMapValue, list.nth($list, $i));
     }
   }
   @return $newMapValue;
@@ -102,12 +106,12 @@
 /// @return string
 
 @function extractRef($string) {
-  @if isNotString($string) {
-    $string: inspect($string)
+  @if fn.isNotString($string) {
+    $string: meta.inspect($string)
   }
   @if not hasRef($string) {
     @return $string;
   }
-  $extractString: extract('this(', ')', $string);
+  $extractString: fn.extract('this(', ')', $string);
   @return $extractString;
 }

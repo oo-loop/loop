@@ -3,6 +3,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use "sass:string";
+@use "../fn";
 
 $ooAlias: (
   (
@@ -23,13 +24,13 @@ $ooAlias: (
 // Aliases function used before init
 
 @function ooDarken($value, $percentage) {
-  @if isNotColor($value) {
+  @if fn.isNotColor($value) {
     @return $value;
   }
   @return color.adjust($value, $lightness: -$percentage);
 }
 @function ooLighten($value, $percentage) {
-  @if isNotColor($value) {
+  @if fn.isNotColor($value) {
     @return $value;
   }
   @return color.adjust($value, $lightness: $percentage);
@@ -41,13 +42,13 @@ $ooAlias: (
 /// @return bool
 
 @function isAlias($string) {
-  @if isNotString($string) {
+  @if fn.isNotString($string) {
     @return false;
   }
 
   $isAlias: false;
   @each $alias in $ooAlias {
-    $aliasName: getMapValue($alias, 'name');
+    $aliasName: fn.getMapValue($alias, 'name');
     $aliasLength: string.length($aliasName);
     @if string.slice(#{$string}, 1, $aliasLength + 1) == '#{$aliasName}(' and string.slice(#{$string}, string.length(#{$string})) == ')' {
       $isAlias: true;
@@ -63,21 +64,21 @@ $ooAlias: (
 
 @function getAliasInfo($aliasFunction) {
   @each $alias in $ooAlias {
-    $aliasName: getMapValue($alias, 'name');
+    $aliasName: fn.getMapValue($alias, 'name');
     $aliasLength: string.length($aliasName);
-    $aliasFunctionName: stripSpaces(string.slice($aliasFunction, 1, $aliasLength));
+    $aliasFunctionName: fn.stripSpaces(string.slice($aliasFunction, 1, $aliasLength));
 
     @if $aliasFunctionName == $aliasName {
       $currentAlias: $alias;
-      $functionName: getMapValue($alias, 'function');
+      $functionName: fn.getMapValue($alias, 'function');
 
       @return (
         name: $aliasName,
         nameLength: $aliasLength,
         function: if(meta.function-exists('get-function'), meta.get-function($functionName), $functionName),
         functionName: $functionName,
-        keywordsArg: getMapValue($alias, 'keywordsArg'),
-        paramType: getMapValue($alias, 'paramType'),
+        keywordsArg: fn.getMapValue($alias, 'keywordsArg'),
+        paramType: fn.getMapValue($alias, 'paramType'),
       );
     }
   }
@@ -96,23 +97,23 @@ $ooAlias: (
   $paramType: null;
   $keywordsArg: null;
   $function: null;
-  $params: string.split(',', meta.inspect($aliasFunction));
+  $params: fn.splitDeep(',', meta.inspect($aliasFunction));
   $param1: list.nth($params, 1);
 
   $aliasInfo: getAliasInfo($aliasFunction);
 
   @if $aliasInfo != null {
-    $name: getMapValue($aliasInfo, 'name');
-    $function: getMapValue($aliasInfo, 'function');
-    $keywordsArg: getMapValue($aliasInfo, 'keywordsArg');
-    $paramType: getMapValue($aliasInfo, 'paramType');
-    $param1: stripSpaces(string.slice($param1, getMapValue($aliasInfo, 'nameLength') + 2, string.length($param1)));
+    $name: fn.getMapValue($aliasInfo, 'name');
+    $function: fn.getMapValue($aliasInfo, 'function');
+    $keywordsArg: fn.getMapValue($aliasInfo, 'keywordsArg');
+    $paramType: fn.getMapValue($aliasInfo, 'paramType');
+    $param1: fn.stripSpaces(string.slice($param1, fn.getMapValue($aliasInfo, 'nameLength') + 2, string.length($param1)));
   }
 
   $param1: if($value==null, $param1, $value);
 
-  @if length($params) > 1 {
-    $param2: stripSpaces(string.slice(#{list.nth($params, 2)}, 1, -2));
+  @if list.length($params) > 1 {
+    $param2: fn.stripSpaces(string.slice(#{list.nth($params, 2)}, 1, -2));
 
     $param1Type: null;
     $param2Type: null;
@@ -122,15 +123,15 @@ $ooAlias: (
       $param2Type: list.nth($paramType, 2);
     }
 
-    $param1: toType($param1Type, $param1);
-    $param2: toType($param2Type, $param2);
+    $param1: fn.toType($param1Type, $param1);
+    $param2: fn.toType($param2Type, $param2);
  
-    @if type-of($param1) != $param1Type or type-of($param2) != $param2Type {
+    @if meta.type-of($param1) != $param1Type or meta.type-of($param2) != $param2Type {
       @warn('The alias `#{$aliasFunction}` is targetting `#{$value}` and therefore cannot be used with the sass function `#{getMapValue($aliasInfo, 'functionName')}`');
       @return $value;
     }
 
-    @if isMap($keywordsArg) {
+    @if fn.isMap($keywordsArg) {
       $argKey: list.nth(map.keys($keywordsArg), 1);
       $param2: map.get($keywordsArg, $argKey) * $param2;
       @if ($argKey == 'lightness') {

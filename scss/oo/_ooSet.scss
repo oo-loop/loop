@@ -1,4 +1,7 @@
+@use 'sass:list';
+@use 'sass:map';
 @use 'sass:string';
+@use '../fn';
 
 /// ooSet
 /// Set value in to map with the ooFormat (default $ooLoop)
@@ -14,53 +17,53 @@
 }
 
 @function ooSetSoft($key, $value, $map:null) {
-  $list: string.split('.', $key);
+  $list: fn.splitDeep('.', $key);
   $map:  if($map == null, $ooLoop, $map);
   
   @if isRef($value) {
     $value: getRefValue($value, $map);
   }
   
-  @if length($list) > 1 {
+  @if list.length($list) > 1 {
     $mapValue: $value;
-    @for $i from 1 through length($list) {
-      $mapValue: ( #{nth($list, length($list) - $i + 1)} : $mapValue );
+    @for $i from 1 through list.length($list) {
+      $mapValue: ( #{list.nth($list, list.length($list) - $i + 1)} : $mapValue );
     }
-    $map: mapMergeDeep($map, $mapValue);
+    $map: ooMergeDeep($map, $mapValue);
   } @else {
-    $map: mapMergeDeep($map, (#{$key}: $value));
+    $map: ooMergeDeep($map, (#{$key}: $value));
   }
   
   @return $map;
 }
 
 @function ooSetHard($key, $value, $map:null) {
-  $list: string.split('.', $key);
+  $list: fn.splitDeep('.', $key);
   $map:  if($map == null, $ooLoop, $map);
 
   @if isRef($value) {
     $value: getRefValue($value, $map);
   }
 
-  @if length($list) > 1 {
-    $key: replace("#{nth($list , 1)}.", '', $key);
-    $mapValue: getMapValue($map, nth($list , 1));
+  @if list.length($list) > 1 {
+    $key: fn.replace("#{list.nth($list , 1)}.", '', $key);
+    $mapValue: fn.getMapValue($map, list.nth($list , 1));
 
     @if ($mapValue == null) {
       $mapValue: ();
     }
 
-    $map: map-merge(
+    $map: map.merge(
       $map,
       (
-        nth($list, 1): map-merge(
+        list.nth($list, 1): map.merge(
           $mapValue, 
           ooSetHard($key, $value, $mapValue)
         ),
       )
     );
   } @else {
-    $map: map-merge($map, ($key: $value));
+    $map: map.merge($map, ($key: $value));
   }
 
   @return $map;
