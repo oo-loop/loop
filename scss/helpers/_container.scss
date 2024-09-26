@@ -1,3 +1,5 @@
+@use '../fn';
+
 // Container
 @mixin Container($param: null) {
   @include initElement('container', $param);
@@ -10,14 +12,14 @@
 
     $gutter: oo('container.gutter');
 
-    @if isMap($gutter) {
+    @if fn.isMap($gutter) {
       @each $key, $value in $gutter {
         @include breakpoint($key) {
           padding-right: $value;
           padding-left: $value;
         }
       }
-    } @else if isString($gutter) or isNumber($gutter) {
+    } @else if fn.isString($gutter) or fn.isNumber($gutter) {
       padding-right: $gutter;
       padding-left: $gutter;
     }

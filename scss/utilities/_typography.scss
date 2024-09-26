@@ -1,8 +1,10 @@
+@use '../fn';
+
 // Typography utilites
 
 @mixin Typography($param: null) {
   @include initElement('typo', $param);
-  @if oo('typo') {
+  @if fn.isNotEmpty(oo('typo')) {
     @include generateUtilities(oo('typo'));
   }
 }

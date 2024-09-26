@@ -1,3 +1,7 @@
+@use 'sass:meta';
+@use 'sass:string';
+@use 'type';
+
 /// Extract
 /// @param string $start The string to start width
 /// @param string $end The string to end width
@@ -5,11 +9,11 @@
 /// @return string
 
 @function extract($start, $end, $subject) {
-  @if isNotString($subject) {
-    $subject: inspect($subject)
+  @if type.isNotString($subject) {
+    $subject: meta.inspect($subject)
   }
-  $startIndex: str-index($subject, $start);
-  $endIndex: str-index($subject, $end) + str-length($end) - 1;
+  $startIndex: string.index($subject, $start);
+  $endIndex: string.index($subject, $end) + string.length($end) - 1;
 
-  @return str-slice($subject, $startIndex, $endIndex);
+  @return string.slice($subject, $startIndex, $endIndex);
 }

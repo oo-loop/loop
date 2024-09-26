@@ -1,3 +1,5 @@
+@use 'fn';
+
 /// Init single element
 /// @param string $name Name of settings
 /// @param map $settings data
@@ -6,7 +8,7 @@
 @mixin initElement($name, $settings, $use-name-as-param: true) {
   // $ooLoop: ooAdd('include', $name) !global; // for styleguide
   @if $settings != null {
-    $map: mapMergeDeep($ooLoop, if($use-name-as-param, (#{$name}: $settings), $settings));
+    $map: ooMergeDeep($ooLoop, if($use-name-as-param, (#{$name}: $settings), $settings));
     $ooLoop: if(hasRef($map), ooParse($map), $map) !global;
   }
 }
@@ -16,11 +18,11 @@
 
 @mixin ooInit($custom:null) {
   $map: $ooLoop;
-  @if isMap($custom) and isNotEmpty($custom) {
-    $map: mapMergeDeep($map, $custom);
+  @if fn.isMap($custom) and fn.isNotEmpty($custom) {
+    $map: ooMergeDeep($map, $custom);
   }
   $map: if(hasRef($map), ooParse($map), $map);
-  $map: setMapValue($map, 'init', true);
+  $map: fn.setMapValue($map, 'init', true);
   $ooLoop: $map !global;
 }
 

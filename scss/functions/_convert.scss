@@ -1,3 +1,18 @@
+@use 'sass:meta';
+@use 'sass:string';
+@use 'color';
+@use 'list';
+@use 'map';
+@use 'number';
+
+/// Convert pixel unit to Rem unit
+/// @param number $value pixel value
+/// @param number $base pixel value for 1rem
+/// @return number rem value
+
+@function toRem($pixel, $base: 16) {
+  @return math.div((1rem * $pixel), $base);
+}
 
 /// Transform camelCase to kebab-case
 /// @param string $string The string to modify
@@ -5,9 +20,9 @@
 
 @function toKebabCase($string) {
   $kebabString: '';
-  @for $i from 1 through str-length($string) {
-    $character: str-slice($string, $i, $i);
-    $kebabString: $kebabString + if($character == to-lower-case($character) or $i == 1, to-lower-case($character), to-lower-case(-#{$character}));
+  @for $i from 1 through string.length($string) {
+    $character: string.slice($string, $i, $i);
+    $kebabString: $kebabString + if($character == string.to-lower-case($character) or $i == 1, to-lower-case($character), to-lower-case(-#{$character}));
   }
   @return $kebabString;
 }
@@ -19,23 +34,23 @@
 /// @return mixed
 
 @function toType($type, $data) {
-  @if type-of($data) == $type {
+  @if meta.type-of($data) == $type {
     @return $data;
   }
   @if $type == 'string' {
-    @return inspect($data);
+    @return meta.inspect($data);
   }
   @if $type == 'color' {
-    @return toColor($data);
+    @return color.toColor($data);
   }
   @if $type == 'number' {
-    @return toNumber($data);
+    @return number.toNumber($data);
   }
   @if $type == 'list' {
-    @return toList($data);
+    @return list.toList($data);
   }
   @if $type == 'map' {
-    @return toMap($data);
+    @return map.toMap($data);
   }
   @return $data;
 }

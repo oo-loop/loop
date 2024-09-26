@@ -1,59 +1,65 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:string';
+@use '../fn';
+
 // Template Areas
 
 @function getAreaNames($areas) {
   $list: ();
   @each $area in $areas {
-    $areaNames: split(' ', $area);
+    $areaNames: fn.splitDeep(' ', $area);
     @each $areaName in $areaNames {
-      $hasValueIndex: str-index($areaName, '|');
-      $areaName: if($hasValueIndex, str-slice($areaName, 1, $hasValueIndex - 1), $areaName);
-      @if notInList($areaName, $list) {
-        $list: join($list, $areaName);
+      $hasValueIndex: string.index($areaName, '|');
+      $areaName: if($hasValueIndex, string.slice($areaName, 1, $hasValueIndex - 1), $areaName);
+      @if fn.notInList($areaName, $list) {
+        $list: list.join($list, $areaName);
       }
     }
   }
   @return $list;
 }
 @function getAreaColumnNumber($areas) {
-  @if isEmpty($areas) {
+  @if fn.isEmpty($areas) {
     @return 0;
   }
   @each $area in $areas {
-    $areaNames: split(' ', $area);
-    @return length($areaNames);
+    $areaNames: fn.splitDeep(' ', $area);
+    @return list.length($areaNames);
   }
 }
 
 @mixin makeGridTemplate($grid-template-areas) {
-  @if str-index(inspect($grid-template-areas), '|') {
+  @if string.index(meta.inspect($grid-template-areas), '|') {
     $template-areas: ();
     $columnsMap: ();
 
     @each $row in $grid-template-areas {
-      $columnItems: split(' ', $row);
+      $columnItems: fn.splitDeep(' ', $row);
       $areaNames: null;
-      @for $i from 1 through length($columnItems) {
-        $columnName: nth($columnItems, $i);
-        $hasValueIndex: str-index($columnName, '|');
+      @for $i from 1 through list.length($columnItems) {
+        $columnName: list.nth($columnItems, $i);
+        $hasValueIndex: string.index($columnName, '|');
 
-        $areaName: if($hasValueIndex, str-slice($columnName, 1, $hasValueIndex - 1), $columnName);
+        $areaName: if($hasValueIndex, string.slice($columnName, 1, $hasValueIndex - 1), $columnName);
         $areaNames: if(null == $areaNames, $areaName, $areaNames + ' #{$areaName}');
 
-        $currentColumnValue: getMapValue($columnsMap, $i);
+        $currentColumnValue: fn.getMapValue($columnsMap, $i);
 
         @if $hasValueIndex {
-          $number: toNumber(str-slice($columnName, $hasValueIndex + 1, str-length($columnName)));
-          $columnsMap: setMapValue($columnsMap, $i, $number);
+          $number: fn.toNumber(string.slice($columnName, $hasValueIndex + 1, string.length($columnName)));
+          $columnsMap: fn.setMapValue($columnsMap, $i, $number);
         } @else if $currentColumnValue == null {
-          $columnsMap: setMapValue($columnsMap, $i, auto);
+          $columnsMap: fn.setMapValue($columnsMap, $i, auto);
         }
       }
-      $template-areas: join($template-areas, "#{$areaNames}");
+      $template-areas: list.join($template-areas, "#{$areaNames}");
     }
 
     $template-columns: null;
     @each $index, $value in $columnsMap {
-      $template-columns: if(isEmpty($template-columns), $value, append($template-columns, $value, 'space'));
+      $template-columns: if(fn.isEmpty($template-columns), $value, list.append($template-columns, $value, 'space'));
     }
 
     grid-template-areas: $template-areas;
@@ -79,7 +85,7 @@
 @mixin makeGridOnBreakpoints($grid-template-areas) {
   $area-names-list: ();
   @each $breakpoint, $areas in $grid-template-areas {
-    $area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
+    $area-names-list: getAreaNames(list.join($area-names-list, getAreaNames($areas)));
     @include breakpoint($breakpoint) {
       @include makeGridTemplate($areas);
     }
@@ -99,25 +105,25 @@
   }
 }
 @mixin makeGapOnScreens($screens, $gap-sizes, $vertical: false) {
-  @if isMap($screens) {
+  @if fn.isMap($screens) {
     @each $class, $gap-names in $screens {
-      @if isEmpty($gap-names) {
+      @if fn.isEmpty($gap-names) {
         @include makeGapOnBreakpoint($class, $gap-sizes, $vertical);
       } @else {
-        $gap-names: toList($gap-names);
+        $gap-names: fn.toList($gap-names);
         $gap-targets: ();
         @each $name in $gap-names {
           $size: oo(#{$name}, $gap-sizes);
           @if $size{
-            $gap-targets: map-merge($gap-targets, ($name: $size));
+            $gap-targets: map.merge($gap-targets, ($name: $size));
           }
         }
         @include makeGapOnBreakpoint($class, $gap-targets, $vertical);
       }
     }
   } @else {
-    @if isString($screens) {
-      $screens: toList($screens);
+    @if fn.isString($screens) {
+      $screens: fn.toList($screens);
     }
     @each $class in $screens {
       @include makeGapOnBreakpoint($class, $gap-sizes, $vertical);
@@ -126,11 +132,11 @@
 }
 
 @mixin makeTemplate($template) {
-  @if isList($template) {
+  @if fn.isList($template) {
     [#{ooPrefix()}-template] {
       @include makeGrid($template);
     }
-  } @else if isMap($template) {
+  } @else if fn.isMap($template) {
     @if areKeysBreakpoints($template) {
       [#{ooPrefix()}-template] {
         @include makeGridOnBreakpoints($template);
@@ -138,9 +144,9 @@
     } @else {
       @each $area-name, $grid in $template {
         [#{ooPrefix()}-template~="#{$area-name}"] {
-          @if isMap($grid) {
+          @if fn.isMap($grid) {
             @include makeGridOnBreakpoints($grid);
-          } @else if isList($grid) {
+          } @else if fn.isList($grid) {
             @include makeGrid($grid);
           }
         }
@@ -152,18 +158,18 @@
 @mixin Template($param: null) {
   @include initElement('template', $param);
 
-  @if isNotEmpty(oo('template.areas')) {
+  @if fn.isNotEmpty(oo('template.areas')) {
     [#{ooPrefix()}-template] {
       display: grid;
     }
     @include makeTemplate(oo('template.areas'));
   }
 
-  @if isString(oo('template.gap')) or isNumber(oo('template.gap')) {
+  @if fn.isString(oo('template.gap')) or fn.isNumber(oo('template.gap')) {
     [#{ooPrefix()}-template] {
       grid-gap: oo('template.gap');
     }
-  } @else if isMap(oo('template.gap')) and areKeysBreakpoints(oo('template.gap')) {
+  } @else if fn.isMap(oo('template.gap')) and areKeysBreakpoints(oo('template.gap')) {
     [#{ooPrefix()}-template] {
       @include generatePropertyBreakpoints('grid-gap', oo('template.gap'));
     }
@@ -171,7 +177,7 @@
 
   $gap-sizes: oo('template.gap.sizes');
   @if $gap-sizes {
-    $gap-sizes: if(isString($gap-sizes), (default: $gap-sizes), $gap-sizes);
+    $gap-sizes: if(fn.isString($gap-sizes), (default: $gap-sizes), $gap-sizes);
     @if areKeysBreakpoints($gap-sizes) {
       [#{ooPrefix()}-template] {
         @include generatePropertyBreakpoints('grid-gap', $gap-sizes);
@@ -179,13 +185,13 @@
     } @else {
       $non-responsise-gap-sizes: ();
       @each $gap-name, $gap-size in $gap-sizes {
-        $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="gap-#{$gap-name}"');
+        $selector: if(fn.isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="gap-#{$gap-name}"');
         [#{ooPrefix()}-#{$selector}] {
-          @if (isMap($gap-size)) {
+          @if (fn.isMap($gap-size)) {
             @include generatePropertyBreakpoints('grid-gap', $gap-size);
           } @else {
             grid-gap: $gap-size;
-            $non-responsise-gap-sizes: map-merge(($gap-name: $gap-size), $non-responsise-gap-sizes)
+            $non-responsise-gap-sizes: map.merge(($gap-name: $gap-size), $non-responsise-gap-sizes)
           }
         }
       }
@@ -198,7 +204,7 @@
 
   $vgap-sizes: oo('template.gap.vsizes');
   @if $vgap-sizes {
-    $vgap-sizes: if(isString($vgap-sizes), (default: $vgap-sizes), $vgap-sizes);
+    $vgap-sizes: if(fn.isString($vgap-sizes), (default: $vgap-sizes), $vgap-sizes);
     @if areKeysBreakpoints($vgap-sizes) {
       [#{ooPrefix()}-template] {
         @include generatePropertyBreakpoints('grid-row-gap', $vgap-sizes);
@@ -206,13 +212,13 @@
     } @else {
       $non-responsise-vgap-sizes: ();
       @each $gap-name, $gap-size in $vgap-sizes {
-        $selector: if(isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="vgap-#{$gap-name}"');
+        $selector: if(fn.isEmpty($gap-name) or $gap-name == 'default', 'template', 'template~="vgap-#{$gap-name}"');
         [#{ooPrefix()}-#{$selector}] {
-          @if (isMap($gap-size)) {
+          @if (fn.isMap($gap-size)) {
             @include generatePropertyBreakpoints('grid-row-gap', $gap-size);
           } @else {
             grid-row-gap: $gap-size;
-            $non-responsise-vgap-sizes: map-merge(($gap-name: $gap-size), $non-responsise-vgap-sizes)
+            $non-responsise-vgap-sizes: map.merge(($gap-name: $gap-size), $non-responsise-vgap-sizes)
           }
         }
       }

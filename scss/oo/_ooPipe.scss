@@ -1,3 +1,5 @@
+@use '../fn';
+
 /// ooPipe
 /// Pipe list of ooSet Rules
 /// @param list $rules List of rules
@@ -6,10 +8,10 @@
 @function ooPipe($rules...) {
   $map: $ooLoop;
   @each $rule in $rules {
-    @if getMapValue($rule, 'action') == 'add' {
-      $map: ooAdd(getMapValue($rule, 'path'), getMapValue($rule, 'value'), $map);
+    @if fn.getMapValue($rule, 'action') == 'add' {
+      $map: ooAdd(fn.getMapValue($rule, 'path'), fn.getMapValue($rule, 'value'), $map);
     } @else {
-      $map: ooSetHard(getMapValue($rule, 'path'), getMapValue($rule, 'value'), $map);
+      $map: ooSetHard(fn.getMapValue($rule, 'path'), fn.getMapValue($rule, 'value'), $map);
     }
   }
   @return $map;

@@ -1,22 +1,25 @@
+@use 'sass:math';
+@use '../../fn';
+
 // Toggle
 
 @mixin toggleSize($size) {
   & + label {
     &::before {
       $toggler-size: $size * .7;
-      top: calc(50% - (#{$toggler-size} / 2));
+      top: calc(50% - (math.div($toggler-size, 2)));
       min-width: $toggler-size;
       height: $toggler-size;
       transform: translate3d(($size * .2), 0, 0);
     }
     &::after {
-      margin-right: $size / 2.5;
+      margin-right: math.div($size, 2.5);
       min-width: $size * 1.8;
       min-height: $size;
     }
 
     & + [#{ooPrefix()}-toggle] + label {
-      margin-top: ($size / 3);
+      margin-top: math.div($size, 3);
     }
   }
 
@@ -62,7 +65,7 @@
       @include generateProperties(oo('toggle.checked.props'));
     }
 
-    @if isMap(oo('toggle.sizes')) {
+    @if fn.isMap(oo('toggle.sizes')) {
       @each $name, $size in oo('toggle.sizes') {
         @if $name == 'default' {
           @include toggleSize($size)

@@ -1,21 +1,24 @@
+@use 'sass:map';
+@use 'sass:string';
+@use '../fn';
 
 /// Generate Properties
 /// @param $propertiesMap 
 
 @mixin generateProperties($propertiesMap) {
-  @if isMap($propertiesMap) {
+  @if fn.isMap($propertiesMap) {
     @each $propertyName, $propertyValue in $propertiesMap {
-      $propertyName: toKebabCase($propertyName);
+      $propertyName: fn.toKebabCase($propertyName);
 
-      @if isString($propertyName) and str-slice($propertyName,1,1) == ':' {
+      @if fn.isString($propertyName) and string.slice($propertyName,1,1) == ':' {
         &#{$propertyName} {
           @include generateProperties($propertyValue);
         }
-      } @else if isMap($propertyValue) and areKeysBreakpoints($propertyValue) {
+      } @else if fn.isMap($propertyValue) and areKeysBreakpoints($propertyValue) {
         @include generatePropertyBreakpoints($propertyName, $propertyValue);
-      } @else if isMap($propertyValue) and $propertyName == '>' {
+      } @else if fn.isMap($propertyValue) and $propertyName == '>' {
         @each $childSelector, $childProps in $propertyValue {
-          $childSelector: toKebabCase($childSelector);
+          $childSelector: fn.toKebabCase($childSelector);
           #{$childSelector} {
             @include generateProperties($childProps);
           }
@@ -35,11 +38,11 @@
   }
 }
 @mixin breakpointProperty($propertiesMap) {
-  @if isNotMap($propertiesMap) {
+  @if fn.isNotMap($propertiesMap) {
     @error 'Pass a property Map with `breakpointProperty()`';
   }
   @each $propertyName, $propertyValue in $propertiesMap {
-    $propertyName: toKebabCase($propertyName);
+    $propertyName: fn.toKebabCase($propertyName);
     @if not areKeysBreakpoints($propertyValue) {
       @error 'Use a breakpoint map as a property value with `breakpointProperty()`';
     }
@@ -48,7 +51,7 @@
 }
 
 @mixin generateStatesProperties($statesPropertiesMap) {
-  @if isMap($statesPropertiesMap) {
+  @if fn.isMap($statesPropertiesMap) {
     @each $state, $props in $statesPropertiesMap {
       &:#{$state} {
         @include generateProperties($props);
@@ -58,12 +61,12 @@
 }
 
 @mixin generateStyles($element) {
-  @if isMap($element) {
-    @if map-has-key($element, 'props') {
-      @include generateProperties(map-get($element, 'props')); 
+  @if fn.isMap($element) {
+    @if map.has-key($element, 'props') {
+      @include generateProperties(map.get($element, 'props')); 
     }
-    @if map-has-key($element, 'states') {
-      @include generateStatesProperties(map-get($element, 'states')); 
+    @if map.has-key($element, 'states') {
+      @include generateStatesProperties(map.get($element, 'states')); 
     }
   }
 }
