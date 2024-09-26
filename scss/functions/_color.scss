@@ -1,5 +1,11 @@
 @use 'sass:color';
+@use 'sass:list';
 @use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
+@use 'empty';
+@use 'type';
+@use 'strip';
 
 $colorPalette: (
   black,
@@ -178,28 +184,28 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 /// @todo consider rgb, rgba, hls format
 
 @function toColor($colorString) {
-  @if isEmpty($colorString) {
+  @if empty.isEmpty($colorString) {
     @return $colorString;
   }
 
-  @if isColor($colorString) {
+  @if type.isColor($colorString) {
     @return $colorString;
   }
   
   @if isHexColor($colorString) {
-    $stringLength: str-length($colorString);
-    $red: if(str-length($colorString) == 4, stripSpaces(str-slice($colorString, 2, 2)str-slice($colorString, 2, 2)), str-slice($colorString, 2, 3));
-    $green: if(str-length($colorString) == 4, stripSpaces(str-slice($colorString, 3, 3)str-slice($colorString, 3, 3)), str-slice($colorString, 4, 5));
-    $blue: if(str-length($colorString) == 4, stripSpaces(str-slice($colorString, 4, 4)str-slice($colorString, 4, 4)), str-slice($colorString, 6, 7));
+    $stringLength: string.length($colorString);
+    $red: if(string.length($colorString) == 4, strip.stripSpaces(string.slice($colorString, 2, 2)string.slice($colorString, 2, 2)), string.slice($colorString, 2, 3));
+    $green: if(string.length($colorString) == 4, strip.stripSpaces(string.slice($colorString, 3, 3)string.slice($colorString, 3, 3)), string.slice($colorString, 4, 5));
+    $blue: if(string.length($colorString) == 4, strip.stripSpaces(string.slice($colorString, 4, 4)string.slice($colorString, 4, 4)), string.slice($colorString, 6, 7));
     
-    $redDecimal: (index($hexValues, str-slice($red, 1,1)) - 1) * 16 + (index($hexValues, str-slice($red, 2,2)) - 1);
-    $greenDecimal: (index($hexValues, str-slice($green, 1,1)) - 1) * 16 + (index($hexValues, str-slice($green, 2,2)) - 1);
-    $blueDecimal: (index($hexValues, str-slice($blue, 1,1)) - 1) * 16 + (index($hexValues, str-slice($blue, 2,2)) - 1);
+    $redDecimal: (list.index($hexValues, string.slice($red, 1,1)) - 1) * 16 + (list.index($hexValues, string.slice($red, 2,2)) - 1);
+    $greenDecimal: (list.index($hexValues, string.slice($green, 1,1)) - 1) * 16 + (list.index($hexValues, string.slice($green, 2,2)) - 1);
+    $blueDecimal: (list.index($hexValues, string.slice($blue, 1,1)) - 1) * 16 + (list.index($hexValues, string.slice($blue, 2,2)) - 1);
     @return rgb($redDecimal, $greenDecimal, $blueDecimal);
   }
 
   @each $colorItem in $colorPalette {
-    @if to-lower-case($colorString) == to-lower-case(inspect($colorItem)) {
+    @if string.to-lower-case($colorString) == string.to-lower-case(meta.inspect($colorItem)) {
       @return $colorItem; 
     }
   }
@@ -213,14 +219,14 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 /// @return boolean
 
 @function isHexColor($colorString) {
-  @if isEmpty($colorString) {
+  @if empty.isEmpty($colorString) {
     @return false;
   }
 
-  @if str-slice($colorString, 1, 1) == '#'
+  @if string.slice($colorString, 1, 1) == '#'
     and (
-      str-length($colorString) == 4
-      or str-length($colorString) == 7
+      string.length($colorString) == 4
+      or string.length($colorString) == 7
   ) {
     @return true;
   }
@@ -234,7 +240,7 @@ $hexValues: ('0', '1', '2', '3', '4' , '5', '6', '7', '8', '9', 'a', 'b', 'c', '
 /// @return bool
 
 @function isBright($color, $threshold: 188) {
-  @if isNotColor($color) {
+  @if type.isNotColor($color) {
     @return false;
   }
 

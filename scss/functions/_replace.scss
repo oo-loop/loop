@@ -1,3 +1,6 @@
+@use 'sass:string';
+@use 'type';
+
 /// Replace
 /// @param string $search  The value being searched
 /// @param string $replace The replacement value
@@ -5,10 +8,10 @@
 /// @return String
 
 @function replace($search, $replace, $subject) {
-  $searchIndex: str-index($subject, $search);
-  @if isString($search) and isString($replace) and isString($subject) and $searchIndex {
-    $subjectStart: str-slice($subject, 1, $searchIndex - 1);
-    $subjectEnd: str-slice($subject, $searchIndex + str-length($search));
+  $searchIndex: string.index($subject, $search);
+  @if type.isString($search) and type.isString($replace) and type.isString($subject) and $searchIndex {
+    $subjectStart: string.slice($subject, 1, $searchIndex - 1);
+    $subjectEnd: string.slice($subject, $searchIndex + string.length($search));
     $newSubject: $subjectStart + $replace + $subjectEnd;
     @return replace($search, $replace, $newSubject);
   } @else {

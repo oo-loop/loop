@@ -1,15 +1,20 @@
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:string';
+@use 'type';
+
 /// Empty
 /// @param string|list $data
 /// @return bool
 
 @function isEmpty($data) {
-  @if type-of($data) == 'null' {
+  @if meta.type-of($data) == 'null' {
     @return true;
   }
-  @if isString($data) and str-length($data) == 0 {
+  @if type.isString($data) and string.length($data) == 0 {
     @return true;
   }
-  @if isList($data) and length($data) == 0 {
+  @if type.isList($data) and list.length($data) == 0 {
     @return true;
   }
   @return false;

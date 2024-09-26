@@ -1,3 +1,7 @@
+@use 'sass:list';
+@use 'sass:string';
+@use 'type';
+
 /// Split
 /// @param string $pattern The string character to split your string by
 /// @param string $subject The input string
@@ -5,14 +9,14 @@
 /// @return list
 
 @function splitDeep($pattern, $subject, $list:()) {
-  $searchIndex: str-index($subject, $pattern);
-  @if isString($pattern) and isString($subject) and $searchIndex {
-    $subjectStart: str-slice($subject, 1, $searchIndex - 1);
-    $subjectEnd: str-slice($subject, $searchIndex + str-length($pattern));
-    $newList: join($list, $subjectStart);
+  $searchIndex: string.index($subject, $pattern);
+  @if type.isString($pattern) and type.isString($subject) and $searchIndex {
+    $subjectStart: string.slice($subject, 1, $searchIndex - 1);
+    $subjectEnd: string.slice($subject, $searchIndex + string.length($pattern));
+    $newList: list.join($list, $subjectStart);
     @return splitDeep($pattern, $subjectEnd, $newList);
   } @else {
-    $newList: join($list, $subject);
+    $newList: list.join($list, $subject);
     @return $newList;
   }
 }

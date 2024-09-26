@@ -1,9 +1,11 @@
+@use 'sass:meta';
+
 /// isString
 /// @param mixed $data
 /// @return bool
 
 @function isString($data) {
-  @if type-of($data) == 'string'{
+  @if meta.type-of($data) == 'string'{
     @return true;
   }
   @return false;
@@ -18,7 +20,7 @@
 /// @return bool
 
 @function isNumber($data) {
-  @if type-of($data) == 'number'{
+  @if meta.type-of($data) == 'number'{
     @return true;
   }
   @return false;
@@ -33,7 +35,7 @@
 /// @return bool
 
 @function isColor($data) {
-  @if type-of($data) == 'color'{
+  @if meta.type-of($data) == 'color'{
     @return true;
   }
   @return false;
@@ -48,7 +50,7 @@
 /// @return bool
 
 @function isList($data) {
-  @if type-of($data) == 'list'{
+  @if meta.type-of($data) == 'list'{
     @return true;
   }
   @return false;
@@ -63,7 +65,7 @@
 /// @return bool
 
 @function isMap($data) {
-  @if type-of($data) == 'map' {
+  @if meta.type-of($data) == 'map' {
     @return true;
   }
   @return false;
