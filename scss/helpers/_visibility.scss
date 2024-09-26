@@ -1,3 +1,5 @@
+@use '../fn';
+
 // Visibility Utilities
 
 @mixin Visibility($param: null) {
@@ -12,14 +14,14 @@
     @media screen { display: none !important; }
   }
   
-  @if isNotEmpty(oo('visibility.breakpoints')) {
+  @if fn.isNotEmpty(oo('visibility.breakpoints')) {
     @each $screen in oo('visibility.breakpoints') {
-        @include breakpoint($screen) {
-            .hidden\@#{$screen} { display: none !important; }
-        }
+      @include breakpoint($screen) {
+        .hidden\@#{$screen} { display: none !important; }
+      }
     }
   }
-  @if isNotEmpty(oo('visibility.pointbreaks')) {
+  @if fn.isNotEmpty(oo('visibility.pointbreaks')) {
     @each $screen in oo('visibility.pointbreaks') {
       @include pointbreak($screen) {
         .hidden\!\@#{$screen} { display: none !important; }

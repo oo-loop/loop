@@ -1,9 +1,10 @@
 @use 'sass:math';
+@use '../../fn';
 
 // Checkbox
 
 @mixin checkboxSize($size) {
-  @if isNotNumber($size) {
+  @if fn.isNotNumber($size) {
     @error 'The checkbox #{$size} must be a number';
   }
   $mark-width: $size * 0.4;
@@ -72,7 +73,7 @@
       }
     }
 
-    @if isNotEmpty(oo('checkbox.sizes')) {
+    @if fn.isNotEmpty(oo('checkbox.sizes')) {
       @each $name, $size in oo('checkbox.sizes') {
         @if $name == 'default' {
           @include checkboxSize($size);
@@ -83,7 +84,7 @@
         }
       }
 
-      @if isNotEmpty(oo('checkbox.screens')) {
+      @if fn.isNotEmpty(oo('checkbox.screens')) {
         @each $breakpoint in oo('checkbox.screens') {
           @include breakpoint($breakpoint) {
             @each $name, $size in oo('checkbox.sizes') {

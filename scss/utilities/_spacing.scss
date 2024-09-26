@@ -1,8 +1,10 @@
+@use '../fn';
+
 // Spacing
 
 @mixin Spacing($param: null) {
   @include initElement('spacing', $param);
-  @if isNotEmpty(oo('spacing')) {
+  @if fn.isNotEmpty(oo('spacing')) {
     @include generateUtilities(oo('spacing'));
   }
 }

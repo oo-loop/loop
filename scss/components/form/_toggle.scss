@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use '../../fn';
 
 // Toggle
 
@@ -64,7 +65,7 @@
       @include generateProperties(oo('toggle.checked.props'));
     }
 
-    @if isMap(oo('toggle.sizes')) {
+    @if fn.isMap(oo('toggle.sizes')) {
       @each $name, $size in oo('toggle.sizes') {
         @if $name == 'default' {
           @include toggleSize($size)

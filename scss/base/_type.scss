@@ -1,9 +1,11 @@
+@use '../fn';
+
 // Typography
 
 @mixin Headings($param: null) {
   @include initElement('headings', $param);
 
-  @if isNotEmpty(oo('headings.props')) {
+  @if fn.isNotEmpty(oo('headings.props')) {
     h1,
     h2,
     h3,
@@ -14,10 +16,10 @@
     }
   }
 
-  @if isNotEmpty(oo('headings.sizes')) {
+  @if fn.isNotEmpty(oo('headings.sizes')) {
     @each $heading, $font-size in oo('headings.sizes') {
       #{$heading} {
-        @if isMap($font-size) {
+        @if fn.isMap($font-size) {
           @each $key, $value in $font-size {
             @include breakpoint($key) {
               font-size: $value;
@@ -27,7 +29,7 @@
           font-size: $font-size;
         }
       }
-      @if isNotEmpty(oo('headings.classes')) and inList($heading, oo('headings.classes')) {
+      @if fn.isNotEmpty(oo('headings.classes')) and fn.inList($heading, oo('headings.classes')) {
         .#{$heading} {
           @extend #{$heading};
         }

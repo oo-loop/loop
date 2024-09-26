@@ -1,11 +1,14 @@
+@use 'sass:list';
+@use 'sass:meta';
 @use 'sass:math';
+@use '../fn';
 
 // Column
 
 @mixin columnGutterProps($size) {
-  left: -#{$size};
-  margin-bottom: -#{$size};
-  margin-right: -#{$size};
+  left: -1 * $size;
+  margin-bottom: -1 * $size;
+  margin-right: -1 * $size;
   > [#{ooPrefix()}-col] {
     margin-bottom: $size;
     border-left-width: $size;
@@ -18,16 +21,16 @@
   }
 }
 @mixin columnGutterScreens($screens, $vertical:false) {
-  $screens: if(isString($screens), toList($screens), $screens);
+  $screens: if(fn.isString($screens), fn.toList($screens), $screens);
   $config-name: if($vertical, 'column.gutter.vsizes', 'column.gutter.sizes');
   $prefix: if($vertical, 'vgutter', 'gutter');
 
   @each $class, $gutter-name in $screens {
     @include breakpoint($class) {
       $suffix: \@#{$class};
-      @if $gutter-name == '*' or isList($screens) {
+      @if $gutter-name == '*' or fn.isList($screens) {
         @each $gutter-name, $gutter-size in oo('#{$config-name}') {
-          @if isString($gutter-size) or isNumber($gutter-size) {
+          @if fn.isString($gutter-size) or fn.isNumber($gutter-size) {
             [#{ooPrefix()}-row~="#{$prefix}-#{$gutter-name}#{$suffix}"] {
               @if $vertical {
                 @include columnVGutterProps($gutter-size);
@@ -37,11 +40,11 @@
             }
           } 
         }
-      } @else if isNotEmpty($gutter-name) {
-        $gutter-names: toList($gutter-name);
+      } @else if fn.isNotEmpty($gutter-name) {
+        $gutter-names: fn.toList($gutter-name);
         @each $name in $gutter-names {
           $gutter-size: oo('#{$config-name}.#{$name}');
-          @if isString($gutter-size) or isNumber($gutter-size) {
+          @if fn.isString($gutter-size) or fn.isNumber($gutter-size) {
             [#{ooPrefix()}-row~="#{$prefix}-#{$name}#{$suffix}"] {
               @if $vertical {
                 @include columnVGutterProps($gutter-size);
@@ -60,8 +63,8 @@
   @return if($index > 0, $index, -1);
 }
 @mixin columnResponsiveAttribute($attribute-name, $prop-name, $prop-function) {
-  @if function-exists('get-function') {
-    $prop-function: get-function($prop-function);
+  @if meta.function-exists('get-function') {
+    $prop-function: meta.get-function($prop-function);
   }
   @each $class, $values in oo('column.#{$attribute-name}.screens') {
     @include breakpoint($class) {
@@ -69,14 +72,14 @@
       @if $values == '*' {
         @for $i from 0 to oo('column.system') {
           [#{ooPrefix()}-col~="#{$attribute-name}#{$i}#{$suffix}"] { 
-            #{$prop-name}: call($prop-function, $i);
+            #{$prop-name}: meta.call($prop-function, $i);
           }
         }
-      } @else if isNotEmpty($values) {
-        $values: toList($values);
+      } @else if fn.isNotEmpty($values) {
+        $values: fn.toList($values);
         @each $value in $values {
           [#{ooPrefix()}-col~="#{$attribute-name}#{$value}#{$suffix}"] {
-            #{$prop-name}: call($prop-function, $value);
+            #{$prop-name}: meta.call($prop-function, $value);
           }
         }
       }
@@ -105,7 +108,7 @@
   }
 
   // reponsives classes starting from root
-  @each $class in join('rt', oo('column.screens')) {
+  @each $class in list.join('rt', oo('column.screens')) {
     @include breakpoint($class) {
       $suffix: '';
       @if $class != 'rt' {
@@ -129,7 +132,7 @@
       }
 
       @if oo('column.fit.use')
-        and (inList($class, toList(oo('column.fit.screens'))) or isEmpty($suffix)) {
+        and (fn.inList($class, fn.toList(oo('column.fit.screens'))) or fn.isEmpty($suffix)) {
         [#{ooPrefix()}-col~="fit#{$suffix}"] {
           min-width: auto;
           flex-grow: 0;
@@ -138,7 +141,7 @@
       }
 
       @if oo('column.alignment.use')
-        and (inList($class, toList(oo('column.alignment.screens'))) or isEmpty($suffix)) {
+        and (fn.inList($class, fn.toList(oo('column.alignment.screens'))) or fn.isEmpty($suffix)) {
         // horizontal alignment
         [#{ooPrefix()}-row~="align-left#{$suffix}"]   { justify-content: flex-start; }
         [#{ooPrefix()}-row~="align-center#{$suffix}"] { justify-content: center; }
@@ -153,7 +156,7 @@
       }
 
       @if oo('column.selfAlignment.use')
-        and (inList($class, toList(oo('column.selfAlignment.screens'))) or isEmpty($suffix)) {
+        and (fn.inList($class, fn.toList(oo('column.selfAlignment.screens'))) or fn.isEmpty($suffix)) {
         // horizontal alignment
         [#{ooPrefix()}-col~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
         [#{ooPrefix()}-col~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
@@ -185,7 +188,7 @@
   }
 
   // Order
-  @if oo('column.order.use') and isNotEmpty(oo('column.order.screens')) {
+  @if oo('column.order.use') and fn.isNotEmpty(oo('column.order.screens')) {
     @include columnResponsiveAttribute('order', 'order', 'columnSetOrder');
   }
 
@@ -201,7 +204,7 @@
   }
 
   // gutter
-  @if isNotEmpty(oo('column.gutter')) {
+  @if fn.isNotEmpty(oo('column.gutter')) {
     [#{ooPrefix()}-row] > [#{ooPrefix()}-col] {
       background-clip: padding-box;
       border-left-style: solid;
@@ -209,12 +212,12 @@
     }
   }
 
-  @if isString(oo('column.gutter')) or isNumber(oo('column.gutter')) {
+  @if fn.isString(oo('column.gutter')) or fn.isNumber(oo('column.gutter')) {
     [#{ooPrefix()}-row] {
       $gutter-size: oo('column.gutter');
       @include columnGutterProps($gutter-size);
     }
-  } @else if isMap(oo('column.gutter')) and areKeysBreakpoints(oo('column.gutter')) {
+  } @else if fn.isMap(oo('column.gutter')) and areKeysBreakpoints(oo('column.gutter')) {
     [#{ooPrefix()}-row] {
       $gutter-size: oo('column.gutter');
       @each $key, $value in $gutter-size {
@@ -223,17 +226,17 @@
         }
       }
     }
-  } @else if isNotEmpty(oo('column.gutter.sizes')) {
+  } @else if fn.isNotEmpty(oo('column.gutter.sizes')) {
     @each $gutter-name, $gutter-size in oo('column.gutter.sizes') {
-      $selector: if(isEmpty($gutter-name) or $gutter-name == 'default', 'row', 'row~="gutter-#{$gutter-name}"');
+      $selector: if(fn.isEmpty($gutter-name) or $gutter-name == 'default', 'row', 'row~="gutter-#{$gutter-name}"');
       [#{ooPrefix()}-#{$selector}] {
-        @if (isMap($gutter-size)) {
+        @if (fn.isMap($gutter-size)) {
           @each $key, $value in $gutter-size {
             @include breakpoint($key) {
               @include columnGutterProps($value);
             }
           }
-        } @else if isString($gutter-size) or isNumber($gutter-size) {
+        } @else if fn.isString($gutter-size) or fn.isNumber($gutter-size) {
           @include columnGutterProps($gutter-size);
         }
       }
@@ -242,16 +245,16 @@
   }
 
   // vgutter
-  @if isNotEmpty(oo('column.gutter.vsizes')) {
+  @if fn.isNotEmpty(oo('column.gutter.vsizes')) {
     @each $gutter-name, $vgutter-size in oo('column.gutter.vsizes') {
-      $suffix: if(isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
-      @if (isMap($vgutter-size)) {
+      $suffix: if(fn.isEmpty($gutter-name) or $gutter-name == 'default', '', '-#{$gutter-name}');
+      @if (fn.isMap($vgutter-size)) {
         @each $key, $value in $vgutter-size {
           [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
             @include columnVGutterProps($value);
           }
         }
-      } @else if isString($vgutter-size) or isNumber($vgutter-size) {
+      } @else if fn.isString($vgutter-size) or fn.isNumber($vgutter-size) {
         [#{ooPrefix()}-row~="vgutter#{$suffix}"] {
           @include columnVGutterProps($vgutter-size);
         }
@@ -268,7 +271,7 @@
     border: 0 !important;
   }
 
-  @if isNotEmpty(oo('column.variants')) {
+  @if fn.isNotEmpty(oo('column.variants')) {
     @include generateComponentVariants('col', oo('column.variants'));
   }
 }  

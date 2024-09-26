@@ -1,11 +1,13 @@
+@use '../fn';
+
 // Miscellaneous
 
 @mixin Misc($param: null) {
   @include initElement('misc', $param);
 
-  @if isNotEmpty(oo('misc')) {
+  @if fn.isNotEmpty(oo('misc')) {
     @each $name, $misc in oo('misc') {
-      .#{toKebabCase($name)} {
+      .#{fn.toKebabCase($name)} {
         @include generateStyles($misc);
       }
     }

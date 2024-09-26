@@ -1,10 +1,11 @@
-@import 'props';
+@use 'sass:map';
+@use '../fn';
 
 /// Create component
 /// @param string $name 
 
 @mixin ooComponent($name) {
-  @if isNotString($name) {
+  @if fn.isNotString($name) {
     @error 'Parameter $name on ooComponent must be a string';
   }
   [#{ooPrefix()}-#{$name}] {
@@ -17,10 +18,10 @@
 /// @param string $variantName
 
 @mixin ooComponentVariant($name, $variantName) {
-  @if isNotString($name) {
+  @if fn.isNotString($name) {
     @error 'Parameter $name on ooComponentVariant must be a string';
   }
-  @if isNotString($variantName) {
+  @if fn.isNotString($variantName) {
     @error 'Parameter $variantName on ooComponentVariant must be a string';
   }
   [#{ooPrefix()}-#{$name}~="#{$variantName}"] {
@@ -33,14 +34,14 @@
 /// @param $variantsMap
 
 @mixin generateComponentVariants($componentName, $variantsMap) {
-  @if isNotEmpty($variantsMap) {
+  @if fn.isNotEmpty($variantsMap) {
     @each $name, $props in $variantsMap {
-      @if isMap($props) {
-        $hasStates: if(map-has-key($props, 'states'), map-get($props, 'states'), null);
-        [#{ooPrefix()}-#{$componentName}~="#{toKebabCase($name)}"] {
-          @if map-has-key($props, 'states') {
-            $states: map-get($props, 'states');
-            $props: map-remove($props, 'states');
+      @if fn.isMap($props) {
+        $hasStates: if(map.has-key($props, 'states'), map.get($props, 'states'), null);
+        [#{ooPrefix()}-#{$componentName}~="#{fn.toKebabCase($name)}"] {
+          @if map.has-key($props, 'states') {
+            $states: map.get($props, 'states');
+            $props: map.remove($props, 'states');
             @include generateStatesProperties($states);
           }
           @include generateProperties($props);
@@ -55,24 +56,24 @@
 /// @param $componentMap
 
 @mixin generateComponent($componentMap) {
-  $name: if(map-has-key($componentMap, 'name'), toKebabCase(map-get($componentMap, 'name')), null);
-  $hasProps: if(map-has-key($componentMap, 'props') or map-has-key($componentMap, 'states'), true, false);
-  $variants: if(map-has-key($componentMap, 'variants'), map-get($componentMap, 'variants'), null);
+  $name: if(map.has-key($componentMap, 'name'), fn.toKebabCase(map.get($componentMap, 'name')), null);
+  $hasProps: if(map.has-key($componentMap, 'props') or map.has-key($componentMap, 'states'), true, false);
+  $variants: if(map.has-key($componentMap, 'variants'), map.get($componentMap, 'variants'), null);
 
-  @if isNotEmpty($name) and $hasProps {
+  @if fn.isNotEmpty($name) and $hasProps {
     [#{ooPrefix()}-#{$name}] {
       @include generateStyles($componentMap);
     }
   }
-  @if isNotEmpty($name) and isNotEmpty($variants) {
+  @if fn.isNotEmpty($name) and fn.isNotEmpty($variants) {
     @include generateComponentVariants($name, $variants);
   }
 }
 
 @mixin generateComponents($components) {
   @each $name, $componentMap in $components {
-    @if not map-has-key($componentMap, 'name') {
-      $componentMap: map-merge(('name': $name) , $componentMap);
+    @if not map.has-key($componentMap, 'name') {
+      $componentMap: map.merge(('name': $name) , $componentMap);
     }
     @include generateComponent($componentMap);
   }

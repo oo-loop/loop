@@ -1,36 +1,41 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use '../fn';
+
 @mixin breakpoint($key) {
   // make sure the key exist
-  @if map-has-key(oo('breakpoints'), $key) {
-    $width: map-get(oo('breakpoints'), $key);
+  @if map.has-key(oo('breakpoints'), $key) {
+    $width: map.get(oo('breakpoints'), $key);
     @media (min-width: $width) {
       @content;
     }
-  } @else if isEmpty($key) or $key == 'rt' {
+  } @else if fn.isEmpty($key) or $key == 'rt' {
     @content;
   }
 }
 
 @mixin pointbreak($key) {
   // make sure the key exist
-  @if map-has-key(oo('breakpoints'), $key) {
-    $minWidth: map-get(oo('breakpoints'), $key);
+  @if map.has-key(oo('breakpoints'), $key) {
+    $minWidth: map.get(oo('breakpoints'), $key);
     $maxWidth: $minWidth - 1;
-    @if inList(unit($minWidth), ('em', 'rem')) {
+    @if fn.inList(math.unit($minWidth), ('em', 'rem')) {
       $maxWidth: $minWidth - 0.001;
     }
     @media (max-width: $maxWidth) {
       @content;
     }
-  } @else if isEmpty($key) or $key == 'rt' {
+  } @else if fn.isEmpty($key) or $key == 'rt' {
     @content;
   }
 }
 
 @function areKeysBreakpoints($map){
-  $breakpointsKeys: join('rt', map-keys(oo('breakpoints')));
-  $mapKeys: map-keys($map);
+  $breakpointsKeys: list.join('rt', map.keys(oo('breakpoints')));
+  $mapKeys: map.keys($map);
   @each $key in $mapKeys {
-    @if inList($key, $breakpointsKeys) {
+    @if fn.inList($key, $breakpointsKeys) {
       @return true;
     }
   }

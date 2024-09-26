@@ -1,8 +1,10 @@
+@use '../../fn';
+
 // Input
 
 @mixin Label($param: null) {
   @include initElement('label', $param);
-  @if isNotEmpty(oo('label.props')) {
+  @if fn.isNotEmpty(oo('label.props')) {
     label {
       @include generateProperties(oo('label.props'));
     }
@@ -19,7 +21,7 @@
     @include generateStatesProperties(oo('input.states'));
   }
 
-  @if isNotEmpty(oo('input.variants')) {
+  @if fn.isNotEmpty(oo('input.variants')) {
     @include generateComponentVariants('input', oo('input.variants'));
   }
 }

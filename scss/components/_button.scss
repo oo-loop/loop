@@ -1,10 +1,11 @@
 @use 'sass:color';
+@use '../fn';
 
 // Button
 
 @mixin paintButton($color-value) {
-  @if isColor($color-value) {
-    $color: if(isBright($color-value), color.adjust($color-value, $lightness: -80%), #fff);
+  @if fn.isColor($color-value) {
+    $color: if(fn.isBright($color-value), color.adjust($color-value, $lightness: -80%), #fff);
     
     color: $color;
     background-color: $color-value;
@@ -14,11 +15,11 @@
   
     @if oo('button.outline') {
       &[#{ooPrefix()}-button~="outline"] {
-        color: if(isBright($color-value, 210), color.adjust($color-value, $lightness: -30%), $color-value);
+        color: if(fn.isBright($color-value, 210), color.adjust($color-value, $lightness: -30%), $color-value);
         background: transparent;
         box-shadow: none;
   
-        @if oo('button.props.border') and isBright($color-value, 210) {
+        @if oo('button.props.border') and fn.isBright($color-value, 210) {
           border-color: color.adjust($color-value, $lightness: -30%);
         }
       }
@@ -79,7 +80,7 @@
     @include generateStatesProperties(oo('button.states'));
   }
   
-  @if isNotEmpty(oo('button.colors') and isMap(oo('button.colors'))) {
+  @if fn.isNotEmpty(oo('button.colors') and fn.isMap(oo('button.colors'))) {
     @each $name, $value in oo('button.colors') {
       [#{ooPrefix()}-button~="#{$name}"] {
         @include paintButton($value);
@@ -87,7 +88,7 @@
     }
   }
 
-  @if isNotEmpty(oo('button.variants')) {
+  @if fn.isNotEmpty(oo('button.variants')) {
     @include generateComponentVariants('button', oo('button.variants'));
   }
 }

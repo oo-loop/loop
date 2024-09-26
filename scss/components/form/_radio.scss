@@ -1,9 +1,10 @@
 @use 'sass:math';
+@use '../../fn';
 
 // Radio
 
 @mixin radioSize($size) {
-  @if isNotNumber($size) {
+  @if fn.isNotNumber($size) {
     @debug $size;
     @error 'The radio $size must be a number';
   }
@@ -72,7 +73,7 @@
       }
     }
 
-    @if isNotEmpty(oo('radio.sizes')) {
+    @if fn.isNotEmpty(oo('radio.sizes')) {
       @each $name, $size in oo('radio.sizes') {
         @if $name == 'default' {
           @include radioSize($size);
@@ -83,7 +84,7 @@
         }
       }
 
-      @if isNotEmpty(oo('radio.screens')) {
+      @if fn.isNotEmpty(oo('radio.screens')) {
         @each $breakpoint in oo('radio.screens') {
           @include breakpoint($breakpoint) {
             @each $name, $size in oo('radio.sizes') {
