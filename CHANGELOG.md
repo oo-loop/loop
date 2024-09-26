@@ -1,5 +1,11 @@
 # Loop changelog
 
+## 1.1.0: 2024-09-26
+
+## Update
+- migrate to dart sass
+- use modules on functions
+
 ## 1.0.3: 2022-04-05
 
 ### Feature
