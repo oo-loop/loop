@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:string";
+
 @import 'type';
 
 /**
@@ -7,9 +10,9 @@
  */
 
 @function isEmpty($data) {
-  @if isString($data) and str-length($data) == 0 {
+  @if isString($data) and string.length($data) == 0 {
     @return true;
-  } @else if isList($data) and length($data) == 0 {
+  } @else if isList($data) and list.length($data) == 0 {
     @return true;
   } @else {
     @return false;

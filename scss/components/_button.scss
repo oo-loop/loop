@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'sass:map';
 
 /**
  * Button
@@ -109,7 +110,7 @@ $btn-outline-box-shadow:     none !default;
 @if isNotEmpty($btn-colors-classes) {
   @each $color in $btn-colors-classes {
     [#{$loop-component-prefix}-button~="#{$color}"] {
-      @include paintButton(map-get($colors, $color));
+      @include paintButton(map.get($colors, $color));
     }
   }
 }
@@ -168,7 +169,7 @@ $btn-outline-box-shadow:     none !default;
     @if isNotEmpty($btn-outline-colors-classes) {
       @each $color in $btn-outline-colors-classes {
         &[#{$loop-component-prefix}-button~="#{$color}"] {
-          @include paintButtonOutline(map-get($colors, $color));
+          @include paintButtonOutline(map.get($colors, $color));
         }
       }
     }

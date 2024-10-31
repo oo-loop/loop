@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 /**
  * isString
  * @param string|list $data
@@ -5,7 +7,7 @@
  */
 
 @function isString($data) {
-  @if type-of($data) == 'string'{
+  @if meta.type-of($data) == 'string'{
     @return true;
   } @else {
     @return false;
@@ -23,7 +25,7 @@
  */
 
 @function isList($data) {
-  @if type-of($data) == 'list'{
+  @if meta.type-of($data) == 'list'{
     @return true;
   } @else {
     @return false;
@@ -41,7 +43,7 @@
  */
 
 @function isMap($data) {
-  @if type-of($data) == 'map'{
+  @if meta.type-of($data) == 'map'{
     @return true;
   } @else {
     @return false;

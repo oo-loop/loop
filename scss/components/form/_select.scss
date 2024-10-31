@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /**
  * Select
  */
@@ -16,27 +18,27 @@ $select-themes: (
 ) !default;
 
 @mixin selectTheme($theme) {
-  @if map-has-key($theme, 'size') {
-    &::before { width: (map-get($theme, 'size') * 3); }
+  @if map.has-key($theme, 'size') {
+    &::before { width: (map.get($theme, 'size') * 3); }
     &::after {
-      right: map-get($theme, 'size');
-      width: map-get($theme, 'size');
-      height: map-get($theme, 'size');
+      right: map.get($theme, 'size');
+      width: map.get($theme, 'size');
+      height: map.get($theme, 'size');
     }
   }
-  @if map-has-key($theme, 'weight') {
+  @if map.has-key($theme, 'weight') {
     &::after {
-      border-bottom-width: map-get($theme, 'weight');
-      border-right-width: map-get($theme, 'weight');
+      border-bottom-width: map.get($theme, 'weight');
+      border-right-width: map.get($theme, 'weight');
     }
   }
-  @if map-has-key($theme, 'bgcolor') {
-    &::before { background-color: map-get($theme, 'bgcolor'); }
+  @if map.has-key($theme, 'bgcolor') {
+    &::before { background-color: map.get($theme, 'bgcolor'); }
   }
-  @if map-has-key($theme, 'color') {
+  @if map.has-key($theme, 'color') {
     &::after {
-      border-bottom-color: map-get($theme, 'color');
-      border-right-color: map-get($theme, 'color');
+      border-bottom-color: map.get($theme, 'color');
+      border-right-color: map.get($theme, 'color');
     }
   }
 }

@@ -1,34 +1,28 @@
 @charset "utf-8";
 
 // Functions, mixins and bases
-@import
-  "variables",
-  "functions/all",
-  "mixins/all",
-  "base/all"
-;
+@forward "variables";
+@forward "functions/all";
+@forward "mixins/all";
+@forward "base/all";
 
 // Components
-@import
-  "components/grid",
-  "components/columns",
-  "components/button",
-  "components/form/input",
-  "components/form/select",
-  "components/form/checkbox",
-  "components/form/radio",
-  "components/form/toggle"
-;
+@forward "components/grid";
+@forward "components/columns";
+@forward "components/button";
+@forward "components/form/input";
+@forward "components/form/select";
+@forward "components/form/checkbox";
+@forward "components/form/radio";
+@forward "components/form/toggle";
 
 // Utilities
-@import
-  "utilities/color",
-  "utilities/container",
-  "utilities/float",
-  "utilities/list",
-  "utilities/miscellaneous",
-  "utilities/spacing",
-  "utilities/text",
-  "utilities/visibility",
-  "utilities/wrapper"
-;
+@forward "utilities/color";
+@forward "utilities/container";
+@forward "utilities/float";
+@forward "utilities/list";
+@forward "utilities/miscellaneous";
+@forward "utilities/spacing";
+@forward "utilities/text";
+@forward "utilities/visibility";
+@forward "utilities/wrapper";

@@ -1,3 +1,4 @@
+@use '../mixins/font-smoothing' as fs;
 /**
  * Base
  */
@@ -23,7 +24,7 @@ $bgcolor-base:     #fff !default;
 html {
   font-size: $font-size-root;
   @if $font-smoothing == true {
-    @include fontSmoothing($font-smoothing);
+    @include fs.fontSmoothing($font-smoothing);
   }
 }
 

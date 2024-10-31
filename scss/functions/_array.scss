@@ -1,3 +1,7 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+
 @import 'empty';
 
 /**
@@ -8,7 +12,7 @@
  */
 
 @function inList($needle, $haystack) {
-  @if index($haystack, $needle) == null {
+  @if list.index($haystack, $needle) == null {
     @return false;
   } @else {
     @return true;
@@ -36,10 +40,10 @@
 
   // merge if $array1 or $array2 is not empty
   @if isNotEmpty($array1) {
-    @if type-of($array1) == 'list' and type-of($array2) == 'list' {
-      $merge: join($array1, $array2);
-    } @else if type-of($array1) == 'map' and type-of($array2) == 'map' {
-      $merge: map-merge($array1, $array2);
+    @if meta.type-of($array1) == 'list' and meta.type-of($array2) == 'list' {
+      $merge: list.join($array1, $array2);
+    } @else if meta.type-of($array1) == 'map' and meta.type-of($array2) == 'map' {
+      $merge: map.merge($array1, $array2);
     } @else {
       $merge: $array1;
     }

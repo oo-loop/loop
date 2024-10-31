@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use 'sass:math';
 
 /**
@@ -68,8 +69,8 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     // columns
     @for $i from 1 through $columns-system {
       [#{$loop-component-prefix}-column~="col-#{$i}#{$suffix}"] {
-        flex-basis: percentage(math.div($i, $columns-system));
-        max-width: percentage(math.div($i, $columns-system));
+        flex-basis: math.percentage(math.div($i, $columns-system));
+        max-width: math.percentage(math.div($i, $columns-system));
       }
     }
 
@@ -167,7 +168,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 
 
 // gutters
-$columns-gutter-sizes-breakpoints-classes: join('', $columns-gutter-sizes-breakpoints-classes);
+$columns-gutter-sizes-breakpoints-classes: list.join('', $columns-gutter-sizes-breakpoints-classes);
 @each $class in $columns-gutter-sizes-breakpoints-classes {
   @include breakpoint($class) {
     $suffix: if(isEmpty($class), '', \@#{$class});
@@ -185,7 +186,7 @@ $columns-gutter-sizes-breakpoints-classes: join('', $columns-gutter-sizes-breakp
   }
 }
 
-$columns-v-gutter-sizes-breakpoints-classes: join('', $columns-v-gutter-sizes-breakpoints-classes);
+$columns-v-gutter-sizes-breakpoints-classes: list.join('', $columns-v-gutter-sizes-breakpoints-classes);
 @each $class in $columns-v-gutter-sizes-breakpoints-classes {
   @include breakpoint($class) {
     $suffix: if(isEmpty($class), '', \@#{$class});

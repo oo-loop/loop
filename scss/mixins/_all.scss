@@ -1,7 +1,5 @@
-@import
-  'breakpoint',
-  'clearfix',
-  'font-smoothing',
-  'loop',
-  'triangle'
-;
+@forward 'breakpoint';
+@forward 'clearfix';
+@forward 'font-smoothing';
+@forward 'loop';
+@forward 'triangle';
