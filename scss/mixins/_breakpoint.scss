@@ -5,42 +5,30 @@
  */
 @use 'sass:list';
 @use 'sass:map';
+@use '../variables' as v;
+@use '../functions' as fn;
 
-@use '../functions/empty';
-
-$breakpoints: (
-  xs: 480px,  // min width
-  sm: 600px,  // min width
-  md: 960px,  // min width
-  lg: 1280px, // min width
-) !default;
-
-$breakpoints-classes: (sm, md, lg) !default;
-$pointbreaks-classes: (sm, md, lg) !default;
-
-// including the first step
-$breakpoints-classes-width-default-value: list.join('', $breakpoints-classes);
 
 @mixin from($key) {
   // make sure the key exist
-  @if map.has-key($breakpoints, $key) {
-    $width: map.get($breakpoints, $key);
+  @if map.has-key(v.$breakpoints, $key) {
+    $width: map.get(v.$breakpoints, $key);
     @media (min-width: $width) {
       @content;
     }
-  } @else if empty.isEmpty($key) or $key == 'rt' {
+  } @else if fn.isEmpty($key) or $key == 'rt' {
     @content;
   }
 }
 
 @mixin to($key) {
   // make sure the key exist
-  @if map.has-key($breakpoints, $key) {
-    $width: map.get($breakpoints, $key) - 1;
+  @if map.has-key(v.$breakpoints, $key) {
+    $width: map.get(v.$breakpoints, $key) - 1;
     @media (max-width: $width) {
       @content;
     }
-  } @else if empty.isEmpty($key) or $key == 'rt' {
+  } @else if fn.isEmpty($key) or $key == 'rt' {
     @content;
   }
 }

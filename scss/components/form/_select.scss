@@ -1,24 +1,11 @@
 @use 'sass:map';
-@use '../../functions/empty';
-@use '../../functions/type';
-@use 'input';
+@use '../../variables' as v;
+@use '../../functions' as fn;
+@use 'mixin' as m;
 
 /**
  * Select
  */
-
-$select-size:    10px !default;
-$select-weight:  2px !default;
-$select-color:   $input-color !default;
-$select-bgcolor: $input-bgcolor !default;
-
-$select-themes: (
-// 'plain' : (
-//     'size' : $select-size,
-//     'color': $select-bgcolor,
-//     'bgcolor': $input-border-color,
-// )
-) !default;
 
 @mixin selectTheme($theme) {
   @if map.has-key($theme, 'size') {
@@ -46,12 +33,12 @@ $select-themes: (
   }
 }
 
-[#{$loop-component-prefix}-form~="select"] {
+[#{v.$loop-component-prefix}-form~="select"] {
   position: relative;
   display: block;
-  min-height: $input-height;
-  font-size: $input-font-size;
-  line-height: $input-line-height;
+  min-height: v.$input-height;
+  font-size: v.$input-font-size;
+  line-height: v.$input-line-height;
 
   &::before {
     position: absolute;
@@ -61,11 +48,11 @@ $select-themes: (
 
     content: '';
 
-    border-top: $input-border;
-    border-right: $input-border;
-    border-bottom: $input-border;
-    border-top-right-radius: $input-border-radius;
-    border-bottom-right-radius: $input-border-radius;
+    border-top: v.$input-border;
+    border-right: v.$input-border;
+    border-bottom: v.$input-border;
+    border-top-right-radius: v.$input-border-radius;
+    border-bottom-right-radius: v.$input-border-radius;
 
     pointer-events: none;
   }
@@ -84,14 +71,14 @@ $select-themes: (
   }
 
   @include selectTheme((
-    'size' : $select-size,
-    'color': $select-color,
-    'bgcolor': $select-bgcolor,
-    'weight': $select-weight,
+    'size' : v.$select-size,
+    'color': v.$select-color,
+    'bgcolor': v.$select-bgcolor,
+    'weight': v.$select-weight,
   ));
 
   > select {
-    @extend %input.input;
+    @include m.input;
     margin: 0;
     height: 100%;
     font-size: inherit;
@@ -103,9 +90,9 @@ $select-themes: (
     }
   }
 
-  @if empty.isNotEmpty($select-themes) and type.isMap($select-themes) {
-    @each $theme-name, $theme in $select-themes {
-      &[#{$loop-component-prefix}-form~="#{$theme-name}"] {
+  @if fn.isNotEmpty(v.$select-themes) and fn.isMap(v.$select-themes) {
+    @each $theme-name, $theme in v.$select-themes {
+      &[#{v.$loop-component-prefix}-form~="#{$theme-name}"] {
         @include selectTheme($theme);
       }
     }
@@ -125,9 +112,9 @@ $select-themes: (
   }
 }
 
-@if empty.isNotEmpty($input-padding-sizes) {
-  @each $name, $padding in $input-padding-sizes {
-    [#{$loop-component-prefix}-form~="select"][#{$loop-component-prefix}-form~="#{$name}"] > select {
+@if fn.isNotEmpty(v.$input-padding-sizes) {
+  @each $name, $padding in v.$input-padding-sizes {
+    [#{v.$loop-component-prefix}-form~="select"][#{v.$loop-component-prefix}-form~="#{$name}"] > select {
       padding: #{$padding};
       padding-right: 0;
     }

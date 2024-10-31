@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'sass:list';
 
 /**
  * Variables
@@ -20,7 +21,9 @@ $breakpoints: (
 ) !default;
 
 $breakpoints-classes: (sm, md, lg) !default; // used in the project
-
+$pointbreaks-classes: (sm, md, lg) !default;
+// including the first step
+$breakpoints-classes-width-default-value: list.join('', $breakpoints-classes) !default;
 
 /**
  * Body Base
@@ -364,6 +367,7 @@ $select-size:    10px !default;
 $select-weight:  2px !default;
 $select-color:   $input-color !default;
 $select-bgcolor: $input-bgcolor !default;
+$select-themes: () !default;
 
 // Checkboxes
 
@@ -424,3 +428,4 @@ $float-is-important: true !default;
  * Visibility Utilities
  */
 $visibility-breakpoints-classes: $breakpoints-classes !default;
+$visibility-pointbreaks-classes: $pointbreaks-classes !default;

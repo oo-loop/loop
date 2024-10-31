@@ -1,15 +1,8 @@
+@use '../variables' as v;
 @use '../mixins/loop';
 
 /**
  * Wrapper
  */
-
-$wrapper-padding-sizes: (
-  'tiny': .8rem,
-  'small': 1.6rem,
-  'medium': 2.4rem,
-) !default;
-$wrapper-breakpoints-classes: () !default;
-
-@include loop.loop($wrapper-padding-sizes, 'padding', '.wrapper');
-@include loop.loopBreakpoints($wrapper-breakpoints-classes, $wrapper-padding-sizes, 'padding', '.wrapper');
+@include loop.loop(v.$wrapper-padding-sizes, 'padding', '.wrapper');
+@include loop.loopBreakpoints(v.$wrapper-breakpoints-classes, v.$wrapper-padding-sizes, 'padding', '.wrapper');

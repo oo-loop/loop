@@ -1,68 +1,36 @@
 @use 'sass:color';
 @use 'sass:map';
-@use '../functions/brightness';
-@use '../functions/empty';
-@use '../functions/type';
+@use '../variables' as v;
+@use '../functions' as fn;
 
 /**
  * Button
  */
-$btn-colors: () !default;
-$btn-colors-classes: $colors-classes !default;
 
-$btn-color:          $color-base !default;
-$btn-color-hover:    $btn-color !default;
-$btn-bgcolor:        #fff !default;
-$btn-bgcolor-hover:   color.adjust($btn-bgcolor, $lightness: -10%) !default;
-$btn-bgcolor-active:  color.adjust($btn-bgcolor, $lightness: -12%) !default;
-$btn-border-color:   #eee !default;
-
-$btn-padding:        .415em 1.2em !default; // relative to the size of the button
-$btn-padding-sizes: () !default;
-
-$btn-font-family:    $font-family-base !default;
-$btn-font-size:      $font-size-base !default;
-$btn-font-weight:    700 !default;
-$btn-text-transform: initial !default;
-$btn-border-radius:  .2em !default; // relative to the size of the button
-$btn-box-shadow:     1px 1px 1px 0 #999!default;
-
-
-$btn-outline-colors:         $btn-colors !default;
-$btn-outline-colors-classes: $btn-colors-classes !default;
-
-$btn-outline-color:          $btn-color !default; // set inherit to get the colors from the borders
-$btn-outline-padding:        $btn-padding !default;
-$btn-outline-font-family:    $btn-font-family !default;
-$btn-outline-font-weight:    $btn-font-weight !default;
-$btn-outline-text-transform: $btn-text-transform !default;
-$btn-outline-box-shadow:     none !default;
-
-
-[#{$loop-component-prefix}-button] {
-  padding: $btn-padding;
+[#{v.$loop-component-prefix}-button] {
+  padding: v.$btn-padding;
   display: inline-block;
 
-  color: $btn-color;
+  color: v.$btn-color;
   line-height: 1.4;
   // letter-spacing: .05rem;
 
-  font-family: $btn-font-family;
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
+  font-family: v.$btn-font-family;
+  font-size: v.$btn-font-size;
+  font-weight: v.$btn-font-weight;
 
   text-align: center;
   text-decoration: none !important;
-  @if $btn-text-transform != initial {
-      text-transform: $btn-text-transform;
+  @if v.$btn-text-transform != initial {
+      text-transform: v.$btn-text-transform;
   }
   vertical-align: middle;
   // white-space: nowrap;
 
-  border: 1px solid $btn-border-color;
-  border-radius: $btn-border-radius;
-  background-color: $btn-bgcolor;
-  box-shadow: $btn-box-shadow;
+  border: 1px solid v.$btn-border-color;
+  border-radius: v.$btn-border-radius;
+  background-color: v.$btn-bgcolor;
+  box-shadow: v.$btn-box-shadow;
 
   cursor: pointer;
   user-select: none;
@@ -76,12 +44,12 @@ $btn-outline-box-shadow:     none !default;
 
   &:hover,
   &:focus {
-    color: $btn-color-hover;
-    background-color: $btn-bgcolor-hover;
+    color: v.$btn-color-hover;
+    background-color: v.$btn-bgcolor-hover;
   }
   &:active {
-    background-color: $btn-bgcolor-active;
-    box-shadow: inset 1px 1px 1px 0 color.adjust($btn-bgcolor, $lightness: -20%);
+    background-color: v.$btn-bgcolor-active;
+    box-shadow: inset 1px 1px 1px 0 color.adjust(v.$btn-bgcolor, $lightness: -20%);
   }
 
   &.full {
@@ -91,15 +59,15 @@ $btn-outline-box-shadow:     none !default;
 }
 
 @mixin paintButton($color-value) {
-  color: if(brightness.isBright($color-value), $color-base, #fff);
+  color: if(fn.isBright($color-value), v.$color-base, #fff);
   background-color: $color-value;
 
-  @if $btn-border-color != transparent {
+  @if v.$btn-border-color != transparent {
     border-color: $color-value;
   }
   &:hover,
   &:focus {
-    color: if(brightness.isBright($color-value), $color-base, #fff);
+    color: if(fn.isBright($color-value), v.$color-base, #fff);
     border-color: color.adjust($color-value, $lightness: -10%);
     background-color: color.adjust($color-value, $lightness: -10%);
   }
@@ -110,75 +78,75 @@ $btn-outline-box-shadow:     none !default;
   }
 }
 
-@if empty.isNotEmpty($btn-colors-classes) {
-  @each $color in $btn-colors-classes {
-    [#{$loop-component-prefix}-button~="#{$color}"] {
-      @include paintButton(map.get($colors, $color));
+@if fn.isNotEmpty(v.$btn-colors-classes) {
+  @each $color in v.$btn-colors-classes {
+    [#{v.$loop-component-prefix}-button~="#{$color}"] {
+      @include paintButton(map.get(v.$colors, $color));
     }
   }
 }
 
-@if empty.isNotEmpty($btn-colors) and type.isMap($btn-colors) {
-  @each $name, $value in $btn-colors {
-    [#{$loop-component-prefix}-button~="#{$name}"] {
+@if fn.isNotEmpty(v.$btn-colors) and fn.isMap(v.$btn-colors) {
+  @each $name, $value in v.$btn-colors {
+    [#{v.$loop-component-prefix}-button~="#{$name}"] {
       @include paintButton($value);
     }
   }
 }
 
 @mixin paintButtonOutline($color-value) {
-  @if $btn-outline-color == inherit {
+  @if v.$btn-outline-color == inherit {
     color: $color-value;
   }
   border-color: $color-value;
 
   &:hover,
   &:focus {
-    color: if(brightness.isBright($color-value), $color-base, #fff);
+    color: if(fn.isBright($color-value), v.$color-base, #fff);
     border-color: color.adjust($color-value, $lightness: -10%);
     background-color: color.adjust($color-value, $lightness: -10%);
   }
   &:active {
-    color: if(brightness.isBright($color-value), $color-base, #fff);
+    color: if(fn.isBright($color-value), v.$color-base, #fff);
     border-color: color.adjust($color-value, $lightness: -12%);
     background-color: color.adjust($color-value, $lightness: -12%);
     box-shadow: inset  1px 1px 1px 0 color.adjust($color-value, $lightness: -25%);
   }
 }
 
-@if empty.isNotEmpty($btn-outline-colors-classes) or (empty.isNotEmpty($btn-outline-colors) and type.isMap($btn-outline-colors)) {
-  [#{$loop-component-prefix}-button~="outline"] {
+@if fn.isNotEmpty(v.$btn-outline-colors-classes) or (fn.isNotEmpty(v.$btn-outline-colors) and fn.isMap(v.$btn-outline-colors)) {
+  [#{v.$loop-component-prefix}-button~="outline"] {
     background-color: transparent;
 
-    @if $btn-outline-padding != $btn-padding {
-      padding: $btn-outline-padding
+    @if v.$btn-outline-padding != v.$btn-padding {
+      padding: v.$btn-outline-padding
     }
-    @if $btn-outline-font-family != $btn-font-family {
-      font-family: $btn-outline-font-family
+    @if v.$btn-outline-font-family != v.$btn-font-family {
+      font-family: v.$btn-outline-font-family
     }
-    @if $btn-outline-font-weight != $btn-font-weight {
-      font-weight: $btn-outline-font-weight
+    @if v.$btn-outline-font-weight != v.$btn-font-weight {
+      font-weight: v.$btn-outline-font-weight
     }
-    @if $btn-outline-text-transform != $btn-text-transform {
-      text-transform: $btn-outline-text-transform
+    @if v.$btn-outline-text-transform != v.$btn-text-transform {
+      text-transform: v.$btn-outline-text-transform
     }
-    @if $btn-outline-color != inherit {
-      color: $btn-outline-color;
+    @if v.$btn-outline-color != inherit {
+      color: v.$btn-outline-color;
     }
-    @if $btn-box-shadow != $btn-outline-box-shadow {
-      box-shadow: $btn-outline-box-shadow;
+    @if v.$btn-box-shadow != v.$btn-outline-box-shadow {
+      box-shadow: v.$btn-outline-box-shadow;
     }
 
-    @if empty.isNotEmpty($btn-outline-colors-classes) {
-      @each $color in $btn-outline-colors-classes {
-        &[#{$loop-component-prefix}-button~="#{$color}"] {
-          @include paintButtonOutline(map.get($colors, $color));
+    @if fn.isNotEmpty(v.$btn-outline-colors-classes) {
+      @each $color in v.$btn-outline-colors-classes {
+        &[#{v.$loop-component-prefix}-button~="#{$color}"] {
+          @include paintButtonOutline(map.get(v.$colors, $color));
         }
       }
     }
-    @if empty.isNotEmpty($btn-outline-colors) and type.isMap($btn-outline-colors) {
-      @each $name, $value in $btn-colors {
-        &[#{$loop-component-prefix}-button~="#{$name}"] {
+    @if fn.isNotEmpty(v.$btn-outline-colors) and fn.isMap(v.$btn-outline-colors) {
+      @each $name, $value in v.$btn-colors {
+        &[#{v.$loop-component-prefix}-button~="#{$name}"] {
           @include paintButtonOutline($value);
         }
       }
@@ -186,9 +154,9 @@ $btn-outline-box-shadow:     none !default;
   }
 }
 
-@if empty.isNotEmpty($btn-padding-sizes) {
-  @each $name, $padding in $btn-padding-sizes {
-    [#{$loop-component-prefix}-button~="#{$name}"] {
+@if fn.isNotEmpty(v.$btn-padding-sizes) {
+  @each $name, $padding in v.$btn-padding-sizes {
+    [#{v.$loop-component-prefix}-button~="#{$name}"] {
       padding: #{$padding};
     }
   }

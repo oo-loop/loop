@@ -1,0 +1,47 @@
+@use '../../variables' as v;
+
+@mixin inputFocus {
+  @if v.$input-box-shadow ==none and v.$input-focus-box-shadow !=none {
+    box-shadow: v.$input-focus-box-shadow;
+  }
+
+  @else if v.$input-focus-box-shadow !=none {
+    box-shadow: v.$input-box-shadow, v.$input-focus-box-shadow;
+  }
+
+  @if v.$input-border-color !=v.$input-focus-border-color {
+    border-color: v.$input-focus-border-color;
+  }
+}
+
+@mixin input {
+  padding: v.$input-padding;
+
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: v.$input-height;
+
+  color: v.$input-color;
+  font-family: v.$input-font-family;
+  font-size: v.$input-font-size;
+  font-style: v.$input-font-style;
+  line-height: v.$input-line-height;
+
+  border: v.$input-border;
+  border-radius: v.$input-border-radius;
+  background-color: v.$input-bgcolor;
+
+  @if v.$input-box-shadow !=none {
+    box-shadow: v.$input-box-shadow;
+  }
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+    @include inputFocus;
+  }
+}

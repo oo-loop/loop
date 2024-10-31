@@ -1,30 +1,19 @@
 @use '../mixins/loop';
+@use '../variables' as v;
 
 /**
  * Color Utilities
  */
 
 // Text colors
-$text-colors: () !default;
-$text-colors-classes: $colors-classes !default;
-$text-colors-is-important: true !default;
-
-@include loop.loop($text-colors, 'color', '.color', $text-colors-is-important);
-@include loop.loopMapKeys($text-colors-classes, $colors, 'color', '.color', $text-colors-is-important);
+@include loop.loop(v.$text-colors, 'color', '.color', v.$text-colors-is-important);
+@include loop.loopMapKeys(v.$text-colors-classes, v.$colors, 'color', '.color', v.$text-colors-is-important);
 
 // Bg colors
-$bg-colors: () !default;
-$bg-colors-classes: $colors-classes !default;
-$bg-colors-is-important: false !default;
-
-@include loop.loop($bg-colors, 'background-color', '.bg', $bg-colors-is-important);
-@include loop.loopMapKeys($bg-colors-classes, $colors, 'background-color', '.bg', $bg-colors-is-important);
+@include loop.loop(v.$bg-colors, 'background-color', '.bg', v.$bg-colors-is-important);
+@include loop.loopMapKeys(v.$bg-colors-classes, v.$colors, 'background-color', '.bg', v.$bg-colors-is-important);
 
 // Border colors
-$border-colors: () !default;
-$border-colors-classes: $colors-classes !default;
-$border-colors-is-important: true !default;
-
-@include loop.loop($border-colors, 'border-color', '.border', $border-colors-is-important);
-@include loop.loopMapKeys($border-colors-classes, $colors, 'border-color', '.border', $border-colors-is-important);
+@include loop.loop(v.$border-colors, 'border-color', '.border', v.$border-colors-is-important);
+@include loop.loopMapKeys(v.$border-colors-classes, v.$colors, 'border-color', '.border', v.$border-colors-is-important);
 

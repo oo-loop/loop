@@ -1,17 +1,8 @@
+@use '../variables' as v;
 @use '../mixins/font-smoothing' as fs;
 /**
  * Base
  */
-
-$font-size-root:	62.5% !default; 
-$font-smoothing:	true !default;
-
-$font-family-base: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
-$font-size-base:   1.6rem !default; // == 16px ( relative to 62.5% $font-size-root)
-$font-weight-base: 400 !default;
-$line-height-base: 1.5 !default;
-$color-base:       #333 !default;
-$bgcolor-base:     #fff !default;
 
 // The width is not affected by padding or border
 *,
@@ -22,18 +13,18 @@ $bgcolor-base:     #fff !default;
 
 // Font size based on 62.5% to have a convenient way to set sizes
 html {
-  font-size: $font-size-root;
-  @if $font-smoothing == true {
-    @include fs.fontSmoothing($font-smoothing);
+  font-size: v.$font-size-root;
+  @if v.$font-smoothing == true {
+    @include fs.fontSmoothing(v.$font-smoothing);
   }
 }
 
 // Default body styles
 body {
-  color: $color-base;
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  font-weight: $font-weight-base;
-  line-height: $line-height-base;
-  background-color: $bgcolor-base;
+  color: v.$color-base;
+  font-family: v.$font-family-base;
+  font-size: v.$font-size-base;
+  font-weight: v.$font-weight-base;
+  line-height: v.$line-height-base;
+  background-color: v.$bgcolor-base;
 }
