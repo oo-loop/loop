@@ -1,6 +1,6 @@
 {
   "name": "oo-loop",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "SCSS companion for Front-end Developer",
   "style": "dist/loop.css",
   "sass": "scss/_loop.scss",
@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "sass --watch --style=expanded --no-source-map scss/_loop.scss dist/loop.css",
-    "build": "sass --style=compressed --no-source-map scss/_loop.scss dist/loop.min.css"
+    "build": "sass --style=compressed --no-source-map scss/_loop.scss dist/loop.min.css",
+    "example": "sass --watch --style=expanded --no-source-map example/"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
   "license": "MIT",
   "devDependencies": {
     "normalize.css": "^8.0.0",
-    "sass": "^1.79.2"
+    "sass": "^1.80.5"
   },
   "files": [
     "dist/",

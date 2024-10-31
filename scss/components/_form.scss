@@ -1,7 +1,5 @@
-@import
-  'form/input',
-  'form/select',
-  'form/checkbox',
-  'form/radio',
-  'form/toggle'
-;
+@forward 'form/input';
+@forward 'form/select';
+@forward 'form/checkbox';
+@forward 'form/radio';
+@forward 'form/toggle';

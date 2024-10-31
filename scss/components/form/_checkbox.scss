@@ -1,21 +1,13 @@
 @use 'sass:math';
+@use '../../mixins/breakpoint';
+@use '../../mixins/loop';
+@use '../../functions' as fn;
+@use '../../variables' as v;
+@use 'mixin' as m;
 
 /**
  * Checkbox
  */
-
-$checkbox-size:                  1.8rem !default;
-$checkbox-bgcolor:               $input-bgcolor !default;
-$checkbox-border-color:          $input-border-color !default;
-$checkbox-border-radus:          $input-border-radius !default;
-$checkbox-box-shadow:            1px 1px 2px 0 rgba(#aaa, .3) !default;
-$checkbox-checked-color:         $input-color !default;
-$checkbox-checked-bgcolor:       $input-bgcolor !default;
-$checkbox-checked-border-color:  $checkbox-border-color !default;
-
-$use-checkbox-animation: true !default;
-$checkbox-sizes:() !default;
-$checkbox-breakpoints-classes:() !default;
 
 @mixin checkbox-size($size) {
   $checked_width: ($size * 0.4);
@@ -25,7 +17,7 @@ $checkbox-breakpoints-classes:() !default;
   & + label {
     &::before {
       left: math.div($size, 2) - math.div($checked_width, 2) + math.div($checked_border-width, 3);
-      @if $use-checkbox-animation {
+      @if v.$use-checkbox-animation {
         min-width: ($checked_width * 2);
         min-height: ($checked_height * 2);
         border-right-width: ($checked_border-width * 2);
@@ -38,7 +30,7 @@ $checkbox-breakpoints-classes:() !default;
       min-height: $size;
     }
 
-    & + [#{$loop-component-prefix}-form~="checkbox"] + label { margin-top: math.div($size, 3); }
+    & + [#{v.$loop-component-prefix}-form~="checkbox"] + label { margin-top: math.div($size, 3); }
   }
   &:checked + label::before {
     min-width: $checked_width;
@@ -48,7 +40,7 @@ $checkbox-breakpoints-classes:() !default;
   }
 }
 
-[#{$loop-component-prefix}-form~="checkbox"] {
+[#{v.$loop-component-prefix}-form~="checkbox"] {
   position: absolute;
   opacity: 0;
 
@@ -58,7 +50,7 @@ $checkbox-breakpoints-classes:() !default;
     align-items: center;
     width: fit-content;
     line-height: 1.1;
-    font-weight: $font-weight-base;
+    font-weight: v.$font-weight-base;
 
     &::before {
       position: absolute;
@@ -71,7 +63,7 @@ $checkbox-breakpoints-classes:() !default;
 
       transform: rotateZ(40deg);
 
-      @if $use-checkbox-animation {
+      @if v.$use-checkbox-animation {
         transition: border 200ms ease-in-out, min-width 200ms ease-in-out, min-height 200ms ease-in-out;
       }
     }
@@ -79,12 +71,12 @@ $checkbox-breakpoints-classes:() !default;
       display: flex;
       order: -1;
       content:'';
-      border: 1px solid $checkbox-border-color;
-      border-radius: $checkbox-border-radus;
-      background-color: $checkbox-bgcolor;
-      box-shadow: $checkbox-box-shadow;
+      border: 1px solid v.$checkbox-border-color;
+      border-radius: v.$checkbox-border-radus;
+      background-color: v.$checkbox-bgcolor;
+      box-shadow: v.$checkbox-box-shadow;
 
-      @if $use-checkbox-animation {
+      @if v.$use-checkbox-animation {
         transition: background-color 300ms ease-in-out;
       }
     }
@@ -92,39 +84,39 @@ $checkbox-breakpoints-classes:() !default;
 
   &:checked + label {
     &::before {
-      border-right-color: $checkbox-checked-color;
-      border-bottom-color: $checkbox-checked-color;
+      border-right-color: v.$checkbox-checked-color;
+      border-bottom-color: v.$checkbox-checked-color;
 
-      @if $use-checkbox-animation {
-        box-shadow: 1px 1px 2px $checkbox-checked-bgcolor;
+      @if v.$use-checkbox-animation {
+        box-shadow: 1px 1px 2px v.$checkbox-checked-bgcolor;
       }
     }
     &::after {
-      background-color: $checkbox-checked-bgcolor;
-      border-color: $checkbox-checked-border-color;
+      background-color: v.$checkbox-checked-bgcolor;
+      border-color: v.$checkbox-checked-border-color;
     }
   }
-  &:focus + label::after { @extend %inputFocus; }
+  &:focus + label::after { @include m.inputFocus; }
 
-  @include checkbox-size($checkbox-size);
+  @include checkbox-size(v.$checkbox-size);
 
-  @if isMap($checkbox-sizes) {
-    @each $size_name, $size_value in $checkbox-sizes {
-      &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include checkbox-size($size_value) }
+  @if fn.isMap(v.$checkbox-sizes) {
+    @each $size_name, $size_value in v.$checkbox-sizes {
+      &[#{v.$loop-component-prefix}-form~="#{$size_name}"] { @include checkbox-size($size_value) }
     }
 
-    @if isNotEmpty($checkbox-breakpoints-classes) {
-      @each $breakpoint in $checkbox-breakpoints-classes {
-        @include breakpoint($breakpoint) {
-          @each $size_name, $size_value in $checkbox-sizes {
+    @if fn.isNotEmpty(v.$checkbox-breakpoints-classes) {
+      @each $breakpoint in v.$checkbox-breakpoints-classes {
+        @include breakpoint.from($breakpoint) {
+          @each $size_name, $size_value in v.$checkbox-sizes {
             $suffix: \@#{$breakpoint};
-            &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include checkbox-size($size_value) }
+            &[#{v.$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include checkbox-size($size_value) }
           }
         }
       }
     }
   }
 
-  @include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
-  @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loop(v.$border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loopMapKeys(v.$border-colors-classes, v.$colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }

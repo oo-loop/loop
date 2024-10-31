@@ -1,20 +1,11 @@
 @use 'sass:math';
+@use '../../variables' as v;
+@use '../../functions/type';
+@use 'mixin' as m;
 
 /**
  * Toggle
  */
-
-$toggle-size:                  2.4rem !default;
-$toggle-color:                 $input-bgcolor !default;
-$toggle-bgcolor:               $input-border-color !default;
-$toggle-border-color:          $toggle-bgcolor !default;
-$toggle-box-shadow:            $checkbox-box-shadow !default;
-
-$toggle-checked-bgcolor:       $input-color !default;
-$toggle-checked-border-color:  $toggle-checked-bgcolor !default;
-
-$use-toggle-animation: true !default;
-$toggle-sizes:() !default;
 
 @mixin toggle-size($size) {
   & + label {
@@ -31,7 +22,7 @@ $toggle-sizes:() !default;
       min-height: $size;
     }
 
-    & + [#{$loop-component-prefix}-form~="toggle"] + label { margin-top: math.div($size, 3); }
+    & + [#{v.$loop-component-prefix}-form~="toggle"] + label { margin-top: math.div($size, 3); }
   }
 
   &:checked + label::before {
@@ -39,7 +30,7 @@ $toggle-sizes:() !default;
   }
 }
 
-[#{$loop-component-prefix}-form~="toggle"] {
+[#{v.$loop-component-prefix}-form~="toggle"] {
   position: absolute;
   opacity: 0;
 
@@ -49,17 +40,17 @@ $toggle-sizes:() !default;
     align-items: center;
     width: fit-content;
     line-height: 1.1;
-    font-weight: $font-weight-base;
+    font-weight: v.$font-weight-base;
 
     &::before {
       position: absolute;
       left: 0;
       content: '';
       border-radius: 50%;
-      background-color: $toggle-color;
-      box-shadow: $toggle-box-shadow;
+      background-color: v.$toggle-color;
+      box-shadow: v.$toggle-box-shadow;
 
-      @if $use-toggle-animation {
+      @if v.$use-toggle-animation {
         transition: transform 300ms ease-out;
       }
     }
@@ -67,30 +58,30 @@ $toggle-sizes:() !default;
       display: flex;
       order: -1;
       content:'';
-      border: 1px solid $toggle-border-color;
+      border: 1px solid v.$toggle-border-color;
       border-radius: 50em;
-      background-color: $toggle-bgcolor;
-      box-shadow: $toggle-box-shadow;
+      background-color: v.$toggle-bgcolor;
+      box-shadow: v.$toggle-box-shadow;
 
-      @if $use-toggle-animation {
+      @if v.$use-toggle-animation {
         transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
       }
     }
   }
 
   &:checked + label::after {
-    background-color: $toggle-checked-bgcolor;
-    border-color: $toggle-checked-border-color;
+    background-color: v.$toggle-checked-bgcolor;
+    border-color: v.$toggle-checked-border-color;
   }
-  &:focus + label::after { @extend %inputFocus; }
+  &:focus + label::after { @include m.inputFocus; }
 
-  @include toggle-size($toggle-size);
+  @include toggle-size(v.$toggle-size);
 
-  @if isMap($toggle-sizes) {
-    @each $size_name, $size_value in $toggle-sizes {
-      &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include toggle-size($size_value) }
+  @if type.isMap(v.$toggle-sizes) {
+    @each $size_name, $size_value in v.$toggle-sizes {
+      &[#{v.$loop-component-prefix}-form~="#{$size_name}"] { @include toggle-size($size_value) }
     }
   }
 
-  [#{$loop-component-prefix}-form~="labelless"] + label::after { margin-right: 0; }
+  [#{v.$loop-component-prefix}-form~="labelless"] + label::after { margin-right: 0; }
 }

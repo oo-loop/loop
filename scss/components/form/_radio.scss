@@ -1,27 +1,20 @@
 @use 'sass:math';
+@use '../../mixins/breakpoint';
+@use '../../mixins/loop';
+@use '../../variables' as v;
+@use '../../functions' as fn;
+@use 'mixin' as m;
 
 /**
  * Radio
  */
-
-$radio-size:                  $checkbox-size !default;
-$radio-bgcolor:               $checkbox-bgcolor !default;
-$radio-border-color:          $checkbox-border-color !default;
-$radio-box-shadow:            $checkbox-box-shadow !default;
-$radio-checked-color:         $input-color !default;
-$radio-checked-bgcolor:       $radio-bgcolor !default;
-$radio-checked-border-color:  $radio-border-color !default;
-
-$use-radio-animation: $use-checkbox-animation !default;
-$radio-sizes: $checkbox-sizes !default;
-$radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
 
 @mixin radio-size($size) {
   & + label {
     &::after {
       margin-right: math.div($size, 3);
     }
-    & + [#{$loop-component-prefix}-form~="radio"] + label { margin-top: math.div($size, 3); }
+    & + [#{v.$loop-component-prefix}-form~="radio"] + label { margin-top: math.div($size, 3); }
   }
 
   & + label::after,
@@ -31,7 +24,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
   }
 }
 
-[#{$loop-component-prefix}-form~="radio"] {
+[#{v.$loop-component-prefix}-form~="radio"] {
   position: absolute;
   opacity: 0;
 
@@ -41,7 +34,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
     align-items: center;
     width: fit-content;
     line-height: 1.1;
-    font-weight: $font-weight-base;
+    font-weight: v.$font-weight-base;
 
     &::before {
       position: absolute;
@@ -49,7 +42,7 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
       left: 0;
       content: '';
       border-radius: 50%;
-      @if $use-radio-animation {
+      @if v.$use-radio-animation {
         transform: scale(1.5);
         transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
       }
@@ -58,45 +51,45 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
       display: flex;
       order:-1;
       content:'';
-      border: 1px solid $radio-border-color;
+      border: 1px solid v.$radio-border-color;
       border-radius: 50%;
-      background-color: $radio-bgcolor;
-      box-shadow: $radio-box-shadow;
+      background-color: v.$radio-bgcolor;
+      box-shadow: v.$radio-box-shadow;
     }
   }
 
   &:checked + label {
     &::before {
-      background-color: $radio-checked-color;
+      background-color: v.$radio-checked-color;
       transform: scale(0.5);
     }
     &::after {
-      background-color: $radio-checked-bgcolor;
-      border-color: $radio-checked-border-color;
+      background-color: v.$radio-checked-bgcolor;
+      border-color: v.$radio-checked-border-color;
     }
   }
 
-  &:focus + label::after { @extend %inputFocus; }
+  &:focus + label::after { @include m.inputFocus; }
 
-  @include radio-size($radio-size);
+  @include radio-size(v.$radio-size);
 
-  @if isMap($radio-sizes) {
-    @each $size_name, $size_value in $radio-sizes {
-      &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
+  @if fn.isMap(v.$radio-sizes) {
+    @each $size_name, $size_value in v.$radio-sizes {
+      &[#{v.$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
     }
 
-    @if isNotEmpty($radio-breakpoints-classes) {
-      @each $breakpoint in $radio-breakpoints-classes {
-        @include breakpoint($breakpoint) {
-          @each $size_name, $size_value in $radio-sizes {
+    @if fn.isNotEmpty(v.$radio-breakpoints-classes) {
+      @each $breakpoint in v.$radio-breakpoints-classes {
+        @include breakpoint.from($breakpoint) {
+          @each $size_name, $size_value in v.$radio-sizes {
             $suffix: \@#{$breakpoint};
-            &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include radio-size($size_value) }
+            &[#{v.$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include radio-size($size_value) }
           }
         }
       }
     }
   }
 
-  @include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
-  @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loop(v.$border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loopMapKeys(v.$border-colors-classes, v.$colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }

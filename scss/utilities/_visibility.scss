@@ -1,9 +1,10 @@
+@use '../variables' as v;
+@use '../mixins/breakpoint';
+@use '../functions/empty';
+
 /**
  * Visibility Utilities
  */
-
-$visibility-breakpoints-classes: $breakpoints-classes !default;
-$visibility-pointbreaks-classes: $pointbreaks-classes !default;
 
 .hidden { display: none !important; }
 
@@ -14,17 +15,17 @@ $visibility-pointbreaks-classes: $pointbreaks-classes !default;
   @media screen { display: none !important; }
 }
 
-@if isNotEmpty($visibility-breakpoints-classes) {
-  @each $class in $visibility-breakpoints-classes {
-      @include breakpoint($class) {
+@if empty.isNotEmpty(v.$visibility-breakpoints-classes) {
+  @each $class in v.$visibility-breakpoints-classes {
+      @include breakpoint.from($class) {
           .hidden\@#{$class} { display: none !important; }
       }
   }
 }
 
-@if isNotEmpty($visibility-pointbreaks-classes) {
-  @each $class in $visibility-pointbreaks-classes {
-    @include pointbreak($class) {
+@if empty.isNotEmpty(v.$visibility-pointbreaks-classes) {
+  @each $class in v.$visibility-pointbreaks-classes {
+    @include breakpoint.to($class) {
       .hidden\!\@#{$class} { display: none !important; }
     }
   }
