@@ -1,6 +1,8 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
+@use '../functions/array';
+@use '../mixins/loop';
 
 /**
  * Spacing
@@ -31,11 +33,11 @@ $v-spacing-addons: ();
 }
 
 @if ($use-v-spacing) {
-  $v-spacings: mergeArray($v-spacing, $v-spacing-addons);
-  @include loop($v-spacings, 'margin-top', '.mt', true);
-  @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-top', '.mt', true);
-  @include loop($v-spacings, 'margin-bottom', '.mb', true);
-  @include loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-bottom', '.mb', true);
+  $v-spacings: array.mergeArray($v-spacing, $v-spacing-addons);
+  @include loop.loop($v-spacings, 'margin-top', '.mt', true);
+  @include loop.loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-top', '.mt', true);
+  @include loop.loop($v-spacings, 'margin-bottom', '.mb', true);
+  @include loop.loopBreakpoints($v-spacing-breakpoints-classes, $v-spacings, 'margin-bottom', '.mb', true);
 }
 
 // horizontal spacing
@@ -63,9 +65,9 @@ $h-spacing-addons: ();
 }
 
 @if ($use-h-spacing) {
-  $h-spacings: mergeArray($h-spacing, $h-spacing-addons);
-  @include loop($h-spacings, 'margin-left', '.ml', true);
-  @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-left', '.ml', true);
-  @include loop($h-spacings, 'margin-right', '.mr', true);
-  @include loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-right', '.mr', true);
+  $h-spacings: array.mergeArray($h-spacing, $h-spacing-addons);
+  @include loop.loop($h-spacings, 'margin-left', '.ml', true);
+  @include loop.loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-left', '.ml', true);
+  @include loop.loop($h-spacings, 'margin-right', '.mr', true);
+  @include loop.loopBreakpoints($h-spacing-breakpoints-classes, $h-spacings, 'margin-right', '.mr', true);
 }

@@ -6,7 +6,7 @@
 @use 'sass:list';
 @use 'sass:map';
 
-@use '../functions/all' as fn;
+@use '../functions/empty';
 
 $breakpoints: (
   xs: 480px,  // min width
@@ -21,26 +21,26 @@ $pointbreaks-classes: (sm, md, lg) !default;
 // including the first step
 $breakpoints-classes-width-default-value: list.join('', $breakpoints-classes);
 
-@mixin breakpoint($key) {
+@mixin from($key) {
   // make sure the key exist
   @if map.has-key($breakpoints, $key) {
     $width: map.get($breakpoints, $key);
     @media (min-width: $width) {
       @content;
     }
-  } @else if fn.isEmpty($key) or $key == 'rt' {
+  } @else if empty.isEmpty($key) or $key == 'rt' {
     @content;
   }
 }
 
-@mixin pointbreak($key) {
+@mixin to($key) {
   // make sure the key exist
   @if map.has-key($breakpoints, $key) {
     $width: map.get($breakpoints, $key) - 1;
     @media (max-width: $width) {
       @content;
     }
-  } @else if fn.isEmpty($key) or $key == 'rt' {
+  } @else if empty.isEmpty($key) or $key == 'rt' {
     @content;
   }
 }

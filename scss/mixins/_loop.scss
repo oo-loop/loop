@@ -1,15 +1,16 @@
-/**
- * Loop
- */
 @use 'sass:map';
 
-@use '../functions/all' as fn;
-@use 'breakpoint' as media;
+@use 'breakpoint';
+@use '../functions/empty';
+@use '../functions/type';
 
+/**
+ * Loop properties
+ */
 
 @mixin loopProperties($properties, $value, $is-important) {
   // multiple properties
-  @if fn.isList($properties) {
+  @if type.isList($properties) {
     @each $property in $properties {
       #{$property}: if($is-important, #{$value} !important, #{$value});
     }
@@ -32,16 +33,16 @@
   $affix: '-';
 
   // Make sure to have the correct format or do not generate rules
-  @if fn.isNotEmpty($data) {
-    @if fn.isMap($data) {
+  @if empty.isNotEmpty($data) {
+    @if type.isMap($data) {
       @each $key, $value in $data {
-        $affix: if(fn.isEmpty($key), '', $affix);
+        $affix: if(empty.isEmpty($key), '', $affix);
 
         #{$prefix}#{$affix}#{$key}#{$suffix} {
           // responsive properties ?
-          @if fn.isMap($value) {
+          @if type.isMap($value) {
             @each $child-breakpoint, $child-value in $value {
-              @include media.breakpoint($child-breakpoint) {
+              @include breakpoint.from($child-breakpoint) {
                 @include loopProperties($properties, $child-value, $is-important);
               }
             }
@@ -50,7 +51,7 @@
           }
         }
       }
-    } @else if fn.isList($data) {
+    } @else if type.isList($data) {
       @each $value in $data {
         #{$prefix}#{$affix}#{$value}#{$suffix} {
           @include loopProperties($properties, $value, $is-important);
@@ -76,9 +77,9 @@
  * @param $suffix       ?string     String to append to the selector
  */
 @mixin loopBreakpoints($breakpoints, $data, $properties, $prefix, $is-important:false, $suffix:'') {
-  @if fn.isNotEmpty($breakpoints) and fn.isNotEmpty($data) {
+  @if empty.isNotEmpty($breakpoints) and empty.isNotEmpty($data) {
     @each $breakpoint in $breakpoints {
-      @include media.breakpoint($breakpoint) {
+      @include breakpoint.from($breakpoint) {
         $suffixes: #{$suffix}\@#{$breakpoint};
         @include loop($data, $properties, $prefix, $is-important, $suffixes);
       }
@@ -98,7 +99,7 @@
  * @param $suffix       ?string     String to append to the selector
  */
 @mixin loopMapKeys($keys, $map, $properties, $prefix, $is-important:false, $suffix:'')  {
-  @if fn.isNotEmpty($keys) {
+  @if empty.isNotEmpty($keys) {
     $affix: '-';
 
     @each $key in $keys {

@@ -1,4 +1,7 @@
 @use 'sass:map';
+@use '../../functions/empty';
+@use '../../functions/type';
+@use 'input';
 
 /**
  * Select
@@ -88,7 +91,7 @@ $select-themes: (
   ));
 
   > select {
-    @extend %input;
+    @extend %input.input;
     margin: 0;
     height: 100%;
     font-size: inherit;
@@ -100,7 +103,7 @@ $select-themes: (
     }
   }
 
-  @if isNotEmpty($select-themes) and isMap($select-themes) {
+  @if empty.isNotEmpty($select-themes) and type.isMap($select-themes) {
     @each $theme-name, $theme in $select-themes {
       &[#{$loop-component-prefix}-form~="#{$theme-name}"] {
         @include selectTheme($theme);
@@ -122,7 +125,7 @@ $select-themes: (
   }
 }
 
-@if isNotEmpty($input-padding-sizes) {
+@if empty.isNotEmpty($input-padding-sizes) {
   @each $name, $padding in $input-padding-sizes {
     [#{$loop-component-prefix}-form~="select"][#{$loop-component-prefix}-form~="#{$name}"] > select {
       padding: #{$padding};

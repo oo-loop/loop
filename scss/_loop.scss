@@ -2,10 +2,12 @@
 
 // Functions, mixins and bases
 @forward "variables";
-@forward "functions/all";
-@forward "mixins/all";
-@forward "base/all";
 
+// Base
+@forward "base/normalize";
+@forward "base/base";
+@forward "base/type";
+ 
 // Components
 @forward "components/grid";
 @forward "components/columns";

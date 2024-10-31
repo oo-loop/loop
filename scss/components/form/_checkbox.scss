@@ -1,4 +1,9 @@
 @use 'sass:math';
+@use '../../mixins/breakpoint';
+@use '../../mixins/loop';
+@use '../../functions/empty';
+@use '../../functions/type';
+@use 'input';
 
 /**
  * Checkbox
@@ -104,18 +109,18 @@ $checkbox-breakpoints-classes:() !default;
       border-color: $checkbox-checked-border-color;
     }
   }
-  &:focus + label::after { @extend %inputFocus; }
+  &:focus + label::after { @extend %input.inputFocus; }
 
   @include checkbox-size($checkbox-size);
 
-  @if isMap($checkbox-sizes) {
+  @if type.isMap($checkbox-sizes) {
     @each $size_name, $size_value in $checkbox-sizes {
       &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include checkbox-size($size_value) }
     }
 
-    @if isNotEmpty($checkbox-breakpoints-classes) {
+    @if empty.isNotEmpty($checkbox-breakpoints-classes) {
       @each $breakpoint in $checkbox-breakpoints-classes {
-        @include breakpoint($breakpoint) {
+        @include breakpoint.from($breakpoint) {
           @each $size_name, $size_value in $checkbox-sizes {
             $suffix: \@#{$breakpoint};
             &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include checkbox-size($size_value) }
@@ -125,6 +130,6 @@ $checkbox-breakpoints-classes:() !default;
     }
   }
 
-  @include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
-  @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }

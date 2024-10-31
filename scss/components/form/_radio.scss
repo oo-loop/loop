@@ -1,4 +1,9 @@
 @use 'sass:math';
+@use '../../mixins/breakpoint';
+@use '../../mixins/loop';
+@use '../../functions/empty';
+@use '../../functions/type';
+@use 'input';
 
 /**
  * Radio
@@ -76,18 +81,18 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
     }
   }
 
-  &:focus + label::after { @extend %inputFocus; }
+  &:focus + label::after { @extend %input.inputFocus; }
 
   @include radio-size($radio-size);
 
-  @if isMap($radio-sizes) {
+  @if type.isMap($radio-sizes) {
     @each $size_name, $size_value in $radio-sizes {
       &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include radio-size($size_value) }
     }
 
-    @if isNotEmpty($radio-breakpoints-classes) {
+    @if empty.isNotEmpty($radio-breakpoints-classes) {
       @each $breakpoint in $radio-breakpoints-classes {
-        @include breakpoint($breakpoint) {
+        @include breakpoint.from($breakpoint) {
           @each $size_name, $size_value in $radio-sizes {
             $suffix: \@#{$breakpoint};
             &[#{$loop-component-prefix}-form~="#{$size_name}#{$suffix}"] { @include radio-size($size_value) }
@@ -97,6 +102,6 @@ $radio-breakpoints-classes: $checkbox-breakpoints-classes !default;
     }
   }
 
-  @include loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
-  @include loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loop($border-colors, 'border-color', '&[class*="border', true, '"] + label::after');
+  @include loop.loopMapKeys($border-colors-classes, $colors, 'border-color', '&[class*="border', true, '"] + label::after');
 }

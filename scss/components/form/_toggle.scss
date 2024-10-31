@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use '../../functions/type';
 
 /**
  * Toggle
@@ -86,7 +87,7 @@ $toggle-sizes:() !default;
 
   @include toggle-size($toggle-size);
 
-  @if isMap($toggle-sizes) {
+  @if type.isMap($toggle-sizes) {
     @each $size_name, $size_value in $toggle-sizes {
       &[#{$loop-component-prefix}-form~="#{$size_name}"] { @include toggle-size($size_value) }
     }

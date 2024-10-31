@@ -1,3 +1,5 @@
+@use '../../functions/empty';
+
 /**
  * Input
  */
@@ -76,7 +78,7 @@ label {
   }
 }
 
-@if isNotEmpty($input-padding-sizes) {
+@if empty.isNotEmpty($input-padding-sizes) {
   @each $name, $padding in $input-padding-sizes {
     [#{$loop-component-prefix}-form~="input"][#{$loop-component-prefix}-form~="#{$name}"] {
       padding: #{$padding};

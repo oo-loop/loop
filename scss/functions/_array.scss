@@ -2,7 +2,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 
-@import 'empty';
+@use 'empty';
 
 /**
  * In List
@@ -39,7 +39,7 @@
   $merge: ();
 
   // merge if $array1 or $array2 is not empty
-  @if isNotEmpty($array1) {
+  @if empyt.isNotEmpty($array1) {
     @if meta.type-of($array1) == 'list' and meta.type-of($array2) == 'list' {
       $merge: list.join($array1, $array2);
     } @else if meta.type-of($array1) == 'map' and meta.type-of($array2) == 'map' {
@@ -47,7 +47,7 @@
     } @else {
       $merge: $array1;
     }
-  } @else if isNotEmpty($array2) {
+  } @else if empty.isNotEmpty($array2) {
     $merge: $array2;
   }
 

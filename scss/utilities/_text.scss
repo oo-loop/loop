@@ -1,3 +1,5 @@
+@use '../mixins/loop';
+
 /**
  * Text utilites
  *
@@ -16,8 +18,8 @@ $text-sizes: (
 $text-sizes-breakpoints-classes: () !default;
 $text-sizes-is-important: true !default;
 
-@include loop($text-sizes, 'font-size', '.text', $text-sizes-is-important);
-@include loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'font-size', '.text', $text-sizes-is-important);
+@include loop.loop($text-sizes, 'font-size', '.text', $text-sizes-is-important);
+@include loop.loopBreakpoints($text-sizes-breakpoints-classes, $text-sizes, 'font-size', '.text', $text-sizes-is-important);
 
 
 /**
@@ -31,8 +33,8 @@ $text-alignments: (
 $text-alignments-breakpoints-classes: () !default;
 $text-alignments-is-important: false !default;
 
-@include loop($text-alignments, 'text-align', '.text', $text-alignments-is-important);
-@include loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-is-important);
+@include loop.loop($text-alignments, 'text-align', '.text', $text-alignments-is-important);
+@include loop.loopBreakpoints($text-alignments-breakpoints-classes, $text-alignments, 'text-align', '.text', $text-alignments-is-important);
 
 
 /**
@@ -43,8 +45,8 @@ $text-transforms: (
 ) !default;
 $text-transforms-breakpoints-classes: () !default;
 $text-transforms-is-important: false !default;
-@include loop($text-transforms, 'text-transform', '.text', $text-transforms-is-important);
-@include loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text-transform', '.text', $text-transforms-is-important);
+@include loop.loop($text-transforms, 'text-transform', '.text', $text-transforms-is-important);
+@include loop.loopBreakpoints($text-transforms-breakpoints-classes, $text-transforms, 'text-transform', '.text', $text-transforms-is-important);
 
 
 /**
@@ -53,8 +55,8 @@ $text-transforms-is-important: false !default;
 $text-decorations: () !default;
 $text-decorations-breakpoints-classes: () !default;
 $text-decorations-is-important: false !default;
-@include loop($text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
-@include loopBreakpoints($text-decorations-breakpoints-classes, $text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
+@include loop.loop($text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
+@include loop.loopBreakpoints($text-decorations-breakpoints-classes, $text-decorations, 'text-decoration', '.text', $text-decorations-is-important);
 
 /**
  * Letter Spacing
@@ -65,8 +67,8 @@ $letter-spacings: (
 ) !default;
 $letter-spacings-breakpoints-classes: () !default;
 $letter-spacings-is-important: false !default;
-@include loop($letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-is-important);
-@include loopBreakpoints($letter-spacings-breakpoints-classes, $letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-is-important);
+@include loop.loop($letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-is-important);
+@include loop.loopBreakpoints($letter-spacings-breakpoints-classes, $letter-spacings, 'letter-spacing', '.letter-spacing', $letter-spacings-is-important);
 
 
 
@@ -78,8 +80,8 @@ $font-styles: (
 ) !default;
 $font-styles-breakpoints-classes: () !default;
 $font-styles-is-important: false !default;
-@include loop($font-styles, 'font-style', '.font', $font-styles-is-important);
-@include loopBreakpoints($font-styles-breakpoints-classes, $font-styles, 'font-style', '.font', $font-styles-is-important);
+@include loop.loop($font-styles, 'font-style', '.font', $font-styles-is-important);
+@include loop.loopBreakpoints($font-styles-breakpoints-classes, $font-styles, 'font-style', '.font', $font-styles-is-important);
 
 /**
  * Font Weight
@@ -90,8 +92,8 @@ $font-weights: (
 ) !default;
 $font-weights-breakpoints-classes: () !default;
 $font-weights-is-important: false !default;
-@include loop($font-weights, 'font-weight', '.font', $font-weights-is-important);
-@include loopBreakpoints($font-weights-breakpoints-classes, $font-weights, 'font-weight', '.font', $font-weights-is-important);
+@include loop.loop($font-weights, 'font-weight', '.font', $font-weights-is-important);
+@include loop.loopBreakpoints($font-weights-breakpoints-classes, $font-weights, 'font-weight', '.font', $font-weights-is-important);
 
 
 /**
@@ -104,5 +106,5 @@ $font-families: (
 ) !default;
 $font-families-breakpoints-classes: () !default;
 $font-families-is-important: false !default;
-@include loop($font-families, 'font-family', '.font', $font-families-is-important);
-@include loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font-family', '.font', $font-families-is-important);
+@include loop.loop($font-families, 'font-family', '.font', $font-families-is-important);
+@include loop.loopBreakpoints($font-families-breakpoints-classes, $font-families, 'font-family', '.font', $font-families-is-important);

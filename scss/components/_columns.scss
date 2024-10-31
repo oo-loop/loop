@@ -1,5 +1,8 @@
 @use 'sass:list';
 @use 'sass:math';
+@use '../functions/empty';
+@use '../mixins/breakpoint';
+
 
 /**
  * Column
@@ -54,7 +57,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 
 // reponsives classes starting from default value
 @each $class in $breakpoints-classes-width-default-value {
-  @include breakpoint($class) {
+  @include breakpoint.from($class) {
     $suffix: '';
     @if $class != '' {
       $suffix: \@#{$class};
@@ -74,7 +77,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
       }
     }
 
-    @if $use-columns-self-adjustment-breakpoints == true or isEmpty($suffix) {
+    @if $use-columns-self-adjustment-breakpoints == true or empty.isEmpty($suffix) {
       // adjust to the size of the content
       [#{$loop-component-prefix}-column~="self-adjust#{$suffix}"] {
         min-width: auto;
@@ -84,7 +87,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     }
 
     @if $use-columns-alignment == true
-      and ($use-columns-alignment-breakpoints == true or isEmpty($suffix)) {
+      and ($use-columns-alignment-breakpoints == true or empty.isEmpty($suffix)) {
       // horizontal alignment
       [#{$loop-component-prefix}-column~="align-left#{$suffix}"]   { justify-content: flex-start; }
       [#{$loop-component-prefix}-column~="align-center#{$suffix}"] { justify-content: center; }
@@ -99,7 +102,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     }
 
     @if $use-columns-self-alignment == true
-      and ($use-columns-self-alignment-breakpoints == true or isEmpty($suffix)) {
+      and ($use-columns-self-alignment-breakpoints == true or empty.isEmpty($suffix)) {
           // horizontal alignment
       [#{$loop-component-prefix}-column~="self-align-left#{$suffix}"]   { margin-left: initial; margin-right: initial; }
       [#{$loop-component-prefix}-column~="self-align-center#{$suffix}"] { margin-left: auto; margin-right: auto; }
@@ -134,7 +137,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 
 // responsive classes
 @each $class in $breakpoints-classes {
-  @include breakpoint($class) {
+  @include breakpoint.from($class) {
     $suffix: \@#{$class};
 
     // order-0 to make sure it is first
@@ -144,7 +147,7 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
     @for $i from 1 through $columns-system {
       // offset
       @if $use-columns-offset == true {
-        [#{$loop-component-prefix}-column~="offset-#{$i}#{$suffix}"] { margin-left: percentage($i/$columns-system); }
+        [#{$loop-component-prefix}-column~="offset-#{$i}#{$suffix}"] { margin-left: math.percentage($i/$columns-system); }
       }
       // order
       @if $use-columns-order == true {
@@ -170,8 +173,8 @@ $columns-v-gutter-sizes-breakpoints-classes: $columns-gutter-sizes-breakpoints-c
 // gutters
 $columns-gutter-sizes-breakpoints-classes: list.join('', $columns-gutter-sizes-breakpoints-classes);
 @each $class in $columns-gutter-sizes-breakpoints-classes {
-  @include breakpoint($class) {
-    $suffix: if(isEmpty($class), '', \@#{$class});
+  @include breakpoint.from($class) {
+    $suffix: if(empty.isEmpty($class), '', \@#{$class});
     @each $gutter-name, $gutter-size in $columns-gutter-sizes {
       [#{$loop-component-prefix}-column~="gutter-#{$gutter-name}#{$suffix}"] {
         left: -#{$gutter-size};
@@ -188,8 +191,8 @@ $columns-gutter-sizes-breakpoints-classes: list.join('', $columns-gutter-sizes-b
 
 $columns-v-gutter-sizes-breakpoints-classes: list.join('', $columns-v-gutter-sizes-breakpoints-classes);
 @each $class in $columns-v-gutter-sizes-breakpoints-classes {
-  @include breakpoint($class) {
-    $suffix: if(isEmpty($class), '', \@#{$class});
+  @include breakpoint.from($class) {
+    $suffix: if(empty.isEmpty($class), '', \@#{$class});
     @each $gutter-name, $gutter-size in $columns-v-gutter-sizes {
       [#{$loop-component-prefix}-column~="v-gutter-#{$gutter-name}#{$suffix}"] {
         > [#{$loop-component-prefix}-column*="col"] {

@@ -1,5 +1,8 @@
 @use 'sass:color';
 @use 'sass:map';
+@use '../functions/brightness';
+@use '../functions/empty';
+@use '../functions/type';
 
 /**
  * Button
@@ -10,8 +13,8 @@ $btn-colors-classes: $colors-classes !default;
 $btn-color:          $color-base !default;
 $btn-color-hover:    $btn-color !default;
 $btn-bgcolor:        #fff !default;
-$btn-bgcolor-hover:  darken($btn-bgcolor, 10%) !default;
-$btn-bgcolor-active: darken($btn-bgcolor, 12%) !default;
+$btn-bgcolor-hover:   color.adjust($btn-bgcolor, $lightness: -10%) !default;
+$btn-bgcolor-active:  color.adjust($btn-bgcolor, $lightness: -12%) !default;
 $btn-border-color:   #eee !default;
 
 $btn-padding:        .415em 1.2em !default; // relative to the size of the button
@@ -88,7 +91,7 @@ $btn-outline-box-shadow:     none !default;
 }
 
 @mixin paintButton($color-value) {
-  color: if(isBright($color-value), $color-base, #fff);
+  color: if(brightness.isBright($color-value), $color-base, #fff);
   background-color: $color-value;
 
   @if $btn-border-color != transparent {
@@ -96,7 +99,7 @@ $btn-outline-box-shadow:     none !default;
   }
   &:hover,
   &:focus {
-    color: if(isBright($color-value), $color-base, #fff);
+    color: if(brightness.isBright($color-value), $color-base, #fff);
     border-color: color.adjust($color-value, $lightness: -10%);
     background-color: color.adjust($color-value, $lightness: -10%);
   }
@@ -107,7 +110,7 @@ $btn-outline-box-shadow:     none !default;
   }
 }
 
-@if isNotEmpty($btn-colors-classes) {
+@if empty.isNotEmpty($btn-colors-classes) {
   @each $color in $btn-colors-classes {
     [#{$loop-component-prefix}-button~="#{$color}"] {
       @include paintButton(map.get($colors, $color));
@@ -115,7 +118,7 @@ $btn-outline-box-shadow:     none !default;
   }
 }
 
-@if isNotEmpty($btn-colors) and isMap($btn-colors) {
+@if empty.isNotEmpty($btn-colors) and type.isMap($btn-colors) {
   @each $name, $value in $btn-colors {
     [#{$loop-component-prefix}-button~="#{$name}"] {
       @include paintButton($value);
@@ -131,19 +134,19 @@ $btn-outline-box-shadow:     none !default;
 
   &:hover,
   &:focus {
-    color: if(isBright($color-value), $color-base, #fff);
+    color: if(brightness.isBright($color-value), $color-base, #fff);
     border-color: color.adjust($color-value, $lightness: -10%);
     background-color: color.adjust($color-value, $lightness: -10%);
   }
   &:active {
-    color: if(isBright($color-value), $color-base, #fff);
+    color: if(brightness.isBright($color-value), $color-base, #fff);
     border-color: color.adjust($color-value, $lightness: -12%);
     background-color: color.adjust($color-value, $lightness: -12%);
     box-shadow: inset  1px 1px 1px 0 color.adjust($color-value, $lightness: -25%);
   }
 }
 
-@if isNotEmpty($btn-outline-colors-classes) or (isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors)) {
+@if empty.isNotEmpty($btn-outline-colors-classes) or (empty.isNotEmpty($btn-outline-colors) and type.isMap($btn-outline-colors)) {
   [#{$loop-component-prefix}-button~="outline"] {
     background-color: transparent;
 
@@ -166,14 +169,14 @@ $btn-outline-box-shadow:     none !default;
       box-shadow: $btn-outline-box-shadow;
     }
 
-    @if isNotEmpty($btn-outline-colors-classes) {
+    @if empty.isNotEmpty($btn-outline-colors-classes) {
       @each $color in $btn-outline-colors-classes {
         &[#{$loop-component-prefix}-button~="#{$color}"] {
           @include paintButtonOutline(map.get($colors, $color));
         }
       }
     }
-    @if isNotEmpty($btn-outline-colors) and isMap($btn-outline-colors) {
+    @if empty.isNotEmpty($btn-outline-colors) and type.isMap($btn-outline-colors) {
       @each $name, $value in $btn-colors {
         &[#{$loop-component-prefix}-button~="#{$name}"] {
           @include paintButtonOutline($value);
@@ -183,7 +186,7 @@ $btn-outline-box-shadow:     none !default;
   }
 }
 
-@if isNotEmpty($btn-padding-sizes) {
+@if empty.isNotEmpty($btn-padding-sizes) {
   @each $name, $padding in $btn-padding-sizes {
     [#{$loop-component-prefix}-button~="#{$name}"] {
       padding: #{$padding};

@@ -1,7 +1,7 @@
 @use "sass:list";
 @use "sass:string";
 
-@import 'type';
+@use 'type';
 
 /**
  * Empty
@@ -10,9 +10,9 @@
  */
 
 @function isEmpty($data) {
-  @if isString($data) and string.length($data) == 0 {
+  @if type.isString($data) and string.length($data) == 0 {
     @return true;
-  } @else if isList($data) and list.length($data) == 0 {
+  } @else if type.isList($data) and list.length($data) == 0 {
     @return true;
   } @else {
     @return false;

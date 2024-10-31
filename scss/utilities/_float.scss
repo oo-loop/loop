@@ -1,3 +1,6 @@
+@use '../mixins/clearfix';
+@use '../mixins/loop';
+
 /**
  * FLoat utilites
  */
@@ -10,8 +13,8 @@ $float-breakpoints-classes: $breakpoints-classes !default;
 $float-is-important: true !default;
 
 
-@include loop($float, 'float', '.float', $float-is-important);
-@include loopBreakpoints($float-breakpoints-classes, $float, 'float', '.float', $float-is-important);
+@include loop.loop($float, 'float', '.float', $float-is-important);
+@include loop.loopBreakpoints($float-breakpoints-classes, $float, 'float', '.float', $float-is-important);
 
-.clearfix { @include clearfix; }
+.clearfix { @include clearfix.clearfix; }
 .clear    { clear: both; }
