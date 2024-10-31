@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "sass --watch --style=expanded --no-source-map scss/_loop.scss dist/loop.css",
-    "build": "sass --style=compressed --no-source-map scss/_loop.scss dist/loop.min.css"
+    "build": "sass --style=compressed --no-source-map scss/_loop.scss dist/loop.min.css",
+    "example": "sass --watch --style=expanded --no-source-map example/"
   },
   "repository": {
     "type": "git",
