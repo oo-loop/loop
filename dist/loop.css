@@ -1,40 +1,4 @@
 /**
- * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getColors
- * Get value from the map variable $colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextColors
- * Get value from the map variable $text-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBgColors
- * Get value from the map variable $bg-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBorderColors
- * Get value from the map variable $border-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextSizes
- * Get value from the map variable $text-sizes
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
  * Variables
  * Change at your own will
  */
@@ -112,566 +76,6 @@
  */
 /**
  * Visibility Utilities
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * In List
- * @param $needle    string        the searched value
- * @param $haystack  array|string  the list to search in
- * @return bool
- */
-/**
- * mergeArray
- * @param $array1  list|map list or map
- * @param $array2  list|map list or map being the same type of $array1
- * @return list|map
- */
-/**
- * Is Bright
- * @param color
- * @return bool
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getColors
- * Get value from the map variable $colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextColors
- * Get value from the map variable $text-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBgColors
- * Get value from the map variable $bg-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBorderColors
- * Get value from the map variable $border-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextSizes
- * Get value from the map variable $text-sizes
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * Replace
- * @param string $search  The value being searched
- * @param string $replace The replacement value
- * @parem string $subject The string being searched and replaced on
- *
- * @return string
- */
-/**
- * Split
- * @param string $pattern The string character to split your string by
- * @param string $subject The input string
- * @param list   $list    The list being populated
- *
- * @return list
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * breakpoints
- * based on material guidelines
- * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * In List
- * @param $needle    string        the searched value
- * @param $haystack  array|string  the list to search in
- * @return bool
- */
-/**
- * mergeArray
- * @param $array1  list|map list or map
- * @param $array2  list|map list or map being the same type of $array1
- * @return list|map
- */
-/**
- * Is Bright
- * @param color
- * @return bool
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getColors
- * Get value from the map variable $colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextColors
- * Get value from the map variable $text-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBgColors
- * Get value from the map variable $bg-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBorderColors
- * Get value from the map variable $border-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextSizes
- * Get value from the map variable $text-sizes
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * Replace
- * @param string $search  The value being searched
- * @param string $replace The replacement value
- * @parem string $subject The string being searched and replaced on
- *
- * @return string
- */
-/**
- * Split
- * @param string $pattern The string character to split your string by
- * @param string $subject The input string
- * @param list   $list    The list being populated
- *
- * @return list
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Clearfix
- */
-/**
- * fontSmoothing
- * @param $smooth bool Apply smoothing ?
- */
-/**
- * Loop
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * In List
- * @param $needle    string        the searched value
- * @param $haystack  array|string  the list to search in
- * @return bool
- */
-/**
- * mergeArray
- * @param $array1  list|map list or map
- * @param $array2  list|map list or map being the same type of $array1
- * @return list|map
- */
-/**
- * Is Bright
- * @param color
- * @return bool
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getColors
- * Get value from the map variable $colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextColors
- * Get value from the map variable $text-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBgColors
- * Get value from the map variable $bg-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBorderColors
- * Get value from the map variable $border-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextSizes
- * Get value from the map variable $text-sizes
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * Replace
- * @param string $search  The value being searched
- * @param string $replace The replacement value
- * @parem string $subject The string being searched and replaced on
- *
- * @return string
- */
-/**
- * Split
- * @param string $pattern The string character to split your string by
- * @param string $subject The input string
- * @param list   $list    The list being populated
- *
- * @return list
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * breakpoints
- * based on material guidelines
- * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * In List
- * @param $needle    string        the searched value
- * @param $haystack  array|string  the list to search in
- * @return bool
- */
-/**
- * mergeArray
- * @param $array1  list|map list or map
- * @param $array2  list|map list or map being the same type of $array1
- * @return list|map
- */
-/**
- * Is Bright
- * @param color
- * @return bool
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Empty
- * @param string|list $data
- * @return bool
- */
-/**
- * getMapValue
- * @param $map  map  map of data
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getColors
- * Get value from the map variable $colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextColors
- * Get value from the map variable $text-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBgColors
- * Get value from the map variable $bg-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getBorderColors
- * Get value from the map variable $border-colors
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * getTextSizes
- * Get value from the map variable $text-sizes
- * @param $key  string  key to retrieve the value from
- * @return string
- */
-/**
- * Replace
- * @param string $search  The value being searched
- * @param string $replace The replacement value
- * @parem string $subject The string being searched and replaced on
- *
- * @return string
- */
-/**
- * Split
- * @param string $pattern The string character to split your string by
- * @param string $subject The input string
- * @param list   $list    The list being populated
- *
- * @return list
- */
-/**
- * isString
- * @param string|list $data
- * @return bool
- */
-/**
- * isList
- * @param string|list $data
- * @return bool
- */
-/**
- * isMap
- * @param string|list $data
- * @return bool
- */
-/**
- * Loop
- *
- * @param $data         list|map    Data to loop through
- * @param $properties   string|list Property name to use
- * @param $prefix       string      String to prepend to the selector
- * @param $is-important ?bool       Set the !important flag ?
- * @param $suffix       ?string     String to append to the selector
- */
-/**
- * Loop breakpoints
- *
- * @param $breakpoints  list        List of breakpoints classes
- * @param $data         list|map    Data to loop through
- * @param $properties   string|list Property name to use
- * @param $prefix       string      String to prepend to the selector
- * @param $is-important ?bool       Set the !important flag ?
- * @param $suffix       ?string     String to append to the selector
- */
-/**
- * Loop map keys
- *
- * @param $keys         list        Keys of the map
- * @param $map          map         Map to search in
- * @param $properties   string|list Property name to use
- * @param $prefix       string      String to prepend to the selector
- * @param $is-important ?bool       Set the !important flag ?
- * @param $suffix       ?string     String to append to the selector
- */
-/**
- * Loop map keys modifiers
- *
- * @param $keys         list        keys of the map
- * @param $map          map         map to search in
- * @param $properties   string|list property name to use
- * @param $is-important ?bool       set the !important flag ?
- * @param $suffix       ?string     string to append to the selector
- */
-/**
- * Triangle
- */
-/**
- * Import bases
  */
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -976,6 +380,10 @@ template {
 }
 
 /**
+ * fontSmoothing
+ * @param $smooth bool Apply smoothing ?
+ */
+/**
  * Base
  */
 *,
@@ -1000,6 +408,100 @@ body {
   background-color: #fff;
 }
 
+/**
+ * isString
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isList
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * isMap
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * Empty
+ * @param string|list $data
+ * @return bool
+ */
+/**
+ * In List
+ * @param $needle    string        the searched value
+ * @param $haystack  array|string  the list to search in
+ * @return bool
+ */
+/**
+ * mergeArray
+ * @param $array1  list|map list or map
+ * @param $array2  list|map list or map being the same type of $array1
+ * @return list|map
+ */
+/**
+ * Is Bright
+ * @param color
+ * @return bool
+ */
+/**
+ * getMapValue
+ * @param $map  map  map of data
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getColors
+ * Get value from the map variable $colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextColors
+ * Get value from the map variable $text-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBgColors
+ * Get value from the map variable $bg-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getBorderColors
+ * Get value from the map variable $border-colors
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * getTextSizes
+ * Get value from the map variable $text-sizes
+ * @param $key  string  key to retrieve the value from
+ * @return string
+ */
+/**
+ * Replace
+ * @param string $search  The value being searched
+ * @param string $replace The replacement value
+ * @parem string $subject The string being searched and replaced on
+ *
+ * @return string
+ */
+/**
+ * Split
+ * @param string $pattern The string character to split your string by
+ * @param string $subject The input string
+ * @param list   $list    The list being populated
+ *
+ * @return list
+ */
+/**
+ * breakpoints
+ * based on material guidelines
+ * https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
+ */
 /**
  * Typography
  */
@@ -1159,9 +661,6 @@ hr, .hr {
   border-bottom: 1px solid #cdcdcd;
 }
 
-/**
- * Grid
- */
 [oo-grid~=layout] {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -2380,15 +1879,6 @@ hr, .hr {
   box-shadow: inset 1px 1px 1px 0 rgb(3.3035714286, 7.0535714286, 9.1964285714);
 }
 
-/**
- * Input
- */
-[oo-form~=toggle]:focus + label::after, [oo-form~=radio]:focus + label::after, [oo-form~=checkbox]:focus + label::after, [oo-form~=select] > select:focus,
-[oo-form~=input]:focus {
-  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
-}
-
-[oo-form~=select] > select,
 [oo-form~=input] {
   padding: 0.5em 0.625em;
   display: block;
@@ -2408,9 +1898,9 @@ hr, .hr {
   -moz-appearance: none;
   appearance: none;
 }
-[oo-form~=select] > select:focus,
 [oo-form~=input]:focus {
   outline: none;
+  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
 }
 
 label {
@@ -2473,11 +1963,32 @@ label + [oo-form~=select] {
   border-right-color: #4d4d4d;
 }
 [oo-form~=select] > select {
+  padding: 0.5em 0.625em;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 2.5em;
+  color: #4d4d4d;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.6rem;
+  font-style: normal;
+  line-height: 1.15;
+  border: 1px solid #d6d6d6;
+  border-radius: 0.2em;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin: 0;
   height: 100%;
   font-size: inherit;
   appearance: none;
   /* hide the default arrow in ie10 and ie11 */
+}
+[oo-form~=select] > select:focus {
+  outline: none;
+  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
 }
 [oo-form~=select] > select::-ms-expand {
   display: none;
@@ -2492,6 +2003,47 @@ label + [oo-form~=select] {
   border-color: inherit !important;
 }
 
+/**
+ * Loop properties
+ */
+/**
+ * Loop
+ *
+ * @param $data         list|map    Data to loop through
+ * @param $properties   string|list Property name to use
+ * @param $prefix       string      String to prepend to the selector
+ * @param $is-important ?bool       Set the !important flag ?
+ * @param $suffix       ?string     String to append to the selector
+ */
+/**
+ * Loop breakpoints
+ *
+ * @param $breakpoints  list        List of breakpoints classes
+ * @param $data         list|map    Data to loop through
+ * @param $properties   string|list Property name to use
+ * @param $prefix       string      String to prepend to the selector
+ * @param $is-important ?bool       Set the !important flag ?
+ * @param $suffix       ?string     String to append to the selector
+ */
+/**
+ * Loop map keys
+ *
+ * @param $keys         list        Keys of the map
+ * @param $map          map         Map to search in
+ * @param $properties   string|list Property name to use
+ * @param $prefix       string      String to prepend to the selector
+ * @param $is-important ?bool       Set the !important flag ?
+ * @param $suffix       ?string     String to append to the selector
+ */
+/**
+ * Loop map keys modifiers
+ *
+ * @param $keys         list        keys of the map
+ * @param $map          map         map to search in
+ * @param $properties   string|list property name to use
+ * @param $is-important ?bool       set the !important flag ?
+ * @param $suffix       ?string     string to append to the selector
+ */
 /**
  * Checkbox
  */
@@ -2535,6 +2087,9 @@ label + [oo-form~=select] {
 [oo-form~=checkbox]:checked + label::after {
   background-color: #fff;
   border-color: #d6d6d6;
+}
+[oo-form~=checkbox]:focus + label::after {
+  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
 }
 [oo-form~=checkbox] + label::before {
   left: 0.612rem;
@@ -2605,6 +2160,9 @@ label + [oo-form~=select] {
   background-color: #fff;
   border-color: #d6d6d6;
 }
+[oo-form~=radio]:focus + label::after {
+  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
+}
 [oo-form~=radio] + label::after {
   margin-right: 0.6rem;
 }
@@ -2659,6 +2217,9 @@ label + [oo-form~=select] {
 [oo-form~=toggle]:checked + label::after {
   background-color: #4d4d4d;
   border-color: #4d4d4d;
+}
+[oo-form~=toggle]:focus + label::after {
+  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
 }
 [oo-form~=toggle] + label::before {
   top: calc(50% - 0.84rem);
@@ -2732,6 +2293,9 @@ label + [oo-form~=select] {
   max-width: none;
 }
 
+/**
+ * Clearfix
+ */
 /**
  * FLoat utilites
  */
