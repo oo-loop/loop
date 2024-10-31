@@ -32,13 +32,7 @@
 
   // Make sure to have the correct format or do not generate rules
   @if isNotEmpty($data) {
-    @if isList($data) {
-      @each $value in $data {
-        #{$prefix}-#{$value}#{$suffix} {
-          @include loopProperties($properties, $value, $is-important);
-        }
-      }
-    } @else if isMap($data) {
+    @if isMap($data) {
       @each $key, $value in $data {
         $affix: if(isEmpty($key), '', $affix);
 
@@ -54,6 +48,16 @@
             @include loopProperties($properties, $value, $is-important);
           }
         }
+      }
+    } @else if isList($data) {
+      @each $value in $data {
+        #{$prefix}#{$affix}#{$value}#{$suffix} {
+          @include loopProperties($properties, $value, $is-important);
+        }
+      }
+    } @else {
+      #{$prefix}#{$affix}#{$data}#{$suffix} {
+        @include loopProperties($properties, $data, $is-important);
       }
     }
   }
