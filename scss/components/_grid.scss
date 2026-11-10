@@ -110,7 +110,7 @@
     $are-keys-breakpoints: false;
     $map-keys: map.keys(v.$grid-template-areas);
     @each $key in $map-keys {
-      @if fn.inList($key, $breakpoints-classes) {
+      @if fn.inList($key, v.$breakpoints-classes) {
         $are-keys-breakpoints: true;
       }
     }
