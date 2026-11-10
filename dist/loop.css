@@ -618,7 +618,7 @@ a {
   text-decoration: none;
 }
 a:focus, a:hover {
-  color: rgb(49.9587096774, 199.2064516129, 243.8412903226);
+  color: rgb(19.5916508539%, 78.1201771031%, 95.6240354206%);
   text-decoration: none;
 }
 
@@ -1802,10 +1802,10 @@ hr, .hr {
 }
 [oo-button]:hover, [oo-button]:focus {
   color: #333;
-  background-color: rgb(229.5, 229.5, 229.5);
+  background-color: rgb(90%, 90%, 90%);
 }
 [oo-button]:active {
-  background-color: rgb(224.4, 224.4, 224.4);
+  background-color: rgb(88%, 88%, 88%);
   box-shadow: inset 1px 1px 1px 0 #cccccc;
 }
 [oo-button].full {
@@ -1820,13 +1820,13 @@ hr, .hr {
 }
 [oo-button~=primary]:hover, [oo-button~=primary]:focus {
   color: #fff;
-  border-color: rgb(59.6322580645, 201.8387096774, 244.3677419355);
-  background-color: rgb(59.6322580645, 201.8387096774, 244.3677419355);
+  border-color: rgb(23.385199241%, 79.1524351676%, 95.8304870335%);
+  background-color: rgb(23.385199241%, 79.1524351676%, 95.8304870335%);
 }
 [oo-button~=primary]:active {
-  border-color: rgb(49.9587096774, 199.2064516129, 243.8412903226);
-  background-color: rgb(49.9587096774, 199.2064516129, 243.8412903226);
-  box-shadow: inset 1px 1px 1px 0 rgb(11.7419354839, 168.7903225806, 215.7580645161);
+  border-color: rgb(19.5916508539%, 78.1201771031%, 95.6240354206%);
+  background-color: rgb(19.5916508539%, 78.1201771031%, 95.6240354206%);
+  box-shadow: inset 1px 1px 1px 0 rgb(4.6046805819%, 66.192283365%, 84.6110056926%);
 }
 
 [oo-button~=secondary] {
@@ -1836,13 +1836,13 @@ hr, .hr {
 }
 [oo-button~=secondary]:hover, [oo-button~=secondary]:focus {
   color: #fff;
-  border-color: rgb(23.5214285714, 50.2214285714, 65.4785714286);
-  background-color: rgb(23.5214285714, 50.2214285714, 65.4785714286);
+  border-color: rgb(9.2240896359%, 19.6946778711%, 25.6778711485%);
+  background-color: rgb(9.2240896359%, 19.6946778711%, 25.6778711485%);
 }
 [oo-button~=secondary]:active {
-  border-color: rgb(20.8257142857, 44.4657142857, 57.9742857143);
-  background-color: rgb(20.8257142857, 44.4657142857, 57.9742857143);
-  box-shadow: inset 1px 1px 1px 0 rgb(3.3035714286, 7.0535714286, 9.1964285714);
+  border-color: rgb(8.1669467787%, 17.437535014%, 22.7350140056%);
+  background-color: rgb(8.1669467787%, 17.437535014%, 22.7350140056%);
+  box-shadow: inset 1px 1px 1px 0 rgb(1.2955182073%, 2.7661064426%, 3.606442577%);
 }
 
 [oo-button~=outline] {
@@ -1855,28 +1855,28 @@ hr, .hr {
 }
 [oo-button~=outline][oo-button~=primary]:hover, [oo-button~=outline][oo-button~=primary]:focus {
   color: #fff;
-  border-color: rgb(59.6322580645, 201.8387096774, 244.3677419355);
-  background-color: rgb(59.6322580645, 201.8387096774, 244.3677419355);
+  border-color: rgb(23.385199241%, 79.1524351676%, 95.8304870335%);
+  background-color: rgb(23.385199241%, 79.1524351676%, 95.8304870335%);
 }
 [oo-button~=outline][oo-button~=primary]:active {
   color: #fff;
-  border-color: rgb(49.9587096774, 199.2064516129, 243.8412903226);
-  background-color: rgb(49.9587096774, 199.2064516129, 243.8412903226);
-  box-shadow: inset 1px 1px 1px 0 rgb(11.7419354839, 168.7903225806, 215.7580645161);
+  border-color: rgb(19.5916508539%, 78.1201771031%, 95.6240354206%);
+  background-color: rgb(19.5916508539%, 78.1201771031%, 95.6240354206%);
+  box-shadow: inset 1px 1px 1px 0 rgb(4.6046805819%, 66.192283365%, 84.6110056926%);
 }
 [oo-button~=outline][oo-button~=secondary] {
   border-color: #254F67;
 }
 [oo-button~=outline][oo-button~=secondary]:hover, [oo-button~=outline][oo-button~=secondary]:focus {
   color: #fff;
-  border-color: rgb(23.5214285714, 50.2214285714, 65.4785714286);
-  background-color: rgb(23.5214285714, 50.2214285714, 65.4785714286);
+  border-color: rgb(9.2240896359%, 19.6946778711%, 25.6778711485%);
+  background-color: rgb(9.2240896359%, 19.6946778711%, 25.6778711485%);
 }
 [oo-button~=outline][oo-button~=secondary]:active {
   color: #fff;
-  border-color: rgb(20.8257142857, 44.4657142857, 57.9742857143);
-  background-color: rgb(20.8257142857, 44.4657142857, 57.9742857143);
-  box-shadow: inset 1px 1px 1px 0 rgb(3.3035714286, 7.0535714286, 9.1964285714);
+  border-color: rgb(8.1669467787%, 17.437535014%, 22.7350140056%);
+  background-color: rgb(8.1669467787%, 17.437535014%, 22.7350140056%);
+  box-shadow: inset 1px 1px 1px 0 rgb(1.2955182073%, 2.7661064426%, 3.606442577%);
 }
 
 [oo-form~=input] {
@@ -1980,15 +1980,17 @@ label + [oo-form~=select] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+[oo-form~=select] > select:focus {
+  outline: none;
+  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
+}
+[oo-form~=select] > select {
   margin: 0;
   height: 100%;
   font-size: inherit;
   appearance: none;
   /* hide the default arrow in ie10 and ie11 */
-}
-[oo-form~=select] > select:focus {
-  outline: none;
-  box-shadow: 1px 1px 1px 0 rgba(170, 170, 170, 0.5), 1px 1px 2px 0px rgba(170, 170, 170, 0.85);
 }
 [oo-form~=select] > select::-ms-expand {
   display: none;
@@ -2590,22 +2592,22 @@ ol.list-center {
  * Text alignements
  */
 .text-left {
-  text-align: left;
+  text-align: "left";
 }
 
 .text-right {
-  text-align: right;
+  text-align: "right";
 }
 
 .text-center {
-  text-align: center;
+  text-align: "center";
 }
 
 /**
  * Text Transform
  */
 .text-uppercase {
-  text-transform: uppercase;
+  text-transform: "uppercase";
 }
 
 /**
@@ -2626,7 +2628,7 @@ ol.list-center {
  * Font Style
  */
 .font-italic {
-  font-style: italic;
+  font-style: "italic";
 }
 
 /**
@@ -2644,11 +2646,11 @@ ol.list-center {
  * Font Family
  */
 .font-primary {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 .font-secondary {
-  font-family: Georgia, times, serif;
+  font-family: "Georgia", times, serif;
 }
 
 /**
