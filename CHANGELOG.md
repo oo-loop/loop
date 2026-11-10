@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.1 2026-11-10
+
+### Updates
+
+- Migrate deprecated syntax on dart v1.108
+
+### Fixes
+
+- Use imported variable on grid component
+
 ## 0.6.0 2024-10-31
 
 ### Updates
