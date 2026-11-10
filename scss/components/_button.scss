@@ -59,7 +59,7 @@
 }
 
 @mixin paintButton($color-value) {
-  color: if(fn.isBright($color-value), v.$color-base, #fff);
+  color: if(sass(fn.isBright($color-value)): v.$color-base; else: #fff);
   background-color: $color-value;
 
   @if v.$btn-border-color != transparent {
@@ -67,7 +67,7 @@
   }
   &:hover,
   &:focus {
-    color: if(fn.isBright($color-value), v.$color-base, #fff);
+    color: if(sass(fn.isBright($color-value)): v.$color-base; else: #fff);
     border-color: color.adjust($color-value, $lightness: -10%);
     background-color: color.adjust($color-value, $lightness: -10%);
   }
@@ -102,12 +102,12 @@
 
   &:hover,
   &:focus {
-    color: if(fn.isBright($color-value), v.$color-base, #fff);
+    color: if(sass(fn.isBright($color-value)): v.$color-base; else: #fff);
     border-color: color.adjust($color-value, $lightness: -10%);
     background-color: color.adjust($color-value, $lightness: -10%);
   }
   &:active {
-    color: if(fn.isBright($color-value), v.$color-base, #fff);
+    color: if(sass(fn.isBright($color-value)): v.$color-base; else: #fff);
     border-color: color.adjust($color-value, $lightness: -12%);
     background-color: color.adjust($color-value, $lightness: -12%);
     box-shadow: inset  1px 1px 1px 0 color.adjust($color-value, $lightness: -25%);

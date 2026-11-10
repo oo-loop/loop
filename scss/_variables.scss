@@ -8,7 +8,7 @@
 
 $loop-prefix: 'oo' !default;
 $loop-component-html5-validity: false !default;
-$loop-component-prefix: if($loop-component-html5-validity, #{'data-'}#{$loop-prefix}, $loop-prefix) !default;
+$loop-component-prefix: if(sass($loop-component-html5-validity): #{'data-'}#{$loop-prefix}; else: $loop-prefix) !default;
 
 /**
  * Breakpoints

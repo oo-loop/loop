@@ -20,7 +20,7 @@
 }
 
 @function notInList($needle, $haystack) {
-  @return if(inList($needle, $haystack), false, true);
+  @return if(sass(inList($needle, $haystack)): false; else: true);
 }
 
 // inArray Deprecated

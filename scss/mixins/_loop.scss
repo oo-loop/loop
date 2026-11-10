@@ -12,10 +12,10 @@
   // multiple properties
   @if type.isList($properties) {
     @each $property in $properties {
-      #{$property}: if($is-important, #{$value} !important, #{$value});
+      #{$property}: $value #{if(sass($is-important): '!important')};
     }
   } @else {
-    #{$properties}: if($is-important, #{$value} !important, #{$value});
+    #{$properties}: $value #{if(sass($is-important): '!important')};
   }
 }
 
@@ -36,7 +36,7 @@
   @if empty.isNotEmpty($data) {
     @if type.isMap($data) {
       @each $key, $value in $data {
-        $affix: if(empty.isEmpty($key), '', $affix);
+        $affix: if(sass(empty.isEmpty($key)): ''; else: $affix);
 
         #{$prefix}#{$affix}#{$key}#{$suffix} {
           // responsive properties ?

@@ -15,7 +15,7 @@
 }
 
 @function isNotString($data) {
-  @return if(isString($data), false, true);
+  @return if(sass(isString($data)): false; else: true);
 }
 
 /**
@@ -33,7 +33,7 @@
 }
 
 @function isNotList($data) {
-  @return if(isList($data), false, true);
+  @return if(sass(isList($data)): false; else: true);
 }
 
 /**
@@ -51,5 +51,5 @@
 }
 
 @function isNotMap($data) {
-  @return if(isMap($data), false, true);
+  @return if(sass(isMap($data)): false; else: true);
 }

@@ -151,7 +151,7 @@
 // gutters
 @each $class in list.join('', v.$columns-gutter-sizes-breakpoints-classes) {
   @include breakpoint.from($class) {
-    $suffix: if(fn.isEmpty($class), '', \@#{$class});
+    $suffix: if(sass(fn.isEmpty($class)): ''; else: \@#{$class});
     @each $gutter-name, $gutter-size in v.$columns-gutter-sizes {
       [#{v.$loop-component-prefix}-column~="gutter-#{$gutter-name}#{$suffix}"] {
         left: -#{$gutter-size};
@@ -168,7 +168,7 @@
 
 @each $class in list.join('', v.$columns-v-gutter-sizes-breakpoints-classes) {
   @include breakpoint.from($class) {
-    $suffix: if(fn.isEmpty($class), '', \@#{$class});
+    $suffix: if(sass(fn.isEmpty($class)): ''; else: \@#{$class});
     @each $gutter-name, $gutter-size in v.$columns-v-gutter-sizes {
       [#{v.$loop-component-prefix}-column~="v-gutter-#{$gutter-name}#{$suffix}"] {
         > [#{v.$loop-component-prefix}-column*="col"] {

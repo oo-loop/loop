@@ -20,5 +20,5 @@
 }
 
 @function isNotEmpty($data) {
-  @return if(isEmpty($data), false, true);
+  @return if(sass(isEmpty($data)): false; else: true);
 }

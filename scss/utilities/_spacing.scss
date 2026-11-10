@@ -20,7 +20,7 @@ $v-spacing: ();
 $v-spacing-addons: ();
 @if list.length(v.$v-spacing-addon) > 0 {
   @each $value in v.$v-spacing-addon {
-    $spacing_value: if($value == auto, auto, #{$value * v.$spacing-ratio}rem);
+    $spacing_value: if(sass($value == auto): auto; else: #{$value * v.$spacing-ratio}rem);
     $v-spacing-addons: map.merge($v-spacing-addons, (#{$value}: $spacing_value));
   }
 }
@@ -44,7 +44,7 @@ $h-spacing: ();
 $h-spacing-addons: ();
 @if list.length(v.$h-spacing-addon) > 0 {
   @each $value in v.$h-spacing-addon {
-    $spacing_value: if($value == auto, auto, #{$value * v.$spacing-ratio}rem);
+    $spacing_value: if(sass($value == auto): auto; else: #{$value * v.$spacing-ratio}rem);
     $h-spacing-addons: map.merge($h-spacing-addons, (#{$value}: $spacing_value));
   }
 }
