@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.2 2026-11-12
+
+### Updates
+
+- Migrate deprecated syntax  `join` => `list.join`
+
 ## 0.6.1 2026-11-10
 
 ### Updates
