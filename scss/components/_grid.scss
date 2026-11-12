@@ -85,7 +85,7 @@
 @mixin makeGridOnBreakpoints($grid-template-areas) {
   $area-names-list: ();
   @each $breakpoint, $areas in $grid-template-areas {
-    $area-names-list: getAreaNames(join($area-names-list, getAreaNames($areas)));
+    $area-names-list: getAreaNames(list.join($area-names-list, getAreaNames($areas)));
     @include breakpoint.from($breakpoint) {
       @include makeGridTemplate($areas);
     }
