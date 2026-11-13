@@ -12,10 +12,10 @@
   // multiple properties
   @if type.isList($properties) {
     @each $property in $properties {
-      #{$property}: $value #{if(sass($is-important): '!important')};
+      #{$property}: #{$value} #{if(sass($is-important): '!important')};
     }
   } @else {
-    #{$properties}: $value #{if(sass($is-important): '!important')};
+    #{$properties}: #{$value} #{if(sass($is-important): '!important')};
   }
 }
 
