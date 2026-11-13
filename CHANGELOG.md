@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.3 2026-11-13
+
+### Fixes
+
+- Correctly print properties value (`#{$value}`) 
+
 ## 0.6.2 2026-11-12
 
 ### Updates
